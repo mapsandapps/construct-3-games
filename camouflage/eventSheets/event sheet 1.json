@@ -1,0 +1,794 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "isInMovementMode",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 991886240036848
+		},
+		{
+			"eventType": "variable",
+			"name": "StartX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 502088825119485
+		},
+		{
+			"eventType": "variable",
+			"name": "StartY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 961777842547621
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "PlayButton",
+					"sid": 958981863594972
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 939117660277460,
+					"disabled": true,
+					"parameters": {
+						"which": "next"
+					}
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 968453979016740,
+					"parameters": {
+						"layout": "\"Level 1\""
+					}
+				}
+			],
+			"sid": 413110268083360
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 891063467935492
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 187618432036347,
+					"parameters": {
+						"variable": "StartX",
+						"value": "Player.X"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 185891542577077,
+					"parameters": {
+						"variable": "StartY",
+						"value": "Player.Y"
+					}
+				}
+			],
+			"sid": 514132472331858
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Filter",
+					"sid": 247227917534805,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Filter",
+					"sid": 629955264809635,
+					"parameters": {
+						"x": "Filter.X % 64 > 32 ? Filter.X - Filter.X % 64 + 64 : Filter.X - Filter.X % 64",
+						"y": "Filter.Y % 64 > 32 ? Filter.Y - Filter.Y % 64 + 64 : Filter.Y - Filter.Y % 64"
+					}
+				}
+			],
+			"sid": 535307557125105
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Changing modes",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Enter movement mode"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "EnterMovementMode",
+							"sid": 274957335189571
+						}
+					],
+					"actions": [
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 889312719040076,
+							"disabled": true,
+							"parameters": {
+								"slot": "\"beforeMovement\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 320087361923854,
+							"parameters": {
+								"variable": "isInMovementMode",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 620054484222351,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Filter",
+							"sid": 936335835242786,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Player",
+							"sid": 251383608909988,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Goal",
+							"sid": 705983448412112,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "ExitMovementMode",
+							"sid": 189959641015797,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "EnterMovementMode",
+							"sid": 884271953216674,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 403557101556886,
+							"parameters": {
+								"group-name": "\"Color stacking\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "PaletteHider",
+							"sid": 587312275381226,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Mode",
+							"sid": 923906010663200,
+							"parameters": {
+								"text": "\"Movement Mode\""
+							}
+						}
+					],
+					"sid": 522832518148543
+				},
+				{
+					"eventType": "comment",
+					"text": "Exit movement mode"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ExitMovementMode",
+							"sid": 992661690096205
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 788926180972379
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 195519505079494,
+							"parameters": {
+								"variable": "isInMovementMode",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 926740582561055
+				}
+			],
+			"sid": 931778960726400
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Color stacking",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Filter",
+							"sid": 624352396934813,
+							"parameters": {
+								"instance-variable": "color",
+								"comparison": 0,
+								"value": "\"red\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Filter",
+							"sid": 354678956536230,
+							"parameters": {
+								"object": "Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 344450522839002,
+							"parameters": {
+								"instance-variable": "Green",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 372526884052098,
+							"parameters": {
+								"instance-variable": "Blue",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 945720158270747
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Filter",
+							"sid": 261105041956804,
+							"parameters": {
+								"instance-variable": "color",
+								"comparison": 0,
+								"value": "\"green\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Filter",
+							"sid": 208907601794007,
+							"parameters": {
+								"object": "Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 180563786529313,
+							"parameters": {
+								"instance-variable": "Red",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 728992104167828,
+							"parameters": {
+								"instance-variable": "Blue",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 611433914242292
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Filter",
+							"sid": 794531131121441,
+							"parameters": {
+								"instance-variable": "color",
+								"comparison": 0,
+								"value": "\"blue\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Filter",
+							"sid": 619793844061927,
+							"parameters": {
+								"object": "Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 312049018215115,
+							"parameters": {
+								"instance-variable": "Green",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 154916345795168,
+							"parameters": {
+								"instance-variable": "Red",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 149837438872445
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Filter",
+							"sid": 834114571411135,
+							"parameters": {
+								"instance-variable": "color",
+								"comparison": 0,
+								"value": "\"yellow\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Filter",
+							"sid": 269164721715146,
+							"parameters": {
+								"object": "Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 919732067901831,
+							"parameters": {
+								"instance-variable": "Blue",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 220912527250579
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Filter",
+							"sid": 915707708295487,
+							"parameters": {
+								"instance-variable": "color",
+								"comparison": 0,
+								"value": "\"magenta\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Filter",
+							"sid": 902496932347913,
+							"parameters": {
+								"object": "Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 195150316352479,
+							"parameters": {
+								"instance-variable": "Green",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 753343985766833
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Filter",
+							"sid": 507971055501096,
+							"parameters": {
+								"instance-variable": "color",
+								"comparison": 0,
+								"value": "\"cyan\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Filter",
+							"sid": 486474760974620,
+							"parameters": {
+								"object": "Block"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Block",
+							"sid": 742366672393549,
+							"parameters": {
+								"instance-variable": "Red",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 135460858616538
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Block",
+							"sid": 224206809323710,
+							"parameters": {
+								"instance-variable": "Blue"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Block",
+							"sid": 920744064609540,
+							"parameters": {
+								"instance-variable": "Green"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Block",
+							"sid": 652151684787812,
+							"parameters": {
+								"instance-variable": "Red"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Block",
+							"sid": 668055900257136,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 658311703027786
+				}
+			],
+			"sid": 519362507536043
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Tutorial",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "Filter",
+							"sid": 694903780514481,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "IntroText1",
+							"sid": 532344545316445,
+							"parameters": {
+								"text": "\"Step 2: Once you've placed the filter over the red squares, click the button on the right to move the character.\""
+							}
+						}
+					],
+					"sid": 477313175734667
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "EnterMovementMode",
+							"sid": 647315757887970
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "IntroText1",
+							"sid": 725251355051176,
+							"parameters": {
+								"text": "\"Step 3: Move the character to the exit using the arrow keys. The player can only move through black squares. If you're stuck, click the button on the right to reposition the filters.\""
+							}
+						}
+					],
+					"sid": 596168948973213
+				}
+			],
+			"sid": 745146090245042
+		},
+		{
+			"eventType": "comment",
+			"text": "Win condition"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 748800650923786,
+					"parameters": {
+						"object": "Goal"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 292492095112357,
+					"parameters": {
+						"object-to-create": "Particles",
+						"layer": "0",
+						"x": "Goal.X",
+						"y": "Goal.Y"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Particles",
+					"sid": 546101217457871,
+					"parameters": {
+						"where": "in-front",
+						"object": "Goal"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 414785080477499,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 253063685993994,
+					"parameters": {
+						"which": "next"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 969996107268731,
+					"parameters": {
+						"group-name": "\"Tutorial\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 679780748864317
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "Player",
+							"sid": 213104498124100,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 869149518405479,
+							"parameters": {
+								"animation": "\"Right\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 695932924228633
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "Player",
+							"sid": 411466722183399,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 813147745228166,
+							"parameters": {
+								"animation": "\"Left\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 791265881379832
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "Player",
+							"sid": 295575802518362,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 726535557754807,
+							"parameters": {
+								"animation": "\"Forward\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 564860919208192
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "Player",
+							"sid": 540520759650712,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 442535890723588,
+							"parameters": {
+								"animation": "\"Back\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 666373432508403
+				}
+			],
+			"sid": 253935841263286
+		}
+	],
+	"sid": 703697634934487
+}

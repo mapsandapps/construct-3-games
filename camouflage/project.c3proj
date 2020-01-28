@@ -1,0 +1,268 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 18202,
+	"name": "camouflage",
+	"runtime": "c3",
+	"useWorker": false,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "TileMovement",
+			"name": "Tile movement",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "NoSave",
+			"name": "No save",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "multiply",
+			"name": "Multiply",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "ggxsrn3dr9t",
+	"objectTypes": {
+		"items": [
+			"Player",
+			"Goal",
+			"Block",
+			"Filter",
+			"TiledBackground",
+			"EnterMovementMode",
+			"ExitMovementMode",
+			"PaletteHider",
+			"Mode",
+			"IntroText0",
+			"IntroText1",
+			"WinText",
+			"IntroInfo",
+			"Credits",
+			"PlayButton",
+			"MenuBackground",
+			"Particles"
+		],
+		"subfolders": []
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Intro",
+			"Level 1",
+			"Level 4",
+			"Level 2",
+			"Level 3",
+			"Level 5",
+			"Win"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Event sheet 1"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 753964174632446
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 513213199615201
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 490962111258833
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 947844046815877
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 794666000517759
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 698010881265837
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 814994915768125
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 480,
+	"firstLayout": null
+}

@@ -1,0 +1,307 @@
+{
+	"name": "Level selection event sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LayoutBeforeSettings",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 385460183642641
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 399825643040841
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 200015209872848,
+					"parameters": {
+						"scale": "1.0"
+					}
+				}
+			],
+			"sid": 884344213597383,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "LevelsCompleted",
+							"sid": 868448012817279
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "LevelsCompleted",
+							"sid": 157818267981088,
+							"parameters": {
+								"json": "\"{\"\"c2dictionary\"\":true,\"\"data\"\":{\"\"Space 1\"\":\"\"false\"\",\"\"Space 2\"\":\"\"false\"\",\"\"Space 3\"\":\"\"false\"\",\"\"Space 4\"\":\"\"false\"\",\"\"Space 5\"\":\"\"false\"\",\"\"Snowy 1\"\":\"\"false\"\",\"\"Snowy 2\"\":\"\"false\"\",\"\"Snowy 3\"\":\"\"false\"\",\"\"Snowy 4\"\":\"\"false\"\",\"\"Snowy 5\"\":\"\"false\"\",\"\"Snowy 6\"\":\"\"false\"\",\"\"Forest temp\"\":\"\"false\"\",\"\"Desert 1\"\":\"\"false\"\"}}\""
+							}
+						}
+					],
+					"sid": 775243603781825
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 343530100782500,
+					"parameters": {
+						"object": "Level"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 158761608643256,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LevelsCompleted",
+							"sid": 240885405020792,
+							"parameters": {
+								"key": "Level.Level",
+								"comparison": 0,
+								"value": "\"true\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Level",
+							"sid": 527680236290101,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 898618165737541,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "LevelNumber",
+									"sid": 604267569924888,
+									"parameters": {
+										"instance-variable": "Level",
+										"comparison": 0,
+										"value": "Level.Level"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "LevelNumber",
+									"sid": 431226513839073,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 754657464306190
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 129347592063594
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Level",
+							"sid": 215764132239718,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 599752826481346,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "LevelNumber",
+									"sid": 169666508903044,
+									"parameters": {
+										"instance-variable": "Level",
+										"comparison": 0,
+										"value": "Level.Level"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "LevelNumber",
+									"sid": 212957100696880,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 893572796429465
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 840091484306325,
+					"parameters": {
+						"object": "LevelSelectionButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 874161343644279,
+					"parameters": {
+						"object": "NextScreenButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 914987576063804,
+					"parameters": {
+						"object": "PreviousScreenButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 584973718392865,
+					"parameters": {
+						"object": "SettingsButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 481371708798919,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 332664323071006,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 218601840261628
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 279246272193306,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 895862064703271
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 746736086634054,
+					"parameters": {
+						"object": "LevelSelectionButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 654901126855091,
+					"parameters": {
+						"layout": "LevelSelectionButton.Level"
+					}
+				}
+			],
+			"sid": 346526140062553
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 935907323414414,
+					"parameters": {
+						"object": "SettingsButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 550688867066819,
+					"parameters": {
+						"variable": "LayoutBeforeSettings",
+						"value": "LayoutName"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 939071643180885,
+					"parameters": {
+						"layout": "Settings"
+					}
+				}
+			],
+			"sid": 313664872402593
+		}
+	],
+	"sid": 657231733689467
+}

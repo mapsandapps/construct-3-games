@@ -1,0 +1,1110 @@
+{
+	"name": "Helper functions",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "NEW_STACK_OFFSET",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 111580805186099
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Color Filter Mode Helpers",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SetBorderColor",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Suit",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 315088564958747
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "GameBorder",
+							"sid": 248391026239948,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 415595819173534,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 354885239674313,
+									"parameters": {
+										"variable": "Suit",
+										"comparison": 0,
+										"value": "\"Circle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "GameBorder",
+									"sid": 914900255248560,
+									"parameters": {
+										"color": "rgbEx255(37,37,37)"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameBorder",
+									"sid": 374630885812079,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 764303638372047
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 741622289397775,
+									"parameters": {
+										"variable": "Suit",
+										"comparison": 0,
+										"value": "\"Heart\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "GameBorder",
+									"sid": 351707342484475,
+									"parameters": {
+										"color": "rgbEx255(147,39,40)"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameBorder",
+									"sid": 560492996179765,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 906919559820178
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 757565614238829,
+									"parameters": {
+										"variable": "Suit",
+										"comparison": 0,
+										"value": "\"Triangle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "GameBorder",
+									"sid": 869861693072220,
+									"parameters": {
+										"color": "rgbEx255(20,81,108)"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameBorder",
+									"sid": 598042051030469,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 270157062403681
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 108407141177449,
+									"parameters": {
+										"variable": "Suit",
+										"comparison": 0,
+										"value": "\"Diamond\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "GameBorder",
+									"sid": 979911323895252,
+									"parameters": {
+										"color": "rgbEx255(201,121,1)"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameBorder",
+									"sid": 710893195141405,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 441783946155493
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 610110776847077,
+									"parameters": {
+										"variable": "Suit",
+										"comparison": 0,
+										"value": "\"Pentagon\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "GameBorder",
+									"sid": 428909511372638,
+									"parameters": {
+										"color": "rgbEx255(69,105,11)"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "GameBorder",
+									"sid": 191896133648322,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 319232845195058
+						}
+					]
+				},
+				{
+					"functionName": "DivideStacks",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 624552445397404,
+							"parameters": {
+								"variable": "NEW_STACK_OFFSET",
+								"value": "Card.Height"
+							}
+						}
+					],
+					"sid": 931832936057420,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 607361480267882,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "DivideStack",
+									"sid": 393253328616964,
+									"parameters": [
+										"Stack.UID"
+									]
+								}
+							],
+							"sid": 428949891114085
+						}
+					]
+				},
+				{
+					"functionName": "DivideStack",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StackUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 589514060811659
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 452190591733697,
+							"parameters": {
+								"unique-id": "StackUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 525318190233133,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "find all the face-up cards in the stack that are of the filtered suit"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 649461034836410,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 834778077073079,
+									"parameters": {
+										"object": "Stack"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 797516797403416,
+									"parameters": {
+										"animation": "\"Front\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 966826830098300,
+									"parameters": {
+										"first-value": "Card.Suit",
+										"comparison": 0,
+										"second-value": "Filter"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 912096951914554,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 840729064919904,
+											"parameters": {
+												"first-value": "Functions.ShouldStackBeSplitHere(Card.X, Card.Y - CARD_OFFSET)",
+												"comparison": 0,
+												"second-value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 727215969671540,
+											"parameters": {
+												"type": "log",
+												"message": "\"split the stack!\""
+											}
+										},
+										{
+											"type": "comment",
+											"text": "NEXT: this gives *all* the places where the stack should be split. create a new stack with a y based on the bottom position of the bottom-most stack. put the cards in it between this card and the next card where it should be split; pop them out of the current stack (use existing method)"
+										},
+										{
+											"callFunction": "CreateStackFromSplit",
+											"sid": 294025857061250,
+											"parameters": [
+												"StackUID",
+												"Card.Y"
+											]
+										}
+									],
+									"sid": 777427542774963
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "the stack should not be split at a filtered card if the card north of it is the same suit or face-down"
+				},
+				{
+					"functionName": "ShouldStackBeSplitHere",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 240374183058988
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 403397962383084
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 361302821814950,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Card",
+									"sid": 308439348921528,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "X"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Card",
+									"sid": 599255101138234,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 680405292110431,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Card",
+											"sid": 222116262861106,
+											"parameters": {
+												"animation": "\"Back\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 934046344554687,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "Filter"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 141251149451526,
+											"parameters": {
+												"value": "\"false\""
+											}
+										}
+									],
+									"sid": 952201072854606,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 870072877678366
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 771980862263371,
+											"parameters": {
+												"value": "\"true\""
+											}
+										}
+									],
+									"sid": 369161512673078
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "NumberOfCardsToMove",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 371960361448872
+				},
+				{
+					"eventType": "variable",
+					"name": "MovingCardAt",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 370262571210196
+				},
+				{
+					"eventType": "variable",
+					"name": "NumberOfCardsMoved",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 944590278079020
+				},
+				{
+					"eventType": "variable",
+					"name": "OldStackColumn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 973402997744780
+				},
+				{
+					"eventType": "variable",
+					"name": "OldStackRow",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 556219245545345
+				},
+				{
+					"functionName": "CreateStackFromSplit",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "OldStackUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 332852214784953
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 647963493260990
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 105937669123761,
+							"parameters": {
+								"unique-id": "OldStackUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 297020330094645,
+							"parameters": {
+								"variable": "NumberOfCardsMoved",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 991269726685952,
+							"parameters": {
+								"variable": "NumberOfCardsToMove",
+								"value": "Stack.NumberOfCards - (Y - Stack.Y) / CARD_OFFSET"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 726191136577319,
+							"parameters": {
+								"variable": "MovingCardAt",
+								"value": "Y"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 313643585465749,
+							"parameters": {
+								"type": "log",
+								"message": "NumberOfCardsToMove"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 176979244604685,
+							"parameters": {
+								"variable": "OldStackColumn",
+								"value": "Stack.Column"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 888217972443965,
+							"parameters": {
+								"variable": "OldStackRow",
+								"value": "Stack.Row"
+							}
+						}
+					],
+					"sid": 531638071555091,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 968870104978512
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 105800758810186,
+									"parameters": {
+										"variable": "NumberOfCardsToMove",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Card",
+									"sid": 594363416819677,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "MovingCardAt"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 848183877757937,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Card",
+									"sid": 247918892018424,
+									"parameters": {
+										"y": "Card.Y + NEW_STACK_OFFSET"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 697346692120694,
+									"parameters": {
+										"variable": "MovingCardAt",
+										"value": "MovingCardAt + CARD_OFFSET"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 879291175666499,
+									"parameters": {
+										"variable": "NumberOfCardsToMove",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 530248363715220,
+									"parameters": {
+										"variable": "NumberOfCardsMoved",
+										"value": "1"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 693937325829589,
+									"parameters": {
+										"type": "log",
+										"message": "Card.Suit"
+									}
+								}
+							],
+							"sid": 943751213767627
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 286772354125710,
+									"parameters": {
+										"count": "NumberOfCardsMoved"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PopCardFromStack",
+									"sid": 882713500992887,
+									"parameters": [
+										"Stack.UID"
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 828771467533942,
+									"parameters": {
+										"type": "log",
+										"message": "\"pop from stack\""
+									}
+								}
+							],
+							"sid": 920769958959131
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 191505799772639,
+									"parameters": {
+										"object-to-create": "Stack",
+										"layer": "\"Stacks\"",
+										"x": "Stack.X",
+										"y": "MovingCardAt + NEW_STACK_OFFSET - (CARD_OFFSET * NumberOfCardsMoved)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Stack",
+									"sid": 801101602501240,
+									"parameters": {
+										"instance-variable": "Column",
+										"value": "OldStackColumn"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Stack",
+									"sid": 831579371435144,
+									"parameters": {
+										"instance-variable": "Row",
+										"value": "OldStackRow + 1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Stack",
+									"sid": 703080919901606,
+									"parameters": {
+										"instance-variable": "NumberOfCards",
+										"value": "NumberOfCardsMoved"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "Stack",
+									"sid": 425188940654437,
+									"parameters": {
+										"height": "Card.Height + ((NumberOfCardsMoved - 1) * CARD_OFFSET)"
+									}
+								},
+								{
+									"callFunction": "DivideStack",
+									"sid": 621989474341259,
+									"parameters": [
+										"Stack.UID"
+									]
+								},
+								{
+									"type": "comment",
+									"text": "FIXME: there's an extra stack when a column splits twice"
+								}
+							],
+							"sid": 348419841255701
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "MovingCardTo",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 931854080911697
+				},
+				{
+					"functionName": "RecombineStacks",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 789197157646264,
+							"parameters": {
+								"object": "Stack",
+								"expression": "Stack.Row + Stack.Column",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 228321718292533,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 395278439555276,
+							"parameters": {
+								"variable": "NumberOfCardsMoved",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 858408994001022,
+							"parameters": {
+								"variable": "NumberOfCardsToMove",
+								"value": "Stack.NumberOfCards"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 996139840456617,
+							"parameters": {
+								"variable": "MovingCardAt",
+								"value": "Stack.Y"
+							}
+						}
+					],
+					"sid": 984435986558873,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 728358415233648,
+									"parameters": {
+										"count": "NumberOfCardsToMove"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Card",
+									"sid": 397505949400099,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "MovingCardAt"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 901216592136608,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 869474508303574,
+									"parameters": {
+										"variable": "MovingCardTo",
+										"value": "Functions.GetNextCardPosition(Stack.Column, 0)"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Card",
+									"sid": 540245724234539,
+									"parameters": {
+										"y": "MovingCardTo"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Card",
+									"sid": 623170304660392
+								},
+								{
+									"callFunction": "AddCardToStack",
+									"sid": 818923489420403,
+									"parameters": [
+										"Stack.Column",
+										"0"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 102164108250608,
+									"parameters": {
+										"variable": "MovingCardAt",
+										"value": "MovingCardAt + CARD_OFFSET"
+									}
+								}
+							],
+							"sid": 393536798504817
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Stack",
+									"sid": 158241413230262
+								}
+							],
+							"sid": 888731155447389
+						}
+					]
+				},
+				{
+					"functionName": "AddCardToStack",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StackColumn",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 143594404337553
+						},
+						{
+							"name": "StackRow",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 509910188473190
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 686042177127224,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "StackColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 327382207908310,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "StackRow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-height",
+							"objectClass": "Stack",
+							"sid": 467084996078841,
+							"parameters": {
+								"height": "Card.Height + (Stack.NumberOfCards * CARD_OFFSET)"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Stack",
+							"sid": 691870797187836,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 308075478586214
+				},
+				{
+					"functionName": "GetNextCardPosition",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StackColumn",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 642337152421992
+						},
+						{
+							"name": "StackRow",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 409832425571749
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 203717975503065,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "StackColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 125402807564320,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "StackRow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 213262457309540,
+							"parameters": {
+								"value": "Stack.Y + (Stack.NumberOfCards * CARD_OFFSET)"
+							}
+						}
+					],
+					"sid": 364370291071610
+				}
+			],
+			"sid": 906637440295640
+		}
+	],
+	"sid": 906649335853212
+}

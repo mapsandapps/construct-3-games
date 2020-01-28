@@ -1,0 +1,72 @@
+{
+	"name": "Filter",
+	"plugin-id": "Sprite",
+	"sid": 640010020893308,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "color",
+			"type": "string",
+			"desc": "",
+			"sid": 417359035420327
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 490715923252296
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 284728288567637
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "multiply",
+			"name": "Multiply"
+		}
+	],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9,
+						"collisionPoly": {
+							"points": [
+								0.03125,
+								0.03125,
+								0.96875,
+								0.03125,
+								0.96875,
+								0.96875,
+								0.03125,
+								0.96875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 499409730776644,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

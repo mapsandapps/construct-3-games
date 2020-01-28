@@ -1,0 +1,530 @@
+{
+	"name": "Levels sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "CurrentLevel",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 962761692663290
+		},
+		{
+			"functionName": "SetUpLevel",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "EquationArray",
+					"sid": 931827456999593,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 581984097397009,
+					"parameters": {
+						"variable": "NumberOfOnesLeftToMove",
+						"value": "numberOfOnes"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 367967747141676,
+					"parameters": {
+						"variable": "Equation",
+						"value": "LevelArray.At(CurrentLevel)"
+					}
+				},
+				{
+					"type": "script",
+					"script": "globalThis.EvaluateEquation(runtime.globalVars);"
+				}
+			],
+			"sid": 398479066767623,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 722131297633705,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "0",
+								"end-index": "len(Equation) - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "EquationArray",
+							"sid": 919207588917374,
+							"parameters": {
+								"where": "back",
+								"value": "mid(Equation, loopindex, 1)",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 339630672070529
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "EquationArray",
+							"sid": 797131473155714,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 402962980669836,
+							"parameters": {
+								"object-to-create": "SpriteFont",
+								"layer": "0",
+								"x": "TILE_SIZE * EquationArray.CurX + TILE_SIZE * MARGIN_LEFT",
+								"y": "TILE_SIZE * MARGIN_TOP"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 980969693334109,
+							"parameters": {
+								"text": "EquationArray.CurValue"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 980359365508429,
+							"parameters": {
+								"text": "EquationArray.CurValue"
+							}
+						}
+					],
+					"sid": 573120748340662
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 780267536882572,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "1",
+								"end-index": "NumberOfOnes"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 957465601559120,
+							"parameters": {
+								"object-to-create": "One",
+								"layer": "\"Game\"",
+								"x": "96 + (loopindex * TILE_SIZE)",
+								"y": "384"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "One",
+							"sid": 774456248794771,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 308917738442522
+				}
+			]
+		},
+		{
+			"functionName": "CreateLevels",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 604255248413922,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 436444103876926,
+							"parameters": {
+								"variable": "NumberOfOnes",
+								"comparison": 3,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 220614300505896,
+							"parameters": {
+								"variable": "NumberOfOnes",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "LevelArray",
+							"sid": 615583600234749,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 264163426310840,
+							"parameters": {
+								"where": "back",
+								"value": "\"1+0=2\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 579796367958306,
+							"parameters": {
+								"where": "back",
+								"value": "\"2-1=11\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 581704058043958,
+							"parameters": {
+								"where": "back",
+								"value": "\"3+5=2-4\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 351755120482942,
+							"parameters": {
+								"where": "back",
+								"value": "\"2+3=3*5\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 586598626103675,
+							"parameters": {
+								"where": "back",
+								"value": "\"5/3=3+2\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 616288296728504,
+							"parameters": {
+								"where": "back",
+								"value": "\"42*2=72*7\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 758840913462950,
+							"parameters": {
+								"where": "back",
+								"value": "\"6*3=7+1\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 515775304936744,
+							"parameters": {
+								"where": "back",
+								"value": "\"14-4=6*0\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 211294255179494,
+							"parameters": {
+								"where": "back",
+								"value": "\"7*7=70-2\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 735026046061438,
+							"parameters": {
+								"where": "back",
+								"value": "\"4*9=3+5\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 356991101304378,
+							"parameters": {
+								"where": "back",
+								"value": "\"32-7=3*5\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 470375517759328,
+							"parameters": {
+								"where": "back",
+								"value": "\"6*8=27+2\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 538629805745489,
+							"disabled": true,
+							"parameters": {
+								"where": "back",
+								"value": "\"2.4+0.2=0.9*4\"",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 789037413968677
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 554144086473753,
+							"parameters": {
+								"variable": "NumberOfOnes",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "LevelArray",
+							"sid": 785945625092473,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 728011184428133,
+							"parameters": {
+								"where": "back",
+								"value": "\"5-3=2\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 858910884398804,
+							"parameters": {
+								"where": "back",
+								"value": "\"25-3=2\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 816590331690137,
+							"parameters": {
+								"where": "back",
+								"value": "\"5-12=2-9\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 783688344376067,
+							"parameters": {
+								"where": "back",
+								"value": "\"42*3=5473\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 305522879222280,
+							"parameters": {
+								"where": "back",
+								"value": "\"3-0=2*6\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 284096033038297,
+							"parameters": {
+								"where": "back",
+								"value": "\"2+5=4*9\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 322553814091380,
+							"parameters": {
+								"where": "back",
+								"value": "\"6*9=2*3*4\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 498895589321432,
+							"parameters": {
+								"where": "back",
+								"value": "\"0*2=6+16\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 339457509463187,
+							"parameters": {
+								"where": "back",
+								"value": "\"19-0=40/5\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 842758716645998,
+							"parameters": {
+								"where": "back",
+								"value": "\"8/9=24-5\"",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 351678316205514
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 528898701174333,
+							"parameters": {
+								"variable": "NumberOfOnes",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "LevelArray",
+							"sid": 793000384357950,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 383524175394648,
+							"parameters": {
+								"where": "back",
+								"value": "\"47-4=6+7\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "LevelArray",
+							"sid": 704672983004387,
+							"parameters": {
+								"where": "back",
+								"value": "\"6*0=76-0\"",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 292251547024541
+				}
+			]
+		}
+	],
+	"sid": 588707711403536
+}

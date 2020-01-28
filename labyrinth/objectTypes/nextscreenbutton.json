@@ -1,0 +1,57 @@
+{
+	"name": "NextScreenButton",
+	"plugin-id": "Sprite",
+	"sid": 618993589565160,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 30,
+						"collisionPoly": {
+							"points": [
+								0.03125,
+								0.03125,
+								0.5,
+								0,
+								0.953125,
+								0.03125,
+								0.984375,
+								0.5,
+								0.953125,
+								0.953125,
+								0.5,
+								0.984375,
+								0.03125,
+								0.953125,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 124476324375372,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,159 @@
+{
+	"name": "Menu sheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 410075406672938
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "SubmitWordButton",
+					"sid": 510143530051724,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 605501435259136
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 578987770952895,
+					"parameters": {
+						"object": "HelperText"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "HelperText",
+					"sid": 519825849034814,
+					"parameters": {
+						"instance-variable": "Link",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-url",
+					"objectClass": "Browser",
+					"sid": 563609193449841,
+					"parameters": {
+						"url": "HelperText.Link",
+						"target": "parent"
+					}
+				}
+			],
+			"sid": 694625507914630
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 935509754912757,
+					"parameters": {
+						"object": "SubmitWordButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 539070175429935,
+					"parameters": {
+						"layout": "Fishing"
+					}
+				}
+			],
+			"sid": 790549800682284
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 312317878467552,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 531838827277346,
+					"parameters": {
+						"variable": "IsSoundOn"
+					}
+				}
+			],
+			"sid": 235254023111346
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 318163600361648,
+					"parameters": {
+						"variable": "IsSoundOn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "checkmark",
+					"sid": 182277348686337,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 320960019393982
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 796312444484566,
+					"parameters": {
+						"variable": "IsSoundOn"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "checkmark",
+					"sid": 801327346970150,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 497056570928881
+		}
+	],
+	"sid": 192656067611416
+}

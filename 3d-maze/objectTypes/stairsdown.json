@@ -1,0 +1,68 @@
+{
+	"name": "StairsDown",
+	"plugin-id": "Sprite",
+	"sid": 991768123463981,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "StairsID",
+			"type": "number",
+			"desc": "",
+			"sid": 407235268621539
+		},
+		{
+			"name": "Mirrored",
+			"type": "boolean",
+			"desc": "",
+			"sid": 969440837122564
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "",
+			"sid": 901342960082434
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 19,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 20,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 240323409117237,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"name": "StairsUp",
+	"plugin-id": "Sprite",
+	"sid": 881987571075496,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "StairsID",
+			"type": "number",
+			"desc": "",
+			"sid": 621183059096448
+		},
+		{
+			"name": "Mirrored",
+			"type": "boolean",
+			"desc": "",
+			"sid": 205790493164932
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "",
+			"sid": 730585542083810
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 15,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 148520982028504,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

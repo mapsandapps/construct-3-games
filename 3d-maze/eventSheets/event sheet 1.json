@@ -1,0 +1,760 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Lighting",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 104271014346839
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "ShadowLight",
+							"sid": 877260262463697,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "ShadowLight",
+							"sid": 951981245846706
+						}
+					],
+					"sid": 570222330212328
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 830461872491200,
+							"behaviorType": "TileMovement"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "ShadowLight",
+							"sid": 492034993398946,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"sid": 484067699933161
+				}
+			],
+			"sid": 963738661757916
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Stairs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "FIXME: stair direction is broken"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 800320284088711
+						}
+					],
+					"actions": [],
+					"sid": 962031515062561,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "StairsUp",
+									"sid": 333915714423887,
+									"parameters": {
+										"instance-variable": "Mirrored"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "StairsUp",
+									"sid": 900025367919161,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 820120186653373
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "StairsDown",
+									"sid": 555427791606552,
+									"parameters": {
+										"instance-variable": "Mirrored"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "StairsDown",
+									"sid": 232705661236156,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 372096481498399
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 802105458353119,
+							"parameters": {
+								"object": "StairsUp"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "StairsUp",
+							"sid": 422140110907904,
+							"parameters": {
+								"instance-variable": "Active"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 351088834610388,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"callFunction": "GoUpStairs",
+							"sid": 208596632334167,
+							"parameters": [
+								"StairsUp.StairsID"
+							]
+						}
+					],
+					"sid": 276566804698061
+				},
+				{
+					"functionName": "GoUpStairs",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 915947936753882
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "StairsDown",
+							"sid": 907657121750642,
+							"parameters": {
+								"instance-variable": "StairsID",
+								"comparison": 0,
+								"value": "ID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "StairsDown",
+							"sid": 991672718865941,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-grid-position",
+							"objectClass": "Player",
+							"sid": 953685483994891,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"x": "StairsDown.X / 64",
+								"y": "StairsDown.Y / 64",
+								"instant": "instant"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 879470356357537,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "Player",
+							"sid": 457104832481364,
+							"parameters": {
+								"layer": "\"Player\""
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "ShadowLight",
+							"sid": 971426943286724,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"sid": 482232643222221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 925119654758999,
+							"parameters": {
+								"object": "StairsDown"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "StairsDown",
+							"sid": 682275381368398,
+							"parameters": {
+								"instance-variable": "Active"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 482560188994719,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"callFunction": "GoDownStairs",
+							"sid": 237221218895353,
+							"parameters": [
+								"StairsDown.StairsID"
+							]
+						}
+					],
+					"sid": 198581426394888
+				},
+				{
+					"functionName": "GoDownStairs",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 180470596226708
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "StairsUp",
+							"sid": 736679516161441,
+							"parameters": {
+								"instance-variable": "StairsID",
+								"comparison": 0,
+								"value": "ID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "StairsUp",
+							"sid": 234751795788993,
+							"parameters": {
+								"instance-variable": "StairsID",
+								"comparison": 0,
+								"value": "ID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "StairsUp",
+							"sid": 443171266602355,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-grid-position",
+							"objectClass": "Player",
+							"sid": 364818012228301,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"x": "StairsUp.X / 64",
+								"y": "StairsUp.Y / 64",
+								"instant": "instant"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 669936844493220,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "Player",
+							"sid": 222017496581212,
+							"parameters": {
+								"layer": "\"Player\""
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "ShadowLight",
+							"sid": 915070549909428,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"sid": 831816171184810
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "StairsUp",
+							"sid": 608261505573262,
+							"parameters": {
+								"instance-variable": "Active"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "StairsUp",
+							"sid": 447816240497529,
+							"parameters": {
+								"object": "Player"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "StairsUp",
+							"sid": 935739223832893,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 906474563940650
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "StairsDown",
+							"sid": 276575329981756,
+							"parameters": {
+								"instance-variable": "Active"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "StairsDown",
+							"sid": 157346621822036,
+							"parameters": {
+								"object": "Player"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "StairsDown",
+							"sid": 514138050402001,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 378323098019082
+				}
+			],
+			"sid": 527469004677413
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 535807637947193,
+							"behaviorType": "TileMovement"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 293274130736707,
+							"parameters": {
+								"animation": "\"Running\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 418938499984818
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "Player",
+							"sid": 513473475659196,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 229499268572410,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 982362379950411
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "Player",
+							"sid": 573623732089946,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 793097718929160,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 946566775363784
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 202183167950829,
+							"behaviorType": "TileMovement",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 695381773980166,
+							"parameters": {
+								"animation": "\"Default\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 451089725843916
+				}
+			],
+			"sid": 886002280416115
+		},
+		{
+			"eventType": "comment",
+			"text": "Win condition: FIXME: animation isn't working"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 624738663926941,
+					"parameters": {
+						"object": "Sword"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 603386555916097,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Sword",
+					"sid": 502934589008829
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Sword",
+					"sid": 741636454054457,
+					"parameters": {
+						"object": "Confetti",
+						"layer": "\"Walls\"",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Confetti",
+					"sid": 135418707159390,
+					"parameters": {
+						"angle": "270"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 551378579068525,
+					"parameters": {
+						"animation": "\"Jumping\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "start-animation",
+					"objectClass": "Player",
+					"sid": 712698920117347,
+					"parameters": {
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 597686614160922,
+					"parameters": {
+						"seconds": "1.5"
+					}
+				},
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 458978320890071,
+					"parameters": {
+						"which": "next"
+					}
+				}
+			],
+			"sid": 508635448883123
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Movement",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 574392585871266,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 629452544206864,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 902660322563557
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 207236023217373,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 928593333957202,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 453643526017540
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 746483238206733,
+							"parameters": {
+								"key": 83
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 125035589004112,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 372681681689157
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 854479892876558,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 804711938120319,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 122127257940912
+				}
+			],
+			"sid": 247137287684387
+		}
+	],
+	"sid": 852737589107337
+}

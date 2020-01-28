@@ -1,0 +1,62 @@
+{
+	"name": "LandingPad",
+	"plugin-id": "Sprite",
+	"sid": 344690424870025,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 921763241066201
+		},
+		{
+			"name": "Letter",
+			"type": "number",
+			"desc": "",
+			"sid": 149233498122111
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 88,
+						"collisionPoly": {
+							"points": [
+								0.484375,
+								0.484375,
+								0.515625,
+								0.484375,
+								0.515625,
+								0.515625,
+								0.484375,
+								0.515625
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 145166820223607,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

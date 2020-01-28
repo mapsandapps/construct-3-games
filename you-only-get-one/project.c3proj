@@ -1,0 +1,286 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 18202,
+	"name": "You Only Get One",
+	"runtime": "c3",
+	"useWorker": false,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "tb2jaxfm2p5",
+	"objectTypes": {
+		"items": [
+			"SpriteFont",
+			"One",
+			"EquationArray",
+			"LevelArray",
+			"WinParticles"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Browser",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"EquationArea",
+					"Incorrect",
+					"NextLevelButton",
+					"OnesBackground",
+					"Reset",
+					"WinText",
+					"ObjectiveText"
+				],
+				"subfolders": [],
+				"name": "UI"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Objects",
+			"Game",
+			"Win"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Game sheet",
+			"Levels sheet"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "Script.js",
+					"type": "application/javascript",
+					"sid": 669165752325019
+				},
+				{
+					"name": "BigEval.js",
+					"type": "application/javascript",
+					"sid": 492224408534777
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 768242912575907
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 595158012865691
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 950273622394773
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 567943495454545
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 965888911077027
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 107790333436888
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 890959078389232
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Built for Construct 3 Builder Jam #1: \"You Only Get One\"",
+		"version": "1.0.0.0",
+		"author": "Shawn Taylor",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 480,
+	"firstLayout": "Game"
+}

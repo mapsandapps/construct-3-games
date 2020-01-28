@@ -1,0 +1,285 @@
+{
+	"name": "Settings event sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "IsSoundOn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 126239029129408
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 673494494012282
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "LevelNumber",
+					"sid": 443795772455975,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 429071335962598,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 805397831793172,
+							"parameters": {
+								"variable": "IsSoundOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 631378783713720,
+							"parameters": {
+								"animation": "\"Checked\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 419072890728119
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 438246206655555,
+							"parameters": {
+								"variable": "IsSoundOn"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 849802064288270,
+							"parameters": {
+								"animation": "\"Unchecked\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 659102731274696
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 187137687895226,
+					"parameters": {
+						"object": "PreviousScreenButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 157541705498550,
+					"parameters": {
+						"object": "Checkbox"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 910436390724397,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 493754411059815,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 281438974475171
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 322584750714870,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 118389370785919
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 787431798502266,
+					"parameters": {
+						"object": "Checkbox"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 159863565483931,
+					"parameters": {
+						"type": "log",
+						"message": "\"a\""
+					}
+				}
+			],
+			"sid": 773803135425225,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Checkbox",
+							"sid": 477815353277744,
+							"parameters": {
+								"animation": "\"Checked\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 245266830865989,
+							"parameters": {
+								"variable": "IsSoundOn",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 643270430419776,
+							"parameters": {
+								"animation": "\"Unchecked\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 889167479418419
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 849570697205338
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 105698091531260,
+							"parameters": {
+								"variable": "IsSoundOn",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 378256035673729,
+							"parameters": {
+								"animation": "\"Checked\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 435686504679392
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 940509685034137,
+					"parameters": {
+						"object": "PreviousScreenButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 462739110360932,
+					"parameters": {
+						"layout": "LayoutBeforeSettings"
+					}
+				}
+			],
+			"sid": 835825961772773
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 730066319528473,
+					"parameters": {
+						"object": "CreditsText"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-url",
+					"objectClass": "Browser",
+					"sid": 672343400944382,
+					"parameters": {
+						"url": "CreditsText.URL",
+						"target": "parent"
+					}
+				}
+			],
+			"sid": 369534476956295
+		}
+	],
+	"sid": 156620448181674
+}

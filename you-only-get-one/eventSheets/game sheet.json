@@ -1,0 +1,613 @@
+{
+	"name": "Game sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "MARGIN_LEFT",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 609175628642343
+		},
+		{
+			"eventType": "variable",
+			"name": "MARGIN_TOP",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 991149651252840
+		},
+		{
+			"eventType": "variable",
+			"name": "TILE_SIZE",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 713903500348462
+		},
+		{
+			"eventType": "variable",
+			"name": "Equation",
+			"type": "string",
+			"initialValue": "\"\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 824765651277455
+		},
+		{
+			"eventType": "variable",
+			"name": "ValueOfFirstHalf",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 478095729416424
+		},
+		{
+			"eventType": "variable",
+			"name": "ValueOfSecondHalf",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 655555231907819
+		},
+		{
+			"eventType": "variable",
+			"name": "HalvesAreEqual",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 161385091651858
+		},
+		{
+			"eventType": "variable",
+			"name": "NumberOfOnes",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 649488588697491
+		},
+		{
+			"eventType": "variable",
+			"name": "NumberOfOnesLeftToMove",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 770969043490762
+		},
+		{
+			"eventType": "comment",
+			"text": "Init game"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 416391080285948
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 106845056612781,
+					"parameters": {
+						"variable": "CurrentLevel",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "CreateLevels",
+					"sid": 964798312026462
+				}
+			],
+			"sid": 942725257909877
+		},
+		{
+			"eventType": "comment",
+			"text": "Init level"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 503735662697427
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetUpLevel",
+					"sid": 430629702472089
+				}
+			],
+			"sid": 888181401254064
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "One",
+					"sid": 119828955779060,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Snap to grid"
+				},
+				{
+					"id": "set-position",
+					"objectClass": "One",
+					"sid": 102720788308287,
+					"parameters": {
+						"x": "One.X % TILE_SIZE > (TILE_SIZE / 2) ? One.X - One.X % TILE_SIZE + TILE_SIZE : One.X - One.X % TILE_SIZE",
+						"y": "One.Y % TILE_SIZE > (TILE_SIZE / 2) ? One.Y - One.Y % TILE_SIZE + TILE_SIZE : One.Y - One.Y % TILE_SIZE"
+					}
+				}
+			],
+			"sid": 580055288206310,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "SpriteFont",
+							"sid": 494125290393217,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "One.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Reset",
+							"sid": 818986516724195,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "One",
+							"sid": 870742537390580,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"callFunction": "InsertInEquation",
+							"sid": 678108942907712,
+							"parameters": [
+								"(One.X / TILE_SIZE) - MARGIN_LEFT"
+							]
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 364570266888870,
+							"parameters": {
+								"variable": "NumberOfOnesLeftToMove",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 909607677950721,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "SpriteFont",
+									"sid": 502372509550466,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "One.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "SpriteFont",
+									"sid": 882041399496638,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "SpriteFont.X + TILE_SIZE",
+										"time": "0.3",
+										"ease": "noease",
+										"destroy-on-complete": "no"
+									}
+								}
+							],
+							"sid": 366248570082744
+						},
+						{
+							"eventType": "comment",
+							"text": "Lose condition"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 531928170118346,
+									"parameters": {
+										"variable": "NumberOfOnesLeftToMove",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 474463093288069,
+									"parameters": {
+										"variable": "HalvesAreEqual"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-text",
+									"objectClass": "SpriteFont",
+									"sid": 384563667192355,
+									"parameters": {
+										"text-to-compare": "\"=\"",
+										"case-sensitivity": "ignore-case"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 906625921931792
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 326380310549935,
+									"parameters": {
+										"object-to-create": "Incorrect",
+										"layer": "\"Buttons\"",
+										"x": "SpriteFont.X",
+										"y": "SpriteFont.Y"
+									}
+								}
+							],
+							"sid": 191827453666760
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "when a 1 drops in the equation, convert it to a SpriteFont"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "SpriteFont",
+							"sid": 725581544265524,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "One.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "One",
+							"sid": 378494147200751,
+							"parameters": {
+								"object": "SpriteFont",
+								"layer": "\"Game\"",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 573433121309200,
+							"parameters": {
+								"text": "\"1\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "One",
+							"sid": 868047037536843
+						}
+					],
+					"sid": 269276170743022
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 175718378062279,
+					"parameters": {
+						"object": "Reset"
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Reset",
+					"sid": 543014008206973,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 154654791389394
+				}
+			],
+			"sid": 816330946779605
+		},
+		{
+			"functionName": "InsertInEquation",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "XPosition",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 790518659366427
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "insert",
+					"objectClass": "EquationArray",
+					"sid": 154699126707733,
+					"parameters": {
+						"value": "\"1\"",
+						"index": "XPosition",
+						"axis": "x"
+					}
+				},
+				{
+					"type": "script",
+					"script": "// set Equation to match EquationArray\nconsole.log('hello');\nconsole.log(runtime.globalVars.Equation);\nconst EqnArray = runtime.objects.EquationArray.getFirstInstance();\nruntime.globalVars.Equation = \"\";\nfor (var i = 0; i < EqnArray.width; i++) {\n\truntime.globalVars.Equation += EqnArray.getAt(i);\n}\nglobalThis.EvaluateEquation(runtime.globalVars);\nconsole.log(runtime.globalVars.Equation);"
+				}
+			],
+			"sid": 242705958685719,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 406875239637586
+						}
+					],
+					"actions": [],
+					"sid": 825759988448717
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 408008937184122,
+					"parameters": {
+						"object": "NextLevelButton"
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "NextLevelButton",
+					"sid": 931143266415819,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 381331839937359,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 490275875089704,
+							"parameters": {
+								"first-value": "LevelArray.Width - 1",
+								"comparison": 0,
+								"second-value": "CurrentLevel"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 737436451933675,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Win (game)condition"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 730079928863954,
+									"parameters": {
+										"variable": "NumberOfOnes",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 944105131070103,
+									"parameters": {
+										"layout": "\"Win\""
+									}
+								}
+							],
+							"sid": 267064097204174
+						},
+						{
+							"eventType": "comment",
+							"text": "Add another \"one\""
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 369216904410904
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 745375076847113,
+									"parameters": {
+										"variable": "NumberOfOnes",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "CreateLevels",
+									"sid": 876278572971721
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 454060308291254,
+									"parameters": {
+										"variable": "CurrentLevel",
+										"value": "0"
+									}
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 578705177778170
+								}
+							],
+							"sid": 969890812067764
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 796852231798687
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 117384654146180
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 881579123187829,
+							"parameters": {
+								"variable": "CurrentLevel",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 838400199945240
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Win (level)condition"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 394751183186534,
+					"parameters": {
+						"variable": "HalvesAreEqual"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "NextLevelButton",
+					"sid": 668021404524669,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 321517324611171
+		}
+	],
+	"sid": 575893728132072
+}

@@ -1,0 +1,1173 @@
+{
+	"name": "Game event sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "NumberOfCoins",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 673469788840242
+		},
+		{
+			"eventType": "variable",
+			"name": "ZoomToSeeAll",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 597399059347788
+		},
+		{
+			"eventType": "variable",
+			"name": "ScreenshotMode",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 304110585315317
+		},
+		{
+			"eventType": "variable",
+			"name": "LAST_LEVEL",
+			"type": "string",
+			"initialValue": "Desert 1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 696303407471789
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 619881203470120
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 376297084457902,
+					"parameters": {
+						"variable": "NumberOfCoins",
+						"value": "Coin.Count"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 455166491598991,
+					"parameters": {
+						"variable": "ZoomToSeeAll",
+						"value": "min(ViewportWidth(\"Tiles\")/LayoutWidth, ViewportHeight(\"Tiles\")/LayoutHeight)"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Player",
+					"sid": 948943141161780,
+					"parameters": {
+						"object": "Paint",
+						"layer": "\"Tiles\"",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "move-to-bottom",
+					"objectClass": "Paint",
+					"sid": 476595495661062
+				}
+			],
+			"sid": 250742342554707
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 264080519722266,
+					"parameters": {
+						"object": "Coin"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 212118357352653,
+					"parameters": {
+						"seconds": "30 / Player.8Direction.Speed"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 370720829948246
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Coin",
+					"sid": 269769528021645,
+					"parameters": {
+						"object": "Paint",
+						"layer": "\"Tiles\"",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "move-to-bottom",
+					"objectClass": "Paint",
+					"sid": 290045036316013
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 411389112505952,
+					"parameters": {
+						"variable": "NumberOfCoins",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 422501087760690
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 586368637595893,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 458327124124960,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"speed": "200"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 888868364626995,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 172133298997458,
+					"parameters": {
+						"animation": "\"Walking\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 983531768149725
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 357884271736635,
+					"parameters": {
+						"object": "Barrier"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 261068364745148,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 544752339248866,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 505401212425416,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO: also try qarp and cubic instead of lerp"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 710576112174767,
+					"parameters": {
+						"variable": "NumberOfCoins",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 256268466224132,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 405566525532900,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-key",
+					"objectClass": "LevelsCompleted",
+					"sid": 642414636257055,
+					"parameters": {
+						"key": "LayoutName",
+						"value": "\"true\""
+					}
+				},
+				{
+					"id": "set-layer-parallax",
+					"objectClass": "System",
+					"sid": 140916670451044,
+					"parameters": {
+						"layer": "\"Parallax Near\"",
+						"parallax-x": "100",
+						"parallax-y": "100"
+					}
+				},
+				{
+					"id": "set-layer-parallax",
+					"objectClass": "System",
+					"sid": 697906325387737,
+					"parameters": {
+						"layer": "\"Parallax Far\"",
+						"parallax-x": "100",
+						"parallax-y": "100"
+					}
+				},
+				{
+					"id": "scroll-to-position",
+					"objectClass": "System",
+					"sid": 660524308920032,
+					"parameters": {
+						"x": "LayoutWidth / 2",
+						"y": "LayoutHeight / 2"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 699793940746597,
+					"parameters": {
+						"scale": "lerp(LayoutScale, ZoomToSeeAll ,0.025)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 970078976311204,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"callFunction": "MakeUIVisible",
+					"sid": 648282096312732
+				}
+			],
+			"sid": 257449871138526
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Alternate controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "TouchAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 592924006185926
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 571322067865683
+						},
+						{
+							"id": "compare-touch-speed",
+							"objectClass": "Touch",
+							"sid": 499760441817119,
+							"parameters": {
+								"touch-index": "0",
+								"comparison": 5,
+								"speed": "200"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 794128780242403,
+							"parameters": {
+								"variable": "TouchAngle",
+								"value": "Touch.AngleAt(0)"
+							}
+						}
+					],
+					"sid": 614410476321956,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "System",
+									"sid": 744034046764735,
+									"parameters": {
+										"angle": "TouchAngle",
+										"first-angle": "250",
+										"second-angle": "290"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Player",
+									"sid": 177151708815278,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "up"
+									}
+								}
+							],
+							"sid": 662152857298480
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "System",
+									"sid": 226000830037855,
+									"parameters": {
+										"angle": "TouchAngle",
+										"first-angle": "160",
+										"second-angle": "200"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Player",
+									"sid": 434797220969271,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 387347525128236,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 390248934932426
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "System",
+									"sid": 247620876589224,
+									"parameters": {
+										"angle": "TouchAngle",
+										"first-angle": "70",
+										"second-angle": "110"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Player",
+									"sid": 352083382917064,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "down"
+									}
+								}
+							],
+							"sid": 540759638546347
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "System",
+									"sid": 206972057875829,
+									"parameters": {
+										"angle": "TouchAngle",
+										"first-angle": "340",
+										"second-angle": "20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Player",
+									"sid": 217727881476901,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "right"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player",
+									"sid": 384090237431233,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 156334008382184
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 460946653024283,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 233875820096590,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 377631978281733,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 639311539249962,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 178904432544681,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 612378527148262,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 939899444361301,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 679998769203734,
+							"parameters": {
+								"key": 83
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 551721341451436,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 866763276314107,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 942577064311108,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Player",
+							"sid": 136170511577813,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 214269556901836,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 957225848929388,
+					"isOrBlock": true
+				}
+			],
+			"sid": 302494974595170
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 832574585770849,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 455713030345392,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 204949921240348
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 477565145857347,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 107446358786501,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 895446186857991
+				}
+			],
+			"sid": 906707102171307
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 105865593978233,
+							"parameters": {
+								"variable": "ScreenshotMode"
+							}
+						},
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 920927214834268
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Player",
+							"sid": 950048159577098,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 802795423992665,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Paint",
+							"sid": 762245256510761,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 699184312947991,
+							"parameters": {
+								"layer": "\"Tiles\"",
+								"color": "rgbEx255(255,255,255)"
+							}
+						},
+						{
+							"id": "set-layer-transparent",
+							"objectClass": "System",
+							"sid": 652343974441933,
+							"parameters": {
+								"layer": "\"Tiles\"",
+								"mode": "opaque"
+							}
+						},
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 340654918531619,
+							"parameters": {
+								"x": "LayoutWidth / 2",
+								"y": "LayoutHeight / 2"
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 801001909560118,
+							"parameters": {
+								"scale": "lerp(LayoutScale, ZoomToSeeAll ,1)"
+							}
+						}
+					],
+					"sid": 829862929035108
+				}
+			],
+			"sid": 414333881449413
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Audio",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-frame-changed",
+							"objectClass": "Player",
+							"sid": 556121309188818
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Player",
+							"sid": 916004151667566,
+							"parameters": {
+								"animation": "\"Walking\""
+							}
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "Audio",
+							"sid": 629965866427398,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 413664222772254,
+							"parameters": {
+								"tag": "\"walking\"",
+								"state": "resume"
+							}
+						}
+					],
+					"sid": 552791281883867
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 992582289101064,
+							"behaviorType": "8Direction",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 938176896915565,
+							"parameters": {
+								"tag": "\"walking\"",
+								"state": "pause"
+							}
+						}
+					],
+					"sid": 330970158813996
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 340271332629789
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 328053366148060,
+							"parameters": {
+								"audio-file": "Foley Footstep Boots Walking On Leaves 01",
+								"loop": "looping",
+								"volume": "0",
+								"tag-optional": "\"walking\""
+							}
+						},
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 793602818160918,
+							"parameters": {
+								"tag": "\"walking\"",
+								"state": "pause"
+							}
+						}
+					],
+					"sid": 554156634841921
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 584301318780955,
+							"parameters": {
+								"variable": "IsSoundOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-silent",
+							"objectClass": "Audio",
+							"sid": 476587001945281,
+							"parameters": {
+								"mode": "not-silent"
+							}
+						}
+					],
+					"sid": 275725557943026
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 328337367700941,
+							"parameters": {
+								"variable": "IsSoundOn"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-silent",
+							"objectClass": "Audio",
+							"sid": 102227693440302,
+							"parameters": {
+								"mode": "silent"
+							}
+						}
+					],
+					"sid": 942682718569739
+				}
+			],
+			"sid": 196358284369729
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 499186235436397
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 641176948943176,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 839115925800859
+				},
+				{
+					"functionName": "MakeUIVisible",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 411937860266788,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 808357923905093,
+							"parameters": {
+								"layer": "\"UI\"",
+								"scale": "1 / ZoomToSeeAll"
+							}
+						}
+					],
+					"sid": 949748831039839,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 382170686744235,
+									"parameters": {
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "LAST_LEVEL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "NextLevelButton",
+									"sid": 839521520732255,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 107958013847507
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 488959710098004
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "NextLevelButton",
+									"sid": 230743490081868,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 394123565381504
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "TODO: keyboard control for next level"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 456936343159117,
+							"parameters": {
+								"object": "NextLevelButton"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 187224858474781,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "NextLevelButton",
+							"sid": 116811796251648
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-nextprevious-layout",
+							"objectClass": "System",
+							"sid": 872659873320724,
+							"parameters": {
+								"which": "next"
+							}
+						}
+					],
+					"sid": 168985521099013
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 143613867957100,
+							"parameters": {
+								"object": "RestartButton"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 706952264880473,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 160804633189115
+						}
+					],
+					"sid": 264952821683062
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 120085122006189,
+							"parameters": {
+								"object": "MenuButton"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 880043148651914,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 945723707465853,
+							"parameters": {
+								"layout": "Space Levels"
+							}
+						}
+					],
+					"sid": 685566765897582
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 287662008251053,
+							"parameters": {
+								"object": "MenuButton"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 176036551140663,
+							"parameters": {
+								"object": "NextLevelButton"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 142588254451379,
+							"parameters": {
+								"object": "RestartButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 261229720241340,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 356041172429031,
+					"isOrBlock": true
+				}
+			],
+			"sid": 446349941102973
+		}
+	],
+	"sid": 341145607795163
+}

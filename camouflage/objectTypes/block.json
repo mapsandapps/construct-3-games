@@ -1,0 +1,80 @@
+{
+	"name": "Block",
+	"plugin-id": "Sprite",
+	"sid": 887237346200794,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 139699771653695
+		},
+		{
+			"name": "Red",
+			"type": "boolean",
+			"desc": "",
+			"sid": 161173063005090
+		},
+		{
+			"name": "Green",
+			"type": "boolean",
+			"desc": "",
+			"sid": 174885821690500
+		},
+		{
+			"name": "Blue",
+			"type": "boolean",
+			"desc": "",
+			"sid": 301182816899960
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 950766240892258
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 10,
+						"collisionPoly": {
+							"points": [
+								0.015625,
+								0.015625,
+								0.984375,
+								0.015625,
+								0.984375,
+								0.984375,
+								0.015625,
+								0.984375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 828807673167095,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"name": "Hook",
+	"plugin-id": "Sprite",
+	"sid": 156733350126798,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 639657045285660
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 628233071621084
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.5546875,
+						"originY": 0.1328125,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 43,
+						"collisionPoly": {
+							"points": [
+								0.5364583333333336,
+								0.09114583333333334,
+								0.6319444444444444,
+								0.18749999999999997,
+								0.6420717592592592,
+								0.6889467592592597,
+								0.5538194444444442,
+								0.831597222222222,
+								0.41550925925925897,
+								0.8482349537037034,
+								0.3032407407407403,
+								0.7317708333333328,
+								0.2824074074074074,
+								0.5737847222222223,
+								0.5639467592592591,
+								0.7372685185185187
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 269824872511520,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

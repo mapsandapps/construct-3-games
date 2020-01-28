@@ -1,0 +1,779 @@
+{
+	"name": "Fishing sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LETTER_SPAWN_FREQUENCY",
+			"type": "number",
+			"initialValue": "1.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 247308401477493
+		},
+		{
+			"eventType": "variable",
+			"name": "LETTER_SPAWN_RANGE",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 367600314450597
+		},
+		{
+			"eventType": "variable",
+			"name": "IsHookDown",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 600191995022374
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 653657527987170
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "LettersCaught",
+					"sid": 464255234902475,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "LetterFish",
+					"sid": 289350195042234,
+					"behaviorType": "Physics",
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "set-world-gravity",
+					"objectClass": "LetterFish",
+					"sid": 896625879078091,
+					"behaviorType": "Physics",
+					"parameters": {
+						"gravity": "-4"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Fish",
+					"sid": 727199890719604,
+					"parameters": {
+						"x": "random(0,480)",
+						"y": "random(32,641)"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Fish",
+					"sid": 827307543988305,
+					"parameters": {
+						"frame-number": "random(0,6)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Clock",
+					"sid": 825632411545872,
+					"parameters": {
+						"text": "\"\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 177927630662034,
+					"parameters": {
+						"variable": "IsHookDown",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 301791746840206,
+					"parameters": {
+						"variable": "SecondsRemaining",
+						"value": "60"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "HelperText",
+					"sid": 560059387950937,
+					"parameters": {
+						"text": "\"Tap the water to cast, or hit Enter\""
+					}
+				}
+			],
+			"sid": 463572674226338
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 544083730090458,
+					"parameters": {
+						"variable": "IsHookDown"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 943813225696196,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 577830073413751,
+							"parameters": {
+								"key": 13
+							}
+						},
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 339930514276175,
+							"parameters": {
+								"object": "CastArea"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 226558540785029,
+							"parameters": {
+								"variable": "IsHookDown",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Hook",
+							"sid": 256468482604294,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Line",
+							"sid": 308451788414919,
+							"parameters": {
+								"x": "Hook.X",
+								"y": "Hook.Y"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Line",
+							"sid": 571486159842384,
+							"parameters": {
+								"angle": "Line.Angle - 90"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Line",
+							"sid": 303882955647018,
+							"parameters": {
+								"height": "sqrt((Hook.X - Line.X)^2 + (Hook.Y - Line.Y)^2)"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Hook",
+							"sid": 418017056761953,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Line",
+							"sid": 134242687248049,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Hook",
+							"sid": 520912846699421,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "HelperText",
+							"sid": 529915073298165,
+							"parameters": {
+								"text": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Button",
+							"sid": 650853251758105
+						},
+						{
+							"id": "destroy",
+							"objectClass": "menuList",
+							"sid": 482403122261780
+						}
+					],
+					"sid": 582133279624218,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 648464931133258,
+					"parameters": {
+						"variable": "IsHookDown"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 391203531236223,
+					"parameters": {
+						"interval-seconds": "random((LETTER_SPAWN_FREQUENCY - LETTER_SPAWN_RANGE) * 10, (LETTER_SPAWN_FREQUENCY + LETTER_SPAWN_RANGE) * 10) / 10"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 248110699329612,
+					"parameters": {
+						"object-to-create": "LetterFish",
+						"layer": "\"LetterFish\"",
+						"x": "random(32,449)",
+						"y": "672"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "LetterFish",
+					"sid": 216644359343954,
+					"parameters": {
+						"frame-number": "random(1,27)"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 947481471206264,
+					"parameters": {
+						"audio-file": "sinkWater1",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 878712059960547
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 915870568720822,
+					"parameters": {
+						"variable": "IsHookDown"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 694777801781398,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 900396997129840,
+					"parameters": {
+						"variable": "SecondsRemaining",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Clock",
+					"sid": 875374716230104,
+					"parameters": {
+						"text": "SecondsRemaining"
+					}
+				}
+			],
+			"sid": 897839020503086
+		},
+		{
+			"functionName": "BeginLoop",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 746399166747552
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Hook",
+					"sid": 849508947198955,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "Line",
+					"sid": 343177922510556,
+					"parameters": {
+						"x": "Hook.X",
+						"y": "Hook.Y"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Line",
+					"sid": 556166120709474,
+					"parameters": {
+						"angle": "Line.Angle - 90"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "Line",
+					"sid": 990466579441416,
+					"parameters": {
+						"height": "sqrt((Hook.X - Line.X)^2 + (Hook.Y - Line.Y)^2)"
+					}
+				}
+			],
+			"sid": 345749902175850
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Destroyer",
+					"sid": 441751845837583,
+					"parameters": {
+						"object": "LetterFish"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "LetterFish",
+					"sid": 659416665605185
+				}
+			],
+			"sid": 190959666075069,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Destroyer",
+					"sid": 477105069019874,
+					"parameters": {
+						"object": "Fish"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Fish",
+					"sid": 146976653985152
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 378990304826085,
+					"parameters": {
+						"object-to-create": "Fish",
+						"layer": "\"Fish\"",
+						"x": "-32",
+						"y": "random(32,641)"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Fish",
+					"sid": 819487363167831,
+					"parameters": {
+						"frame-number": "random(0,6)"
+					}
+				}
+			],
+			"sid": 227619162313776,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "LetterFish",
+					"sid": 790931584029413,
+					"parameters": {
+						"object": "Hook"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "LetterFish",
+					"sid": 248792781603967,
+					"parameters": {
+						"layer": "\"LetterFish\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "LetterFish",
+					"sid": 715000553363091,
+					"behaviorType": "Physics",
+					"parameters": {
+						"mode": "disabled"
+					}
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "LetterFish",
+					"sid": 793980996682698,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "LetterFish",
+					"sid": 291456851353233,
+					"parameters": {
+						"x": "32 + (64 * LettersCaught.Width)",
+						"y": "32"
+					}
+				},
+				{
+					"id": "push",
+					"objectClass": "LettersCaught",
+					"sid": 440595281743045,
+					"parameters": {
+						"where": "back",
+						"value": "LetterFish.AnimationFrame",
+						"axis": "x"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 539237917373993,
+					"parameters": {
+						"audio-file": "drip2",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 691085257612186
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-size",
+					"objectClass": "LettersCaught",
+					"sid": 823708026507158,
+					"parameters": {
+						"axis": "x",
+						"comparison": 0,
+						"value": "7"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 863700246850190,
+					"parameters": {
+						"variable": "SecondsRemaining",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 282528159928894,
+					"parameters": {
+						"layout": "\"Word Game\""
+					}
+				}
+			],
+			"sid": 510385698299134,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mobile Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 595072943885383
+						}
+					],
+					"actions": [],
+					"sid": 505258726029216,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 695439747795696,
+									"parameters": {
+										"first-value": "Touch.X",
+										"comparison": 2,
+										"second-value": "Hook.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Hook",
+									"sid": 291790474340111,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "left"
+									}
+								}
+							],
+							"sid": 469492950840559
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 526502490223878,
+									"parameters": {
+										"first-value": "Touch.X",
+										"comparison": 4,
+										"second-value": "Hook.X"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Hook",
+									"sid": 906347942550821,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "right"
+									}
+								}
+							],
+							"sid": 158003905134819
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 599540618550222,
+									"parameters": {
+										"first-value": "Touch.Y",
+										"comparison": 2,
+										"second-value": "Hook.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Hook",
+									"sid": 791833350827700,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "up"
+									}
+								}
+							],
+							"sid": 297754316519497
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 681773637663743,
+									"parameters": {
+										"first-value": "Touch.Y",
+										"comparison": 4,
+										"second-value": "Hook.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Hook",
+									"sid": 285052205746665,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "down"
+									}
+								}
+							],
+							"sid": 259034104457400
+						}
+					]
+				}
+			],
+			"sid": 241713885270710
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 855368762693993,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 163557360567550,
+					"parameters": {
+						"layout": "Menu"
+					}
+				}
+			],
+			"sid": 263949713712911
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 557349493247538,
+					"parameters": {
+						"variable": "IsSoundOn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-silent",
+					"objectClass": "Audio",
+					"sid": 860187339887062,
+					"parameters": {
+						"mode": "not-silent"
+					}
+				}
+			],
+			"sid": 589126356719636
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 178943384372203,
+					"parameters": {
+						"variable": "IsSoundOn"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-silent",
+					"objectClass": "Audio",
+					"sid": 947937089280468,
+					"parameters": {
+						"mode": "silent"
+					}
+				}
+			],
+			"sid": 992287669098774
+		}
+	],
+	"sid": 363538383404986
+}

@@ -1,0 +1,516 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 18202,
+	"name": "Word Fishing",
+	"runtime": "c3",
+	"useWorker": false,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Physics",
+			"name": "Physics",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "bpth3mrvtz8",
+	"objectTypes": {
+		"items": [
+			"LetterFish",
+			"Fish",
+			"BubbleParticle",
+			"BubbleParticle2",
+			"Hook",
+			"Line",
+			"UIBackground",
+			"Destroyer",
+			"Clock",
+			"LettersCaught",
+			"Letter",
+			"LandingPad",
+			"ConstructingWord",
+			"HelperText",
+			"SubmitWordButton",
+			"FoundWords",
+			"StatusText",
+			"Button",
+			"FinishGameText",
+			"menuList",
+			"CastArea",
+			"checkmark"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"FrameToLetter",
+					"FrameToValue"
+				],
+				"subfolders": [],
+				"name": "Data"
+			},
+			{
+				"items": [
+					"Audio",
+					"Touch",
+					"Browser",
+					"Keyboard"
+				],
+				"subfolders": [],
+				"name": "System objects"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Fishing",
+			"Word Game",
+			"Objects",
+			"Summary",
+			"Menu"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Fishing sheet",
+			"Word Game sheet",
+			"Summary sheet",
+			"Global variables",
+			"Menu sheet"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "Script.js",
+					"type": "application/javascript",
+					"sid": 329096498791729
+				}
+			],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "wordlist-a.js",
+							"type": "text/javascript",
+							"sid": 971990633642672
+						},
+						{
+							"name": "wordlist-b.js",
+							"type": "text/javascript",
+							"sid": 163240483681884
+						},
+						{
+							"name": "wordlist-c.js",
+							"type": "text/javascript",
+							"sid": 578118658245812
+						},
+						{
+							"name": "wordlist-d.js",
+							"type": "text/javascript",
+							"sid": 448879869666077
+						},
+						{
+							"name": "wordlist-e.js",
+							"type": "text/javascript",
+							"sid": 259620473403900
+						},
+						{
+							"name": "wordlist-f.js",
+							"type": "text/javascript",
+							"sid": 942146745016887
+						},
+						{
+							"name": "wordlist-g.js",
+							"type": "text/javascript",
+							"sid": 649451619421271
+						},
+						{
+							"name": "wordlist-h.js",
+							"type": "text/javascript",
+							"sid": 469683806385392
+						},
+						{
+							"name": "wordlist-i.js",
+							"type": "text/javascript",
+							"sid": 804284685084798
+						},
+						{
+							"name": "wordlist-j.js",
+							"type": "text/javascript",
+							"sid": 325483314573665
+						},
+						{
+							"name": "wordlist-k.js",
+							"type": "text/javascript",
+							"sid": 799896441289846
+						},
+						{
+							"name": "wordlist-l.js",
+							"type": "text/javascript",
+							"sid": 197062131491243
+						},
+						{
+							"name": "wordlist-m.js",
+							"type": "text/javascript",
+							"sid": 745473076518127
+						},
+						{
+							"name": "wordlist-n.js",
+							"type": "text/javascript",
+							"sid": 361990120681040
+						},
+						{
+							"name": "wordlist-o.js",
+							"type": "text/javascript",
+							"sid": 949985013843584
+						},
+						{
+							"name": "wordlist-p.js",
+							"type": "text/javascript",
+							"sid": 383528630796662
+						},
+						{
+							"name": "wordlist-q.js",
+							"type": "text/javascript",
+							"sid": 840116573472746
+						},
+						{
+							"name": "wordlist-r.js",
+							"type": "text/javascript",
+							"sid": 104097445313737
+						},
+						{
+							"name": "wordlist-s.js",
+							"type": "text/javascript",
+							"sid": 558744459159564
+						},
+						{
+							"name": "wordlist-t.js",
+							"type": "text/javascript",
+							"sid": 805019014781906
+						},
+						{
+							"name": "wordlist-u.js",
+							"type": "text/javascript",
+							"sid": 889216176248553
+						},
+						{
+							"name": "wordlist-v.js",
+							"type": "text/javascript",
+							"sid": 984152271978837
+						},
+						{
+							"name": "wordlist-w.js",
+							"type": "text/javascript",
+							"sid": 102447285344747
+						},
+						{
+							"name": "wordlist-x.js",
+							"type": "text/javascript",
+							"sid": 957787679773567
+						},
+						{
+							"name": "wordlist-y.js",
+							"type": "text/javascript",
+							"sid": 650910584671056
+						},
+						{
+							"name": "wordlist-z.js",
+							"type": "text/javascript",
+							"sid": 297204002367541
+						}
+					],
+					"subfolders": [],
+					"name": "Wordlists"
+				}
+			]
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "drip2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 932943750688391
+				},
+				{
+					"name": "sinkWater1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 968686764178725
+				},
+				{
+					"name": "chipLay3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 213315354816862
+				},
+				{
+					"name": "jingles_STEEL10.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 773673813238525
+				},
+				{
+					"name": "jingles_STEEL16.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 371304346029439
+				},
+				{
+					"name": "jingles_STEEL00.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 946885814218919
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 809964747099440
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 278465480620786
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 648200460130911
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 762344239881051
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 732998669201932
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 854264411948437
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 829324120738139
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "Shawn Taylor",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "portrait",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 480,
+	"viewportHeight": 640,
+	"firstLayout": "Fishing"
+}

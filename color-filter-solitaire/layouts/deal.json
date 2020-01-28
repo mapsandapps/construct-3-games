@@ -1,0 +1,691 @@
+{
+	"name": "Deal",
+	"layers": [
+		{
+			"name": "Stacks",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "GameBorder",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 25,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 320,
+						"width": 640,
+						"height": 640,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 684791002465652,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Cards",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Flips",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 6,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 18,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 517,
+						"width": 122.25,
+						"height": 78.75,
+						"originX": 0.23006134969325154,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 0,
+						"Row": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 253,
+						"y": 33,
+						"width": 44,
+						"height": 55,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 1,
+						"Row": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 330,
+						"y": 33,
+						"width": 44,
+						"height": 55,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 2,
+						"Row": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 407,
+						"y": 33,
+						"width": 44,
+						"height": 55,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 3,
+						"Row": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 484,
+						"y": 33,
+						"width": 44,
+						"height": 55,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 19,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 4,
+						"Row": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 561,
+						"y": 33,
+						"width": 44,
+						"height": 55,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 20,
+					"instanceVariables": {
+						"Suit": "Heart",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 154,
+						"y": 77,
+						"width": 56.25,
+						"height": 78.75,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 4,
+					"instanceVariables": {
+						"Suit": "Circle",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 77,
+						"width": 56.25,
+						"height": 78.75,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 3,
+					"instanceVariables": {
+						"Suit": "Triangle",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 220,
+						"width": 56.25,
+						"height": 78.75,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 5,
+					"instanceVariables": {
+						"Suit": "Diamond",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 154,
+						"y": 220,
+						"width": 56.25,
+						"height": 78.75,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6,
+					"instanceVariables": {
+						"Suit": "Pentagon",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 363,
+						"width": 56.25,
+						"height": 78.75,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SuitSelector",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"Suit": "Circle"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 33,
+						"width": 37.5,
+						"height": 37.5,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SuitSelector",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 21,
+					"instanceVariables": {
+						"Suit": "Heart"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 154,
+						"y": 33,
+						"width": 37.5,
+						"height": 37.5,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SuitSelector",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 4,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 22,
+					"instanceVariables": {
+						"Suit": "Pentagon"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 319,
+						"width": 37.5,
+						"height": 37.5,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SuitSelector",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 23,
+					"instanceVariables": {
+						"Suit": "Triangle"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 77,
+						"y": 176,
+						"width": 37.5,
+						"height": 37.5,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SuitSelector",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 24,
+					"instanceVariables": {
+						"Suit": "Diamond"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 154,
+						"y": 176,
+						"width": 37.5,
+						"height": 37.5,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "HelperText",
+					"properties": {
+						"text": "Don't forget, \nyou can enter color filter mode ⇧\nbefore dealing more cards! ⇩",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 8,
+						"line-height": -2,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top"
+					},
+					"uid": 14,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 132,
+						"y": 462,
+						"width": 165,
+						"height": 44,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 615528216862988,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 207012819963896,
+	"nonworld-instances": [
+		{
+			"type": "Stock",
+			"properties": {
+				"width": 65,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 7,
+			"instanceVariables": {}
+		},
+		{
+			"type": "DeckValues",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 10,
+			"instanceVariables": {}
+		},
+		{
+			"type": "DeckSuits",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 11,
+			"instanceVariables": {}
+		},
+		{
+			"type": "PossibleMoves",
+			"properties": {
+				"width": 0,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 2,
+			"instanceVariables": {}
+		}
+	],
+	"effectTypes": [],
+	"width": 640,
+	"height": 640,
+	"unboundedScrolling": false,
+	"eventSheet": "Event sheet 1"
+}

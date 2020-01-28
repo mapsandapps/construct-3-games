@@ -1,0 +1,149 @@
+{
+	"name": "Summary sheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 546308279115699
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "HelperText",
+					"sid": 660906919393583,
+					"parameters": {
+						"text": "\"Game Over \"&Newline&\"\"&Newline&\"\"&Newline&\"\""
+					}
+				}
+			],
+			"sid": 141075775424836,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 286867776431815,
+							"parameters": {
+								"first-value": "TotalScore",
+								"comparison": 5,
+								"second-value": "HighScore"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "HelperText",
+							"sid": 799756492367760,
+							"parameters": {
+								"text": "\"Congrats!! \"&newline&\"You beat your high score!\"&newline&\"Your new high score is \"&HighScore&\"!\""
+							}
+						}
+					],
+					"sid": 668858721011158
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 597641065251626
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "HelperText",
+							"sid": 711422641135820,
+							"parameters": {
+								"text": "\"Your score: \"&TotalScore&newline&\"High Score: \"&HighScore"
+							}
+						}
+					],
+					"sid": 151907170858661
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 125193602139903,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 303820099235870,
+					"parameters": {
+						"layout": "Fishing"
+					}
+				}
+			],
+			"sid": 251910958346839
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 242377727357169,
+					"parameters": {
+						"variable": "IsSoundOn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-silent",
+					"objectClass": "Audio",
+					"sid": 158414216921031,
+					"parameters": {
+						"mode": "not-silent"
+					}
+				}
+			],
+			"sid": 389099975206409
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 660985920006343,
+					"parameters": {
+						"variable": "IsSoundOn"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-silent",
+					"objectClass": "Audio",
+					"sid": 770926563222929,
+					"parameters": {
+						"mode": "silent"
+					}
+				}
+			],
+			"sid": 296423841324622
+		}
+	],
+	"sid": 730548817024344
+}

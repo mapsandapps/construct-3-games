@@ -1,0 +1,111 @@
+{
+	"name": "Intro event sheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 186612901339070
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 753248512765249,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 182175882446908,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"set": "enabled"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 731457734106142,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "ShadowLight",
+					"sid": 452043358322701
+				},
+				{
+					"id": "find-path",
+					"objectClass": "Player",
+					"sid": 935197150578896,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"x": "608",
+						"y": "576"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 476815482014048
+				},
+				{
+					"id": "move-along-path",
+					"objectClass": "Player",
+					"sid": 303554836408065,
+					"behaviorType": "Pathfinding"
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 436893598399429,
+					"parameters": {
+						"seconds": "4.5"
+					}
+				},
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 525719043665230,
+					"parameters": {
+						"which": "next"
+					}
+				}
+			],
+			"sid": 528025077512159
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 966113302049334,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 789551010228000,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				}
+			],
+			"sid": 860305541960077
+		}
+	],
+	"sid": 715003953185925
+}

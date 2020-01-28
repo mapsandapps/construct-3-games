@@ -1,0 +1,1384 @@
+{
+	"name": "Word Game sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ConstructedWord",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 253835215407003
+		},
+		{
+			"eventType": "variable",
+			"name": "WordIsCorrect",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 992210083629086
+		},
+		{
+			"eventType": "variable",
+			"name": "WordValue",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 363267751773569
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-size",
+					"objectClass": "ConstructingWord",
+					"sid": 127486299143073,
+					"parameters": {
+						"axis": "x",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "HelperText",
+					"sid": 743426976473237,
+					"parameters": {
+						"text": "\"Drag some letters down to create a word!\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "ConstructingWord",
+					"sid": 646885030159958,
+					"parameters": {
+						"width": "7",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SubmitWordButton",
+					"sid": 597672856206062,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 207221296015041
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 159801565882566
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "FrameToValue",
+					"sid": 597206829569901,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[27,1,1],\"\"data\"\":[[[0]],[[1]],[[3]],[[3]],[[2]],[[1]],[[4]],[[2]],[[4]],[[1]],[[8]],[[5]],[[1]],[[3]],[[1]],[[1]],[[3]],[[10]],[[1]],[[1]],[[1]],[[1]],[[4]],[[4]],[[8]],[[4]],[[10]]]}\""
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "FrameToLetter",
+					"sid": 180438961871721,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,1,1],\"\"data\"\":[[[\"\"\"\"]],[[\"\"A\"\"]],[[\"\"B\"\"]],[[\"\"C\"\"]],[[\"\"D\"\"]],[[\"\"E\"\"]],[[\"\"F\"\"]],[[\"\"G\"\"]],[[\"\"H\"\"]],[[\"\"I\"\"]],[[\"\"J\"\"]],[[\"\"K\"\"]],[[\"\"L\"\"]],[[\"\"M\"\"]],[[\"\"N\"\"]],[[\"\"O\"\"]],[[\"\"P\"\"]],[[\"\"Q\"\"]],[[\"\"R\"\"]],[[\"\"S\"\"]],[[\"\"T\"\"]],[[\"\"U\"\"]],[[\"\"V\"\"]],[[\"\"W\"\"]],[[\"\"X\"\"]],[[\"\"Y\"\"]],[[\"\"Z\"\"]]]}\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "FoundWords",
+					"sid": 323896270698228,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 818272850134813,
+					"parameters": {
+						"variable": "TotalScore",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "StatusText",
+					"sid": 929600694690577,
+					"parameters": {
+						"text": "\"Current score: \" & TotalScore"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "StatusText",
+					"sid": 487172176683093,
+					"parameters": {
+						"size-pt": "12"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Clock",
+					"sid": 485196353929988,
+					"parameters": {
+						"text": "SecondsRemaining"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 962684996399617,
+					"parameters": {
+						"variable": "SecondsRemaining",
+						"value": "60"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LandingPad",
+					"sid": 958977431018925,
+					"parameters": {
+						"instance-variable": "Letter",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "ConstructingWord",
+					"sid": 972916262375608,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				}
+			],
+			"sid": 112314523247885,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 472198434888611
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 297004728765021,
+							"parameters": {
+								"first-value": "LettersCaught.Width",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "LettersCaught",
+							"sid": 744266015125236,
+							"parameters": {
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[7,1,1],\"\"data\"\":[[[12]],[[1]],[[16]],[[1]],[[7]],[[19]],[[18]]]}\""
+							}
+						}
+					],
+					"sid": 134983613666406
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "LettersCaught",
+							"sid": 240692203135205,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 174520125398826,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 768191943625703,
+									"parameters": {
+										"first-value": "LettersCaught.CurX",
+										"comparison": 3,
+										"second-value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 392008992936855,
+									"parameters": {
+										"object-to-create": "Letter",
+										"layer": "\"LetterPool\"",
+										"x": "144 + (LettersCaught.CurX * 64)",
+										"y": "64"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Letter",
+									"sid": 678558534190118,
+									"parameters": {
+										"frame-number": "LettersCaught.CurValue"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Letter",
+									"sid": 321444592567805,
+									"parameters": {
+										"instance-variable": "InitialX",
+										"value": "Letter.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Letter",
+									"sid": 556798760523417,
+									"parameters": {
+										"instance-variable": "InitialY",
+										"value": "Letter.Y"
+									}
+								}
+							],
+							"sid": 909728400304517
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 695198783630252
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 504918601285561,
+									"parameters": {
+										"object-to-create": "Letter",
+										"layer": "\"LetterPool\"",
+										"x": "112 + ((LettersCaught.CurX - 3) * 64)",
+										"y": "128"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Letter",
+									"sid": 545723942788847,
+									"parameters": {
+										"frame-number": "LettersCaught.CurValue"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Letter",
+									"sid": 581684765627898,
+									"parameters": {
+										"instance-variable": "InitialX",
+										"value": "Letter.X"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Letter",
+									"sid": 240645153543559,
+									"parameters": {
+										"instance-variable": "InitialY",
+										"value": "Letter.Y"
+									}
+								}
+							],
+							"sid": 366747489091919
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 915765223799968,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 677311418330057,
+					"parameters": {
+						"variable": "SecondsRemaining",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Clock",
+					"sid": 158338125122541,
+					"parameters": {
+						"text": "SecondsRemaining"
+					}
+				}
+			],
+			"sid": 535104823566641
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Letter",
+					"sid": 610048857032066,
+					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Letter",
+					"sid": 919558875218092,
+					"parameters": {
+						"object": "LandingPad"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "LandingPad",
+					"sid": 336169751911163,
+					"parameters": {
+						"instance-variable": "Letter",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Letter",
+					"sid": 190598966879195,
+					"parameters": {
+						"x": "LandingPad.X",
+						"y": "LandingPad.Y"
+					}
+				},
+				{
+					"id": "set-at-x",
+					"objectClass": "ConstructingWord",
+					"sid": 634298150910068,
+					"parameters": {
+						"x": "LandingPad.ID",
+						"value": "Letter.AnimationFrame"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "HelperText",
+					"sid": 340544311593106,
+					"parameters": {
+						"text": "\"Submit Word\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SubmitWordButton",
+					"sid": 601148157202537,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LandingPad",
+					"sid": 266517650397456,
+					"parameters": {
+						"instance-variable": "Letter",
+						"value": "Letter.AnimationFrame"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 896460849799775,
+					"parameters": {
+						"audio-file": "chipLay3",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 186558554898140
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 745418576800707,
+					"parameters": {
+						"object": "Letter"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Letter",
+					"sid": 162133843436185,
+					"parameters": {
+						"instance-variable": "Locked"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Letter",
+					"sid": 808785970640564,
+					"parameters": {
+						"object": "LandingPad"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "StatusText",
+					"sid": 577461619776327,
+					"parameters": {
+						"text": "\"Current score: \" & TotalScore"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "StatusText",
+					"sid": 927911520340694,
+					"parameters": {
+						"color": "rgbEx255(255,255,255)"
+					}
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "StatusText",
+					"sid": 458808433643609,
+					"parameters": {
+						"size-pt": "12"
+					}
+				}
+			],
+			"sid": 695085786381976,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MoveToIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 362389112699557
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "contains-value",
+							"objectClass": "ConstructingWord",
+							"sid": 750069702010359,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 771999589210388,
+							"parameters": {
+								"variable": "MoveToIndex",
+								"value": "ConstructingWord.IndexOf(0)"
+							}
+						}
+					],
+					"sid": 969169667338489,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "LandingPad",
+									"sid": 464698501260555,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "MoveToIndex"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Letter",
+									"sid": 567562172756073,
+									"parameters": {
+										"x": "LandingPad.X",
+										"y": "LandingPad.Y"
+									}
+								},
+								{
+									"id": "set-at-x",
+									"objectClass": "ConstructingWord",
+									"sid": 213658877371577,
+									"parameters": {
+										"x": "LandingPad.ID",
+										"value": "Letter.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "HelperText",
+									"sid": 744090194983088,
+									"parameters": {
+										"text": "\"Submit Word\""
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SubmitWordButton",
+									"sid": 205339873376285,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "LandingPad",
+									"sid": 139587438832218,
+									"parameters": {
+										"instance-variable": "Letter",
+										"value": "Letter.AnimationFrame"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 587950231726967,
+									"parameters": {
+										"audio-file": "chipLay3",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 673967272154103
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 489001203277262,
+					"parameters": {
+						"object": "Letter"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Letter",
+					"sid": 892794396739117,
+					"parameters": {
+						"instance-variable": "Locked"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Letter",
+					"sid": 755597683903012,
+					"parameters": {
+						"object": "LandingPad"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Letter",
+					"sid": 707570083477090,
+					"parameters": {
+						"x": "Letter.InitialX",
+						"y": "Letter.InitialY"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LandingPad",
+					"sid": 843382862513773,
+					"parameters": {
+						"instance-variable": "Letter",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-at-x",
+					"objectClass": "ConstructingWord",
+					"sid": 231686065119479,
+					"parameters": {
+						"x": "LandingPad.ID",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 716012331261447
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 393143715188056,
+					"parameters": {
+						"object": "SubmitWordButton"
+					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 186202246898789,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 818934133835256,
+					"parameters": {
+						"variable": "WordIsCorrect",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 392890619574655,
+					"parameters": {
+						"variable": "WordValue",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 458563180421101,
+					"parameters": {
+						"variable": "ConstructedWord",
+						"value": "\"\""
+					}
+				},
+				{
+					"type": "script",
+					"script": "globalThis.GetAndCheckWord(runtime);"
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Letter",
+					"sid": 713523567360175,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 489830952209180,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 238089603140798,
+							"parameters": {
+								"variable": "WordIsCorrect"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 934858950611523,
+							"parameters": {
+								"variable": "TotalScore",
+								"value": "WordValue"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "HelperText",
+							"sid": 362649220699286,
+							"parameters": {
+								"y": "HelperText.Y + 64"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "SubmitWordButton",
+							"sid": 535256490402482,
+							"parameters": {
+								"y": "SubmitWordButton.Y + 64"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "ConstructingWord",
+							"sid": 513393353667762,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "FoundWords",
+							"sid": 303506394633094,
+							"parameters": {
+								"where": "back",
+								"value": "ConstructedWord",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "StatusText",
+							"sid": 534836185165473,
+							"parameters": {
+								"text": "\"Great! You got \" & WordValue & \" points for \" & ConstructedWord & \"!\""
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "StatusText",
+							"sid": 578205324734188,
+							"parameters": {
+								"color": "rgbEx255(0,255,0)"
+							}
+						},
+						{
+							"id": "set-font-size",
+							"objectClass": "StatusText",
+							"sid": 459567337276662,
+							"parameters": {
+								"size-pt": "10"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "LandingPad",
+							"sid": 328819942914668,
+							"parameters": {
+								"instance-variable": "Letter",
+								"value": "0"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 500431623801901,
+							"parameters": {
+								"audio-file": "jingles_STEEL16",
+								"loop": "not-looping",
+								"volume": "-7",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 410845926557352,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 453841692489098,
+									"parameters": {
+										"object": "Letter"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Letter",
+									"sid": 739625509511781,
+									"parameters": {
+										"instance-variable": "Locked"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Letter",
+									"sid": 459738622103834,
+									"parameters": {
+										"object": "LandingPad"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Clone used letters"
+								},
+								{
+									"callFunction": "DuplicateLetter",
+									"sid": 441904682305386,
+									"parameters": [
+										"Letter.AnimationFrame",
+										"Letter.InitialX",
+										"Letter.InitialY"
+									]
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Letter",
+									"sid": 160840413327634,
+									"parameters": {
+										"instance-variable": "Locked",
+										"value": "true"
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Letter",
+									"sid": 345402085425769,
+									"parameters": {
+										"layer": "\"LetterBoard\""
+									}
+								}
+							],
+							"sid": 274087424537196
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 560597995125247,
+									"parameters": {
+										"object": "Letter"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Letter",
+									"sid": 163675567995154,
+									"parameters": {
+										"instance-variable": "Locked"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Letter",
+									"sid": 828097021985005,
+									"parameters": {
+										"object": "LandingPad"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Reset unused letters"
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Letter",
+									"sid": 214222842905575,
+									"parameters": {
+										"x": "Letter.InitialX",
+										"y": "Letter.InitialY"
+									}
+								}
+							],
+							"sid": 756139611943516
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 866546927571706,
+									"parameters": {
+										"object": "LandingPad"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "LandingPad",
+									"sid": 667074820061662,
+									"parameters": {
+										"y": "LandingPad.Y + 64"
+									}
+								}
+							],
+							"sid": 858847692266016
+						},
+						{
+							"eventType": "comment",
+							"text": "If there are more than four words in the list, move all the words up"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-size",
+									"objectClass": "FoundWords",
+									"sid": 506949935396039,
+									"parameters": {
+										"axis": "x",
+										"comparison": 4,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "SubmitWordButton",
+									"sid": 560157419295051,
+									"parameters": {
+										"y": "SubmitWordButton.Y - 64"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "HelperText",
+									"sid": 649277750146501,
+									"parameters": {
+										"y": "HelperText.Y - 64"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "LandingPad",
+									"sid": 499554023060628,
+									"parameters": {
+										"y": "LandingPad.Y - 64"
+									}
+								}
+							],
+							"sid": 112948361506248,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Letter",
+											"sid": 290136049537983,
+											"parameters": {
+												"layer": "\"LetterBoard\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Letter",
+											"sid": 607040143477331,
+											"parameters": {
+												"y": "Letter.Y - 64"
+											}
+										}
+									],
+									"sid": 355386591657590
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 136707199937072
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "StatusText",
+							"sid": 588305271663248,
+							"parameters": {
+								"text": "\"This is not a word or it is a word you have already used.\""
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "StatusText",
+							"sid": 364758254710275,
+							"parameters": {
+								"color": "rgbEx255(127,0,0)"
+							}
+						},
+						{
+							"id": "set-font-size",
+							"objectClass": "StatusText",
+							"sid": 419270661246045,
+							"parameters": {
+								"size-pt": "10"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 649601034083166,
+							"parameters": {
+								"audio-file": "jingles_STEEL00",
+								"loop": "not-looping",
+								"volume": "-7",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 543123346094901
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Letter",
+							"sid": 651850805249204,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 531614745051106
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"functionName": "DuplicateLetter",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "LetterFrame",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 967971420710913
+				},
+				{
+					"name": "XPosition",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 442787374589923
+				},
+				{
+					"name": "YPosition",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 610061113503865
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 451518073889951,
+					"parameters": {
+						"object-to-create": "Letter",
+						"layer": "\"LetterPool\"",
+						"x": "XPosition",
+						"y": "YPosition"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Letter",
+					"sid": 698245261176736,
+					"parameters": {
+						"frame-number": "LetterFrame"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Letter",
+					"sid": 536283594492713,
+					"parameters": {
+						"instance-variable": "InitialX",
+						"value": "XPosition"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Letter",
+					"sid": 677102118255858,
+					"parameters": {
+						"instance-variable": "InitialY",
+						"value": "YPosition"
+					}
+				}
+			],
+			"sid": 389267837668222
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Letter",
+					"sid": 117921349918353,
+					"parameters": {
+						"instance-variable": "Locked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Letter",
+					"sid": 977800352954881,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 324109871295014
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "Letter",
+					"sid": 112191705538463,
+					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Letter",
+					"sid": 800251452778063,
+					"parameters": {
+						"object": "LandingPad"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "LandingPad",
+					"sid": 247994795351179,
+					"parameters": {
+						"instance-variable": "Letter",
+						"comparison": 0,
+						"value": "Letter.AnimationFrame"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Letter",
+					"sid": 798087396406583,
+					"parameters": {
+						"instance-variable": "Locked"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LandingPad",
+					"sid": 418934094382373,
+					"parameters": {
+						"instance-variable": "Letter",
+						"value": "0"
+					}
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "Letter",
+					"sid": 890073253959716,
+					"parameters": {
+						"layer": "\"LetterPool\""
+					}
+				},
+				{
+					"id": "set-at-x",
+					"objectClass": "ConstructingWord",
+					"sid": 696192131260602,
+					"parameters": {
+						"x": "LandingPad.ID",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 202419694642680
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 814419519011493,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 403868539182792,
+					"parameters": {
+						"variable": "SecondsRemaining",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 549333835030364,
+					"parameters": {
+						"layout": "Summary"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 668510453813672,
+					"parameters": {
+						"variable": "HighScore",
+						"value": "max(HighScore, TotalScore)"
+					}
+				}
+			],
+			"sid": 213464340876583,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 230793682136891,
+					"parameters": {
+						"variable": "IsSoundOn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-silent",
+					"objectClass": "Audio",
+					"sid": 578677970537635,
+					"parameters": {
+						"mode": "not-silent"
+					}
+				}
+			],
+			"sid": 624448854973860
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 431629132382837,
+					"parameters": {
+						"variable": "IsSoundOn"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-silent",
+					"objectClass": "Audio",
+					"sid": 463476871460414,
+					"parameters": {
+						"mode": "silent"
+					}
+				}
+			],
+			"sid": 201011873499690
+		}
+	],
+	"sid": 971702806457370
+}
