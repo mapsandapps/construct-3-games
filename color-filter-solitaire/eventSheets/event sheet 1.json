@@ -414,21 +414,16 @@
 							"behaviorType": "DragDrop"
 						}
 					],
-					"actions": [
-						{
-							"callFunction": "UnpinCard",
-							"sid": 707568435712525
-						},
-						{
-							"type": "comment",
-							"text": "TODO: if the drag was successful, set the card's values to its new ones and make sure its position is correct; if it was unsuccessful, reset its position to its old values"
-						}
-					],
+					"actions": [],
 					"sid": 818405412985927,
 					"children": [
 						{
 							"eventType": "comment",
 							"text": "card was dropped on a stack: check to see if it's a valid move"
+						},
+						{
+							"eventType": "comment",
+							"text": "TODO: might not need CardPickedUpFromStack anymore"
 						},
 						{
 							"eventType": "block",
@@ -452,45 +447,17 @@
 							],
 							"actions": [
 								{
-									"id": "set-x",
-									"objectClass": "Card",
-									"sid": 380305777398294,
-									"parameters": {
-										"x": "Stack.X"
-									}
+									"callFunction": "UnpinCard",
+									"sid": 807822921045872
 								},
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Card",
-									"sid": 351324270410606,
-									"parameters": {
-										"instance-variable": "IndexInStack",
-										"value": "Stack.NumberOfCards"
-									}
-								},
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Stack",
-									"sid": 319003938458663,
-									"parameters": {
-										"instance-variable": "NumberOfCards",
-										"value": "1"
-									}
-								},
-								{
-									"callFunction": "PopCardFromStack",
-									"sid": 265315470124964,
+									"callFunction": "MoveCardToStack",
+									"sid": 701100182144847,
 									"parameters": [
-										"CardPickedUpFromStack"
+										"Card.Suit",
+										"Card.Value",
+										"Stack.UID"
 									]
-								},
-								{
-									"id": "set-y",
-									"objectClass": "Card",
-									"sid": 770233759121054,
-									"parameters": {
-										"y": "Stack.Y + ((Stack.NumberOfCards - 1) * CARD_OFFSET)"
-									}
 								},
 								{
 									"callFunction": "IsCardNorthInSequence",
@@ -570,6 +537,15 @@
 									}
 								},
 								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 473505140252762,
+									"parameters": {
+										"instance-variable": "StackUID",
+										"value": "0"
+									}
+								},
+								{
 									"id": "add-to-instvar",
 									"objectClass": "Foundation",
 									"sid": 270624180092187,
@@ -597,6 +573,10 @@
 								{
 									"callFunction": "PlayCardPlace",
 									"sid": 308233097703888
+								},
+								{
+									"callFunction": "UnpinCard",
+									"sid": 345802707947377
 								}
 							],
 							"sid": 840776423562527
@@ -625,23 +605,281 @@
 							],
 							"actions": [
 								{
-									"id": "set-x",
-									"objectClass": "Card",
-									"sid": 854644323237082,
-									"parameters": {
-										"x": "Stack.X"
-									}
+									"callFunction": "UnpinCard",
+									"sid": 391685483786778
 								},
 								{
-									"id": "set-y",
-									"objectClass": "Card",
-									"sid": 249346958412996,
-									"parameters": {
-										"y": "Stack.Y + (Card.IndexInStack * CARD_OFFSET)"
-									}
+									"callFunction": "ReturnCardToInitialPosition",
+									"sid": 686589380759102,
+									"parameters": [
+										"Card.Suit",
+										"Card.Value"
+									]
 								}
 							],
 							"sid": 481268333933285
+						}
+					]
+				},
+				{
+					"functionName": "MoveCardToStack",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "SuitOfCard",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 405779340048255
+						},
+						{
+							"name": "ValueOfCard",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 727061007064131
+						},
+						{
+							"name": "UIDOfNewStack",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 865567724739528
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 189214719939303,
+							"parameters": {
+								"unique-id": "UIDOfNewStack"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 285595164168374,
+							"parameters": {
+								"instance-variable": "Suit",
+								"comparison": 0,
+								"value": "SuitOfCard"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 466886102202994,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "ValueOfCard"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Card",
+							"sid": 322550518309442,
+							"parameters": {
+								"x": "Stack.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 647320868780101,
+							"parameters": {
+								"instance-variable": "IndexInStack",
+								"value": "Stack.NumberOfCards"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "Card",
+							"sid": 356045245842423,
+							"parameters": {
+								"y": "Stack.Y + (Stack.NumberOfCards * CARD_OFFSET)"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Stack",
+							"sid": 208775585037177,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "PopCardFromStack",
+							"sid": 909553382622166,
+							"parameters": [
+								"Card.StackUID"
+							]
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 202127957658818,
+							"parameters": {
+								"instance-variable": "StackUID",
+								"value": "Stack.UID"
+							}
+						}
+					],
+					"sid": 472941558674143,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 935643490438363,
+									"parameters": {
+										"variable": "NumberOfCardsBeingMoved",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 463710413022055,
+									"parameters": {
+										"variable": "NumberOfCardsBeingMoved",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "MoveCardToStack",
+									"sid": 957362076436564,
+									"parameters": [
+										"SuitOfCard",
+										"ValueOfCard - 1",
+										"UIDOfNewStack"
+									]
+								}
+							],
+							"sid": 232982280830368
+						}
+					]
+				},
+				{
+					"functionName": "ReturnCardToInitialPosition",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "SuitOfCard",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 213026586485175
+						},
+						{
+							"name": "ValueOfCard",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 466845550943172
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 738226996706502,
+							"parameters": {
+								"instance-variable": "Suit",
+								"comparison": 0,
+								"value": "SuitOfCard"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 820223617723472,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "ValueOfCard"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 923195982738876,
+							"parameters": {
+								"unique-id": "Card.StackUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Card",
+							"sid": 178642961379922,
+							"parameters": {
+								"x": "Stack.X"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "Card",
+							"sid": 480592758439329,
+							"parameters": {
+								"y": "Stack.Y + (Card.IndexInStack * CARD_OFFSET)"
+							}
+						}
+					],
+					"sid": 288758257189406,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 346547318844828,
+									"parameters": {
+										"variable": "NumberOfCardsBeingMoved",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 757657029673462,
+									"parameters": {
+										"variable": "NumberOfCardsBeingMoved",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "ReturnCardToInitialPosition",
+									"sid": 238389761132145,
+									"parameters": [
+										"SuitOfCard",
+										"ValueOfCard - 1"
+									]
+								}
+							],
+							"sid": 129759426176098
 						}
 					]
 				},
@@ -687,6 +925,14 @@
 							"id": "pick-by-unique-id",
 							"objectClass": "Stack",
 							"sid": 398317216182502,
+							"parameters": {
+								"unique-id": "StackUID"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 834170864397567,
 							"parameters": {
 								"unique-id": "StackUID"
 							}
@@ -1216,9 +1462,9 @@
 						{
 							"id": "load",
 							"objectClass": "Stock",
-							"sid": 597704246990568,
+							"sid": 878249745810021,
 							"parameters": {
-								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,1,1],\"\"data\"\":[[[13]],[[56]],[[23]],[[38]],[[57]],[[1]],[[21]],[[9]],[[61]],[[53]],[[27]],[[22]],[[30]],[[47]],[[11]],[[24]],[[32]],[[0]],[[51]],[[6]],[[37]],[[63]],[[25]],[[49]],[[43]],[[15]],[[64]],[[59]],[[46]],[[42]],[[41]],[[62]],[[10]],[[60]],[[54]],[[55]],[[8]],[[39]],[[18]],[[5]],[[26]],[[40]],[[4]],[[34]],[[16]],[[58]],[[33]],[[14]],[[29]],[[44]],[[45]],[[48]],[[2]],[[3]],[[28]],[[19]],[[50]],[[52]],[[20]],[[36]],[[7]],[[31]],[[12]],[[17]],[[35]]]}\""
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,1,1],\"\"data\"\":[[[13]],[[56]],[[23]],[[38]],[[57]],[[1]],[[21]],[[9]],[[61]],[[53]],[[27]],[[22]],[[30]],[[47]],[[11]],[[24]],[[32]],[[0]],[[51]],[[6]],[[37]],[[63]],[[25]],[[49]],[[10]],[[15]],[[64]],[[59]],[[46]],[[42]],[[41]],[[62]],[[43]],[[60]],[[54]],[[55]],[[8]],[[39]],[[18]],[[5]],[[26]],[[40]],[[4]],[[34]],[[16]],[[58]],[[33]],[[14]],[[29]],[[44]],[[45]],[[48]],[[2]],[[3]],[[28]],[[19]],[[50]],[[52]],[[20]],[[36]],[[7]],[[31]],[[12]],[[17]],[[35]]]}\""
 							}
 						},
 						{
@@ -1415,6 +1661,15 @@
 									"parameters": {
 										"instance-variable": "IndexInStack",
 										"value": "Stack.NumberOfCards"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 531988058449662,
+									"parameters": {
+										"instance-variable": "StackUID",
+										"value": "Stack.UID"
 									}
 								},
 								{
