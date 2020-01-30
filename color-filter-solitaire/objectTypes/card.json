@@ -23,16 +23,10 @@
 			"sid": 882826463130518
 		},
 		{
-			"name": "CardToNorth",
+			"name": "IndexInStack",
 			"type": "number",
 			"desc": "",
-			"sid": 289632753389234
-		},
-		{
-			"name": "CardToSouth",
-			"type": "number",
-			"desc": "",
-			"sid": 457252068723998
+			"sid": 499452097478920
 		}
 	],
 	"behaviorTypes": [
@@ -45,6 +39,11 @@
 			"behaviorId": "bound",
 			"name": "BoundToLayout",
 			"sid": 878684449814489
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 623539226881207
 		}
 	],
 	"effectTypes": [],

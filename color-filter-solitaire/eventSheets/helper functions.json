@@ -686,6 +686,15 @@
 									}
 								},
 								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 928973511941010,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"value": "NumberOfCardsMoved"
+									}
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 697346692120694,
@@ -941,6 +950,15 @@
 									}
 								},
 								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 440067352216147,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"value": "Functions.GetNextCardStackIndex(Stack.Column, 0)"
+									}
+								},
+								{
 									"id": "move-to-top",
 									"objectClass": "Card",
 									"sid": 623170304660392
@@ -1101,6 +1119,63 @@
 						}
 					],
 					"sid": 364370291071610
+				},
+				{
+					"functionName": "GetNextCardStackIndex",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StackColumn",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 234487091423937
+						},
+						{
+							"name": "StackRow",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 927939117018420
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 295080799459985,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "StackColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 183414822798048,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "StackRow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 140994077688551,
+							"parameters": {
+								"value": "Stack.NumberOfCards"
+							}
+						}
+					],
+					"sid": 858576739860800
 				}
 			],
 			"sid": 906637440295640

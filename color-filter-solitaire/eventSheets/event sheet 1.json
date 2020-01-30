@@ -72,6 +72,16 @@
 			"sid": 635910957481965
 		},
 		{
+			"eventType": "variable",
+			"name": "NumberOfCardsBeingMoved",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 610838901307219
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Game Mechanics",
@@ -98,6 +108,29 @@
 						}
 					],
 					"sid": 936041975530402
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "Card",
+							"sid": 973521494471229,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "DragBase",
+							"sid": 332301058534545,
+							"parameters": {
+								"x": "Card.X",
+								"y": "Card.Y"
+							}
+						}
+					],
+					"sid": 976697547806193
 				},
 				{
 					"eventType": "block",
@@ -143,9 +176,192 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 379229250147510
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 838461434227030,
+							"parameters": {
+								"variable": "NumberOfCardsBeingMoved",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "PinSouthCard",
+							"sid": 514218735398194,
+							"parameters": [
+								"Stack.UID",
+								"Card.IndexInStack + 1"
+							]
 						}
 					],
-					"sid": 238516553340325
+					"sid": 238516553340325,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 151653059105665,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"comparison": 1,
+										"value": "Stack.NumberOfCards - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 489692639680025,
+									"parameters": {
+										"type": "log",
+										"message": "\"moving multiple cards\""
+									}
+								}
+							],
+							"sid": 978138642971126
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 267206995589060,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"comparison": 0,
+										"value": "Stack.NumberOfCards - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 730649839341205,
+									"parameters": {
+										"type": "log",
+										"message": "\"moving one card\""
+									}
+								}
+							],
+							"sid": 467543805419405
+						}
+					]
+				},
+				{
+					"functionName": "PinSouthCard",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StackUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 855709147047922
+						},
+						{
+							"name": "IndexOfSouthCardInStack",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 564056219249411
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 156062220608367,
+							"parameters": {
+								"unique-id": "StackUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 473017089553635,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 312030155475023,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"comparison": 0,
+										"value": "IndexOfSouthCardInStack"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 936407683320161,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object",
+									"objectClass": "Card",
+									"sid": 793841340772327,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "DragBase",
+										"mode": "position-only"
+									}
+								},
+								{
+									"callFunction": "PinSouthCard",
+									"sid": 763687746032883,
+									"parameters": [
+										"StackUID",
+										"IndexOfSouthCardInStack + 1"
+									]
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 187376380984894,
+									"parameters": {
+										"variable": "NumberOfCardsBeingMoved",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 632697227718106
+						}
+					]
+				},
+				{
+					"functionName": "UnpinCard",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "unpin",
+							"objectClass": "Card",
+							"sid": 140828510324933,
+							"behaviorType": "Pin"
+						}
+					],
+					"sid": 916968011802155
 				},
 				{
 					"eventType": "block",
@@ -157,7 +373,16 @@
 							"behaviorType": "DragDrop"
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "UnpinCard",
+							"sid": 707568435712525
+						},
+						{
+							"type": "comment",
+							"text": "TODO: if the drag was successful, set the card's values to its new ones and make sure its position is correct; if it was unsuccessful, reset its position to its old values"
+						}
+					],
 					"sid": 818405412985927,
 					"children": [
 						{
@@ -194,6 +419,15 @@
 									}
 								},
 								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 351324270410606,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"value": "Stack.NumberOfCards"
+									}
+								},
+								{
 									"id": "add-to-instvar",
 									"objectClass": "Stack",
 									"sid": 319003938458663,
@@ -216,6 +450,16 @@
 									"parameters": {
 										"y": "Stack.Y + ((Stack.NumberOfCards - 1) * CARD_OFFSET)"
 									}
+								},
+								{
+									"callFunction": "IsCardNorthInSequence",
+									"sid": 834245906641376,
+									"parameters": [
+										"Card.Suit",
+										"Card.Value",
+										"Stack.UID",
+										"Card.IndexInStack"
+									]
 								},
 								{
 									"callFunction": "PlayCardPlace",
@@ -273,6 +517,15 @@
 									"parameters": {
 										"x": "Foundation.X",
 										"y": "Foundation.Y"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 831022173789777,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"value": "0"
 									}
 								},
 								{
@@ -341,13 +594,150 @@
 								{
 									"id": "set-y",
 									"objectClass": "Card",
-									"sid": 657693216487567,
+									"sid": 249346958412996,
 									"parameters": {
-										"y": "Stack.Y + ((Stack.NumberOfCards - 1) * CARD_OFFSET)"
+										"y": "Stack.Y + (Card.IndexInStack * CARD_OFFSET)"
 									}
 								}
 							],
 							"sid": 481268333933285
+						}
+					]
+				},
+				{
+					"functionName": "IsCardNorthInSequence",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "SuitOfMovedCard",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 868454289400619
+						},
+						{
+							"name": "ValueOfMovedCard",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 313696811774280
+						},
+						{
+							"name": "StackUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 831227901669216
+						},
+						{
+							"name": "IndexOfMovedCardInStack",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 531668745373784
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 398317216182502,
+							"parameters": {
+								"unique-id": "StackUID"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 137151998967781,
+							"parameters": {
+								"object": "Stack"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 667106839783327,
+							"parameters": {
+								"instance-variable": "IndexInStack",
+								"comparison": 0,
+								"value": "IndexOfMovedCardInStack - 1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 673488984933115,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 780851374277897,
+									"parameters": {
+										"animation": "\"Front\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 784660556707162,
+									"parameters": {
+										"instance-variable": "Suit",
+										"comparison": 0,
+										"value": "SuitOfMovedCard"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 738143609828231,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "ValueOfMovedCard + 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 211135192996214,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 160735265218507
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 390737110515315
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 560970307611988,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 963675242660731
 						}
 					]
 				}
@@ -980,6 +1370,15 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Card",
+									"sid": 339536872086514,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"value": "Stack.NumberOfCards"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
 									"sid": 262684433475362,
 									"parameters": {
 										"instance-variable": "Suit",
@@ -1600,6 +1999,71 @@
 				}
 			],
 			"sid": 788603253791950
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Click-to-Move",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 373672968805020,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-enabled",
+							"objectClass": "Card",
+							"sid": 792046978818824,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "pick-topbottom",
+							"objectClass": "Card",
+							"sid": 269889328036829,
+							"parameters": {
+								"which": "top"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 136293082926110,
+							"parameters": {
+								"type": "log",
+								"message": "Card.Suit"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 123245322127006,
+							"parameters": {
+								"type": "log",
+								"message": "Card.Value"
+							}
+						},
+						{
+							"callFunction": "CalculatePossibleMoves",
+							"sid": 158410464157211,
+							"parameters": [
+								"Card.Value"
+							]
+						}
+					],
+					"sid": 567039614021066
+				}
+			],
+			"sid": 525593031090648
 		}
 	],
 	"sid": 753509500735737

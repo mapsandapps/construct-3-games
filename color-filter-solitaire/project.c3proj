@@ -69,6 +69,14 @@
 			"author": "Scirra",
 			"version": "r182.2",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
 		}
 	],
 	"uniqueId": "051pnjesy51",
@@ -84,7 +92,8 @@
 			"Foundation",
 			"SuitSelector",
 			"HelperText",
-			"GameBorder"
+			"GameBorder",
+			"DragBase"
 		],
 		"subfolders": [
 			{
@@ -107,7 +116,7 @@
 	"layouts": {
 		"items": [
 			"Deal",
-			"Dealt"
+			"Objects"
 		],
 		"subfolders": []
 	},
@@ -284,7 +293,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "progress-logo",
+		"loaderStyle": "splash",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true
