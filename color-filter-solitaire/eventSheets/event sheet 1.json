@@ -128,6 +128,15 @@
 								"x": "Card.X",
 								"y": "Card.Y"
 							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 605283629080364,
+							"parameters": {
+								"type": "log",
+								"message": "\"move dragbase\""
+							}
 						}
 					],
 					"sid": 976697547806193
@@ -151,6 +160,24 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "DragBase",
+							"sid": 327533952969569,
+							"parameters": {
+								"x": "Card.X",
+								"y": "Card.Y"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 726253688547200,
+							"parameters": {
+								"type": "log",
+								"message": "\"move dragbase\""
+							}
+						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -180,10 +207,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 838461434227030,
+							"sid": 121384205666469,
 							"parameters": {
 								"variable": "NumberOfCardsBeingMoved",
-								"value": "0"
+								"value": "1"
 							}
 						},
 						{
@@ -313,6 +340,15 @@
 							],
 							"actions": [
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 803242517433002,
+									"parameters": {
+										"type": "log",
+										"message": "\"pin to dragbase\""
+									}
+								},
+								{
 									"id": "pin-to-object",
 									"objectClass": "Card",
 									"sid": 793841340772327,
@@ -321,6 +357,11 @@
 										"pin-to": "DragBase",
 										"mode": "position-only"
 									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Card",
+									"sid": 602344987597059
 								},
 								{
 									"callFunction": "PinSouthCard",
