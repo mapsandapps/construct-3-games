@@ -1,0 +1,376 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GRID_SIZE",
+			"type": "number",
+			"initialValue": "64",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 255565608862534
+		},
+		{
+			"eventType": "variable",
+			"name": "NUMBER_OF_COLUMNS",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 822469264560723
+		},
+		{
+			"eventType": "variable",
+			"name": "NUMBER_OF_ROWS",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 236221746473186
+		},
+		{
+			"eventType": "variable",
+			"name": "DnDPickupX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 289163865750128
+		},
+		{
+			"eventType": "variable",
+			"name": "DnDPickupY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 192898002020449
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "Magnet",
+					"sid": 576887521653519,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Magnet",
+					"sid": 376173801428072
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 460816441137339,
+					"parameters": {
+						"variable": "DnDPickupX",
+						"value": "Magnet.X"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 226642764837890,
+					"parameters": {
+						"variable": "DnDPickupY",
+						"value": "Magnet.Y"
+					}
+				}
+			],
+			"sid": 147047471362166
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Magnet",
+					"sid": 358809877375380,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [],
+			"sid": 446558601171975,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Magnet",
+							"sid": 888143768758942,
+							"parameters": {
+								"object": "DropZone"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Magnet",
+							"sid": 401758327166894,
+							"parameters": {
+								"x": "DropZone.X",
+								"y": "DropZone.Y"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Magnet",
+							"sid": 424577929270096,
+							"behaviorType": "Fade"
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Magnet",
+							"sid": 439349042195566,
+							"disabled": true,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "DropZone",
+							"sid": 323838768247202,
+							"disabled": true
+						}
+					],
+					"sid": 861755676422273,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "DropZone",
+									"sid": 437923003393135,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Magnet",
+									"sid": 931284276750357,
+									"parameters": {
+										"angle": "270"
+									}
+								},
+								{
+									"callFunction": "MagnetPointingRight",
+									"sid": 164236099066492,
+									"parameters": [
+										"DropZone.Row",
+										"Magnet.Color"
+									]
+								}
+							],
+							"sid": 611717310863968
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "DropZone",
+									"sid": 677022376902463,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "NUMBER_OF_COLUMNS + 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Magnet",
+									"sid": 772823581093149,
+									"parameters": {
+										"angle": "90"
+									}
+								},
+								{
+									"callFunction": "MagnetPointingLeft",
+									"sid": 156447740737512,
+									"parameters": [
+										"DropZone.Row",
+										"Magnet.Color"
+									]
+								}
+							],
+							"sid": 280529342405342
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "DropZone",
+									"sid": 700040626055090,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Magnet",
+									"sid": 931508138369397,
+									"parameters": {
+										"angle": "0"
+									}
+								},
+								{
+									"callFunction": "MagnetPointingDown",
+									"sid": 984340498383369,
+									"parameters": [
+										"DropZone.Column",
+										"Magnet.Color"
+									]
+								}
+							],
+							"sid": 284148316905673
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "DropZone",
+									"sid": 650585784459614,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "NUMBER_OF_ROWS + 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "Magnet",
+									"sid": 902507007348178,
+									"parameters": {
+										"angle": "180"
+									}
+								},
+								{
+									"callFunction": "MagnetPointingUp",
+									"sid": 576538700838707,
+									"parameters": [
+										"DropZone.Column",
+										"Magnet.Color"
+									]
+								}
+							],
+							"sid": 279241788228036
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 469649566184288
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Magnet",
+							"sid": 965042201380460,
+							"parameters": {
+								"x": "DnDPickupX",
+								"y": "DnDPickupY"
+							}
+						}
+					],
+					"sid": 814113098862932
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "MagneticBlock",
+					"sid": 285639918423052,
+					"parameters": {
+						"object": "MagneticBlock"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 816914515510510,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "MagneticBlock",
+					"sid": 237817789308740
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 872155489815137,
+					"parameters": {
+						"object-to-create": "Particles",
+						"layer": "\"Game\"",
+						"x": "MagneticBlock.X",
+						"y": "MagneticBlock.Y"
+					}
+				}
+			],
+			"sid": 917259407492489
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 874983280562677,
+					"parameters": {
+						"object": "Restart"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 371717343837061
+				}
+			],
+			"sid": 122902403948116
+		}
+	],
+	"sid": 432092434614361
+}

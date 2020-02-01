@@ -1,0 +1,50 @@
+{
+	"name": "DropZone",
+	"plugin-id": "Sprite",
+	"sid": 310880353777687,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Column",
+			"type": "number",
+			"desc": "",
+			"sid": 171812534740041
+		},
+		{
+			"name": "Row",
+			"type": "number",
+			"desc": "",
+			"sid": 250482534975888
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 22,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 570663233834071,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

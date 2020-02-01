@@ -1,0 +1,124 @@
+{
+	"name": "MagneticBlock",
+	"plugin-id": "Sprite",
+	"sid": 354348545200466,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Column",
+			"type": "number",
+			"desc": "",
+			"sid": 559138262069497
+		},
+		{
+			"name": "Row",
+			"type": "number",
+			"desc": "",
+			"sid": 474981817730023
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 961744556384235
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 107081232014164
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 43,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.5,
+								0.03125,
+								0.921875,
+								0.0625,
+								0.953125,
+								0.5,
+								0.921875,
+								0.921875,
+								0.5,
+								0.96875,
+								0.0625,
+								0.921875,
+								0.046875,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 518539606720010,
+				"name": "Blue",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 44,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.5,
+								0.03125,
+								0.921875,
+								0.0625,
+								0.953125,
+								0.5,
+								0.921875,
+								0.921875,
+								0.5,
+								0.96875,
+								0.0625,
+								0.921875,
+								0.046875,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 957578170301487,
+				"name": "Red",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

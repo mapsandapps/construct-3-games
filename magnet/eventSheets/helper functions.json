@@ -1,0 +1,1136 @@
+{
+	"name": "Helper functions",
+	"events": [
+		{
+			"functionName": "CanBlockMoveAsync",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [
+				{
+					"name": "InitialColumn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 572824294244425
+				},
+				{
+					"name": "InitialRow",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 968117909428772
+				},
+				{
+					"name": "NewColumn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 499353760150456
+				},
+				{
+					"name": "NewRow",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 633654237900868
+				},
+				{
+					"name": "BlockColor",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 369085954916438
+				},
+				{
+					"name": "BlockUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 619102570017617
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "cannot move if a block of the same color is in the new square, if a brick is in the new square, or if the magneticblock would be out of bounds"
+				}
+			],
+			"sid": 897477808890948,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 922667435649259,
+							"parameters": {
+								"variable": "NewColumn",
+								"comparison": 2,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 887100927611736,
+							"parameters": {
+								"variable": "NewRow",
+								"comparison": 2,
+								"value": "1"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 713327280035437,
+							"parameters": {
+								"variable": "NewColumn",
+								"comparison": 4,
+								"value": "NUMBER_OF_COLUMNS"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 879756955698030,
+							"parameters": {
+								"variable": "NewRow",
+								"comparison": 4,
+								"value": "NUMBER_OF_ROWS"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 492316690868810,
+							"parameters": {
+								"type": "log",
+								"message": "\"blocked by boundary\""
+							}
+						},
+						{
+							"callFunction": "FlashBlock",
+							"sid": 612994393852420,
+							"parameters": [
+								"BlockUID"
+							]
+						}
+					],
+					"sid": 890640598185053,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 896681354480275
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 475042557749693,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "NewColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 972759916110442,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "NewRow"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 886998289683382,
+							"parameters": {
+								"animation": "BlockColor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 147593268819542,
+							"parameters": {
+								"type": "log",
+								"message": "\"blocked by magneticblock\""
+							}
+						},
+						{
+							"callFunction": "FlashBlock",
+							"sid": 982142259666813,
+							"parameters": [
+								"BlockUID"
+							]
+						}
+					],
+					"sid": 400939947796168
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 166655032101757
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Brick",
+							"sid": 119739722643441,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "NewColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Brick",
+							"sid": 299283573169642,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "NewRow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 888159405018771,
+							"parameters": {
+								"type": "log",
+								"message": "\"blocked by bricks\""
+							}
+						},
+						{
+							"callFunction": "FlashBlock",
+							"sid": 248343863366965,
+							"parameters": [
+								"BlockUID"
+							]
+						}
+					],
+					"sid": 330970625836430
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 229918203390724
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 182674314796350,
+							"parameters": {
+								"type": "log",
+								"message": "\"can move\""
+							}
+						},
+						{
+							"callFunction": "MoveBlock",
+							"sid": 197824317570284,
+							"parameters": [
+								"NewColumn",
+								"NewRow",
+								"BlockUID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 293142716591875
+						}
+					],
+					"sid": 549989017062801
+				}
+			]
+		},
+		{
+			"functionName": "MoveBlock",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [
+				{
+					"name": "NewColumn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 567303009916828
+				},
+				{
+					"name": "NewRow",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 695663505474136
+				},
+				{
+					"name": "BlockUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 297222245299354
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "MagneticBlock",
+					"sid": 488354995740930,
+					"parameters": {
+						"unique-id": "BlockUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 449072460672059,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 620918638594656,
+							"parameters": {
+								"first-value": "NewColumn",
+								"comparison": 4,
+								"second-value": "MagneticBlock.Column"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "MagneticBlock",
+							"sid": 686620423147987,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "MagneticBlock.X + GRID_SIZE",
+								"time": "0.2",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 384674682467890
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 674030292371321,
+							"parameters": {
+								"first-value": "NewColumn",
+								"comparison": 2,
+								"second-value": "MagneticBlock.Column"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "MagneticBlock",
+							"sid": 575303905743372,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "MagneticBlock.X - GRID_SIZE",
+								"time": "0.2",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 229864422630182
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 585883642523135,
+							"parameters": {
+								"first-value": "NewRow",
+								"comparison": 4,
+								"second-value": "MagneticBlock.Row"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "MagneticBlock",
+							"sid": 736110466854978,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "MagneticBlock.Y + GRID_SIZE",
+								"time": "0.2",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 216842804457646
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 147819847906550,
+							"parameters": {
+								"first-value": "NewRow",
+								"comparison": 2,
+								"second-value": "MagneticBlock.Row"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "MagneticBlock",
+							"sid": 641558028533552,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "MagneticBlock.Y - GRID_SIZE",
+								"time": "0.2",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 872571184126235
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "MagneticBlock",
+							"sid": 451659233649423,
+							"parameters": {
+								"instance-variable": "Column",
+								"value": "NewColumn"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "MagneticBlock",
+							"sid": 672883345033323,
+							"parameters": {
+								"instance-variable": "Row",
+								"value": "NewRow"
+							}
+						}
+					],
+					"sid": 406784268905094
+				}
+			]
+		},
+		{
+			"functionName": "FlashBlock",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "BlockUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 323454115719384
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "MagneticBlock",
+					"sid": 121122182298289,
+					"parameters": {
+						"unique-id": "BlockUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "flash",
+					"objectClass": "MagneticBlock",
+					"sid": 299145675980696,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "0.1",
+						"off-time": "0.1",
+						"duration": "0.5"
+					}
+				}
+			],
+			"sid": 979592544300417
+		},
+		{
+			"functionName": "MagnetPointingDown",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Column",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 380732158644638
+				},
+				{
+					"name": "MagnetColor",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 631497669388470
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 410167515429762,
+					"parameters": {
+						"type": "log",
+						"message": "MagnetColor"
+					}
+				}
+			],
+			"sid": 462549631353383,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 251152350975288,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Row",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 234062778536790,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "Column"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 135608420827108,
+							"parameters": {
+								"animation": "MagnetColor"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "pull MagneticBlock up if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 388681417183219,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column",
+								"MagneticBlock.Row - 1",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 572608050901967
+						}
+					],
+					"sid": 251317701056215
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 518219963518302,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Row",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 813781687641679,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "Column"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 475797977649941,
+							"parameters": {
+								"animation": "MagnetColor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "push MagneticBlock down if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 470153043725300,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column",
+								"MagneticBlock.Row + 1",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 556630836745111
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 358374654369834,
+							"parameters": {
+								"type": "log",
+								"message": "loopindex"
+							}
+						}
+					],
+					"sid": 934001393026818
+				}
+			]
+		},
+		{
+			"functionName": "MagnetPointingUp",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Column",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 397828492942906
+				},
+				{
+					"name": "MagnetColor",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 800142571109560
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 619171772853926,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 637663427111491,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Row",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 748065339349302,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "Column"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 915059997919412,
+							"parameters": {
+								"animation": "MagnetColor"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "pull MagneticBlock down if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 102226629488372,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column",
+								"MagneticBlock.Row + 1",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 137985516528750
+						}
+					],
+					"sid": 578348181296339
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 947260365186817,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Row",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 671976664958069,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "Column"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 887136503789056,
+							"parameters": {
+								"animation": "MagnetColor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "push MagneticBlock up if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 924280940119118,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column",
+								"MagneticBlock.Row - 1",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 977474269108250
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 201578271041408,
+							"parameters": {
+								"type": "log",
+								"message": "loopindex"
+							}
+						}
+					],
+					"sid": 468354595785840
+				}
+			]
+		},
+		{
+			"functionName": "MagnetPointingLeft",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Row",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 705034289354443
+				},
+				{
+					"name": "MagnetColor",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 963943565700702
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 336998488269370,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 958289216082894,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Column",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 896991882304453,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "Row"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 245943985756101,
+							"parameters": {
+								"animation": "MagnetColor"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "pull MagneticBlock right if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 701814533022279,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column + 1",
+								"MagneticBlock.Row",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 746179995717866
+						}
+					],
+					"sid": 116636191788294
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 292892500411684,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Column",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 764278478696862,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "Row"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 898345321166855,
+							"parameters": {
+								"animation": "MagnetColor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "push MagneticBlock left if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 332217205997112,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column - 1",
+								"MagneticBlock.Row",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 504890919809263
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 397102057094688,
+							"parameters": {
+								"type": "log",
+								"message": "loopindex"
+							}
+						}
+					],
+					"sid": 720815127436771
+				}
+			]
+		},
+		{
+			"functionName": "MagnetPointingRight",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Row",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 564713498514650
+				},
+				{
+					"name": "MagnetColor",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 457718149321485
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 525097308766698,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 915769195010701,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Column",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 584493296872058,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "Row"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 680703564003626,
+							"parameters": {
+								"animation": "MagnetColor"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "pull MagneticBlock left if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 401528492964547,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column - 1",
+								"MagneticBlock.Row",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 622783086955173
+						}
+					],
+					"sid": 756142104311531
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 900369425618650,
+							"parameters": {
+								"object": "MagneticBlock",
+								"expression": "MagneticBlock.Column",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "MagneticBlock",
+							"sid": 202366924598534,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "Row"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "MagneticBlock",
+							"sid": 585706244102870,
+							"parameters": {
+								"animation": "MagnetColor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "push MagneticBlock right if possible"
+						},
+						{
+							"callFunction": "CanBlockMoveAsync",
+							"sid": 837656969245014,
+							"parameters": [
+								"MagneticBlock.Column",
+								"MagneticBlock.Row",
+								"MagneticBlock.Column + 1",
+								"MagneticBlock.Row",
+								"MagneticBlock.AnimationName",
+								"MagneticBlock.UID"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 155708134387772
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 644510651406356,
+							"parameters": {
+								"type": "log",
+								"message": "loopindex"
+							}
+						}
+					],
+					"sid": 227591210434135
+				}
+			]
+		}
+	],
+	"sid": 749208450435972
+}

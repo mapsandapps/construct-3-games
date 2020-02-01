@@ -731,6 +731,23 @@
 								"instance-variable": "StackUID",
 								"value": "Stack.UID"
 							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 478508961413997,
+							"parameters": {
+								"variable": "NumberOfCardsBeingMoved",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "ScootLowerStacksDown",
+							"sid": 231948464514479,
+							"parameters": [
+								"Stack.Column",
+								"Stack.Row"
+							]
 						}
 					],
 					"sid": 472941558674143,
@@ -750,15 +767,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 463710413022055,
-									"parameters": {
-										"variable": "NumberOfCardsBeingMoved",
-										"value": "1"
-									}
-								},
 								{
 									"callFunction": "MoveCardToStack",
 									"sid": 957362076436564,
@@ -842,6 +850,15 @@
 							"parameters": {
 								"y": "Stack.Y + (Card.IndexInStack * CARD_OFFSET)"
 							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 771959667088586,
+							"parameters": {
+								"variable": "NumberOfCardsBeingMoved",
+								"value": "1"
+							}
 						}
 					],
 					"sid": 288758257189406,
@@ -861,15 +878,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 757657029673462,
-									"parameters": {
-										"variable": "NumberOfCardsBeingMoved",
-										"value": "1"
-									}
-								},
 								{
 									"callFunction": "ReturnCardToInitialPosition",
 									"sid": 238389761132145,
@@ -1220,6 +1228,15 @@
 					"sid": 303188626682524,
 					"parameters": {
 						"height": "Card.Height + ((Stack.NumberOfCards - 1) * CARD_OFFSET)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 529306657062985,
+					"parameters": {
+						"type": "log",
+						"message": "StackID"
 					}
 				}
 			],
@@ -2118,6 +2135,11 @@
 						{
 							"callFunction": "RecombineStacks",
 							"sid": 916217312469323
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 641658886754430
 						}
 					],
 					"sid": 386209239097825,
@@ -2187,6 +2209,135 @@
 								}
 							],
 							"sid": 494052519018409
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 569784042651063,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 194929603815607,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 148515094358547,
+									"parameters": {
+										"instance-variable": "StackUID",
+										"value": "Stack.UID"
+									}
+								}
+							],
+							"sid": 881153496175695
+						}
+					]
+				},
+				{
+					"functionName": "ScootLowerStacksDown",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StackColumn",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 332199778893592
+						},
+						{
+							"name": "StackRow",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 804457255775665
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 246092229111263,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "StackColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 455415697612664,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 4,
+								"value": "StackRow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "Stack",
+							"sid": 713821352824235,
+							"parameters": {
+								"y": "Stack.Y + CARD_OFFSET"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 685727385911755,
+							"parameters": {
+								"audio-file": "cardShove1",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 574743477368194,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 934924298428725,
+									"parameters": {
+										"instance-variable": "StackUID",
+										"comparison": 0,
+										"value": "Stack.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Card",
+									"sid": 893265984860685,
+									"parameters": {
+										"y": "Card.Y + CARD_OFFSET"
+									}
+								}
+							],
+							"sid": 401583075714113
 						}
 					]
 				}
@@ -2281,10 +2432,10 @@
 						{
 							"id": "play-by-name",
 							"objectClass": "Audio",
-							"sid": 722686859503691,
+							"sid": 698873202837117,
 							"parameters": {
 								"folder": "sounds",
-								"audio-file-name": "choose(\"cardShove1\", \"cardShove2\", \"cardShove3\", \"cardShove4\")",
+								"audio-file-name": "choose(\"cardShove2\", \"cardShove3\", \"cardShove4\")",
 								"loop": "not-looping",
 								"volume": "0",
 								"tag-optional": "\"\""

@@ -827,7 +827,69 @@
 									"text": "FIXME: there's an extra stack when a column splits twice"
 								}
 							],
-							"sid": 348419841255701
+							"sid": 348419841255701,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 356830511311278,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 750714657179191,
+											"parameters": {
+												"object": "Stack"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 117397895627982,
+											"parameters": {
+												"instance-variable": "StackUID",
+												"value": "Stack.UID"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 117307452823727,
+											"parameters": {
+												"type": "log",
+												"message": "\"set\""
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 984772784259132,
+											"parameters": {
+												"type": "log",
+												"message": "Card.IID"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 307407489691471,
+											"parameters": {
+												"type": "log",
+												"message": "Stack.UID"
+											}
+										}
+									],
+									"sid": 738125761525404
+								}
+							]
 						}
 					]
 				},
@@ -846,7 +908,7 @@
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
-					"functionIsAsync": false,
+					"functionIsAsync": true,
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [
@@ -947,6 +1009,15 @@
 									"sid": 540245724234539,
 									"parameters": {
 										"y": "MovingCardTo"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 105449882991460,
+									"parameters": {
+										"instance-variable": "StackUID",
+										"value": "Stack.UID"
 									}
 								},
 								{
