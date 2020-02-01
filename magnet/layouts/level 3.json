@@ -1,11 +1,11 @@
 {
-	"name": "Level 2",
+	"name": "Level 3",
 	"layers": [
 		{
 			"name": "Background",
 			"overriden": 1,
 			"instances": [],
-			"sid": 395567362550561,
+			"sid": 912291211552943,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -42,7 +42,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 3,
+					"uid": 7,
 					"instanceVariables": {
 						"Column": 1,
 						"Row": 1
@@ -83,7 +83,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 21,
+					"uid": 8,
 					"instanceVariables": {
 						"Column": 3,
 						"Row": 3
@@ -115,7 +115,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 59,
+					"uid": 9,
 					"instanceVariables": {
 						"Color": "Blue"
 					},
@@ -173,7 +173,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 65,
+					"uid": 10,
 					"instanceVariables": {
 						"Column": 2,
 						"Row": 2
@@ -181,7 +181,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 256,
-						"y": 176,
+						"y": 304,
 						"width": 64,
 						"height": 64,
 						"originX": 0.5,
@@ -205,7 +205,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 66,
+					"uid": 11,
 					"instanceVariables": {
 						"Column": 4,
 						"Row": 2
@@ -237,7 +237,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 67,
+					"uid": 23,
 					"instanceVariables": {
 						"Color": "Blue"
 					},
@@ -295,7 +295,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 68,
+					"uid": 24,
 					"instanceVariables": {
 						"Color": "Blue"
 					},
@@ -353,7 +353,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 69,
+					"uid": 25,
 					"instanceVariables": {
 						"Color": "Red"
 					},
@@ -411,7 +411,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 70,
+					"uid": 26,
 					"instanceVariables": {
 						"Color": "Red"
 					},
@@ -469,7 +469,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 71,
+					"uid": 27,
 					"instanceVariables": {
 						"Color": "Red"
 					},
@@ -527,7 +527,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 72,
+					"uid": 28,
 					"instanceVariables": {
 						"Column": 5,
 						"Row": 4
@@ -568,7 +568,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 73,
+					"uid": 29,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -587,9 +587,173 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "MagneticBlock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Blue",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {
+						"Column": 1,
+						"Row": 1
+					},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 192,
+						"y": 304,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MagneticBlock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Red",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 19,
+					"instanceVariables": {
+						"Column": 5,
+						"Row": 4
+					},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 192,
+						"y": 240,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MagneticBlock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Blue",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 31,
+					"instanceVariables": {
+						"Column": 1,
+						"Row": 1
+					},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 320,
+						"y": 176,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MagneticBlock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Red",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 33,
+					"instanceVariables": {
+						"Column": 5,
+						"Row": 4
+					},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 320,
+						"y": 112,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
-			"sid": 950795645643355,
+			"sid": 426676402047358,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -617,7 +781,7 @@
 			"name": "Borders",
 			"overriden": 1,
 			"instances": [],
-			"sid": 939417843339271,
+			"sid": 169800634986879,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -645,7 +809,7 @@
 			"name": "Drop Zones",
 			"overriden": 1,
 			"instances": [],
-			"sid": 937087512435786,
+			"sid": 187262073100089,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -670,7 +834,7 @@
 			"global": false
 		}
 	],
-	"sid": 654845947188555,
+	"sid": 314449171349711,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 640,

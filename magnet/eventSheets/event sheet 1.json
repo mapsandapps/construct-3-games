@@ -124,26 +124,19 @@
 							}
 						},
 						{
-							"id": "start-fade",
+							"id": "set-wait-time",
 							"objectClass": "Magnet",
-							"sid": 424577929270096,
-							"behaviorType": "Fade"
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Magnet",
-							"sid": 439349042195566,
-							"disabled": true,
-							"behaviorType": "DragDrop",
+							"sid": 201425524739054,
+							"behaviorType": "Fade",
 							"parameters": {
-								"state": "disabled"
+								"wait-time": "0.2"
 							}
 						},
 						{
-							"id": "destroy",
-							"objectClass": "DropZone",
-							"sid": 323838768247202,
-							"disabled": true
+							"id": "start-fade",
+							"objectClass": "Magnet",
+							"sid": 156108856234104,
+							"behaviorType": "Fade"
 						}
 					],
 					"sid": 861755676422273,
@@ -164,11 +157,17 @@
 							],
 							"actions": [
 								{
-									"id": "set-angle",
+									"id": "tween-one-property",
 									"objectClass": "Magnet",
-									"sid": 931284276750357,
+									"sid": 542353077706179,
+									"behaviorType": "Tween",
 									"parameters": {
-										"angle": "270"
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "270",
+										"time": "0.1",
+										"ease": "noease",
+										"destroy-on-complete": "no"
 									}
 								},
 								{
@@ -198,11 +197,17 @@
 							],
 							"actions": [
 								{
-									"id": "set-angle",
+									"id": "tween-one-property",
 									"objectClass": "Magnet",
-									"sid": 772823581093149,
+									"sid": 240208948726216,
+									"behaviorType": "Tween",
 									"parameters": {
-										"angle": "90"
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "90",
+										"time": "0.1",
+										"ease": "noease",
+										"destroy-on-complete": "no"
 									}
 								},
 								{
@@ -232,11 +237,17 @@
 							],
 							"actions": [
 								{
-									"id": "set-angle",
+									"id": "tween-one-property",
 									"objectClass": "Magnet",
-									"sid": 931508138369397,
+									"sid": 667268841180043,
+									"behaviorType": "Tween",
 									"parameters": {
-										"angle": "0"
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "0",
+										"time": "0.1",
+										"ease": "noease",
+										"destroy-on-complete": "no"
 									}
 								},
 								{
@@ -266,11 +277,17 @@
 							],
 							"actions": [
 								{
-									"id": "set-angle",
+									"id": "tween-one-property",
 									"objectClass": "Magnet",
-									"sid": 902507007348178,
+									"sid": 622256367554905,
+									"behaviorType": "Tween",
 									"parameters": {
-										"angle": "180"
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "180",
+										"time": "0.2",
+										"ease": "noease",
+										"destroy-on-complete": "no"
 									}
 								},
 								{
@@ -346,9 +363,63 @@
 						"x": "MagneticBlock.X",
 						"y": "MagneticBlock.Y"
 					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 239596695520427
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 255757670174953,
+					"parameters": {
+						"type": "log",
+						"message": "MagneticBlock.Count"
+					}
 				}
 			],
-			"sid": 917259407492489
+			"sid": 917259407492489,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "win condition"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 445271233953317,
+							"parameters": {
+								"first-value": "MagneticBlock.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 756301376046699,
+							"parameters": {
+								"seconds": "0.7"
+							}
+						},
+						{
+							"id": "go-to-nextprevious-layout",
+							"objectClass": "System",
+							"sid": 174447171227663,
+							"parameters": {
+								"which": "next"
+							}
+						}
+					],
+					"sid": 729687040473977
+				}
+			]
 		},
 		{
 			"eventType": "block",

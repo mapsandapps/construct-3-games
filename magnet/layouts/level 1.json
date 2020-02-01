@@ -189,7 +189,7 @@
 						},
 						"BoundToLayout": {
 							"properties": {
-								"bound-by": "edge"
+								"bound-by": "origin"
 							}
 						},
 						"Fade": {
@@ -200,6 +200,11 @@
 								"destroy": true,
 								"enabled": false,
 								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -293,59 +298,6 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 19,
-					"instanceVariables": {
-						"Color": "Blue"
-					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						},
-						"BoundToLayout": {
-							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						}
-					},
-					"world": {
-						"x": 48,
-						"y": 304,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.53125,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Magnet",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Blue",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
 					"uid": 22,
 					"instanceVariables": {
 						"Color": "Blue"
@@ -359,7 +311,7 @@
 						},
 						"BoundToLayout": {
 							"properties": {
-								"bound-by": "edge"
+								"bound-by": "origin"
 							}
 						},
 						"Fade": {
@@ -370,65 +322,17 @@
 								"destroy": true,
 								"enabled": false,
 								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
 					"world": {
 						"x": 48,
 						"y": 432,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.53125,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Magnet",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Red",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 15,
-					"instanceVariables": {
-						"Color": "Red"
-					},
-					"behaviors": {
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": true
-							}
-						},
-						"BoundToLayout": {
-							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
-							}
-						}
-					},
-					"world": {
-						"x": 48,
-						"y": 112,
 						"width": 64,
 						"height": 64,
 						"originX": 0.5,
@@ -465,7 +369,7 @@
 						},
 						"BoundToLayout": {
 							"properties": {
-								"bound-by": "edge"
+								"bound-by": "origin"
 							}
 						},
 						"Fade": {
@@ -476,6 +380,11 @@
 								"destroy": true,
 								"enabled": false,
 								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -518,7 +427,7 @@
 						},
 						"BoundToLayout": {
 							"properties": {
-								"bound-by": "edge"
+								"bound-by": "origin"
 							}
 						},
 						"Fade": {
@@ -529,6 +438,11 @@
 								"destroy": true,
 								"enabled": false,
 								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -673,6 +587,238 @@
 						"height": 64,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Magnet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Blue",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 30,
+					"instanceVariables": {
+						"Color": "Blue"
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "origin"
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 592,
+						"y": 112,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.53125,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Magnet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Blue",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 32,
+					"instanceVariables": {
+						"Color": "Blue"
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "origin"
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 592,
+						"y": 368,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.53125,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Magnet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Red",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 34,
+					"instanceVariables": {
+						"Color": "Red"
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "origin"
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 592,
+						"y": 176,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.53125,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Magnet",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Red",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 35,
+					"instanceVariables": {
+						"Color": "Red"
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "origin"
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 592,
+						"y": 304,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.53125,
 						"color": [
 							1,
 							1,
