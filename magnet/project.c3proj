@@ -24,14 +24,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "NinePatch",
-			"name": "9-patch",
-			"author": "Scirra",
-			"version": "r182.2",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -106,7 +98,6 @@
 	"uniqueId": "08jocqd6u4a",
 	"objectTypes": {
 		"items": [
-			"Border",
 			"CreditsText",
 			"MagneticBlock",
 			"Brick",
@@ -114,7 +105,10 @@
 			"DropZone",
 			"TiledBackground",
 			"Particles",
-			"Restart"
+			"Restart",
+			"InfoText",
+			"InfoTextBackground",
+			"Grid"
 		],
 		"subfolders": [
 			{
@@ -135,8 +129,9 @@
 	},
 	"layouts": {
 		"items": [
-			"Game",
-			"Credits"
+			"Level 1",
+			"Credits",
+			"Level 2"
 		],
 		"subfolders": []
 	},
