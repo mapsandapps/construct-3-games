@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "NUMBER_OF_COLUMNS",
 			"type": "number",
-			"initialValue": "5",
+			"initialValue": "6",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -25,7 +25,7 @@
 			"eventType": "variable",
 			"name": "NUMBER_OF_ROWS",
 			"type": "number",
-			"initialValue": "5",
+			"initialValue": "6",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -50,6 +50,26 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 192898002020449
+		},
+		{
+			"eventType": "variable",
+			"name": "GRID_TOP_POSITION",
+			"type": "number",
+			"initialValue": "80",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 551842324659019
+		},
+		{
+			"eventType": "variable",
+			"name": "GRID_LEFT_POSITION",
+			"type": "number",
+			"initialValue": "96",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 650807735702319
 		},
 		{
 			"eventType": "block",
@@ -102,6 +122,16 @@
 			"sid": 446558601171975,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "MagnetAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 950778636591889
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -147,55 +177,24 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "DropZone",
-									"sid": 437923003393135,
+									"sid": 592526835987900,
 									"parameters": {
-										"instance-variable": "Column",
+										"instance-variable": "Position",
 										"comparison": 0,
-										"value": "0"
+										"value": "\"Right\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "tween-one-property",
-									"objectClass": "Magnet",
-									"sid": 542353077706179,
-									"behaviorType": "Tween",
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 174607778436421,
 									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetAngle",
-										"end-value": "270",
-										"time": "0.1",
-										"ease": "noease",
-										"destroy-on-complete": "no"
+										"variable": "MagnetAngle",
+										"value": "90"
 									}
 								},
-								{
-									"callFunction": "MagnetPointingRight",
-									"sid": 164236099066492,
-									"parameters": [
-										"DropZone.Row",
-										"Magnet.Color"
-									]
-								}
-							],
-							"sid": 611717310863968
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "DropZone",
-									"sid": 677022376902463,
-									"parameters": {
-										"instance-variable": "Column",
-										"comparison": 0,
-										"value": "NUMBER_OF_COLUMNS + 1"
-									}
-								}
-							],
-							"actions": [
 								{
 									"id": "tween-one-property",
 									"objectClass": "Magnet",
@@ -214,8 +213,19 @@
 									"callFunction": "MagnetPointingLeft",
 									"sid": 156447740737512,
 									"parameters": [
-										"DropZone.Row",
 										"Magnet.Color"
+									]
+								},
+								{
+									"callFunction": "SpawnMoreMagnets",
+									"sid": 614997469791356,
+									"parameters": [
+										"0.1",
+										"DropZone.Position",
+										"90",
+										"Magnet.AnimationName",
+										"Magnet.X",
+										"Magnet.Y"
 									]
 								}
 							],
@@ -227,79 +237,45 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "DropZone",
-									"sid": 700040626055090,
+									"sid": 672635488599656,
 									"parameters": {
-										"instance-variable": "Row",
+										"instance-variable": "Position",
 										"comparison": 0,
-										"value": "0"
+										"value": "\"Top\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "tween-one-property",
-									"objectClass": "Magnet",
-									"sid": 667268841180043,
-									"behaviorType": "Tween",
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 584755758247962,
 									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetAngle",
-										"end-value": "0",
-										"time": "0.1",
-										"ease": "noease",
-										"destroy-on-complete": "no"
+										"variable": "MagnetAngle",
+										"value": "0"
 									}
 								},
 								{
 									"callFunction": "MagnetPointingDown",
 									"sid": 984340498383369,
 									"parameters": [
-										"DropZone.Column",
 										"Magnet.Color"
+									]
+								},
+								{
+									"callFunction": "SpawnMoreMagnets",
+									"sid": 586518647179594,
+									"parameters": [
+										"0",
+										"DropZone.Position",
+										"0",
+										"Magnet.AnimationName",
+										"Magnet.X",
+										"Magnet.Y"
 									]
 								}
 							],
 							"sid": 284148316905673
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "DropZone",
-									"sid": 650585784459614,
-									"parameters": {
-										"instance-variable": "Row",
-										"comparison": 0,
-										"value": "NUMBER_OF_ROWS + 1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "tween-one-property",
-									"objectClass": "Magnet",
-									"sid": 622256367554905,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "offsetAngle",
-										"end-value": "180",
-										"time": "0.2",
-										"ease": "noease",
-										"destroy-on-complete": "no"
-									}
-								},
-								{
-									"callFunction": "MagnetPointingUp",
-									"sid": 576538700838707,
-									"parameters": [
-										"DropZone.Column",
-										"Magnet.Color"
-									]
-								}
-							],
-							"sid": 279241788228036
 						}
 					]
 				},
@@ -377,49 +353,13 @@
 						"type": "log",
 						"message": "MagneticBlock.Count"
 					}
-				}
-			],
-			"sid": 917259407492489,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "win condition"
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 445271233953317,
-							"parameters": {
-								"first-value": "MagneticBlock.Count",
-								"comparison": 0,
-								"second-value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 756301376046699,
-							"parameters": {
-								"seconds": "0.7"
-							}
-						},
-						{
-							"id": "go-to-nextprevious-layout",
-							"objectClass": "System",
-							"sid": 174447171227663,
-							"parameters": {
-								"which": "next"
-							}
-						}
-					],
-					"sid": 729687040473977
+					"callFunction": "CheckForWin",
+					"sid": 604772254304705
 				}
-			]
+			],
+			"sid": 917259407492489
 		},
 		{
 			"eventType": "block",
@@ -441,6 +381,138 @@
 				}
 			],
 			"sid": 122902403948116
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Give Items Their Data",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 501943443809032
+						}
+					],
+					"actions": [],
+					"sid": 702952813205609,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 449213850467574,
+									"parameters": {
+										"object": "Brick"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Brick",
+									"sid": 818206415462154,
+									"parameters": {
+										"instance-variable": "Column",
+										"value": "(Brick.X - GRID_LEFT_POSITION - (GRID_SIZE / 2)) / GRID_SIZE"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Brick",
+									"sid": 150250588735888,
+									"parameters": {
+										"instance-variable": "Row",
+										"value": "(Brick.Y - GRID_TOP_POSITION - (GRID_SIZE / 2)) / GRID_SIZE"
+									}
+								}
+							],
+							"sid": 765011642050717
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 114517298059832,
+									"parameters": {
+										"object": "MagneticBlock"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MagneticBlock",
+									"sid": 987908162027669,
+									"parameters": {
+										"instance-variable": "Column",
+										"value": "(MagneticBlock.X - GRID_LEFT_POSITION - (GRID_SIZE / 2)) / GRID_SIZE"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MagneticBlock",
+									"sid": 104472369368303,
+									"parameters": {
+										"instance-variable": "Row",
+										"value": "(MagneticBlock.Y - GRID_TOP_POSITION - (GRID_SIZE / 2)) / GRID_SIZE"
+									}
+								}
+							],
+							"sid": 547499384014058
+						}
+					]
+				}
+			],
+			"sid": 828058300683140
+		},
+		{
+			"functionName": "CheckForWin",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 628298271411172,
+					"parameters": {
+						"first-value": "MagneticBlock.Count",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 283106249468287,
+					"parameters": {
+						"seconds": "0.7"
+					}
+				},
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 329931285541413,
+					"parameters": {
+						"which": "next"
+					}
+				}
+			],
+			"sid": 371678829460087
 		}
 	],
 	"sid": 432092434614361

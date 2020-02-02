@@ -67,41 +67,41 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 922667435649259,
+							"sid": 799635066221129,
 							"parameters": {
 								"variable": "NewColumn",
 								"comparison": 2,
-								"value": "1"
+								"value": "0"
 							}
 						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 887100927611736,
+							"sid": 603366667908921,
 							"parameters": {
 								"variable": "NewRow",
 								"comparison": 2,
-								"value": "1"
+								"value": "0"
 							}
 						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 713327280035437,
+							"sid": 784807569813084,
 							"parameters": {
 								"variable": "NewColumn",
 								"comparison": 4,
-								"value": "NUMBER_OF_COLUMNS"
+								"value": "NUMBER_OF_COLUMNS - 1"
 							}
 						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 879756955698030,
+							"sid": 824718193856522,
 							"parameters": {
 								"variable": "NewRow",
 								"comparison": 4,
-								"value": "NUMBER_OF_ROWS"
+								"value": "NUMBER_OF_ROWS - 1"
 							}
 						}
 					],
@@ -517,13 +517,6 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "Column",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 380732158644638
-				},
-				{
 					"name": "MagnetColor",
 					"type": "string",
 					"initialValue": "",
@@ -533,17 +526,7 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 410167515429762,
-					"parameters": {
-						"type": "log",
-						"message": "MagnetColor"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 462549631353383,
 			"children": [
 				{
@@ -557,16 +540,6 @@
 								"object": "MagneticBlock",
 								"expression": "MagneticBlock.Row",
 								"order": "ascending"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 234062778536790,
-							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "Column"
 							}
 						},
 						{
@@ -618,16 +591,6 @@
 							}
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 813781687641679,
-							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "Column"
-							}
-						},
-						{
 							"id": "is-animation-playing",
 							"objectClass": "MagneticBlock",
 							"sid": 475797977649941,
@@ -657,171 +620,9 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 556630836745111
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 358374654369834,
-							"parameters": {
-								"type": "log",
-								"message": "loopindex"
-							}
 						}
 					],
 					"sid": 934001393026818
-				}
-			]
-		},
-		{
-			"functionName": "MagnetPointingUp",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Column",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 397828492942906
-				},
-				{
-					"name": "MagnetColor",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 800142571109560
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 619171772853926,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 637663427111491,
-							"parameters": {
-								"object": "MagneticBlock",
-								"expression": "MagneticBlock.Row",
-								"order": "descending"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 748065339349302,
-							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "Column"
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "MagneticBlock",
-							"sid": 915059997919412,
-							"parameters": {
-								"animation": "MagnetColor"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "pull MagneticBlock down if possible"
-						},
-						{
-							"callFunction": "CanBlockMoveAsync",
-							"sid": 102226629488372,
-							"parameters": [
-								"MagneticBlock.Column",
-								"MagneticBlock.Row",
-								"MagneticBlock.Column",
-								"MagneticBlock.Row + 1",
-								"MagneticBlock.AnimationName",
-								"MagneticBlock.UID"
-							]
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 137985516528750
-						}
-					],
-					"sid": 578348181296339
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 947260365186817,
-							"parameters": {
-								"object": "MagneticBlock",
-								"expression": "MagneticBlock.Row",
-								"order": "ascending"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 671976664958069,
-							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "Column"
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "MagneticBlock",
-							"sid": 887136503789056,
-							"parameters": {
-								"animation": "MagnetColor"
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "push MagneticBlock up if possible"
-						},
-						{
-							"callFunction": "CanBlockMoveAsync",
-							"sid": 924280940119118,
-							"parameters": [
-								"MagneticBlock.Column",
-								"MagneticBlock.Row",
-								"MagneticBlock.Column",
-								"MagneticBlock.Row - 1",
-								"MagneticBlock.AnimationName",
-								"MagneticBlock.UID"
-							]
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 977474269108250
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 201578271041408,
-							"parameters": {
-								"type": "log",
-								"message": "loopindex"
-							}
-						}
-					],
-					"sid": 468354595785840
 				}
 			]
 		},
@@ -832,13 +633,6 @@
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [
-				{
-					"name": "Row",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 705034289354443
-				},
 				{
 					"name": "MagnetColor",
 					"type": "string",
@@ -863,16 +657,6 @@
 								"object": "MagneticBlock",
 								"expression": "MagneticBlock.Column",
 								"order": "descending"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 896991882304453,
-							"parameters": {
-								"instance-variable": "Row",
-								"comparison": 0,
-								"value": "Row"
 							}
 						},
 						{
@@ -924,16 +708,6 @@
 							}
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 764278478696862,
-							"parameters": {
-								"instance-variable": "Row",
-								"comparison": 0,
-								"value": "Row"
-							}
-						},
-						{
 							"id": "is-animation-playing",
 							"objectClass": "MagneticBlock",
 							"sid": 898345321166855,
@@ -979,155 +753,154 @@
 			]
 		},
 		{
-			"functionName": "MagnetPointingRight",
+			"functionName": "SpawnMoreMagnets",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "Row",
+					"name": "Wait",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
-					"sid": 564713498514650
+					"sid": 962125952253799
 				},
 				{
-					"name": "MagnetColor",
+					"name": "Position",
 					"type": "string",
 					"initialValue": "",
 					"comment": "",
-					"sid": 457718149321485
+					"sid": 938052341799410
+				},
+				{
+					"name": "MagnetAngle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 879463512126041
+				},
+				{
+					"name": "MagnetAnimation",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 893565555132634
+				},
+				{
+					"name": "MagnetX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 444527679300568
+				},
+				{
+					"name": "MagnetY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 473510768968200
 				}
 			],
 			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 525097308766698,
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 748480120925804,
+					"parameters": {
+						"object": "DropZone"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "DropZone",
+					"sid": 531792912028108,
+					"parameters": {
+						"instance-variable": "Position",
+						"comparison": 0,
+						"value": "Position"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "create more magnet sprites along the side of the player-placed magnet to improve game mechanic clarity"
+				}
+			],
+			"sid": 987919378088832,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 915769195010701,
+							"id": "compare-x",
+							"objectClass": "DropZone",
+							"sid": 973143429649939,
 							"parameters": {
-								"object": "MagneticBlock",
-								"expression": "MagneticBlock.Column",
-								"order": "ascending"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 584493296872058,
-							"parameters": {
-								"instance-variable": "Row",
 								"comparison": 0,
-								"value": "Row"
-							}
+								"x-co-ordinate": "MagnetX"
+							},
+							"isInverted": true
 						},
 						{
-							"id": "is-animation-playing",
-							"objectClass": "MagneticBlock",
-							"sid": 680703564003626,
+							"id": "compare-y",
+							"objectClass": "DropZone",
+							"sid": 173380368292225,
 							"parameters": {
-								"animation": "MagnetColor"
+								"comparison": 0,
+								"y-co-ordinate": "MagnetY"
 							},
 							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"type": "comment",
-							"text": "pull MagneticBlock left if possible"
-						},
-						{
-							"callFunction": "CanBlockMoveAsync",
-							"sid": 401528492964547,
-							"parameters": [
-								"MagneticBlock.Column",
-								"MagneticBlock.Row",
-								"MagneticBlock.Column - 1",
-								"MagneticBlock.Row",
-								"MagneticBlock.AnimationName",
-								"MagneticBlock.UID"
-							]
-						},
-						{
-							"id": "wait-for-previous-actions",
+							"id": "wait",
 							"objectClass": "System",
-							"sid": 622783086955173
+							"sid": 694821808665921,
+							"parameters": {
+								"seconds": "Wait"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 834410681356770,
+							"parameters": {
+								"object-to-create": "Magnet",
+								"layer": "\"Game\"",
+								"x": "DropZone.X",
+								"y": "DropZone.Y"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Magnet",
+							"sid": 661276341722269,
+							"parameters": {
+								"angle": "MagnetAngle"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Magnet",
+							"sid": 661346084908865,
+							"parameters": {
+								"animation": "MagnetAnimation",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Magnet",
+							"sid": 752655981514962,
+							"behaviorType": "Fade"
 						}
 					],
-					"sid": 756142104311531
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 900369425618650,
-							"parameters": {
-								"object": "MagneticBlock",
-								"expression": "MagneticBlock.Column",
-								"order": "descending"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "MagneticBlock",
-							"sid": 202366924598534,
-							"parameters": {
-								"instance-variable": "Row",
-								"comparison": 0,
-								"value": "Row"
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "MagneticBlock",
-							"sid": 585706244102870,
-							"parameters": {
-								"animation": "MagnetColor"
-							}
-						}
-					],
-					"actions": [
-						{
-							"type": "comment",
-							"text": "push MagneticBlock right if possible"
-						},
-						{
-							"callFunction": "CanBlockMoveAsync",
-							"sid": 837656969245014,
-							"parameters": [
-								"MagneticBlock.Column",
-								"MagneticBlock.Row",
-								"MagneticBlock.Column + 1",
-								"MagneticBlock.Row",
-								"MagneticBlock.AnimationName",
-								"MagneticBlock.UID"
-							]
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 155708134387772
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 644510651406356,
-							"parameters": {
-								"type": "log",
-								"message": "loopindex"
-							}
-						}
-					],
-					"sid": 227591210434135
+					"sid": 198016583792127,
+					"isOrBlock": true
 				}
 			]
 		}

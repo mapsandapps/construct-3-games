@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 18202,
-	"name": "Magnet",
+	"name": "Magnets",
 	"runtime": "c3",
 	"useWorker": false,
 	"bundleAddons": false,
@@ -129,10 +129,11 @@
 	},
 	"layouts": {
 		"items": [
-			"Credits",
 			"Level 1",
 			"Level 2",
-			"Level 3"
+			"Level 3",
+			"Level 4",
+			"Credits"
 		],
 		"subfolders": []
 	},
@@ -258,7 +259,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true

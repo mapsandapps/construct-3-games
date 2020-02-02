@@ -1,5 +1,12 @@
 # My Construct 3 Games Monorepo
 
+## Magnets
+
+Puzzle Game made for [Weekly Game Jam #134: "Magnet"](https://itch.io/jam/weekly-game-jam-134) in January-February 2020
+
+* Folder: [/magnet](./magnet)
+* [Play on Itch](https://mapsandapps.itch.io/magnets)
+
 ## Spelling with the Fishes
 
 Word game created for [Weekly Game Jam #132: "Deep Dive"](https://itch.io/jam/weekly-game-jam-132) in January 2020
@@ -51,3 +58,4 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * Some art by [me](https://github.com/mapsandapps)
 * Art from the [2D Game Art Bundle](https://www.gamedevmarket.net/asset/2d-game-art-bundle-2018/) (purchased in the Humble 2D Game Dev Bundle)
 * [BigEval](https://github.com/aviaryan/bigEval.js) (Apache-2.0)
+* [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) font
