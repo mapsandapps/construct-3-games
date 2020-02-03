@@ -1,0 +1,494 @@
+{
+	"name": "Menus event sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LastLayout",
+			"type": "string",
+			"initialValue": "Level 1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 385815545978281
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 130882486765345,
+					"parameters": {
+						"object": "CreditsText"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CreditsText",
+					"sid": 136077955120062,
+					"parameters": {
+						"instance-variable": "URL",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 309009387806534,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 105056502061975
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 815174755312270
+				}
+			],
+			"actions": [],
+			"sid": 427283604140945,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 467924244080550,
+							"parameters": {
+								"object": "Checkbox"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 647303015814404,
+							"parameters": {
+								"object": "Magnet"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 602972944852521,
+							"parameters": {
+								"object": "PlayGameButton"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 176130497551560,
+							"parameters": {
+								"object": "RestartButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 644712113347593,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 644096277665035,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 331092702309971
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 424624562828080,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 652759598736992
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 705169625925772,
+					"parameters": {
+						"object": "CreditsText"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "CreditsText",
+					"sid": 986885678492542,
+					"parameters": {
+						"instance-variable": "URL",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "open-url-in-new-window",
+					"objectClass": "Browser",
+					"sid": 151867875825101,
+					"parameters": {
+						"url": "CreditsText.URL",
+						"tag": "\"NewWindow\""
+					}
+				}
+			],
+			"sid": 598938161059025
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 358365950610193,
+					"parameters": {
+						"object": "PlayGameButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 267753912824525,
+					"parameters": {
+						"layout": "LastLayout"
+					}
+				}
+			],
+			"sid": 117074719979782
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 992420423472937
+				}
+			],
+			"actions": [],
+			"sid": 663924773126703,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Checkbox",
+							"sid": 921111339409720,
+							"parameters": {
+								"instance-variable": "CheckboxName",
+								"comparison": 0,
+								"value": "\"Music\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 218194946390596,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 618704552112619,
+									"parameters": {
+										"variable": "IsMusicOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 372868273172164,
+									"parameters": {
+										"animation": "\"Checked\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 558275427896283
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 526803094754935
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 773857614770169,
+									"parameters": {
+										"animation": "\"Unchecked\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 124285993907036
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 332402811031431,
+					"parameters": {
+						"object": "Checkbox"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 326835784061650,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Checkbox",
+							"sid": 146951826747737,
+							"parameters": {
+								"instance-variable": "CheckboxName",
+								"comparison": 0,
+								"value": "\"Music\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 773389613470930,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 207691678445356,
+									"parameters": {
+										"variable": "IsMusicOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 911824072656737,
+									"parameters": {
+										"animation": "\"Unchecked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-silent",
+									"objectClass": "Audio",
+									"sid": 466214166052136,
+									"parameters": {
+										"mode": "silent"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 199017520395530,
+									"parameters": {
+										"variable": "IsMusicOn",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 353270504524504
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 502933360918785
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 633304654027556,
+									"parameters": {
+										"animation": "\"Checked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-silent",
+									"objectClass": "Audio",
+									"sid": 712553177056439,
+									"parameters": {
+										"mode": "not-silent"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 833049321275407,
+									"parameters": {
+										"variable": "IsMusicOn",
+										"value": "true"
+									}
+								},
+								{
+									"callFunction": "PlayMenuMusic",
+									"sid": 641546914071839
+								}
+							],
+							"sid": 801692815995043
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 867154080593728
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 465567735577098,
+					"parameters": {
+						"tag": "\"Boppin\""
+					}
+				}
+			],
+			"sid": 377956710695200,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 911448553370511,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayMenuMusic",
+							"sid": 240298524009716
+						}
+					],
+					"sid": 649907543570557
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 452716826105520
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 471073588285271,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 0,
+						"second-value": "\"Menu\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 139162284418021,
+					"parameters": {
+						"tag": "\"MenuMusic\""
+					}
+				}
+			],
+			"sid": 350097816802235
+		},
+		{
+			"functionName": "PlayMenuMusic",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 433875163128378,
+					"parameters": {
+						"audio-file": "Boppin",
+						"loop": "looping",
+						"volume": "0",
+						"tag-optional": "\"MenuMusic\""
+					}
+				}
+			],
+			"sid": 244501458636711
+		}
+	],
+	"sid": 434353731413066
+}

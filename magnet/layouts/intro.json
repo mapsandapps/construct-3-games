@@ -1,5 +1,5 @@
 {
-	"name": "Credits",
+	"name": "Intro",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -16,7 +16,7 @@
 						"image-scale-y": 1,
 						"image-angle": 0
 					},
-					"uid": 91,
+					"uid": 109,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -39,10 +39,10 @@
 				{
 					"type": "CreditsText",
 					"properties": {
-						"text": "Font: Sigmar One",
+						"text": "Game design & development",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 12,
+						"size": 16,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -52,21 +52,21 @@
 							1,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 12,
+					"uid": 110,
 					"instanceVariables": {
-						"URL": "https://fonts.google.com/specimen/Sigmar+One"
+						"URL": ""
 					},
 					"behaviors": {},
 					"world": {
-						"x": 112,
-						"y": 304,
-						"width": 144,
+						"x": 64,
+						"y": 144,
+						"width": 512,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
@@ -83,10 +83,10 @@
 				{
 					"type": "CreditsText",
 					"properties": {
-						"text": "Magnet and grid art by mapsandapps",
+						"text": "mapsandapps",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 12,
+						"size": 16,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -96,21 +96,21 @@
 							1,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 13,
+					"uid": 111,
 					"instanceVariables": {
 						"URL": "https://mapsandapps.itch.io/"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 112,
-						"y": 336,
-						"width": 288,
+						"x": 208,
+						"y": 176,
+						"width": 224,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
@@ -127,10 +127,10 @@
 				{
 					"type": "CreditsText",
 					"properties": {
-						"text": "Background & barriers from 2dgameartbundle",
+						"text": "Music & SFX",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 12,
+						"size": 16,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -140,21 +140,21 @@
 							1,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 61,
+					"uid": 112,
 					"instanceVariables": {
-						"URL": "https://www.humblebundle.com/software/2d-game-dev-bundle"
+						"URL": ""
 					},
 					"behaviors": {},
 					"world": {
-						"x": 112,
-						"y": 368,
-						"width": 336,
+						"x": 64,
+						"y": 240,
+						"width": 512,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
@@ -171,10 +171,10 @@
 				{
 					"type": "CreditsText",
 					"properties": {
-						"text": "Button art from Kenney",
+						"text": "Imperial R.J.",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 12,
+						"size": 16,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -184,21 +184,21 @@
 							1,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 2,
+					"uid": 113,
 					"instanceVariables": {
-						"URL": "https://kenney.nl/assets"
+						"URL": "https://soundcloud.com/mperial17/castler"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 112,
-						"y": 400,
-						"width": 176,
+						"x": 208,
+						"y": 272,
+						"width": 224,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
@@ -213,9 +213,71 @@
 					}
 				},
 				{
+					"type": "PlayGameButton",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 115,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 208,
+						"y": 384,
+						"width": 224,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Title",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 116,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 64,
+						"width": 282,
+						"height": 88,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "CreditsText",
 					"properties": {
-						"text": "Credits",
+						"text": "Play Game!",
 						"enable-bbcode": true,
 						"font": "SigmarOne-Regular",
 						"size": 18,
@@ -223,159 +285,27 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							1,
-							1,
-							1,
+							0.17254901960784313,
+							0.1568627450980392,
+							0.2549019607843137,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 47,
-					"instanceVariables": {
-						"URL": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 112,
-						"y": 192,
-						"width": 112,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "CreditsText",
-					"properties": {
-						"text": "You Won!",
-						"enable-bbcode": true,
-						"font": "SigmarOne-Regular",
-						"size": 48,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
+						"horizontal-alignment": "center",
 						"vertical-alignment": "center",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 90,
+					"uid": 117,
 					"instanceVariables": {
 						"URL": ""
 					},
 					"behaviors": {},
 					"world": {
-						"x": 112,
-						"y": 0,
-						"width": 384,
-						"height": 128,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "CreditsText",
-					"properties": {
-						"text": "Music & sound effects by Imperial R.J.",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 105,
-					"instanceVariables": {
-						"URL": "https://soundcloud.com/mperial17/castler"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 112,
-						"y": 272,
-						"width": 288,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "CreditsText",
-					"properties": {
-						"text": "Game dev & design by mapsandapps",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 106,
-					"instanceVariables": {
-						"URL": "https://mapsandapps.itch.io/"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 112,
-						"y": 240,
-						"width": 288,
-						"height": 32,
+						"x": 208,
+						"y": 384,
+						"width": 224,
+						"height": 36,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -397,7 +327,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 92,
+					"uid": 118,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -426,7 +356,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 107,
+					"uid": 119,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -447,7 +377,7 @@
 					}
 				}
 			],
-			"sid": 885389079040511,
+			"sid": 641155357599148,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -457,9 +387,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.17254901960784313,
+				0.1568627450980392,
+				0.2549019607843137,
 				1
 			],
 			"isTransparent": false,
@@ -472,7 +402,7 @@
 			"global": false
 		}
 	],
-	"sid": 709811587166431,
+	"sid": 860928981212985,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 640,

@@ -4,6 +4,8 @@
 
 Puzzle Game made for [Weekly Game Jam #134: "Magnet"](https://itch.io/jam/weekly-game-jam-134) in January-February 2020
 
+Collaboration with [Imperial R.J.](https://soundcloud.com/mperial17/castler) (music & SFX)
+
 * Folder: [/magnet](./magnet)
 * [Play on Itch](https://mapsandapps.itch.io/magnets)
 

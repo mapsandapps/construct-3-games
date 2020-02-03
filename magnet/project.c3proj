@@ -24,6 +24,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -50,6 +66,14 @@
 			"type": "plugin",
 			"id": "Particles",
 			"name": "Particles",
+			"author": "Scirra",
+			"version": "r182.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
 			"author": "Scirra",
 			"version": "r182.2",
 			"bundled": false
@@ -105,16 +129,23 @@
 			"DropZone",
 			"TiledBackground",
 			"Particles",
-			"Restart",
+			"RestartButton",
 			"InfoText",
 			"InfoTextBackground",
-			"Grid"
+			"Grid",
+			"Checkbox",
+			"PlayGameButton",
+			"Title",
+			"magnetsmotif",
+			"MenuButton"
 		],
 		"subfolders": [
 			{
 				"items": [
 					"Touch",
-					"Browser"
+					"Browser",
+					"Mouse",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -129,6 +160,8 @@
 	},
 	"layouts": {
 		"items": [
+			"Intro",
+			"Menu",
 			"Level 1",
 			"Level 2",
 			"Level 3",
@@ -139,8 +172,9 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1",
-			"Helper functions"
+			"Main event sheet",
+			"Helper functions",
+			"Menus event sheet"
 		],
 		"subfolders": []
 	},
@@ -154,7 +188,13 @@
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "Boppin.mp3",
+					"type": "audio/mpeg",
+					"sid": 846717979574736
+				}
+			],
 			"subfolders": []
 		},
 		"video": {
@@ -162,7 +202,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "SigmarOne-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 820949862779240
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {

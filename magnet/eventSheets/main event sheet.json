@@ -1,5 +1,5 @@
 {
-	"name": "Event sheet 1",
+	"name": "Main event sheet",
 	"events": [
 		{
 			"eventType": "variable",
@@ -70,6 +70,26 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 650807735702319
+		},
+		{
+			"eventType": "variable",
+			"name": "IsMusicOn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 936569532376941
+		},
+		{
+			"eventType": "variable",
+			"name": "IsSFXOn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 677143416988609
 		},
 		{
 			"eventType": "block",
@@ -167,6 +187,22 @@
 							"objectClass": "Magnet",
 							"sid": 156108856234104,
 							"behaviorType": "Fade"
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "RestartButton",
+							"sid": 227284359832217,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MenuButton",
+							"sid": 206626859797213,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 861755676422273,
@@ -369,8 +405,13 @@
 					"objectClass": "Touch",
 					"sid": 874983280562677,
 					"parameters": {
-						"object": "Restart"
+						"object": "RestartButton"
 					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "RestartButton",
+					"sid": 203160076293608
 				}
 			],
 			"actions": [
@@ -381,6 +422,44 @@
 				}
 			],
 			"sid": 122902403948116
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 338000951755746,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "MenuButton",
+					"sid": 231754885988787
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 357087047493138,
+					"parameters": {
+						"variable": "LastLayout",
+						"value": "LayoutName"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 867446361186667,
+					"parameters": {
+						"layout": "Menu"
+					}
+				}
+			],
+			"sid": 342282210238577
 		},
 		{
 			"eventType": "group",
@@ -513,6 +592,74 @@
 				}
 			],
 			"sid": 371678829460087
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 671657836540852
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "RestartButton",
+					"sid": 640702793053738,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "MenuButton",
+					"sid": 853655352251878,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 518430956202946,
+					"parameters": {
+						"type": "log",
+						"message": "\"new layout\""
+					}
+				}
+			],
+			"sid": 252848090627564,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 539558369134469,
+							"parameters": {
+								"tag": "\"Boppin\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 986924269303306,
+							"parameters": {
+								"audio-file": "Boppin",
+								"loop": "looping",
+								"volume": "0",
+								"tag-optional": "\"Boppin\""
+							}
+						}
+					],
+					"sid": 276072380221488
+				}
+			]
 		}
 	],
 	"sid": 432092434614361
