@@ -49,85 +49,71 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 815174755312270
-				}
-			],
-			"actions": [],
-			"sid": 427283604140945,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 467924244080550,
-							"parameters": {
-								"object": "Checkbox"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 647303015814404,
-							"parameters": {
-								"object": "Magnet"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 602972944852521,
-							"parameters": {
-								"object": "PlayGameButton"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 176130497551560,
-							"parameters": {
-								"object": "RestartButton"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-cursor-style",
-							"objectClass": "Mouse",
-							"sid": 644712113347593,
-							"parameters": {
-								"cursor-style": "hand"
-							}
-						}
-					],
-					"sid": 644096277665035,
-					"isOrBlock": true
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 940942578004817,
+					"parameters": {
+						"object": "Checkbox"
+					}
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 331092702309971
-						}
-					],
-					"actions": [
-						{
-							"id": "set-cursor-style",
-							"objectClass": "Mouse",
-							"sid": 424624562828080,
-							"parameters": {
-								"cursor-style": "normal"
-							}
-						}
-					],
-					"sid": 652759598736992
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 996947747151304,
+					"parameters": {
+						"object": "Magnet"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 423160226142511,
+					"parameters": {
+						"object": "PlayGameButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 811534425357253,
+					"parameters": {
+						"object": "RestartButton"
+					}
 				}
-			]
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 188058580431367,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 865003007354129,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 354400041005867
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 660130739896061,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 503549831852182
 		},
 		{
 			"eventType": "block",

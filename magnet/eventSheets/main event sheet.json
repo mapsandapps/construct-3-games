@@ -105,6 +105,76 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 782172408920472,
+					"parameters": {
+						"object": "Checkbox"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 671491472923199,
+					"parameters": {
+						"object": "Magnet"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 882897901816697,
+					"parameters": {
+						"object": "PlayGameButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 458214147871512,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 534122923969524,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 875491620657944,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 832308971847848
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 620132241527755,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 671332690100127
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-drag-start",
 					"objectClass": "Magnet",
 					"sid": 576887521653519,
