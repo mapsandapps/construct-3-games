@@ -274,6 +274,81 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Checkbox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Unchecked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 62,
+					"instanceVariables": {
+						"CheckboxName": "Color Blind"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 224,
+						"y": 208,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "CreditsText",
+					"properties": {
+						"text": "Color Blind Mode",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 73,
+					"instanceVariables": {
+						"URL": "https://fonts.google.com/specimen/Sigmar+One"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 192,
+						"width": 144,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 869445523949629,

@@ -92,6 +92,16 @@
 			"sid": 677143416988609
 		},
 		{
+			"eventType": "variable",
+			"name": "IsColorBlindModeOn",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 342905476196011
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -660,6 +670,74 @@
 					"sid": 276072380221488
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Color Blind Mode",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Magnet",
+							"sid": 281076096886952
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 494527048811626,
+							"parameters": {
+								"variable": "IsColorBlindModeOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Magnet",
+							"sid": 899739965728285,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 566146852846617
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "MagneticBlock",
+							"sid": 250793331706968
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 289707886923033,
+							"parameters": {
+								"variable": "IsColorBlindModeOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "MagneticBlock",
+							"sid": 697064498291951,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 671145206694928
+				}
+			],
+			"sid": 168402803587410
 		}
 	],
 	"sid": 432092434614361

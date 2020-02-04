@@ -488,6 +488,197 @@
 				}
 			],
 			"sid": 244501458636711
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Color Blind Mode - Menus",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 964742853199406
+						}
+					],
+					"actions": [],
+					"sid": 727191898649406,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Checkbox",
+									"sid": 241623435362708,
+									"parameters": {
+										"instance-variable": "CheckboxName",
+										"comparison": 0,
+										"value": "\"Color Blind\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 979761845075133,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 794016232527711,
+											"parameters": {
+												"variable": "IsColorBlindModeOn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Checkbox",
+											"sid": 689321102447599,
+											"parameters": {
+												"animation": "\"Checked\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 287442997163134
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 497787162119001
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Checkbox",
+											"sid": 846636391835465,
+											"parameters": {
+												"animation": "\"Unchecked\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 566091518734220
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 649841650393229,
+							"parameters": {
+								"object": "Checkbox"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 755052814748945,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Checkbox",
+									"sid": 908756377995719,
+									"parameters": {
+										"instance-variable": "CheckboxName",
+										"comparison": 0,
+										"value": "\"Color Blind\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 429436789791371,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 321991538908487,
+											"parameters": {
+												"variable": "IsColorBlindModeOn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Checkbox",
+											"sid": 927432362369671,
+											"parameters": {
+												"animation": "\"Unchecked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 188767971149936,
+											"parameters": {
+												"variable": "IsColorBlindModeOn",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 633085554002742
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 564156952835192
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Checkbox",
+											"sid": 394057599714086,
+											"parameters": {
+												"animation": "\"Checked\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 844201570084663,
+											"parameters": {
+												"variable": "IsColorBlindModeOn",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 453662488682104
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 716895583391341
 		}
 	],
 	"sid": 434353731413066

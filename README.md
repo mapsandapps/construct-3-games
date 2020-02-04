@@ -61,3 +61,4 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * Art from the [2D Game Art Bundle](https://www.gamedevmarket.net/asset/2d-game-art-bundle-2018/) (purchased in the Humble 2D Game Dev Bundle)
 * [BigEval](https://github.com/aviaryan/bigEval.js) (Apache-2.0)
 * [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) font
+* Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
