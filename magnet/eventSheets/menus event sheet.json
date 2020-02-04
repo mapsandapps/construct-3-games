@@ -162,17 +162,57 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 117074719979782,
+			"children": [
 				{
-					"id": "go-to-layout-by-name",
-					"objectClass": "System",
-					"sid": 267753912824525,
-					"parameters": {
-						"layout": "LastLayout"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 834495221556429,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Intro\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 363464376642654,
+							"parameters": {
+								"layout": "Level 1"
+							}
+						}
+					],
+					"sid": 610164314176101
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 931165123647724
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 389199942411172,
+							"parameters": {
+								"layout": "LastLayout"
+							}
+						}
+					],
+					"sid": 462107893881591
 				}
-			],
-			"sid": 117074719979782
+			]
 		},
 		{
 			"eventType": "block",
@@ -400,23 +440,22 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 911448553370511,
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 935076476165541,
 							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Menu\""
-							}
+								"tag": "\"MenuMusic\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "PlayMenuMusic",
-							"sid": 240298524009716
+							"sid": 162663986861410
 						}
 					],
-					"sid": 649907543570557
+					"sid": 650075805277414
 				}
 			]
 		},
@@ -424,32 +463,39 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-end-of-layout",
-					"objectClass": "System",
-					"sid": 452716826105520
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 330323420361236,
+					"parameters": {
+						"object": "MenuButton"
+					}
 				},
 				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 471073588285271,
-					"parameters": {
-						"first-value": "LayoutName",
-						"comparison": 0,
-						"second-value": "\"Menu\""
-					}
+					"id": "is-visible",
+					"objectClass": "MenuButton",
+					"sid": 385332769959786
 				}
 			],
 			"actions": [
 				{
-					"id": "stop",
-					"objectClass": "Audio",
-					"sid": 139162284418021,
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 512379979361366,
 					"parameters": {
-						"tag": "\"MenuMusic\""
+						"variable": "LastLayout",
+						"value": "LayoutName"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 520523794021661,
+					"parameters": {
+						"layout": "Menu"
 					}
 				}
 			],
-			"sid": 350097816802235
+			"sid": 390247902427849
 		},
 		{
 			"functionName": "PlayMenuMusic",
@@ -464,9 +510,9 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 433875163128378,
+					"sid": 922526241561789,
 					"parameters": {
-						"audio-file": "Boppin",
+						"audio-file": "Menu",
 						"loop": "looping",
 						"volume": "0",
 						"tag-optional": "\"MenuMusic\""

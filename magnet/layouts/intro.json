@@ -319,7 +319,7 @@
 					}
 				},
 				{
-					"type": "magnetsmotif",
+					"type": "MenuButton",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -327,14 +327,14 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 118,
+					"uid": 83,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 592,
-						"y": 240,
-						"width": 49,
-						"height": 357,
+						"x": 48,
+						"y": 48,
+						"width": 48,
+						"height": 48,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -348,24 +348,57 @@
 					}
 				},
 				{
-					"type": "magnetsmotif",
+					"type": "MagnetsMotif",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"origin": "top-left",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
 					},
-					"uid": 119,
+					"uid": 102,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 48,
-						"y": 240,
-						"width": 49,
-						"height": 357,
-						"originX": 0.5,
-						"originY": 0.5,
+						"x": 560,
+						"y": 16,
+						"width": 64,
+						"height": 448,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MagnetsMotif",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 107,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 80,
+						"y": 464,
+						"width": 64,
+						"height": 384,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

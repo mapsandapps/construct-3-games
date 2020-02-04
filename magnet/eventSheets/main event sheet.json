@@ -684,6 +684,14 @@
 			],
 			"actions": [
 				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 139162284418021,
+					"parameters": {
+						"tag": "\"MenuMusic\""
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "RestartButton",
 					"sid": 640702793053738,
@@ -728,7 +736,7 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 986924269303306,
+							"sid": 263472173877746,
 							"parameters": {
 								"audio-file": "Boppin",
 								"loop": "looping",

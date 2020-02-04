@@ -1,37 +1,20 @@
 {
-	"name": "magnetsmotif",
-	"plugin-id": "Sprite",
-	"sid": 365412915717125,
+	"name": "MagnetsMotif",
+	"plugin-id": "TiledBg",
+	"sid": 335343884705145,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
-	"animations": {
-		"items": [
-			{
-				"frames": [
-					{
-						"width": 49,
-						"height": 357,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 77,
-						"useCollisionPoly": true,
-						"duration": 1
-					}
-				],
-				"sid": 584862096715390,
-				"name": "Default",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 5
-			}
-		],
-		"subfolders": []
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7,
+		"useCollisionPoly": true
 	}
 }
