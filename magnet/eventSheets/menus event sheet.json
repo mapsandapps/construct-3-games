@@ -291,6 +291,72 @@
 							"sid": 124285993907036
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Checkbox",
+							"sid": 249655479670085,
+							"parameters": {
+								"instance-variable": "CheckboxName",
+								"comparison": 0,
+								"value": "\"SFX\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 758434864770477,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 146131521675666,
+									"parameters": {
+										"variable": "IsSFXOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 986057594942098,
+									"parameters": {
+										"animation": "\"Checked\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 354421777919567
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 668092064383565
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 389073636587877,
+									"parameters": {
+										"animation": "\"Unchecked\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 263607188165568
+						}
+					]
 				}
 			]
 		},
@@ -349,12 +415,9 @@
 									}
 								},
 								{
-									"id": "set-silent",
+									"id": "stop-all",
 									"objectClass": "Audio",
-									"sid": 466214166052136,
-									"parameters": {
-										"mode": "silent"
-									}
+									"sid": 305569252198278
 								},
 								{
 									"id": "set-boolean-eventvar",
@@ -388,14 +451,6 @@
 									}
 								},
 								{
-									"id": "set-silent",
-									"objectClass": "Audio",
-									"sid": 712553177056439,
-									"parameters": {
-										"mode": "not-silent"
-									}
-								},
-								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 833049321275407,
@@ -410,6 +465,90 @@
 								}
 							],
 							"sid": 801692815995043
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Checkbox",
+							"sid": 408104342198528,
+							"parameters": {
+								"instance-variable": "CheckboxName",
+								"comparison": 0,
+								"value": "\"SFX\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 560478927281249,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 245153425286775,
+									"parameters": {
+										"variable": "IsSFXOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 724857951823986,
+									"parameters": {
+										"animation": "\"Unchecked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 611181908354994,
+									"parameters": {
+										"variable": "IsSFXOn",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 923194249148370
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 988996735369406
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Checkbox",
+									"sid": 651278363413038,
+									"parameters": {
+										"animation": "\"Checked\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 160627507733420,
+									"parameters": {
+										"variable": "IsSFXOn",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 824147503811390
 						}
 					]
 				}
@@ -505,7 +644,16 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 681569653576486,
+					"parameters": {
+						"variable": "IsMusicOn"
+					}
+				}
+			],
 			"actions": [
 				{
 					"id": "play",

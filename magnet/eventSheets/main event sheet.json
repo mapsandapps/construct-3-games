@@ -343,6 +343,10 @@
 										"Magnet.X",
 										"Magnet.Y"
 									]
+								},
+								{
+									"callFunction": "PlayBlockMoveSound",
+									"sid": 770221532467706
 								}
 							],
 							"sid": 280529342405342
@@ -389,6 +393,10 @@
 										"Magnet.X",
 										"Magnet.Y"
 									]
+								},
+								{
+									"callFunction": "PlayBlockMoveSound",
+									"sid": 844419118334397
 								}
 							],
 							"sid": 284148316905673
@@ -473,6 +481,10 @@
 				{
 					"callFunction": "CheckForWin",
 					"sid": 604772254304705
+				},
+				{
+					"callFunction": "PlayBlockCollisionSound",
+					"sid": 637706913186026
 				}
 			],
 			"sid": 917259407492489
@@ -723,6 +735,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 950762641673751,
+							"parameters": {
+								"variable": "IsMusicOn"
+							}
+						},
+						{
 							"id": "is-tag-playing",
 							"objectClass": "Audio",
 							"sid": 539558369134469,
@@ -816,6 +836,82 @@
 				}
 			],
 			"sid": 168402803587410
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sound Effects",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "PlayBlockMoveSound",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 565876055088960,
+							"parameters": {
+								"variable": "IsSFXOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 537652033494936,
+							"parameters": {
+								"audio-file": "cardShove3",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 328495346099441
+				},
+				{
+					"functionName": "PlayBlockCollisionSound",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 642892059711456,
+							"parameters": {
+								"variable": "IsSFXOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 758185848357595,
+							"parameters": {
+								"audio-file": "woosh3",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 354386370989580
+				}
+			],
+			"sid": 861152349780528
 		}
 	],
 	"sid": 432092434614361
