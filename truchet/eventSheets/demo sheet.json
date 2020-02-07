@@ -1,0 +1,450 @@
+{
+	"name": "Demo sheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GRID_SIZE",
+			"type": "number",
+			"initialValue": "64",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 892994966917870
+		},
+		{
+			"eventType": "variable",
+			"name": "LAYOUT_WIDTH",
+			"type": "number",
+			"initialValue": "640",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 899335641805993
+		},
+		{
+			"eventType": "variable",
+			"name": "LAYOUT_HEIGHT",
+			"type": "number",
+			"initialValue": "640",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 574494463462676
+		},
+		{
+			"eventType": "variable",
+			"name": "Animation",
+			"type": "string",
+			"initialValue": "A",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 433865943951007
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 796366099001967
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 427428048882963,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 0,
+						"second-value": "\"Demo\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 999446671203446,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 495074178078480,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"A\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 243209563497852,
+							"parameters": {
+								"layer": "\"Layer 0\"",
+								"color": "rgbEx255(130, 255, 176)"
+							}
+						}
+					],
+					"sid": 381438795002786
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 211229135668174,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"B\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 400390380462470,
+							"parameters": {
+								"layer": "\"Layer 0\"",
+								"color": "rgbEx255(219,219,219)"
+							}
+						}
+					],
+					"sid": 570301821864631
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 606232454595416,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"C\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 380007317478119,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"D\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 427967705305422,
+							"parameters": {
+								"layer": "\"Layer 0\"",
+								"color": "rgbEx255(255,255,255)"
+							}
+						}
+					],
+					"sid": 521863685347935,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 867281566321155,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"E\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 736880115935614,
+							"parameters": {
+								"layer": "\"Layer 0\"",
+								"color": "rgbEx255(169,145,232)"
+							}
+						}
+					],
+					"sid": 867212972224369,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 495330855775874,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"F\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 578622886454501,
+							"parameters": {
+								"layer": "\"Layer 0\"",
+								"color": "rgbEx255(155,255,220)"
+							}
+						}
+					],
+					"sid": 526199974109653,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 118598703346559,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"G\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 428338076466943,
+							"parameters": {
+								"layer": "\"Layer 0\"",
+								"color": "rgbEx255(153,204,255)"
+							}
+						}
+					],
+					"sid": 331472656382314,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 749408357497811,
+							"parameters": {
+								"count": "LAYOUT_WIDTH / GRID_SIZE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CreateColumn",
+							"sid": 858476578696580,
+							"parameters": [
+								"loopindex"
+							]
+						}
+					],
+					"sid": 541567963788035
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 523479951317560,
+					"parameters": {
+						"interval-seconds": "0.7"
+					}
+				},
+				{
+					"id": "pick-random-instance",
+					"objectClass": "System",
+					"sid": 202620602553192,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Sprite",
+					"sid": 135352430473446,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetAngle",
+						"end-value": "Sprite.Angle + 90",
+						"time": "0.5",
+						"ease": "easeinoutsine",
+						"destroy-on-complete": "no"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Sprite",
+					"sid": 796228205363795,
+					"parameters": {
+						"frame-number": "random(Sprite.AnimationFrameCount)"
+					}
+				}
+			],
+			"sid": 725376903630123
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 369039667162179,
+					"parameters": {
+						"object": "Sprite"
+					}
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Sprite",
+					"sid": 435742420755717,
+					"behaviorType": "Tween",
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Sprite",
+					"sid": 587946521787255,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetAngle",
+						"end-value": "Sprite.Angle + 90",
+						"time": "0.3",
+						"ease": "easeinoutsine",
+						"destroy-on-complete": "no"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Sprite",
+					"sid": 256888091957201,
+					"parameters": {
+						"frame-number": "random(Sprite.AnimationFrameCount)"
+					}
+				}
+			],
+			"sid": 671290628125053
+		},
+		{
+			"functionName": "CreateColumn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Index",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 521701469073645
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "repeat",
+					"objectClass": "System",
+					"sid": 479087019061354,
+					"parameters": {
+						"count": "LAYOUT_HEIGHT / GRID_SIZE"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 307607128648411,
+					"parameters": {
+						"object-to-create": "Sprite",
+						"layer": "\"Layer 0\"",
+						"x": "Index * GRID_SIZE + (GRID_SIZE / 2)",
+						"y": "loopindex * GRID_SIZE + (GRID_SIZE / 2)"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Sprite",
+					"sid": 578391453845298,
+					"parameters": {
+						"animation": "Animation",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Sprite",
+					"sid": 384636536402148,
+					"parameters": {
+						"angle": "choose(0, 90)"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Sprite",
+					"sid": 486165458683514,
+					"parameters": {
+						"frame-number": "random(Sprite.AnimationFrameCount)"
+					}
+				}
+			],
+			"sid": 980158901691128
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 320833431687891,
+					"parameters": {
+						"key": 8
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 391860605363300,
+					"parameters": {
+						"layout": "Choose"
+					}
+				}
+			],
+			"sid": 860114231885795
+		}
+	],
+	"sid": 212718116157819
+}

@@ -1,0 +1,84 @@
+{
+	"name": "Choose sheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 176638377751836,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 314024093022677,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 918511693389205
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 204094913581285
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 262558197740209,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 889633731191342
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 543356944538404,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 972808256802410,
+					"parameters": {
+						"variable": "Animation",
+						"value": "Sprite.AnimationName"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 300220478190683,
+					"parameters": {
+						"layout": "Demo"
+					}
+				}
+			],
+			"sid": 552433998937690
+		}
+	],
+	"sid": 950362419842363
+}
