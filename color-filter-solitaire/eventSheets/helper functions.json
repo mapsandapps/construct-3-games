@@ -224,7 +224,7 @@
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
-					"functionIsAsync": false,
+					"functionIsAsync": true,
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
@@ -478,6 +478,33 @@
 											"parameters": {
 												"value": "\"true\""
 											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 996400259041055,
+											"parameters": {
+												"type": "log",
+												"message": "\"split stack here\""
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 948913516369152,
+											"parameters": {
+												"type": "log",
+												"message": "Card.Suit"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 391272213359757,
+											"parameters": {
+												"type": "log",
+												"message": "Card.Value"
+											}
 										}
 									],
 									"sid": 369161512673078
@@ -570,6 +597,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 199550588518878,
+							"parameters": {
+								"type": "log",
+								"message": "\"CreateStackFromSplit\""
+							}
+						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -774,17 +810,6 @@
 									"parameters": {
 										"height": "Card.Height + ((NumberOfCardsMoved - 1) * CARD_OFFSET)"
 									}
-								},
-								{
-									"callFunction": "DivideStack",
-									"sid": 621989474341259,
-									"parameters": [
-										"Stack.UID"
-									]
-								},
-								{
-									"type": "comment",
-									"text": "FIXME: there's an extra stack when a column splits twice"
 								}
 							],
 							"sid": 348419841255701,
@@ -821,6 +846,20 @@
 										}
 									],
 									"sid": 738125761525404
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "DivideStack",
+											"sid": 702780228009676,
+											"parameters": [
+												"Stack.UID"
+											]
+										}
+									],
+									"sid": 465284957977055
 								}
 							]
 						}

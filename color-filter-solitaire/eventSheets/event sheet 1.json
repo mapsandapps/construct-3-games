@@ -43,6 +43,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "USE_DEMO_DEAL",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 505002575653890
+		},
+		{
+			"eventType": "variable",
 			"name": "CardPickedUpFromStack",
 			"type": "number",
 			"initialValue": "0",
@@ -389,6 +399,7 @@
 								{
 									"callFunction": "IsCardNorthInSequence",
 									"sid": 834245906641376,
+									"disabled": true,
 									"parameters": [
 										"Card.Suit",
 										"Card.Value",
@@ -399,6 +410,10 @@
 								{
 									"callFunction": "PlayCardPlace",
 									"sid": 806724490445907
+								},
+								{
+									"callFunction": "DetermineWhichCardsAreMoveable",
+									"sid": 675517604286963
 								}
 							],
 							"sid": 613471760528414
@@ -508,6 +523,10 @@
 								{
 									"callFunction": "RepositionStacks",
 									"sid": 628726376611688
+								},
+								{
+									"callFunction": "DetermineWhichCardsAreMoveable",
+									"sid": 701449390500239
 								}
 							],
 							"sid": 840776423562527
@@ -692,6 +711,10 @@
 						{
 							"callFunction": "RepositionStacks",
 							"sid": 273734637562348
+						},
+						{
+							"callFunction": "DetermineWhichCardsAreMoveable",
+							"sid": 996939113108046
 						}
 					],
 					"sid": 472941558674143,
@@ -843,14 +866,14 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "SuitOfMovedCard",
+							"name": "SuitOfSouthCard",
 							"type": "string",
 							"initialValue": "",
 							"comment": "",
 							"sid": 868454289400619
 						},
 						{
-							"name": "ValueOfMovedCard",
+							"name": "ValueOfSouthCard",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -864,7 +887,7 @@
 							"sid": 831227901669216
 						},
 						{
-							"name": "IndexOfMovedCardInStack",
+							"name": "IndexOfSouthCardInStack",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -877,14 +900,6 @@
 							"id": "pick-by-unique-id",
 							"objectClass": "Stack",
 							"sid": 398317216182502,
-							"parameters": {
-								"unique-id": "StackUID"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
-							"sid": 834170864397567,
 							"parameters": {
 								"unique-id": "StackUID"
 							}
@@ -904,7 +919,7 @@
 							"parameters": {
 								"instance-variable": "IndexInStack",
 								"comparison": 0,
-								"value": "IndexOfMovedCardInStack - 1"
+								"value": "IndexOfSouthCardInStack - 1"
 							}
 						}
 					],
@@ -929,7 +944,7 @@
 									"parameters": {
 										"instance-variable": "Suit",
 										"comparison": 0,
-										"value": "SuitOfMovedCard"
+										"value": "SuitOfSouthCard"
 									}
 								},
 								{
@@ -939,7 +954,7 @@
 									"parameters": {
 										"instance-variable": "Value",
 										"comparison": 0,
-										"value": "ValueOfMovedCard + 1"
+										"value": "ValueOfSouthCard + 1"
 									}
 								}
 							],
@@ -961,6 +976,16 @@
 										"type": "log",
 										"message": "\"in sequence\""
 									}
+								},
+								{
+									"callFunction": "IsCardNorthInSequence",
+									"sid": 987264888948872,
+									"parameters": [
+										"Card.Suit",
+										"Card.Value",
+										"Stack.UID",
+										"Card.IndexInStack"
+									]
 								}
 							],
 							"sid": 160735265218507
@@ -999,7 +1024,348 @@
 					]
 				},
 				{
-					"functionName": "RecalculateCardVariables",
+					"functionName": "IsCardSouthInSequence",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "SuitOfNorthCard",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 922271844083470
+						},
+						{
+							"name": "ValueOfNorthCard",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 174094552473968
+						},
+						{
+							"name": "StackUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 687228945574413
+						},
+						{
+							"name": "IndexOfNorthCardInStack",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 682681716707409
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 347409060167441,
+							"parameters": {
+								"unique-id": "StackUID"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 550578946127238,
+							"parameters": {
+								"object": "Stack"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 328881382856542,
+							"parameters": {
+								"instance-variable": "IndexInStack",
+								"comparison": 0,
+								"value": "IndexOfNorthCardInStack + 1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 268580460184963,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 599828872816586,
+									"parameters": {
+										"animation": "\"Front\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 461382414839971,
+									"parameters": {
+										"instance-variable": "Suit",
+										"comparison": 0,
+										"value": "SuitOfNorthCard"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 661086061677122,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "ValueOfNorthCard - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 195795382517093,
+									"parameters": {
+										"value": "\"true\""
+									}
+								}
+							],
+							"sid": 892637453815418
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 543530209831825
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 381602897911458,
+									"parameters": {
+										"value": "\"false\""
+									}
+								}
+							],
+							"sid": 989882464785139
+						}
+					]
+				},
+				{
+					"functionName": "DetermineWhichCardsAreMoveable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 829949964948051,
+							"parameters": {
+								"object": "Card",
+								"expression": "Card.IndexInStack",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Stack",
+							"sid": 310719024916132,
+							"parameters": {
+								"object": "Card"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 233807428725530,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"callFunction": "CheckForWinCondition",
+							"sid": 391495098007895,
+							"disabled": true
+						}
+					],
+					"sid": 955893541682568,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 632970085813731,
+									"parameters": {
+										"animation": "\"Back\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 831296706873666,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 198509714351886
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 670018143399907
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 953100137028799,
+									"parameters": {
+										"instance-variable": "Suit",
+										"comparison": 0,
+										"value": "Filter"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 256213038565301,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Card",
+									"sid": 306518628701748,
+									"parameters": {
+										"opacity": "50"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 986060825290918,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 343055852302341
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 291135198003287
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 444962870247982,
+									"parameters": {
+										"first-value": "Functions.IsCardSouthInSequence(Card.Suit, Card.Value, Stack.UID, Card.IndexInStack)",
+										"comparison": 0,
+										"second-value": "\"true\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 831343722758201,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 306812445094225,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 584193010398943
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 318085153633220,
+									"parameters": {
+										"instance-variable": "IndexInStack",
+										"comparison": 0,
+										"value": "Stack.NumberOfCards - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 966394444061260,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"callFunction": "IsCardNorthInSequence",
+									"sid": 584810157078116,
+									"parameters": [
+										"Card.Suit",
+										"Card.Value",
+										"Stack.UID",
+										"Card.IndexInStack"
+									]
+								}
+							],
+							"sid": 984850309709029
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "NumberOfCardsOnFoundations",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 607227323074512
+				},
+				{
+					"functionName": "CheckForWinCondition",
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
@@ -1007,8 +1373,79 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
-					"sid": 955893541682568
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 947979996272552,
+							"parameters": {
+								"variable": "NumberOfCardsOnFoundations",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 666853415339673,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 438748788653223,
+									"parameters": {
+										"object": "Foundation"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 113399197777897,
+									"parameters": {
+										"variable": "NumberOfCardsOnFoundations",
+										"value": "Foundation.TopCardValue"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 605450158930015,
+									"parameters": {
+										"type": "log",
+										"message": "NumberOfCardsOnFoundations"
+									}
+								}
+							],
+							"sid": 274423310955501,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 696180405862668,
+											"parameters": {
+												"first-value": "NumberOfCardsOnFoundations",
+												"comparison": 0,
+												"second-value": "65"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "restart-layout",
+											"objectClass": "System",
+											"sid": 271481423442212
+										}
+									],
+									"sid": 516342013220615
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 579519412431749
@@ -1359,6 +1796,10 @@
 					"conditions": [],
 					"actions": [
 						{
+							"callFunction": "DetermineWhichCardsAreMoveable",
+							"sid": 402428945737136
+						},
+						{
 							"id": "set-animation-frame",
 							"objectClass": "Flips",
 							"sid": 442347971623651,
@@ -1443,8 +1884,8 @@
 						},
 						{
 							"id": "load",
-							"objectClass": "Stock",
-							"sid": 878249745810021,
+							"objectClass": "DemoDeal",
+							"sid": 686341590262025,
 							"parameters": {
 								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,1,1],\"\"data\"\":[[[13]],[[56]],[[23]],[[38]],[[57]],[[1]],[[21]],[[9]],[[61]],[[53]],[[27]],[[22]],[[30]],[[47]],[[11]],[[24]],[[32]],[[0]],[[51]],[[6]],[[37]],[[63]],[[25]],[[49]],[[10]],[[15]],[[64]],[[59]],[[46]],[[42]],[[41]],[[62]],[[43]],[[60]],[[54]],[[55]],[[8]],[[39]],[[18]],[[5]],[[26]],[[40]],[[4]],[[34]],[[16]],[[58]],[[33]],[[14]],[[29]],[[44]],[[45]],[[48]],[[2]],[[3]],[[28]],[[19]],[[50]],[[52]],[[20]],[[36]],[[7]],[[31]],[[12]],[[17]],[[35]]]}\""
 							}
@@ -1460,6 +1901,114 @@
 					],
 					"sid": 101111473425115,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-in-preview",
+									"objectClass": "System",
+									"sid": 284704915245734,
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 325048981251582,
+									"parameters": {
+										"variable": "USE_DEMO_DEAL"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 794492680233672,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "PickIndex",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 957178493269747
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "Stock",
+											"sid": 306105819238221,
+											"parameters": {
+												"axes": "x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 807891496006269,
+											"parameters": {
+												"variable": "PickIndex",
+												"value": "floor(random(DemoDeal.Width))"
+											}
+										},
+										{
+											"id": "set-at-x",
+											"objectClass": "Stock",
+											"sid": 666923038458553,
+											"parameters": {
+												"x": "Stock.CurX",
+												"value": "DemoDeal.At(PickIndex)"
+											}
+										},
+										{
+											"id": "delete",
+											"objectClass": "DemoDeal",
+											"sid": 732602522011787,
+											"parameters": {
+												"index": "PickIndex",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 722643483018409
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 341669204325789
+								},
+								{
+									"id": "for-each-element",
+									"objectClass": "Stock",
+									"sid": 761762363978755,
+									"parameters": {
+										"axes": "x"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-x",
+									"objectClass": "Stock",
+									"sid": 408705661994456,
+									"parameters": {
+										"x": "Stock.CurX",
+										"value": "DemoDeal.At(Stock.CurX)"
+									}
+								}
+							],
+							"sid": 345599107463905
+						},
 						{
 							"eventType": "variable",
 							"name": "RowBeingDealt",
@@ -2058,6 +2607,15 @@
 						{
 							"callFunction": "DivideStacks",
 							"sid": 665965201077675
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 330156040155365
+						},
+						{
+							"callFunction": "DetermineWhichCardsAreMoveable",
+							"sid": 865570317431613
 						}
 					],
 					"sid": 452257175497556,
@@ -2082,6 +2640,14 @@
 									"parameters": {
 										"animation": "\"Front\""
 									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 484355764980492,
+									"parameters": {
+										"object": "Stack"
+									}
 								}
 							],
 							"actions": [
@@ -2103,7 +2669,8 @@
 									}
 								}
 							],
-							"sid": 205392845515325
+							"sid": 205392845515325,
+							"disabled": true
 						}
 					]
 				},
@@ -2157,6 +2724,10 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 641658886754430
+						},
+						{
+							"callFunction": "DetermineWhichCardsAreMoveable",
+							"sid": 222152492852891
 						}
 					],
 					"sid": 386209239097825,
@@ -2216,7 +2787,8 @@
 									}
 								}
 							],
-							"sid": 494052519018409
+							"sid": 494052519018409,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -2283,12 +2855,11 @@
 							}
 						},
 						{
-							"id": "is-animation-playing",
+							"id": "is-enabled",
 							"objectClass": "Card",
-							"sid": 898778669752271,
-							"parameters": {
-								"animation": "\"Back\""
-							}
+							"sid": 736287583235973,
+							"behaviorType": "DragDrop",
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -2301,6 +2872,17 @@
 								"loop": "not-looping",
 								"volume": "0",
 								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Card",
+							"sid": 294005636102929,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.3"
 							}
 						}
 					],
@@ -2498,7 +3080,8 @@
 					"sid": 121543182764780
 				}
 			],
-			"sid": 740650994165030
+			"sid": 740650994165030,
+			"disabled": true
 		}
 	],
 	"sid": 753509500735737
