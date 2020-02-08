@@ -237,6 +237,15 @@
 								"variable": "NEW_STACK_OFFSET",
 								"value": "Card.Height"
 							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 293281536408106,
+							"parameters": {
+								"type": "log",
+								"message": "\"divide STACKS\""
+							}
 						}
 					],
 					"sid": 931832936057420,
@@ -292,7 +301,26 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 176267667305068,
+							"parameters": {
+								"type": "log",
+								"message": "\"divide stack\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 719733660957514,
+							"parameters": {
+								"type": "log",
+								"message": "StackUID"
+							}
+						}
+					],
 					"sid": 525318190233133,
 					"children": [
 						{
@@ -303,11 +331,13 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each",
+									"id": "for-each-ordered",
 									"objectClass": "System",
-									"sid": 649461034836410,
+									"sid": 268513271430766,
 									"parameters": {
-										"object": "Card"
+										"object": "Card",
+										"expression": "Card.IndexInStack",
+										"order": "ascending"
 									}
 								},
 								{

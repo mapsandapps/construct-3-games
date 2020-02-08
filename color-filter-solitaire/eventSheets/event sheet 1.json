@@ -969,15 +969,6 @@
 									}
 								},
 								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 918640615191170,
-									"parameters": {
-										"type": "log",
-										"message": "\"in sequence\""
-									}
-								},
-								{
 									"callFunction": "IsCardNorthInSequence",
 									"sid": 987264888948872,
 									"parameters": [
@@ -1007,15 +998,6 @@
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "disabled"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 273609497010071,
-									"parameters": {
-										"type": "log",
-										"message": "\"not in sequence\""
 									}
 								}
 							],
