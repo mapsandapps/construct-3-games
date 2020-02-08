@@ -356,19 +356,6 @@
 									],
 									"actions": [
 										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 727215969671540,
-											"parameters": {
-												"type": "log",
-												"message": "\"split the stack!\""
-											}
-										},
-										{
-											"type": "comment",
-											"text": "NEXT: this gives *all* the places where the stack should be split. create a new stack with a y based on the bottom position of the bottom-most stack. put the cards in it between this card and the next card where it should be split; pop them out of the current stack (use existing method)"
-										},
-										{
 											"callFunction": "CreateStackFromSplit",
 											"sid": 294025857061250,
 											"parameters": [
@@ -611,15 +598,6 @@
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 313643585465749,
-							"parameters": {
-								"type": "log",
-								"message": "NumberOfCardsToMove"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 176979244604685,
@@ -720,15 +698,6 @@
 										"variable": "NumberOfCardsMoved",
 										"value": "1"
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 693937325829589,
-									"parameters": {
-										"type": "log",
-										"message": "Card.Suit"
-									}
 								}
 							],
 							"sid": 943751213767627
@@ -752,15 +721,6 @@
 									"parameters": [
 										"Stack.UID"
 									]
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 828771467533942,
-									"parameters": {
-										"type": "log",
-										"message": "\"pop from stack\""
-									}
 								}
 							],
 							"sid": 920769958959131
@@ -857,33 +817,6 @@
 											"parameters": {
 												"instance-variable": "StackUID",
 												"value": "Stack.UID"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 117307452823727,
-											"parameters": {
-												"type": "log",
-												"message": "\"set\""
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 984772784259132,
-											"parameters": {
-												"type": "log",
-												"message": "Card.IID"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 307407489691471,
-											"parameters": {
-												"type": "log",
-												"message": "Stack.UID"
 											}
 										}
 									],
@@ -1250,6 +1183,187 @@
 				}
 			],
 			"sid": 906637440295640
+		},
+		{
+			"eventType": "variable",
+			"name": "BottomOfNorthStack",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 257961716734784
+		},
+		{
+			"functionName": "RepositionStacks",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 234080393968052,
+					"parameters": {
+						"object": "Stack"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Stack",
+					"sid": 512694843849094,
+					"parameters": {
+						"instance-variable": "Row",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 927866579961152,
+					"parameters": {
+						"audio-file": "cardShove1",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 929030144376548,
+					"parameters": {
+						"variable": "BottomOfNorthStack",
+						"value": "Stack.Y + Stack.Height"
+					}
+				},
+				{
+					"callFunction": "RepositionStacksInColumn",
+					"sid": 326631787415731,
+					"parameters": [
+						"Stack.Column"
+					]
+				}
+			],
+			"sid": 574743477368194
+		},
+		{
+			"functionName": "RepositionStacksInColumn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Column",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 280008371839566
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 336608603211895,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 345803040733413,
+							"parameters": {
+								"object": "Stack",
+								"expression": "Stack.Row",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 637859926092533,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "Column"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 249567001375662,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "Stack",
+							"sid": 323859305110299,
+							"parameters": {
+								"y": "BottomOfNorthStack + CARD_OFFSET"
+							}
+						}
+					],
+					"sid": 333675326180136,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 478626596066755,
+									"parameters": {
+										"instance-variable": "StackUID",
+										"comparison": 0,
+										"value": "Stack.UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Card",
+									"sid": 731291453548103,
+									"parameters": {
+										"y": "Stack.Y + (CARD_OFFSET * Card.IndexInStack)"
+									}
+								}
+							],
+							"sid": 438452312895274
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 398645322330547,
+									"parameters": {
+										"variable": "BottomOfNorthStack",
+										"value": "Stack.Y + Stack.Height"
+									}
+								}
+							],
+							"sid": 272015748225468
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 906649335853212

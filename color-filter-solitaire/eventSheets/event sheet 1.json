@@ -82,6 +82,16 @@
 			"sid": 610838901307219
 		},
 		{
+			"eventType": "variable",
+			"name": "CurrentScroll",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 358761298496694
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Game Mechanics",
@@ -128,15 +138,6 @@
 								"x": "Card.X",
 								"y": "Card.Y"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 605283629080364,
-							"parameters": {
-								"type": "log",
-								"message": "\"move dragbase\""
-							}
 						}
 					],
 					"sid": 976697547806193
@@ -167,15 +168,6 @@
 							"parameters": {
 								"x": "Card.X",
 								"y": "Card.Y"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 726253688547200,
-							"parameters": {
-								"type": "log",
-								"message": "\"move dragbase\""
 							}
 						},
 						{
@@ -222,63 +214,7 @@
 							]
 						}
 					],
-					"sid": 238516553340325,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 151653059105665,
-									"parameters": {
-										"instance-variable": "IndexInStack",
-										"comparison": 1,
-										"value": "Stack.NumberOfCards - 1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 489692639680025,
-									"parameters": {
-										"type": "log",
-										"message": "\"moving multiple cards\""
-									}
-								}
-							],
-							"sid": 978138642971126
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 267206995589060,
-									"parameters": {
-										"instance-variable": "IndexInStack",
-										"comparison": 0,
-										"value": "Stack.NumberOfCards - 1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 730649839341205,
-									"parameters": {
-										"type": "log",
-										"message": "\"moving one card\""
-									}
-								}
-							],
-							"sid": 467543805419405
-						}
-					]
+					"sid": 238516553340325
 				},
 				{
 					"functionName": "PinSouthCard",
@@ -339,15 +275,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 803242517433002,
-									"parameters": {
-										"type": "log",
-										"message": "\"pin to dragbase\""
-									}
-								},
 								{
 									"id": "pin-to-object",
 									"objectClass": "Card",
@@ -497,23 +424,23 @@
 									}
 								},
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 792427483036130,
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 424777415618003,
 									"parameters": {
-										"first-value": "Card.Suit",
+										"instance-variable": "Suit",
 										"comparison": 0,
-										"second-value": "Foundation.Suit"
+										"value": "Card.Suit"
 									}
 								},
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 760271541259837,
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 297553103972790,
 									"parameters": {
-										"first-value": "Card.Value",
+										"instance-variable": "TopCardValue",
 										"comparison": 0,
-										"second-value": "Foundation.TopCardValue + 1"
+										"value": "Card.Value - 1"
 									}
 								}
 							],
@@ -577,6 +504,10 @@
 								{
 									"callFunction": "UnpinCard",
 									"sid": 345802707947377
+								},
+								{
+									"callFunction": "RepositionStacks",
+									"sid": 628726376611688
 								}
 							],
 							"sid": 840776423562527
@@ -710,7 +641,7 @@
 						{
 							"id": "add-to-instvar",
 							"objectClass": "Stack",
-							"sid": 208775585037177,
+							"sid": 530792620652088,
 							"parameters": {
 								"instance-variable": "NumberOfCards",
 								"value": "1"
@@ -742,12 +673,25 @@
 							}
 						},
 						{
-							"callFunction": "ScootLowerStacksDown",
-							"sid": 231948464514479,
-							"parameters": [
-								"Stack.Column",
-								"Stack.Row"
-							]
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 840982373386943,
+							"parameters": {
+								"variable": "BottomOfNorthStack",
+								"value": "Stack.Y + Stack.Height"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Stack",
+							"sid": 982773392175130,
+							"parameters": {
+								"height": "Card.Height + (CARD_OFFSET * (Stack.NumberOfCards - 1))"
+							}
+						},
+						{
+							"callFunction": "RepositionStacks",
+							"sid": 273734637562348
 						}
 					],
 					"sid": 472941558674143,
@@ -1008,6 +952,15 @@
 									"parameters": {
 										"state": "enabled"
 									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 918640615191170,
+									"parameters": {
+										"type": "log",
+										"message": "\"in sequence\""
+									}
 								}
 							],
 							"sid": 160735265218507
@@ -1030,11 +983,32 @@
 									"parameters": {
 										"state": "disabled"
 									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 273609497010071,
+									"parameters": {
+										"type": "log",
+										"message": "\"not in sequence\""
+									}
 								}
 							],
 							"sid": 963675242660731
 						}
 					]
+				},
+				{
+					"functionName": "RecalculateCardVariables",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 955893541682568
 				}
 			],
 			"sid": 579519412431749
@@ -1228,15 +1202,6 @@
 					"sid": 303188626682524,
 					"parameters": {
 						"height": "Card.Height + ((Stack.NumberOfCards - 1) * CARD_OFFSET)"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 529306657062985,
-					"parameters": {
-						"type": "log",
-						"message": "StackID"
 					}
 				}
 			],
@@ -1875,47 +1840,99 @@
 									"parameters": {
 										"object": "Stack"
 									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Card",
-									"sid": 524301243085640,
-									"parameters": {
-										"object": "Stack"
-									}
-								},
-								{
-									"id": "pick-topbottom",
-									"objectClass": "Card",
-									"sid": 662347311898688,
-									"parameters": {
-										"which": "top"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 737776769364339,
-									"parameters": {
-										"first-value": "Card.Value",
-										"comparison": 0,
-										"second-value": "Value + 1"
-									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 865871549391247,
+							"children": [
 								{
-									"id": "push",
-									"objectClass": "PossibleMoves",
-									"sid": 776636283138794,
-									"parameters": {
-										"where": "back",
-										"value": "Stack.UID",
-										"axis": "x"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 362400192681497,
+											"parameters": {
+												"object": "Stack"
+											}
+										},
+										{
+											"id": "pick-topbottom",
+											"objectClass": "Card",
+											"sid": 197079407600803,
+											"parameters": {
+												"which": "top"
+											}
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 296020998608087,
+											"parameters": {
+												"first-value": "Card.Value",
+												"comparison": 0,
+												"second-value": "Value + 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "push",
+											"objectClass": "PossibleMoves",
+											"sid": 402898801831399,
+											"parameters": {
+												"where": "back",
+												"value": "Stack.UID",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 179493709517693
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 622727375978911
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Stack",
+											"sid": 204438138366601,
+											"parameters": {
+												"instance-variable": "NumberOfCards",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Stack",
+											"sid": 582564204668801,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "push",
+											"objectClass": "PossibleMoves",
+											"sid": 938907408277181,
+											"parameters": {
+												"where": "back",
+												"value": "Stack.UID",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 453544631654461
 								}
-							],
-							"sid": 865871549391247
+							]
 						}
 					]
 				}
@@ -2164,15 +2181,6 @@
 									"parameters": {
 										"opacity": "30"
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 294762587965261,
-									"parameters": {
-										"type": "log",
-										"message": "\"happening\""
-									}
 								}
 							],
 							"sid": 670301861806515
@@ -2242,102 +2250,6 @@
 								}
 							],
 							"sid": 881153496175695
-						}
-					]
-				},
-				{
-					"functionName": "ScootLowerStacksDown",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "StackColumn",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 332199778893592
-						},
-						{
-							"name": "StackRow",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 804457255775665
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Stack",
-							"sid": 246092229111263,
-							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "StackColumn"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Stack",
-							"sid": 455415697612664,
-							"parameters": {
-								"instance-variable": "Row",
-								"comparison": 4,
-								"value": "StackRow"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-y",
-							"objectClass": "Stack",
-							"sid": 713821352824235,
-							"parameters": {
-								"y": "Stack.Y + CARD_OFFSET"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 685727385911755,
-							"parameters": {
-								"audio-file": "cardShove1",
-								"loop": "not-looping",
-								"volume": "0",
-								"tag-optional": "\"\""
-							}
-						}
-					],
-					"sid": 574743477368194,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 934924298428725,
-									"parameters": {
-										"instance-variable": "StackUID",
-										"comparison": 0,
-										"value": "Stack.UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Card",
-									"sid": 893265984860685,
-									"parameters": {
-										"y": "Card.Y + CARD_OFFSET"
-									}
-								}
-							],
-							"sid": 401583075714113
 						}
 					]
 				}
@@ -2433,6 +2345,7 @@
 							"id": "play-by-name",
 							"objectClass": "Audio",
 							"sid": 698873202837117,
+							"disabled": true,
 							"parameters": {
 								"folder": "sounds",
 								"audio-file-name": "choose(\"cardShove2\", \"cardShove3\", \"cardShove4\")",
@@ -2482,24 +2395,6 @@
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 136293082926110,
-							"parameters": {
-								"type": "log",
-								"message": "Card.Suit"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 123245322127006,
-							"parameters": {
-								"type": "log",
-								"message": "Card.Value"
-							}
-						},
-						{
 							"callFunction": "CalculatePossibleMoves",
 							"sid": 158410464157211,
 							"parameters": [
@@ -2511,6 +2406,99 @@
 				}
 			],
 			"sid": 525593031090648
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 906191050198167,
+					"parameters": {
+						"direction": "down"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "scroll-to-y",
+					"objectClass": "System",
+					"sid": 361442211335353,
+					"parameters": {
+						"y": "CurrentScroll + 10"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 586645615290660,
+					"parameters": {
+						"variable": "CurrentScroll",
+						"value": "10"
+					}
+				}
+			],
+			"sid": 335126838805257
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-mouse-wheel",
+					"objectClass": "Mouse",
+					"sid": 180937509536945,
+					"parameters": {
+						"direction": "up"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "scroll-to-y",
+					"objectClass": "System",
+					"sid": 474481699969134,
+					"parameters": {
+						"y": "CurrentScroll - 10"
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 559749223012377,
+					"parameters": {
+						"variable": "CurrentScroll",
+						"value": "10"
+					}
+				}
+			],
+			"sid": 125373178136596
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Stack",
+					"sid": 748515455796476,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"comparison": 2,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "proooobably should figure out why this happens sometimes"
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Stack",
+					"sid": 121543182764780
+				}
+			],
+			"sid": 740650994165030
 		}
 	],
 	"sid": 753509500735737

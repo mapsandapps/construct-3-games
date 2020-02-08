@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 18202,
+	"savedWithRelease": 18203,
 	"name": "Color Filter Solitaire",
 	"runtime": "c3",
 	"useWorker": false,
@@ -11,7 +11,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,15 @@
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -35,7 +43,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -43,7 +51,7 @@
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -51,7 +59,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -59,15 +67,7 @@
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
 			"author": "Scirra",
-			"version": "r182.2",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
-			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
 			"bundled": false
 		},
 		{
@@ -75,7 +75,15 @@
 			"id": "Pin",
 			"name": "Pin",
 			"author": "Scirra",
-			"version": "r182.2",
+			"version": "r182.3",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r182.3",
 			"bundled": false
 		}
 	],
@@ -100,7 +108,8 @@
 				"items": [
 					"Browser",
 					"Touch",
-					"Audio"
+					"Audio",
+					"Mouse"
 				],
 				"subfolders": [],
 				"name": "System"
