@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "NUMBER_OF_STACK_COLUMNS",
 			"type": "number",
-			"initialValue": "4",
+			"initialValue": "5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -25,7 +25,7 @@
 			"eventType": "variable",
 			"name": "NUMBER_OF_SUITS",
 			"type": "number",
-			"initialValue": "4",
+			"initialValue": "5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -527,6 +527,18 @@
 								{
 									"callFunction": "DetermineWhichCardsAreMoveable",
 									"sid": 701449390500239
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 340250830516880,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"callFunction": "CheckForWinCondition",
+									"sid": 391495098007895
 								}
 							],
 							"sid": 840776423562527
@@ -1177,11 +1189,6 @@
 							"parameters": {
 								"state": "disabled"
 							}
-						},
-						{
-							"callFunction": "CheckForWinCondition",
-							"sid": 391495098007895,
-							"disabled": true
 						}
 					],
 					"sid": 955893541682568,
@@ -1258,39 +1265,6 @@
 								}
 							],
 							"sid": 343055852302341
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 291135198003287
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 444962870247982,
-									"parameters": {
-										"first-value": "Functions.IsCardSouthInSequence(Card.Suit, Card.Value, Stack.UID, Card.IndexInStack)",
-										"comparison": 0,
-										"second-value": "\"true\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-enabled",
-									"objectClass": "Card",
-									"sid": 831343722758201,
-									"behaviorType": "DragDrop",
-									"parameters": {
-										"state": "enabled"
-									}
-								}
-							],
-							"sid": 306812445094225,
-							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -1388,15 +1362,6 @@
 									"parameters": {
 										"variable": "NumberOfCardsOnFoundations",
 										"value": "Foundation.TopCardValue"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 605450158930015,
-									"parameters": {
-										"type": "log",
-										"message": "NumberOfCardsOnFoundations"
 									}
 								}
 							],
@@ -1719,6 +1684,10 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 860077624647963
+						},
+						{
+							"callFunction": "DealAcross",
+							"sid": 394848773318710
 						}
 					],
 					"sid": 742107552452083
@@ -1727,89 +1696,18 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each",
+							"id": "else",
 							"objectClass": "System",
-							"sid": 391920115377942,
-							"parameters": {
-								"object": "SuitSelector"
-							}
+							"sid": 909979731220528
 						}
 					],
 					"actions": [
 						{
-							"id": "set-opacity",
-							"objectClass": "SuitSelector",
-							"sid": 718908146003917,
-							"parameters": {
-								"opacity": "100"
-							}
+							"callFunction": "DealAcross",
+							"sid": 972769460829792
 						}
 					],
-					"sid": 902829574710931
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 645546153832966,
-							"parameters": {
-								"object": "Stack",
-								"expression": "Stack.X",
-								"order": "ascending"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "DealNextCardToStack",
-							"sid": 138344173810505,
-							"parameters": [
-								"Stack.UID",
-								true
-							]
-						}
-					],
-					"sid": 620890009330113
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "DetermineWhichCardsAreMoveable",
-							"sid": 402428945737136
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Flips",
-							"sid": 442347971623651,
-							"parameters": {
-								"frame-number": "Flips.AnimationFrame - 1"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 296054271633181,
-							"parameters": {
-								"audio-file": "cardFan1",
-								"loop": "not-looping",
-								"volume": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 846419992444238,
-							"parameters": {
-								"seconds": "0.3"
-							}
-						}
-					],
-					"sid": 902993291994050
+					"sid": 365710542355836
 				}
 			]
 		},
@@ -2102,15 +2000,6 @@
 										"loop": "not-looping",
 										"volume": "0",
 										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 313404580881157,
-									"parameters": {
-										"type": "log",
-										"message": "Stack.Count"
 									}
 								}
 							],
@@ -2690,6 +2579,15 @@
 								{
 									"callFunction": "ExitFilterMode",
 									"sid": 216475567260596
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 801705047230566,
+									"parameters": {
+										"type": "log",
+										"message": "\"exit filter mode normally\""
+									}
 								}
 							],
 							"sid": 238000935953947
@@ -2744,61 +2642,7 @@
 							"sid": 865570317431613
 						}
 					],
-					"sid": 452257175497556,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 854489824929161,
-									"parameters": {
-										"instance-variable": "Suit",
-										"comparison": 0,
-										"value": "Filter"
-									}
-								},
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Card",
-									"sid": 533940807531707,
-									"parameters": {
-										"animation": "\"Front\""
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Card",
-									"sid": 484355764980492,
-									"parameters": {
-										"object": "Stack"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-opacity",
-									"objectClass": "Card",
-									"sid": 185719951664596,
-									"parameters": {
-										"opacity": "50"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "Card",
-									"sid": 891056974355253,
-									"behaviorType": "DragDrop",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 205392845515325,
-							"disabled": true
-						}
-					]
+					"sid": 452257175497556
 				},
 				{
 					"functionName": "ExitFilterMode",
@@ -2849,11 +2693,11 @@
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 641658886754430
+							"sid": 965131761718529
 						},
 						{
 							"callFunction": "DetermineWhichCardsAreMoveable",
-							"sid": 222152492852891
+							"sid": 481831522499160
 						}
 					],
 					"sid": 386209239097825,
@@ -2878,43 +2722,18 @@
 									"parameters": {
 										"opacity": "30"
 									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 851363537433884,
+									"parameters": {
+										"type": "log",
+										"message": "\"make transparent\""
+									}
 								}
 							],
 							"sid": 670301861806515
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Card",
-									"sid": 860336916269006,
-									"parameters": {
-										"animation": "\"Front\""
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Card",
-									"sid": 715320037531333,
-									"parameters": {
-										"object": "Stack"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-enabled",
-									"objectClass": "Card",
-									"sid": 559896891135891,
-									"behaviorType": "DragDrop",
-									"parameters": {
-										"state": "enabled"
-									}
-								}
-							],
-							"sid": 494052519018409,
-							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -2948,6 +2767,17 @@
 								}
 							],
 							"sid": 881153496175695
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "DetermineWhichCardsAreMoveable",
+									"sid": 163857085461717
+								}
+							],
+							"sid": 336369804288444
 						}
 					]
 				}
@@ -3022,7 +2852,14 @@
 					"functionIsAsync": false,
 					"functionParameters": [],
 					"eventType": "function-block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "is-any-playing",
+							"objectClass": "Audio",
+							"sid": 614240273018686,
+							"isInverted": true
+						}
+					],
 					"actions": [
 						{
 							"id": "play-by-name",

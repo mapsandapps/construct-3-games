@@ -237,15 +237,6 @@
 								"variable": "NEW_STACK_OFFSET",
 								"value": "Card.Height"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 293281536408106,
-							"parameters": {
-								"type": "log",
-								"message": "\"divide STACKS\""
-							}
 						}
 					],
 					"sid": 931832936057420,
@@ -301,26 +292,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 176267667305068,
-							"parameters": {
-								"type": "log",
-								"message": "\"divide stack\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 719733660957514,
-							"parameters": {
-								"type": "log",
-								"message": "StackUID"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 525318190233133,
 					"children": [
 						{
@@ -508,33 +480,6 @@
 											"parameters": {
 												"value": "\"true\""
 											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 996400259041055,
-											"parameters": {
-												"type": "log",
-												"message": "\"split stack here\""
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 948913516369152,
-											"parameters": {
-												"type": "log",
-												"message": "Card.Suit"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 391272213359757,
-											"parameters": {
-												"type": "log",
-												"message": "Card.Value"
-											}
 										}
 									],
 									"sid": 369161512673078
@@ -627,15 +572,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 199550588518878,
-							"parameters": {
-								"type": "log",
-								"message": "\"CreateStackFromSplit\""
-							}
-						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -1293,17 +1229,6 @@
 			],
 			"actions": [
 				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 927866579961152,
-					"parameters": {
-						"audio-file": "cardShove1",
-						"loop": "not-looping",
-						"volume": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 929030144376548,
@@ -1320,7 +1245,34 @@
 					]
 				}
 			],
-			"sid": 574743477368194
+			"sid": 574743477368194,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-any-playing",
+							"objectClass": "Audio",
+							"sid": 433449226930068,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 592889137974944,
+							"parameters": {
+								"audio-file": "cardShove1",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 529902359055676
+				}
+			]
 		},
 		{
 			"functionName": "RepositionStacksInColumn",
@@ -1479,21 +1431,114 @@
 								"instance-variable": "Column",
 								"value": "loopindex"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 319504937315149,
-							"parameters": {
-								"type": "log",
-								"message": "Stack.Count"
-							}
 						}
 					],
 					"sid": 807391466408412
 				}
 			],
 			"sid": 237473772873906
+		},
+		{
+			"functionName": "DealAcross",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 849362602169704,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 458780068568635,
+							"parameters": {
+								"object": "SuitSelector"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "SuitSelector",
+							"sid": 499618017201252,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 755524781521790
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 997103822471940,
+							"parameters": {
+								"object": "Stack",
+								"expression": "Stack.X",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DealNextCardToStack",
+							"sid": 915154071469761,
+							"parameters": [
+								"Stack.UID",
+								true
+							]
+						}
+					],
+					"sid": 447179361089607
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Flips",
+							"sid": 859093613546071,
+							"parameters": {
+								"frame-number": "Flips.AnimationFrame - 1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 181615686503142,
+							"parameters": {
+								"audio-file": "cardFan1",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 548924111253673,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"callFunction": "DetermineWhichCardsAreMoveable",
+							"sid": 372702064612202
+						}
+					],
+					"sid": 355492751965204
+				}
+			]
 		}
 	],
 	"sid": 906649335853212
