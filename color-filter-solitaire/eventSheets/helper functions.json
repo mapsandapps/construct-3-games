@@ -1433,6 +1433,67 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Initializing Deal",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "CreateStacks",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 928601874617428,
+							"parameters": {
+								"count": "NUMBER_OF_STACK_COLUMNS"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 907658898215940,
+							"parameters": {
+								"object-to-create": "Stack",
+								"layer": "\"Stacks\"",
+								"x": "264 + 72 * loopindex",
+								"y": "32"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Stack",
+							"sid": 729543032086628,
+							"parameters": {
+								"instance-variable": "Column",
+								"value": "loopindex"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 319504937315149,
+							"parameters": {
+								"type": "log",
+								"message": "Stack.Count"
+							}
+						}
+					],
+					"sid": 807391466408412
+				}
+			],
+			"sid": 237473772873906
 		}
 	],
 	"sid": 906649335853212
