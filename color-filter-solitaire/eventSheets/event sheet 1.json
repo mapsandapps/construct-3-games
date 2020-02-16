@@ -125,6 +125,24 @@
 							"parameters": {
 								"frame-number": "6"
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 623060215081555,
+							"parameters": {
+								"variable": "Filter",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 706239567485043,
+							"parameters": {
+								"variable": "IsAbleToFilter",
+								"value": "true"
+							}
 						}
 					],
 					"sid": 936041975530402
@@ -1757,9 +1775,9 @@
 						{
 							"id": "load",
 							"objectClass": "DeckSuits",
-							"sid": 386504627121978,
+							"sid": 746754367743974,
 							"parameters": {
-								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,1,1],\"\"data\"\":[[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Circle\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Heart\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Triangle\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Diamond\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]],[[\"\"Pentagon\"\"]]]}\""
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,1,1],\"\"data\"\":[[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]],[[\"\"Green\"\"]]]}\""
 							}
 						},
 						{
