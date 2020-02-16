@@ -1,23 +1,16 @@
 {
-	"name": "Foundation",
+	"name": "BlackGround",
 	"plugin-id": "Sprite",
-	"sid": 461111986923274,
+	"sid": 304834204947917,
 	"isGlobal": false,
-	"instanceVariables": [
+	"instanceVariables": [],
+	"behaviorTypes": [
 		{
-			"name": "Suit",
-			"type": "string",
-			"desc": "",
-			"sid": 749228516804033
-		},
-		{
-			"name": "TopCardValue",
-			"type": "number",
-			"desc": "",
-			"sid": 965128202927512
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 333293375426777
 		}
 	],
-	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -27,16 +20,16 @@
 						"width": 250,
 						"height": 250,
 						"originX": 0.5,
-						"originY": 0,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 147,
+						"imageSpriteId": 12,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 767807529875226,
+				"sid": 840627689647432,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

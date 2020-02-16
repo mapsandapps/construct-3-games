@@ -1,0 +1,99 @@
+{
+	"name": "BlackPlayer",
+	"plugin-id": "Sprite",
+	"sid": 208493665446773,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 809213995933114
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 442546093018793
+		},
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 505994702389416
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 923813958306563
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 915827372897472
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 20,
+						"collisionPoly": {
+							"points": [
+								0.015625,
+								0.015625,
+								0.984375,
+								0.015625,
+								0.984375,
+								0.984375,
+								0.015625,
+								0.984375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 21,
+						"collisionPoly": {
+							"points": [
+								0.015625,
+								0.015625,
+								0.984375,
+								0.015625,
+								0.984375,
+								0.984375,
+								0.015625,
+								0.984375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 669054241433319,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

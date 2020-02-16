@@ -1,0 +1,1247 @@
+{
+	"name": "ePlayerMovement",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ActivePlayer",
+			"type": "string",
+			"initialValue": "Black",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 222849374359900
+		},
+		{
+			"eventType": "variable",
+			"name": "LastDirection",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 933832898381820
+		},
+		{
+			"eventType": "variable",
+			"name": "IsMoving",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 425013754684605
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 846946056607390
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 345160373591816,
+					"parameters": {
+						"variable": "ActivePlayer",
+						"value": "\"Black\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 802155724466067,
+					"parameters": {
+						"variable": "LastDirection",
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 266916881881249,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
+				},
+				{
+					"callFunction": "SetActivePlayer",
+					"sid": 760436714172390,
+					"parameters": [
+						"ActivePlayer"
+					]
+				}
+			],
+			"sid": 790786701104900
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 168374690682149,
+					"parameters": {
+						"key": 13
+					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 110120502051032,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetActivePlayer",
+					"sid": 777264498784098,
+					"parameters": [
+						"ActivePlayer = \"White\" ? \"Black\" : \"White\""
+					]
+				}
+			],
+			"sid": 503542670484349,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "WhitePlayer",
+					"sid": 139873742127002,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "WhitePlayer",
+					"sid": 558938025236270,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"callFunction": "GetDirection",
+					"sid": 383365266283538,
+					"parameters": [
+						"WhitePlayer.TileMovement.GridX",
+						"WhitePlayer.TileMovement.GridY",
+						"WhitePlayer.TileMovement.GridTargetX",
+						"WhitePlayer.TileMovement.GridTargetY"
+					]
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 939409347662478,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 242185866281874
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 498031202212473
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 383534942602680,
+					"parameters": {
+						"variable": "IsMoving"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "WhitePlayer",
+					"sid": 231211799837999,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PaintLastTile",
+					"sid": 624886275161448,
+					"parameters": [
+						"\"Black\""
+					]
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "WhitePlayer",
+					"sid": 727443553615294,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 395888516972781,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 699958198477665
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "BlackPlayer",
+					"sid": 910575078270825,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "BlackPlayer",
+					"sid": 609163047220100,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"callFunction": "GetDirection",
+					"sid": 880857987987081,
+					"parameters": [
+						"BlackPlayer.TileMovement.GridX",
+						"BlackPlayer.TileMovement.GridY",
+						"BlackPlayer.TileMovement.GridTargetX",
+						"BlackPlayer.TileMovement.GridTargetY"
+					]
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 837617865016792,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 539801790315898
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 254796558120268
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 423681273492023,
+					"parameters": {
+						"variable": "IsMoving"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "BlackPlayer",
+					"sid": 143551181067360,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PaintLastTile",
+					"sid": 864718052180637,
+					"parameters": [
+						"\"White\""
+					]
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "BlackPlayer",
+					"sid": 315599919512176,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 617764372209996,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 861703552181802
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Feedback for Wrong Moves",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 240268748704633,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [],
+					"sid": 805556014705560,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 272444148489742,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"Black\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 713678310242183,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 678057449626634,
+											"parameters": {
+												"object": "WhiteGround",
+												"offset-x": "0",
+												"offset-y": "-64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 483549820114928,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "0",
+												"offset-y": "-64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 522115759373688,
+											"parameters": {
+												"object": "WhitePlayer",
+												"offset-x": "0",
+												"offset-y": "-64"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "BlackPlayer",
+											"sid": 689484554913319,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 816207247116359,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 620627455133868,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"White\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 933129012547017,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 856554465048024,
+											"parameters": {
+												"object": "BlackGround",
+												"offset-x": "0",
+												"offset-y": "-64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 508179842330568,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "0",
+												"offset-y": "-64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 527475055172336,
+											"parameters": {
+												"object": "BlackPlayer",
+												"offset-x": "0",
+												"offset-y": "-64"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "WhitePlayer",
+											"sid": 452856993465548,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 471259806501762,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 533843776341649,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [],
+					"sid": 592253624481835,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 501799872531002,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"Black\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 784065479780934,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 634291026816299,
+											"parameters": {
+												"object": "WhiteGround",
+												"offset-x": "64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 197492142016296,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 473859188722693,
+											"parameters": {
+												"object": "WhitePlayer",
+												"offset-x": "64",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "BlackPlayer",
+											"sid": 352549593245148,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 418172370560862,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 181961254733298,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"White\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 585863860999135,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 732147665797486,
+											"parameters": {
+												"object": "BlackGround",
+												"offset-x": "64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 929985316723251,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 890168751828816,
+											"parameters": {
+												"object": "BlackPlayer",
+												"offset-x": "64",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "WhitePlayer",
+											"sid": 157266397831260,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 907341879833561,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 266272940494065,
+							"parameters": {
+								"key": 40
+							}
+						}
+					],
+					"actions": [],
+					"sid": 443549485841810,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 812160777402162,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"Black\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 888780675627804,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 599072320174468,
+											"parameters": {
+												"object": "WhiteGround",
+												"offset-x": "0",
+												"offset-y": "64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 131835930989740,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "0",
+												"offset-y": "64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 160037088884933,
+											"parameters": {
+												"object": "WhitePlayer",
+												"offset-x": "0",
+												"offset-y": "64"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "BlackPlayer",
+											"sid": 301666231125174,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 682985211127666,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 760096440962613,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"White\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 544599012224226,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 132792539700510,
+											"parameters": {
+												"object": "BlackGround",
+												"offset-x": "0",
+												"offset-y": "64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 997587383349966,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "0",
+												"offset-y": "64"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 181761652073082,
+											"parameters": {
+												"object": "BlackPlayer",
+												"offset-x": "0",
+												"offset-y": "64"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "WhitePlayer",
+											"sid": 667484955164119,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 150976429443332,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 547148239259978,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [],
+					"sid": 704673627285373,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 662308065390742,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"Black\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 817400504237742,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 533213355325742,
+											"parameters": {
+												"object": "WhiteGround",
+												"offset-x": "-64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 971427819800494,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "-64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "BlackPlayer",
+											"sid": 459661807206849,
+											"parameters": {
+												"object": "WhitePlayer",
+												"offset-x": "-64",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "BlackPlayer",
+											"sid": 161888932537041,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 602498517296579,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 514070614817434,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"comparison": 0,
+										"value": "\"White\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 509417321591497,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 718456956166687,
+											"parameters": {
+												"object": "BlackGround",
+												"offset-x": "-64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 924704870950629,
+											"parameters": {
+												"object": "Walls",
+												"offset-x": "-64",
+												"offset-y": "0"
+											}
+										},
+										{
+											"id": "is-overlapping-at-offset",
+											"objectClass": "WhitePlayer",
+											"sid": 776108888683267,
+											"parameters": {
+												"object": "BlackPlayer",
+												"offset-x": "-64",
+												"offset-y": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "WhitePlayer",
+											"sid": 149077732594731,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.2"
+											}
+										}
+									],
+									"sid": 992427266647131,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 121222466769315
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Alternate Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "FIXME: not really working like arrows (have to press once per move)",
+					"text-color": [
+						1,
+						0.14901960784313725,
+						0,
+						1
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 570061867047586,
+							"parameters": {
+								"key": 87
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "BlackPlayer",
+							"sid": 329069002029725,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "up"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "WhitePlayer",
+							"sid": 294674250609734,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 224010469440590,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 739943348341943,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "BlackPlayer",
+							"sid": 340772165040604,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "WhitePlayer",
+							"sid": 633028271905549,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 506928253250546,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 804482676951943,
+							"parameters": {
+								"key": 83
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "BlackPlayer",
+							"sid": 436895372693756,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "down"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "WhitePlayer",
+							"sid": 632703070563501,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 160961725108663,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 735107031365876,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "BlackPlayer",
+							"sid": 962964905401042,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "WhitePlayer",
+							"sid": 460877133194630,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 498438495147482,
+					"isOrBlock": true
+				}
+			],
+			"sid": 673164648354960
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "BlackPlayer",
+							"sid": 926117218518340,
+							"behaviorType": "TileMovement"
+						}
+					],
+					"actions": [
+						{
+							"id": "start-animation",
+							"objectClass": "BlackPlayer",
+							"sid": 792797620312843,
+							"parameters": {
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 487349388878758
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "WhitePlayer",
+							"sid": 140119156274596,
+							"behaviorType": "TileMovement"
+						}
+					],
+					"actions": [
+						{
+							"id": "start-animation",
+							"objectClass": "WhitePlayer",
+							"sid": 923764813831098,
+							"parameters": {
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 897618729896706
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "BlackPlayer",
+							"sid": 578611965474297,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "BlackPlayer",
+							"sid": 435273322780321,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 676696208979111
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "BlackPlayer",
+							"sid": 375108008461144,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "BlackPlayer",
+							"sid": 175289794099654,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 708739737094962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "WhitePlayer",
+							"sid": 366618583436992,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "left"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "WhitePlayer",
+							"sid": 169880283550995,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 397480413218497
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving-direction",
+							"objectClass": "WhitePlayer",
+							"sid": 979508464986924,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"direction": "right"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "WhitePlayer",
+							"sid": 136481746201221,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 861140305403094
+				}
+			],
+			"sid": 806102894072026
+		}
+	],
+	"sid": 703169006293839
+}

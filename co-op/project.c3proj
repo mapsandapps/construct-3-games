@@ -1,17 +1,17 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 18203,
-	"name": "Color Filter Solitaire",
+	"savedWithRelease": 18204,
+	"name": "co-op",
 	"runtime": "c3",
 	"useWorker": false,
 	"bundleAddons": false,
 	"usedAddons": [
 		{
 			"type": "plugin",
-			"id": "Browser",
-			"name": "Browser",
+			"id": "Keyboard",
+			"name": "Keyboard",
 			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
@@ -19,23 +19,15 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Audio",
-			"name": "Audio",
+			"id": "Browser",
+			"name": "Browser",
 			"author": "Scirra",
-			"version": "r182.3",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Mouse",
-			"name": "Mouse",
-			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
@@ -43,15 +35,15 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
+			"id": "TiledBg",
+			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
@@ -59,31 +51,15 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r182.3",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "NinePatch",
-			"name": "9-patch",
-			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
 			"type": "behavior",
-			"id": "DragnDrop",
-			"name": "Drag & Drop",
+			"id": "scrollto",
+			"name": "Scroll To",
 			"author": "Scirra",
-			"version": "r182.3",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Pin",
-			"name": "Pin",
-			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
@@ -91,7 +67,15 @@
 			"id": "bound",
 			"name": "Bound to layout",
 			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "TileMovement",
+			"name": "Tile movement",
+			"author": "Scirra",
+			"version": "r182.4",
 			"bundled": false
 		},
 		{
@@ -99,38 +83,56 @@
 			"id": "Flash",
 			"name": "Flash",
 			"author": "Scirra",
-			"version": "r182.3",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r182.4",
 			"bundled": false
 		}
 	],
-	"uniqueId": "051pnjesy51",
+	"uniqueId": "weo5gk7rcr6",
 	"objectTypes": {
 		"items": [
-			"Card",
-			"Stock",
-			"DeckValues",
-			"DeckSuits",
-			"Flips",
-			"Stack",
-			"PossibleMoves",
-			"Foundation",
-			"SuitSelector",
-			"HelperText",
-			"DragBase",
-			"DeckIndices",
-			"Background",
-			"Border"
+			"WhitePlayer",
+			"BlackPlayer",
+			"BlackTarget",
+			"WhiteTarget",
+			"Walls",
+			"BlackGround",
+			"WhiteGround",
+			"RestartButton",
+			"Text"
 		],
 		"subfolders": [
 			{
 				"items": [
-					"Browser",
+					"Keyboard",
 					"Touch",
-					"Audio",
-					"Mouse"
+					"Browser"
 				],
 				"subfolders": [],
-				"name": "System"
+				"name": "SystemObjects"
 			}
 		]
 	},
@@ -142,15 +144,21 @@
 	},
 	"layouts": {
 		"items": [
-			"Deal",
-			"Objects"
+			"Intro 1",
+			"Intro 2",
+			"Layout 1",
+			"Layout 2",
+			"Layout 3",
+			"Layout 4",
+			"Win"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1",
-			"Helper functions"
+			"eMain",
+			"ePlayerMovement",
+			"eHelperFunctions"
 		],
 		"subfolders": []
 	},
@@ -160,58 +168,7 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [
-				{
-					"name": "error5.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 174759090103401
-				},
-				{
-					"name": "cardFan1.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 311725950693377
-				},
-				{
-					"name": "cardPlace1.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 502275180489795
-				},
-				{
-					"name": "cardPlace2.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 746951147984261
-				},
-				{
-					"name": "cardPlace3.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 625164770146278
-				},
-				{
-					"name": "cardPlace4.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 520023878700852
-				},
-				{
-					"name": "cardShove1.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 313712173579442
-				},
-				{
-					"name": "cardShove2.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 831724116962551
-				},
-				{
-					"name": "cardShove3.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 868920088755246
-				},
-				{
-					"name": "cardShove4.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 485926148466145
-				}
-			],
+			"items": [],
 			"subfolders": []
 		},
 		"music": {
@@ -229,39 +186,39 @@
 		"icon": {
 			"items": [
 				{
-					"name": "loading-logo.png",
-					"type": "image/png",
-					"sid": 295661964920222
-				},
-				{
 					"name": "icon-16.png",
 					"type": "image/png",
-					"sid": 951261081972638
+					"sid": 543775020793181
 				},
 				{
 					"name": "icon-32.png",
 					"type": "image/png",
-					"sid": 668831502731413
-				},
-				{
-					"name": "icon-64.png",
-					"type": "image/png",
-					"sid": 425363133000078
+					"sid": 569382896268171
 				},
 				{
 					"name": "icon-128.png",
 					"type": "image/png",
-					"sid": 640041485468126
+					"sid": 639007307219547
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 638099512194748
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 560956715550255
 				},
 				{
 					"name": "icon-256.png",
 					"type": "image/png",
-					"sid": 867242784965687
+					"sid": 478923541542900
 				},
 				{
 					"name": "icon-512.png",
 					"type": "image/png",
-					"sid": 467301649750160
+					"sid": 423351647977047
 				}
 			],
 			"subfolders": []
@@ -312,7 +269,7 @@
 			0
 		],
 		"useHighDpi": true,
-		"orientations": "landscape",
+		"orientations": "portrait",
 		"enableWebGL": true,
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",
@@ -320,12 +277,12 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true
 	},
-	"viewportWidth": 640,
-	"viewportHeight": 960,
+	"viewportWidth": 448,
+	"viewportHeight": 640,
 	"firstLayout": null
 }

@@ -19,7 +19,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 480,
-						"y": 408,
+						"y": 504,
 						"width": 1024,
 						"height": 1024,
 						"originX": 0.5,
@@ -134,10 +134,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 77,
-						"y": 517,
-						"width": 122.25,
-						"height": 78.75,
+						"x": 720,
+						"y": 464,
+						"width": 195.60000000000002,
+						"height": 126,
 						"originX": 0.23006134969325154,
 						"originY": 0,
 						"color": [
@@ -146,7 +146,7 @@
 							1,
 							1
 						],
-						"angle": 0,
+						"angle": 1.5707963267948966,
 						"zElevation": 0
 					}
 				},
@@ -166,16 +166,16 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 156,
-						"y": 72,
+						"x": 160,
+						"y": 32,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.6313725490196078,
+							0.4,
+							0.2235294117647059,
 							1
 						],
 						"angle": 0,
@@ -198,16 +198,16 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 72,
-						"y": 72,
+						"x": 80,
+						"y": 32,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.9333333333333333,
+							0.7450980392156863,
+							0,
 							1
 						],
 						"angle": 0,
@@ -230,16 +230,16 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 72,
-						"y": 216,
+						"x": 240,
+						"y": 32,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.3215686274509804,
+							0.5490196078431373,
+							0.8588235294117647,
 							1
 						],
 						"angle": 0,
@@ -262,16 +262,16 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 156,
-						"y": 216,
+						"x": 320,
+						"y": 32,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.8509803921568627,
+							0.5294117647058824,
+							0.8509803921568627,
 							1
 						],
 						"angle": 0,
@@ -294,16 +294,16 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 72,
-						"y": 360,
+						"x": 400,
+						"y": 32,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
-							1,
-							1,
-							1,
+							0.1568627450980392,
+							0.7411764705882353,
+							0.40784313725490196,
 							1
 						],
 						"angle": 0,
@@ -325,8 +325,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 156,
-						"y": 24,
+						"x": 608,
+						"y": 80,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -356,8 +356,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 156,
-						"y": 168,
+						"x": 608,
+						"y": 208,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -387,8 +387,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 72,
-						"y": 312,
+						"x": 608,
+						"y": 272,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -418,8 +418,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 72,
-						"y": 168,
+						"x": 608,
+						"y": 144,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -449,52 +449,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 72,
-						"y": 24,
+						"x": 608,
+						"y": 16,
 						"width": 37.5,
 						"height": 37.5,
-						"originX": 0.5,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "HelperText",
-					"properties": {
-						"text": "Don't forget, \nyou can enter color filter mode ⇧\nbefore dealing more cards! ⇩",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": -2,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top"
-					},
-					"uid": 14,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 132,
-						"y": 462,
-						"width": 165,
-						"height": 44,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -537,24 +495,70 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "GameBorder",
+					"type": "Border",
 					"properties": {
+						"left-margin": 8,
+						"right-margin": 8,
+						"top-margin": 8,
+						"bottom-margin": 8,
+						"edges": "stretch",
+						"fill": "stretch",
 						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
+						"origin": "top-left",
+						"seams": "overlap"
 					},
-					"uid": 25,
+					"uid": 15,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 320,
+						"x": 0,
+						"y": 0,
 						"width": 640,
-						"height": 640,
+						"height": 960,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "HelperText",
+					"properties": {
+						"text": "Don't forget, \nyou can enter color filter mode ⇧\nbefore dealing more cards! ⇩",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 8,
+						"line-height": -2,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top"
+					},
+					"uid": 14,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 544,
+						"y": 336,
+						"width": 165,
+						"height": 44,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0,
 						"color": [
 							1,
 							1,

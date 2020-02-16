@@ -1,22 +1,9 @@
 {
-	"name": "Foundation",
+	"name": "BlackTarget",
 	"plugin-id": "Sprite",
-	"sid": 461111986923274,
+	"sid": 123575443967495,
 	"isGlobal": false,
-	"instanceVariables": [
-		{
-			"name": "Suit",
-			"type": "string",
-			"desc": "",
-			"sid": 749228516804033
-		},
-		{
-			"name": "TopCardValue",
-			"type": "number",
-			"desc": "",
-			"sid": 965128202927512
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -24,20 +11,20 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 64,
+						"height": 64,
 						"originX": 0.5,
-						"originY": 0,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 147,
+						"imageSpriteId": 16,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 767807529875226,
-				"name": "Animation 1",
+				"sid": 690723424226403,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

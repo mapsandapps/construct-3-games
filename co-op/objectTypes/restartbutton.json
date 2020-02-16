@@ -1,43 +1,36 @@
 {
-	"name": "Foundation",
+	"name": "RestartButton",
 	"plugin-id": "Sprite",
-	"sid": 461111986923274,
+	"sid": 467006887840616,
 	"isGlobal": false,
-	"instanceVariables": [
+	"instanceVariables": [],
+	"behaviorTypes": [
 		{
-			"name": "Suit",
-			"type": "string",
-			"desc": "",
-			"sid": 749228516804033
-		},
-		{
-			"name": "TopCardValue",
-			"type": "number",
-			"desc": "",
-			"sid": 965128202927512
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 934860531800727
 		}
 	],
-	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 64,
+						"height": 64,
 						"originX": 0.5,
-						"originY": 0,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 147,
+						"imageSpriteId": 0,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 767807529875226,
-				"name": "Animation 1",
+				"sid": 848559682232990,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

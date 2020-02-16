@@ -38,8 +38,8 @@
 					"actions": [
 						{
 							"id": "set-visible",
-							"objectClass": "GameBorder",
-							"sid": 248391026239948,
+							"objectClass": "Border",
+							"sid": 217975741423849,
 							"parameters": {
 								"visibility": "invisible"
 							}
@@ -64,16 +64,16 @@
 							"actions": [
 								{
 									"id": "set-default-color",
-									"objectClass": "GameBorder",
-									"sid": 914900255248560,
+									"objectClass": "Border",
+									"sid": 259832839316605,
 									"parameters": {
-										"color": "rgbEx255(37,37,37)"
+										"color": "rgbEx255(238,190,0)"
 									}
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "GameBorder",
-									"sid": 374630885812079,
+									"objectClass": "Border",
+									"sid": 316179984223840,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -98,16 +98,16 @@
 							"actions": [
 								{
 									"id": "set-default-color",
-									"objectClass": "GameBorder",
-									"sid": 351707342484475,
+									"objectClass": "Border",
+									"sid": 969010832373366,
 									"parameters": {
-										"color": "rgbEx255(147,39,40)"
+										"color": "rgbEx255(161,102,57)"
 									}
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "GameBorder",
-									"sid": 560492996179765,
+									"objectClass": "Border",
+									"sid": 102643899505280,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -132,16 +132,16 @@
 							"actions": [
 								{
 									"id": "set-default-color",
-									"objectClass": "GameBorder",
-									"sid": 869861693072220,
+									"objectClass": "Border",
+									"sid": 398071601290871,
 									"parameters": {
-										"color": "rgbEx255(20,81,108)"
+										"color": "rgbEx255(82,140,219)"
 									}
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "GameBorder",
-									"sid": 598042051030469,
+									"objectClass": "Border",
+									"sid": 885599020140641,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -166,16 +166,16 @@
 							"actions": [
 								{
 									"id": "set-default-color",
-									"objectClass": "GameBorder",
-									"sid": 979911323895252,
+									"objectClass": "Border",
+									"sid": 404024887143798,
 									"parameters": {
-										"color": "rgbEx255(201,121,1)"
+										"color": "rgbEx255(217,135,217)"
 									}
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "GameBorder",
-									"sid": 710893195141405,
+									"objectClass": "Border",
+									"sid": 858212428108711,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -200,16 +200,16 @@
 							"actions": [
 								{
 									"id": "set-default-color",
-									"objectClass": "GameBorder",
-									"sid": 428909511372638,
+									"objectClass": "Border",
+									"sid": 393689629683551,
 									"parameters": {
-										"color": "rgbEx255(69,105,11)"
+										"color": "rgbEx255(40,189,104)"
 									}
 								},
 								{
 									"id": "set-visible",
-									"objectClass": "GameBorder",
-									"sid": 191896133648322,
+									"objectClass": "Border",
+									"sid": 164495108193789,
 									"parameters": {
 										"visibility": "visible"
 									}
@@ -1415,12 +1415,12 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 907658898215940,
+							"sid": 813100078583004,
 							"parameters": {
 								"object-to-create": "Stack",
 								"layer": "\"Stacks\"",
-								"x": "264 + 72 * loopindex",
-								"y": "32"
+								"x": "80 + 80 * loopindex",
+								"y": "144"
 							}
 						},
 						{

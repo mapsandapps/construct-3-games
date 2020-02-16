@@ -1,0 +1,237 @@
+{
+	"name": "eMain",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ePlayerMovement"
+		},
+		{
+			"eventType": "comment",
+			"text": "win condition"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "WhitePlayer",
+					"sid": 123085394288374,
+					"parameters": {
+						"object": "WhiteTarget"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "BlackPlayer",
+					"sid": 723827692647787,
+					"parameters": {
+						"object": "BlackTarget"
+					}
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "WhitePlayer",
+					"sid": 261289925046690,
+					"behaviorType": "TileMovement",
+					"isInverted": true
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "BlackPlayer",
+					"sid": 539496517575102,
+					"behaviorType": "TileMovement",
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "WhitePlayer",
+					"sid": 323016711503175,
+					"parameters": {
+						"color": "rgbEx255(255,255,255)"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "BlackPlayer",
+					"sid": 196689951586269,
+					"parameters": {
+						"color": "rgbEx255(255,255,255)"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "BlackPlayer",
+					"sid": 332470454620758,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "WhitePlayer",
+					"sid": 377515195230762,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "start-animation",
+					"objectClass": "WhitePlayer",
+					"sid": 431335284500763,
+					"parameters": {
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "start-animation",
+					"objectClass": "BlackPlayer",
+					"sid": 973454891149665,
+					"parameters": {
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 109354713208467,
+					"parameters": {
+						"type": "log",
+						"message": "\"both\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 663227232850510,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 964320760509552,
+					"parameters": {
+						"which": "next"
+					}
+				}
+			],
+			"sid": 365178427267282
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 720920298143429,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 596779984761086,
+					"parameters": {
+						"key": 8
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 644034233848225
+				}
+			],
+			"sid": 259816856162227,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "BlackPlayer",
+					"sid": 230255582006377,
+					"parameters": {
+						"object": "BlackTarget"
+					}
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "BlackPlayer",
+					"sid": 951862110611785,
+					"behaviorType": "TileMovement",
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "BlackTarget",
+					"sid": 129987774821288,
+					"parameters": {
+						"color": "rgbEx(0, 100, 0)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 141661306233639,
+					"parameters": {
+						"type": "log",
+						"message": "\"black\""
+					}
+				}
+			],
+			"sid": 952527093409954
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "WhitePlayer",
+					"sid": 403883836546905,
+					"parameters": {
+						"object": "WhiteTarget"
+					}
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "WhitePlayer",
+					"sid": 603712778201577,
+					"behaviorType": "TileMovement",
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "WhiteTarget",
+					"sid": 866103451304148,
+					"parameters": {
+						"color": "rgbEx(0, 100, 0)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 765393561370046,
+					"parameters": {
+						"type": "log",
+						"message": "\"yellow\""
+					}
+				}
+			],
+			"sid": 189913727483783
+		}
+	],
+	"sid": 403918779502863
+}

@@ -1,0 +1,707 @@
+{
+	"name": "eHelperFunctions",
+	"events": [
+		{
+			"functionName": "GetDirection",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "StartX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 193667293757877
+				},
+				{
+					"name": "StartY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 524297063394886
+				},
+				{
+					"name": "EndX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 944096992998358
+				},
+				{
+					"name": "EndY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 352143354421754
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 129427091243012,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 719984429425613,
+							"parameters": {
+								"first-value": "StartX",
+								"comparison": 4,
+								"second-value": "EndX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 980908965448962,
+							"parameters": {
+								"variable": "LastDirection",
+								"value": "\"Left\""
+							}
+						}
+					],
+					"sid": 685901189307655
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 478294849859155
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 133612144964766,
+							"parameters": {
+								"first-value": "StartX",
+								"comparison": 2,
+								"second-value": "EndX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 633142337041006,
+							"parameters": {
+								"variable": "LastDirection",
+								"value": "\"Right\""
+							}
+						}
+					],
+					"sid": 541578066076983
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 532646922718107
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 834847959971689,
+							"parameters": {
+								"first-value": "StartY",
+								"comparison": 4,
+								"second-value": "EndY"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 482754665665038,
+							"parameters": {
+								"variable": "LastDirection",
+								"value": "\"Up\""
+							}
+						}
+					],
+					"sid": 943172314828344
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 203230647999062
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 103677149244466,
+							"parameters": {
+								"first-value": "StartY",
+								"comparison": 2,
+								"second-value": "EndY"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 538998218120047,
+							"parameters": {
+								"variable": "LastDirection",
+								"value": "\"Down\""
+							}
+						}
+					],
+					"sid": 401071776972581
+				}
+			]
+		},
+		{
+			"functionName": "PaintLastTile",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Color",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 708851717615662
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 991601385316015,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 500009249299177,
+							"parameters": {
+								"variable": "Color",
+								"comparison": 0,
+								"value": "\"Black\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "WhitePlayer",
+							"sid": 251619533746615,
+							"parameters": {
+								"object": "WhiteGround"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetSolid",
+							"sid": 276967195469729,
+							"parameters": [
+								"Color"
+							]
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 726475474986171,
+							"parameters": {
+								"object-to-create": "BlackGround",
+								"layer": "\"Ground\"",
+								"x": "WhiteGround.X",
+								"y": "WhiteGround.Y"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackGround",
+							"sid": 959879483071993,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "WhiteGround",
+							"sid": 686834925932592
+						}
+					],
+					"sid": 606812320062177
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 104009260791421
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 739519739628247,
+							"parameters": {
+								"variable": "Color",
+								"comparison": 0,
+								"value": "\"White\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "BlackPlayer",
+							"sid": 614549167736785,
+							"parameters": {
+								"object": "BlackGround"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetSolid",
+							"sid": 830301752170743,
+							"parameters": [
+								"Color"
+							]
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 820635557514310,
+							"parameters": {
+								"object-to-create": "WhiteGround",
+								"layer": "\"Ground\"",
+								"x": "BlackGround.X",
+								"y": "BlackGround.Y"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "WhiteGround",
+							"sid": 986883692251328,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "BlackGround",
+							"sid": 492775573843815
+						}
+					],
+					"sid": 991803060648131
+				}
+			]
+		},
+		{
+			"functionName": "SetSolid",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Color",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 889614972181993
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 164768242362903,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 954772074617167,
+							"parameters": {
+								"variable": "Color",
+								"comparison": 0,
+								"value": "\"Black\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackGround",
+							"sid": 911294001146172,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "WhiteGround",
+							"sid": 438377910891162,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 428049706858692
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 324919667526494
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "WhiteGround",
+							"sid": 390336953356497,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackGround",
+							"sid": 672545237764916,
+							"behaviorType": "Solid",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 404574456452988
+				}
+			]
+		},
+		{
+			"functionName": "SetActivePlayer",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "NewActivePlayer",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 165631768836774
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 153732308124843,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 774049922761724,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 780207523449373,
+							"parameters": {
+								"variable": "NewActivePlayer",
+								"comparison": 0,
+								"value": "\"White\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetSolid",
+							"sid": 108796505024564,
+							"parameters": [
+								"\"Black\""
+							]
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackPlayer",
+							"sid": 342339239842420,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "BlackPlayer",
+							"sid": 655739084764741,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "BlackPlayer",
+							"sid": 340417082615437,
+							"parameters": {
+								"color": "rgbEx255(100,100,100)"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackPlayer",
+							"sid": 524560892851406,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "WhitePlayer",
+							"sid": 336214783965866,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "WhitePlayer",
+							"sid": 542322807889318,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "WhitePlayer",
+							"sid": 567841595923959,
+							"parameters": {
+								"color": "rgbEx255(255,255,255)"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "WhitePlayer",
+							"sid": 854677867106122,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 737170333838314,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "WhitePlayer",
+									"sid": 261349845799617,
+									"parameters": {
+										"object": "BlackGround"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "BlackGround",
+									"sid": 866013948345569,
+									"behaviorType": "Solid",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 159786267935176
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 446265769083886,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"value": "\"White\""
+									}
+								}
+							],
+							"sid": 472863021767523
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 367993291590748
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetSolid",
+							"sid": 102240948829975,
+							"parameters": [
+								"\"White\""
+							]
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "WhitePlayer",
+							"sid": 341328779599115,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "WhitePlayer",
+							"sid": 690046937489020,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "WhitePlayer",
+							"sid": 970581183323943,
+							"parameters": {
+								"color": "rgbEx255(100,100,100)"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "WhitePlayer",
+							"sid": 452417097049707,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackPlayer",
+							"sid": 482515671312384,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "BlackPlayer",
+							"sid": 743044676044879,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "BlackPlayer",
+							"sid": 110866594597863,
+							"parameters": {
+								"color": "rgbEx255(255,255,255)"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "BlackPlayer",
+							"sid": 260246854515294,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 660168715970872,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "BlackPlayer",
+									"sid": 994498085732968,
+									"parameters": {
+										"object": "WhiteGround"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "WhiteGround",
+									"sid": 385441285466049,
+									"behaviorType": "Solid",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 349799914728715
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 276444945691536,
+									"parameters": {
+										"variable": "ActivePlayer",
+										"value": "\"Black\""
+									}
+								}
+							],
+							"sid": 507199999783892
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 763766406348864
+}
