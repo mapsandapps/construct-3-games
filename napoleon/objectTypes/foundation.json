@@ -1,0 +1,62 @@
+{
+	"name": "Foundation",
+	"plugin-id": "Sprite",
+	"sid": 631619043532825,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Suit",
+			"type": "string",
+			"desc": "",
+			"sid": 285664441394727
+		},
+		{
+			"name": "TopCardValue",
+			"type": "number",
+			"desc": "",
+			"sid": 640379706628074
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 76,
+						"collisionPoly": {
+							"points": [
+								0.4375,
+								0.3333333333333333,
+								0.5625,
+								0.3333333333333333,
+								0.5625,
+								0.6190476190476191,
+								0.4375,
+								0.6190476190476191
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 203042573107746,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

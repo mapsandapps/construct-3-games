@@ -1,0 +1,432 @@
+{
+	"name": "eMain",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "DraggedFromUID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 118215576682759
+		},
+		{
+			"eventType": "variable",
+			"name": "DraggedFromType",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 448739073713888
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Init",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 588047351641378
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "DeckValues",
+							"sid": 861076710937292,
+							"parameters": {
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[96,1,1],\"\"data\"\":[[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]]]}\""
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "DeckSuits",
+							"sid": 755157476614391,
+							"parameters": {
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[96,1,1],\"\"data\"\":[[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Yellow\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Brown\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Blue\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]],[[\"\"Pink\"\"]]]}\""
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "UnshuffledFrames",
+							"sid": 344083268283739,
+							"parameters": {
+								"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[96,1,1],\"\"data\"\":[[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[14]],[[15]],[[16]],[[17]],[[18]],[[19]],[[20]],[[21]],[[22]],[[23]],[[24]],[[25]],[[26]],[[27]],[[28]],[[29]],[[30]],[[31]],[[32]],[[33]],[[34]],[[35]],[[36]],[[37]],[[38]],[[39]],[[40]],[[41]],[[42]],[[43]],[[44]],[[45]],[[46]],[[47]],[[48]],[[49]],[[50]],[[51]],[[52]],[[53]],[[54]],[[55]],[[56]],[[57]],[[58]],[[59]],[[60]],[[61]],[[62]],[[63]],[[64]],[[65]],[[66]],[[67]],[[68]],[[69]],[[70]],[[71]],[[72]],[[73]],[[74]],[[75]],[[76]],[[77]],[[78]],[[79]],[[80]],[[81]],[[82]],[[83]],[[84]],[[85]],[[86]],[[87]],[[88]],[[89]],[[90]],[[91]],[[92]],[[93]],[[94]],[[95]]]}\"\n\n\n"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 878326283129414,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"callFunction": "Deal",
+							"sid": 844762285441341
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 845520889848612
+						},
+						{
+							"callFunction": "DealToStacks",
+							"sid": 263263905693985
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 428444139164847
+						}
+					],
+					"sid": 233210411736109
+				}
+			],
+			"sid": 692053901932316
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 437302197813009,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Card",
+					"sid": 227961880146882,
+					"parameters": {
+						"object": "Stack"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "GetValidFoundationMoves",
+					"sid": 578844523330637,
+					"parameters": [
+						"Stack.TopCardSuit",
+						"Stack.TopCardValue"
+					]
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 897643247034862,
+					"parameters": {
+						"type": "log",
+						"message": "\"card\""
+					}
+				}
+			],
+			"sid": 292705198669873,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 744540085488887,
+							"parameters": {
+								"object": "Stack"
+							}
+						},
+						{
+							"id": "pick-topbottom",
+							"objectClass": "Card",
+							"sid": 639845815319493,
+							"parameters": {
+								"which": "top"
+							}
+						},
+						{
+							"id": "compare-size",
+							"objectClass": "ValidFoundationMoves",
+							"sid": 664119201871324,
+							"parameters": {
+								"axis": "x",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Foundation",
+							"sid": 141478557955028,
+							"parameters": {
+								"unique-id": "ValidFoundationMoves.At(0)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 556640455149607,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Card",
+							"sid": 150817079169411
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Foundation",
+							"sid": 320472283108562,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"callFunction": "SetDraggable",
+							"sid": 156611851990205
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 707283633640171,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Foundation.X",
+								"end-y": "Foundation.Y",
+								"time": "0.3",
+								"ease": "easeinsine",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 707798892217525
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 292605611187824
+						}
+					],
+					"actions": [],
+					"sid": 731841231357547
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "Card",
+					"sid": 505684448781096,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "GetValidFoundationMoves",
+					"sid": 488272412527277,
+					"parameters": [
+						"Card.Suit",
+						"Card.Value"
+					]
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "Card",
+					"sid": 525147540174330
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 601572699762563,
+					"parameters": {
+						"variable": "DraggedFromType",
+						"value": "\"\""
+					}
+				}
+			],
+			"sid": 672236294069689,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 916540030868614,
+							"parameters": {
+								"object": "Stack"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 239163115538316,
+							"parameters": {
+								"variable": "DraggedFromType",
+								"value": "\"Stack\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 540761106997958,
+							"parameters": {
+								"variable": "DraggedFromUID",
+								"value": "Stack.UID"
+							}
+						}
+					],
+					"sid": 851673243571835
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Card",
+					"sid": 378056036698460,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [],
+			"sid": 102962258150787,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "card moves to foundation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 892246108241762,
+							"parameters": {
+								"first-value": "Functions.GetIsDropPositionValid(Card.UID)",
+								"comparison": 0,
+								"second-value": "\"true\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 986017395350527,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 626578792033135,
+							"parameters": {
+								"x": "Foundation.X",
+								"y": "Foundation.Y"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 858819415168565,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Foundation",
+							"sid": 470270722610409,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"callFunction": "SetDraggable",
+							"sid": 271889263613070
+						}
+					],
+					"sid": 702257930396618,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "card position resets"
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 803642166392496
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 188658437922914,
+							"parameters": {
+								"variable": "DraggedFromType",
+								"comparison": 0,
+								"value": "\"Stack\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stack",
+							"sid": 506499601841337,
+							"parameters": {
+								"unique-id": "DraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 624460449501194,
+							"parameters": {
+								"x": "Stack.X",
+								"y": "Stack.Y"
+							}
+						}
+					],
+					"sid": 330847822662093
+				}
+			]
+		}
+	],
+	"sid": 723594591968900
+}

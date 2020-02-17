@@ -1,0 +1,68 @@
+{
+	"name": "Stack",
+	"plugin-id": "Sprite",
+	"sid": 766062024717832,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Index",
+			"type": "number",
+			"desc": "",
+			"sid": 140777919499072
+		},
+		{
+			"name": "TopCardSuit",
+			"type": "string",
+			"desc": "",
+			"sid": 334682039392724
+		},
+		{
+			"name": "TopCardValue",
+			"type": "number",
+			"desc": "",
+			"sid": 395494394457982
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 75,
+						"collisionPoly": {
+							"points": [
+								0.4375,
+								0.3333333333333333,
+								0.5625,
+								0.3333333333333333,
+								0.5625,
+								0.6666666666666666,
+								0.4375,
+								0.6666666666666666
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 930900777533868,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
