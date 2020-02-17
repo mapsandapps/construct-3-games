@@ -332,7 +332,8 @@
 					"instanceVariables": {
 						"Index": 2,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -365,7 +366,8 @@
 					"instanceVariables": {
 						"Index": 3,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -398,7 +400,8 @@
 					"instanceVariables": {
 						"Index": 1,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -431,7 +434,8 @@
 					"instanceVariables": {
 						"Index": 0,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -464,7 +468,8 @@
 					"instanceVariables": {
 						"Index": 6,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -497,7 +502,8 @@
 					"instanceVariables": {
 						"Index": 7,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -530,7 +536,8 @@
 					"instanceVariables": {
 						"Index": 5,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -563,7 +570,8 @@
 					"instanceVariables": {
 						"Index": 4,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -596,7 +604,8 @@
 					"instanceVariables": {
 						"Index": 10,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -629,7 +638,8 @@
 					"instanceVariables": {
 						"Index": 11,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -662,7 +672,8 @@
 					"instanceVariables": {
 						"Index": 9,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -695,7 +706,8 @@
 					"instanceVariables": {
 						"Index": 8,
 						"TopCardSuit": "",
-						"TopCardValue": 0
+						"TopCardValue": 0,
+						"IsEmpty": false
 					},
 					"behaviors": {},
 					"world": {
@@ -733,35 +745,6 @@
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Stock",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 13,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 156,
-						"y": 196,
-						"width": 64,
-						"height": 84,
-						"originX": 1,
 						"originY": 0,
 						"color": [
 							1,

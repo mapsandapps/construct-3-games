@@ -104,50 +104,106 @@
 					"parameters": {
 						"object": "Card"
 					}
-				},
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "Card",
-					"sid": 227961880146882,
-					"parameters": {
-						"object": "Stack"
-					}
-				},
-				{
-					"id": "pick-topbottom",
-					"objectClass": "Card",
-					"sid": 813055480161315,
-					"parameters": {
-						"which": "top"
-					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 292705198669873,
+			"children": [
 				{
-					"callFunction": "GetValidFoundationMoves",
-					"sid": 578844523330637,
-					"parameters": [
-						"Stack.TopCardSuit",
-						"Stack.TopCardValue"
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 545164561338043,
+							"parameters": {
+								"object": "Stack"
+							}
+						},
+						{
+							"id": "pick-topbottom",
+							"objectClass": "Card",
+							"sid": 236403444287546,
+							"parameters": {
+								"which": "top"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "GetValidFoundationMoves",
+							"sid": 353614801236446,
+							"parameters": [
+								"Card.Suit",
+								"Card.Value"
+							]
+						},
+						{
+							"callFunction": "GetValidStackMoves",
+							"sid": 549714222468911,
+							"parameters": [
+								"Card.Suit",
+								"Card.Value"
+							]
+						},
+						{
+							"callFunction": "TryToMoveTappedCard",
+							"sid": 227197157502965,
+							"parameters": [
+								"Card.UID"
+							]
+						}
+					],
+					"sid": 684033536055187
 				},
 				{
-					"callFunction": "GetValidStackMoves",
-					"sid": 962144095204039,
-					"parameters": [
-						"Card.Suit",
-						"Card.Value"
-					]
-				},
-				{
-					"callFunction": "TryToMoveTappedCard",
-					"sid": 239940779148804,
-					"parameters": [
-						"Card.UID"
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 327044585357161,
+							"parameters": {
+								"object": "Discard"
+							}
+						},
+						{
+							"id": "pick-topbottom",
+							"objectClass": "Card",
+							"sid": 755343208445559,
+							"parameters": {
+								"which": "top"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "GetValidFoundationMoves",
+							"sid": 480248970795029,
+							"parameters": [
+								"Card.Suit",
+								"Card.Value"
+							]
+						},
+						{
+							"callFunction": "GetValidStackMoves",
+							"sid": 962101286523485,
+							"parameters": [
+								"Card.Suit",
+								"Card.Value"
+							]
+						},
+						{
+							"callFunction": "TryToMoveTappedCard",
+							"sid": 324211139357175,
+							"parameters": [
+								"Card.UID"
+							]
+						}
+					],
+					"sid": 155451886623451
 				}
-			],
-			"sid": 292705198669873
+			]
 		},
 		{
 			"eventType": "block",
@@ -226,6 +282,40 @@
 						}
 					],
 					"sid": 851673243571835
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 408354277512931,
+							"parameters": {
+								"object": "Discard"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 449519279295858,
+							"parameters": {
+								"variable": "DraggedFromType",
+								"value": "\"Discard\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 463345552387541,
+							"parameters": {
+								"variable": "DraggedFromUID",
+								"value": "Discard.UID"
+							}
+						}
+					],
+					"sid": 749713715386128
 				}
 			]
 		},
@@ -363,6 +453,15 @@
 							}
 						},
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Stack",
+							"sid": 433210215624182,
+							"parameters": {
+								"instance-variable": "IsEmpty",
+								"value": "false"
+							}
+						},
+						{
 							"callFunction": "SetDraggable",
 							"sid": 430996380902287
 						}
@@ -380,40 +479,101 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 803642166392496
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 188658437922914,
-							"parameters": {
-								"variable": "DraggedFromType",
-								"comparison": 0,
-								"value": "\"Stack\""
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
-							"sid": 506499601841337,
-							"parameters": {
-								"unique-id": "DraggedFromUID"
-							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 330847822662093,
+					"children": [
 						{
-							"id": "set-position",
-							"objectClass": "Card",
-							"sid": 624460449501194,
-							"parameters": {
-								"x": "Stack.X",
-								"y": "Stack.Y"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 409090934350632,
+									"parameters": {
+										"variable": "DraggedFromType",
+										"comparison": 0,
+										"value": "\"Stack\""
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Stack",
+									"sid": 333239022604080,
+									"parameters": {
+										"unique-id": "DraggedFromUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Card",
+									"sid": 242846256263251,
+									"parameters": {
+										"x": "Stack.X",
+										"y": "Stack.Y"
+									}
+								}
+							],
+							"sid": 612785415549893
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 668275055649540
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 135990079630124,
+									"parameters": {
+										"variable": "DraggedFromType",
+										"comparison": 0,
+										"value": "\"Discard\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Card",
+									"sid": 777080618085072,
+									"parameters": {
+										"x": "Discard.X",
+										"y": "Discard.Y"
+									}
+								}
+							],
+							"sid": 262427066221072
 						}
-					],
-					"sid": 330847822662093
+					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 288880627437992,
+					"parameters": {
+						"object": "StackIndicator"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "FlipCard",
+					"sid": 991780902440435
+				}
+			],
+			"sid": 269973160063968
 		}
 	],
 	"sid": 723594591968900

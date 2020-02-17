@@ -80,6 +80,15 @@
 					}
 				},
 				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 529165652253004,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
 					"id": "set-instvar-value",
 					"objectClass": "Card",
 					"sid": 219693351641853,
@@ -319,6 +328,219 @@
 				}
 			],
 			"sid": 124988957048232
+		},
+		{
+			"functionName": "FlipCard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 310916913805451,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "CardIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 810603518977656
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 400569690523492,
+							"parameters": {
+								"variable": "CardIndex",
+								"value": "StockArray.At(0)"
+							}
+						},
+						{
+							"id": "pop",
+							"objectClass": "StockArray",
+							"sid": 728655383462419,
+							"parameters": {
+								"where": "front",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 972624417771592,
+							"parameters": {
+								"object-to-create": "Card",
+								"layer": "\"Cards\"",
+								"x": "Discard.X",
+								"y": "Discard.Y"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 152906658766323,
+							"parameters": {
+								"instance-variable": "Suit",
+								"value": "DeckSuits.At(CardIndex)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 259518414669973,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "DeckValues.At(CardIndex)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 578376707523388,
+							"parameters": {
+								"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
+							}
+						}
+					],
+					"sid": 428007315796540
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 266079867296050,
+							"parameters": {
+								"first-value": "StockArray.Width",
+								"comparison": 2,
+								"second-value": "40"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "StackIndicator",
+							"sid": 236131142779627,
+							"parameters": {
+								"frame-number": "3"
+							}
+						}
+					],
+					"sid": 102315234563908
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 948074383172659,
+							"parameters": {
+								"first-value": "StockArray.Width",
+								"comparison": 2,
+								"second-value": "30"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "StackIndicator",
+							"sid": 969037612235431,
+							"parameters": {
+								"frame-number": "2"
+							}
+						}
+					],
+					"sid": 344856453369500
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 424570437553347,
+							"parameters": {
+								"first-value": "StockArray.Width",
+								"comparison": 2,
+								"second-value": "20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "StackIndicator",
+							"sid": 229217985028310,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 430702787633314
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 810934968584349,
+							"parameters": {
+								"first-value": "StockArray.Width",
+								"comparison": 2,
+								"second-value": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "StackIndicator",
+							"sid": 187439706163266,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 714021184740052
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 138830891899947,
+							"parameters": {
+								"first-value": "StockArray.Width",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "StackIndicator",
+							"sid": 886329329399419
+						}
+					],
+					"sid": 810155001358155
+				}
+			]
 		},
 		{
 			"functionName": "DealCard",
@@ -599,41 +821,81 @@
 							"parameters": {
 								"object": "Stack"
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Stack",
-							"sid": 799637973138044,
-							"parameters": {
-								"instance-variable": "TopCardSuit",
-								"comparison": 0,
-								"value": "CardSuit"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Stack",
-							"sid": 710968790263432,
-							"parameters": {
-								"instance-variable": "TopCardValue",
-								"comparison": 0,
-								"value": "CardValue + 1"
-							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 240832289937678,
+					"children": [
 						{
-							"id": "push",
-							"objectClass": "ValidStackMoves",
-							"sid": 891964551751104,
-							"parameters": {
-								"where": "back",
-								"value": "Stack.UID",
-								"axis": "x"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Stack",
+									"sid": 414784706853268,
+									"parameters": {
+										"instance-variable": "TopCardSuit",
+										"comparison": 0,
+										"value": "CardSuit"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Stack",
+									"sid": 352714384177683,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 0,
+										"value": "CardValue + 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "ValidStackMoves",
+									"sid": 982269282741103,
+									"parameters": {
+										"where": "back",
+										"value": "Stack.UID",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 882175713833749
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 630505158621931
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Stack",
+									"sid": 333674354887739,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "ValidStackMoves",
+									"sid": 779339276671664,
+									"parameters": {
+										"where": "back",
+										"value": "Stack.UID",
+										"axis": "x"
+									}
+								}
+							],
+							"sid": 479165167793330
 						}
-					],
-					"sid": 240832289937678
+					]
 				}
 			]
 		},
@@ -711,15 +973,6 @@
 									"parameters": {
 										"value": "\"true\""
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 725004838027574,
-									"parameters": {
-										"type": "log",
-										"message": "\"to foundation\""
-									}
 								}
 							],
 							"sid": 364404580113824
@@ -771,15 +1024,6 @@
 									"parameters": {
 										"value": "\"true\""
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 182134267457404,
-									"parameters": {
-										"type": "log",
-										"message": "\"to stack\""
-									}
 								}
 							],
 							"sid": 560197852058281
@@ -796,15 +1040,6 @@
 							"sid": 119677439631159,
 							"parameters": {
 								"seconds": "0.3"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 736129825642702,
-							"parameters": {
-								"type": "log",
-								"message": "\"false\""
 							}
 						},
 						{
@@ -828,16 +1063,7 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "for-each",
-					"objectClass": "System",
-					"sid": 450883671220005,
-					"parameters": {
-						"object": "Stack"
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [],
 			"sid": 863392186950658,
 			"children": [
@@ -845,16 +1071,141 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 711969717786428,
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 582510618121504,
 							"parameters": {
 								"object": "Stack"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 297211851543031,
+					"sid": 447581183364774,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 230827128308448,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 108252741965610,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-topbottom",
+											"objectClass": "Card",
+											"sid": 826191874632745,
+											"parameters": {
+												"which": "top"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Stack",
+											"sid": 320208729350322,
+											"parameters": {
+												"instance-variable": "TopCardSuit",
+												"value": "Card.Suit"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Stack",
+											"sid": 797286901347027,
+											"parameters": {
+												"instance-variable": "TopCardValue",
+												"value": "Card.Value"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Card",
+											"sid": 206774310733067,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 776388334856641
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 644441819859955
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Card",
+											"sid": 599481378662857,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 971970128873626
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Stack",
+									"sid": 337731347551876,
+									"parameters": {
+										"object": "Card"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Stack",
+									"sid": 290893251977664,
+									"parameters": {
+										"instance-variable": "IsEmpty",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 811474451620579
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 278097713289395,
+							"parameters": {
+								"object": "Discard"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 355868058709726,
 					"children": [
 						{
 							"eventType": "block",
@@ -862,7 +1213,7 @@
 								{
 									"id": "pick-topbottom",
 									"objectClass": "Card",
-									"sid": 302882661996372,
+									"sid": 486497051216970,
 									"parameters": {
 										"which": "top"
 									}
@@ -870,34 +1221,16 @@
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Stack",
-									"sid": 331873516568263,
-									"parameters": {
-										"instance-variable": "TopCardSuit",
-										"value": "Card.Suit"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Stack",
-									"sid": 816553422895504,
-									"parameters": {
-										"instance-variable": "TopCardValue",
-										"value": "Card.Value"
-									}
-								},
-								{
 									"id": "set-enabled",
 									"objectClass": "Card",
-									"sid": 166138035207688,
+									"sid": 445288422750616,
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "enabled"
 									}
 								}
 							],
-							"sid": 428186116130805
+							"sid": 687534999909445
 						},
 						{
 							"eventType": "block",
@@ -905,21 +1238,21 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 218090903548059
+									"sid": 900126845189705
 								}
 							],
 							"actions": [
 								{
 									"id": "set-enabled",
 									"objectClass": "Card",
-									"sid": 344905966605413,
+									"sid": 930366577653881,
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "disabled"
 									}
 								}
 							],
-							"sid": 330990691472393
+							"sid": 291473222167033
 						}
 					]
 				}
@@ -951,7 +1284,13 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Card",
+					"sid": 160272619334454
+				}
+			],
 			"sid": 720217491039273,
 			"children": [
 				{
@@ -996,11 +1335,6 @@
 									"parameters": {
 										"state": "disabled"
 									}
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Card",
-									"sid": 197718883296582
 								},
 								{
 									"id": "set-instvar-value",
@@ -1080,17 +1414,21 @@
 							],
 							"actions": [
 								{
-									"id": "move-to-top",
-									"objectClass": "Card",
-									"sid": 337858126680903
-								},
-								{
 									"id": "set-instvar-value",
 									"objectClass": "Stack",
 									"sid": 990884551357227,
 									"parameters": {
 										"instance-variable": "TopCardValue",
 										"value": "Card.Value"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Stack",
+									"sid": 490099330400424,
+									"parameters": {
+										"instance-variable": "IsEmpty",
+										"value": "false"
 									}
 								},
 								{
