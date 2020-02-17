@@ -112,6 +112,14 @@
 					"parameters": {
 						"object": "Stack"
 					}
+				},
+				{
+					"id": "pick-topbottom",
+					"objectClass": "Card",
+					"sid": 813055480161315,
+					"parameters": {
+						"which": "top"
+					}
 				}
 			],
 			"actions": [
@@ -124,114 +132,22 @@
 					]
 				},
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 897643247034862,
-					"parameters": {
-						"type": "log",
-						"message": "\"card\""
-					}
-				}
-			],
-			"sid": 292705198669873,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 744540085488887,
-							"parameters": {
-								"object": "Stack"
-							}
-						},
-						{
-							"id": "pick-topbottom",
-							"objectClass": "Card",
-							"sid": 639845815319493,
-							"parameters": {
-								"which": "top"
-							}
-						},
-						{
-							"id": "compare-size",
-							"objectClass": "ValidFoundationMoves",
-							"sid": 664119201871324,
-							"parameters": {
-								"axis": "x",
-								"comparison": 4,
-								"value": "0"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Foundation",
-							"sid": 141478557955028,
-							"parameters": {
-								"unique-id": "ValidFoundationMoves.At(0)"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "Card",
-							"sid": 556640455149607,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "move-to-top",
-							"objectClass": "Card",
-							"sid": 150817079169411
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Foundation",
-							"sid": 320472283108562,
-							"parameters": {
-								"instance-variable": "TopCardValue",
-								"value": "Card.Value"
-							}
-						},
-						{
-							"callFunction": "SetDraggable",
-							"sid": 156611851990205
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Card",
-							"sid": 707283633640171,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Foundation.X",
-								"end-y": "Foundation.Y",
-								"time": "0.3",
-								"ease": "easeinsine",
-								"destroy-on-complete": "no"
-							}
-						}
-					],
-					"sid": 707798892217525
+					"callFunction": "GetValidStackMoves",
+					"sid": 962144095204039,
+					"parameters": [
+						"Card.Suit",
+						"Card.Value"
+					]
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 292605611187824
-						}
-					],
-					"actions": [],
-					"sid": 731841231357547
+					"callFunction": "TryToMoveTappedCard",
+					"sid": 239940779148804,
+					"parameters": [
+						"Card.UID"
+					]
 				}
-			]
+			],
+			"sid": 292705198669873
 		},
 		{
 			"eventType": "block",
@@ -247,6 +163,14 @@
 				{
 					"callFunction": "GetValidFoundationMoves",
 					"sid": 488272412527277,
+					"parameters": [
+						"Card.Suit",
+						"Card.Value"
+					]
+				},
+				{
+					"callFunction": "GetValidStackMoves",
+					"sid": 527894745374607,
 					"parameters": [
 						"Card.Suit",
 						"Card.Value"
@@ -377,13 +301,77 @@
 							"sid": 271889263613070
 						}
 					],
-					"sid": 702257930396618,
-					"children": [
+					"sid": 702257930396618
+				},
+				{
+					"eventType": "comment",
+					"text": "card moves to stack"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"eventType": "comment",
-							"text": "card position resets"
+							"id": "else",
+							"objectClass": "System",
+							"sid": 727107349511489
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 389060575501347,
+							"parameters": {
+								"first-value": "Functions.GetIsDropPositionValid(Card.UID)",
+								"comparison": 0,
+								"second-value": "\"true\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 679405669688107,
+							"parameters": {
+								"object": "Stack"
+							}
 						}
-					]
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 924371546479893,
+							"parameters": {
+								"x": "Stack.X",
+								"y": "Stack.Y"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 386926045179030,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Stack",
+							"sid": 433959213620267,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"callFunction": "SetDraggable",
+							"sid": 430996380902287
+						}
+					],
+					"sid": 762583239811858
+				},
+				{
+					"eventType": "comment",
+					"text": "card position resets"
 				},
 				{
 					"eventType": "block",

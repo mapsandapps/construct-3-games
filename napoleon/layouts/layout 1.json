@@ -6,7 +6,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "colored_land",
+					"type": "Background",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -907,6 +907,16 @@
 				"depth": 1
 			},
 			"uid": 33,
+			"instanceVariables": {}
+		},
+		{
+			"type": "ValidStackMoves",
+			"properties": {
+				"width": 0,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 34,
 			"instanceVariables": {}
 		}
 	],
