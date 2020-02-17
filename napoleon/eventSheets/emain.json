@@ -63,6 +63,46 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "ValidStackMoves",
+							"sid": 994871182161300,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "ValidFoundationMoves",
+							"sid": 131074659618486,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "StockArray",
+							"sid": 730789791173692,
+							"parameters": {
+								"width": "0",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "StockArray",
+							"sid": 182559090336249,
+							"parameters": {
+								"width": "96",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 878326283129414,
@@ -574,6 +614,27 @@
 				}
 			],
 			"sid": 269973160063968
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 121921941351010,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 293199403332568
+				}
+			],
+			"sid": 427003025027256
 		}
 	],
 	"sid": 723594591968900

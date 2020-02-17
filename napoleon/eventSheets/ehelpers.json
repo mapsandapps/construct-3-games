@@ -60,14 +60,22 @@
 			],
 			"actions": [
 				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 927068734407966,
+					"parameters": {
+						"seconds": "0.05 * loopindex"
+					}
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 158059488629925,
+					"sid": 259315562384815,
 					"parameters": {
 						"object-to-create": "Card",
 						"layer": "\"Cards\"",
-						"x": "Foundation.X",
-						"y": "Foundation.Y"
+						"x": "32",
+						"y": "0"
 					}
 				},
 				{
@@ -218,6 +226,28 @@
 						}
 					],
 					"sid": 482208096935152
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 551607053666405,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Foundation.X",
+								"end-y": "Foundation.Y",
+								"time": "0.05",
+								"ease": "noease",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 172511897861804
 				}
 			]
 		},
@@ -376,12 +406,27 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 972624417771592,
+							"sid": 519580742417714,
 							"parameters": {
 								"object-to-create": "Card",
 								"layer": "\"Cards\"",
-								"x": "Discard.X",
-								"y": "Discard.Y"
+								"x": "StackIndicator.X - 32",
+								"y": "StackIndicator.Y"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 220938805043513,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Discard.X",
+								"end-y": "Discard.Y",
+								"time": "0.3",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
 							}
 						},
 						{
@@ -581,21 +626,20 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 263673389934576,
-					"disabled": true,
+					"sid": 170289362101494,
 					"parameters": {
-						"seconds": "0.1 * Index"
+						"seconds": "0.05 * Index"
 					}
 				},
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 447524433089364,
+					"sid": 679288732854328,
 					"parameters": {
 						"object-to-create": "Card",
 						"layer": "\"Cards\"",
-						"x": "Stack.X",
-						"y": "Stack.Y"
+						"x": "32",
+						"y": "0"
 					}
 				},
 				{
@@ -622,6 +666,21 @@
 					"sid": 358838268609887,
 					"parameters": {
 						"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 158605671297562,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Stack.X",
+						"end-y": "Stack.Y",
+						"time": "0.05",
+						"ease": "noease",
+						"destroy-on-complete": "no"
 					}
 				}
 			],
@@ -1064,7 +1123,12 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"callFunction": "CheckForWin",
+					"sid": 126477792743971
+				}
+			],
 			"sid": 863392186950658,
 			"children": [
 				{
@@ -1459,6 +1523,156 @@
 							"sid": 888264727383532
 						}
 					]
+				}
+			]
+		},
+		{
+			"functionName": "CheckForWin",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 843669114508220,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "CompletedFoundations",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 123486143426358
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 387195100702305,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 510372381290509,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 499552583011007,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 0,
+										"value": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 154311755016038,
+									"parameters": {
+										"variable": "CompletedFoundations",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 236005364522939
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 736323663227764,
+							"parameters": {
+								"variable": "CompletedFoundations",
+								"comparison": 0,
+								"value": "8"
+							}
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 682811690515234,
+							"parameters": {
+								"object": "Card",
+								"expression": "Card.ZIndex",
+								"order": "descending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 646540331131004,
+							"parameters": {
+								"seconds": "0.1* loopindex"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 874743429526711,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "random(32, 288)",
+								"end-y": "484",
+								"time": "0.5",
+								"ease": "easeinsine",
+								"destroy-on-complete": "yes"
+							}
+						}
+					],
+					"sid": 937548946624301
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 575993317736756,
+							"parameters": {
+								"variable": "CompletedFoundations",
+								"comparison": 0,
+								"value": "8"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 120908218980996,
+							"parameters": {
+								"seconds": "0.1 * 52 + 1"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 900513610207705
+						}
+					],
+					"sid": 813975796157302
 				}
 			]
 		}

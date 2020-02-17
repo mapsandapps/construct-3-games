@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 18204,
-	"name": "napoleon",
+	"name": "Napoleon's Square",
 	"runtime": "c3",
 	"useWorker": false,
 	"bundleAddons": false,
@@ -48,16 +48,16 @@
 		},
 		{
 			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
+			"id": "Tween",
+			"name": "Tween",
 			"author": "Scirra",
 			"version": "r182.4",
 			"bundled": false
 		},
 		{
 			"type": "behavior",
-			"id": "Tween",
-			"name": "Tween",
+			"id": "bound",
+			"name": "Bound to layout",
 			"author": "Scirra",
 			"version": "r182.4",
 			"bundled": false
@@ -71,7 +71,8 @@
 			"Discard",
 			"Card",
 			"Background",
-			"StackIndicator"
+			"StackIndicator",
+			"RestartButton"
 		],
 		"subfolders": [
 			{
@@ -194,7 +195,7 @@
 	"properties": {
 		"description": "",
 		"version": "1.0.0.0",
-		"author": "",
+		"author": "Shawn Taylor",
 		"authorEmail": "",
 		"authorWebsite": "",
 		"appId": "",
@@ -231,7 +232,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true
