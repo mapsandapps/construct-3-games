@@ -1,0 +1,270 @@
+{
+	"name": "eMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 121921941351010,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 217690566372406,
+					"parameters": {
+						"variable": "IsInMenu"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "RestartLayoutForNewDeal",
+					"sid": 351198750759441
+				}
+			],
+			"sid": 427003025027256
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 837543235370529,
+					"parameters": {
+						"object": "TextButton"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 292364502166411,
+					"parameters": {
+						"variable": "IsInMenu"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TextButton",
+					"sid": 256742693314061,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Restart\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "RestartLayoutForNewDeal",
+					"sid": 341870203007648
+				}
+			],
+			"sid": 156653475490972
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 927613745692100,
+					"parameters": {
+						"object": "TextButton"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 217636928537652,
+					"parameters": {
+						"variable": "IsInMenu"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TextButton",
+					"sid": 457566826855151,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Resume\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 451166676061633,
+					"parameters": {
+						"layer": "\"Menu\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 737012015946218,
+					"parameters": {
+						"layer": "\"Cards\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 746436131414895,
+					"parameters": {
+						"layer": "\"Stacks\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 492464247696404,
+					"parameters": {
+						"variable": "IsInMenu",
+						"value": "false"
+					}
+				},
+				{
+					"callFunction": "SetDraggable",
+					"sid": 904125992750114
+				}
+			],
+			"sid": 543006579948672
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 626616998297668,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 721240944682610,
+					"parameters": {
+						"variable": "IsInMenu"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 557713826291548,
+					"parameters": {
+						"layer": "\"Menu\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 385638962205521,
+					"parameters": {
+						"layer": "\"Cards\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 433932766802376,
+					"parameters": {
+						"layer": "\"Stacks\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 490834270228037,
+					"parameters": {
+						"variable": "IsInMenu",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 521967907169676,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 962521324850579
+		},
+		{
+			"functionName": "RestartLayoutForNewDeal",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 212543704872255,
+					"parameters": {
+						"layer": "\"Menu\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 756642112033932,
+					"parameters": {
+						"layer": "\"Cards\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 856885537309712,
+					"parameters": {
+						"layer": "\"Stacks\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 701061883959916,
+					"parameters": {
+						"variable": "IsInMenu",
+						"value": "false"
+					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 952116537491378
+				}
+			],
+			"sid": 171866159954749
+		}
+	],
+	"sid": 221394642731126
+}

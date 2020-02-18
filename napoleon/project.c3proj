@@ -39,6 +39,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -70,9 +78,7 @@
 			"Stack",
 			"Discard",
 			"Card",
-			"Background",
-			"StackIndicator",
-			"RestartButton"
+			"StackIndicator"
 		],
 		"subfolders": [
 			{
@@ -94,6 +100,16 @@
 				],
 				"subfolders": [],
 				"name": "SystemObejcts"
+			},
+			{
+				"items": [
+					"Background",
+					"MenuButton",
+					"RestartButton",
+					"TextButton"
+				],
+				"subfolders": [],
+				"name": "UI"
 			}
 		]
 	},
@@ -113,7 +129,8 @@
 	"eventSheets": {
 		"items": [
 			"eMain",
-			"eHelpers"
+			"eHelpers",
+			"eMenu"
 		],
 		"subfolders": []
 	},
@@ -135,7 +152,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "Poppins-Bold.ttf",
+					"type": "application/font-sfnt",
+					"sid": 442419065032267
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -205,9 +228,9 @@
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0,
-			0,
-			0,
+			0.09411764705882353,
+			0.6901960784313725,
+			0.7294117647058823,
 			0
 		],
 		"splashColor": [
