@@ -264,6 +264,68 @@
 				}
 			],
 			"sid": 171866159954749
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 615476966662517,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 422596782742582,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 843652547341633,
+					"parameters": {
+						"object": "TextButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 161166324358668,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 147791769552524,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 857121396931357
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 925473606685072,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 564274663413837
 		}
 	],
 	"sid": 221394642731126

@@ -32,6 +32,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -96,7 +104,8 @@
 			{
 				"items": [
 					"Browser",
-					"Touch"
+					"Touch",
+					"Mouse"
 				],
 				"subfolders": [],
 				"name": "SystemObejcts"
