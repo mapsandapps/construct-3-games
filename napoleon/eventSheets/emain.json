@@ -176,13 +176,8 @@
 			],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 295494103996414,
-					"parameters": {
-						"type": "log",
-						"message": "\"not in menu\""
-					}
+					"callFunction": "SetDraggable",
+					"sid": 450789499536485
 				}
 			],
 			"sid": 292705198669873,
@@ -314,6 +309,13 @@
 					"id": "move-to-top",
 					"objectClass": "Card",
 					"sid": 525147540174330
+				},
+				{
+					"callFunction": "DisableDND",
+					"sid": 234944909894608,
+					"parameters": [
+						"Card.UID"
+					]
 				},
 				{
 					"id": "set-eventvar-value",
@@ -593,6 +595,10 @@
 										"x": "Stack.X",
 										"y": "Stack.Y"
 									}
+								},
+								{
+									"callFunction": "SetDraggable",
+									"sid": 203420700419778
 								}
 							],
 							"sid": 612785415549893
@@ -625,6 +631,10 @@
 										"x": "Discard.X",
 										"y": "Discard.Y"
 									}
+								},
+								{
+									"callFunction": "SetDraggable",
+									"sid": 122890477398720
 								}
 							],
 							"sid": 262427066221072

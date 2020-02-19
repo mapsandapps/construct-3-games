@@ -269,25 +269,54 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 931491884470495,
+					"parameters": {
+						"variable": "IsInMenu"
+					}
+				},
+				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 615476966662517,
+					"sid": 917207808979925,
 					"parameters": {
 						"object": "RestartButton"
 					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 495294719842650,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 147791769552524
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 433263371756753
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 422596782742582,
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 563889799504972,
 					"parameters": {
-						"object": "MenuButton"
+						"variable": "IsInMenu"
 					}
 				},
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 843652547341633,
+					"sid": 911611313034747,
 					"parameters": {
 						"object": "TextButton"
 					}
@@ -297,14 +326,51 @@
 				{
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
-					"sid": 161166324358668,
+					"sid": 909783448582488,
 					"parameters": {
 						"cursor-style": "hand"
 					}
 				}
 			],
-			"sid": 147791769552524,
-			"isOrBlock": true
+			"sid": 545124238609524
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 838531163449726
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 767959495626463,
+					"parameters": {
+						"variable": "IsInMenu"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 617863660104759,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 643753212845362,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 294653783481577
 		},
 		{
 			"eventType": "block",

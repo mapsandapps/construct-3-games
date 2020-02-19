@@ -372,6 +372,29 @@
 			"sid": 310916913805451,
 			"children": [
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-enabled",
+							"objectClass": "Card",
+							"sid": 562313518094982,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 369190999117895,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 461973594294473
+				},
+				{
 					"eventType": "variable",
 					"name": "CardIndex",
 					"type": "number",
@@ -454,6 +477,10 @@
 							"parameters": {
 								"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
 							}
+						},
+						{
+							"callFunction": "SetDraggable",
+							"sid": 947118976667168
 						}
 					],
 					"sid": 428007315796540
@@ -1127,6 +1154,26 @@
 				{
 					"callFunction": "CheckForWin",
 					"sid": 126477792743971
+				},
+				{
+					"id": "set-size",
+					"objectClass": "ValidFoundationMoves",
+					"sid": 407410896339364,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "ValidStackMoves",
+					"sid": 625066063482063,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
 				}
 			],
 			"sid": 863392186950658,
@@ -1478,6 +1525,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 608064074450786,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
 									"id": "set-instvar-value",
 									"objectClass": "Stack",
 									"sid": 990884551357227,
@@ -1626,6 +1682,11 @@
 							}
 						},
 						{
+							"id": "move-to-top",
+							"objectClass": "Card",
+							"sid": 958103276421879
+						},
+						{
 							"id": "tween-two-properties",
 							"objectClass": "Card",
 							"sid": 874743429526711,
@@ -1661,9 +1722,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 120908218980996,
+							"sid": 283843121176328,
 							"parameters": {
-								"seconds": "0.1 * 52 + 1"
+								"seconds": "0.1 * 52 * 2 + 1"
 							}
 						},
 						{
@@ -1675,6 +1736,46 @@
 					"sid": 813975796157302
 				}
 			]
+		},
+		{
+			"functionName": "DisableDND",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "ExceptionUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 128456265686427
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 916808746563336,
+					"parameters": {
+						"unique-id": "ExceptionUID"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 814988059353138,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 419109491760107
 		}
 	],
 	"sid": 382132534303725
