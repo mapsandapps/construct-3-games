@@ -105,6 +105,16 @@
 								"comparison": 0,
 								"value": "\"A\""
 							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 200508854570799,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"L\""
+							}
 						}
 					],
 					"actions": [
@@ -118,7 +128,8 @@
 							}
 						}
 					],
-					"sid": 381438795002786
+					"sid": 381438795002786,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -247,11 +258,31 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 118598703346559,
+							"sid": 368942760382603,
 							"parameters": {
 								"variable": "Animation",
 								"comparison": 0,
 								"value": "\"G\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 741711485211111,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"I\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 398743505327598,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"J\""
 							}
 						}
 					],
@@ -259,14 +290,14 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 504287931220739,
+							"sid": 114351724778156,
 							"parameters": {
 								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(153,204,255)"
 							}
 						}
 					],
-					"sid": 331472656382314,
+					"sid": 627957036334456,
 					"isOrBlock": true
 				},
 				{
@@ -303,21 +334,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 800751341846581,
+							"sid": 636247809074517,
 							"parameters": {
 								"variable": "Animation",
 								"comparison": 0,
-								"value": "\"I\""
-							}
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 716021418379235,
-							"parameters": {
-								"variable": "Animation",
-								"comparison": 0,
-								"value": "\"J\""
+								"value": "\"K\""
 							}
 						}
 					],
@@ -325,14 +346,14 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 591193827109465,
+							"sid": 396308484348303,
 							"parameters": {
 								"layer": "\"Tiles & UI\"",
-								"color": "rgbEx255(153,204,255)"
+								"color": "rgbEx255(255,230,118)"
 							}
 						}
 					],
-					"sid": 780918980460347,
+					"sid": 746839621847010,
 					"isOrBlock": true
 				},
 				{
@@ -463,20 +484,20 @@
 					"objectClass": "System",
 					"sid": 202620602553192,
 					"parameters": {
-						"object": "Sprite"
+						"object": "Tile"
 					}
 				}
 			],
 			"actions": [
 				{
 					"id": "tween-one-property",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 135352430473446,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetAngle",
-						"end-value": "Sprite.Angle + 90",
+						"end-value": "Tile.Angle + 90",
 						"time": "0.5",
 						"ease": "easeinoutsine",
 						"destroy-on-complete": "no"
@@ -484,10 +505,10 @@
 				},
 				{
 					"id": "set-animation-frame",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 796228205363795,
 					"parameters": {
-						"frame-number": "random(Sprite.AnimationFrameCount)"
+						"frame-number": "random(Tile.AnimationFrameCount)"
 					}
 				}
 			],
@@ -501,12 +522,12 @@
 					"objectClass": "Touch",
 					"sid": 369039667162179,
 					"parameters": {
-						"object": "Sprite"
+						"object": "Tile"
 					}
 				},
 				{
 					"id": "is-any-playing",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 435742420755717,
 					"behaviorType": "Tween",
 					"isInverted": true
@@ -515,13 +536,13 @@
 			"actions": [
 				{
 					"id": "tween-one-property",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 587946521787255,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetAngle",
-						"end-value": "Sprite.Angle + 90",
+						"end-value": "Tile.Angle + 90",
 						"time": "0.3",
 						"ease": "easeinoutsine",
 						"destroy-on-complete": "no"
@@ -529,10 +550,10 @@
 				},
 				{
 					"id": "set-animation-frame",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 256888091957201,
 					"parameters": {
-						"frame-number": "random(Sprite.AnimationFrameCount)"
+						"frame-number": "random(Tile.AnimationFrameCount)"
 					}
 				}
 			],
@@ -570,7 +591,7 @@
 					"objectClass": "System",
 					"sid": 792158574660848,
 					"parameters": {
-						"object-to-create": "Sprite",
+						"object-to-create": "Tile",
 						"layer": "\"Tiles & UI\"",
 						"x": "Index * GRID_SIZE + (GRID_SIZE / 2) + BOARD_LEFT_MARGIN",
 						"y": "loopindex * GRID_SIZE + (GRID_SIZE / 2)"
@@ -578,7 +599,7 @@
 				},
 				{
 					"id": "set-animation",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 578391453845298,
 					"parameters": {
 						"animation": "Animation",
@@ -587,7 +608,7 @@
 				},
 				{
 					"id": "set-angle",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 384636536402148,
 					"parameters": {
 						"angle": "choose(0, 90)"
@@ -595,10 +616,10 @@
 				},
 				{
 					"id": "set-animation-frame",
-					"objectClass": "Sprite",
+					"objectClass": "Tile",
 					"sid": 486165458683514,
 					"parameters": {
-						"frame-number": "random(Sprite.AnimationFrameCount)"
+						"frame-number": "random(Tile.AnimationFrameCount)"
 					}
 				}
 			],
