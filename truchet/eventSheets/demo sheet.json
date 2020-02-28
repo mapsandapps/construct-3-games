@@ -35,11 +35,41 @@
 			"eventType": "variable",
 			"name": "Animation",
 			"type": "string",
-			"initialValue": "A",
+			"initialValue": "H",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 433865943951007
+		},
+		{
+			"eventType": "variable",
+			"name": "BOARD_LEFT_MARGIN",
+			"type": "number",
+			"initialValue": "320",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 913425108574296
+		},
+		{
+			"eventType": "variable",
+			"name": "IsAutoPlaying",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 479039001855884
+		},
+		{
+			"eventType": "variable",
+			"name": "IsGridShown",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 105645250327050
 		},
 		{
 			"eventType": "block",
@@ -81,9 +111,9 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 243209563497852,
+							"sid": 478630627025737,
 							"parameters": {
-								"layer": "\"Layer 0\"",
+								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(130, 255, 176)"
 							}
 						}
@@ -108,9 +138,9 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 400390380462470,
+							"sid": 658133529833318,
 							"parameters": {
-								"layer": "\"Layer 0\"",
+								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(219,219,219)"
 							}
 						}
@@ -145,9 +175,9 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 427967705305422,
+							"sid": 923683469384720,
 							"parameters": {
-								"layer": "\"Layer 0\"",
+								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(255,255,255)"
 							}
 						}
@@ -173,9 +203,9 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 736880115935614,
+							"sid": 114191604595747,
 							"parameters": {
-								"layer": "\"Layer 0\"",
+								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(169,145,232)"
 							}
 						}
@@ -201,9 +231,9 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 578622886454501,
+							"sid": 406050017909177,
 							"parameters": {
-								"layer": "\"Layer 0\"",
+								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(155,255,220)"
 							}
 						}
@@ -229,14 +259,80 @@
 						{
 							"id": "set-layer-background-color",
 							"objectClass": "System",
-							"sid": 428338076466943,
+							"sid": 504287931220739,
 							"parameters": {
-								"layer": "\"Layer 0\"",
+								"layer": "\"Tiles & UI\"",
 								"color": "rgbEx255(153,204,255)"
 							}
 						}
 					],
 					"sid": 331472656382314,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 144485336874797,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"H\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 625974015238999,
+							"parameters": {
+								"layer": "\"Tiles & UI\"",
+								"color": "rgbEx255(84,110,122)"
+							}
+						}
+					],
+					"sid": 656942426190141,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 800751341846581,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"I\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 716021418379235,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"J\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 591193827109465,
+							"parameters": {
+								"layer": "\"Tiles & UI\"",
+								"color": "rgbEx255(153,204,255)"
+							}
+						}
+					],
+					"sid": 780918980460347,
 					"isOrBlock": true
 				},
 				{
@@ -261,12 +357,99 @@
 						}
 					],
 					"sid": 541567963788035
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 391521015670156,
+							"parameters": {
+								"instance-variable": "Setting",
+								"comparison": 0,
+								"value": "\"Auto\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 825003880831218,
+							"parameters": {
+								"variable": "IsAutoPlaying"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-checked",
+							"objectClass": "Button",
+							"sid": 729113887423452,
+							"parameters": {
+								"state": "checked"
+							}
+						}
+					],
+					"sid": 629146388112263
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 976339032985431,
+							"parameters": {
+								"instance-variable": "Setting",
+								"comparison": 0,
+								"value": "\"Grid\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 250099517041809,
+							"parameters": {
+								"variable": "IsGridShown"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-checked",
+							"objectClass": "Button",
+							"sid": 556289935238721,
+							"parameters": {
+								"state": "checked"
+							}
+						}
+					],
+					"sid": 905403711917205
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "HideShowGrid",
+							"sid": 211694684888246
+						}
+					],
+					"sid": 560567636068597
 				}
 			]
 		},
 		{
 			"eventType": "block",
 			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 332586136494460,
+					"parameters": {
+						"variable": "IsAutoPlaying"
+					}
+				},
 				{
 					"id": "every-x-seconds",
 					"objectClass": "System",
@@ -385,11 +568,11 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 307607128648411,
+					"sid": 792158574660848,
 					"parameters": {
 						"object-to-create": "Sprite",
-						"layer": "\"Layer 0\"",
-						"x": "Index * GRID_SIZE + (GRID_SIZE / 2)",
+						"layer": "\"Tiles & UI\"",
+						"x": "Index * GRID_SIZE + (GRID_SIZE / 2) + BOARD_LEFT_MARGIN",
 						"y": "loopindex * GRID_SIZE + (GRID_SIZE / 2)"
 					}
 				},
@@ -431,6 +614,14 @@
 					"parameters": {
 						"key": 8
 					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 288487613284301,
+					"parameters": {
+						"object": "Menu"
+					}
 				}
 			],
 			"actions": [
@@ -443,7 +634,133 @@
 					}
 				}
 			],
-			"sid": 860114231885795
+			"sid": 860114231885795,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button",
+					"sid": 204686566900411
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 880950692401655,
+					"parameters": {
+						"instance-variable": "Setting",
+						"comparison": 0,
+						"value": "\"Auto\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 870680437021150,
+					"parameters": {
+						"variable": "IsAutoPlaying"
+					}
+				}
+			],
+			"sid": 446966151925911
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button",
+					"sid": 943399945199943
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 910036386089903,
+					"parameters": {
+						"instance-variable": "Setting",
+						"comparison": 0,
+						"value": "\"Grid\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 682171025920692,
+					"parameters": {
+						"variable": "IsGridShown"
+					}
+				},
+				{
+					"callFunction": "HideShowGrid",
+					"sid": 683042666472143
+				}
+			],
+			"sid": 846788033063492
+		},
+		{
+			"functionName": "HideShowGrid",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 926489449169916,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 994903279628484,
+							"parameters": {
+								"variable": "IsGridShown"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Grid",
+							"sid": 475169420593225,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 176773725154962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 654239660114779
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Grid",
+							"sid": 543253883584818,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 304626388559665
+				}
+			]
 		}
 	],
 	"sid": 212718116157819

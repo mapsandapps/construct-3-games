@@ -2,14 +2,14 @@
 	"name": "Demo",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Tiles & UI",
 			"overriden": 0,
 			"instances": [
 				{
 					"type": "Sprite",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "A",
+						"initial-animation": "H",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -39,6 +39,99 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Menu",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 38,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 32,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"type": "checkbox",
+						"text": " Auto",
+						"tooltip": "Automated, random tile rotation",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 37,
+					"instanceVariables": {
+						"Setting": "Auto"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 160,
+						"width": 64,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"type": "checkbox",
+						"text": " Grid",
+						"tooltip": "Display grid",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 39,
+					"instanceVariables": {
+						"Setting": "Grid"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 192,
+						"width": 64,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
 				}
 			],
 			"sid": 678997832754568,
@@ -64,12 +157,72 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"global": false
+		},
+		{
+			"name": "Grid",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Grid",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 0,
+						"width": 640,
+						"height": 640,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 337803693586180,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
 		}
 	],
 	"sid": 738229860181241,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 640,
+	"width": 960,
 	"height": 640,
 	"unboundedScrolling": false,
 	"eventSheet": "Demo sheet"
