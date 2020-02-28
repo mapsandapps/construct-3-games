@@ -1,5 +1,24 @@
 # My Construct 3 Games Monorepo
 
+## Napoleon's Square
+
+My rendition of a classic solitaire game, started in February 2020
+
+* Folder: [/napoleon](./napoleon)
+* [Play on Itch](https://mapsandapps.itch.io/napoleons-square)
+
+## Robot Co-op
+
+Puzzle Game made for [Weekly Game Jam #136: "Single Player Co-op"](https://itch.io/jam/weekly-game-jam-136) in February 2020
+
+* Folder: [/co-op](./co-op)
+* [Play on Itch](https://mapsandapps.itch.io/robot-co-op)
+
+## Truchet Tiles playground
+
+* Folder: [/truchet](./truchet)
+* [View on Itch](https://mapsandapps.itch.io/truchet-tiles)
+
 ## Magnets
 
 Puzzle Game made for [Weekly Game Jam #134: "Magnet"](https://itch.io/jam/weekly-game-jam-134) in January-February 2020
