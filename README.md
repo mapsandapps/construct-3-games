@@ -16,6 +16,10 @@ Puzzle Game made for [Weekly Game Jam #136: "Single Player Co-op"](https://itch.
 
 ## Truchet Tiles playground
 
+Inspired by [https://www.reddit.com/r/blender/comments/ezrlen/animated_truchet_tiles/](https://www.reddit.com/r/blender/comments/ezrlen/animated_truchet_tiles/)
+
+Started in February 2020
+
 * Folder: [/truchet](./truchet)
 * [View on Itch](https://mapsandapps.itch.io/truchet-tiles)
 

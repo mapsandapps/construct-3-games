@@ -1,0 +1,396 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LEVEL_WIDTH",
+			"type": "number",
+			"initialValue": "3072",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 925636859606904
+		},
+		{
+			"eventType": "variable",
+			"name": "LEVEL_HEIGHT",
+			"type": "number",
+			"initialValue": "3072",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 545184481344134
+		},
+		{
+			"eventType": "variable",
+			"name": "TILE_SIZE",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 733848858578568
+		},
+		{
+			"eventType": "variable",
+			"name": "ExplorationDiameter",
+			"type": "number",
+			"initialValue": "96",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 332893123800941
+		},
+		{
+			"eventType": "variable",
+			"name": "GameMode",
+			"type": "string",
+			"initialValue": "Game",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 321251773805505
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 389988757849935
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "DiscoveryArea",
+					"sid": 127888929292816,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				}
+			],
+			"sid": 432821188397213,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 385073570112833,
+							"parameters": {
+								"name": "\"Column\"",
+								"start-index": "0",
+								"end-index": "LEVEL_WIDTH / TILE_SIZE"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 537074894685262,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 848663362357101,
+									"parameters": {
+										"name": "\"Row\"",
+										"start-index": "0",
+										"end-index": "LEVEL_HEIGHT / TILE_SIZE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 886753936833984,
+									"parameters": {
+										"object-to-create": "Fog",
+										"layer": "\"Fog\"",
+										"x": "loopindex(\"Column\") * TILE_SIZE",
+										"y": "loopindex(\"Row\") * TILE_SIZE"
+									}
+								}
+							],
+							"sid": 842012251096635,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Fog",
+											"sid": 350082812938138,
+											"parameters": {
+												"object": "Landmass"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Fog",
+											"sid": 379336794042428
+										}
+									],
+									"sid": 471952026286004
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "DiscoveryArea",
+					"sid": 493798169541560,
+					"parameters": {
+						"object": "Fog"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Fog",
+					"sid": 219679529633402
+				}
+			],
+			"sid": 581005060334297
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "DiscoveryArea",
+					"sid": 949349016826155,
+					"parameters": {
+						"object": "Coastline"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Coastline",
+					"sid": 749033634582268
+				}
+			],
+			"sid": 460371505597449
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "DiscoveryArea",
+					"sid": 772785916659690,
+					"parameters": {
+						"object": "Island"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Island",
+					"sid": 728829809142020,
+					"parameters": {
+						"opacity": "0"
+					}
+				}
+			],
+			"sid": 970709049238428
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 133063685310540,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Game\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 648822313796536,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 208010848635994,
+							"parameters": {
+								"key": 77
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 711135553511347,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 834126898933154,
+							"parameters": {
+								"variable": "GameMode",
+								"value": "\"Map\""
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 766733537832383,
+							"parameters": {
+								"scale": "480/3072"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 345921950796192,
+							"parameters": {
+								"type": "log",
+								"message": "\"start\""
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 320415441011304,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 260143290545168
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 953616603170015,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Map\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 579487539630356,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 696282567482674,
+							"parameters": {
+								"key": 77
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 352286211536611,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 434067115878298,
+							"parameters": {
+								"scale": "1.0"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 842637720613659,
+							"parameters": {
+								"type": "log",
+								"message": "\"end\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 590306679296078,
+							"parameters": {
+								"variable": "GameMode",
+								"value": "\"Game\""
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 412604483108707,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 208693488808755
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 831989158780872,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "DiscoveryArea",
+					"sid": 784482535392771,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				}
+			],
+			"sid": 513320318465652
+		}
+	],
+	"sid": 374677689077624
+}
