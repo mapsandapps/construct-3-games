@@ -1,0 +1,460 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"functionName": "EnterCityMode",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CityName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 475992962447710
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "City",
+					"sid": 535500173962458,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "CityName"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 983765368666236,
+					"parameters": {
+						"variable": "IsAtCity",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 960029316052025,
+					"parameters": {
+						"variable": "GameMode",
+						"value": "\"City\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CityTextBackground",
+					"sid": 975522726174185,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 422098993186550,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 342032065401967,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 469809986559949,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"City Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 446310096578719,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 722916198773434
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 721100909001843,
+							"parameters": {
+								"instance-variable": "Identifier",
+								"comparison": 0,
+								"value": "\"City Name\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 140764811921068,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"City Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 236364298103923,
+							"parameters": {
+								"text": "\"You have docked in the port city of \"&CityName&\".\""
+							}
+						}
+					],
+					"sid": 459458004395334
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 136099572431223,
+							"parameters": {
+								"instance-variable": "Identifier",
+								"comparison": 0,
+								"value": "\"Resources\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 291947062741721,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"City Text\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 100493487693960,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "City",
+									"sid": 922876657281427,
+									"parameters": {
+										"instance-variable": "ResourcesAvailable",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 150695489409728,
+									"parameters": {
+										"text": "\"The city has granted you \"&City.ResourcesAvailable&\" resources to use on your voyage.\""
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Player",
+									"sid": 121226968769095,
+									"parameters": {
+										"instance-variable": "Resources",
+										"value": "City.ResourcesAvailable"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "City",
+									"sid": 537277760419203,
+									"parameters": {
+										"instance-variable": "ResourcesAvailable",
+										"value": "0"
+									}
+								},
+								{
+									"callFunction": "SetPlayerResources",
+									"sid": 413620429314794
+								}
+							],
+							"sid": 584667870320899
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 577831666453669
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text",
+									"sid": 440415265379191,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 737713986801279
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 162245729052863,
+							"parameters": {
+								"instance-variable": "Identifier",
+								"comparison": 0,
+								"value": "\"Quest\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 363309240617355,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"City Text\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 921560792889005,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 182869587487526,
+									"parameters": {
+										"variable": "IsQuestAvailable"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text",
+									"sid": 389702274546707,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 975756221788130
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "ExitCityMode",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 435378708742784,
+					"parameters": {
+						"variable": "GameMode",
+						"value": "\"Game\""
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "CityTextBackground",
+					"sid": 950519400019532,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 286357374147440,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "enabled"
+					}
+				}
+			],
+			"sid": 344557358941669,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 847221623626214,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"City Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 489061914266314,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 312901709706993
+				}
+			]
+		},
+		{
+			"functionName": "EnterQuestMode",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 488901732563880,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 829056358097082,
+					"parameters": {
+						"variable": "GameMode",
+						"value": "\"Quest\""
+					}
+				}
+			],
+			"sid": 909220531428209
+		},
+		{
+			"functionName": "ExitQuestMode",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 121383557224380,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 974364650654912,
+					"parameters": {
+						"variable": "GameMode",
+						"value": "\"Game\""
+					}
+				}
+			],
+			"sid": 714551830831369
+		},
+		{
+			"functionName": "SetPlayerResources",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 294687038683680,
+					"parameters": {
+						"instance-variable": "Identifier",
+						"comparison": 0,
+						"value": "\"Resources\""
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 932670138891153,
+					"parameters": {
+						"instance-variable": "Type",
+						"comparison": 0,
+						"value": "\"Main UI\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 927562450302812,
+					"parameters": {
+						"text": "\"Resources: \"&Player.Resources"
+					}
+				}
+			],
+			"sid": 737360937121180
+		}
+	],
+	"sid": 339083340734898
+}

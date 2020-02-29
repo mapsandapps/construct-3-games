@@ -1,0 +1,570 @@
+{
+	"name": "eMain",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGameModes"
+		},
+		{
+			"eventType": "variable",
+			"name": "LEVEL_WIDTH",
+			"type": "number",
+			"initialValue": "3072",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 925636859606904
+		},
+		{
+			"eventType": "variable",
+			"name": "LEVEL_HEIGHT",
+			"type": "number",
+			"initialValue": "3072",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 545184481344134
+		},
+		{
+			"eventType": "variable",
+			"name": "TILE_SIZE",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 733848858578568
+		},
+		{
+			"eventType": "variable",
+			"name": "ShipSpeed",
+			"type": "string",
+			"initialValue": "Slow",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 312089543559002
+		},
+		{
+			"eventType": "variable",
+			"name": "IsPlayerMoving",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 230442998558101
+		},
+		{
+			"eventType": "variable",
+			"name": "IsAtCity",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 541315113968479
+		},
+		{
+			"eventType": "variable",
+			"name": "IsQuestAvailable",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 508383270891955
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 389988757849935
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "DiscoveryArea",
+					"sid": 127888929292816,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "City",
+					"sid": 660892357321402,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"callFunction": "SetPlayerResources",
+					"sid": 326276089908293
+				}
+			],
+			"sid": 432821188397213,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 385073570112833,
+							"parameters": {
+								"name": "\"Column\"",
+								"start-index": "0",
+								"end-index": "LEVEL_WIDTH / TILE_SIZE"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 537074894685262,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 848663362357101,
+									"parameters": {
+										"name": "\"Row\"",
+										"start-index": "0",
+										"end-index": "LEVEL_HEIGHT / TILE_SIZE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 886753936833984,
+									"parameters": {
+										"object-to-create": "Fog",
+										"layer": "\"Fog\"",
+										"x": "loopindex(\"Column\") * TILE_SIZE",
+										"y": "loopindex(\"Row\") * TILE_SIZE"
+									}
+								}
+							],
+							"sid": 842012251096635,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Fog",
+											"sid": 350082812938138,
+											"parameters": {
+												"object": "Landmass"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Fog",
+											"sid": 379336794042428
+										}
+									],
+									"sid": 471952026286004
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "DiscoveryArea",
+							"sid": 945376390969460,
+							"parameters": {
+								"object": "City"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "EnterCityMode",
+							"sid": 707824975347167,
+							"parameters": [
+								"City.Name"
+							]
+						}
+					],
+					"sid": 456449463397200
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "DiscoveryArea",
+					"sid": 493798169541560,
+					"parameters": {
+						"object": "Fog"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Fog",
+					"sid": 219679529633402
+				}
+			],
+			"sid": 581005060334297
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "DiscoveryArea",
+					"sid": 949349016826155,
+					"parameters": {
+						"object": "Coastline"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Coastline",
+					"sid": 749033634582268
+				}
+			],
+			"sid": 460371505597449
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "DiscoveryArea",
+					"sid": 772785916659690,
+					"parameters": {
+						"object": "Island"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Island",
+					"sid": 728829809142020,
+					"parameters": {
+						"opacity": "0"
+					}
+				}
+			],
+			"sid": 970709049238428
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 388195836245279,
+					"parameters": {
+						"object": "City"
+					}
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 432320433897812,
+					"behaviorType": "TileMovement",
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "City",
+					"sid": 450515452343685,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 985900787865948,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 332546665198187,
+							"parameters": {
+								"variable": "GameMode",
+								"comparison": 0,
+								"value": "\"Game\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 256467330774277,
+							"parameters": {
+								"variable": "IsAtCity"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "EnterCityMode",
+							"sid": 910470421503426,
+							"parameters": [
+								"City.Name"
+							]
+						}
+					],
+					"sid": 757760880462072
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 831989158780872,
+					"behaviorType": "TileMovement"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "DiscoveryArea",
+					"sid": 784482535392771,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				}
+			],
+			"sid": 513320318465652
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 186507744191754,
+					"behaviorType": "TileMovement"
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 774865471415118,
+					"parameters": {
+						"variable": "IsPlayerMoving"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 377042582381175,
+					"parameters": {
+						"type": "log",
+						"message": "\"increasing resources\""
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 625834576853233,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 100214236798293,
+					"parameters": {
+						"variable": "IsPlayerMoving",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 354707933884987,
+					"parameters": {
+						"variable": "IsAtCity",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 723868530580270,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 734786901443236,
+							"parameters": {
+								"variable": "ShipSpeed",
+								"comparison": 0,
+								"value": "\"Slow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "City",
+							"sid": 327437571894252,
+							"parameters": {
+								"instance-variable": "ResourcesAvailable",
+								"value": "2"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Player",
+							"sid": 543817647955118,
+							"parameters": {
+								"instance-variable": "Resources",
+								"value": "2"
+							}
+						},
+						{
+							"callFunction": "SetPlayerResources",
+							"sid": 813647809452348
+						}
+					],
+					"sid": 396426290675095
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 989794559323481
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "City",
+							"sid": 943446758919272,
+							"parameters": {
+								"instance-variable": "ResourcesAvailable",
+								"value": "1"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Player",
+							"sid": 564901914899289,
+							"parameters": {
+								"instance-variable": "Resources",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "SetPlayerResources",
+							"sid": 344227934692635
+						}
+					],
+					"sid": 627733712375634
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 928790489674485,
+					"behaviorType": "TileMovement",
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 770874414118122,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 741402507860944,
+					"parameters": {
+						"variable": "IsPlayerMoving",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 498078278615860
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 898667640243692,
+					"parameters": {
+						"instance-variable": "Resources",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Player",
+					"sid": 284340944157794,
+					"parameters": {
+						"opacity": "10"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 671235120510306,
+					"behaviorType": "TileMovement",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 952033411029779
+		}
+	],
+	"sid": 374677689077624
+}

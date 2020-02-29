@@ -3,14 +3,21 @@
 	"plugin-id": "Sprite",
 	"sid": 365772158432789,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [
+	"instanceVariables": [
 		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 710942206558450
+			"name": "ResourcesAvailable",
+			"type": "number",
+			"desc": "",
+			"sid": 916667796062621
+		},
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 336768520352418
 		}
 	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [

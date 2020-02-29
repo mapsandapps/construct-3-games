@@ -1,0 +1,518 @@
+{
+	"name": "eGameModes",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GameMode",
+			"type": "string",
+			"initialValue": "Game",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 124207805709122
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 907472207227442,
+					"parameters": {
+						"key": 81
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 164288672811917,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"City\""
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 111534739560400,
+					"parameters": {
+						"variable": "IsQuestAvailable"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "EnterQuestMode",
+					"sid": 490734291557662
+				}
+			],
+			"sid": 745848539265225
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 189748768531211,
+					"parameters": {
+						"key": 27
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 322038067473639,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"City\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ExitCityMode",
+					"sid": 150197384005177
+				}
+			],
+			"sid": 538600407627995
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 778268152537820,
+					"parameters": {
+						"key": 27
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 173654672563494,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Quest\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ExitQuestMode",
+					"sid": 683630347448890
+				}
+			],
+			"sid": 604414410290781
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 133063685310540,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Game\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 648822313796536,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 208010848635994,
+							"parameters": {
+								"key": 77
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 711135553511347,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 834126898933154,
+							"parameters": {
+								"variable": "GameMode",
+								"value": "\"Map\""
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 766733537832383,
+							"parameters": {
+								"scale": "480/3072"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 345921950796192,
+							"parameters": {
+								"type": "log",
+								"message": "\"start\""
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 320415441011304,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 260143290545168
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 682645941581021,
+							"parameters": {
+								"key": 84
+							}
+						}
+					],
+					"actions": [],
+					"sid": 132401260108895,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 593092019093839,
+									"parameters": {
+										"variable": "ShipSpeed",
+										"comparison": 0,
+										"value": "\"Slow\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 397706754669400,
+									"parameters": {
+										"variable": "ShipSpeed",
+										"value": "\"Fast\""
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Player",
+									"sid": 260118375994879,
+									"behaviorType": "TileMovement",
+									"parameters": {
+										"x": "200",
+										"y": "200"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "DiscoveryArea",
+									"sid": 599174902318086,
+									"parameters": {
+										"width": "32",
+										"height": "32"
+									}
+								}
+							],
+							"sid": 305250782670564,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 605118225203603,
+											"parameters": {
+												"instance-variable": "Identifier",
+												"comparison": 0,
+												"value": "\"Ship Speed\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 275962870621045,
+											"parameters": {
+												"text": "\"Ship Speed: FAST (T to toggle)\""
+											}
+										}
+									],
+									"sid": 223917996007920
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 845921431829650
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 221642632086297,
+									"parameters": {
+										"variable": "ShipSpeed",
+										"value": "\"Slow\""
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Player",
+									"sid": 147332943287039,
+									"behaviorType": "TileMovement",
+									"parameters": {
+										"x": "100",
+										"y": "100"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "DiscoveryArea",
+									"sid": 973404561446379,
+									"parameters": {
+										"width": "96",
+										"height": "96"
+									}
+								}
+							],
+							"sid": 427697598655478,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 473096101508578,
+											"parameters": {
+												"instance-variable": "Identifier",
+												"comparison": 0,
+												"value": "\"Ship Speed\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 606071210531122,
+											"parameters": {
+												"text": "\"Ship Speed: SLOW (T to toggle)\""
+											}
+										}
+									],
+									"sid": 109203242288783
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "DiscoveryArea",
+									"sid": 130919612097470,
+									"parameters": {
+										"x": "Player.X",
+										"y": "Player.Y"
+									}
+								}
+							],
+							"sid": 659059570739925
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 855485080320982,
+							"parameters": {
+								"instance-variable": "Identifier",
+								"comparison": 0,
+								"value": "\"Ship Speed\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 264111650475694,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 195454629542215
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 244328590712999,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Game\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 876364658879661,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 242729725690834,
+							"parameters": {
+								"instance-variable": "Identifier",
+								"comparison": 0,
+								"value": "\"Ship Speed\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 184351982038090,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 871091213060338
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 953616603170015,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Map\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 579487539630356,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 696282567482674,
+							"parameters": {
+								"key": 77
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 352286211536611,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 434067115878298,
+							"parameters": {
+								"scale": "1.0"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 842637720613659,
+							"parameters": {
+								"type": "log",
+								"message": "\"end\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 590306679296078,
+							"parameters": {
+								"variable": "GameMode",
+								"value": "\"Game\""
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 412604483108707,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 208693488808755
+				}
+			]
+		}
+	],
+	"sid": 908408147285414
+}

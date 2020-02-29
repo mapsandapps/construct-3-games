@@ -47,6 +47,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "TileMovement",
 			"name": "Tile movement",
@@ -91,7 +99,9 @@
 			"Island",
 			"DiscoveryArea",
 			"MovementBarrier",
-			"Quadrant"
+			"Quadrant",
+			"Text",
+			"CityTextBackground"
 		],
 		"subfolders": [
 			{
@@ -118,7 +128,9 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"eMain",
+			"eHelpers",
+			"eGameModes"
 		],
 		"subfolders": []
 	},
