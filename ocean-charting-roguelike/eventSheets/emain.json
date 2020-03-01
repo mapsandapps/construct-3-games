@@ -67,13 +67,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "IsQuestAvailable",
-			"type": "boolean",
-			"initialValue": "true",
+			"name": "QUEST_REWARD",
+			"type": "number",
+			"initialValue": "200",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
-			"sid": 508383270891955
+			"isConstant": true,
+			"sid": 418800709606957
 		},
 		{
 			"eventType": "block",
@@ -88,10 +88,10 @@
 				{
 					"id": "set-position",
 					"objectClass": "DiscoveryArea",
-					"sid": 127888929292816,
+					"sid": 347211594455693,
 					"parameters": {
-						"x": "Player.X",
-						"y": "Player.Y"
+						"x": "Player.ImagePointX(\"Center\")",
+						"y": "Player.ImagePointY(\"Center\")"
 					}
 				},
 				{
@@ -105,80 +105,29 @@
 				{
 					"callFunction": "SetPlayerResources",
 					"sid": 326276089908293
+				},
+				{
+					"callFunction": "BuildFog",
+					"sid": 919875494039416
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 628573598547797
 				}
 			],
 			"sid": 432821188397213,
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
+					"conditions": [],
+					"actions": [
 						{
-							"id": "for",
-							"objectClass": "System",
-							"sid": 385073570112833,
-							"parameters": {
-								"name": "\"Column\"",
-								"start-index": "0",
-								"end-index": "LEVEL_WIDTH / TILE_SIZE"
-							}
+							"callFunction": "CalculateInitialFogs",
+							"sid": 947258524982384
 						}
 					],
-					"actions": [],
-					"sid": 537074894685262,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for",
-									"objectClass": "System",
-									"sid": 848663362357101,
-									"parameters": {
-										"name": "\"Row\"",
-										"start-index": "0",
-										"end-index": "LEVEL_HEIGHT / TILE_SIZE"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 886753936833984,
-									"parameters": {
-										"object-to-create": "Fog",
-										"layer": "\"Fog\"",
-										"x": "loopindex(\"Column\") * TILE_SIZE",
-										"y": "loopindex(\"Row\") * TILE_SIZE"
-									}
-								}
-							],
-							"sid": 842012251096635,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Fog",
-											"sid": 350082812938138,
-											"parameters": {
-												"object": "Landmass"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "destroy",
-											"objectClass": "Fog",
-											"sid": 379336794042428
-										}
-									],
-									"sid": 471952026286004
-								}
-							]
-						}
-					]
+					"sid": 517996636175747
 				},
 				{
 					"eventType": "block",
@@ -222,6 +171,10 @@
 					"id": "destroy",
 					"objectClass": "Fog",
 					"sid": 219679529633402
+				},
+				{
+					"callFunction": "SetQuestProgress",
+					"sid": 682685371554202
 				}
 			],
 			"sid": 581005060334297
@@ -232,28 +185,7 @@
 				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "DiscoveryArea",
-					"sid": 949349016826155,
-					"parameters": {
-						"object": "Coastline"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Coastline",
-					"sid": 749033634582268
-				}
-			],
-			"sid": 460371505597449
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "DiscoveryArea",
-					"sid": 772785916659690,
+					"sid": 852637805624741,
 					"parameters": {
 						"object": "Island"
 					}
@@ -263,13 +195,28 @@
 				{
 					"id": "set-opacity",
 					"objectClass": "Island",
-					"sid": 728829809142020,
+					"sid": 549729876644978,
 					"parameters": {
 						"opacity": "0"
 					}
+				},
+				{
+					"callFunction": "SetQuestProgress",
+					"sid": 353710851900876
 				}
 			],
-			"sid": 970709049238428
+			"sid": 632780069111289
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "SetQuestProgress",
+					"sid": 107806394083001
+				}
+			],
+			"sid": 460371505597449
 		},
 		{
 			"eventType": "block",
@@ -352,10 +299,10 @@
 				{
 					"id": "set-position",
 					"objectClass": "DiscoveryArea",
-					"sid": 784482535392771,
+					"sid": 367516321197586,
 					"parameters": {
-						"x": "Player.X",
-						"y": "Player.Y"
+						"x": "Player.ImagePointX(\"Center\")",
+						"y": "Player.ImagePointY(\"Center\")"
 					}
 				}
 			],
@@ -381,6 +328,10 @@
 				}
 			],
 			"actions": [
+				{
+					"type": "comment",
+					"text": "Player starts moving"
+				},
 				{
 					"id": "log",
 					"objectClass": "Browser",
@@ -509,6 +460,10 @@
 				}
 			],
 			"actions": [
+				{
+					"type": "comment",
+					"text": "Player stops moving"
+				},
 				{
 					"id": "set-ignoring-input",
 					"objectClass": "Player",

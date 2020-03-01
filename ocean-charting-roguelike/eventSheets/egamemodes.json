@@ -33,21 +33,124 @@
 					}
 				},
 				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 111534739560400,
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 532908728575379,
 					"parameters": {
-						"variable": "IsQuestAvailable"
+						"object": "City"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "City",
+					"sid": 114235940821852,
+					"parameters": {
+						"instance-variable": "IsQuestAvailable"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 835268744390946,
+					"parameters": {
+						"instance-variable": "CurrentQuest",
+						"comparison": 0,
+						"value": "0"
 					}
 				}
 			],
 			"actions": [
 				{
+					"callFunction": "ExitCityMode",
+					"sid": 828860821604722
+				},
+				{
 					"callFunction": "EnterQuestMode",
-					"sid": 490734291557662
+					"sid": 415622304596589,
+					"parameters": [
+						"City.Name"
+					]
 				}
 			],
 			"sid": 745848539265225
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 378733293772918,
+					"parameters": {
+						"key": 89
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 896857150878512,
+					"parameters": {
+						"variable": "GameMode",
+						"comparison": 0,
+						"value": "\"Quest\""
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 596091136022975,
+					"parameters": {
+						"object": "City"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "City",
+					"sid": 375013532510822,
+					"parameters": {
+						"instance-variable": "IsQuestAvailable"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 933431197951278,
+					"parameters": {
+						"instance-variable": "CurrentQuest",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ExitQuestMode",
+					"sid": 387244395791301
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "City",
+					"sid": 951029765008089,
+					"parameters": {
+						"instance-variable": "IsQuestAvailable",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 899292444889247,
+					"parameters": {
+						"instance-variable": "CurrentQuest",
+						"value": "City.QuestForQuadrant"
+					}
+				},
+				{
+					"callFunction": "SetQuestProgress",
+					"sid": 851077123768867
+				}
+			],
+			"sid": 998817656134479
 		},
 		{
 			"eventType": "block",
@@ -180,6 +283,24 @@
 							"behaviorType": "TileMovement",
 							"parameters": {
 								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 414889382413688,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 307055584270064,
+							"parameters": {
+								"layer": "\"MinimapUI\"",
+								"visibility": "visible"
 							}
 						}
 					],
@@ -506,6 +627,24 @@
 							"behaviorType": "TileMovement",
 							"parameters": {
 								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 415024048911077,
+							"parameters": {
+								"layer": "\"UI\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 897185026409255,
+							"parameters": {
+								"layer": "\"MinimapUI\"",
+								"visibility": "invisible"
 							}
 						}
 					],

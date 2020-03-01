@@ -2,6 +2,100 @@
 	"name": "eHelpers",
 	"events": [
 		{
+			"functionName": "BuildFog",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 534117450353546,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 249921151034309,
+							"parameters": {
+								"name": "\"Column\"",
+								"start-index": "1",
+								"end-index": "LEVEL_WIDTH / TILE_SIZE"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 494267992741654,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 572958917566568,
+									"parameters": {
+										"name": "\"Row\"",
+										"start-index": "1",
+										"end-index": "LEVEL_HEIGHT / TILE_SIZE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 574234499436155,
+									"parameters": {
+										"object-to-create": "Fog",
+										"layer": "\"Fog\"",
+										"x": "loopindex(\"Column\") * TILE_SIZE - TILE_SIZE / 2",
+										"y": "loopindex(\"Row\") * TILE_SIZE - TILE_SIZE / 2"
+									}
+								}
+							],
+							"sid": 961192223857667,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Fog",
+											"sid": 733080165208372,
+											"parameters": {
+												"object": "Landmass"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Fog",
+											"sid": 579017883688400,
+											"parameters": {
+												"object": "Island"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Fog",
+											"sid": 118473099802383
+										}
+									],
+									"sid": 377259438245523,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"functionName": "EnterCityMode",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -252,18 +346,54 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 724194754243609,
+							"parameters": {
+								"text": "\"A quest is available for you! Press [Q] to learn more.\""
+							}
+						}
+					],
 					"sid": 921560792889005,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 182869587487526,
+									"id": "compare-instance-variable",
+									"objectClass": "Player",
+									"sid": 350029508876317,
 									"parameters": {
-										"variable": "IsQuestAvailable"
+										"instance-variable": "CurrentQuest",
+										"comparison": 0,
+										"value": "0"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 409238262612315,
+									"parameters": {
+										"text": "\"A quest is available at this location, but you need to complete your current quest before accepting another one.\""
+									}
+								}
+							],
+							"sid": 635795815795754
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "City",
+									"sid": 791839009677755,
+									"parameters": {
+										"instance-variable": "IsQuestAvailable"
 									},
 									"isInverted": true
 								}
@@ -278,7 +408,8 @@
 									}
 								}
 							],
-							"sid": 975756221788130
+							"sid": 975756221788130,
+							"isOrBlock": true
 						}
 					]
 				}
@@ -357,10 +488,37 @@
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "CityName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 801020126915472
+				}
+			],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "City",
+					"sid": 222865310305234,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "CityName"
+					}
+				}
+			],
 			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "CityTextBackground",
+					"sid": 200012211444745,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
 				{
 					"id": "set-enabled",
 					"objectClass": "Player",
@@ -380,7 +538,71 @@
 					}
 				}
 			],
-			"sid": 909220531428209
+			"sid": 909220531428209,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 175270935263545,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Quest Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 114766856013533,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 595295469952562
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 165163232712238,
+							"parameters": {
+								"instance-variable": "Identifier",
+								"comparison": 0,
+								"value": "\"Quest\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 235095883003624,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Quest Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 243004672550894,
+							"parameters": {
+								"text": "\"The city of \"&City.Name&\" requests a map of the seas in this quadrant.\"&newline&newline&\"The reward is \"&QUEST_REWARD&\" resources.\"&newline&newline&\"To accept, press [Y].\"&newline&newline&\"Once you have completed the quest, return here to accept the reward.\""
+							}
+						}
+					],
+					"sid": 842560017549772
+				}
+			]
 		},
 		{
 			"functionName": "ExitQuestMode",
@@ -392,6 +614,14 @@
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "CityTextBackground",
+					"sid": 228104951741727,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
 				{
 					"id": "set-enabled",
 					"objectClass": "Player",
@@ -411,7 +641,35 @@
 					}
 				}
 			],
-			"sid": 714551830831369
+			"sid": 714551830831369,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 689809204489368,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Quest Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 921166711869099,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 442705813564412
+				}
+			]
 		},
 		{
 			"functionName": "SetPlayerResources",
@@ -454,6 +712,386 @@
 				}
 			],
 			"sid": 737360937121180
+		},
+		{
+			"functionName": "SetQuestProgress",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 856873853953920,
+					"parameters": {
+						"instance-variable": "Identifier",
+						"comparison": 0,
+						"value": "\"Quest\""
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 221091236060732,
+					"parameters": {
+						"instance-variable": "Type",
+						"comparison": 0,
+						"value": "\"Main UI\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 978158120376769,
+					"parameters": {
+						"type": "log",
+						"message": "\"setquestprogress\""
+					}
+				}
+			],
+			"sid": 447224809781339,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 271080388533609,
+							"parameters": {
+								"instance-variable": "CurrentQuest",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 245236944802349,
+							"parameters": {
+								"text": "\"Quest Progress: no quest\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 780121555201111,
+							"parameters": {
+								"type": "log",
+								"message": "\"no quest\""
+							}
+						}
+					],
+					"sid": 193488945267795
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 112297099512828
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 536805790422105,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						}
+					],
+					"sid": 320095545892832,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "UnexploredFogs",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 649060020946662
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Quadrant",
+									"sid": 776656112547278,
+									"parameters": {
+										"instance-variable": "Quadrant",
+										"comparison": 0,
+										"value": "Player.CurrentQuest"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 862254947173231,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 720680942660224,
+											"parameters": {
+												"object": "Fog"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Fog",
+											"sid": 191398435842970,
+											"parameters": {
+												"object": "Quadrant"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 702245588121960,
+											"parameters": {
+												"variable": "UnexploredFogs",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 133918054808849
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 561856395107629,
+											"parameters": {
+												"object": "Island"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Island",
+											"sid": 336960273223553,
+											"parameters": {
+												"object": "Quadrant"
+											}
+										},
+										{
+											"id": "compare-opacity",
+											"objectClass": "Island",
+											"sid": 285286727764121,
+											"parameters": {
+												"comparison": 0,
+												"opacity": "100"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Quadrant",
+											"sid": 216494102962254,
+											"parameters": {
+												"instance-variable": "InitialFog",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 894976053985283
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 771188029813158,
+											"parameters": {
+												"variable": "UnexploredFogs",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 473041669951320
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 272184549176380,
+									"parameters": {
+										"text": "\"Quest Progress: \"&Quadrant.InitialFog - UnexploredFogs&\"/\"&Quadrant.InitialFog"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 518659279672707,
+									"parameters": {
+										"type": "log",
+										"message": "\"calc\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 489527174211495,
+									"parameters": {
+										"type": "log",
+										"message": "Quadrant.InitialFog"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 122810494053666,
+									"parameters": {
+										"type": "log",
+										"message": "UnexploredFogs"
+									}
+								}
+							],
+							"sid": 801784524475573
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "CalculateInitialFogs",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 105130254397034,
+					"parameters": {
+						"object": "Quadrant"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 706291006247910,
+					"parameters": {
+						"type": "log",
+						"message": "\"caluclatefogs\""
+					}
+				}
+			],
+			"sid": 986218486723092,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 527908058967530,
+							"parameters": {
+								"object": "Fog"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Fog",
+							"sid": 515444812704777,
+							"parameters": {
+								"object": "Quadrant"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Quadrant",
+							"sid": 154889413169951,
+							"parameters": {
+								"instance-variable": "InitialFog",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 494424473000534
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 475272521730677,
+							"parameters": {
+								"object": "Island"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Island",
+							"sid": 184158741054064,
+							"parameters": {
+								"object": "Quadrant"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Quadrant",
+							"sid": 870910016631897,
+							"parameters": {
+								"instance-variable": "InitialFog",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 788864011807885
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Quadrant",
+							"sid": 154999221878728,
+							"parameters": {
+								"instance-variable": "InitialFog",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 907119306755372
+				}
+			]
 		}
 	],
 	"sid": 339083340734898

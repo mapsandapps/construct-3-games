@@ -9,6 +9,12 @@
 			"type": "number",
 			"desc": "",
 			"sid": 139135560046841
+		},
+		{
+			"name": "CurrentQuest",
+			"type": "number",
+			"desc": "",
+			"sid": 880580498034939
 		}
 	],
 	"behaviorTypes": [
@@ -36,13 +42,20 @@
 					{
 						"width": 250,
 						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
 						"imageSpriteId": 3,
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
 						"duration": 1
 					}
 				],

@@ -3,7 +3,26 @@
 	"plugin-id": "NinePatch",
 	"sid": 466372096270057,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Quadrant",
+			"type": "number",
+			"desc": "",
+			"sid": 583153192841722
+		},
+		{
+			"name": "InitialFog",
+			"type": "number",
+			"desc": "",
+			"sid": 248379482639967
+		},
+		{
+			"name": "IsQuestComplete",
+			"type": "boolean",
+			"desc": "",
+			"sid": 693280500016707
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {
