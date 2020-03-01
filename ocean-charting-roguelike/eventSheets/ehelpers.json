@@ -1530,19 +1530,9 @@
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 499065988005092,
-							"disabled": true,
 							"parameters": {
 								"variable": "InitialQuadrant",
 								"value": "choose(1,2,3,4,5,6,7,8,9)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 268323269911349,
-							"parameters": {
-								"variable": "InitialQuadrant",
-								"value": "1"
 							}
 						}
 					],
@@ -1552,38 +1542,13 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 942577094588018,
+							"id": "compare-instance-variable",
+							"objectClass": "City",
+							"sid": 299870316594066,
 							"parameters": {
-								"variable": "InitialQuadrant",
+								"instance-variable": "QuestForQuadrant",
 								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Player",
-							"sid": 893732302444658,
-							"parameters": {
-								"x": "480",
-								"y": "608"
-							}
-						}
-					],
-					"sid": 357388708756363
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Player",
-							"sid": 630521752847172,
-							"parameters": {
-								"object": "City"
+								"value": "InitialQuadrant"
 							}
 						}
 					],
@@ -1591,13 +1556,49 @@
 						{
 							"id": "set-opacity",
 							"objectClass": "City",
-							"sid": 932822627014715,
+							"sid": 297177062646529,
 							"parameters": {
 								"opacity": "100"
 							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 947415612564112,
+							"parameters": {
+								"object-to-create": "Player",
+								"layer": "\"Land\"",
+								"x": "City.X",
+								"y": "City.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "DiscoveryArea",
+							"sid": 738790840573350,
+							"parameters": {
+								"x": "Player.ImagePointX(\"Center\")",
+								"y": "Player.ImagePointY(\"Center\")"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 691461507093076,
+							"behaviorType": "TileMovement",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"callFunction": "EnterCityMode",
+							"sid": 803647189339554,
+							"parameters": [
+								"City.Name"
+							]
 						}
 					],
-					"sid": 557598970217423
+					"sid": 864458816294299
 				}
 			]
 		}

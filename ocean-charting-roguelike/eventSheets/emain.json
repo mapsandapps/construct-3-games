@@ -137,41 +137,9 @@
 						{
 							"callFunction": "SetInitialPlayerLocation",
 							"sid": 471022479132707
-						},
-						{
-							"id": "set-position",
-							"objectClass": "DiscoveryArea",
-							"sid": 332199298989165,
-							"parameters": {
-								"x": "Player.ImagePointX(\"Center\")",
-								"y": "Player.ImagePointY(\"Center\")"
-							}
 						}
 					],
 					"sid": 597640559354323
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "DiscoveryArea",
-							"sid": 945376390969460,
-							"parameters": {
-								"object": "City"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "EnterCityMode",
-							"sid": 707824975347167,
-							"parameters": [
-								"City.Name"
-							]
-						}
-					],
-					"sid": 456449463397200
 				}
 			]
 		},
