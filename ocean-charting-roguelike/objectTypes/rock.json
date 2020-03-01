@@ -1,0 +1,70 @@
+{
+	"name": "Rock",
+	"plugin-id": "Sprite",
+	"sid": 254140863378845,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "HasBeenSeen",
+			"type": "boolean",
+			"desc": "",
+			"sid": 794136636441251
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 291737770716103
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6,
+						"collisionPoly": {
+							"points": [
+								0.39199999999999996,
+								0.496,
+								0.516,
+								0.428,
+								0.6440000000000001,
+								0.504,
+								0.7400000000000001,
+								0.7400000000000002,
+								0.6639999999999999,
+								0.9440000000000002,
+								0.5,
+								0.944,
+								0.304,
+								0.9320000000000002,
+								0.30399999999999994,
+								0.6200000000000001
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 697815921207591,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

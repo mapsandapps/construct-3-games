@@ -2,7 +2,7 @@
 
 ## Ocean Charting RL
 
-Ocean exploration game made for 7DRL 2020 in February-March 2020
+Ocean exploration game made for 7DRL 2020 in February-March 2020 (incomplete)
 
 * Folder: [/ocean-charting-roguelike](./ocean-charting-roguelike)
 * [Play on Itch](https://mapsandapps.itch.io/ocean-charting-rl)

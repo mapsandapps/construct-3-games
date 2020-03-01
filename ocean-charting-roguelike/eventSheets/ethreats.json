@@ -1,0 +1,105 @@
+{
+	"name": "eThreats",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Rocks",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "DiscoveryArea",
+							"sid": 967756557328412,
+							"parameters": {
+								"object": "Rock"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 167644198101104,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Rock",
+							"sid": 693219391643083,
+							"parameters": {
+								"instance-variable": "HasBeenSeen",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 371407295513558,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 903002146029651,
+							"parameters": {
+								"object": "Rock"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 119493263120792,
+							"parameters": {
+								"type": "log",
+								"message": "\"collide\""
+							}
+						}
+					],
+					"sid": 716175615912209,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Rock",
+									"sid": 147694778807955,
+									"parameters": {
+										"instance-variable": "HasBeenSeen"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Player",
+									"sid": 125527496296776,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "0.5"
+									}
+								}
+							],
+							"sid": 450183996737208
+						}
+					]
+				}
+			],
+			"sid": 787329211272923
+		}
+	],
+	"sid": 314479112576368
+}

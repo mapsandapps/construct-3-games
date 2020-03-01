@@ -80,6 +80,14 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r182.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
@@ -99,7 +107,8 @@
 			"DiscoveryArea",
 			"Quadrant",
 			"Text",
-			"CityTextBackground"
+			"CityTextBackground",
+			"Rock"
 		],
 		"subfolders": [
 			{
@@ -130,7 +139,8 @@
 		"items": [
 			"eMain",
 			"eHelpers",
-			"eGameModes"
+			"eGameModes",
+			"eThreats"
 		],
 		"subfolders": []
 	},
