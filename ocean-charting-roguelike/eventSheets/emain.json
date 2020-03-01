@@ -76,6 +76,16 @@
 			"sid": 418800709606957
 		},
 		{
+			"eventType": "variable",
+			"name": "IsQuestObjectiveComplete",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 338714334933538
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -85,15 +95,6 @@
 				}
 			],
 			"actions": [
-				{
-					"id": "set-position",
-					"objectClass": "DiscoveryArea",
-					"sid": 347211594455693,
-					"parameters": {
-						"x": "Player.ImagePointX(\"Center\")",
-						"y": "Player.ImagePointY(\"Center\")"
-					}
-				},
 				{
 					"id": "set-opacity",
 					"objectClass": "City",
@@ -128,6 +129,26 @@
 						}
 					],
 					"sid": 517996636175747
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "SetInitialPlayerLocation",
+							"sid": 471022479132707
+						},
+						{
+							"id": "set-position",
+							"objectClass": "DiscoveryArea",
+							"sid": 332199298989165,
+							"parameters": {
+								"x": "Player.ImagePointX(\"Center\")",
+								"y": "Player.ImagePointY(\"Center\")"
+							}
+						}
+					],
+					"sid": 597640559354323
 				},
 				{
 					"eventType": "block",
@@ -206,17 +227,6 @@
 				}
 			],
 			"sid": 632780069111289
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"callFunction": "SetQuestProgress",
-					"sid": 107806394083001
-				}
-			],
-			"sid": 460371505597449
 		},
 		{
 			"eventType": "block",
@@ -331,15 +341,6 @@
 				{
 					"type": "comment",
 					"text": "Player starts moving"
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 377042582381175,
-					"parameters": {
-						"type": "log",
-						"message": "\"increasing resources\""
-					}
 				},
 				{
 					"id": "set-ignoring-input",

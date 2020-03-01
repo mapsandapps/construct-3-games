@@ -33,29 +33,11 @@
 					}
 				},
 				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "Player",
-					"sid": 532908728575379,
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 955274549142029,
 					"parameters": {
-						"object": "City"
-					}
-				},
-				{
-					"id": "is-boolean-instance-variable-set",
-					"objectClass": "City",
-					"sid": 114235940821852,
-					"parameters": {
-						"instance-variable": "IsQuestAvailable"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Player",
-					"sid": 835268744390946,
-					"parameters": {
-						"instance-variable": "CurrentQuest",
-						"comparison": 0,
-						"value": "0"
+						"variable": "IsQuestModeEnterable"
 					}
 				}
 			],
@@ -265,15 +247,6 @@
 							"sid": 766733537832383,
 							"parameters": {
 								"scale": "480/3072"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 345921950796192,
-							"parameters": {
-								"type": "log",
-								"message": "\"start\""
 							}
 						},
 						{
@@ -600,15 +573,6 @@
 							"sid": 434067115878298,
 							"parameters": {
 								"scale": "1.0"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 842637720613659,
-							"parameters": {
-								"type": "log",
-								"message": "\"end\""
 							}
 						},
 						{
