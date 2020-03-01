@@ -360,6 +360,34 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 667835081113711,
+							"parameters": {
+								"variable": "Animation",
+								"comparison": 0,
+								"value": "\"M\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-background-color",
+							"objectClass": "System",
+							"sid": 791961309339325,
+							"parameters": {
+								"layer": "\"Tiles & UI\"",
+								"color": "rgbEx255(5,53,29)"
+							}
+						}
+					],
+					"sid": 681076197794233,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "repeat",
 							"objectClass": "System",
 							"sid": 749408357497811,
