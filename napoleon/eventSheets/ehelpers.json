@@ -471,6 +471,15 @@
 							}
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 191039525232866,
+							"parameters": {
+								"animation": "Deck",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-animation-frame",
 							"objectClass": "Card",
 							"sid": 578376707523388,
@@ -483,7 +492,56 @@
 							"sid": 947118976667168
 						}
 					],
-					"sid": 428007315796540
+					"sid": 428007315796540,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 334055069360854,
+									"parameters": {
+										"variable": "Deck",
+										"comparison": 0,
+										"value": "\"Animal\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-scale",
+									"objectClass": "Card",
+									"sid": 636679783770605,
+									"parameters": {
+										"scale": "0.5"
+									}
+								}
+							],
+							"sid": 551686253352641
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 785980196626654
+								}
+							],
+							"actions": [
+								{
+									"id": "set-scale",
+									"objectClass": "Card",
+									"sid": 186118196608273,
+									"parameters": {
+										"scale": "0.25"
+									}
+								}
+							],
+							"sid": 942127618979177
+						}
+					]
 				},
 				{
 					"eventType": "block",
