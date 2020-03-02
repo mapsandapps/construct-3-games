@@ -13,6 +13,14 @@
 					}
 				},
 				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 235580717208872,
+					"parameters": {
+						"layer": "\"Menu\""
+					}
+				},
+				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 217690566372406,
@@ -41,11 +49,11 @@
 					}
 				},
 				{
-					"id": "compare-boolean-eventvar",
+					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 292364502166411,
+					"sid": 293536112069970,
 					"parameters": {
-						"variable": "IsInMenu"
+						"layer": "\"Menu\""
 					}
 				},
 				{
@@ -73,17 +81,138 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 927613745692100,
+					"sid": 437617340245445,
 					"parameters": {
 						"object": "TextButton"
 					}
 				},
 				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 217636928537652,
+					"id": "compare-instance-variable",
+					"objectClass": "TextButton",
+					"sid": 830851240719450,
 					"parameters": {
-						"variable": "IsInMenu"
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Settings\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 687348144319215,
+					"parameters": {
+						"layer": "\"Menu\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 736753266090140,
+					"parameters": {
+						"layer": "\"Settings\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 774456856675245,
+					"parameters": {
+						"layer": "\"Menu\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 143831778046728,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Card",
+							"sid": 931142399079333,
+							"parameters": {
+								"animation": "Deck"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Shadow",
+							"sid": 566830035217335,
+							"parameters": {
+								"x": "Card.X",
+								"y": "Card.Y"
+							}
+						}
+					],
+					"sid": 646099031317655
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 292307063594478,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "Card",
+					"sid": 281127183687026,
+					"parameters": {
+						"layer": "\"Settings\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 173467454244734,
+					"parameters": {
+						"layer": "\"Settings\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 947001525196808,
+					"parameters": {
+						"variable": "Deck",
+						"value": "Card.AnimationName"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Shadow",
+					"sid": 718554889763480,
+					"parameters": {
+						"x": "Card.X",
+						"y": "Card.Y"
+					}
+				}
+			],
+			"sid": 249440519516834
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 927613745692100,
+					"parameters": {
+						"object": "TextButton"
 					}
 				},
 				{
@@ -97,49 +226,211 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 543006579948672,
+			"children": [
 				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 451166676061633,
-					"parameters": {
-						"layer": "\"Menu\"",
-						"visibility": "invisible"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 737012015946218,
-					"parameters": {
-						"layer": "\"Cards\"",
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 746436131414895,
-					"parameters": {
-						"layer": "\"Stacks\"",
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 492464247696404,
-					"parameters": {
-						"variable": "IsInMenu",
-						"value": "false"
-					}
-				},
-				{
-					"callFunction": "SetDraggable",
-					"sid": 904125992750114
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 173990745776497,
+							"parameters": {
+								"layer": "\"Menu\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 236092141180683,
+							"parameters": {
+								"layer": "\"Settings\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 102149517134775,
+							"parameters": {
+								"layer": "\"Menu\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 994252062576887,
+							"parameters": {
+								"layer": "\"Settings\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 583491677316852,
+							"parameters": {
+								"layer": "\"Cards\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 902630796121841,
+							"parameters": {
+								"layer": "\"Stacks\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 460955346326767,
+							"parameters": {
+								"variable": "IsInMenu",
+								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 916288709181164,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"callFunction": "SetDraggable",
+							"sid": 677601156676497
+						}
+					],
+					"sid": 718463344495114,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 619360967520794,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Card",
+									"sid": 869194225878435,
+									"parameters": {
+										"layer": "\"Cards\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 804518764332320,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "CardFrame",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 760125327651748
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 270537575409052,
+											"parameters": {
+												"variable": "CardFrame",
+												"value": "Card.AnimationFrame"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Card",
+											"sid": 878338507085030,
+											"parameters": {
+												"animation": "Deck",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Card",
+											"sid": 290780535167855,
+											"parameters": {
+												"frame-number": "CardFrame"
+											}
+										}
+									],
+									"sid": 979594560108153,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 793366312414689,
+													"parameters": {
+														"variable": "Deck",
+														"comparison": 0,
+														"value": "\"Animal\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-scale",
+													"objectClass": "Card",
+													"sid": 524695259843079,
+													"parameters": {
+														"scale": "0.5"
+													}
+												}
+											],
+											"sid": 749169851095307
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 775976569748721
+												}
+											],
+											"actions": [
+												{
+													"id": "set-scale",
+													"objectClass": "Card",
+													"sid": 403530742738000,
+													"parameters": {
+														"scale": "0.25"
+													}
+												}
+											],
+											"sid": 950756768605793
+										}
+									]
+								}
+							]
+						}
+					],
+					"isOrBlock": true
 				}
-			],
-			"sid": 543006579948672
+			]
 		},
 		{
 			"eventType": "block",
@@ -153,11 +444,20 @@
 					}
 				},
 				{
-					"id": "compare-boolean-eventvar",
+					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 721240944682610,
+					"sid": 291716900496672,
 					"parameters": {
-						"variable": "IsInMenu"
+						"layer": "\"Menu\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 989592944455250,
+					"parameters": {
+						"layer": "\"Settings\""
 					},
 					"isInverted": true
 				}
@@ -269,11 +569,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-boolean-eventvar",
+					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 931491884470495,
+					"sid": 785300790732612,
 					"parameters": {
-						"variable": "IsInMenu"
+						"layer": "\"Menu\""
 					}
 				},
 				{
@@ -283,6 +583,11 @@
 					"parameters": {
 						"object": "RestartButton"
 					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "RestartButton",
+					"sid": 873235963313715
 				}
 			],
 			"actions": [
@@ -306,19 +611,27 @@
 					"sid": 433263371756753
 				},
 				{
-					"id": "compare-boolean-eventvar",
+					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 563889799504972,
+					"sid": 104866661944536,
 					"parameters": {
-						"variable": "IsInMenu"
+						"layer": "\"Menu\""
 					}
 				},
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 911611313034747,
+					"sid": 337695010730659,
 					"parameters": {
 						"object": "TextButton"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "TextButton",
+					"sid": 956392422636454,
+					"parameters": {
+						"layer": "\"Menu\""
 					}
 				}
 			],
@@ -326,7 +639,7 @@
 				{
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
-					"sid": 909783448582488,
+					"sid": 917803335366014,
 					"parameters": {
 						"cursor-style": "hand"
 					}
@@ -340,21 +653,111 @@
 				{
 					"id": "else",
 					"objectClass": "System",
-					"sid": 838531163449726
+					"sid": 900419773578447
 				},
 				{
-					"id": "compare-boolean-eventvar",
+					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 767959495626463,
+					"sid": 392217924244653,
 					"parameters": {
-						"variable": "IsInMenu"
+						"layer": "\"Settings\""
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 404836515563140,
+					"parameters": {
+						"object": "TextButton"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "TextButton",
+					"sid": 619938744814797,
+					"parameters": {
+						"layer": "\"Settings\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 473679082018660,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 303911544564629
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 250691322586874
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 909670129022061,
+					"parameters": {
+						"layer": "\"Settings\""
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 571123177574715,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "Card",
+					"sid": 439502143752353,
+					"parameters": {
+						"layer": "\"Settings\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 479482221386200,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 509772212003544
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 206412596089813
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 899017596745807,
+					"parameters": {
+						"layer": "\"Menu\""
 					},
 					"isInverted": true
 				},
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 617863660104759,
+					"sid": 145071113482074,
 					"parameters": {
 						"object": "MenuButton"
 					}
@@ -364,13 +767,13 @@
 				{
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
-					"sid": 643753212845362,
+					"sid": 635778130249831,
 					"parameters": {
 						"cursor-style": "hand"
 					}
 				}
 			],
-			"sid": 294653783481577
+			"sid": 867753499880266
 		},
 		{
 			"eventType": "block",
@@ -378,20 +781,20 @@
 				{
 					"id": "else",
 					"objectClass": "System",
-					"sid": 857121396931357
+					"sid": 258623180706100
 				}
 			],
 			"actions": [
 				{
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
-					"sid": 925473606685072,
+					"sid": 720968776058198,
 					"parameters": {
 						"cursor-style": "normal"
 					}
 				}
 			],
-			"sid": 564274663413837
+			"sid": 553409682980068
 		}
 	],
 	"sid": 221394642731126
