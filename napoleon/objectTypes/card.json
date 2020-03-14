@@ -682,18 +682,6 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 120,
-						"useCollisionPoly": true,
-						"duration": 1
-					},
-					{
-						"width": 256,
-						"height": 336,
-						"originX": 0.5,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
 						"imageSpriteId": 119,
 						"useCollisionPoly": true,
 						"duration": 1
@@ -1198,7 +1186,27 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 85,
+						"imageSpriteId": 0,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.99609375,
+								0,
+								0.99609375,
+								0.5,
+								0.99609375,
+								0.9970238095238095,
+								0.5,
+								0.9970238095238095,
+								0,
+								0.9970238095238095,
+								0,
+								0.5
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					},
