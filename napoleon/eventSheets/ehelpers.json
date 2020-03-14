@@ -438,6 +438,41 @@
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 946964323122520,
+							"parameters": {
+								"instance-variable": "Suit",
+								"value": "DeckSuits.At(CardIndex)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 260108289283331,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "DeckValues.At(CardIndex)"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 778709894692228,
+							"parameters": {
+								"animation": "Deck",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 286788989235251,
+							"parameters": {
+								"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
+							}
+						},
+						{
 							"id": "tween-two-properties",
 							"objectClass": "Card",
 							"sid": 220938805043513,
@@ -450,41 +485,6 @@
 								"time": "0.3",
 								"ease": "easeinoutsine",
 								"destroy-on-complete": "no"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 152906658766323,
-							"parameters": {
-								"instance-variable": "Suit",
-								"value": "DeckSuits.At(CardIndex)"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 259518414669973,
-							"parameters": {
-								"instance-variable": "Value",
-								"value": "DeckValues.At(CardIndex)"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Card",
-							"sid": 191039525232866,
-							"parameters": {
-								"animation": "Deck",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Card",
-							"sid": 578376707523388,
-							"parameters": {
-								"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
 							}
 						},
 						{

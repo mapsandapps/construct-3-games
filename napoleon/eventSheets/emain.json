@@ -296,6 +296,13 @@
 					"objectClass": "Card",
 					"sid": 505684448781096,
 					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Card",
+					"sid": 129780115840926,
+					"behaviorType": "Tween",
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -663,6 +670,13 @@
 					"parameters": {
 						"object": "StackIndicator"
 					}
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Card",
+					"sid": 555786590590644,
+					"behaviorType": "Tween",
+					"isInverted": true
 				},
 				{
 					"id": "compare-boolean-eventvar",
