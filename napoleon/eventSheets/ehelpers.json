@@ -262,6 +262,16 @@
 			"sid": 555377005984805
 		},
 		{
+			"eventType": "variable",
+			"name": "StackToMoveTo",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 297819427515391
+		},
+		{
 			"functionName": "Shuffle",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -440,7 +450,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
-							"sid": 946964323122520,
+							"sid": 347545246577079,
 							"parameters": {
 								"instance-variable": "Suit",
 								"value": "DeckSuits.At(CardIndex)"
@@ -449,7 +459,7 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
-							"sid": 260108289283331,
+							"sid": 976593666718027,
 							"parameters": {
 								"instance-variable": "Value",
 								"value": "DeckValues.At(CardIndex)"
@@ -458,7 +468,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Card",
-							"sid": 778709894692228,
+							"sid": 246559835666354,
 							"parameters": {
 								"animation": "Deck",
 								"from": "beginning"
@@ -467,7 +477,7 @@
 						{
 							"id": "set-animation-frame",
 							"objectClass": "Card",
-							"sid": 286788989235251,
+							"sid": 889717039521100,
 							"parameters": {
 								"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
 							}
@@ -1554,30 +1564,50 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 604248236903232
+						},
+						{
+							"id": "compare-size",
+							"objectClass": "ValidStackMoves",
+							"sid": 156576007199279,
+							"parameters": {
+								"axis": "x",
+								"comparison": 4,
+								"value": "0"
+							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "GetStackToMoveTo",
+							"sid": 148823517033190
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 273664149064468
+						}
+					],
 					"sid": 814855507845453,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-size",
-									"objectClass": "ValidStackMoves",
-									"sid": 973300439665480,
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 587911245944189,
 									"parameters": {
-										"axis": "x",
+										"variable": "StackToMoveTo",
 										"comparison": 4,
-										"value": "0"
+										"value": "-1"
 									}
 								},
 								{
 									"id": "pick-by-unique-id",
 									"objectClass": "Stack",
-									"sid": 228220500978564,
+									"sid": 994154938823793,
 									"parameters": {
-										"unique-id": "ValidStackMoves.At(0)"
+										"unique-id": "StackToMoveTo"
 									}
 								}
 							],
@@ -1585,7 +1615,7 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "Card",
-									"sid": 608064074450786,
+									"sid": 413634092005715,
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "disabled"
@@ -1594,7 +1624,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Stack",
-									"sid": 990884551357227,
+									"sid": 100622794864274,
 									"parameters": {
 										"instance-variable": "TopCardValue",
 										"value": "Card.Value"
@@ -1603,7 +1633,7 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Stack",
-									"sid": 490099330400424,
+									"sid": 491149838968915,
 									"parameters": {
 										"instance-variable": "IsEmpty",
 										"value": "false"
@@ -1612,7 +1642,7 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Card",
-									"sid": 566879575225805,
+									"sid": 146737154235001,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"\"",
@@ -1627,14 +1657,14 @@
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
-									"sid": 383736606271405
+									"sid": 905559438640367
 								},
 								{
 									"callFunction": "SetDraggable",
-									"sid": 928602821677809
+									"sid": 249116829890132
 								}
 							],
-							"sid": 888264727383532
+							"sid": 615573142195966
 						}
 					]
 				}
@@ -1834,6 +1864,85 @@
 				}
 			],
 			"sid": 419109491760107
+		},
+		{
+			"functionName": "GetStackToMoveTo",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "default; if conditions below aren't met, just move it to any valid stack"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 437293559440395,
+					"parameters": {
+						"variable": "StackToMoveTo",
+						"value": "ValidStackMoves.At(0)"
+					}
+				}
+			],
+			"sid": 494604411212546,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "ValidStackMoves",
+							"sid": 485034539633311,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 605539126470867,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Stack",
+									"sid": 823596290247856,
+									"parameters": {
+										"unique-id": "ValidStackMoves.CurValue"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Stack",
+									"sid": 806014744644865,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 993559914600652,
+									"parameters": {
+										"variable": "StackToMoveTo",
+										"value": "Stack.UID"
+									}
+								}
+							],
+							"sid": 521622504809869
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 382132534303725
