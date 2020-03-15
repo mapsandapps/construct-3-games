@@ -79,6 +79,23 @@
 					}
 				},
 				{
+					"id": "set-animation",
+					"objectClass": "Card",
+					"sid": 459999940689662,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Card",
+					"sid": 187770672827635,
+					"parameters": {
+						"scale": "DeckScale"
+					}
+				},
+				{
 					"id": "set-instvar-value",
 					"objectClass": "Card",
 					"sid": 888348065170671,
@@ -448,6 +465,14 @@
 							}
 						},
 						{
+							"id": "set-scale",
+							"objectClass": "Card",
+							"sid": 943854784694695,
+							"parameters": {
+								"scale": "DeckScale"
+							}
+						},
+						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
 							"sid": 347545246577079,
@@ -502,56 +527,7 @@
 							"sid": 947118976667168
 						}
 					],
-					"sid": 428007315796540,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 334055069360854,
-									"parameters": {
-										"variable": "Deck",
-										"comparison": 0,
-										"value": "\"Animal\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-scale",
-									"objectClass": "Card",
-									"sid": 636679783770605,
-									"parameters": {
-										"scale": "0.5"
-									}
-								}
-							],
-							"sid": 551686253352641
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 785980196626654
-								}
-							],
-							"actions": [
-								{
-									"id": "set-scale",
-									"objectClass": "Card",
-									"sid": 186118196608273,
-									"parameters": {
-										"scale": "0.25"
-									}
-								}
-							],
-							"sid": 942127618979177
-						}
-					]
+					"sid": 428007315796540
 				},
 				{
 					"eventType": "block",
@@ -735,6 +711,23 @@
 						"layer": "\"Cards\"",
 						"x": "32",
 						"y": "0"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Card",
+					"sid": 315607739256824,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Card",
+					"sid": 854016293592464,
+					"parameters": {
+						"scale": "DeckScale"
 					}
 				},
 				{
@@ -1939,6 +1932,124 @@
 								}
 							],
 							"sid": 521622504809869
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "ChangeDeck",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Background",
+					"sid": 370972627702835,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 484811625765189,
+					"parameters": {
+						"key": "\"deck\"",
+						"value": "Deck"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 406484475969147,
+					"parameters": {
+						"key": "\"deckScale\"",
+						"value": "DeckScale"
+					}
+				}
+			],
+			"sid": 432324020859334,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 951596770867691,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "Card",
+							"sid": 841159624447667,
+							"parameters": {
+								"layer": "\"Cards\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 711953144670863,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "CardFrame",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 490089399612468
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 276572824695275,
+									"parameters": {
+										"variable": "CardFrame",
+										"value": "Card.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 228092258915540,
+									"parameters": {
+										"animation": "Deck",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Card",
+									"sid": 360058603084849,
+									"parameters": {
+										"frame-number": "CardFrame"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Card",
+									"sid": 490982759793642,
+									"parameters": {
+										"scale": "DeckScale"
+									}
+								}
+							],
+							"sid": 511728924997188
 						}
 					]
 				}

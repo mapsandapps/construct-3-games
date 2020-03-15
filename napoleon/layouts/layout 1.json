@@ -9,7 +9,7 @@
 					"type": "Background",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Default",
+						"initial-animation": "Animal",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -873,35 +873,6 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Background",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 36,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": -192,
-						"y": 276,
-						"width": 1024,
-						"height": 1024,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.5
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "RestartButton",
 					"properties": {
 						"initially-visible": true,
@@ -1104,7 +1075,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 124,
+						"x": 88,
 						"y": 196,
 						"width": 74,
 						"height": 94,
@@ -1239,7 +1210,7 @@
 						}
 					},
 					"world": {
-						"x": 124,
+						"x": 160,
 						"y": 196,
 						"width": 64,
 						"height": 84,
@@ -1288,7 +1259,7 @@
 						}
 					},
 					"world": {
-						"x": 196,
+						"x": 88,
 						"y": 196,
 						"width": 64,
 						"height": 84,
@@ -1335,6 +1306,55 @@
 						"width": 200,
 						"height": 48,
 						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Card",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Hack",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 27,
+					"instanceVariables": {
+						"Suit": "",
+						"Value": 0
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"BoundToLayout": {
+							"properties": {
+								"bound-by": "edge"
+							}
+						}
+					},
+					"world": {
+						"x": 232,
+						"y": 196,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
 						"originY": 0,
 						"color": [
 							1,

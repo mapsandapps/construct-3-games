@@ -2,6 +2,16 @@
 	"name": "eMenu",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "DeckScale",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 495328757774728
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -137,6 +147,14 @@
 							"parameters": {
 								"animation": "Deck"
 							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Shadow",
+							"sid": 418131130561015,
+							"parameters": {
+								"animation": "\"Glow\""
+							}
 						}
 					],
 					"actions": [
@@ -191,18 +209,96 @@
 						"variable": "Deck",
 						"value": "Card.AnimationName"
 					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "Shadow",
-					"sid": 718554889763480,
-					"parameters": {
-						"x": "Card.X",
-						"y": "Card.Y"
-					}
 				}
 			],
-			"sid": 249440519516834
+			"sid": 249440519516834,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Shadow",
+							"sid": 202672714428046,
+							"parameters": {
+								"animation": "\"Glow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Shadow",
+							"sid": 761587281724356,
+							"parameters": {
+								"x": "Card.X",
+								"y": "Card.Y"
+							}
+						}
+					],
+					"sid": 584166463359375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 166741592472102,
+							"parameters": {
+								"variable": "Deck",
+								"comparison": 0,
+								"value": "\"Animal\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 286402514021914,
+							"parameters": {
+								"variable": "DeckScale",
+								"value": "0.5"
+							}
+						}
+					],
+					"sid": 970955435094142
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 757935790480593
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 472705092949735,
+							"parameters": {
+								"variable": "DeckScale",
+								"value": "0.25"
+							}
+						}
+					],
+					"sid": 821323866006158
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "ChangeDeck",
+							"sid": 553741610255838
+						}
+					],
+					"sid": 502009377116993
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -287,15 +383,6 @@
 							}
 						},
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 460955346326767,
-							"parameters": {
-								"variable": "IsInMenu",
-								"value": "false"
-							}
-						},
-						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 916288709181164,
@@ -304,130 +391,20 @@
 							}
 						},
 						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 831116919934348,
+							"parameters": {
+								"variable": "IsInMenu",
+								"value": "false"
+							}
+						},
+						{
 							"callFunction": "SetDraggable",
 							"sid": 677601156676497
 						}
 					],
 					"sid": 718463344495114,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 619360967520794,
-									"parameters": {
-										"object": "Card"
-									}
-								},
-								{
-									"id": "is-on-layer",
-									"objectClass": "Card",
-									"sid": 869194225878435,
-									"parameters": {
-										"layer": "\"Cards\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 804518764332320,
-							"children": [
-								{
-									"eventType": "variable",
-									"name": "CardFrame",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 760125327651748
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 270537575409052,
-											"parameters": {
-												"variable": "CardFrame",
-												"value": "Card.AnimationFrame"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Card",
-											"sid": 878338507085030,
-											"parameters": {
-												"animation": "Deck",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Card",
-											"sid": 290780535167855,
-											"parameters": {
-												"frame-number": "CardFrame"
-											}
-										}
-									],
-									"sid": 979594560108153,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 793366312414689,
-													"parameters": {
-														"variable": "Deck",
-														"comparison": 0,
-														"value": "\"Animal\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-scale",
-													"objectClass": "Card",
-													"sid": 524695259843079,
-													"parameters": {
-														"scale": "0.5"
-													}
-												}
-											],
-											"sid": 749169851095307
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 775976569748721
-												}
-											],
-											"actions": [
-												{
-													"id": "set-scale",
-													"objectClass": "Card",
-													"sid": 403530742738000,
-													"parameters": {
-														"scale": "0.25"
-													}
-												}
-											],
-											"sid": 950756768605793
-										}
-									]
-								}
-							]
-						}
-					],
 					"isOrBlock": true
 				}
 			]

@@ -39,11 +39,41 @@
 			"eventType": "variable",
 			"name": "Deck",
 			"type": "string",
-			"initialValue": "Shape",
+			"initialValue": "",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 449783850408951
+		},
+		{
+			"eventType": "variable",
+			"name": "DEFAULT_DECK",
+			"type": "string",
+			"initialValue": "Animal",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 497717777321666
+		},
+		{
+			"eventType": "variable",
+			"name": "DEFAULT_DECK_SCALE",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 770622066125848
+		},
+		{
+			"eventType": "variable",
+			"name": "IsInitialHandDealt",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 608444376401283
 		},
 		{
 			"eventType": "group",
@@ -62,6 +92,22 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 194803283352483,
+							"parameters": {
+								"key": "\"deck\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 444213665046027,
+							"parameters": {
+								"key": "\"deckScale\""
+							}
+						},
 						{
 							"id": "load",
 							"objectClass": "DeckValues",
@@ -130,35 +176,249 @@
 							"id": "reset-global-variables",
 							"objectClass": "System",
 							"sid": 513557223547442
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 878326283129414,
-							"parameters": {
-								"seconds": "0.3"
-							}
-						},
-						{
-							"callFunction": "Deal",
-							"sid": 844762285441341
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 845520889848612
-						},
-						{
-							"callFunction": "DealToStacks",
-							"sid": 263263905693985
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 428444139164847
 						}
 					],
 					"sid": 233210411736109
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 435840784150671,
+							"parameters": {
+								"key": "\"deck\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 828980332918527,
+							"parameters": {
+								"variable": "Deck",
+								"value": "DEFAULT_DECK"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 755789559049331,
+							"parameters": {
+								"key": "\"deck\"",
+								"value": "DEFAULT_DECK"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 439509094110541,
+							"parameters": {
+								"type": "log",
+								"message": "\"deck missing\""
+							}
+						}
+					],
+					"sid": 796054272588007
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 203224558800958,
+							"parameters": {
+								"key": "\"deckScale\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 868402843256767,
+							"parameters": {
+								"variable": "DeckScale",
+								"value": "DEFAULT_DECK_SCALE"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 226341923642600,
+							"parameters": {
+								"type": "log",
+								"message": "\"deckScale missing\""
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 167012049616797,
+							"parameters": {
+								"key": "\"deckScale\"",
+								"value": "DEFAULT_DECK_SCALE"
+							}
+						}
+					],
+					"sid": 825975834126139
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 225777912375778,
+							"parameters": {
+								"key": "\"deck\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 788994959264213,
+							"parameters": {
+								"type": "log",
+								"message": "\"deck exists\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 418756164858316,
+							"parameters": {
+								"type": "log",
+								"message": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 631747078907991,
+							"parameters": {
+								"variable": "Deck",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 633446701976634
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 920157463755465,
+							"parameters": {
+								"key": "\"deckScale\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 425539971043674,
+							"parameters": {
+								"variable": "DeckScale",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 882448817164295,
+							"parameters": {
+								"type": "log",
+								"message": "\"deckScale exists\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 445859746216930,
+							"parameters": {
+								"type": "log",
+								"message": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 890116112506414
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 814793880592785,
+							"parameters": {
+								"variable": "IsInitialHandDealt"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 433610505126168,
+							"parameters": {
+								"variable": "Deck",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 222093984986718,
+							"parameters": {
+								"variable": "DeckScale",
+								"comparison": 1,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 285432607772411,
+							"parameters": {
+								"variable": "IsInitialHandDealt",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "ChangeDeck",
+							"sid": 795108676504080
+						},
+						{
+							"callFunction": "Deal",
+							"sid": 274867983264047
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 766899064709673
+						},
+						{
+							"callFunction": "DealToStacks",
+							"sid": 157321788570892
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 829210500873025
+						}
+					],
+					"sid": 886213054868279
 				}
 			],
 			"sid": 692053901932316

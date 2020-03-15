@@ -40,6 +40,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -106,7 +114,8 @@
 				"items": [
 					"Browser",
 					"Touch",
-					"Mouse"
+					"Mouse",
+					"LocalStorage"
 				],
 				"subfolders": [],
 				"name": "SystemObejcts"
