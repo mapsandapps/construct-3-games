@@ -12,6 +12,14 @@
 			],
 			"actions": [
 				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 536408635083484,
+					"parameters": {
+						"key": "\"doesSavedGameExist\""
+					}
+				},
+				{
 					"id": "set-enabled",
 					"objectClass": "Card",
 					"sid": 982956233648503,
@@ -27,6 +35,49 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 266196783765280,
+					"parameters": {
+						"key": "\"doesSavedGameExist\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 829871739197466,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TextButton",
+							"sid": 855106677672998,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Resume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TextButton",
+							"sid": 856839959081259,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 550281675426384
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
 					"sid": 121921941351010,
@@ -37,8 +88,12 @@
 			],
 			"actions": [
 				{
-					"callFunction": "RestartLayoutForNewDeal",
-					"sid": 351198750759441
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 319188232004928,
+					"parameters": {
+						"layout": "Game"
+					}
 				}
 			],
 			"sid": 427003025027256
@@ -67,8 +122,12 @@
 			],
 			"actions": [
 				{
-					"callFunction": "RestartLayoutForNewDeal",
-					"sid": 341870203007648
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 319188232004928,
+					"parameters": {
+						"layout": "Game"
+					}
 				}
 			],
 			"sid": 156653475490972
@@ -127,14 +186,14 @@
 						"comparison": 0,
 						"value": "\"Resume\""
 					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "TextButton",
+					"sid": 761335754558325
 				}
 			],
 			"actions": [
-				{
-					"callFunction": "SetDraggable",
-					"sid": 300377240977811,
-					"disabled": true
-				},
 				{
 					"id": "load",
 					"objectClass": "System",
@@ -149,27 +208,6 @@
 				}
 			],
 			"sid": 543006579948672
-		},
-		{
-			"functionName": "RestartLayoutForNewDeal",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 319188232004928,
-					"parameters": {
-						"layout": "Game"
-					}
-				}
-			],
-			"sid": 171866159954749
 		},
 		{
 			"eventType": "block",

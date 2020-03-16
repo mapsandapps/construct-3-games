@@ -2044,6 +2044,36 @@
 					]
 				}
 			]
+		},
+		{
+			"functionName": "SaveGame",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "save",
+					"objectClass": "System",
+					"sid": 543992495874080,
+					"parameters": {
+						"slot": "\"mysave\""
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 972640373826370,
+					"parameters": {
+						"key": "\"doesSavedGameExist\"",
+						"value": "\"yes\""
+					}
+				}
+			],
+			"sid": 640321623358364
 		}
 	],
 	"sid": 382132534303725

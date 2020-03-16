@@ -23,16 +23,6 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "IsInMenu",
-			"type": "boolean",
-			"initialValue": "false",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 510609366852547
-		},
-		{
-			"eventType": "variable",
 			"name": "Deck",
 			"type": "string",
 			"initialValue": "",
@@ -982,12 +972,8 @@
 					],
 					"actions": [
 						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 740947096541505,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
+							"callFunction": "SaveGame",
+							"sid": 838046138969477
 						},
 						{
 							"id": "set-boolean-eventvar",
@@ -1029,15 +1015,6 @@
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 211914387629455,
-							"parameters": {
-								"type": "log",
-								"message": "\"pre-menu save complete\""
-							}
-						},
-						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 888227772229239,
@@ -1062,21 +1039,8 @@
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 121324661205543,
-							"parameters": {
-								"type": "log",
-								"message": "\"save complete\""
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 588151297488783,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
+							"callFunction": "SaveGame",
+							"sid": 830386916908799
 						}
 					],
 					"sid": 254181202277150
@@ -1092,21 +1056,8 @@
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 701116795981407,
-							"parameters": {
-								"type": "log",
-								"message": "\"save before suspend complete\""
-							}
-						},
-						{
-							"id": "save",
-							"objectClass": "System",
-							"sid": 177363350885992,
-							"parameters": {
-								"slot": "\"mysave\""
-							}
+							"callFunction": "SaveGame",
+							"sid": 718990096689526
 						}
 					],
 					"sid": 410379660506799
@@ -1121,15 +1072,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 954467606324949,
-							"parameters": {
-								"type": "log",
-								"message": "\"load layout\""
-							}
-						},
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
