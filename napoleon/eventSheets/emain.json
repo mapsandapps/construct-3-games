@@ -2,10 +2,6 @@
 	"name": "eMain",
 	"events": [
 		{
-			"eventType": "include",
-			"includeSheet": "eMenu"
-		},
-		{
 			"eventType": "variable",
 			"name": "DraggedFromUID",
 			"type": "number",
@@ -47,6 +43,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "DeckScale",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 239491124317413
+		},
+		{
+			"eventType": "variable",
 			"name": "DEFAULT_DECK",
 			"type": "string",
 			"initialValue": "Animal",
@@ -74,6 +80,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 608444376401283
+		},
+		{
+			"eventType": "variable",
+			"name": "IsSavingBeforeTransitionToMenu",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 105330460112436
 		},
 		{
 			"eventType": "group",
@@ -210,15 +226,6 @@
 								"key": "\"deck\"",
 								"value": "DEFAULT_DECK"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 439509094110541,
-							"parameters": {
-								"type": "log",
-								"message": "\"deck missing\""
-							}
 						}
 					],
 					"sid": 796054272588007
@@ -243,15 +250,6 @@
 							"parameters": {
 								"variable": "DeckScale",
 								"value": "DEFAULT_DECK_SCALE"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 226341923642600,
-							"parameters": {
-								"type": "log",
-								"message": "\"deckScale missing\""
 							}
 						},
 						{
@@ -280,24 +278,6 @@
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 788994959264213,
-							"parameters": {
-								"type": "log",
-								"message": "\"deck exists\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 418756164858316,
-							"parameters": {
-								"type": "log",
-								"message": "LocalStorage.ItemValue"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 631747078907991,
@@ -305,6 +285,10 @@
 								"variable": "Deck",
 								"value": "LocalStorage.ItemValue"
 							}
+						},
+						{
+							"callFunction": "ChangeDeck",
+							"sid": 748684633481552
 						}
 					],
 					"sid": 633446701976634
@@ -332,22 +316,8 @@
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 882448817164295,
-							"parameters": {
-								"type": "log",
-								"message": "\"deckScale exists\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 445859746216930,
-							"parameters": {
-								"type": "log",
-								"message": "LocalStorage.ItemValue"
-							}
+							"callFunction": "ChangeDeck",
+							"sid": 559742804991876
 						}
 					],
 					"sid": 890116112506414
@@ -433,15 +403,6 @@
 					"parameters": {
 						"object": "Card"
 					}
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 173330207989862,
-					"parameters": {
-						"variable": "IsInMenu"
-					},
-					"isInverted": true
 				}
 			],
 			"actions": [
@@ -945,15 +906,6 @@
 					"sid": 555786590590644,
 					"behaviorType": "Tween",
 					"isInverted": true
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 529404634081788,
-					"parameters": {
-						"variable": "IsInMenu"
-					},
-					"isInverted": true
 				}
 			],
 			"actions": [
@@ -963,6 +915,251 @@
 				}
 			],
 			"sid": 269973160063968
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Saved Game & Menus",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 146644980111047,
+							"parameters": {
+								"object": "MenuButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 124955917691926,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 818158280898317
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 767395115781020
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 641505827772160,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 892021018917973
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 974788029949440,
+							"parameters": {
+								"object": "MenuButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 740947096541505,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 501412437159960,
+							"parameters": {
+								"variable": "IsSavingBeforeTransitionToMenu",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 897824296487258
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-save-complete",
+							"objectClass": "System",
+							"sid": 522511018930441
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 968645507158031,
+							"parameters": {
+								"variable": "IsSavingBeforeTransitionToMenu"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 907819485267628,
+							"parameters": {
+								"variable": "IsSavingBeforeTransitionToMenu",
+								"value": "false"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 211914387629455,
+							"parameters": {
+								"type": "log",
+								"message": "\"pre-menu save complete\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 888227772229239,
+							"parameters": {
+								"layout": "Main Menu"
+							}
+						}
+					],
+					"sid": 185962427887762
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 775291294985215,
+							"parameters": {
+								"interval-seconds": "60"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 121324661205543,
+							"parameters": {
+								"type": "log",
+								"message": "\"save complete\""
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 588151297488783,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 254181202277150
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-suspended",
+							"objectClass": "System",
+							"sid": 635629101123571
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 701116795981407,
+							"parameters": {
+								"type": "log",
+								"message": "\"save before suspend complete\""
+							}
+						},
+						{
+							"id": "save",
+							"objectClass": "System",
+							"sid": 177363350885992,
+							"parameters": {
+								"slot": "\"mysave\""
+							}
+						}
+					],
+					"sid": 410379660506799
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-load-complete",
+							"objectClass": "System",
+							"sid": 266103051202964
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 954467606324949,
+							"parameters": {
+								"type": "log",
+								"message": "\"load layout\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 157198102634835,
+							"parameters": {
+								"variable": "IsSavingBeforeTransitionToMenu",
+								"value": "false"
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 207800053448422,
+							"parameters": {
+								"key": "\"deck\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 357446808673633,
+							"parameters": {
+								"key": "\"deckScale\""
+							}
+						}
+					],
+					"sid": 123842829594776
+				}
+			],
+			"sid": 752968999123348
 		}
 	],
 	"sid": 723594591968900

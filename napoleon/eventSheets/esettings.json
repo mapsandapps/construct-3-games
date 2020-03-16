@@ -1,0 +1,230 @@
+{
+	"name": "eSettings",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Card",
+					"sid": 931142399079333,
+					"parameters": {
+						"animation": "Deck"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Shadow",
+					"sid": 418131130561015,
+					"parameters": {
+						"animation": "\"Glow\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Shadow",
+					"sid": 566830035217335,
+					"parameters": {
+						"x": "Card.X",
+						"y": "Card.Y"
+					}
+				}
+			],
+			"sid": 646099031317655
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 360870849444426,
+					"parameters": {
+						"object": "TextButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TextButton",
+					"sid": 218130483171686,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Main Menu\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 157331176803797,
+					"parameters": {
+						"layout": "Main Menu"
+					}
+				}
+			],
+			"sid": 218963411456803
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 292307063594478,
+					"parameters": {
+						"object": "Card"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 947001525196808,
+					"parameters": {
+						"variable": "Deck",
+						"value": "Card.AnimationName"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 980760404811444,
+					"parameters": {
+						"key": "\"deck\"",
+						"value": "Deck"
+					}
+				}
+			],
+			"sid": 249440519516834,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 166741592472102,
+							"parameters": {
+								"variable": "Deck",
+								"comparison": 0,
+								"value": "\"Animal\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 286402514021914,
+							"parameters": {
+								"variable": "DeckScale",
+								"value": "0.5"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 526266826895961,
+							"parameters": {
+								"key": "\"deckScale\"",
+								"value": "DeckScale"
+							}
+						}
+					],
+					"sid": 970955435094142
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 757935790480593
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 472705092949735,
+							"parameters": {
+								"variable": "DeckScale",
+								"value": "0.25"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 894070042144803,
+							"parameters": {
+								"key": "\"deckScale\"",
+								"value": "DeckScale"
+							}
+						}
+					],
+					"sid": 821323866006158
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 658413715687874,
+					"parameters": {
+						"object": "TextButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 105668870953688,
+					"parameters": {
+						"object": "Card"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 360735716035604,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 495013140838473,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 661021750426092
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 257369432875369,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 531028452303642
+		}
+	],
+	"sid": 751815930090530
+}
