@@ -62,9 +62,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 927068734407966,
+					"sid": 919046748078068,
 					"parameters": {
-						"seconds": "0.05 * loopindex"
+						"seconds": "(IsSkippingAnimations ? 0 : 0.05) * loopindex"
 					}
 				},
 				{
@@ -382,6 +382,14 @@
 						"where": "front",
 						"axis": "x"
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 204010635624340,
+					"parameters": {
+						"seconds": "(IsSkippingAnimations ? 0 : 0.05) * loopindex"
+					}
 				}
 			],
 			"sid": 124988957048232
@@ -697,20 +705,20 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 170289362101494,
+					"sid": 982912357212783,
 					"parameters": {
-						"seconds": "0.05 * Index"
+						"seconds": "(IsSkippingAnimations ? 0 : 0.05) * Index"
 					}
 				},
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 679288732854328,
+					"sid": 956933043885027,
 					"parameters": {
 						"object-to-create": "Card",
 						"layer": "\"Cards\"",
-						"x": "32",
-						"y": "0"
+						"x": "(IsSkippingAnimations ? Stack.X : 32)",
+						"y": "(IsSkippingAnimations ? Stack.Y : 0)"
 					}
 				},
 				{
@@ -754,21 +762,6 @@
 					"sid": 358838268609887,
 					"parameters": {
 						"frame-number": "CardIndex > 47 ? CardIndex - 48 : CardIndex"
-					}
-				},
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Card",
-					"sid": 158605671297562,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "position",
-						"end-x": "Stack.X",
-						"end-y": "Stack.Y",
-						"time": "0.05",
-						"ease": "noease",
-						"destroy-on-complete": "no"
 					}
 				}
 			],
@@ -831,6 +824,38 @@
 						}
 					],
 					"sid": 759996975767964
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 291470119604552,
+							"parameters": {
+								"variable": "IsSkippingAnimations"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 241147002419052,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Stack.X",
+								"end-y": "Stack.Y",
+								"time": "(IsSkippingAnimations ? 0 : 0.05)",
+								"ease": "noease",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 966192939474766
 				}
 			]
 		},

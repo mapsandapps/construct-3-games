@@ -63,7 +63,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "IsInitialHandDealt",
+			"name": "HasBegunDealing",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
@@ -80,6 +80,26 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 105330460112436
+		},
+		{
+			"eventType": "variable",
+			"name": "IsSkippingAnimations",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 403867624849437
+		},
+		{
+			"eventType": "variable",
+			"name": "IsDealing",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 479562489803872
 		},
 		{
 			"eventType": "group",
@@ -320,7 +340,7 @@
 							"objectClass": "System",
 							"sid": 814793880592785,
 							"parameters": {
-								"variable": "IsInitialHandDealt"
+								"variable": "HasBegunDealing"
 							},
 							"isInverted": true
 						},
@@ -351,8 +371,25 @@
 							"objectClass": "System",
 							"sid": 285432607772411,
 							"parameters": {
-								"variable": "IsInitialHandDealt",
+								"variable": "HasBegunDealing",
 								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 368877172796677,
+							"parameters": {
+								"variable": "IsDealing",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MenuButton",
+							"sid": 413071047669450,
+							"parameters": {
+								"visibility": "invisible"
 							}
 						},
 						{
@@ -376,6 +413,23 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 829210500873025
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 184838809698865,
+							"parameters": {
+								"variable": "IsDealing",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "MenuButton",
+							"sid": 474950563828781,
+							"parameters": {
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 886213054868279
@@ -393,6 +447,15 @@
 					"parameters": {
 						"object": "Card"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 136948944243195,
+					"parameters": {
+						"variable": "IsDealing"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -968,12 +1031,29 @@
 							"parameters": {
 								"object": "MenuButton"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 816545850323891,
+							"parameters": {
+								"variable": "IsDealing"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "SaveGame",
 							"sid": 838046138969477
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 405663390801175,
+							"parameters": {
+								"seconds": "0.3"
+							}
 						},
 						{
 							"id": "set-boolean-eventvar",
