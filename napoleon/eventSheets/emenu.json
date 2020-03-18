@@ -27,6 +27,15 @@
 					"parameters": {
 						"state": "disabled"
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Background",
+					"sid": 494268413122052,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 852631452727308
@@ -71,6 +80,32 @@
 						}
 					],
 					"sid": 550281675426384
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 684204723923152,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Resume\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Button",
+							"sid": 860560083126089,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 360153028023500
 				}
 			]
 		},
@@ -80,39 +115,15 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 121921941351010,
+					"sid": 892443650973156,
 					"parameters": {
-						"object": "RestartButton"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 319188232004928,
-					"parameters": {
-						"layout": "Game"
-					}
-				}
-			],
-			"sid": 427003025027256
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 837543235370529,
-					"parameters": {
-						"object": "TextButton"
+						"object": "Button"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "TextButton",
-					"sid": 256742693314061,
+					"objectClass": "Button",
+					"sid": 916450699065537,
 					"parameters": {
 						"instance-variable": "Name",
 						"comparison": 0,
@@ -138,15 +149,15 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 437617340245445,
+					"sid": 905299580069313,
 					"parameters": {
-						"object": "TextButton"
+						"object": "Button"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "TextButton",
-					"sid": 830851240719450,
+					"objectClass": "Button",
+					"sid": 569481210582233,
 					"parameters": {
 						"instance-variable": "Name",
 						"comparison": 0,
@@ -172,15 +183,49 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 927613745692100,
+					"sid": 912173464372676,
 					"parameters": {
-						"object": "TextButton"
+						"object": "Button"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "TextButton",
-					"sid": 457566826855151,
+					"objectClass": "Button",
+					"sid": 232273119640788,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Credits\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 432410758438040,
+					"parameters": {
+						"layout": "Credits"
+					}
+				}
+			],
+			"sid": 883627803773192
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 460117129977676,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 495567231739982,
 					"parameters": {
 						"instance-variable": "Name",
 						"comparison": 0,
@@ -189,8 +234,8 @@
 				},
 				{
 					"id": "is-visible",
-					"objectClass": "TextButton",
-					"sid": 761335754558325
+					"objectClass": "Button",
+					"sid": 954086492830417
 				}
 			],
 			"actions": [
@@ -215,17 +260,9 @@
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 917207808979925,
+					"sid": 592535067068649,
 					"parameters": {
-						"object": "RestartButton"
-					}
-				},
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 722898390251686,
-					"parameters": {
-						"object": "TextButton"
+						"object": "Button"
 					}
 				},
 				{

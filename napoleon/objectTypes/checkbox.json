@@ -1,0 +1,107 @@
+{
+	"name": "Checkbox",
+	"plugin-id": "Sprite",
+	"sid": 464199398262523,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 678701326363884
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4,
+						"collisionPoly": {
+							"points": [
+								0.07894736842105263,
+								0.08333333333333333,
+								0.5,
+								0,
+								0.8947368421052632,
+								0.08333333333333333,
+								0.9473684210526315,
+								0.5,
+								0.8947368421052632,
+								0.8888888888888888,
+								0.5,
+								0.9722222222222222,
+								0.07894736842105263,
+								0.8888888888888888,
+								0.02631578947368421,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 738700348045091,
+				"name": "Checked",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 38,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6,
+						"collisionPoly": {
+							"points": [
+								0.07894736842105263,
+								0.08333333333333333,
+								0.5,
+								0,
+								0.8947368421052632,
+								0.08333333333333333,
+								0.9473684210526315,
+								0.5,
+								0.8947368421052632,
+								0.8888888888888888,
+								0.5,
+								0.9722222222222222,
+								0.07894736842105263,
+								0.8888888888888888,
+								0.02631578947368421,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 237422384734231,
+				"name": "Unchecked",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

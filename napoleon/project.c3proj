@@ -63,6 +63,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -124,9 +132,11 @@
 				"items": [
 					"Background",
 					"MenuButton",
-					"RestartButton",
 					"TextButton",
-					"Text"
+					"Text",
+					"Button",
+					"Checkbox",
+					"Hyperlink"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -157,7 +167,8 @@
 			"eMenu",
 			"eSettings",
 			"eTutorial",
-			"eStats"
+			"eStats",
+			"eCredits"
 		],
 		"subfolders": []
 	},

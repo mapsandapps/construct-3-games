@@ -2,10 +2,40 @@
 	"name": "Credits",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Background",
 			"overriden": 0,
-			"instances": [],
-			"sid": 152591556290637,
+			"instances": [
+				{
+					"type": "Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animal",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 59,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 168,
+						"y": 288,
+						"width": 1024,
+						"height": 1024,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 569412296187762,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -28,6 +58,330 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"global": false
+		},
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 65,
+					"instanceVariables": {
+						"Name": "Main Menu"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 48,
+						"y": 456,
+						"width": 224,
+						"height": 80,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Napoleon's Square",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 28,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 58,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 16,
+						"y": 32,
+						"width": 288,
+						"height": 88,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hyperlink",
+					"properties": {
+						"text": "Game development by mapsandapps",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.3686274509803922,
+							0.3686274509803922,
+							0.3686274509803922,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 60,
+					"instanceVariables": {
+						"URL": "https://mapsandapps.itch.io/"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 24,
+						"y": 304,
+						"width": 272,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "is a classic solitaire game, dating back at least to the early 1900s",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 61,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 16,
+						"y": 128,
+						"width": 288,
+						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hyperlink",
+					"properties": {
+						"text": "Some art assets by Kenney (CC0)",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.3686274509803922,
+							0.3686274509803922,
+							0.3686274509803922,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 62,
+					"instanceVariables": {
+						"URL": "https://kenney.nl/assets"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 40,
+						"y": 336,
+						"width": 240,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hyperlink",
+					"properties": {
+						"text": "Font: Poppins (OFL)",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.3686274509803922,
+							0.3686274509803922,
+							0.3686274509803922,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 63,
+					"instanceVariables": {
+						"URL": "https://fonts.google.com/specimen/Poppins"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 88,
+						"y": 368,
+						"width": 144,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextButton",
+					"properties": {
+						"text": "Return to main menu",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 18,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 64,
+					"instanceVariables": {
+						"Name": "Main Menu"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 56,
+						"y": 456,
+						"width": 206,
+						"height": 69,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 152591556290637,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
 		}
 	],
 	"sid": 733615729151046,
@@ -36,5 +390,5 @@
 	"width": 320,
 	"height": 568,
 	"unboundedScrolling": true,
-	"eventSheet": null
+	"eventSheet": "eCredits"
 }

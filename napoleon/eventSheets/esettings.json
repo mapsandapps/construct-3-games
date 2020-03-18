@@ -5,6 +5,28 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 233936989760324
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Background",
+					"sid": 195492851064203,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 221964370532211
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "is-animation-playing",
 					"objectClass": "Card",
 					"sid": 931142399079333,
@@ -40,15 +62,15 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 360870849444426,
+					"sid": 444919400086071,
 					"parameters": {
-						"object": "TextButton"
+						"object": "Button"
 					}
 				},
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "TextButton",
-					"sid": 218130483171686,
+					"objectClass": "Button",
+					"sid": 141941212360464,
 					"parameters": {
 						"instance-variable": "Name",
 						"comparison": 0,
@@ -67,6 +89,66 @@
 				}
 			],
 			"sid": 218963411456803
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 717959927370597,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 355083590939211,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Animations\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ToggleAnimations",
+					"sid": 192260410957127
+				}
+			],
+			"sid": 564386522949719
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 195999629378818,
+					"parameters": {
+						"object": "Checkbox"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Checkbox",
+					"sid": 764207976163941,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Animations\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ToggleAnimations",
+					"sid": 959211501056073
+				}
+			],
+			"sid": 146169485129603
 		},
 		{
 			"eventType": "block",
@@ -97,6 +179,15 @@
 					"parameters": {
 						"key": "\"deck\"",
 						"value": "Deck"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Background",
+					"sid": 781945949982018,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
 					}
 				}
 			],
@@ -177,9 +268,17 @@
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 658413715687874,
+					"sid": 909975869087809,
 					"parameters": {
-						"object": "TextButton"
+						"object": "Button"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 816642885302865,
+					"parameters": {
+						"object": "Checkbox"
 					}
 				},
 				{
@@ -224,6 +323,85 @@
 				}
 			],
 			"sid": 531028452303642
+		},
+		{
+			"functionName": "ToggleAnimations",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 283702401730234,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Checkbox",
+							"sid": 174669578052558,
+							"parameters": {
+								"animation": "\"Checked\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 942752810480602,
+							"parameters": {
+								"variable": "IsSkippingAnimations",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 965803510467656,
+							"parameters": {
+								"animation": "\"Unchecked\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 474529478118602
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 511585493699812
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 807621557104475,
+							"parameters": {
+								"variable": "IsSkippingAnimations",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 528543092644389,
+							"parameters": {
+								"animation": "\"Checked\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 837685986053885
+				}
+			]
 		}
 	],
 	"sid": 751815930090530

@@ -2,26 +2,26 @@
 	"name": "Main Menu",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Background",
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "RestartButton",
+					"type": "Background",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Default",
+						"initial-animation": "Animal",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 13,
+					"uid": 37,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 448,
-						"width": 64,
-						"height": 64,
+						"x": 168,
+						"y": 288,
+						"width": 1024,
+						"height": 1024,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -33,39 +33,59 @@
 						"angle": 0,
 						"zElevation": 0
 					}
-				},
+				}
+			],
+			"sid": 545316151171514,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Button Images",
+			"overriden": 0,
+			"instances": [
 				{
-					"type": "TextButton",
+					"type": "Button",
 					"properties": {
-						"text": "New Game",
-						"enable-bbcode": true,
-						"font": "Poppins-Bold",
-						"size": 24,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.09411764705882353,
-							0.6901960784313725,
-							0.7294117647058823,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
 						"initially-visible": true,
-						"origin": "top-left"
+						"origin": "top-left",
+						"seams": "overlap"
 					},
-					"uid": 37,
+					"uid": 48,
 					"instanceVariables": {
-						"Name": "Restart"
+						"Name": "Settings"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 416,
-						"width": 184,
-						"height": 56,
+						"x": 104,
+						"y": 240,
+						"width": 112,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -79,37 +99,28 @@
 					}
 				},
 				{
-					"type": "TextButton",
+					"type": "Button",
 					"properties": {
-						"text": "Resume",
-						"enable-bbcode": true,
-						"font": "Poppins-Bold",
-						"size": 18,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.09411764705882353,
-							0.6901960784313725,
-							0.7294117647058823,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
 						"initially-visible": true,
-						"origin": "top-left"
+						"origin": "top-left",
+						"seams": "overlap"
 					},
-					"uid": 41,
+					"uid": 51,
 					"instanceVariables": {
 						"Name": "Resume"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 104,
-						"y": 512,
-						"width": 112,
-						"height": 28,
+						"x": 16,
+						"y": 400,
+						"width": 152,
+						"height": 72,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -122,13 +133,112 @@
 						"zElevation": 0
 					}
 				},
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 54,
+					"instanceVariables": {
+						"Name": "Restart"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 136,
+						"y": 480,
+						"width": 168,
+						"height": 72,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 55,
+					"instanceVariables": {
+						"Name": "Credits"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 104,
+						"y": 304,
+						"width": 112,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 201150243731941,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.18823529411764706,
+				0.18823529411764706,
+				0.18823529411764706,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI Text",
+			"overriden": 0,
+			"instances": [
 				{
 					"type": "TextButton",
 					"properties": {
 						"text": "Settings",
 						"enable-bbcode": true,
 						"font": "Poppins-Bold",
-						"size": 18,
+						"size": 12,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -150,10 +260,184 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 112,
-						"y": 56,
+						"x": 104,
+						"y": 240,
 						"width": 112,
-						"height": 36,
+						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Napoleon's Square",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 28,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 13,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 16,
+						"y": 16,
+						"width": 288,
+						"height": 88,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextButton",
+					"properties": {
+						"text": "New Deal ⇨",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 53,
+					"instanceVariables": {
+						"Name": "Restart"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 144,
+						"y": 480,
+						"width": 152,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextButton",
+					"properties": {
+						"text": "⇦ Resume",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 52,
+					"instanceVariables": {
+						"Name": "Resume"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 24,
+						"y": 400,
+						"width": 136,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextButton",
+					"properties": {
+						"text": "Credits",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 50,
+					"instanceVariables": {
+						"Name": "Credits"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 104,
+						"y": 304,
+						"width": 112,
+						"height": 40,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -182,7 +466,7 @@
 				0.3686274509803922,
 				1
 			],
-			"isTransparent": false,
+			"isTransparent": true,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,

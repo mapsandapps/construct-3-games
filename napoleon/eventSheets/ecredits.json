@@ -1,0 +1,141 @@
+{
+	"name": "eCredits",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 976796706618065
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Background",
+					"sid": 887034775485458,
+					"parameters": {
+						"animation": "Deck",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 125862053046959
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 247203522812468,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 594774870766980,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Main Menu\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 358861851423470,
+					"parameters": {
+						"layout": "Main Menu"
+					}
+				}
+			],
+			"sid": 239450214544970
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 483886355173170,
+					"parameters": {
+						"object": "Hyperlink"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 374434950266929,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 415343480974600,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 775601211249293,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 568113257449373
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 550875719744446,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 143664979073196
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 957088464892185,
+					"parameters": {
+						"object": "Hyperlink"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "open-url-in-new-window",
+					"objectClass": "Browser",
+					"sid": 904925594166513,
+					"parameters": {
+						"url": "Hyperlink.URL",
+						"tag": "\"NewWindow\""
+					}
+				}
+			],
+			"sid": 587411281150143
+		}
+	],
+	"sid": 742014002444352
+}

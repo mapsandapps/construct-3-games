@@ -2,7 +2,160 @@
 	"name": "Settings",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Background",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animal",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 49,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 168,
+						"y": 288,
+						"width": 1024,
+						"height": 1024,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 170231036598109,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Button Images",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 41,
+					"instanceVariables": {
+						"Name": "Main Menu"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 48,
+						"y": 456,
+						"width": 224,
+						"height": 80,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Checkbox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Checked",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 56,
+					"instanceVariables": {
+						"Name": "Animations"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 80,
+						"y": 392,
+						"width": 38,
+						"height": 36,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 850277480450488,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI Text",
 			"overriden": 0,
 			"instances": [
 				{
@@ -83,7 +236,7 @@
 					},
 					"world": {
 						"x": 168,
-						"y": 168,
+						"y": 144,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -132,7 +285,7 @@
 					},
 					"world": {
 						"x": 80,
-						"y": 168,
+						"y": 144,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -181,7 +334,7 @@
 					},
 					"world": {
 						"x": 256,
-						"y": 168,
+						"y": 144,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -210,7 +363,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 80,
-						"y": 168,
+						"y": 144,
 						"width": 74,
 						"height": 94,
 						"originX": 0.5,
@@ -252,7 +405,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 64,
-						"y": 120,
+						"y": 96,
 						"width": 208,
 						"height": 32,
 						"originX": 0,
@@ -294,9 +447,53 @@
 					"behaviors": {},
 					"world": {
 						"x": 64,
-						"y": 40,
+						"y": 24,
 						"width": 200,
 						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextButton",
+					"properties": {
+						"text": "Play animations when \ndealing hand",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 8,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 57,
+					"instanceVariables": {
+						"Name": "Animations"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 120,
+						"y": 376,
+						"width": 128,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -325,7 +522,7 @@
 				0.3686274509803922,
 				1
 			],
-			"isTransparent": false,
+			"isTransparent": true,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,

@@ -986,6 +986,11 @@
 							"parameters": {
 								"object": "MenuButton"
 							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "MenuButton",
+							"sid": 738662848898548
 						}
 					],
 					"actions": [
@@ -1046,14 +1051,6 @@
 						{
 							"callFunction": "SaveGame",
 							"sid": 838046138969477
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 405663390801175,
-							"parameters": {
-								"seconds": "0.3"
-							}
 						},
 						{
 							"id": "set-boolean-eventvar",
@@ -1179,6 +1176,31 @@
 						}
 					],
 					"sid": 123842829594776
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 811408478862455,
+							"parameters": {
+								"object": "MenuButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 395400311443659,
+							"parameters": {
+								"type": "log",
+								"message": "\"tap\""
+							}
+						}
+					],
+					"sid": 586244673359746
 				}
 			],
 			"sid": 752968999123348
