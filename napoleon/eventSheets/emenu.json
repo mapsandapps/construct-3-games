@@ -12,6 +12,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-layer-transparent",
+					"objectClass": "System",
+					"sid": 211948763783151,
+					"parameters": {
+						"layer": "\"UI Text\"",
+						"mode": "transparent"
+					}
+				},
+				{
 					"id": "check-item-exists",
 					"objectClass": "LocalStorage",
 					"sid": 536408635083484,

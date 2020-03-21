@@ -12,6 +12,14 @@
 			],
 			"actions": [
 				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 324746522736609,
+					"parameters": {
+						"key": "\"skipAnimations\""
+					}
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "Background",
 					"sid": 195492851064203,
@@ -19,9 +27,101 @@
 						"animation": "Deck",
 						"from": "beginning"
 					}
+				},
+				{
+					"id": "set-layer-transparent",
+					"objectClass": "System",
+					"sid": 941711305395639,
+					"parameters": {
+						"layer": "\"UI Text\"",
+						"mode": "transparent"
+					}
 				}
 			],
 			"sid": 221964370532211
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 684147009050594,
+					"parameters": {
+						"key": "\"skipAnimations\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 876338929411674,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LocalStorage",
+							"sid": 637687245635027,
+							"parameters": {
+								"comparison": 0,
+								"value": "\"true\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 377060473012082,
+							"parameters": {
+								"animation": "\"Unchecked\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 411442181234965,
+							"parameters": {
+								"variable": "IsSkippingAnimations",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 530164479056445
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 855232173132316
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Checkbox",
+							"sid": 842350894256654,
+							"parameters": {
+								"animation": "\"Checked\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 630897315907937,
+							"parameters": {
+								"variable": "IsSkippingAnimations",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 450421550968140
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -350,21 +450,21 @@
 					],
 					"actions": [
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 942752810480602,
-							"parameters": {
-								"variable": "IsSkippingAnimations",
-								"value": "true"
-							}
-						},
-						{
 							"id": "set-animation",
 							"objectClass": "Checkbox",
 							"sid": 965803510467656,
 							"parameters": {
 								"animation": "\"Unchecked\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 600585110254547,
+							"parameters": {
+								"key": "\"skipAnimations\"",
+								"value": "\"true\""
 							}
 						}
 					],
@@ -381,21 +481,21 @@
 					],
 					"actions": [
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 807621557104475,
-							"parameters": {
-								"variable": "IsSkippingAnimations",
-								"value": "false"
-							}
-						},
-						{
 							"id": "set-animation",
 							"objectClass": "Checkbox",
 							"sid": 528543092644389,
 							"parameters": {
 								"animation": "\"Checked\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 577551215694171,
+							"parameters": {
+								"key": "\"skipAnimations\"",
+								"value": "\"false\""
 							}
 						}
 					],

@@ -1,5 +1,5 @@
 {
-	"name": "eMain",
+	"name": "eGame",
 	"events": [
 		{
 			"eventType": "variable",
@@ -132,6 +132,14 @@
 							"sid": 444213665046027,
 							"parameters": {
 								"key": "\"deckScale\""
+							}
+						},
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 569538743701554,
+							"parameters": {
+								"key": "\"skipAnimations\""
 							}
 						},
 						{
@@ -295,10 +303,6 @@
 								"variable": "Deck",
 								"value": "LocalStorage.ItemValue"
 							}
-						},
-						{
-							"callFunction": "ChangeDeck",
-							"sid": 748684633481552
 						}
 					],
 					"sid": 633446701976634
@@ -309,7 +313,7 @@
 						{
 							"id": "on-item-exists",
 							"objectClass": "LocalStorage",
-							"sid": 920157463755465,
+							"sid": 839356297294098,
 							"parameters": {
 								"key": "\"deckScale\""
 							}
@@ -319,18 +323,106 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 425539971043674,
+							"sid": 995921952422450,
 							"parameters": {
 								"variable": "DeckScale",
 								"value": "LocalStorage.ItemValue"
 							}
 						},
 						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 811683828063303,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
 							"callFunction": "ChangeDeck",
-							"sid": 559742804991876
+							"sid": 324808206967568
 						}
 					],
-					"sid": 890116112506414
+					"sid": 583546182117755
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 551257367941561,
+							"parameters": {
+								"key": "\"deck\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 828152039633623
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 886469345972360,
+							"parameters": {
+								"key": "\"skipAnimations\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 763400491976096,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "LocalStorage",
+									"sid": 697080612298587,
+									"parameters": {
+										"comparison": 0,
+										"value": "\"true\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 954983422275230,
+									"parameters": {
+										"variable": "IsSkippingAnimations",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 505955439114595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 163636250539887
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 804762206798484,
+									"parameters": {
+										"variable": "IsSkippingAnimations",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 492886464826417
+						}
+					]
 				},
 				{
 					"eventType": "block",
