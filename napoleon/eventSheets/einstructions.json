@@ -1,0 +1,377 @@
+{
+	"name": "eInstructions",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "InstructionsScreen",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 480776374539918
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 139584180887735
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 563252524550566,
+					"parameters": {
+						"variable": "InstructionsScreen",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 738873475826910
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 421221637867714,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 381657330408152,
+					"parameters": {
+						"first-value": "InstructionsScreen",
+						"comparison": 2,
+						"second-value": "Instructions.AnimationFrameCount"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 863094240476762,
+					"parameters": {
+						"variable": "InstructionsScreen",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Instructions",
+					"sid": 711817357980770,
+					"parameters": {
+						"frame-number": "InstructionsScreen"
+					}
+				}
+			],
+			"sid": 612981448073908
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 696724688161138,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 253277846904624,
+					"parameters": {
+						"first-value": "InstructionsScreen",
+						"comparison": 0,
+						"second-value": "Instructions.AnimationFrameCount"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 192574133836046,
+					"parameters": {
+						"layout": "Main Menu"
+					}
+				}
+			],
+			"sid": 145344256722129
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 733358151061917,
+					"parameters": {
+						"first-value": "Instructions.AnimationFrame",
+						"comparison": 0,
+						"second-value": "Instructions.AnimationFrameCount - 1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TextButton",
+					"sid": 891267233562309,
+					"parameters": {
+						"text": "\"Play!\""
+					}
+				}
+			],
+			"sid": 653445683987362
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 640538314274233,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 786581577363276,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 561159448136222,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 922585961423758
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 496934409109853,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 709373058396506
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Text",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 237059244860649,
+							"parameters": {
+								"first-value": "InstructionsScreen",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 991011893339480,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Description\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 298733870162865,
+							"parameters": {
+								"text": "\"2. Cards can be added to the foundation if they are one rank higher and the same suit.\""
+							}
+						}
+					],
+					"sid": 419954289986104
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 384860571844774,
+							"parameters": {
+								"first-value": "InstructionsScreen",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 213886937912755,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Description\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 426260302692761,
+							"parameters": {
+								"text": "\"3. Cards can be moved onto stacks in the tableau if they are one rank lower and the same suit.\""
+							}
+						}
+					],
+					"sid": 931508119036862
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 526436998728467,
+							"parameters": {
+								"first-value": "InstructionsScreen",
+								"comparison": 0,
+								"second-value": "3"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 536943026631907,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Description\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 955343607889606,
+							"parameters": {
+								"text": "\"4. Flip cards over from the stock as needed. You can only work through the stock pile once.\""
+							}
+						}
+					],
+					"sid": 506212018372141
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 188642088036737,
+							"parameters": {
+								"first-value": "InstructionsScreen",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 724144033991171,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Description\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 916636334036638,
+							"parameters": {
+								"text": "\"5. Any card may be moved onto an empty stack in the tableau.\""
+							}
+						}
+					],
+					"sid": 208514280614385
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 149540460502898,
+							"parameters": {
+								"first-value": "InstructionsScreen",
+								"comparison": 0,
+								"second-value": "5"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 900604348636632,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Description\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 712802751138136,
+							"parameters": {
+								"text": "\"6. You win once all the cards are on the foundations!\""
+							}
+						}
+					],
+					"sid": 310043525571380
+				}
+			],
+			"sid": 684252599517169
+		}
+	],
+	"sid": 122041687598667
+}

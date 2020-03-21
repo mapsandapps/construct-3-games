@@ -226,6 +226,40 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
+					"sid": 797488686768685,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 303899974682664,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Instructions\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 818376049210267,
+					"parameters": {
+						"layout": "Instructions"
+					}
+				}
+			],
+			"sid": 640448359069212
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
 					"sid": 460117129977676,
 					"parameters": {
 						"object": "Button"

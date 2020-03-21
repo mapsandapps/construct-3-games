@@ -202,6 +202,41 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 74,
+					"instanceVariables": {
+						"Name": "Instructions"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 104,
+						"y": 176,
+						"width": 112,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 201150243731941,
@@ -238,7 +273,7 @@
 						"text": "Settings",
 						"enable-bbcode": true,
 						"font": "Poppins-Bold",
-						"size": 12,
+						"size": 11,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -261,7 +296,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 104,
-						"y": 240,
+						"y": 242,
 						"width": 112,
 						"height": 40,
 						"originX": 0,
@@ -299,7 +334,9 @@
 						"origin": "top-left"
 					},
 					"uid": 13,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Name": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 16,
@@ -412,7 +449,7 @@
 						"text": "Credits",
 						"enable-bbcode": true,
 						"font": "Poppins-Bold",
-						"size": 12,
+						"size": 11,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -435,7 +472,51 @@
 					"behaviors": {},
 					"world": {
 						"x": 104,
-						"y": 304,
+						"y": 306,
+						"width": 112,
+						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TextButton",
+					"properties": {
+						"text": "Instructions",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 11,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.09411764705882353,
+							0.6901960784313725,
+							0.7294117647058823,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 73,
+					"instanceVariables": {
+						"Name": "Instructions"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 104,
+						"y": 178,
 						"width": 112,
 						"height": 40,
 						"originX": 0,
