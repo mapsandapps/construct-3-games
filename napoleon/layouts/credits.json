@@ -169,7 +169,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 24,
-						"y": 304,
+						"y": 280,
 						"width": 272,
 						"height": 24,
 						"originX": 0,
@@ -187,7 +187,7 @@
 				{
 					"type": "Text",
 					"properties": {
-						"text": "is a classic solitaire game, dating back at least to the early 1900s",
+						"text": "is a classic solitaire game\nthat dates back to at least the early 1900s",
 						"enable-bbcode": true,
 						"font": "Poppins-Bold",
 						"size": 10,
@@ -255,7 +255,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 40,
-						"y": 336,
+						"y": 312,
 						"width": 240,
 						"height": 24,
 						"originX": 0,
@@ -299,7 +299,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 88,
-						"y": 368,
+						"y": 344,
 						"width": 144,
 						"height": 24,
 						"originX": 0,
@@ -346,6 +346,50 @@
 						"y": 456,
 						"width": 206,
 						"height": 69,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hyperlink",
+					"properties": {
+						"text": "Font: Odibee Sans (OFL)",
+						"enable-bbcode": true,
+						"font": "Poppins-Bold",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.3686274509803922,
+							0.3686274509803922,
+							0.3686274509803922,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 66,
+					"instanceVariables": {
+						"URL": "https://fonts.google.com/specimen/Odibee+Sans"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 72,
+						"y": 376,
+						"width": 176,
+						"height": 24,
 						"originX": 0,
 						"originY": 0,
 						"color": [
