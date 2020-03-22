@@ -121,6 +121,26 @@
 						"instance-variable": "Value",
 						"value": "1"
 					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 435926503138860,
+					"parameters": {
+						"object-to-create": "Shadow",
+						"layer": "\"Shadows\"",
+						"x": "Foundation.X",
+						"y": "Foundation.Y"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Shadow",
+					"sid": 264471536466350,
+					"parameters": {
+						"animation": "\"Shadow\"",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 389965352639865,
@@ -345,54 +365,73 @@
 			"functionIsAsync": true,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [
+			"conditions": [],
+			"actions": [],
+			"sid": 124988957048232,
+			"children": [
 				{
-					"id": "repeat",
-					"objectClass": "System",
-					"sid": 437763565700397,
-					"parameters": {
-						"count": "48"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 994001850912899,
+							"parameters": {
+								"count": "48"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stack",
+							"sid": 782585909015045,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "loopindex % 12"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DealCard",
+							"sid": 421162938278913,
+							"parameters": [
+								"loopindex",
+								"StockArray.At(0)"
+							]
+						},
+						{
+							"id": "pop",
+							"objectClass": "StockArray",
+							"sid": 879768513845804,
+							"parameters": {
+								"where": "front",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 218325070978590
 				},
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "Stack",
-					"sid": 128218538182467,
-					"parameters": {
-						"instance-variable": "Index",
-						"comparison": 0,
-						"value": "loopindex % 12"
-					}
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 598605074645449,
+							"parameters": {
+								"seconds": "(IsSkippingAnimations ? 0.1 : 0.05 * 48)"
+							}
+						},
+						{
+							"callFunction": "SetShadows",
+							"sid": 474144260885059
+						}
+					],
+					"sid": 249178224892759
 				}
-			],
-			"actions": [
-				{
-					"callFunction": "DealCard",
-					"sid": 172414526288917,
-					"parameters": [
-						"loopindex",
-						"StockArray.At(0)"
-					]
-				},
-				{
-					"id": "pop",
-					"objectClass": "StockArray",
-					"sid": 826940786556037,
-					"parameters": {
-						"where": "front",
-						"axis": "x"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 204010635624340,
-					"parameters": {
-						"seconds": "(IsSkippingAnimations ? 0 : 0.05) * loopindex"
-					}
-				}
-			],
-			"sid": 124988957048232
+			]
 		},
 		{
 			"functionName": "FlipCard",
@@ -533,6 +572,10 @@
 						{
 							"callFunction": "SetDraggable",
 							"sid": 947118976667168
+						},
+						{
+							"callFunction": "SetShadowForDiscard",
+							"sid": 573976567273331
 						}
 					],
 					"sid": 428007315796540
@@ -1242,6 +1285,10 @@
 					"sid": 126477792743971
 				},
 				{
+					"callFunction": "SetShadows",
+					"sid": 168535508552410
+				},
+				{
 					"id": "set-size",
 					"objectClass": "ValidFoundationMoves",
 					"sid": 407410896339364,
@@ -1458,6 +1505,567 @@
 								}
 							],
 							"sid": 291473222167033
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "SetShadows",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 963689671115979,
+					"disabled": true,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"callFunction": "SetShadowForDiscard",
+					"sid": 718020036822636
+				}
+			],
+			"sid": 791953006760914,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 863958201515669,
+							"parameters": {
+								"object": "Foundation"
+							}
+						},
+						{
+							"id": "compare-x",
+							"objectClass": "Shadow",
+							"sid": 645754535665507,
+							"parameters": {
+								"comparison": 0,
+								"x-co-ordinate": "Foundation.X"
+							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Shadow",
+							"sid": 593759823157312,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "Foundation.Y"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 792193747041276,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 877451335396514,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 5,
+										"value": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Shadow",
+									"sid": 642750822748840,
+									"parameters": {
+										"frame-number": "5"
+									}
+								}
+							],
+							"sid": 257211795553723
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 180213404332290
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 415492573416101,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 5,
+										"value": "10"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Shadow",
+									"sid": 428583270057375,
+									"parameters": {
+										"frame-number": "4"
+									}
+								}
+							],
+							"sid": 781022296991876
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 659997571045809
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 906184341187977,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 5,
+										"value": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Shadow",
+									"sid": 966329387752002,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 954358714762138
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 629823239078771
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 259780705429081,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 5,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Shadow",
+									"sid": 489956387514250,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 734321255944852
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 705644466368186
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 166781029214559,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"comparison": 5,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Shadow",
+									"sid": 454970401907007,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 266125379994466
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 679837356563538,
+							"parameters": {
+								"object": "Stack"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 366531318459478,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "CardsInStack",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 802693815497128
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 695005010904122,
+									"parameters": {
+										"object": "Stack"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 924944561700214,
+									"parameters": {
+										"variable": "CardsInStack",
+										"value": "Card.PickedCount"
+									}
+								}
+							],
+							"sid": 804502847474414
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Shadow",
+									"sid": 403413776881706,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "Stack.X"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Shadow",
+									"sid": 545334593251222,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "Stack.Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 409414014440729,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Stack",
+											"sid": 197338645387003,
+											"parameters": {
+												"instance-variable": "IsEmpty"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shadow",
+											"sid": 360732349689217,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 413344389837914
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 663340216852006
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shadow",
+											"sid": 963084505656749,
+											"parameters": {
+												"frame-number": "min(CardsInStack, 4)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Shadow",
+											"sid": 227172398732201,
+											"parameters": {
+												"animation": "\"Shadow\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 237950625242954
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 896025340286562
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 999652329726733,
+									"parameters": {
+										"object-to-create": "Shadow",
+										"layer": "\"Shadows\"",
+										"x": "Stack.X",
+										"y": "Stack.Y"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Shadow",
+									"sid": 654075197996798,
+									"parameters": {
+										"animation": "\"Shadow\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 428220459389309
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "SetShadowForDiscard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 994507953471921,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "DiscardedCards",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 295952790427678
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 828091948268572,
+							"parameters": {
+								"object": "Discard"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 405288926969935,
+							"parameters": {
+								"variable": "DiscardedCards",
+								"value": "Card.PickedCount"
+							}
+						}
+					],
+					"sid": 154373827121565,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Shadow",
+									"sid": 533787222020283,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "Discard.X"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Shadow",
+									"sid": 865271238517544,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "Discard.Y"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 219980232772250,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 504815128040428,
+											"parameters": {
+												"variable": "DiscardedCards",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Shadow",
+											"sid": 551284123087260
+										}
+									],
+									"sid": 882673075490594
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 754149383175336
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Shadow",
+											"sid": 610430670367508,
+											"parameters": {
+												"frame-number": "min(DiscardedCards, 4)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Shadow",
+											"sid": 187902915958728,
+											"parameters": {
+												"animation": "\"Shadow\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 286125128388197
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 583530227876480
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 764577079390187,
+									"parameters": {
+										"variable": "DiscardedCards",
+										"comparison": 1,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 814392626780364,
+									"parameters": {
+										"object-to-create": "Shadow",
+										"layer": "\"Shadows\"",
+										"x": "Discard.X",
+										"y": "Discard.Y"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Shadow",
+									"sid": 350995590314345,
+									"parameters": {
+										"animation": "\"Shadow\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Shadow",
+									"sid": 318157338398095,
+									"parameters": {
+										"frame-number": "min(DiscardedCards, 4)"
+									}
+								}
+							],
+							"sid": 869523598586441
 						}
 					]
 				}
