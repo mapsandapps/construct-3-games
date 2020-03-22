@@ -1,0 +1,222 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 18902,
+	"name": "War",
+	"runtime": "c3",
+	"useWorker": true,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "ggayo76vbwh",
+	"objectTypes": {
+		"items": [
+			"Card",
+			"MyDeck",
+			"TheirFlipArea",
+			"MyFlipArea",
+			"TheirDeck"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"MyCards",
+					"TheirCards",
+					"CardValues",
+					"UnshuffledDeck"
+				],
+				"subfolders": [],
+				"name": "Arrays"
+			},
+			{
+				"items": [
+					"Touch",
+					"Browser"
+				],
+				"subfolders": [],
+				"name": "SystemObjects"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Game"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"eGame",
+			"eHelpers"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 247306589214238
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 406649751397565
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 433304736667182
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 273128293953264
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 749664862523113
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 748983970527027
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 750807567502169
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "Shawn Taylor",
+		"authorEmail": "",
+		"authorWebsite": "https://mapsandapps.itch.io/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 480,
+	"viewportHeight": 480,
+	"firstLayout": "Game"
+}

@@ -1,0 +1,155 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Mode",
+			"type": "string",
+			"initialValue": "Flip",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 395962879361400
+		},
+		{
+			"eventType": "variable",
+			"name": "IsAwaitingPlayerMove",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 759146815578137
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 785290796167860
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "UnshuffledDeck",
+					"sid": 289936349603678,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[52,1,1],\"\"data\"\":[[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[14]],[[15]],[[16]],[[17]],[[18]],[[19]],[[20]],[[21]],[[22]],[[23]],[[24]],[[25]],[[26]],[[27]],[[28]],[[29]],[[30]],[[31]],[[32]],[[33]],[[34]],[[35]],[[36]],[[37]],[[38]],[[39]],[[40]],[[41]],[[42]],[[43]],[[44]],[[45]],[[46]],[[47]],[[48]],[[49]],[[50]],[[51]]]}\"\n\n"
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "CardValues",
+					"sid": 542634457104729,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[52,1,1],\"\"data\"\":[[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]]]}\""
+					}
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 124068551129453
+				},
+				{
+					"callFunction": "Shuffle",
+					"sid": 182530407331938
+				},
+				{
+					"callFunction": "TheyFlip",
+					"sid": 587537301872001
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 843140906065855,
+					"parameters": {
+						"variable": "IsAwaitingPlayerMove",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 403680769391124
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 587364502788375,
+					"parameters": {
+						"object": "MyDeck"
+					}
+				},
+				{
+					"id": "compare-size",
+					"objectClass": "MyCards",
+					"sid": 924351989284015,
+					"parameters": {
+						"axis": "x",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-size",
+					"objectClass": "TheirCards",
+					"sid": 780521342572390,
+					"parameters": {
+						"axis": "x",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 107974063343070,
+					"parameters": {
+						"variable": "IsAwaitingPlayerMove"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 501287630031449,
+					"parameters": {
+						"variable": "IsAwaitingPlayerMove",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 629778427163482,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 780255027235019,
+							"disabled": true,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"Flip\"\n"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "IFlip",
+							"sid": 202704543331059
+						}
+					],
+					"sid": 168706007297864
+				}
+			]
+		}
+	],
+	"sid": 374056304547809
+}

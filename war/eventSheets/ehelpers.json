@@ -1,0 +1,1000 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "FlippedFaceDown",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 975866699930225
+		},
+		{
+			"functionName": "Shuffle",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "MyCards",
+					"sid": 265190652229170,
+					"parameters": {
+						"width": "26",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "TheirCards",
+					"sid": 316912820742101,
+					"parameters": {
+						"width": "26",
+						"height": "1",
+						"depth": "1"
+					}
+				}
+			],
+			"sid": 630301669825820,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "PickIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 953838432072327
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "MyCards",
+							"sid": 414477363190811,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 807203894704804,
+							"parameters": {
+								"variable": "PickIndex",
+								"value": "floor(random(UnshuffledDeck.Width))"
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "MyCards",
+							"sid": 780000569923006,
+							"parameters": {
+								"x": "MyCards.CurX",
+								"value": "UnshuffledDeck.At(PickIndex)"
+							}
+						},
+						{
+							"id": "delete",
+							"objectClass": "UnshuffledDeck",
+							"sid": 158486734984507,
+							"parameters": {
+								"index": "PickIndex",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 510522278766909
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "TheirCards",
+							"sid": 477162068937893,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 602973353782016,
+							"parameters": {
+								"variable": "PickIndex",
+								"value": "floor(random(UnshuffledDeck.Width))"
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "TheirCards",
+							"sid": 245801485984522,
+							"parameters": {
+								"x": "TheirCards.CurX",
+								"value": "UnshuffledDeck.At(PickIndex)"
+							}
+						},
+						{
+							"id": "delete",
+							"objectClass": "UnshuffledDeck",
+							"sid": 499697968799426,
+							"parameters": {
+								"index": "PickIndex",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 608342567468969
+				}
+			]
+		},
+		{
+			"functionName": "TheyFlip",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 291926807243343,
+					"parameters": {
+						"object-to-create": "Card",
+						"layer": "\"Cards\"",
+						"x": "TheirDeck.X",
+						"y": "TheirDeck.Y"
+					}
+				}
+			],
+			"sid": 121829239416921,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 860076005230201,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"Flip\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 923501657363474,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"EndWar\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 184259837530856,
+							"parameters": {
+								"animation": "\"Face\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 854775807731949,
+							"parameters": {
+								"frame-number": "TheirCards.Front"
+							}
+						}
+					],
+					"sid": 589013855995266,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 256203842285065
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 245937751106820,
+							"parameters": {
+								"variable": "FlippedFaceDown",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 419783318347996
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 402195087943315,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "CardValues.At(TheirCards.Front)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 279026117456672,
+							"parameters": {
+								"instance-variable": "Index",
+								"value": "TheirCards.Front"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "TheirFlipArea",
+							"sid": 866950357603861,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"id": "pop",
+							"objectClass": "TheirCards",
+							"sid": 563502520762361,
+							"parameters": {
+								"where": "front",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 518356397139222,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "TheirFlipArea.X",
+								"end-y": "TheirFlipArea.Y",
+								"time": "0.3",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
+							}
+						}
+					],
+					"sid": 103545357049628
+				}
+			]
+		},
+		{
+			"functionName": "IFlip",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 435036454268624,
+					"parameters": {
+						"object-to-create": "Card",
+						"layer": "\"Cards\"",
+						"x": "MyDeck.X",
+						"y": "MyDeck.Y"
+					}
+				}
+			],
+			"sid": 235604003758527,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 379400215417363,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"Flip\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 532464095886193,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"EndWar\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 822000271579862,
+							"parameters": {
+								"animation": "\"Face\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 549873818994943,
+							"parameters": {
+								"frame-number": "MyCards.Front"
+							}
+						}
+					],
+					"sid": 805837501447606,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 576719095593190
+						}
+					],
+					"actions": [],
+					"sid": 108676483588812
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 208510549780632,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "CardValues.At(MyCards.Front)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 233832545913154,
+							"parameters": {
+								"instance-variable": "Index",
+								"value": "MyCards.Front"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "MyFlipArea",
+							"sid": 224357839139779,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"id": "pop",
+							"objectClass": "MyCards",
+							"sid": 549479745150542,
+							"parameters": {
+								"where": "front",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 482165598007422,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "MyFlipArea.X",
+								"end-y": "MyFlipArea.Y",
+								"time": "0.3",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 816791139785261,
+							"parameters": {
+								"seconds": "1.3"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 455034365821363
+						},
+						{
+							"callFunction": "DetermineFlipWinner",
+							"sid": 296988020421480
+						}
+					],
+					"sid": 558225009248843
+				}
+			]
+		},
+		{
+			"functionName": "DetermineFlipWinner",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 707687110485050,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 463330693811924,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"Flip\"\n"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 749692393059356,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"EndWar\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 306059671036702,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 866166775558122,
+									"parameters": {
+										"first-value": "MyFlipArea.Value",
+										"comparison": 0,
+										"second-value": "TheirFlipArea.Value"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BeginWar",
+									"sid": 142721977833137
+								}
+							],
+							"sid": 734050014895005
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 419918373773579
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 874512122645990,
+									"parameters": {
+										"first-value": "MyFlipArea.Value",
+										"comparison": 4,
+										"second-value": "TheirFlipArea.Value"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 887671218199567,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 481145481545196,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 581459189141691,
+											"parameters": {
+												"object": "TheirFlipArea"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Card",
+											"sid": 294794600670344
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Card",
+											"sid": 127010512655813,
+											"parameters": {
+												"animation": "\"Back\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "MyCards",
+											"sid": 972003099281713,
+											"parameters": {
+												"where": "back",
+												"value": "Card.Index",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Card",
+											"sid": 216455742258003,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "position",
+												"end-x": "MyDeck.X",
+												"end-y": "MyDeck.Y",
+												"time": "0.3",
+												"ease": "easeinoutsine",
+												"destroy-on-complete": "yes"
+											}
+										}
+									],
+									"sid": 979140836907524
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 424187549361176,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 784403747483144,
+											"parameters": {
+												"object": "MyFlipArea"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Card",
+											"sid": 807710947689735
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Card",
+											"sid": 186118432434627,
+											"parameters": {
+												"animation": "\"Back\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "MyCards",
+											"sid": 331318830671714,
+											"parameters": {
+												"where": "back",
+												"value": "Card.Index",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Card",
+											"sid": 971285216727515,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "position",
+												"end-x": "MyDeck.X",
+												"end-y": "MyDeck.Y",
+												"time": "0.3",
+												"ease": "easeinoutsine",
+												"destroy-on-complete": "yes"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 907073659623132
+										},
+										{
+											"callFunction": "AdvanceToNextFlip",
+											"sid": 699428617660661
+										}
+									],
+									"sid": 533470729013090
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 673752437008044
+								}
+							],
+							"actions": [],
+							"sid": 540552244189107,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 375695178283918,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 510762910693417,
+											"parameters": {
+												"object": "TheirFlipArea"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Card",
+											"sid": 218413092344475
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Card",
+											"sid": 649719368522800,
+											"parameters": {
+												"animation": "\"Back\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "TheirCards",
+											"sid": 485235634303629,
+											"parameters": {
+												"where": "back",
+												"value": "Card.Index",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Card",
+											"sid": 663077531023541,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "position",
+												"end-x": "TheirDeck.X",
+												"end-y": "TheirDeck.Y",
+												"time": "0.3",
+												"ease": "easeinoutsine",
+												"destroy-on-complete": "yes"
+											}
+										}
+									],
+									"sid": 867052267625794
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 387485472062686,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 355501473864437,
+											"parameters": {
+												"object": "MyFlipArea"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Card",
+											"sid": 685720901742186
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Card",
+											"sid": 103707032913088,
+											"parameters": {
+												"animation": "\"Back\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "push",
+											"objectClass": "TheirCards",
+											"sid": 905207127492373,
+											"parameters": {
+												"where": "back",
+												"value": "Card.Index",
+												"axis": "x"
+											}
+										},
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Card",
+											"sid": 869271479876299,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "position",
+												"end-x": "TheirDeck.X",
+												"end-y": "TheirDeck.Y",
+												"time": "0.3",
+												"ease": "easeinoutsine",
+												"destroy-on-complete": "yes"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 734407540677818
+										},
+										{
+											"callFunction": "AdvanceToNextFlip",
+											"sid": 692767876529332
+										}
+									],
+									"sid": 602891735544729
+								}
+							]
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 755212885978379
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 730956412430452,
+							"parameters": {
+								"variable": "Mode",
+								"comparison": 0,
+								"value": "\"BeginWar\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ContinueWar",
+							"sid": 268605109879377
+						}
+					],
+					"sid": 467933856694033
+				}
+			]
+		},
+		{
+			"functionName": "BeginWar",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 100124343842517,
+					"parameters": {
+						"variable": "FlippedFaceDown",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 680570067156665,
+					"parameters": {
+						"variable": "Mode",
+						"value": "\"BeginWar\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 955861045105131,
+					"parameters": {
+						"variable": "IsAwaitingPlayerMove",
+						"value": "true"
+					}
+				},
+				{
+					"callFunction": "TheyFlip",
+					"sid": 399416542149166
+				}
+			],
+			"sid": 851540554337142
+		},
+		{
+			"functionName": "ContinueWar",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 405188571666264,
+					"parameters": {
+						"variable": "IsAwaitingPlayerMove",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 878783189178323,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 677917691858725,
+							"parameters": {
+								"variable": "FlippedFaceDown",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 592626907892576,
+							"parameters": {
+								"variable": "Mode",
+								"value": "\"EndWar\""
+							}
+						}
+					],
+					"sid": 557765055045237
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "TheyFlip",
+							"sid": 771707353044829
+						}
+					],
+					"sid": 807225123769699
+				}
+			]
+		},
+		{
+			"functionName": "AdvanceToNextFlip",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 242759579518642,
+					"parameters": {
+						"variable": "IsAwaitingPlayerMove",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 112987302384901,
+					"parameters": {
+						"variable": "Mode",
+						"value": "\"Flip\""
+					}
+				},
+				{
+					"callFunction": "TheyFlip",
+					"sid": 795257398469678
+				}
+			],
+			"sid": 612441907555462
+		}
+	],
+	"sid": 921364253571295
+}
