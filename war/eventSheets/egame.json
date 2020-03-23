@@ -22,6 +22,26 @@
 			"sid": 759146815578137
 		},
 		{
+			"eventType": "variable",
+			"name": "FLIP_ANIMATION_DURATION",
+			"type": "number",
+			"initialValue": "0.2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 472032660275452
+		},
+		{
+			"eventType": "variable",
+			"name": "IsGameInPlay",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 892143663476988
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -45,6 +65,24 @@
 					"sid": 542634457104729,
 					"parameters": {
 						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[52,1,1],\"\"data\"\":[[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[13]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]]]}\""
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "UnshuffledDeck",
+					"sid": 617375002782455,
+					"disabled": true,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[24,1,1],\"\"data\"\":[[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[20]],[[21]],[[22]],[[23]],[[24]],[[25]],[[33]],[[34]],[[35]],[[36]],[[37]],[[38]],[[46]],[[47]],[[48]],[[49]],[[50]],[[51]]]}\"\n\n"
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "CardValues",
+					"sid": 247647949092094,
+					"disabled": true,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[24,1,1],\"\"data\"\":[[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]],[[7]],[[8]],[[9]],[[10]],[[11]],[[12]]]}\""
 					}
 				},
 				{
@@ -94,21 +132,19 @@
 					}
 				},
 				{
-					"id": "compare-size",
-					"objectClass": "TheirCards",
-					"sid": 780521342572390,
-					"parameters": {
-						"axis": "x",
-						"comparison": 4,
-						"value": "0"
-					}
-				},
-				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 107974063343070,
 					"parameters": {
 						"variable": "IsAwaitingPlayerMove"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 825605247173120,
+					"parameters": {
+						"variable": "IsGameInPlay"
 					}
 				}
 			],
@@ -127,28 +163,110 @@
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 780255027235019,
-							"disabled": true,
-							"parameters": {
-								"variable": "Mode",
-								"comparison": 0,
-								"value": "\"Flip\"\n"
-							}
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"callFunction": "IFlip",
-							"sid": 202704543331059
+							"sid": 209545402779696
 						}
 					],
-					"sid": 168706007297864
+					"sid": 461824983578919
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-size",
+					"objectClass": "MyCards",
+					"sid": 873185021069089,
+					"parameters": {
+						"axis": "x",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "MyDeck",
+					"sid": 762514616779816,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 805754924312531
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 469248097786529
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "MyDeck",
+					"sid": 517080323573321,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 457345937460140
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-size",
+					"objectClass": "TheirCards",
+					"sid": 782754091334780,
+					"parameters": {
+						"axis": "x",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "TheirDeck",
+					"sid": 433321277807289,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 475792675170599
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 398486999294473
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "TheirDeck",
+					"sid": 621427595609415,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 661405268295458
 		}
 	],
 	"sid": 374056304547809

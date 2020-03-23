@@ -39,6 +39,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
@@ -54,7 +62,9 @@
 			"MyDeck",
 			"TheirFlipArea",
 			"MyFlipArea",
-			"TheirDeck"
+			"TheirDeck",
+			"WarText",
+			"Background"
 		],
 		"subfolders": [
 			{
@@ -114,7 +124,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "kenney_bold-webfont.ttf",
+					"type": "application/font-sfnt",
+					"sid": 171623747994238
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -216,7 +232,7 @@
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true
 	},
-	"viewportWidth": 480,
+	"viewportWidth": 320,
 	"viewportHeight": 480,
 	"firstLayout": "Game"
 }

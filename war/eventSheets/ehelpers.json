@@ -24,9 +24,9 @@
 				{
 					"id": "set-size",
 					"objectClass": "MyCards",
-					"sid": 265190652229170,
+					"sid": 948527417449654,
 					"parameters": {
-						"width": "26",
+						"width": "UnshuffledDeck.Width / 2",
 						"height": "1",
 						"depth": "1"
 					}
@@ -34,12 +34,20 @@
 				{
 					"id": "set-size",
 					"objectClass": "TheirCards",
-					"sid": 316912820742101,
+					"sid": 440889854319581,
 					"parameters": {
-						"width": "26",
+						"width": "UnshuffledDeck.Width / 2",
 						"height": "1",
 						"depth": "1"
 					}
+				},
+				{
+					"callFunction": "UpdateMyShadow",
+					"sid": 694010099126685
+				},
+				{
+					"callFunction": "UpdateTheirShadow",
+					"sid": 866755134247510
 				}
 			],
 			"sid": 630301669825820,
@@ -151,66 +159,30 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 291926807243343,
-					"parameters": {
-						"object-to-create": "Card",
-						"layer": "\"Cards\"",
-						"x": "TheirDeck.X",
-						"y": "TheirDeck.Y"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 121829239416921,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 860076005230201,
+							"id": "compare-size",
+							"objectClass": "TheirCards",
+							"sid": 182980961199669,
 							"parameters": {
-								"variable": "Mode",
+								"axis": "x",
 								"comparison": 0,
-								"value": "\"Flip\""
-							}
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 923501657363474,
-							"parameters": {
-								"variable": "Mode",
-								"comparison": 0,
-								"value": "\"EndWar\""
+								"value": "0"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation",
-							"objectClass": "Card",
-							"sid": 184259837530856,
-							"parameters": {
-								"animation": "\"Face\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Card",
-							"sid": 854775807731949,
-							"parameters": {
-								"frame-number": "TheirCards.Front"
-							}
+							"callFunction": "CheckForWin",
+							"sid": 413599933726756
 						}
 					],
-					"sid": 589013855995266,
-					"isOrBlock": true
+					"sid": 329897406527541
 				},
 				{
 					"eventType": "block",
@@ -218,79 +190,155 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 256203842285065
+							"sid": 536904155253398
 						}
 					],
 					"actions": [
 						{
-							"id": "add-to-eventvar",
+							"id": "create-object",
 							"objectClass": "System",
-							"sid": 245937751106820,
+							"sid": 684269085737160,
 							"parameters": {
-								"variable": "FlippedFaceDown",
-								"value": "1"
+								"object-to-create": "Card",
+								"layer": "\"Cards\"",
+								"x": "TheirDeck.X",
+								"y": "TheirDeck.Y"
 							}
 						}
 					],
-					"sid": 419783318347996
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
+					"sid": 564140903592933,
+					"children": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 402195087943315,
-							"parameters": {
-								"instance-variable": "Value",
-								"value": "CardValues.At(TheirCards.Front)"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 830259317984833,
+									"parameters": {
+										"variable": "Mode",
+										"comparison": 0,
+										"value": "\"Flip\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 232470390823421,
+									"parameters": {
+										"variable": "Mode",
+										"comparison": 0,
+										"value": "\"EndWar\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 811746346695362,
+									"parameters": {
+										"animation": "\"Face\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Card",
+									"sid": 587923219377263,
+									"parameters": {
+										"frame-number": "TheirCards.Front"
+									}
+								}
+							],
+							"sid": 348966526772801,
+							"isOrBlock": true
 						},
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 279026117456672,
-							"parameters": {
-								"instance-variable": "Index",
-								"value": "TheirCards.Front"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 727090986313232
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 878874399001026,
+									"parameters": {
+										"variable": "FlippedFaceDown",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 721017653235987
 						},
 						{
-							"id": "set-instvar-value",
-							"objectClass": "TheirFlipArea",
-							"sid": 866950357603861,
-							"parameters": {
-								"instance-variable": "Value",
-								"value": "Card.Value"
-							}
-						},
-						{
-							"id": "pop",
-							"objectClass": "TheirCards",
-							"sid": 563502520762361,
-							"parameters": {
-								"where": "front",
-								"axis": "x"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Card",
-							"sid": 518356397139222,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "TheirFlipArea.X",
-								"end-y": "TheirFlipArea.Y",
-								"time": "0.3",
-								"ease": "easeinoutsine",
-								"destroy-on-complete": "no"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 277352027292871,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "CardValues.At(TheirCards.Front)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Card",
+									"sid": 501499758332804,
+									"parameters": {
+										"instance-variable": "Index",
+										"value": "TheirCards.Front"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "TheirFlipArea",
+									"sid": 673452152790400,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "Card.Value"
+									}
+								},
+								{
+									"id": "pop",
+									"objectClass": "TheirCards",
+									"sid": 842606036912831,
+									"parameters": {
+										"where": "front",
+										"axis": "x"
+									}
+								},
+								{
+									"callFunction": "UpdateTheirShadow",
+									"sid": 878813502039768
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Card",
+									"sid": 302742395285490,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "TheirFlipArea.X",
+										"end-y": "TheirFlipArea.Y",
+										"time": "FLIP_ANIMATION_DURATION",
+										"ease": "easeinoutsine",
+										"destroy-on-complete": "no"
+									}
+								}
+							],
+							"sid": 850834571846597
 						}
-					],
-					"sid": 103545357049628
+					]
 				}
 			]
 		},
@@ -417,16 +465,20 @@
 							}
 						},
 						{
+							"callFunction": "UpdateMyShadow",
+							"sid": 919552369132736
+						},
+						{
 							"id": "tween-two-properties",
 							"objectClass": "Card",
-							"sid": 482165598007422,
+							"sid": 805768992654916,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "position",
 								"end-x": "MyFlipArea.X",
 								"end-y": "MyFlipArea.Y",
-								"time": "0.3",
+								"time": "FLIP_ANIMATION_DURATION",
 								"ease": "easeinoutsine",
 								"destroy-on-complete": "no"
 							}
@@ -434,9 +486,9 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 816791139785261,
+							"sid": 410197435289649,
 							"parameters": {
-								"seconds": "1.3"
+								"seconds": "0.5 + FLIP_ANIMATION_DURATION"
 							}
 						},
 						{
@@ -584,13 +636,13 @@
 										{
 											"id": "tween-two-properties",
 											"objectClass": "Card",
-											"sid": 216455742258003,
+											"sid": 233156770500424,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"\"",
 												"property": "position",
 												"end-x": "MyDeck.X",
-												"end-y": "MyDeck.Y",
+												"end-y": "MyDeck.Y - 8",
 												"time": "0.3",
 												"ease": "easeinoutsine",
 												"destroy-on-complete": "yes"
@@ -647,13 +699,13 @@
 										{
 											"id": "tween-two-properties",
 											"objectClass": "Card",
-											"sid": 971285216727515,
+											"sid": 110614034038080,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"\"",
 												"property": "position",
 												"end-x": "MyDeck.X",
-												"end-y": "MyDeck.Y",
+												"end-y": "MyDeck.Y - 8",
 												"time": "0.3",
 												"ease": "easeinoutsine",
 												"destroy-on-complete": "yes"
@@ -733,13 +785,13 @@
 										{
 											"id": "tween-two-properties",
 											"objectClass": "Card",
-											"sid": 663077531023541,
+											"sid": 993652390902145,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"\"",
 												"property": "position",
 												"end-x": "TheirDeck.X",
-												"end-y": "TheirDeck.Y",
+												"end-y": "TheirDeck.Y + 8",
 												"time": "0.3",
 												"ease": "easeinoutsine",
 												"destroy-on-complete": "yes"
@@ -796,13 +848,13 @@
 										{
 											"id": "tween-two-properties",
 											"objectClass": "Card",
-											"sid": 869271479876299,
+											"sid": 463857189461692,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"\"",
 												"property": "position",
 												"end-x": "TheirDeck.X",
-												"end-y": "TheirDeck.Y",
+												"end-y": "TheirDeck.Y + 8",
 												"time": "0.3",
 												"ease": "easeinoutsine",
 												"destroy-on-complete": "yes"
@@ -851,6 +903,17 @@
 						}
 					],
 					"sid": 467933856694033
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "CheckForWin",
+							"sid": 884180265224447
+						}
+					],
+					"sid": 950755187495304
 				}
 			]
 		},
@@ -894,6 +957,23 @@
 				{
 					"callFunction": "TheyFlip",
 					"sid": 399416542149166
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 928400017721560,
+					"parameters": {
+						"layer": "\"WarBackground\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "WarText",
+					"sid": 863325898187280,
+					"parameters": {
+						"visibility": "visible"
+					}
 				}
 			],
 			"sid": 851540554337142
@@ -971,6 +1051,23 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "set-visible",
+					"objectClass": "WarText",
+					"sid": 244957562310143,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 166222564337041,
+					"parameters": {
+						"layer": "\"WarBackground\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 242759579518642,
@@ -994,6 +1091,148 @@
 				}
 			],
 			"sid": 612441907555462
+		},
+		{
+			"functionName": "UpdateMyShadow",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "MyDeck",
+					"sid": 893718238253131,
+					"parameters": {
+						"frame-number": "floor(MyCards.Width / 7.5)"
+					}
+				}
+			],
+			"sid": 433115060611430
+		},
+		{
+			"functionName": "UpdateTheirShadow",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "TheirDeck",
+					"sid": 993312454307572,
+					"parameters": {
+						"frame-number": "floor(TheirCards.Width / 7.5)"
+					}
+				}
+			],
+			"sid": 180301811545044
+		},
+		{
+			"functionName": "CheckForWin",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 316283457804426,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "MyCards",
+							"sid": 857761151118907,
+							"parameters": {
+								"axis": "x",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "WarText",
+							"sid": 706729191874686,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "WarText",
+							"sid": 489259076009188,
+							"parameters": {
+								"text": "\"LOSE!\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 137374229309081,
+							"parameters": {
+								"variable": "IsGameInPlay",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 745183267048618
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "TheirCards",
+							"sid": 843645597885006,
+							"parameters": {
+								"axis": "x",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 163731685340421,
+							"parameters": {
+								"variable": "IsGameInPlay",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "WarText",
+							"sid": 290014851270184,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "WarText",
+							"sid": 837237995335713,
+							"parameters": {
+								"text": "\"WIN!\""
+							}
+						}
+					],
+					"sid": 960536323179769
+				}
+			]
 		}
 	],
 	"sid": 921364253571295

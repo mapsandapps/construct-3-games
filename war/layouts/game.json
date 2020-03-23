@@ -2,9 +2,39 @@
 	"name": "Game",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Background",
 			"overriden": 0,
-			"instances": [],
+			"instances": [
+				{
+					"type": "Background",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 10,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 190,
+						"y": 360,
+						"width": 1024,
+						"height": 1024,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 467865446377118,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -18,6 +48,34 @@
 				0.3686274509803922,
 				0.3686274509803922,
 				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "WarBackground",
+			"overriden": 0,
+			"instances": [],
+			"sid": 236824150276844,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				0.5
+			],
+			"backgroundColor": [
+				0.8235294117647058,
+				0.21176470588235294,
+				0.03137254901960784,
 				1
 			],
 			"isTransparent": false,
@@ -48,39 +106,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
+						"x": 96,
 						"y": 224,
-						"width": 64,
-						"height": 84,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "MyDeck",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 8,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 240,
-						"y": 384,
-						"width": 64,
-						"height": 84,
+						"width": 96,
+						"height": 126,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -108,39 +137,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
+						"x": 224,
 						"y": 256,
-						"width": 64,
-						"height": 84,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TheirDeck",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 14,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 240,
-						"y": 96,
-						"width": 64,
-						"height": 84,
+						"width": 96,
+						"height": 126,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -204,10 +204,10 @@
 						}
 					},
 					"world": {
-						"x": 240,
-						"y": 384,
-						"width": 74,
-						"height": 96.5,
+						"x": 432,
+						"y": 288,
+						"width": 96,
+						"height": 126,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -221,33 +221,95 @@
 					}
 				},
 				{
-					"type": "Card",
+					"type": "TheirDeck",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Back",
+						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 7,
-					"instanceVariables": {
-						"Value": 0,
-						"Index": 0
-					},
-					"behaviors": {
-						"Tween": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
+					"uid": 14,
+					"instanceVariables": {},
+					"behaviors": {},
 					"world": {
-						"x": 240,
-						"y": 96,
-						"width": 74,
-						"height": 96.5,
+						"x": 160,
+						"y": 80,
+						"width": 111,
+						"height": 144.75,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MyDeck",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 400,
+						"width": 111,
+						"height": 144.75,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "WarText",
+					"properties": {
+						"text": "WAR!",
+						"enable-bbcode": true,
+						"font": "kenney_bold-webfont",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.8235294117647058,
+							0.1843137254901961,
+							0.03137254901960784,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 7,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 16,
+						"width": 112,
+						"height": 128,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -328,7 +390,7 @@
 		}
 	],
 	"effectTypes": [],
-	"width": 480,
+	"width": 320,
 	"height": 480,
 	"unboundedScrolling": true,
 	"eventSheet": "eGame"
