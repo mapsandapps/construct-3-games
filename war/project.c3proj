@@ -32,6 +32,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -80,7 +88,8 @@
 			{
 				"items": [
 					"Touch",
-					"Browser"
+					"Browser",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "SystemObjects"
@@ -112,7 +121,38 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "cardPlace3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 349298395891189
+				},
+				{
+					"name": "cardPlace4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 435252907882350
+				},
+				{
+					"name": "cardFan2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 855004223068134
+				},
+				{
+					"name": "maximize_006.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 673635943860875
+				},
+				{
+					"name": "minimize_006.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 703036397850288
+				},
+				{
+					"name": "select_001.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 461522385674157
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

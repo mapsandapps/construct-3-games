@@ -52,6 +52,17 @@
 			],
 			"actions": [
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 198345645381952,
+					"parameters": {
+						"audio-file": "cardFan2",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "load",
 					"objectClass": "UnshuffledDeck",
 					"sid": 289936349603678,

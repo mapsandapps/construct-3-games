@@ -224,12 +224,14 @@
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 496469996912356,
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 979645846178880,
 							"parameters": {
-								"type": "log",
-								"message": "\"their card flip: \"&Card.Index"
+								"audio-file": "cardPlace3",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
 							}
 						}
 					],
@@ -413,6 +415,17 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 363120356022128,
+							"parameters": {
+								"audio-file": "cardPlace4",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
 						{
 							"id": "create-object",
 							"objectClass": "System",
@@ -1433,6 +1446,15 @@
 					}
 				},
 				{
+					"id": "set-position",
+					"objectClass": "WarText",
+					"sid": 481581405661637,
+					"parameters": {
+						"x": "80",
+						"y": "160"
+					}
+				},
+				{
 					"id": "set-visible",
 					"objectClass": "WarText",
 					"sid": 670323697907260,
@@ -1443,9 +1465,30 @@
 				{
 					"id": "set-text",
 					"objectClass": "WarText",
-					"sid": 189275399913471,
+					"sid": 997882010098104,
 					"parameters": {
-						"text": "\"WIN!\""
+						"text": "\"YOU\"&newline&\"WIN!\""
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "WarText",
+					"sid": 759488532882264
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "WarText",
+					"sid": 315712810702961,
+					"parameters": {
+						"size-pt": "28"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "WarText",
+					"sid": 538592433544347,
+					"parameters": {
+						"color": "rgbEx255(61,96,67)"
 					}
 				},
 				{
@@ -1460,18 +1503,21 @@
 				{
 					"id": "set-layer-background-color",
 					"objectClass": "System",
-					"sid": 635294413440457,
+					"sid": 736467985140104,
 					"parameters": {
 						"layer": "\"WarBackground\"",
 						"color": "rgbEx255(112, 166, 121)"
 					}
 				},
 				{
-					"id": "set-font-color",
-					"objectClass": "WarText",
-					"sid": 474691470944402,
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 317306238451349,
 					"parameters": {
-						"color": "rgbEx255(112, 166, 121)"
+						"audio-file": "maximize_006",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
@@ -1488,12 +1534,12 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 377934631905451,
+					"id": "set-position",
+					"objectClass": "WarText",
+					"sid": 548061569108508,
 					"parameters": {
-						"layer": "\"WarBackground\"",
-						"visibility": "visible"
+						"x": "80",
+						"y": "160"
 					}
 				},
 				{
@@ -1507,9 +1553,31 @@
 				{
 					"id": "set-text",
 					"objectClass": "WarText",
-					"sid": 686715274587986,
+					"sid": 406117339054128,
 					"parameters": {
-						"text": "\"LOSE!\""
+						"text": "\"YOU\"&newline&\"LOSE!\""
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "WarText",
+					"sid": 109072750220830
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "WarText",
+					"sid": 280758448435921,
+					"parameters": {
+						"size-pt": "28"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 945747255803970,
+					"parameters": {
+						"layer": "\"WarBackground\"",
+						"visibility": "visible"
 					}
 				},
 				{
@@ -1519,6 +1587,17 @@
 					"parameters": {
 						"variable": "IsGameInPlay",
 						"value": "false"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 367853739007761,
+					"parameters": {
+						"audio-file": "minimize_006",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
