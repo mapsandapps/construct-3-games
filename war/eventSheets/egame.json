@@ -52,17 +52,6 @@
 			],
 			"actions": [
 				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 198345645381952,
-					"parameters": {
-						"audio-file": "cardFan2",
-						"loop": "not-looping",
-						"volume": "0",
-						"tag-optional": "\"\""
-					}
-				},
-				{
 					"id": "load",
 					"objectClass": "UnshuffledDeck",
 					"sid": 289936349603678,
@@ -278,6 +267,36 @@
 				}
 			],
 			"sid": 661405268295458
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 604223708571900,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 288144976650976,
+					"parameters": {
+						"variable": "IsGameInPlay"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 490289113488085
+				}
+			],
+			"sid": 735329061500047
 		}
 	],
 	"sid": 374056304547809

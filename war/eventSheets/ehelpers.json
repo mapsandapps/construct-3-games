@@ -1437,30 +1437,8 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 616286672829922,
-					"parameters": {
-						"variable": "IsGameInPlay",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "WarText",
-					"sid": 481581405661637,
-					"parameters": {
-						"x": "80",
-						"y": "160"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "WarText",
-					"sid": 670323697907260,
-					"parameters": {
-						"visibility": "visible"
-					}
+					"callFunction": "EndGame",
+					"sid": 844051885110885
 				},
 				{
 					"id": "set-text",
@@ -1471,33 +1449,11 @@
 					}
 				},
 				{
-					"id": "move-to-top",
-					"objectClass": "WarText",
-					"sid": 759488532882264
-				},
-				{
-					"id": "set-font-size",
-					"objectClass": "WarText",
-					"sid": 315712810702961,
-					"parameters": {
-						"size-pt": "28"
-					}
-				},
-				{
 					"id": "set-font-color",
 					"objectClass": "WarText",
 					"sid": 538592433544347,
 					"parameters": {
 						"color": "rgbEx255(61,96,67)"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 189984709200442,
-					"parameters": {
-						"layer": "\"WarBackground\"",
-						"visibility": "visible"
 					}
 				},
 				{
@@ -1534,21 +1490,8 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-position",
-					"objectClass": "WarText",
-					"sid": 548061569108508,
-					"parameters": {
-						"x": "80",
-						"y": "160"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "WarText",
-					"sid": 382424233442486,
-					"parameters": {
-						"visibility": "visible"
-					}
+					"callFunction": "EndGame",
+					"sid": 326633889067307
 				},
 				{
 					"id": "set-text",
@@ -1556,37 +1499,6 @@
 					"sid": 406117339054128,
 					"parameters": {
 						"text": "\"YOU\"&newline&\"LOSE!\""
-					}
-				},
-				{
-					"id": "move-to-top",
-					"objectClass": "WarText",
-					"sid": 109072750220830
-				},
-				{
-					"id": "set-font-size",
-					"objectClass": "WarText",
-					"sid": 280758448435921,
-					"parameters": {
-						"size-pt": "28"
-					}
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 945747255803970,
-					"parameters": {
-						"layer": "\"WarBackground\"",
-						"visibility": "visible"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 859476917626230,
-					"parameters": {
-						"variable": "IsGameInPlay",
-						"value": "false"
 					}
 				},
 				{
@@ -1602,6 +1514,83 @@
 				}
 			],
 			"sid": 941190727352592
+		},
+		{
+			"functionName": "EndGame",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 519682925280347,
+					"parameters": {
+						"variable": "IsGameInPlay",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "WarText",
+					"sid": 705823427852470,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "WarText",
+					"sid": 683717408594387,
+					"parameters": {
+						"x": "80",
+						"y": "160"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "WarText",
+					"sid": 403418710406266
+				},
+				{
+					"id": "set-font-size",
+					"objectClass": "WarText",
+					"sid": 403013317306680,
+					"parameters": {
+						"size-pt": "28"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 799082941525886,
+					"parameters": {
+						"layer": "\"WarBackground\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Button",
+					"sid": 929099051318222,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ButtonText",
+					"sid": 660154340986788,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 217110474774833
 		}
 	],
 	"sid": 921364253571295

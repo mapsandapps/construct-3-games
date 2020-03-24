@@ -55,6 +55,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
@@ -72,7 +80,9 @@
 			"MyFlipArea",
 			"TheirDeck",
 			"WarText",
-			"Background"
+			"Background",
+			"Button",
+			"ButtonText"
 		],
 		"subfolders": [
 			{
@@ -104,7 +114,8 @@
 	},
 	"layouts": {
 		"items": [
-			"Game"
+			"Game",
+			"Objects"
 		],
 		"subfolders": []
 	},
@@ -131,11 +142,6 @@
 					"name": "cardPlace4.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 435252907882350
-				},
-				{
-					"name": "cardFan2.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 855004223068134
 				},
 				{
 					"name": "maximize_006.webm",
