@@ -1,0 +1,175 @@
+{
+	"name": "Flow",
+	"plugin-id": "Sprite",
+	"sid": 737222476811361,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "IsLastSpawned",
+			"type": "boolean",
+			"desc": "",
+			"sid": 768879955871228
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 212,
+						"height": 312,
+						"originX": 0.2358490566037736,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 18,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.4716981132075472,
+								0,
+								1,
+								1,
+								0.5283018867924528,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Bottom",
+								"x": 0.7641509433962265,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 212,
+						"height": 312,
+						"originX": 0.7641509433962265,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 19,
+						"collisionPoly": {
+							"points": [
+								0.5283018867924528,
+								0,
+								1,
+								0,
+								0.4716981132075472,
+								1,
+								0,
+								0.9967948717948718
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Bottom",
+								"x": 0.2358490566037736,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 180,
+						"height": 392,
+						"originX": 0.7222222222222222,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 20,
+						"collisionPoly": {
+							"points": [
+								0.4444444444444444,
+								0,
+								1,
+								0,
+								0.5555555555555556,
+								1,
+								0,
+								0.9974489795918368
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Bottom",
+								"x": 0.2777777777777778,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 180,
+						"height": 392,
+						"originX": 0.2777777777777778,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 21,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5555555555555556,
+								0,
+								1,
+								1,
+								0.44444444444444436,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Bottom",
+								"x": 0.7222222222222222,
+								"y": 1
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 100,
+						"height": 568,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 22,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Bottom",
+								"x": 0.5,
+								"y": 1
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 907956275474660,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

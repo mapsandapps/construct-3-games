@@ -1,0 +1,500 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "FlowSpeed",
+			"type": "number",
+			"initialValue": "240",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 188979260770229
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_SPEED",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 586681508879263
+		},
+		{
+			"eventType": "variable",
+			"name": "HasJustSpawned",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 577900422970437
+		},
+		{
+			"eventType": "variable",
+			"name": "Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 852987325746296
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 819142852653173
+				}
+			],
+			"actions": [
+				{
+					"id": "set-y",
+					"objectClass": "Flow",
+					"sid": 182236751187572,
+					"parameters": {
+						"y": "Flow.Y + FlowSpeed * dt"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 870261952840904,
+					"parameters": {
+						"variable": "Score",
+						"value": "FlowSpeed / 240 * dt"
+					}
+				}
+			],
+			"sid": 840467167844024
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 520408619944492,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Score",
+					"sid": 848316306262113,
+					"parameters": {
+						"text": "\"Score: \" & floor(Score)"
+					}
+				}
+			],
+			"sid": 354353867611154
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-touch",
+					"objectClass": "Touch",
+					"sid": 338797765962593
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "Player",
+					"sid": 109588097703164,
+					"parameters": {
+						"x": "Touch.X"
+					}
+				}
+			],
+			"sid": 328564280119794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Flow",
+					"sid": 788462336445334,
+					"parameters": {
+						"instance-variable": "IsLastSpawned"
+					}
+				},
+				{
+					"id": "compare-y",
+					"objectClass": "Flow",
+					"sid": 910700535719593,
+					"parameters": {
+						"comparison": 4,
+						"y-co-ordinate": "-200"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 684976425149706,
+					"parameters": {
+						"variable": "HasJustSpawned"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 781279450416318,
+					"parameters": {
+						"variable": "HasJustSpawned",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Flow",
+					"sid": 614844419976444,
+					"parameters": {
+						"instance-variable": "IsLastSpawned",
+						"value": "false"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 753091640475249,
+					"parameters": {
+						"type": "log",
+						"message": "\"spawn\""
+					}
+				},
+				{
+					"callFunction": "SpawnNewFlow",
+					"sid": 752846842005139,
+					"parameters": [
+						"Flow.ImagePointX(\"Top\")",
+						"Flow.ImagePointY(\"Top\")"
+					]
+				}
+			],
+			"sid": 150344811842739
+		},
+		{
+			"functionName": "SpawnNewFlow",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "BottomX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 848965846705364
+				},
+				{
+					"name": "BottomY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 819942923554924
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 909998337070595,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "LastSpawnedUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 719749869309216
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 983504465041782,
+							"parameters": {
+								"object-to-create": "Flow",
+								"layer": "\"Land\"",
+								"x": "-600",
+								"y": "-600"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 955420242591657,
+							"parameters": {
+								"variable": "LastSpawnedUID",
+								"value": "Flow.UID"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Flow",
+							"sid": 435912167585407,
+							"parameters": {
+								"frame-number": "random(Flow.AnimationFrameCount)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Flow",
+							"sid": 406143533876138,
+							"parameters": {
+								"x": "BottomX + (Flow.X - Flow.ImagePointX(\"Bottom\"))",
+								"y": "BottomY - Flow.Height"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Flow",
+							"sid": 659880369426873,
+							"parameters": {
+								"instance-variable": "IsLastSpawned",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "CheckAndCorrectNewFlowPosition",
+							"sid": 332832102432472,
+							"parameters": [
+								"BottomX",
+								"BottomY",
+								"Flow.UID"
+							]
+						}
+					],
+					"sid": 857236912272896
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Flow",
+					"sid": 596029777250855,
+					"parameters": {
+						"comparison": 4,
+						"y-co-ordinate": "LayoutHeight"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Flow",
+					"sid": 333359966187751
+				}
+			],
+			"sid": 689920539225207
+		},
+		{
+			"functionName": "CheckAndCorrectNewFlowPosition",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "BottomX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 612701639514181
+				},
+				{
+					"name": "BottomY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 189755518834182
+				},
+				{
+					"name": "FlowUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 694516697429624
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Flow",
+					"sid": 764739144180236,
+					"parameters": {
+						"unique-id": "FlowUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 882569829879357,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Flow",
+							"sid": 783662683962658,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "0"
+							}
+						},
+						{
+							"id": "compare-x",
+							"objectClass": "Flow",
+							"sid": 335635426285064,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "LayoutWidth"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 371941786496103,
+							"parameters": {
+								"type": "log",
+								"message": "\"checking\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Flow",
+							"sid": 594890887810016,
+							"parameters": {
+								"frame-number": "random(Flow.AnimationFrameCount)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Flow",
+							"sid": 476794074272175,
+							"parameters": {
+								"x": "BottomX + (Flow.X - Flow.ImagePointX(\"Bottom\"))",
+								"y": "BottomY - Flow.Height"
+							}
+						},
+						{
+							"callFunction": "CheckAndCorrectNewFlowPosition",
+							"sid": 760611150700207,
+							"parameters": [
+								"BottomX",
+								"BottomY",
+								"Flow.UID"
+							]
+						}
+					],
+					"sid": 443675170821582,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 922786560954790
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 115782388869696,
+							"parameters": {
+								"type": "log",
+								"message": "\"stopping\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 106046243353716,
+							"parameters": {
+								"variable": "HasJustSpawned",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 562955760174468
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 813481576397183,
+					"parameters": {
+						"object": "Flow"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 171616603553002,
+					"parameters": {
+						"variable": "Score",
+						"value": "0"
+					}
+				},
+				{
+					"id": "flash",
+					"objectClass": "Player",
+					"sid": 579306283877423,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "0.1",
+						"off-time": "0.1",
+						"duration": "1.0"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "Player",
+					"sid": 546336759136391,
+					"parameters": {
+						"x": "Flow.X"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "TODO: instead, actually remove the player and then replace it when at the origin of a flow the origin of the flow is at Player.Y"
+				}
+			],
+			"sid": 689126920991430
+		}
+	],
+	"sid": 727418258800743
+}
