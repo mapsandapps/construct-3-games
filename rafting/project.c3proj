@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 18902,
-	"name": "New project",
+	"name": "Rafting",
 	"runtime": "c3",
 	"useWorker": true,
 	"bundleAddons": false,
@@ -47,14 +47,6 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "Particles",
-			"name": "Particles",
-			"author": "Scirra",
-			"version": "r189.2",
-			"bundled": false
-		},
-		{
 			"type": "behavior",
 			"id": "bound",
 			"name": "Bound to layout",
@@ -66,6 +58,30 @@
 			"type": "behavior",
 			"id": "Flash",
 			"name": "Flash",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
 			"author": "Scirra",
 			"version": "r189.2",
 			"bundled": false
@@ -88,7 +104,8 @@
 			"Touch",
 			"Browser",
 			"Score",
-			"Waves"
+			"Wave",
+			"Rock"
 		],
 		"subfolders": []
 	},
@@ -189,9 +206,9 @@
 	"properties": {
 		"description": "",
 		"version": "1.0.0.0",
-		"author": "",
+		"author": "Shawn Taylor",
 		"authorEmail": "",
-		"authorWebsite": "",
+		"authorWebsite": "https://mapsandapps.itch.io/",
 		"appId": "",
 		"pixelRounding": false,
 		"useLoaderLayout": false,

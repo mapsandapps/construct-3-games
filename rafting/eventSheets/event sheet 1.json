@@ -67,6 +67,14 @@
 						"variable": "Score",
 						"value": "FlowSpeed / 240 * dt"
 					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Rock",
+					"sid": 326731549684908,
+					"parameters": {
+						"y": "Rock.Y + FlowSpeed * dt"
+					}
 				}
 			],
 			"sid": 840467167844024
@@ -94,6 +102,26 @@
 				}
 			],
 			"sid": 354353867611154
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 392989050190170,
+					"parameters": {
+						"interval-seconds": "240 / FlowSpeed"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PlaceRock",
+					"sid": 359943628051166
+				}
+			],
+			"sid": 747604491017597
 		},
 		{
 			"eventType": "block",
@@ -130,10 +158,10 @@
 				{
 					"id": "compare-y",
 					"objectClass": "Flow",
-					"sid": 910700535719593,
+					"sid": 192102145467031,
 					"parameters": {
 						"comparison": 4,
-						"y-co-ordinate": "-200"
+						"y-co-ordinate": "-568"
 					}
 				},
 				{
@@ -186,6 +214,88 @@
 			"sid": 150344811842739
 		},
 		{
+			"functionName": "PlaceRock",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Flow",
+					"sid": 359167336525092,
+					"parameters": {
+						"instance-variable": "IsLastSpawned"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "place a rock above the playing field\nif it isn't in a flow, delete it and try again"
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 452568907622143,
+					"parameters": {
+						"object-to-create": "Rock",
+						"layer": "\"Rocks\"",
+						"x": "random(LayoutWidth)",
+						"y": "Flow.Y + random(Flow.Height)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 826486293314395,
+					"parameters": {
+						"type": "log",
+						"message": "\"create rock\""
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Rock",
+					"sid": 882121172032647,
+					"parameters": {
+						"frame-number": "random(Rock.AnimationFrameCount)"
+					}
+				}
+			],
+			"sid": 911194025918149,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Rock",
+							"sid": 734097338321597,
+							"parameters": {
+								"object": "Flow"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Rock",
+							"sid": 868487657219386
+						},
+						{
+							"callFunction": "PlaceRock",
+							"sid": 501578802497657
+						}
+					],
+					"sid": 499474380035486
+				}
+			]
+		},
+		{
 			"functionName": "SpawnNewFlow",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -229,10 +339,10 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 983504465041782,
+							"sid": 558578940138490,
 							"parameters": {
 								"object-to-create": "Flow",
-								"layer": "\"Land\"",
+								"layer": "\"Water\"",
 								"x": "-600",
 								"y": "-600"
 							}
@@ -285,28 +395,6 @@
 					"sid": 857236912272896
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-y",
-					"objectClass": "Flow",
-					"sid": 596029777250855,
-					"parameters": {
-						"comparison": 4,
-						"y-co-ordinate": "LayoutHeight"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Flow",
-					"sid": 333359966187751
-				}
-			],
-			"sid": 689920539225207
 		},
 		{
 			"functionName": "CheckAndCorrectNewFlowPosition",
@@ -461,9 +549,102 @@
 			],
 			"actions": [
 				{
+					"callFunction": "Die",
+					"sid": 633501904849054
+				}
+			],
+			"sid": 689126920991430
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 108099533329797,
+					"parameters": {
+						"object": "Rock"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Die",
+					"sid": 245364526926937
+				}
+			],
+			"sid": 539516525992229
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 868816863517182,
+					"parameters": {
+						"interval-seconds": "random(2)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 598766153516701,
+					"parameters": {
+						"type": "log",
+						"message": "\"spawn wave\""
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 187052500947374,
+					"parameters": {
+						"object-to-create": "Wave",
+						"layer": "\"Waves\"",
+						"x": "random(LayoutWidth)",
+						"y": "random(LayoutHeight)"
+					}
+				},
+				{
+					"id": "start-fade",
+					"objectClass": "Wave",
+					"sid": 166086555215300,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Wave",
+					"sid": 271956442827135,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetY",
+						"end-value": "Wave.Y + random(LayoutHeight - Wave.Y)",
+						"time": "5",
+						"ease": "easeinoutsine",
+						"destroy-on-complete": "yes"
+					}
+				}
+			],
+			"sid": 644612557761482
+		},
+		{
+			"functionName": "Die",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 171616603553002,
+					"sid": 395298888956404,
 					"parameters": {
 						"variable": "Score",
 						"value": "0"
@@ -472,7 +653,7 @@
 				{
 					"id": "flash",
 					"objectClass": "Player",
-					"sid": 579306283877423,
+					"sid": 242506832356034,
 					"behaviorType": "Flash",
 					"parameters": {
 						"on-time": "0.1",
@@ -483,17 +664,93 @@
 				{
 					"id": "set-x",
 					"objectClass": "Player",
-					"sid": 546336759136391,
+					"sid": 754375326094307,
 					"parameters": {
 						"x": "Flow.X"
 					}
 				},
 				{
 					"type": "comment",
-					"text": "TODO: instead, actually remove the player and then replace it when at the origin of a flow the origin of the flow is at Player.Y"
+					"text": "TODO: instead, actually remove the player and then replace it when at the origin of a flow the origin of the flow is at Player.Y. maybe add a couple seconds of invincibility (while it's flashing in)"
 				}
 			],
-			"sid": 689126920991430
+			"sid": 722095536864805
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Destroy things",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Flow",
+							"sid": 412011131988267,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "LayoutHeight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Flow",
+							"sid": 747618881708774
+						}
+					],
+					"sid": 330607094566990
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Wave",
+							"sid": 838733660071513,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "LayoutHeight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Wave",
+							"sid": 437788786109678
+						}
+					],
+					"sid": 885252260330948
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Rock",
+							"sid": 427842698709350,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "LayoutHeight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Rock",
+							"sid": 616526104592457
+						}
+					],
+					"sid": 769960096145843
+				}
+			],
+			"sid": 131342598953940
 		}
 	],
 	"sid": 727418258800743

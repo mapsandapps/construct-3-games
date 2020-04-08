@@ -1,0 +1,68 @@
+{
+	"name": "Wave",
+	"plugin-id": "Sprite",
+	"sid": 525652012919920,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 812388675007520
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 232417151273756
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 33,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5,
+						"collisionPoly": {
+							"points": [
+								0.21212121212121213,
+								0.7,
+								0.5,
+								0,
+								0.7575757575757576,
+								0.7,
+								0.696969696969697,
+								0.5,
+								0.9696969696969697,
+								0.9,
+								0.5,
+								0.3,
+								0,
+								0.9,
+								0.2727272727272727,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 305696961017151,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
