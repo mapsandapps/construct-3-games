@@ -1,0 +1,74 @@
+{
+	"name": "eMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 653454071656398,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 447582331119664,
+					"parameters": {
+						"variable": "GameMode",
+						"value": "Button.Mode"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 297014074111182,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 436181758878417
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 896407192935461,
+					"parameters": {
+						"object": "Text"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 730930255506934,
+					"parameters": {
+						"instance-variable": "URL",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "open-url-in-new-window",
+					"objectClass": "Browser",
+					"sid": 821929218033367,
+					"parameters": {
+						"url": "Text.URL",
+						"tag": "\"NewWindow\""
+					}
+				}
+			],
+			"sid": 124144415045907
+		}
+	],
+	"sid": 779485052378513
+}
