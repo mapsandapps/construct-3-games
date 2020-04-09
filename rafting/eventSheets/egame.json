@@ -62,6 +62,26 @@
 			"sid": 888110414711768
 		},
 		{
+			"eventType": "variable",
+			"name": "IsInvincible",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 918851222687588
+		},
+		{
+			"eventType": "variable",
+			"name": "INVINCIBILITY_DURATION",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 592300092463306
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -78,6 +98,10 @@
 					"parameters": {
 						"key": "\"highScore\""
 					}
+				},
+				{
+					"callFunction": "SetTemporarilyInvincible",
+					"sid": 248576897065802
 				}
 			],
 			"sid": 877173428423433
@@ -144,15 +168,6 @@
 					}
 				},
 				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 870261952840904,
-					"parameters": {
-						"variable": "Score",
-						"value": "FlowSpeed / 240 * dt"
-					}
-				},
-				{
 					"id": "set-y",
 					"objectClass": "Rock",
 					"sid": 326731549684908,
@@ -161,7 +176,35 @@
 					}
 				}
 			],
-			"sid": 840467167844024
+			"sid": 840467167844024,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 986736736361301,
+							"parameters": {
+								"variable": "IsInvincible"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 380157788773722,
+							"parameters": {
+								"variable": "Score",
+								"value": "FlowSpeed / 240 * dt"
+							}
+						}
+					],
+					"sid": 864255219198377
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -852,7 +895,17 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 894367908194678,
+					"parameters": {
+						"variable": "IsInvincible"
+					},
+					"isInverted": true
+				}
+			],
 			"actions": [
 				{
 					"id": "set-item",
@@ -873,27 +926,12 @@
 					}
 				},
 				{
-					"id": "flash",
-					"objectClass": "Player",
-					"sid": 242506832356034,
-					"behaviorType": "Flash",
-					"parameters": {
-						"on-time": "0.1",
-						"off-time": "0.1",
-						"duration": "1.0"
-					}
-				},
-				{
-					"id": "set-x",
-					"objectClass": "Player",
-					"sid": 754375326094307,
-					"parameters": {
-						"x": "Flow.X"
-					}
-				},
-				{
 					"type": "comment",
 					"text": "TODO: instead, actually remove the player and then replace it when at the origin of a flow the origin of the flow is at Player.Y. maybe add a couple seconds of invincibility (while it's flashing in)"
+				},
+				{
+					"callFunction": "SetTemporarilyInvincible",
+					"sid": 345024358525279
 				}
 			],
 			"sid": 722095536864805
@@ -1067,6 +1105,73 @@
 				}
 			],
 			"sid": 861776864045254
+		},
+		{
+			"functionName": "SetTemporarilyInvincible",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-topbottom",
+					"objectClass": "Flow",
+					"sid": 140069883219637,
+					"parameters": {
+						"which": "bottom"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "flash",
+					"objectClass": "Player",
+					"sid": 411857275022695,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "INVINCIBILITY_DURATION / 10",
+						"off-time": "INVINCIBILITY_DURATION / 10",
+						"duration": "INVINCIBILITY_DURATION"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "Player",
+					"sid": 754375326094307,
+					"parameters": {
+						"x": "Flow.X"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 611053317006585,
+					"parameters": {
+						"variable": "IsInvincible",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 906420603819425,
+					"parameters": {
+						"seconds": "INVINCIBILITY_DURATION"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 786917828787598,
+					"parameters": {
+						"variable": "IsInvincible",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 775791022971612
 		}
 	],
 	"sid": 727418258800743
