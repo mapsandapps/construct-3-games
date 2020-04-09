@@ -55,6 +55,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "bound",
 			"name": "Bound to layout",
@@ -114,7 +122,8 @@
 			"Cloud",
 			"Rock",
 			"Button",
-			"Audio"
+			"Audio",
+			"LocalStorage"
 		],
 		"subfolders": [
 			{
@@ -159,11 +168,6 @@
 		},
 		"music": {
 			"items": [
-				{
-					"name": "panumoon_-_sidebyside.mp3",
-					"type": "audio/mpeg",
-					"sid": 781855949861643
-				},
 				{
 					"name": "panumoon_-_sidebyside_2.mp3",
 					"type": "audio/mpeg",
@@ -290,7 +294,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true

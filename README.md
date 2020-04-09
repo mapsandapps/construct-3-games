@@ -1,5 +1,19 @@
 # My Construct 3 Games Monorepo
 
+## Rafting
+
+Endless rafter plus zen mode made for [Weekly Game Jam #143: "Running Water"](https://itch.io/jam/weekly-game-jam-143/rate/605798) in April 2020
+
+* Folder: [/rafting](./rafting)
+* [Play on Itch](https://mapsandapps.itch.io/rafting)
+
+## War
+
+Classic card game made for [Weekly Game Jam #141: "Good Luck"](https://itch.io/jam/weekly-game-jam-141/rate/593415) in March 2020
+
+* Folder: [/war](./war)
+* [Play on Itch](https://mapsandapps.itch.io/war)
+
 ## Ocean Charting RL
 
 Ocean exploration game made for 7DRL 2020 in February-March 2020 (incomplete)
@@ -93,3 +107,4 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) font (Open Font License)
 * Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
 * [Fantasy Map Generator](https://github.com/Azgaar/Fantasy-Map-Generator) (MIT license)
+* ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)

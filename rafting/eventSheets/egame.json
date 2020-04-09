@@ -65,6 +65,70 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 105127534102285
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 797227029939551,
+					"parameters": {
+						"key": "\"highScore\""
+					}
+				}
+			],
+			"sid": 877173428423433
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 143072535380290,
+					"parameters": {
+						"key": "\"highScore\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 222408031217895,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LocalStorage",
+							"sid": 146198153138249,
+							"parameters": {
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 277327061419945,
+							"parameters": {
+								"variable": "HighScore",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 649353541119173
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 819142852653173
@@ -414,6 +478,11 @@
 					"parameters": {
 						"frame-number": "random(Rock.AnimationFrameCount)"
 					}
+				},
+				{
+					"id": "move-to-bottom",
+					"objectClass": "Rock",
+					"sid": 619106685937388
 				}
 			],
 			"sid": 911194025918149,
@@ -786,6 +855,15 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 679112603881082,
+					"parameters": {
+						"key": "\"highScore\"",
+						"value": "HighScore"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 395298888956404,
@@ -925,6 +1003,70 @@
 				}
 			],
 			"sid": 593732350357913
+		},
+		{
+			"eventType": "variable",
+			"name": "LastTouchX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 736874728446389
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Rotation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-touch-speed",
+							"objectClass": "Touch",
+							"sid": 489024087147617,
+							"parameters": {
+								"touch-index": "0",
+								"comparison": 4,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 841710688464326,
+							"parameters": {
+								"type": "log",
+								"message": "Touch.X - LastTouchX"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Player",
+							"sid": 508684275982501,
+							"parameters": {
+								"angle": "min(max(2 * (Touch.X - LastTouchX),-30),30)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 651760175791883,
+							"parameters": {
+								"variable": "LastTouchX",
+								"value": "Touch.X"
+							}
+						}
+					],
+					"sid": 979312803671876
+				}
+			],
+			"sid": 861776864045254
 		}
 	],
 	"sid": 727418258800743
