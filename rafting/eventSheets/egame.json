@@ -102,6 +102,16 @@
 				{
 					"callFunction": "SetTemporarilyInvincible",
 					"sid": 248576897065802
+				},
+				{
+					"id": "pin-to-object",
+					"objectClass": "Particles",
+					"sid": 976684668983140,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Player",
+						"mode": "position-angle"
+					}
 				}
 			],
 			"sid": 877173428423433
@@ -173,6 +183,14 @@
 					"sid": 326731549684908,
 					"parameters": {
 						"y": "Rock.Y + FlowSpeed * dt"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Foreground",
+					"sid": 884513538848826,
+					"parameters": {
+						"y": "Foreground.Y + FlowSpeed * dt"
 					}
 				}
 			],
@@ -791,6 +809,25 @@
 								"variable": "HasJustSpawned",
 								"value": "false"
 							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 777032452550685,
+							"parameters": {
+								"object-to-create": "Foreground",
+								"layer": "\"Foreground\"",
+								"x": "Flow.X",
+								"y": "Flow.Y"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Foreground",
+							"sid": 684925837988860,
+							"parameters": {
+								"frame-number": "Flow.AnimationFrame"
+							}
 						}
 					],
 					"sid": 562955760174468
@@ -854,10 +891,10 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 526372063534307,
+					"sid": 339495689524201,
 					"parameters": {
 						"object-to-create": "Cloud",
-						"layer": "\"Waves\"",
+						"layer": "\"Clouds\"",
 						"x": "random(LayoutWidth)",
 						"y": "random(LayoutHeight * 2) - LayoutHeight / 2"
 					}
@@ -964,6 +1001,28 @@
 						}
 					],
 					"sid": 330607094566990
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Foreground",
+							"sid": 664893042617313,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "LayoutHeight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Foreground",
+							"sid": 770893844669519
+						}
+					],
+					"sid": 242410266311802
 				},
 				{
 					"eventType": "block",
@@ -1102,6 +1161,28 @@
 						}
 					],
 					"sid": 979312803671876
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-touch",
+							"objectClass": "Touch",
+							"sid": 375192402040598,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Player",
+							"sid": 157902681079853,
+							"parameters": {
+								"angle": "0"
+							}
+						}
+					],
+					"sid": 995430284751543
 				}
 			],
 			"sid": 861776864045254

@@ -63,6 +63,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "bound",
 			"name": "Bound to layout",
@@ -103,6 +119,14 @@
 			"bundled": false
 		},
 		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r189.2",
+			"bundled": false
+		},
+		{
 			"type": "effect",
 			"id": "alphaclamp",
 			"name": "Alpha clamp",
@@ -123,7 +147,10 @@
 			"Rock",
 			"Button",
 			"Audio",
-			"LocalStorage"
+			"LocalStorage",
+			"Foreground",
+			"Mouse",
+			"Particles"
 		],
 		"subfolders": [
 			{
@@ -163,10 +190,6 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
-			"subfolders": []
-		},
-		"music": {
 			"items": [
 				{
 					"name": "panumoon_-_sidebyside_2.mp3",
@@ -174,6 +197,10 @@
 					"sid": 361923174163852
 				}
 			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
 			"subfolders": []
 		},
 		"video": {
@@ -267,9 +294,9 @@
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0,
-			0,
-			0,
+			0.24313725490196078,
+			0.5058823529411764,
+			0.3686274509803922,
 			0
 		],
 		"splashColor": [
