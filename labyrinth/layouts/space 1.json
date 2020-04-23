@@ -144,7 +144,7 @@
 							"height": 26,
 							"max-width": 30,
 							"max-height": 53,
-							"data": "166x0,19,28,18,50x0,29,6,27,50x0,29,15,27,50x0,29,15,27,50x0,29,15,27,50x0,29,8,27,50x0,16,26,17,1103x0"
+							"data": "166x0,19,28,18,50x0,29,0,27,50x0,29,0,27,50x0,29,0,27,50x0,29,0,27,50x0,29,0,27,50x0,16,26,17,1103x0"
 						},
 						"tile-width": 64,
 						"tile-height": 64,
@@ -166,6 +166,151 @@
 							1,
 							1
 						],
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Right",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1478,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 192,
+						"y": 224,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Left Right",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1483,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 224,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Left Right",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1485,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 224,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Left Right",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1487,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 384,
+						"y": 224,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Left",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1488,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 448,
+						"y": 224,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
 						"zElevation": 0
 					}
 				}
@@ -207,98 +352,11 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 188,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 320,
-						"y": 224,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Coin",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 189,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 256,
-						"y": 224,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Coin",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
 					"uid": 196,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
 						"x": 448,
-						"y": 224,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Coin",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 209,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 384,
 						"y": 224,
 						"width": 64,
 						"height": 64,
@@ -787,5 +845,5 @@
 	"width": 640,
 	"height": 480,
 	"unboundedScrolling": true,
-	"eventSheet": "Game event sheet"
+	"eventSheet": "eGame"
 }

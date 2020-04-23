@@ -1,16 +1,6 @@
 {
-	"name": "Game event sheet",
+	"name": "eGame",
 	"events": [
-		{
-			"eventType": "variable",
-			"name": "NumberOfCoins",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 673469788840242
-		},
 		{
 			"eventType": "variable",
 			"name": "ZoomToSeeAll",
@@ -54,35 +44,11 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 376297084457902,
-					"parameters": {
-						"variable": "NumberOfCoins",
-						"value": "Coin.Count"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
 					"sid": 455166491598991,
 					"parameters": {
 						"variable": "ZoomToSeeAll",
 						"value": "min(ViewportWidth(\"Tiles\")/LayoutWidth, ViewportHeight(\"Tiles\")/LayoutHeight)"
 					}
-				},
-				{
-					"id": "spawn-another-object",
-					"objectClass": "Player",
-					"sid": 948943141161780,
-					"parameters": {
-						"object": "Paint",
-						"layer": "\"Tiles\"",
-						"image-point": "0"
-					}
-				},
-				{
-					"id": "move-to-bottom",
-					"objectClass": "Paint",
-					"sid": 476595495661062
 				}
 			],
 			"sid": 250742342554707
@@ -91,51 +57,39 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-collision-with-another-object",
+					"id": "is-overlapping-another-object",
 					"objectClass": "Player",
-					"sid": 264080519722266,
+					"sid": 520133812688397,
 					"parameters": {
-						"object": "Coin"
+						"object": "Tile"
 					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 325149463529377,
+					"parameters": {
+						"object": "Paint"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
 				{
-					"id": "wait",
+					"id": "create-object",
 					"objectClass": "System",
-					"sid": 212118357352653,
+					"sid": 972068980640360,
 					"parameters": {
-						"seconds": "30 / Player.8Direction.Speed"
-					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Coin",
-					"sid": 370720829948246
-				},
-				{
-					"id": "spawn-another-object",
-					"objectClass": "Coin",
-					"sid": 269769528021645,
-					"parameters": {
-						"object": "Paint",
+						"object-to-create": "Paint",
 						"layer": "\"Tiles\"",
-						"image-point": "0"
+						"x": "Tile.X",
+						"y": "Tile.Y"
 					}
 				},
 				{
 					"id": "move-to-bottom",
 					"objectClass": "Paint",
 					"sid": 290045036316013
-				},
-				{
-					"id": "subtract-from-eventvar",
-					"objectClass": "System",
-					"sid": 411389112505952,
-					"parameters": {
-						"variable": "NumberOfCoins",
-						"value": "1"
-					}
 				}
 			],
 			"sid": 422501087760690
@@ -224,13 +178,19 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 710576112174767,
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 415136932082618,
 					"parameters": {
-						"variable": "NumberOfCoins",
-						"comparison": 0,
-						"value": "0"
+						"object": "Barrier"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 189065607261665,
+					"parameters": {
+						"object": "Coin"
 					}
 				}
 			],
@@ -283,23 +243,6 @@
 					}
 				},
 				{
-					"id": "scroll-to-position",
-					"objectClass": "System",
-					"sid": 660524308920032,
-					"parameters": {
-						"x": "LayoutWidth / 2",
-						"y": "LayoutHeight / 2"
-					}
-				},
-				{
-					"id": "set-layout-scale",
-					"objectClass": "System",
-					"sid": 699793940746597,
-					"parameters": {
-						"scale": "lerp(LayoutScale, ZoomToSeeAll ,0.025)"
-					}
-				},
-				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 970078976311204,
@@ -308,11 +251,56 @@
 					}
 				},
 				{
+					"id": "destroy",
+					"objectClass": "Coin",
+					"sid": 842469950909310
+				},
+				{
 					"callFunction": "MakeUIVisible",
 					"sid": 648282096312732
 				}
 			],
 			"sid": 257449871138526
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 220499789407317,
+					"parameters": {
+						"object": "Coin"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 908343511151222,
+					"parameters": {
+						"scale": "lerp(LayoutScale, ZoomToSeeAll ,0.025)"
+					}
+				},
+				{
+					"id": "scroll-to-x",
+					"objectClass": "System",
+					"sid": 502287901316624,
+					"parameters": {
+						"x": "lerp(Player.X, LayoutWidth / 2, 0.025)"
+					}
+				},
+				{
+					"id": "scroll-to-y",
+					"objectClass": "System",
+					"sid": 245669505511889,
+					"parameters": {
+						"y": "lerp(Player.Y, LayoutHeight / 2, 0.025)"
+					}
+				}
+			],
+			"sid": 666524158935041
 		},
 		{
 			"eventType": "group",
