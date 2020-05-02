@@ -1,0 +1,68 @@
+{
+	"name": "Tableau",
+	"plugin-id": "Sprite",
+	"sid": 609898441591228,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Column",
+			"type": "number",
+			"desc": "",
+			"sid": 586572314416733
+		},
+		{
+			"name": "Invisible",
+			"type": "boolean",
+			"desc": "",
+			"sid": 953408015072023
+		},
+		{
+			"name": "NumberOfCards",
+			"type": "number",
+			"desc": "",
+			"sid": 517409132915174
+		},
+		{
+			"name": "TopCardValue",
+			"type": "number",
+			"desc": "",
+			"sid": 624181341160339
+		},
+		{
+			"name": "TopCardSuit",
+			"type": "string",
+			"desc": "",
+			"sid": 914207708144590
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7160404,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 384693139401376,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

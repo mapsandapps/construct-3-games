@@ -1,0 +1,293 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "CardDragStartX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 284932988507403
+		},
+		{
+			"eventType": "variable",
+			"name": "CardDragStartY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 812789275200833
+		},
+		{
+			"eventType": "variable",
+			"name": "CardDraggedFromObject",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 264065298865228
+		},
+		{
+			"eventType": "variable",
+			"name": "CardDraggedFromUID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 248990194342296
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 350054840792590
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "CardDeck",
+					"sid": 983657996589325,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[52,3,1],\"\"data\"\":[[[0],[1],[\"\"Spade\"\"]],[[1],[2],[\"\"Spade\"\"]],[[2],[3],[\"\"Spade\"\"]],[[3],[4],[\"\"Spade\"\"]],[[4],[5],[\"\"Spade\"\"]],[[5],[6],[\"\"Spade\"\"]],[[6],[7],[\"\"Spade\"\"]],[[7],[8],[\"\"Spade\"\"]],[[8],[9],[\"\"Spade\"\"]],[[9],[10],[\"\"Spade\"\"]],[[10],[11],[\"\"Spade\"\"]],[[11],[12],[\"\"Spade\"\"]],[[12],[13],[\"\"Spade\"\"]],[[13],[1],[\"\"Heart\"\"]],[[14],[2],[\"\"Heart\"\"]],[[15],[3],[\"\"Heart\"\"]],[[16],[4],[\"\"Heart\"\"]],[[17],[5],[\"\"Heart\"\"]],[[18],[6],[\"\"Heart\"\"]],[[19],[7],[\"\"Heart\"\"]],[[20],[8],[\"\"Heart\"\"]],[[21],[9],[\"\"Heart\"\"]],[[22],[10],[\"\"Heart\"\"]],[[23],[11],[\"\"Heart\"\"]],[[24],[12],[\"\"Heart\"\"]],[[25],[13],[\"\"Heart\"\"]],[[26],[1],[\"\"Club\"\"]],[[27],[2],[\"\"Club\"\"]],[[28],[3],[\"\"Club\"\"]],[[29],[4],[\"\"Club\"\"]],[[30],[5],[\"\"Club\"\"]],[[31],[6],[\"\"Club\"\"]],[[32],[7],[\"\"Club\"\"]],[[33],[8],[\"\"Club\"\"]],[[34],[9],[\"\"Club\"\"]],[[35],[10],[\"\"Club\"\"]],[[36],[11],[\"\"Club\"\"]],[[37],[12],[\"\"Club\"\"]],[[38],[13],[\"\"Club\"\"]],[[39],[1],[\"\"Diamond\"\"]],[[40],[2],[\"\"Diamond\"\"]],[[41],[3],[\"\"Diamond\"\"]],[[42],[4],[\"\"Diamond\"\"]],[[43],[5],[\"\"Diamond\"\"]],[[44],[6],[\"\"Diamond\"\"]],[[45],[7],[\"\"Diamond\"\"]],[[46],[8],[\"\"Diamond\"\"]],[[47],[9],[\"\"Diamond\"\"]],[[48],[10],[\"\"Diamond\"\"]],[[49],[11],[\"\"Diamond\"\"]],[[50],[12],[\"\"Diamond\"\"]],[[51],[13],[\"\"Diamond\"\"]]]}\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "StockArray",
+					"sid": 285750276339574,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "StockArray",
+					"sid": 717077004147724,
+					"parameters": {
+						"width": "52",
+						"height": "3",
+						"depth": "1"
+					}
+				},
+				{
+					"callFunction": "ShuffleDeck",
+					"sid": 112780791492825
+				},
+				{
+					"callFunction": "DealAcross",
+					"sid": 177167953136786
+				}
+			],
+			"sid": 671488000154839
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "Card",
+					"sid": 929370534075736,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 165048421680791,
+					"parameters": {
+						"variable": "CardDragStartX",
+						"value": "Card.X"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 262039760878158,
+					"parameters": {
+						"variable": "CardDragStartY",
+						"value": "Card.Y"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "Card",
+					"sid": 586206538167125
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "Card",
+					"sid": 650983103041966,
+					"parameters": {
+						"layer": "\"Card Being Dragged\""
+					}
+				}
+			],
+			"sid": 617636254625838,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 684651944634635,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 547494687268315,
+							"parameters": {
+								"variable": "CardDraggedFromObject",
+								"value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 320921568436707,
+							"parameters": {
+								"variable": "CardDraggedFromUID",
+								"value": "Tableau.UID"
+							}
+						}
+					],
+					"sid": 773880908829590
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 297446247503360,
+							"parameters": {
+								"object": "Cell"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 326025417961369,
+							"parameters": {
+								"variable": "CardDraggedFromObject",
+								"value": "\"Cell\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 306891846886156,
+							"parameters": {
+								"variable": "CardDraggedFromUID",
+								"value": "Cell.UID"
+							}
+						}
+					],
+					"sid": 969037145777635
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 291856542180966,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 682501027911613,
+							"parameters": {
+								"variable": "CardDraggedFromObject",
+								"value": "\"Foundation\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 426182270105825,
+							"parameters": {
+								"variable": "CardDraggedFromUID",
+								"value": "Foundation.UID"
+							}
+						}
+					],
+					"sid": 546765237816631
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Card",
+					"sid": 760641009501368,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "TryToDropCard",
+					"sid": 577424711934640,
+					"parameters": [
+						"Card.UID"
+					]
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "Card",
+					"sid": 963773843853103,
+					"parameters": {
+						"layer": "\"Cards\""
+					}
+				}
+			],
+			"sid": 147080813836960
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 716558293490967,
+					"parameters": {
+						"object": "Stock"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "DealAcross",
+					"sid": 451390838778141
+				}
+			],
+			"sid": 816329098570740
+		}
+	],
+	"sid": 764958155299903
+}

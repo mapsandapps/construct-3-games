@@ -1,0 +1,1998 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "PickIndex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 458892799549939
+		},
+		{
+			"eventType": "variable",
+			"name": "CARD_OFFSET",
+			"type": "number",
+			"initialValue": "36",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 386188414442686
+		},
+		{
+			"functionName": "ShuffleDeck",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "for-each-element",
+					"objectClass": "StockArray",
+					"sid": 133009089198863,
+					"parameters": {
+						"axes": "x"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 600771639218755,
+					"parameters": {
+						"type": "log",
+						"message": "\"1\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 320135649605784,
+					"parameters": {
+						"variable": "PickIndex",
+						"value": "random(CardDeck.Width)"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "StockArray",
+					"sid": 975812257548922,
+					"parameters": {
+						"x": "StockArray.CurX",
+						"y": "0",
+						"value": "CardDeck.At(PickIndex,0)"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "StockArray",
+					"sid": 373797480561722,
+					"parameters": {
+						"x": "StockArray.CurX",
+						"y": "1",
+						"value": "CardDeck.At(PickIndex,1)"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "StockArray",
+					"sid": 543695340978233,
+					"parameters": {
+						"x": "StockArray.CurX",
+						"y": "2",
+						"value": "CardDeck.At(PickIndex,2)"
+					}
+				},
+				{
+					"id": "delete",
+					"objectClass": "CardDeck",
+					"sid": 944708120239667,
+					"parameters": {
+						"index": "PickIndex",
+						"axis": "x"
+					}
+				}
+			],
+			"sid": 443998439579822
+		},
+		{
+			"functionName": "DealAcross",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "SetRandomColumnInvisible",
+					"sid": 137296877939608
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 945928412015937
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Stock",
+					"sid": 503164080143103,
+					"parameters": {
+						"frame-number": "floor(StockArray.Width / 8)"
+					}
+				}
+			],
+			"sid": 439418687302179,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 507486432803340,
+							"parameters": {
+								"object": "Tableau",
+								"expression": "Tableau.Column",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Tableau",
+							"sid": 510980782192368,
+							"parameters": {
+								"instance-variable": "Invisible"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 574625123104699,
+							"parameters": {
+								"seconds": "0.1 * loopindex"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 780857598469965,
+							"parameters": {
+								"object-to-create": "Card",
+								"layer": "\"Card Being Dragged\"",
+								"x": "Stock.X",
+								"y": "Stock.Y"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 479969535815498,
+							"parameters": {
+								"instance-variable": "Column",
+								"value": "Tableau.Column"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 941836896496405,
+							"parameters": {
+								"frame-number": "StockArray.At(0, 0)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 928485550927546,
+							"parameters": {
+								"instance-variable": "Suit",
+								"value": "StockArray.At(0,2)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 951232962576877,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "StockArray.At(0,1)"
+							}
+						},
+						{
+							"id": "delete",
+							"objectClass": "StockArray",
+							"sid": 777497325484033,
+							"parameters": {
+								"index": "0",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 490350110500639,
+							"parameters": {
+								"instance-variable": "TopCardSuit",
+								"value": "Card.Suit"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 931536158354825,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 474868540149084,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Tableau.X",
+								"end-y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET",
+								"time": "0.3",
+								"ease": "default",
+								"destroy-on-complete": "no"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 502753119450484
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Tableau",
+							"sid": 646911635261373,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Tableau",
+							"sid": 722052704707910,
+							"parameters": {
+								"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
+							}
+						},
+						{
+							"id": "move-to-layer",
+							"objectClass": "Card",
+							"sid": 631445292626956,
+							"parameters": {
+								"layer": "\"Cards\""
+							}
+						}
+					],
+					"sid": 867345977925198,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-size",
+									"objectClass": "StockArray",
+									"sid": 381181785451055,
+									"parameters": {
+										"axis": "x",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Stock",
+									"sid": 666958183511608
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Hidden",
+									"sid": 693166031608312
+								},
+								{
+									"callFunction": "SetAllColumnsVisible",
+									"sid": 525762496770635
+								}
+							],
+							"sid": 231781862881449
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "SetAllColumnsVisible",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 541982283020004,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Tableau",
+					"sid": 414092104254146,
+					"parameters": {
+						"instance-variable": "Invisible",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Cell",
+					"sid": 403703981309388,
+					"parameters": {
+						"instance-variable": "Invisible",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 335282350489003
+		},
+		{
+			"functionName": "SetRandomColumnInvisible",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "SetAllColumnsVisible",
+					"sid": 498520015820529
+				}
+			],
+			"sid": 422687507380049,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 549777336191973,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Tableau",
+							"sid": 606249520443529,
+							"parameters": {
+								"instance-variable": "Invisible",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 157281142728771,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 466333990871637,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "Tableau.Column"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 374991532718495,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 871229527968604
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 568660782314026,
+									"parameters": {
+										"object": "Cell",
+										"expression": "Cell.Column = Tableau.Column"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Cell",
+									"sid": 212236952382691,
+									"parameters": {
+										"instance-variable": "Invisible",
+										"value": "true"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Hidden",
+									"sid": 322618018107987,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "Cell.X - Cell.Width / 2",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no"
+									}
+								}
+							],
+							"sid": 658562937062048,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Cell",
+											"sid": 640000188168483,
+											"parameters": {
+												"object": "Card"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Card",
+											"sid": 794252101929412,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 985061706799909
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "TryToDropCard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 201794740604799
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 709171461030242,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "BeforeCardMove",
+					"sid": 778744193955100,
+					"parameters": [
+						"CardUID"
+					]
+				}
+			],
+			"sid": 305823797254003,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "HasCardMoved",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 407051493797668
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 702634818952550,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 328685556639841,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 422251997392816,
+									"parameters": {
+										"first-value": "Functions.CanCardMoveToFoundation(Card.UID,Foundation.UID)",
+										"comparison": 0,
+										"second-value": "\"Yes\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCardToFoundation",
+									"sid": 370043415623163,
+									"parameters": [
+										"Card.UID",
+										"Foundation.UID"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 126062733902597,
+									"parameters": {
+										"variable": "HasCardMoved",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 991231046566645
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 931678331923512,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 854710679387193,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 748819663206395,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 275537598329624,
+									"parameters": {
+										"first-value": "Functions.CanCardMoveToTableau(Card.UID,Tableau.UID)",
+										"comparison": 0,
+										"second-value": "\"Yes\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCardToTableau",
+									"sid": 663630956413258,
+									"parameters": [
+										"Card.UID",
+										"Tableau.UID"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 511297525515337,
+									"parameters": {
+										"variable": "HasCardMoved",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 970084855736459
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 746355187744790,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 366487974612769,
+							"parameters": {
+								"object": "Cell"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 709144323482042,
+							"parameters": {
+								"instance-variable": "IsEmpty"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 302150878958307,
+							"parameters": {
+								"instance-variable": "Invisible"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardToCell",
+							"sid": 713424844730125,
+							"parameters": [
+								"Card.UID",
+								"Cell.UID"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 620441071445502,
+							"parameters": {
+								"variable": "HasCardMoved",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 129389544410534
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 326822075405940,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SnapCardBackToOrigin",
+							"sid": 982900010802574,
+							"parameters": [
+								"Card.UID"
+							]
+						}
+					],
+					"sid": 767204525385586
+				}
+			]
+		},
+		{
+			"functionName": "CanCardMoveToFoundation",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 267374196159565
+				},
+				{
+					"name": "FoundationUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 117112031761720
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 434355746577561,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Foundation",
+					"sid": 929500156502486,
+					"parameters": {
+						"unique-id": "FoundationUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 989267314840920,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Foundation",
+							"sid": 663353577912498,
+							"parameters": {
+								"instance-variable": "TopValue",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 765414235032260,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 877517049850122,
+							"parameters": {
+								"value": "\"Yes\""
+							}
+						}
+					],
+					"sid": 922666608760775
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 373141295691525
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 158866796440773,
+							"parameters": {
+								"first-value": "Foundation.Suit",
+								"comparison": 0,
+								"second-value": "Card.Suit"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 937683651338272,
+							"parameters": {
+								"first-value": "Foundation.TopValue",
+								"comparison": 0,
+								"second-value": "Card.Value - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 979763319977011,
+							"parameters": {
+								"value": "\"Yes\""
+							}
+						}
+					],
+					"sid": 123754975284468
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 265180461414982
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 640024187516003,
+							"parameters": {
+								"value": "\"No\""
+							}
+						}
+					],
+					"sid": 830672755275110
+				}
+			]
+		},
+		{
+			"functionName": "CanCardMoveToTableau",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 268595669094271
+				},
+				{
+					"name": "TableauUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 965483482866330
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 645156993357331,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Tableau",
+					"sid": 518439605269774,
+					"parameters": {
+						"unique-id": "TableauUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 286082676879111,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Tableau",
+							"sid": 487854023035859,
+							"parameters": {
+								"instance-variable": "Invisible"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tableau",
+							"sid": 309731831384583,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 171585757378373,
+							"parameters": {
+								"value": "\"Yes\""
+							}
+						}
+					],
+					"sid": 773196825339121
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Tableau",
+							"sid": 306653764577998,
+							"parameters": {
+								"instance-variable": "Invisible"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 411595142225820,
+							"parameters": {
+								"first-value": "Functions.IsSuitOppositeColor(Tableau.TopCardSuit, Card.Suit)",
+								"comparison": 0,
+								"second-value": "\"Yes\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 592961157135141,
+							"parameters": {
+								"first-value": "Tableau.TopCardValue",
+								"comparison": 0,
+								"second-value": "Card.Value + 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 852296278395049,
+							"parameters": {
+								"value": "\"Yes\""
+							}
+						}
+					],
+					"sid": 333363929736988
+				}
+			]
+		},
+		{
+			"functionName": "MoveCardToFoundation",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 446598344767010
+				},
+				{
+					"name": "FoundationUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 340623432686248
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 673197058367942,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Foundation",
+					"sid": 618520790377235,
+					"parameters": {
+						"unique-id": "FoundationUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Foundation",
+					"sid": 738109062443225,
+					"parameters": {
+						"instance-variable": "Suit",
+						"value": "Card.Suit"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Foundation",
+					"sid": 477612161555221,
+					"parameters": {
+						"instance-variable": "TopValue",
+						"value": "Card.Value"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 550148096220777,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Foundation.X",
+						"end-y": "Foundation.Y",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 301439419039821,
+					"parameters": {
+						"instance-variable": "Column",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 537909587408749
+		},
+		{
+			"functionName": "MoveCardToCell",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 222351966044337
+				},
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 695647712961546
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 473656668579430,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Cell",
+					"sid": 806151748996771,
+					"parameters": {
+						"unique-id": "CellUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Cell",
+					"sid": 934601046048897,
+					"parameters": {
+						"instance-variable": "IsEmpty",
+						"value": "false"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 340244407945955,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Cell.X",
+						"end-y": "Cell.Y",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 328626479230777,
+					"parameters": {
+						"instance-variable": "Column",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 556798645036475
+		},
+		{
+			"functionName": "MoveCardToTableau",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 561844608945723
+				},
+				{
+					"name": "TableauUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 483080297290529
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 492985594733223,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Tableau",
+					"sid": 949932476863384,
+					"parameters": {
+						"unique-id": "TableauUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 285925912819442,
+					"parameters": {
+						"instance-variable": "Column",
+						"value": "Tableau.Column"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Tableau",
+					"sid": 111799017403022,
+					"parameters": {
+						"instance-variable": "TopCardSuit",
+						"value": "Card.Suit"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Tableau",
+					"sid": 797446420754110,
+					"parameters": {
+						"instance-variable": "TopCardValue",
+						"value": "Card.Value"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 729620414178670,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Tableau.X",
+						"end-y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 177959652724441
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Tableau",
+					"sid": 104059116155930,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "Tableau",
+					"sid": 359255511606455,
+					"parameters": {
+						"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
+					}
+				}
+			],
+			"sid": 827750843016243
+		},
+		{
+			"functionName": "IsSuitOppositeColor",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Suit1",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 319262816529913
+				},
+				{
+					"name": "Suit2",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 790533718940437
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 950842601652014,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 591181170489548,
+							"parameters": {
+								"variable": "Suit1",
+								"comparison": 0,
+								"value": "\"Spade\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 140044550889432,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 617947410244979,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Heart\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 847643355205155,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 502348000410247
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 145438970270631,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Diamond\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 492893891974069,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 923453283874807
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 397033870924660,
+							"parameters": {
+								"variable": "Suit1",
+								"comparison": 0,
+								"value": "\"Heart\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 635837073320583,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 234216051762199,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Spade\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 726040415509205,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 610253469495671
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 412660004986639,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Club\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 663007279119465,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 251058681290371
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 133977734493664,
+							"parameters": {
+								"variable": "Suit1",
+								"comparison": 0,
+								"value": "\"Club\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 543795954144093,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 500914741039532,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Heart\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 918946608328789,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 408967231402008
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 376253053008152,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Diamond\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 294218201793861,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 122803954361303
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 384704662612018,
+							"parameters": {
+								"variable": "Suit1",
+								"comparison": 0,
+								"value": "\"Diamond\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 229299128522541,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 642467812246065,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Spade\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 263459649529346,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 163910620136348
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 277756448039266,
+									"parameters": {
+										"variable": "Suit2",
+										"comparison": 0,
+										"value": "\"Club\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 138415698140526,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 375915859902035
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "BeforeCardMove",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 227010393103167
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 626475746740247,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 630695953616706,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 974149189983800,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Tableau",
+							"sid": 698397412968871,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Tableau",
+							"sid": 722055461124546,
+							"parameters": {
+								"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
+							}
+						}
+					],
+					"sid": 356562275462608,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Tableau",
+									"sid": 700732324389563,
+									"parameters": {
+										"object": "Card"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 184526850212279,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Card",
+											"sid": 392302918515717,
+											"parameters": {
+												"unique-id": "CardUID"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-topbottom",
+											"objectClass": "Card",
+											"sid": 363368275628716,
+											"parameters": {
+												"which": "top"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Tableau",
+											"sid": 574676779350527,
+											"parameters": {
+												"instance-variable": "TopCardSuit",
+												"value": "Card.Suit"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Tableau",
+											"sid": 457805615632275,
+											"parameters": {
+												"instance-variable": "TopCardValue",
+												"value": "Card.Value"
+											}
+										}
+									],
+									"sid": 467071227067809
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Tableau",
+									"sid": 860820559683825,
+									"parameters": {
+										"object": "Card"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Tableau",
+									"sid": 532393498003727,
+									"parameters": {
+										"instance-variable": "TopCardSuit",
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Tableau",
+									"sid": 965961909121684,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 547730846677943
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 306343079404982,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Foundation\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Foundation",
+							"sid": 143777623939819,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Foundation",
+							"sid": 833844133249762,
+							"parameters": {
+								"instance-variable": "TopValue",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 165750440604940
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 344863660062476,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Cell\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Cell",
+							"sid": 353684935049379,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Cell",
+							"sid": 534895038532994,
+							"parameters": {
+								"instance-variable": "IsEmpty",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 252123184154879
+				}
+			]
+		},
+		{
+			"functionName": "SnapCardBackToOrigin",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 502000693611532
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 808395797847478,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 865122266702694,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "CardDragStartX",
+						"end-y": "CardDragStartY",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no"
+					}
+				}
+			],
+			"sid": 515538796307414,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 227691631475717,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 250988748129520,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Tableau",
+							"sid": 132751155425992,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Tableau",
+							"sid": 732261296592781,
+							"parameters": {
+								"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
+							}
+						}
+					],
+					"sid": 607412062424474
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 122918165334026,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Foundation\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Foundation",
+							"sid": 484993378005153,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Foundation",
+							"sid": 230568913720890,
+							"parameters": {
+								"instance-variable": "TopValue",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 196018395248874
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 537761758793063,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Cell\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Cell",
+							"sid": 487872122851889,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Cell",
+							"sid": 426871657272786,
+							"parameters": {
+								"instance-variable": "IsEmpty",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 486387583678079
+				}
+			]
+		}
+	],
+	"sid": 933960262146287
+}

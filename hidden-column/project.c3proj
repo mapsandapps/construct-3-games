@@ -1,0 +1,240 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 19702,
+	"name": "Hidden Column",
+	"runtime": "c3",
+	"useWorker": true,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "rsvn82bdtwn",
+	"objectTypes": {
+		"items": [
+			"Foundation",
+			"Tableau",
+			"Cell",
+			"Stock",
+			"Card",
+			"CardDeck",
+			"StockArray",
+			"Hidden"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Browser",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "Base"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Game",
+			"Objects"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"eGame",
+			"eHelpers"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 437302427975121
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 179762472668667
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 809526319388277
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 477474104186674
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 619569251802452
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 603512822177444
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 181863274698006
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "portrait",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 1280,
+	"firstLayout": "Game"
+}
