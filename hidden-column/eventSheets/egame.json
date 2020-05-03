@@ -102,9 +102,125 @@
 			],
 			"actions": [
 				{
+					"callFunction": "SetDraggedFromInfo",
+					"sid": 709497094845660,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 617636254625838
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Card",
+					"sid": 760641009501368,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "TryToDropCard",
+					"sid": 577424711934640,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 147080813836960
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 716558293490967,
+					"parameters": {
+						"object": "Stock"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "DealAcross",
+					"sid": 451390838778141
+				}
+			],
+			"sid": 816329098570740
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 795107075587901,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "pick-topbottom",
+					"objectClass": "Card",
+					"sid": 525381489482355,
+					"parameters": {
+						"which": "top"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "AutoMoveCard",
+					"sid": 586553584656675,
+					"parameters": [
+						"Card.UID"
+					]
+				},
+				{
+					"callFunction": "SetDraggedFromInfo",
+					"sid": 566629117217821,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 500860984950198
+		},
+		{
+			"functionName": "SetDraggedFromInfo",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 569785497481038
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 351035097654273,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 165048421680791,
+					"sid": 180124791861886,
 					"parameters": {
 						"variable": "CardDragStartX",
 						"value": "Card.X"
@@ -113,7 +229,7 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 262039760878158,
+					"sid": 538982797243620,
 					"parameters": {
 						"variable": "CardDragStartY",
 						"value": "Card.Y"
@@ -122,18 +238,18 @@
 				{
 					"id": "move-to-top",
 					"objectClass": "Card",
-					"sid": 586206538167125
+					"sid": 763317083545845
 				},
 				{
 					"id": "move-to-layer",
 					"objectClass": "Card",
-					"sid": 650983103041966,
+					"sid": 184080510855041,
 					"parameters": {
 						"layer": "\"Card Being Dragged\""
 					}
 				}
 			],
-			"sid": 617636254625838,
+			"sid": 562036904217053,
 			"children": [
 				{
 					"eventType": "block",
@@ -238,78 +354,6 @@
 					"sid": 546765237816631
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-drop",
-					"objectClass": "Card",
-					"sid": 760641009501368,
-					"behaviorType": "DragDrop"
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "TryToDropCard",
-					"sid": 577424711934640,
-					"parameters": [
-						"Card.UID"
-					]
-				},
-				{
-					"id": "move-to-layer",
-					"objectClass": "Card",
-					"sid": 963773843853103,
-					"parameters": {
-						"layer": "\"Cards\""
-					}
-				}
-			],
-			"sid": 147080813836960
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 716558293490967,
-					"parameters": {
-						"object": "Stock"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "DealAcross",
-					"sid": 451390838778141
-				}
-			],
-			"sid": 816329098570740
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 795107075587901,
-					"parameters": {
-						"object": "Card"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "AutoMoveCard",
-					"sid": 586553584656675,
-					"parameters": [
-						"Card.UID"
-					]
-				}
-			],
-			"sid": 500860984950198
 		}
 	],
 	"sid": 764958155299903

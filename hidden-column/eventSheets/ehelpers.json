@@ -41,15 +41,6 @@
 			],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 600771639218755,
-					"parameters": {
-						"type": "log",
-						"message": "\"1\""
-					}
-				},
-				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 320135649605784,
@@ -528,9 +519,10 @@
 			"actions": [
 				{
 					"callFunction": "BeforeCardMove",
-					"sid": 778744193955100,
+					"sid": 632926650224813,
 					"parameters": [
-						"CardUID"
+						"CardUID",
+						"CardDraggedFromObject"
 					]
 				}
 			],
@@ -1214,6 +1206,14 @@
 					"sid": 846939360382509
 				},
 				{
+					"id": "move-to-layer",
+					"objectClass": "Card",
+					"sid": 464194529238389,
+					"parameters": {
+						"layer": "\"Cards\""
+					}
+				},
+				{
 					"id": "set-enabled",
 					"objectClass": "Card",
 					"sid": 296003169892576,
@@ -1315,30 +1315,20 @@
 					"sid": 627578026926570
 				},
 				{
+					"id": "move-to-layer",
+					"objectClass": "Card",
+					"sid": 715164159320483,
+					"parameters": {
+						"layer": "\"Cards\""
+					}
+				},
+				{
 					"id": "set-enabled",
 					"objectClass": "Card",
 					"sid": 692002676588385,
 					"behaviorType": "DragDrop",
 					"parameters": {
 						"state": "enabled"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 554837829345832,
-					"parameters": {
-						"type": "log",
-						"message": "\"movecardtocell\""
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 354468387223524,
-					"parameters": {
-						"type": "log",
-						"message": "CardUID"
 					}
 				}
 			],
@@ -1441,6 +1431,14 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 177959652724441
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "Card",
+					"sid": 752378951591630,
+					"parameters": {
+						"layer": "\"Cards\""
+					}
 				},
 				{
 					"id": "set-enabled",
@@ -1797,6 +1795,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 227010393103167
+				},
+				{
+					"name": "Object",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 989895000426153
 				}
 			],
 			"eventType": "function-block",
@@ -1810,9 +1815,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 630695953616706,
+							"sid": 202501968767110,
 							"parameters": {
-								"first-value": "CardDraggedFromObject",
+								"first-value": "Object",
 								"comparison": 0,
 								"second-value": "\"Tableau\""
 							}
@@ -1827,6 +1832,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 890226098665527,
+							"parameters": {
+								"type": "log",
+								"message": "\"beforemove\""
+							}
+						},
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Tableau",
@@ -1950,9 +1964,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 306343079404982,
+							"sid": 130567940792103,
 							"parameters": {
-								"first-value": "CardDraggedFromObject",
+								"first-value": "Object",
 								"comparison": 0,
 								"second-value": "\"Foundation\""
 							}
@@ -1985,9 +1999,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 344863660062476,
+							"sid": 524554863994616,
 							"parameters": {
-								"first-value": "CardDraggedFromObject",
+								"first-value": "Object",
 								"comparison": 0,
 								"second-value": "\"Cell\""
 							}
@@ -2211,17 +2225,7 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 875831300569503,
-					"parameters": {
-						"type": "log",
-						"message": "\"tap card\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 635237608802313,
 			"children": [
 				{
@@ -2294,15 +2298,6 @@
 								"variable": "MoveToUID",
 								"value": "Foundation.UID"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 201302428972800,
-							"parameters": {
-								"type": "log",
-								"message": "MoveToUID"
-							}
 						}
 					],
 					"sid": 831258593455676
@@ -2310,6 +2305,15 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 281961919106091,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
@@ -2322,6 +2326,14 @@
 						}
 					],
 					"actions": [
+						{
+							"callFunction": "BeforeCardMove",
+							"sid": 225557255194582,
+							"parameters": [
+								"CardUID",
+								"CardDraggedFromObject"
+							]
+						},
 						{
 							"callFunction": "MoveCardToFoundation",
 							"sid": 837740450645776,
@@ -2357,11 +2369,11 @@
 						{
 							"id": "for-each-ordered",
 							"objectClass": "System",
-							"sid": 536509976757423,
+							"sid": 412278947936814,
 							"parameters": {
 								"object": "Tableau",
-								"expression": "Tableau.Column",
-								"order": "descending"
+								"expression": "Tableau.NumberOfCards",
+								"order": "ascending"
 							}
 						},
 						{
@@ -2384,15 +2396,6 @@
 								"variable": "MoveToUID",
 								"value": "Tableau.UID"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 975273871572848,
-							"parameters": {
-								"type": "log",
-								"message": "MoveToUID"
-							}
 						}
 					],
 					"sid": 995964924721442
@@ -2400,6 +2403,15 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 142319155410781,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
@@ -2412,6 +2424,14 @@
 						}
 					],
 					"actions": [
+						{
+							"callFunction": "BeforeCardMove",
+							"sid": 966156661350108,
+							"parameters": [
+								"CardUID",
+								"CardDraggedFromObject"
+							]
+						},
 						{
 							"callFunction": "MoveCardToTableau",
 							"sid": 955684887106952,
@@ -2474,15 +2494,6 @@
 								"variable": "MoveToUID",
 								"value": "Cell.UID"
 							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 295051153744683,
-							"parameters": {
-								"type": "log",
-								"message": "MoveToUID"
-							}
 						}
 					],
 					"sid": 188753194537261
@@ -2490,6 +2501,15 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 535453646804665,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
@@ -2502,6 +2522,14 @@
 						}
 					],
 					"actions": [
+						{
+							"callFunction": "BeforeCardMove",
+							"sid": 887754727038746,
+							"parameters": [
+								"CardUID",
+								"CardDraggedFromObject"
+							]
+						},
 						{
 							"callFunction": "MoveCardToCell",
 							"sid": 765220074090276,
