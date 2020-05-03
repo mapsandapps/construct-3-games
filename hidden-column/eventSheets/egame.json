@@ -287,6 +287,29 @@
 				}
 			],
 			"sid": 816329098570740
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 795107075587901,
+					"parameters": {
+						"object": "Card"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "AutoMoveCard",
+					"sid": 586553584656675,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 500860984950198
 		}
 	],
 	"sid": 764958155299903

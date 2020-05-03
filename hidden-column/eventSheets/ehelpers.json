@@ -716,7 +716,44 @@
 							}
 						}
 					],
-					"sid": 129389544410534
+					"sid": 129389544410534,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 379701399845957,
+									"parameters": {
+										"first-value": "Functions.CanCardMoveToCell(Cell.UID)",
+										"comparison": 0,
+										"second-value": "\"Yes\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCardToCell",
+									"sid": 682149061814105,
+									"parameters": [
+										"Card.UID",
+										"Cell.UID"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 638449865609745,
+									"parameters": {
+										"variable": "HasCardMoved",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 590898835750052
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1015,6 +1052,70 @@
 			]
 		},
 		{
+			"functionName": "CanCardMoveToCell",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 341417929608067
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Cell",
+					"sid": 841845116799044,
+					"parameters": {
+						"unique-id": "CellUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 578362557314852,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 441621361857252,
+							"parameters": {
+								"instance-variable": "IsEmpty"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 468599535811008,
+							"parameters": {
+								"instance-variable": "Invisible"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 424871670084827,
+							"parameters": {
+								"value": "\"Yes\""
+							}
+						}
+					],
+					"sid": 364522611585729
+				}
+			]
+		},
+		{
 			"functionName": "MoveCardToFoundation",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -1075,6 +1176,24 @@
 					}
 				},
 				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 779325915651769,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 766847582745950,
+					"parameters": {
+						"instance-variable": "Column",
+						"value": "-1"
+					}
+				},
+				{
 					"id": "tween-two-properties",
 					"objectClass": "Card",
 					"sid": 550148096220777,
@@ -1090,12 +1209,17 @@
 					}
 				},
 				{
-					"id": "set-instvar-value",
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 846939360382509
+				},
+				{
+					"id": "set-enabled",
 					"objectClass": "Card",
-					"sid": 301439419039821,
+					"sid": 296003169892576,
+					"behaviorType": "DragDrop",
 					"parameters": {
-						"instance-variable": "Column",
-						"value": "-1"
+						"state": "enabled"
 					}
 				}
 			],
@@ -1153,6 +1277,24 @@
 					}
 				},
 				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 533383977390029,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 121718464818088,
+					"parameters": {
+						"instance-variable": "Column",
+						"value": "-1"
+					}
+				},
+				{
 					"id": "tween-two-properties",
 					"objectClass": "Card",
 					"sid": 340244407945955,
@@ -1168,12 +1310,35 @@
 					}
 				},
 				{
-					"id": "set-instvar-value",
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 627578026926570
+				},
+				{
+					"id": "set-enabled",
 					"objectClass": "Card",
-					"sid": 328626479230777,
+					"sid": 692002676588385,
+					"behaviorType": "DragDrop",
 					"parameters": {
-						"instance-variable": "Column",
-						"value": "-1"
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 554837829345832,
+					"parameters": {
+						"type": "log",
+						"message": "\"movecardtocell\""
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 354468387223524,
+					"parameters": {
+						"type": "log",
+						"message": "CardUID"
 					}
 				}
 			],
@@ -1249,6 +1414,15 @@
 					}
 				},
 				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 800674852650561,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
 					"id": "tween-two-properties",
 					"objectClass": "Card",
 					"sid": 729620414178670,
@@ -1267,6 +1441,15 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 177959652724441
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 702480773224780,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
 				},
 				{
 					"id": "add-to-instvar",
@@ -1917,6 +2100,24 @@
 							"parameters": {
 								"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 331011952966855,
+							"parameters": {
+								"instance-variable": "TopCardSuit",
+								"value": "Card.Suit"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 434325660698052,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
 						}
 					],
 					"sid": 607412062424474
@@ -1990,6 +2191,336 @@
 						}
 					],
 					"sid": 486387583678079
+				}
+			]
+		},
+		{
+			"functionName": "AutoMoveCard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 522552390753528
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 875831300569503,
+					"parameters": {
+						"type": "log",
+						"message": "\"tap card\""
+					}
+				}
+			],
+			"sid": 635237608802313,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "HasCardMoved",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 787413057541108
+				},
+				{
+					"eventType": "variable",
+					"name": "MoveToUID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 164854044830659
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 263621748309681,
+							"parameters": {
+								"variable": "MoveToUID",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 697594896060443,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 247803385945754,
+							"parameters": {
+								"object": "Foundation",
+								"expression": "Foundation.UID",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 927434211935046,
+							"parameters": {
+								"first-value": "Functions.CanCardMoveToFoundation(CardUID,Foundation.UID)",
+								"comparison": 0,
+								"second-value": "\"Yes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 487026092074125,
+							"parameters": {
+								"variable": "MoveToUID",
+								"value": "Foundation.UID"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 201302428972800,
+							"parameters": {
+								"type": "log",
+								"message": "MoveToUID"
+							}
+						}
+					],
+					"sid": 831258593455676
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 855967179548434,
+							"parameters": {
+								"variable": "MoveToUID",
+								"comparison": 5,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardToFoundation",
+							"sid": 837740450645776,
+							"parameters": [
+								"CardUID",
+								"MoveToUID"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 611649610142753,
+							"parameters": {
+								"variable": "HasCardMoved",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 377613797931118
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 338368257647022,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 536509976757423,
+							"parameters": {
+								"object": "Tableau",
+								"expression": "Tableau.Column",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 378737720235147,
+							"parameters": {
+								"first-value": "Functions.CanCardMoveToTableau(CardUID,Tableau.UID)",
+								"comparison": 0,
+								"second-value": "\"Yes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 281597190099198,
+							"parameters": {
+								"variable": "MoveToUID",
+								"value": "Tableau.UID"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 975273871572848,
+							"parameters": {
+								"type": "log",
+								"message": "MoveToUID"
+							}
+						}
+					],
+					"sid": 995964924721442
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 116490944617670,
+							"parameters": {
+								"variable": "MoveToUID",
+								"comparison": 5,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardToTableau",
+							"sid": 955684887106952,
+							"parameters": [
+								"CardUID",
+								"MoveToUID"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 117667113532938,
+							"parameters": {
+								"variable": "HasCardMoved",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 359470115217242
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 302543217683421,
+							"parameters": {
+								"variable": "HasCardMoved"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 736862195121154,
+							"parameters": {
+								"object": "Cell",
+								"expression": "Cell.Column",
+								"order": "descending"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 634231533277542,
+							"parameters": {
+								"first-value": "Functions.CanCardMoveToCell(Cell.UID)",
+								"comparison": 0,
+								"second-value": "\"Yes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 553817539298791,
+							"parameters": {
+								"variable": "MoveToUID",
+								"value": "Cell.UID"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 295051153744683,
+							"parameters": {
+								"type": "log",
+								"message": "MoveToUID"
+							}
+						}
+					],
+					"sid": 188753194537261
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 301372848653520,
+							"parameters": {
+								"variable": "MoveToUID",
+								"comparison": 5,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardToCell",
+							"sid": 765220074090276,
+							"parameters": [
+								"CardUID",
+								"MoveToUID"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 747716119805840,
+							"parameters": {
+								"variable": "HasCardMoved",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 650537244729616
 				}
 			]
 		}
