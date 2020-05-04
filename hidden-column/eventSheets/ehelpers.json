@@ -169,7 +169,7 @@
 							"objectClass": "Card",
 							"sid": 479969535815498,
 							"parameters": {
-								"instance-variable": "Column",
+								"instance-variable": "Tableau",
 								"value": "Tableau.Column"
 							}
 						},
@@ -225,6 +225,10 @@
 								"instance-variable": "TopCardValue",
 								"value": "Card.Value"
 							}
+						},
+						{
+							"callFunction": "AfterCardMove",
+							"sid": 805966182743242
 						},
 						{
 							"id": "tween-two-properties",
@@ -400,7 +404,7 @@
 									"objectClass": "Card",
 									"sid": 466333990871637,
 									"parameters": {
-										"instance-variable": "Column",
+										"instance-variable": "Tableau",
 										"comparison": 0,
 										"value": "Tableau.Column"
 									}
@@ -1181,9 +1185,13 @@
 					"objectClass": "Card",
 					"sid": 766847582745950,
 					"parameters": {
-						"instance-variable": "Column",
+						"instance-variable": "Tableau",
 						"value": "-1"
 					}
+				},
+				{
+					"callFunction": "AfterCardMove",
+					"sid": 455046842119363
 				},
 				{
 					"id": "tween-two-properties",
@@ -1290,9 +1298,13 @@
 					"objectClass": "Card",
 					"sid": 121718464818088,
 					"parameters": {
-						"instance-variable": "Column",
+						"instance-variable": "Tableau",
 						"value": "-1"
 					}
+				},
+				{
+					"callFunction": "AfterCardMove",
+					"sid": 467880428608171
 				},
 				{
 					"id": "tween-two-properties",
@@ -1381,7 +1393,7 @@
 					"objectClass": "Card",
 					"sid": 285925912819442,
 					"parameters": {
-						"instance-variable": "Column",
+						"instance-variable": "Tableau",
 						"value": "Tableau.Column"
 					}
 				},
@@ -1411,6 +1423,10 @@
 					"parameters": {
 						"state": "disabled"
 					}
+				},
+				{
+					"callFunction": "AfterCardMove",
+					"sid": 823609344518224
 				},
 				{
 					"id": "tween-two-properties",
@@ -1833,15 +1849,6 @@
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 890226098665527,
-							"parameters": {
-								"type": "log",
-								"message": "\"beforemove\""
-							}
-						},
-						{
 							"id": "subtract-from-instvar",
 							"objectClass": "Tableau",
 							"sid": 698397412968871,
@@ -2031,6 +2038,127 @@
 			]
 		},
 		{
+			"functionName": "AfterCardMove",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 444435904277516,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 689519250269027,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 956189543739609,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "TopCardUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 416174057193958
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 195473100114804,
+									"parameters": {
+										"instance-variable": "Tableau",
+										"comparison": 0,
+										"value": "Tableau.Column"
+									}
+								},
+								{
+									"id": "pick-topbottom",
+									"objectClass": "Card",
+									"sid": 818786616775951,
+									"parameters": {
+										"which": "top"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 608814460483302,
+									"parameters": {
+										"variable": "TopCardUID",
+										"value": "Card.UID"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 758804734222480,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 606757875291954
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 261983839762411,
+									"parameters": {
+										"instance-variable": "Tableau",
+										"comparison": 0,
+										"value": "Tableau.Column"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Card",
+									"sid": 925254909466948,
+									"parameters": {
+										"unique-id": "TopCardUID"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 150337629277013,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 305419344564677
+						}
+					]
+				}
+			]
+		},
+		{
 			"functionName": "SnapCardBackToOrigin",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -2075,67 +2203,6 @@
 			],
 			"sid": 515538796307414,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 227691631475717,
-							"parameters": {
-								"first-value": "CardDraggedFromObject",
-								"comparison": 0,
-								"second-value": "\"Tableau\""
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Tableau",
-							"sid": 250988748129520,
-							"parameters": {
-								"unique-id": "CardDraggedFromUID"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Tableau",
-							"sid": 132751155425992,
-							"parameters": {
-								"instance-variable": "NumberOfCards",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-height",
-							"objectClass": "Tableau",
-							"sid": 732261296592781,
-							"parameters": {
-								"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Tableau",
-							"sid": 331011952966855,
-							"parameters": {
-								"instance-variable": "TopCardSuit",
-								"value": "Card.Suit"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Tableau",
-							"sid": 434325660698052,
-							"parameters": {
-								"instance-variable": "TopCardValue",
-								"value": "Card.Value"
-							}
-						}
-					],
-					"sid": 607412062424474
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -2205,6 +2272,72 @@
 						}
 					],
 					"sid": 486387583678079
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 937145895885371,
+							"parameters": {
+								"first-value": "CardDraggedFromObject",
+								"comparison": 0,
+								"second-value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 264339773167358,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 731280449339146,
+							"parameters": {
+								"instance-variable": "TopCardSuit",
+								"value": "Card.Suit"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 310666848721617,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Tableau",
+							"sid": 652539295811377,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 172063607746423
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Tableau",
+							"sid": 144912503281752,
+							"parameters": {
+								"height": "Card.Height + CARD_OFFSET * (max(Tableau.NumberOfCards - 1, 0))"
+							}
+						}
+					],
+					"sid": 405114095229305
 				}
 			]
 		},

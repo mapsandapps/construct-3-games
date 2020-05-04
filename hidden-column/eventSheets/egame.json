@@ -109,7 +109,47 @@
 					]
 				}
 			],
-			"sid": 617636254625838
+			"sid": 617636254625838,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 388091680171438,
+							"parameters": {
+								"variable": "CardDraggedFromObject",
+								"comparison": 0,
+								"value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 798262461810984,
+							"parameters": {
+								"unique-id": "CardDraggedFromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "so there visually won't be a tableau shown under where the dragging card would be"
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Tableau",
+							"sid": 980900659475543,
+							"parameters": {
+								"height": "Tableau.Height - CARD_OFFSET"
+							}
+						}
+					],
+					"sid": 290661503888287
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -121,16 +161,24 @@
 					"behaviorType": "DragDrop"
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 147080813836960,
+			"children": [
 				{
-					"callFunction": "TryToDropCard",
-					"sid": 577424711934640,
-					"parameters": [
-						"Card.UID"
-					]
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "TryToDropCard",
+							"sid": 351438363621981,
+							"parameters": [
+								"Card.UID"
+							]
+						}
+					],
+					"sid": 614907554535619
 				}
-			],
-			"sid": 147080813836960
+			]
 		},
 		{
 			"eventType": "block",
