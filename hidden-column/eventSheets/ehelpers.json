@@ -125,13 +125,23 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each-ordered",
+							"id": "for",
 							"objectClass": "System",
-							"sid": 507486432803340,
+							"sid": 774393778237029,
 							"parameters": {
-								"object": "Tableau",
-								"expression": "Tableau.Column",
-								"order": "ascending"
+								"name": "\"\"",
+								"start-index": "0",
+								"end-index": "min(Tableau.Count, StockArray.Width)"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tableau",
+							"sid": 965444312316385,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "loopindex"
 							}
 						},
 						{
@@ -341,15 +351,6 @@
 						"instance-variable": "Invisible",
 						"value": "false"
 					}
-				},
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Cell",
-					"sid": 403703981309388,
-					"parameters": {
-						"instance-variable": "Invisible",
-						"value": "false"
-					}
 				}
 			],
 			"sid": 335282350489003
@@ -425,70 +426,24 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-evaluate",
-									"objectClass": "System",
-									"sid": 568660782314026,
-									"parameters": {
-										"object": "Cell",
-										"expression": "Cell.Column = Tableau.Column"
-									}
-								}
-							],
+							"conditions": [],
 							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Cell",
-									"sid": 212236952382691,
-									"parameters": {
-										"instance-variable": "Invisible",
-										"value": "true"
-									}
-								},
 								{
 									"id": "tween-one-property",
 									"objectClass": "Hidden",
-									"sid": 322618018107987,
+									"sid": 208342851445066,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"\"",
 										"property": "offsetX",
-										"end-value": "Cell.X - Cell.Width / 2",
+										"end-value": "Tableau.X - Tableau.Width / 2",
 										"time": "0.2",
 										"ease": "default",
 										"destroy-on-complete": "no"
 									}
 								}
 							],
-							"sid": 658562937062048,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Cell",
-											"sid": 640000188168483,
-											"parameters": {
-												"object": "Card"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-enabled",
-											"objectClass": "Card",
-											"sid": 794252101929412,
-											"behaviorType": "DragDrop",
-											"parameters": {
-												"state": "disabled"
-											}
-										}
-									],
-									"sid": 985061706799909
-								}
-							]
+							"sid": 120769160420810
 						}
 					]
 				}

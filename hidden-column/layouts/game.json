@@ -21,7 +21,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
+						"x": 512,
 						"y": 32,
 						"width": 96,
 						"height": 128,
@@ -53,7 +53,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 432,
+						"x": 624,
 						"y": 32,
 						"width": 96,
 						"height": 128,
@@ -85,7 +85,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 544,
+						"x": 736,
 						"y": 32,
 						"width": 96,
 						"height": 128,
@@ -117,7 +117,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 208,
+						"x": 400,
 						"y": 32,
 						"width": 96,
 						"height": 128,
@@ -152,7 +152,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
+						"x": 64,
 						"y": 320,
 						"width": 96,
 						"height": 128,
@@ -187,7 +187,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 208,
+						"x": 176,
 						"y": 320,
 						"width": 96,
 						"height": 128,
@@ -222,7 +222,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
+						"x": 288,
 						"y": 320,
 						"width": 96,
 						"height": 128,
@@ -257,7 +257,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 432,
+						"x": 400,
 						"y": 320,
 						"width": 96,
 						"height": 128,
@@ -292,7 +292,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 544,
+						"x": 512,
 						"y": 320,
 						"width": 96,
 						"height": 128,
@@ -325,7 +325,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
+						"x": 400,
 						"y": 176,
 						"width": 96,
 						"height": 128,
@@ -358,7 +358,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 208,
+						"x": 512,
 						"y": 176,
 						"width": 96,
 						"height": 128,
@@ -391,7 +391,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
+						"x": 624,
 						"y": 176,
 						"width": 96,
 						"height": 128,
@@ -424,40 +424,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 432,
-						"y": 176,
-						"width": 96,
-						"height": 128,
-						"originX": 0.5,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Cell",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 15,
-					"instanceVariables": {
-						"IsEmpty": true,
-						"Invisible": false,
-						"Column": 4
-					},
-					"behaviors": {},
-					"world": {
-						"x": 544,
+						"x": 736,
 						"y": 176,
 						"width": 96,
 						"height": 128,
@@ -486,12 +453,82 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 96,
+						"x": 64,
 						"y": 32,
 						"width": 112,
 						"height": 152,
 						"originX": 0.5,
 						"originY": 0.05181347150259067,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 23,
+					"instanceVariables": {
+						"Column": 5,
+						"Invisible": false,
+						"NumberOfCards": 0,
+						"TopCardValue": 0,
+						"TopCardSuit": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 624,
+						"y": 320,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 24,
+					"instanceVariables": {
+						"Column": 6,
+						"Invisible": false,
+						"NumberOfCards": 0,
+						"TopCardValue": 0,
+						"TopCardSuit": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 736,
+						"y": 320,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -552,10 +589,10 @@
 						}
 					},
 					"world": {
-						"x": 48,
-						"y": 176,
+						"x": 16,
+						"y": 320,
 						"width": 96,
-						"height": 1072,
+						"height": 688,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -647,8 +684,8 @@
 		}
 	],
 	"effectTypes": [],
-	"width": 640,
-	"height": 1280,
+	"width": 800,
+	"height": 1024,
 	"unboundedScrolling": true,
 	"eventSheet": "eGame"
 }
