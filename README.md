@@ -1,5 +1,12 @@
 # My Construct 3 Games Monorepo
 
+## Hidden Column
+
+Solitaire card game made for [Weekly Game Jam #147: "Invisible"](https://itch.io/jam/weekly-game-jam-147/rate/634771) in May 2020
+
+* Folder: [/hidden-column](./hidden-column)
+* [Play on Itch](https://mapsandapps.itch.io/hidden-column)
+
 ## Rafting
 
 Endless rafter plus zen mode made for [Weekly Game Jam #143: "Running Water"](https://itch.io/jam/weekly-game-jam-143/rate/605798) in April 2020
@@ -99,12 +106,17 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 
 # Credits
 
-* Audio and art assets from [Kenney](https://kenney.nl/assets) (CC0 1.0 Universal)
+* Audio, art assets, and fonts from [Kenney](https://kenney.nl/assets) (CC0 1.0 Universal)
 * Word list from [David Ruffner](https://github.com/davidruffner/scrabble-word-finder/blob/master/resources/enable1-wwf-v4.0-wordlist.txt) (MIT license)
 * Some art by [me](https://github.com/mapsandapps)
 * Art from the [2D Game Art Bundle](https://www.gamedevmarket.net/asset/2d-game-art-bundle-2018/) (purchased in the Humble 2D Game Dev Bundle)
 * [BigEval](https://github.com/aviaryan/bigEval.js) (Apache-2.0)
 * [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) font (Open Font License)
+* [Jost](https://fonts.google.com/specimen/Jost) font (Open Font License)
+* [Cookie](https://fonts.google.com/specimen/Cookie) font (Open Font License)
+* [Roboto](https://fonts.google.com/specimen/Roboto) font (Open Font License)
+* [Poppins](https://fonts.google.com/specimen/Poppins) font (Open Font License)
+* [Odibee Sans](https://fonts.google.com/specimen/Odibee+Sans) font (Open Font License)
 * Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
 * [Fantasy Map Generator](https://github.com/Azgaar/Fantasy-Map-Generator) (MIT license)
 * ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)

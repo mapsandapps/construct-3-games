@@ -141,9 +141,9 @@
 						{
 							"id": "set-height",
 							"objectClass": "Tableau",
-							"sid": 980900659475543,
+							"sid": 837677001825604,
 							"parameters": {
-								"height": "Tableau.Height - CARD_OFFSET"
+								"height": "max(Tableau.Height - CARD_OFFSET, Card.Height)"
 							}
 						}
 					],
@@ -402,6 +402,32 @@
 					"sid": 546765237816631
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 712015373406660,
+					"parameters": {
+						"object": "Restart"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Restart",
+					"sid": 834698322717551
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 876073448009135
+				}
+			],
+			"sid": 114849674179427
 		}
 	],
 	"sid": 764958155299903

@@ -47,6 +47,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Tween",
 			"name": "Tween",
@@ -81,7 +89,9 @@
 			"Card",
 			"CardDeck",
 			"StockArray",
-			"Hidden"
+			"Hidden",
+			"Restart",
+			"WinText"
 		],
 		"subfolders": [
 			{
@@ -132,7 +142,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "Jost-600-Semi.otf",
+					"type": "application/font-sfnt",
+					"sid": 423770314873285
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -229,7 +245,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true

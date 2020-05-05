@@ -316,6 +316,22 @@
 								{
 									"callFunction": "SetAllColumnsVisible",
 									"sid": 525762496770635
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 925267246273638,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Restart",
+									"sid": 103231233272465,
+									"parameters": {
+										"visibility": "visible"
+									}
 								}
 							],
 							"sid": 231781862881449
@@ -1147,6 +1163,10 @@
 				{
 					"callFunction": "AfterCardMove",
 					"sid": 455046842119363
+				},
+				{
+					"callFunction": "CheckForWinCondition",
+					"sid": 943617224395710
 				},
 				{
 					"id": "tween-two-properties",
@@ -2637,6 +2657,100 @@
 						}
 					],
 					"sid": 650537244729616
+				}
+			]
+		},
+		{
+			"functionName": "CheckForWinCondition",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 946572318521941,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "NumberOfCompletedFoundations",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 196398648463592
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 785911070833423,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 491073795062915,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 575188780191004,
+									"parameters": {
+										"instance-variable": "TopValue",
+										"comparison": 0,
+										"value": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 973955517650064,
+									"parameters": {
+										"variable": "NumberOfCompletedFoundations",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 273014606345289
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 360293438723701,
+							"parameters": {
+								"first-value": "NumberOfCompletedFoundations",
+								"comparison": 0,
+								"second-value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "WinText",
+							"sid": 287543586199206,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 805215587366008
 				}
 			]
 		}
