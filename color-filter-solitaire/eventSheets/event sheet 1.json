@@ -1663,14 +1663,6 @@
 						"variable": "IsAbleToFilter",
 						"value": "true"
 					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "HelperText",
-					"sid": 404511284659283,
-					"parameters": {
-						"text": "\"Don't forget, \"&Newline&\"you can enter color filter mode ⇧ \"&Newline&\"before dealing more cards! ⇩\""
-					}
 				}
 			],
 			"sid": 818060882823510,
@@ -2632,14 +2624,6 @@
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "HelperText",
-							"sid": 336147874251174,
-							"parameters": {
-								"text": "\"Click a filter to resume normal mode ⇧ \"&Newline&\"when you've finished moving cards around\""
-							}
-						},
-						{
 							"callFunction": "SetBorderColor",
 							"sid": 407588022998628,
 							"parameters": [
@@ -2672,14 +2656,6 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "HelperText",
-							"sid": 245739346529102,
-							"parameters": {
-								"text": "\"When you're finished moving cards around \"&Newline&\"click to deal ⇩\""
-							}
-						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",

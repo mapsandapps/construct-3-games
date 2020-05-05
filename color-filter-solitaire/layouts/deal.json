@@ -8,7 +8,7 @@
 				{
 					"type": "Background",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Default",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -45,12 +45,12 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.3215686274509804,
+				0.596078431372549,
+				0.28627450980392155,
 				1
 			],
-			"isTransparent": true,
+			"isTransparent": false,
 			"parallaxX": 0,
 			"parallaxY": 0,
 			"scaleRate": 1,
@@ -134,8 +134,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 560,
-						"y": -16,
+						"x": 52,
+						"y": 76,
 						"width": 108.80000000000001,
 						"height": 134.4,
 						"originX": 0.5,
@@ -166,8 +166,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 208,
-						"y": 912,
+						"x": 268,
+						"y": 12,
 						"width": 96,
 						"height": 128,
 						"originX": 0.5,
@@ -198,8 +198,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 912,
+						"x": 164,
+						"y": 12,
 						"width": 96,
 						"height": 128,
 						"originX": 0.5,
@@ -230,8 +230,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 912,
+						"x": 372,
+						"y": 12,
 						"width": 96,
 						"height": 128,
 						"originX": 0.5,
@@ -262,8 +262,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 432,
-						"y": 912,
+						"x": 476,
+						"y": 12,
 						"width": 96,
 						"height": 128,
 						"originX": 0.5,
@@ -294,8 +294,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 544,
-						"y": 912,
+						"x": 580,
+						"y": 12,
 						"width": 96,
 						"height": 128,
 						"originX": 0.5,
@@ -325,8 +325,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 48,
-						"y": 16,
+						"x": 608,
+						"y": 152,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -356,8 +356,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 16,
+						"x": 608,
+						"y": 200,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -387,8 +387,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 240,
-						"y": 16,
+						"x": 608,
+						"y": 352,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -418,8 +418,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 144,
-						"y": 16,
+						"x": 608,
+						"y": 252,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -449,8 +449,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 16,
+						"x": 608,
+						"y": 304,
 						"width": 37.5,
 						"height": 37.5,
 						"originX": 0.5,
@@ -516,48 +516,6 @@
 						"width": 640,
 						"height": 960,
 						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "HelperText",
-					"properties": {
-						"text": "Don't forget, \nyou can enter color filter mode ⇧\nbefore dealing more cards! ⇩",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": -2,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "right",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top"
-					},
-					"uid": 14,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 384,
-						"y": 16,
-						"width": 165,
-						"height": 44,
-						"originX": 0.5,
 						"originY": 0,
 						"color": [
 							1,
@@ -650,7 +608,7 @@
 	],
 	"effectTypes": [],
 	"width": 640,
-	"height": 1280,
+	"height": 1600,
 	"unboundedScrolling": false,
 	"eventSheet": "Event sheet 1"
 }

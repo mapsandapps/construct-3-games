@@ -1332,9 +1332,9 @@
 						{
 							"id": "set-y",
 							"objectClass": "Stack",
-							"sid": 323859305110299,
+							"sid": 434322573577857,
 							"parameters": {
-								"y": "BottomOfNorthStack + CARD_OFFSET"
+								"y": "BottomOfNorthStack + 8"
 							}
 						}
 					],
@@ -1415,12 +1415,12 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 614670576542998,
+							"sid": 919139219266157,
 							"parameters": {
 								"object-to-create": "Stack",
 								"layer": "\"Stacks\"",
-								"x": "96 + 112 * loopindex",
-								"y": "64"
+								"x": "112 + 104 * loopindex",
+								"y": "152"
 							}
 						},
 						{
