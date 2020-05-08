@@ -1,5 +1,5 @@
 {
-	"name": "Deal",
+	"name": "Game",
 	"layers": [
 		{
 			"name": "Background",
@@ -89,6 +89,176 @@
 							1
 						],
 						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 14,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 0,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 164,
+						"y": 148,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 6.277674752101426,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 1,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 268,
+						"y": 148,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 6.277674752101426,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 2,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 372,
+						"y": 148,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 6.277674752101426,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 3,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 476,
+						"y": 148,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 6.277674752101426,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stack",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 19,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 4,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 580,
+						"y": 148,
+						"width": 96,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 6.277674752101426,
 						"zElevation": 0
 					}
 				}
@@ -325,10 +495,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 608,
-						"y": 152,
-						"width": 37.5,
-						"height": 37.5,
+						"x": 56,
+						"y": 156,
+						"width": 75,
+						"height": 75,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -356,10 +526,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 608,
-						"y": 200,
-						"width": 37.5,
-						"height": 37.5,
+						"x": 56,
+						"y": 244,
+						"width": 75,
+						"height": 75,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -387,10 +557,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 608,
-						"y": 352,
-						"width": 37.5,
-						"height": 37.5,
+						"x": 60,
+						"y": 516,
+						"width": 75,
+						"height": 75,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -418,10 +588,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 608,
-						"y": 252,
-						"width": 37.5,
-						"height": 37.5,
+						"x": 56,
+						"y": 336,
+						"width": 75,
+						"height": 75,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -449,10 +619,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 608,
-						"y": 304,
-						"width": 37.5,
-						"height": 37.5,
+						"x": 56,
+						"y": 428,
+						"width": 75,
+						"height": 75,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -566,26 +736,6 @@
 			"instanceVariables": {}
 		},
 		{
-			"type": "DeckValues",
-			"properties": {
-				"width": 10,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 10,
-			"instanceVariables": {}
-		},
-		{
-			"type": "DeckSuits",
-			"properties": {
-				"width": 10,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 11,
-			"instanceVariables": {}
-		},
-		{
 			"type": "PossibleMoves",
 			"properties": {
 				"width": 0,
@@ -596,10 +746,10 @@
 			"instanceVariables": {}
 		},
 		{
-			"type": "DeckIndices",
+			"type": "CardDeck",
 			"properties": {
 				"width": 65,
-				"height": 1,
+				"height": 3,
 				"depth": 1
 			},
 			"uid": 30,
@@ -610,5 +760,5 @@
 	"width": 640,
 	"height": 1600,
 	"unboundedScrolling": false,
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "eGame"
 }

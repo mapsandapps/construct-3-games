@@ -1,5 +1,5 @@
 {
-	"name": "Helper functions",
+	"name": "eHelpers",
 	"events": [
 		{
 			"eventType": "variable",
@@ -828,6 +828,39 @@
 									"sid": 465284957977055
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 644112776050211,
+									"parameters": {
+										"object": "Stack"
+									}
+								},
+								{
+									"id": "pick-topbottom",
+									"objectClass": "Card",
+									"sid": 765379895060762,
+									"parameters": {
+										"which": "top"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Stack",
+									"sid": 577364922932008,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"value": "Card.Value"
+									}
+								}
+							],
+							"sid": 915074316893699
 						}
 					]
 				},
@@ -1003,6 +1036,39 @@
 								}
 							],
 							"sid": 888731155447389
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 373402974779055,
+									"parameters": {
+										"object": "Stack"
+									}
+								},
+								{
+									"id": "pick-topbottom",
+									"objectClass": "Card",
+									"sid": 467812385522573,
+									"parameters": {
+										"which": "top"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Stack",
+									"sid": 555117686525712,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"value": "Card.Value"
+									}
+								}
+							],
+							"sid": 675279746587585
 						}
 					]
 				},
@@ -1383,160 +1449,6 @@
 							"sid": 272015748225468
 						}
 					]
-				}
-			]
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Initializing Deal",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"functionName": "CreateStacks",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": true,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [
-						{
-							"id": "repeat",
-							"objectClass": "System",
-							"sid": 928601874617428,
-							"parameters": {
-								"count": "NUMBER_OF_STACK_COLUMNS"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 919139219266157,
-							"parameters": {
-								"object-to-create": "Stack",
-								"layer": "\"Stacks\"",
-								"x": "112 + 104 * loopindex",
-								"y": "152"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Stack",
-							"sid": 729543032086628,
-							"parameters": {
-								"instance-variable": "Column",
-								"value": "loopindex"
-							}
-						}
-					],
-					"sid": 807391466408412
-				}
-			],
-			"sid": 237473772873906
-		},
-		{
-			"functionName": "DealAcross",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 849362602169704,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 458780068568635,
-							"parameters": {
-								"object": "SuitSelector"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-opacity",
-							"objectClass": "SuitSelector",
-							"sid": 499618017201252,
-							"parameters": {
-								"opacity": "100"
-							}
-						}
-					],
-					"sid": 755524781521790
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 997103822471940,
-							"parameters": {
-								"object": "Stack",
-								"expression": "Stack.X",
-								"order": "ascending"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "DealNextCardToStack",
-							"sid": 915154071469761,
-							"parameters": [
-								"Stack.UID",
-								true
-							]
-						}
-					],
-					"sid": 447179361089607
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Flips",
-							"sid": 859093613546071,
-							"parameters": {
-								"frame-number": "Flips.AnimationFrame - 1"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 181615686503142,
-							"parameters": {
-								"audio-file": "cardFan1",
-								"loop": "not-looping",
-								"volume": "0",
-								"tag-optional": "\"\""
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 548924111253673,
-							"parameters": {
-								"seconds": "0.3"
-							}
-						},
-						{
-							"callFunction": "DetermineWhichCardsAreMoveable",
-							"sid": 372702064612202
-						}
-					],
-					"sid": 355492751965204
 				}
 			]
 		}

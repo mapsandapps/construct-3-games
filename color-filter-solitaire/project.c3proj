@@ -100,15 +100,13 @@
 		"items": [
 			"Card",
 			"Stock",
-			"DeckValues",
-			"DeckSuits",
 			"Flips",
 			"Stack",
 			"PossibleMoves",
 			"Foundation",
 			"SuitSelector",
 			"DragBase",
-			"DeckIndices",
+			"CardDeck",
 			"Background",
 			"Border"
 		],
@@ -133,15 +131,16 @@
 	},
 	"layouts": {
 		"items": [
-			"Deal",
+			"Game",
 			"Objects"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1",
-			"Helper functions"
+			"eGame",
+			"eHelpers",
+			"eShuffleAndDeal"
 		],
 		"subfolders": []
 	},
@@ -311,7 +310,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true
