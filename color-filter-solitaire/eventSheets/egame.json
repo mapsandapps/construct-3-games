@@ -23,7 +23,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "CardPickedUpFromStack",
+			"name": "CardPickedUpFromTableau",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
@@ -168,7 +168,7 @@
 							"objectClass": "Card",
 							"sid": 916862468157506,
 							"parameters": {
-								"object": "Stack"
+								"object": "Tableau"
 							}
 						}
 					],
@@ -187,8 +187,8 @@
 							"objectClass": "System",
 							"sid": 349444973137998,
 							"parameters": {
-								"variable": "CardPickedUpFromStack",
-								"value": "Stack.UID"
+								"variable": "CardPickedUpFromTableau",
+								"value": "Tableau.UID"
 							}
 						},
 						{
@@ -221,8 +221,8 @@
 							"callFunction": "PinSouthCard",
 							"sid": 514218735398194,
 							"parameters": [
-								"Stack.UID",
-								"Card.IndexInStack + 1"
+								"Tableau.UID",
+								"Card.IndexInTableau + 1"
 							]
 						}
 					],
@@ -236,14 +236,14 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "StackUID",
+							"name": "TableauUID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
 							"sid": 855709147047922
 						},
 						{
-							"name": "IndexOfSouthCardInStack",
+							"name": "IndexOfSouthCardInTableau",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -254,10 +254,10 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 156062220608367,
 							"parameters": {
-								"unique-id": "StackUID"
+								"unique-id": "TableauUID"
 							}
 						}
 					],
@@ -272,9 +272,9 @@
 									"objectClass": "Card",
 									"sid": 312030155475023,
 									"parameters": {
-										"instance-variable": "IndexInStack",
+										"instance-variable": "IndexInTableau",
 										"comparison": 0,
-										"value": "IndexOfSouthCardInStack"
+										"value": "IndexOfSouthCardInTableau"
 									}
 								},
 								{
@@ -282,7 +282,7 @@
 									"objectClass": "Card",
 									"sid": 936407683320161,
 									"parameters": {
-										"object": "Stack"
+										"object": "Tableau"
 									}
 								}
 							],
@@ -306,8 +306,8 @@
 									"callFunction": "PinSouthCard",
 									"sid": 763687746032883,
 									"parameters": [
-										"StackUID",
-										"IndexOfSouthCardInStack + 1"
+										"TableauUID",
+										"IndexOfSouthCardInTableau + 1"
 									]
 								},
 								{
@@ -358,11 +358,11 @@
 					"children": [
 						{
 							"eventType": "comment",
-							"text": "card was dropped on a stack: check to see if it's a valid move"
+							"text": "card was dropped on a tableau: check to see if it's a valid move"
 						},
 						{
 							"eventType": "comment",
-							"text": "TODO: might not need CardPickedUpFromStack anymore"
+							"text": "TODO: might not need CardPickedUpFromTableau anymore"
 						},
 						{
 							"eventType": "block",
@@ -372,7 +372,7 @@
 									"objectClass": "Card",
 									"sid": 750985861154742,
 									"parameters": {
-										"object": "Stack"
+										"object": "Tableau"
 									}
 								},
 								{
@@ -380,7 +380,7 @@
 									"objectClass": "PossibleMoves",
 									"sid": 679715428527692,
 									"parameters": {
-										"value": "Stack.UID"
+										"value": "Tableau.UID"
 									}
 								}
 							],
@@ -390,12 +390,12 @@
 									"sid": 807822921045872
 								},
 								{
-									"callFunction": "MoveCardToStack",
+									"callFunction": "MoveCardToTableau",
 									"sid": 701100182144847,
 									"parameters": [
 										"Card.Suit",
 										"Card.Value",
-										"Stack.UID"
+										"Tableau.UID"
 									]
 								},
 								{
@@ -405,8 +405,8 @@
 									"parameters": [
 										"Card.Suit",
 										"Card.Value",
-										"Stack.UID",
-										"Card.IndexInStack"
+										"Tableau.UID",
+										"Card.IndexInTableau"
 									]
 								},
 								{
@@ -476,7 +476,7 @@
 									"objectClass": "Card",
 									"sid": 831022173789777,
 									"parameters": {
-										"instance-variable": "IndexInStack",
+										"instance-variable": "IndexInTableau",
 										"value": "0"
 									}
 								},
@@ -485,7 +485,7 @@
 									"objectClass": "Card",
 									"sid": 473505140252762,
 									"parameters": {
-										"instance-variable": "StackUID",
+										"instance-variable": "TableauUID",
 										"value": "0"
 									}
 								},
@@ -499,10 +499,10 @@
 									}
 								},
 								{
-									"callFunction": "PopCardFromStack",
+									"callFunction": "PopCardFromTableau",
 									"sid": 906036310838753,
 									"parameters": [
-										"CardPickedUpFromStack"
+										"CardPickedUpFromTableau"
 									]
 								},
 								{
@@ -523,7 +523,7 @@
 									"sid": 345802707947377
 								},
 								{
-									"callFunction": "RepositionStacks",
+									"callFunction": "RepositionTableaus",
 									"sid": 628726376611688
 								},
 								{
@@ -562,8 +562,8 @@
 									"objectClass": "System",
 									"sid": 358741173800482,
 									"parameters": {
-										"object": "Stack",
-										"expression": "Stack.UID = CardPickedUpFromStack"
+										"object": "Tableau",
+										"expression": "Tableau.UID = CardPickedUpFromTableau"
 									}
 								}
 							],
@@ -586,7 +586,7 @@
 					]
 				},
 				{
-					"functionName": "MoveCardToStack",
+					"functionName": "MoveCardToTableau",
 					"functionDescription": "",
 					"functionCategory": "",
 					"functionReturnType": "none",
@@ -607,7 +607,7 @@
 							"sid": 727061007064131
 						},
 						{
-							"name": "UIDOfNewStack",
+							"name": "NewTableauUID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -618,10 +618,10 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 189214719939303,
 							"parameters": {
-								"unique-id": "UIDOfNewStack"
+								"unique-id": "NewTableauUID"
 							}
 						},
 						{
@@ -651,7 +651,7 @@
 							"objectClass": "Card",
 							"sid": 322550518309442,
 							"parameters": {
-								"x": "Stack.X"
+								"x": "Tableau.X"
 							}
 						},
 						{
@@ -659,8 +659,8 @@
 							"objectClass": "Card",
 							"sid": 647320868780101,
 							"parameters": {
-								"instance-variable": "IndexInStack",
-								"value": "Stack.NumberOfCards"
+								"instance-variable": "IndexInTableau",
+								"value": "Tableau.NumberOfCards"
 							}
 						},
 						{
@@ -668,12 +668,12 @@
 							"objectClass": "Card",
 							"sid": 356045245842423,
 							"parameters": {
-								"y": "Stack.Y + (Stack.NumberOfCards * CARD_OFFSET)"
+								"y": "Tableau.Y + (Tableau.NumberOfCards * CARD_OFFSET)"
 							}
 						},
 						{
 							"id": "add-to-instvar",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 530792620652088,
 							"parameters": {
 								"instance-variable": "NumberOfCards",
@@ -682,7 +682,7 @@
 						},
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 939941578227837,
 							"parameters": {
 								"instance-variable": "TopCardValue",
@@ -690,10 +690,10 @@
 							}
 						},
 						{
-							"callFunction": "PopCardFromStack",
+							"callFunction": "PopCardFromTableau",
 							"sid": 909553382622166,
 							"parameters": [
-								"Card.StackUID"
+								"Card.TableauUID"
 							]
 						},
 						{
@@ -701,8 +701,8 @@
 							"objectClass": "Card",
 							"sid": 202127957658818,
 							"parameters": {
-								"instance-variable": "StackUID",
-								"value": "Stack.UID"
+								"instance-variable": "TableauUID",
+								"value": "Tableau.UID"
 							}
 						},
 						{
@@ -719,20 +719,20 @@
 							"objectClass": "System",
 							"sid": 840982373386943,
 							"parameters": {
-								"variable": "BottomOfNorthStack",
-								"value": "Stack.Y + Stack.Height"
+								"variable": "BottomOfNorthTableau",
+								"value": "Tableau.Y + Tableau.Height"
 							}
 						},
 						{
 							"id": "set-height",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 982773392175130,
 							"parameters": {
-								"height": "Card.Height + (CARD_OFFSET * (Stack.NumberOfCards - 1))"
+								"height": "Card.Height + (CARD_OFFSET * (Tableau.NumberOfCards - 1))"
 							}
 						},
 						{
-							"callFunction": "RepositionStacks",
+							"callFunction": "RepositionTableaus",
 							"sid": 273734637562348
 						},
 						{
@@ -758,12 +758,12 @@
 							],
 							"actions": [
 								{
-									"callFunction": "MoveCardToStack",
+									"callFunction": "MoveCardToTableau",
 									"sid": 957362076436564,
 									"parameters": [
 										"SuitOfCard",
 										"ValueOfCard - 1",
-										"UIDOfNewStack"
+										"NewTableauUID"
 									]
 								}
 							],
@@ -817,10 +817,10 @@
 						},
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 923195982738876,
 							"parameters": {
-								"unique-id": "Card.StackUID"
+								"unique-id": "Card.TableauUID"
 							}
 						}
 					],
@@ -830,7 +830,7 @@
 							"objectClass": "Card",
 							"sid": 178642961379922,
 							"parameters": {
-								"x": "Stack.X"
+								"x": "Tableau.X"
 							}
 						},
 						{
@@ -838,7 +838,7 @@
 							"objectClass": "Card",
 							"sid": 480592758439329,
 							"parameters": {
-								"y": "Stack.Y + (Card.IndexInStack * CARD_OFFSET)"
+								"y": "Tableau.Y + (Card.IndexInTableau * CARD_OFFSET)"
 							}
 						},
 						{
@@ -903,14 +903,14 @@
 							"sid": 313696811774280
 						},
 						{
-							"name": "StackUID",
+							"name": "TableauUID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
 							"sid": 831227901669216
 						},
 						{
-							"name": "IndexOfSouthCardInStack",
+							"name": "IndexOfSouthCardInTableau",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -921,10 +921,10 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 398317216182502,
 							"parameters": {
-								"unique-id": "StackUID"
+								"unique-id": "TableauUID"
 							}
 						},
 						{
@@ -932,7 +932,7 @@
 							"objectClass": "Card",
 							"sid": 137151998967781,
 							"parameters": {
-								"object": "Stack"
+								"object": "Tableau"
 							}
 						},
 						{
@@ -940,9 +940,9 @@
 							"objectClass": "Card",
 							"sid": 667106839783327,
 							"parameters": {
-								"instance-variable": "IndexInStack",
+								"instance-variable": "IndexInTableau",
 								"comparison": 0,
-								"value": "IndexOfSouthCardInStack - 1"
+								"value": "IndexOfSouthCardInTableau - 1"
 							}
 						}
 					],
@@ -997,8 +997,8 @@
 									"parameters": [
 										"Card.Suit",
 										"Card.Value",
-										"Stack.UID",
-										"Card.IndexInStack"
+										"Tableau.UID",
+										"Card.IndexInTableau"
 									]
 								}
 							],
@@ -1050,14 +1050,14 @@
 							"sid": 174094552473968
 						},
 						{
-							"name": "StackUID",
+							"name": "TableauUID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
 							"sid": 687228945574413
 						},
 						{
-							"name": "IndexOfNorthCardInStack",
+							"name": "IndexOfNorthCardInTableau",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
@@ -1068,10 +1068,10 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 347409060167441,
 							"parameters": {
-								"unique-id": "StackUID"
+								"unique-id": "TableauUID"
 							}
 						},
 						{
@@ -1079,7 +1079,7 @@
 							"objectClass": "Card",
 							"sid": 550578946127238,
 							"parameters": {
-								"object": "Stack"
+								"object": "Tableau"
 							}
 						},
 						{
@@ -1087,9 +1087,9 @@
 							"objectClass": "Card",
 							"sid": 328881382856542,
 							"parameters": {
-								"instance-variable": "IndexInStack",
+								"instance-variable": "IndexInTableau",
 								"comparison": 0,
-								"value": "IndexOfNorthCardInStack + 1"
+								"value": "IndexOfNorthCardInTableau + 1"
 							}
 						}
 					],
@@ -1178,13 +1178,13 @@
 							"sid": 829949964948051,
 							"parameters": {
 								"object": "Card",
-								"expression": "Card.IndexInStack",
+								"expression": "Card.IndexInTableau",
 								"order": "ascending"
 							}
 						},
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 310719024916132,
 							"parameters": {
 								"object": "Card"
@@ -1252,7 +1252,7 @@
 									"objectClass": "Card",
 									"sid": 256213038565301,
 									"parameters": {
-										"object": "Stack"
+										"object": "Tableau"
 									}
 								}
 							],
@@ -1290,9 +1290,9 @@
 									"objectClass": "Card",
 									"sid": 318085153633220,
 									"parameters": {
-										"instance-variable": "IndexInStack",
+										"instance-variable": "IndexInTableau",
 										"comparison": 0,
-										"value": "Stack.NumberOfCards - 1"
+										"value": "Tableau.NumberOfCards - 1"
 									}
 								}
 							],
@@ -1312,8 +1312,8 @@
 									"parameters": [
 										"Card.Suit",
 										"Card.Value",
-										"Stack.UID",
-										"Card.IndexInStack"
+										"Tableau.UID",
+										"Card.IndexInTableau"
 									]
 								}
 							],
@@ -1534,14 +1534,14 @@
 			]
 		},
 		{
-			"functionName": "PopCardFromStack",
+			"functionName": "PopCardFromTableau",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "StackID",
+					"name": "TableauUID",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -1552,17 +1552,17 @@
 			"conditions": [
 				{
 					"id": "pick-by-unique-id",
-					"objectClass": "Stack",
+					"objectClass": "Tableau",
 					"sid": 592586640582798,
 					"parameters": {
-						"unique-id": "StackID"
+						"unique-id": "TableauUID"
 					}
 				}
 			],
 			"actions": [
 				{
 					"id": "subtract-from-instvar",
-					"objectClass": "Stack",
+					"objectClass": "Tableau",
 					"sid": 633821927539192,
 					"parameters": {
 						"instance-variable": "NumberOfCards",
@@ -1571,10 +1571,10 @@
 				},
 				{
 					"id": "set-height",
-					"objectClass": "Stack",
+					"objectClass": "Tableau",
 					"sid": 303188626682524,
 					"parameters": {
-						"height": "Card.Height + ((Stack.NumberOfCards - 1) * CARD_OFFSET)"
+						"height": "Card.Height + ((Tableau.NumberOfCards - 1) * CARD_OFFSET)"
 					}
 				}
 			],
@@ -1588,7 +1588,7 @@
 							"objectClass": "Card",
 							"sid": 551149703651316,
 							"parameters": {
-								"object": "Stack"
+								"object": "Tableau"
 							}
 						},
 						{
@@ -1603,7 +1603,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 321423343525778,
 							"parameters": {
 								"instance-variable": "TopCardValue",
@@ -1664,7 +1664,7 @@
 					"actions": [
 						{
 							"type": "comment",
-							"text": "Must exit color filter mode before dealing, so there will only be five stacks"
+							"text": "Must exit color filter mode before dealing, so there will only be five tableaus"
 						},
 						{
 							"callFunction": "ExitFilterMode",
@@ -1728,7 +1728,7 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "for each stack, get the highest (z-level) card overlapping it"
+					"text": "for each tableau, get the highest (z-level) card overlapping it"
 				},
 				{
 					"eventType": "comment",
@@ -1736,11 +1736,11 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "if the card was dragged, set a boolean on the stack to say that it's a valid move"
+					"text": "if the card was dragged, set a boolean on the tableau to say that it's a valid move"
 				},
 				{
 					"eventType": "comment",
-					"text": "reset the boolean on all stacks when the card is dropped"
+					"text": "reset the boolean on all tableaus when the card is dropped"
 				},
 				{
 					"eventType": "comment",
@@ -1785,7 +1785,7 @@
 									"objectClass": "System",
 									"sid": 901804924367307,
 									"parameters": {
-										"object": "Stack"
+										"object": "Tableau"
 									}
 								}
 							],
@@ -1800,7 +1800,7 @@
 											"objectClass": "Card",
 											"sid": 362400192681497,
 											"parameters": {
-												"object": "Stack"
+												"object": "Tableau"
 											}
 										},
 										{
@@ -1829,7 +1829,7 @@
 											"sid": 402898801831399,
 											"parameters": {
 												"where": "back",
-												"value": "Stack.UID",
+												"value": "Tableau.UID",
 												"axis": "x"
 											}
 										}
@@ -1846,7 +1846,7 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Stack",
+											"objectClass": "Tableau",
 											"sid": 204438138366601,
 											"parameters": {
 												"instance-variable": "NumberOfCards",
@@ -1856,7 +1856,7 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Stack",
+											"objectClass": "Tableau",
 											"sid": 582564204668801,
 											"parameters": {
 												"instance-variable": "Row",
@@ -1872,7 +1872,7 @@
 											"sid": 938907408277181,
 											"parameters": {
 												"where": "back",
-												"value": "Stack.UID",
+												"value": "Tableau.UID",
 												"axis": "x"
 											}
 										}
@@ -2007,7 +2007,7 @@
 							]
 						},
 						{
-							"callFunction": "DivideStacks",
+							"callFunction": "DivideTableaus",
 							"sid": 665965201077675
 						},
 						{
@@ -2092,7 +2092,7 @@
 							}
 						},
 						{
-							"callFunction": "RecombineStacks",
+							"callFunction": "RecombineTableaus",
 							"sid": 916217312469323
 						},
 						{
@@ -2147,7 +2147,7 @@
 									"objectClass": "Card",
 									"sid": 194929603815607,
 									"parameters": {
-										"object": "Stack"
+										"object": "Tableau"
 									}
 								}
 							],
@@ -2157,8 +2157,8 @@
 									"objectClass": "Card",
 									"sid": 148515094358547,
 									"parameters": {
-										"instance-variable": "StackUID",
-										"value": "Stack.UID"
+										"instance-variable": "TableauUID",
+										"value": "Tableau.UID"
 									}
 								}
 							],
@@ -2419,7 +2419,7 @@
 			"conditions": [
 				{
 					"id": "compare-instance-variable",
-					"objectClass": "Stack",
+					"objectClass": "Tableau",
 					"sid": 748515455796476,
 					"parameters": {
 						"instance-variable": "NumberOfCards",
@@ -2435,7 +2435,7 @@
 				},
 				{
 					"id": "destroy",
-					"objectClass": "Stack",
+					"objectClass": "Tableau",
 					"sid": 121543182764780
 				}
 			],

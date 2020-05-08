@@ -187,8 +187,8 @@
 									"objectClass": "System",
 									"sid": 106846499466884,
 									"parameters": {
-										"object": "Stack",
-										"expression": "Stack.Column",
+										"object": "Tableau",
+										"expression": "Tableau.Column",
 										"order": "ascending"
 									}
 								}
@@ -212,10 +212,10 @@
 									],
 									"actions": [
 										{
-											"callFunction": "DealNextCardToStack",
+											"callFunction": "DealNextCardToTableau",
 											"sid": 448254877468311,
 											"parameters": [
-												"Stack.UID",
+												"Tableau.UID",
 												true
 											]
 										}
@@ -233,10 +233,10 @@
 									],
 									"actions": [
 										{
-											"callFunction": "DealNextCardToStack",
+											"callFunction": "DealNextCardToTableau",
 											"sid": 282237804627017,
 											"parameters": [
-												"Stack.UID",
+												"Tableau.UID",
 												false
 											]
 										}
@@ -293,18 +293,18 @@
 							"objectClass": "System",
 							"sid": 997103822471940,
 							"parameters": {
-								"object": "Stack",
-								"expression": "Stack.X",
+								"object": "Tableau",
+								"expression": "Tableau.X",
 								"order": "ascending"
 							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "DealNextCardToStack",
+							"callFunction": "DealNextCardToTableau",
 							"sid": 915154071469761,
 							"parameters": [
-								"Stack.UID",
+								"Tableau.UID",
 								true
 							]
 						}
@@ -352,14 +352,14 @@
 			]
 		},
 		{
-			"functionName": "DealNextCardToStack",
+			"functionName": "DealNextCardToTableau",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "StackID",
+					"name": "TableauUID",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -375,17 +375,7 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 450251414793812,
-					"parameters": {
-						"type": "log",
-						"message": "\"deal next card to stack\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 179939494494260,
 			"children": [
 				{
@@ -393,10 +383,10 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 237129474782801,
 							"parameters": {
-								"unique-id": "StackID"
+								"unique-id": "TableauUID"
 							}
 						}
 					],
@@ -408,8 +398,8 @@
 							"parameters": {
 								"object-to-create": "Card",
 								"layer": "\"Cards\"",
-								"x": "Stack.X",
-								"y": "Stack.Y + (Stack.NumberOfCards * CARD_OFFSET)"
+								"x": "Tableau.X",
+								"y": "Tableau.Y + (Tableau.NumberOfCards * CARD_OFFSET)"
 							}
 						},
 						{
@@ -426,8 +416,8 @@
 							"objectClass": "Card",
 							"sid": 339536872086514,
 							"parameters": {
-								"instance-variable": "IndexInStack",
-								"value": "Stack.NumberOfCards"
+								"instance-variable": "IndexInTableau",
+								"value": "Tableau.NumberOfCards"
 							}
 						},
 						{
@@ -435,8 +425,8 @@
 							"objectClass": "Card",
 							"sid": 531988058449662,
 							"parameters": {
-								"instance-variable": "StackUID",
-								"value": "Stack.UID"
+								"instance-variable": "TableauUID",
+								"value": "Tableau.UID"
 							}
 						},
 						{
@@ -468,15 +458,15 @@
 						},
 						{
 							"id": "set-height",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 110624789293096,
 							"parameters": {
-								"height": "Card.Height + (Stack.NumberOfCards * CARD_OFFSET)"
+								"height": "Card.Height + (Tableau.NumberOfCards * CARD_OFFSET)"
 							}
 						},
 						{
 							"id": "add-to-instvar",
-							"objectClass": "Stack",
+							"objectClass": "Tableau",
 							"sid": 156385955441867,
 							"parameters": {
 								"instance-variable": "NumberOfCards",
@@ -518,7 +508,7 @@
 								},
 								{
 									"id": "set-instvar-value",
-									"objectClass": "Stack",
+									"objectClass": "Tableau",
 									"sid": 881164911916190,
 									"parameters": {
 										"instance-variable": "TopCardValue",
