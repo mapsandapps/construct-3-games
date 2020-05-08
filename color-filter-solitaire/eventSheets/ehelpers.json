@@ -784,11 +784,13 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "for-each",
+											"id": "for-each-ordered",
 											"objectClass": "System",
-											"sid": 356830511311278,
+											"sid": 963119849426718,
 											"parameters": {
-												"object": "Card"
+												"object": "Card",
+												"expression": "Card.IndexInTableau",
+												"order": "ascending"
 											}
 										},
 										{
@@ -808,6 +810,15 @@
 											"parameters": {
 												"instance-variable": "TableauUID",
 												"value": "Tableau.UID"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Tableau",
+											"sid": 804427267128650,
+											"parameters": {
+												"instance-variable": "TopCardValue",
+												"value": "Card.Value"
 											}
 										}
 									],
@@ -1449,6 +1460,85 @@
 							"sid": 272015748225468
 						}
 					]
+				}
+			]
+		},
+		{
+			"functionName": "AutoMoveCard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 151926208279347
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 689711743875191,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MoveToUID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 404429236096297
+				},
+				{
+					"eventType": "variable",
+					"name": "HasCardMoved",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 796690433367513
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 565131448348173,
+							"parameters": {
+								"object": "Tableau",
+								"expression": "Tableau.NumberOfCards",
+								"order": "ascending"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 456167396552913,
+							"parameters": {
+								"first-value": "Functions.CanCardMoveToTableau(CardUID, Tableau.UID)",
+								"comparison": 0,
+								"second-value": "\"Yes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 635386240120663,
+							"parameters": {
+								"variable": "MoveToUID",
+								"value": "Tableau.UID"
+							}
+						}
+					],
+					"sid": 948056581819209
 				}
 			]
 		}

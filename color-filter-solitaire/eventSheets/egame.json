@@ -141,14 +141,32 @@
 							"parameters": {
 								"object": "Card"
 							}
+						},
+						{
+							"id": "is-enabled",
+							"objectClass": "Card",
+							"sid": 143602623732968,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "pick-topbottom",
+							"objectClass": "Card",
+							"sid": 840051795854731,
+							"parameters": {
+								"which": "top"
+							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "CalculatePossibleMoves",
-							"sid": 319622616482638,
+							"type": "comment",
+							"text": "TODO: handle moving a stack of cards"
+						},
+						{
+							"callFunction": "AutoMoveCard",
+							"sid": 904146455800186,
 							"parameters": [
-								"Card.Value"
+								"Card.UID"
 							]
 						}
 					],
@@ -195,18 +213,6 @@
 							"id": "move-to-top",
 							"objectClass": "Card",
 							"sid": 373299609659085
-						},
-						{
-							"callFunction": "CalculatePossibleMoves",
-							"sid": 581776234301900,
-							"parameters": [
-								"Card.Value"
-							]
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 379229250147510
 						},
 						{
 							"id": "set-eventvar-value",
@@ -376,11 +382,13 @@
 									}
 								},
 								{
-									"id": "contains-value",
-									"objectClass": "PossibleMoves",
-									"sid": 679715428527692,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 693868616726456,
 									"parameters": {
-										"value": "Tableau.UID"
+										"first-value": "Functions.CanCardMoveToTableau(Card.UID, Tableau.UID)",
+										"comparison": 0,
+										"second-value": "\"Yes\""
 									}
 								}
 							],
@@ -1727,159 +1735,110 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "comment",
-					"text": "for each tableau, get the highest (z-level) card overlapping it"
-				},
-				{
-					"eventType": "comment",
-					"text": "figure out if it's a valid move"
-				},
-				{
-					"eventType": "comment",
-					"text": "if the card was dragged, set a boolean on the tableau to say that it's a valid move"
-				},
-				{
-					"eventType": "comment",
-					"text": "reset the boolean on all tableaus when the card is dropped"
-				},
-				{
-					"eventType": "comment",
-					"text": "if the card was clicked, move to the first valid move (check foundations first)"
-				},
-				{
-					"functionName": "CalculatePossibleMoves",
+					"functionName": "CanCardMoveToTableau",
 					"functionDescription": "",
 					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": true,
+					"functionReturnType": "string",
+					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "Value",
+							"name": "CardUID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "",
-							"sid": 570575231489746
+							"sid": 897576303053418
+						},
+						{
+							"name": "TableauUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 152021047940690
 						}
 					],
 					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
+					"conditions": [
 						{
-							"id": "set-size",
-							"objectClass": "PossibleMoves",
-							"sid": 318753973589523,
+							"id": "pick-by-unique-id",
+							"objectClass": "Card",
+							"sid": 349728566439739,
 							"parameters": {
-								"width": "0",
-								"height": "1",
-								"depth": "1"
+								"unique-id": "CardUID"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 952737971202840,
+							"parameters": {
+								"unique-id": "TableauUID"
 							}
 						}
 					],
-					"sid": 461239220350649,
+					"actions": [],
+					"sid": 527168641394770,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each",
+									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 901804924367307,
+									"sid": 957930133814222,
 									"parameters": {
-										"object": "Tableau"
+										"first-value": "Tableau.TopCardValue",
+										"comparison": 0,
+										"second-value": "Card.Value + 1"
 									}
 								}
 							],
-							"actions": [],
-							"sid": 865871549391247,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Card",
-											"sid": 362400192681497,
-											"parameters": {
-												"object": "Tableau"
-											}
-										},
-										{
-											"id": "pick-topbottom",
-											"objectClass": "Card",
-											"sid": 197079407600803,
-											"parameters": {
-												"which": "top"
-											}
-										},
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 296020998608087,
-											"parameters": {
-												"first-value": "Card.Value",
-												"comparison": 0,
-												"second-value": "Value + 1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "push",
-											"objectClass": "PossibleMoves",
-											"sid": 402898801831399,
-											"parameters": {
-												"where": "back",
-												"value": "Tableau.UID",
-												"axis": "x"
-											}
-										}
-									],
-									"sid": 179493709517693
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 394271744223877,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 532214432740926
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Tableau",
+									"sid": 294261036224495,
+									"parameters": {
+										"instance-variable": "NumberOfCards",
+										"comparison": 0,
+										"value": "0"
+									}
 								},
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 622727375978911
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Tableau",
-											"sid": 204438138366601,
-											"parameters": {
-												"instance-variable": "NumberOfCards",
-												"comparison": 0,
-												"value": "0"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Tableau",
-											"sid": 582564204668801,
-											"parameters": {
-												"instance-variable": "Row",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "push",
-											"objectClass": "PossibleMoves",
-											"sid": 938907408277181,
-											"parameters": {
-												"where": "back",
-												"value": "Tableau.UID",
-												"axis": "x"
-											}
-										}
-									],
-									"sid": 453544631654461
+									"id": "compare-instance-variable",
+									"objectClass": "Tableau",
+									"sid": 618636507839121,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "0"
+									}
 								}
-							]
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 503116144972301,
+									"parameters": {
+										"value": "\"Yes\""
+									}
+								}
+							],
+							"sid": 661859299328079
 						}
 					]
 				}
@@ -2302,53 +2261,6 @@
 			"sid": 788603253791950
 		},
 		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Click-to-Move",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 373672968805020,
-							"parameters": {
-								"object": "Card"
-							}
-						},
-						{
-							"id": "is-enabled",
-							"objectClass": "Card",
-							"sid": 792046978818824,
-							"behaviorType": "DragDrop"
-						},
-						{
-							"id": "pick-topbottom",
-							"objectClass": "Card",
-							"sid": 269889328036829,
-							"parameters": {
-								"which": "top"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "CalculatePossibleMoves",
-							"sid": 158410464157211,
-							"parameters": [
-								"Card.Value"
-							]
-						}
-					],
-					"sid": 567039614021066
-				}
-			],
-			"sid": 525593031090648
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -2413,34 +2325,6 @@
 				}
 			],
 			"sid": 125373178136596
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Tableau",
-					"sid": 748515455796476,
-					"parameters": {
-						"instance-variable": "NumberOfCards",
-						"comparison": 2,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"type": "comment",
-					"text": "proooobably should figure out why this happens sometimes"
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Tableau",
-					"sid": 121543182764780
-				}
-			],
-			"sid": 740650994165030,
-			"disabled": true
 		}
 	],
 	"sid": 753509500735737
