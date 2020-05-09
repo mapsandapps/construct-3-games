@@ -3,9 +3,9 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "NEW_TABLEAU_OFFSET",
+			"name": "TABLEAU_OFFSET",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "8",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -233,8 +233,9 @@
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 624552445397404,
+							"disabled": true,
 							"parameters": {
-								"variable": "NEW_TABLEAU_OFFSET",
+								"variable": "TABLEAU_OFFSET",
 								"value": "Card.Height"
 							}
 						}
@@ -660,9 +661,9 @@
 								{
 									"id": "set-y",
 									"objectClass": "Card",
-									"sid": 247918892018424,
+									"sid": 225886156080247,
 									"parameters": {
-										"y": "Card.Y + NEW_TABLEAU_OFFSET"
+										"y": "Card.Y + Card.Height - CARD_OFFSET + TABLEAU_OFFSET"
 									}
 								},
 								{
@@ -734,12 +735,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 100375246826452,
+									"sid": 170233377418578,
 									"parameters": {
 										"object-to-create": "Tableau",
 										"layer": "\"Tableaus\"",
 										"x": "Tableau.X",
-										"y": "MovingCardAt + NEW_TABLEAU_OFFSET - (CARD_OFFSET * NumberOfCardsMoved)"
+										"y": "MovingCardAt + TABLEAU_OFFSET + Card.Height - CARD_OFFSET - (CARD_OFFSET * NumberOfCardsMoved)"
 									}
 								},
 								{
@@ -1409,9 +1410,9 @@
 						{
 							"id": "set-y",
 							"objectClass": "Tableau",
-							"sid": 434322573577857,
+							"sid": 168567406546823,
 							"parameters": {
-								"y": "BottomOfNorthTableau + 8"
+								"y": "BottomOfNorthTableau + TABLEAU_OFFSET"
 							}
 						}
 					],
