@@ -1,0 +1,111 @@
+{
+	"name": "eMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 558099101207734,
+					"parameters": {
+						"object": "BoardSizeButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 338982790242242,
+					"parameters": {
+						"variable": "GAME_SIZE",
+						"value": "BoardSizeButton.BoardSize"
+					}
+				}
+			],
+			"sid": 277501680345873,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BoardSizeButton",
+							"sid": 218084102289931,
+							"parameters": {
+								"instance-variable": "BoardSize",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 135380472989352,
+							"parameters": {
+								"layout": "Four"
+							}
+						}
+					],
+					"sid": 570938047449500
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BoardSizeButton",
+							"sid": 226869185239889,
+							"parameters": {
+								"instance-variable": "BoardSize",
+								"comparison": 0,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 264502392780054,
+							"parameters": {
+								"layout": "FIve"
+							}
+						}
+					],
+					"sid": 290348442626616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BoardSizeButton",
+							"sid": 192667840623732,
+							"parameters": {
+								"instance-variable": "BoardSize",
+								"comparison": 0,
+								"value": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 471938124254511,
+							"parameters": {
+								"layout": "Six"
+							}
+						}
+					],
+					"sid": 530201406485076
+				}
+			]
+		}
+	],
+	"sid": 887802482226467
+}

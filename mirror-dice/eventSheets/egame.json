@@ -38,7 +38,7 @@
 			"initialValue": "3",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": true,
+			"isConstant": false,
 			"sid": 116962569358837
 		},
 		{
@@ -52,6 +52,16 @@
 			"sid": 750670835545135
 		},
 		{
+			"eventType": "variable",
+			"name": "GAME_SIZE",
+			"type": "number",
+			"initialValue": "6",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 146923369330284
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -60,13 +70,129 @@
 					"sid": 871505188581261
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 607625019712216,
+			"children": [
 				{
-					"callFunction": "BeginRound",
-					"sid": 165817087990156
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 206674468826723,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Four\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 606278969408890,
+							"parameters": {
+								"variable": "GAME_SIZE",
+								"value": "4"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 718477606435563,
+							"parameters": {
+								"variable": "DICE_ROLLED_PER_ROUND",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 256152819402304
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 281455071936306,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Five\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 970471883898807,
+							"parameters": {
+								"variable": "GAME_SIZE",
+								"value": "5"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 621203936190541,
+							"parameters": {
+								"variable": "DICE_ROLLED_PER_ROUND",
+								"value": "5"
+							}
+						}
+					],
+					"sid": 670072345235060
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 114102528536224,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Six\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 698408228437582,
+							"parameters": {
+								"variable": "GAME_SIZE",
+								"value": "6"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 924599239631793,
+							"parameters": {
+								"variable": "DICE_ROLLED_PER_ROUND",
+								"value": "3"
+							}
+						}
+					],
+					"sid": 466371719757478
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "BeginRound",
+							"sid": 885101993877255
+						}
+					],
+					"sid": 409985044397853
 				}
-			],
-			"sid": 607625019712216
+			]
 		},
 		{
 			"eventType": "block",

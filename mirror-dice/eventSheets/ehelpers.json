@@ -56,6 +56,55 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 467298240677657,
+							"parameters": {
+								"variable": "GAME_SIZE",
+								"comparison": 0,
+								"value": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Die",
+							"sid": 861645646896108,
+							"parameters": {
+								"width": "96",
+								"height": "96"
+							}
+						}
+					],
+					"sid": 901705323164279
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 657837448950256
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Die",
+							"sid": 178128101860589,
+							"parameters": {
+								"width": "128",
+								"height": "128"
+							}
+						}
+					],
+					"sid": 850274823400584
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "repeat",
 							"objectClass": "System",
 							"sid": 194353535267036,
@@ -911,11 +960,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Board",
-									"sid": 603338728651200,
+									"sid": 197939432136556,
 									"parameters": {
 										"instance-variable": "NumberOfDicePlayed",
 										"comparison": 0,
-										"value": "36"
+										"value": "GAME_SIZE ^ 2"
 									}
 								}
 							],

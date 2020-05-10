@@ -23,6 +23,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r198",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r198",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -55,7 +71,10 @@
 			"Roll",
 			"Board",
 			"InfoText",
-			"InfoSecondary"
+			"InfoSecondary",
+			"BoardSizeButton",
+			"Title",
+			"Touch"
 		],
 		"subfolders": []
 	},
@@ -67,7 +86,10 @@
 	},
 	"layouts": {
 		"items": [
-			"Game",
+			"Menu",
+			"Four",
+			"FIve",
+			"Six",
 			"Objects"
 		],
 		"subfolders": []
@@ -75,7 +97,8 @@
 	"eventSheets": {
 		"items": [
 			"eGame",
-			"eHelpers"
+			"eHelpers",
+			"eMenu"
 		],
 		"subfolders": []
 	},
@@ -205,12 +228,12 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true
 	},
 	"viewportWidth": 720,
 	"viewportHeight": 1280,
-	"firstLayout": null
+	"firstLayout": "Menu"
 }
