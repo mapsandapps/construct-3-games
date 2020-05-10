@@ -1,0 +1,50 @@
+{
+	"name": "Board",
+	"plugin-id": "Sprite",
+	"sid": 651723228719089,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "NumberOfDicePlayed",
+			"type": "number",
+			"desc": "",
+			"sid": 369280296310462
+		},
+		{
+			"name": "Player",
+			"type": "string",
+			"desc": "",
+			"sid": 111001413479331
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6752301,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 138456745973938,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

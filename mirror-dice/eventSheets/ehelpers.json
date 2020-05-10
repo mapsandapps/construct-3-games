@@ -1,0 +1,1015 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"functionName": "RollForPlayer",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 412164955875834,
+					"parameters": {
+						"object": "Roll"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Roll",
+					"sid": 796152342018987,
+					"parameters": {
+						"instance-variable": "Player",
+						"comparison": 0,
+						"value": "\"Player\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Roll",
+					"sid": 917227866345325,
+					"parameters": {
+						"object": "Die",
+						"layer": "\"Dice\"",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Die",
+					"sid": 646908850750342,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 177963656015086,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 194353535267036,
+							"parameters": {
+								"count": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 508699759084157,
+							"parameters": {
+								"seconds": "loopindex * 0.1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Die",
+							"sid": 125050421558103,
+							"parameters": {
+								"frame-number": "random(Die.AnimationFrameCount)"
+							}
+						}
+					],
+					"sid": 303620009542852
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 823139352041175,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Die",
+							"sid": 565514100779188,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 643732394599386
+				}
+			]
+		},
+		{
+			"functionName": "RollForAI",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 638723272554807,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 127734383241785,
+							"parameters": {
+								"object": "Roll"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Roll",
+							"sid": 798523912607878,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "\"AI\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Roll",
+							"sid": 451918301187447,
+							"parameters": {
+								"object": "Die",
+								"layer": "\"Dice\"",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Die",
+							"sid": 708289528413318,
+							"parameters": {
+								"width": "64",
+								"height": "64"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Die",
+							"sid": 956748356431968,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 716129327495777,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 584079924431567,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 503627708891638,
+									"parameters": {
+										"seconds": "loopindex * 0.1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Die",
+									"sid": 476052554737265,
+									"parameters": {
+										"frame-number": "random(Die.AnimationFrameCount)"
+									}
+								}
+							],
+							"sid": 378250474784194
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 380350406593892,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"callFunction": "PlayForAI",
+							"sid": 599279723488629
+						}
+					],
+					"sid": 188751628915889
+				}
+			]
+		},
+		{
+			"functionName": "BeginRound",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 109478981800696,
+					"parameters": {
+						"variable": "RoundNumber",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 536476641607290,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 983599841902688,
+							"parameters": {
+								"first-value": "RoundNumber",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 652959876744498,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 181593093119699,
+									"parameters": {
+										"first-value": "choose(0, 1)",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 123508271367978,
+									"parameters": {
+										"variable": "IsPlayerFirstThisRound",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 395842846821524
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 663601897950101
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 436738341786286,
+									"parameters": {
+										"variable": "IsPlayerFirstThisRound",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 459090554146411
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 908105203037057
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 732728151977421,
+							"parameters": {
+								"variable": "IsPlayerFirstThisRound"
+							}
+						}
+					],
+					"sid": 232983387202302
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "DisplayRoundText",
+							"sid": 248209366043270
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 999425888038130
+						}
+					],
+					"sid": 435637522448280,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 464671560360084,
+									"parameters": {
+										"variable": "IsPlayerFirstThisRound"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BeginPlayerTurn",
+									"sid": 318090633840524
+								}
+							],
+							"sid": 606695836629107
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 147446570881519
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "BeginAITurn",
+									"sid": 711688613629755
+								}
+							],
+							"sid": 347679373454709
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "DisplayRoundText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "restart-fade",
+					"objectClass": "InfoText",
+					"sid": 933286981060327,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "InfoText",
+					"sid": 938970200609921,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 596942490233235,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 143645054330042,
+							"parameters": {
+								"first-value": "RoundNumber",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "InfoText",
+							"sid": 105684350102433,
+							"parameters": {
+								"text": "\"First Round!\""
+							}
+						}
+					],
+					"sid": 416164396776336
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 166676487237076
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "InfoText",
+							"sid": 413616457864457,
+							"parameters": {
+								"text": "\"Next Round!\""
+							}
+						}
+					],
+					"sid": 139719946035478
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 720112706839515,
+							"parameters": {
+								"seconds": "InfoText.Fade.WaitTime + InfoText.Fade.FadeOutTime"
+							}
+						}
+					],
+					"sid": 667061619124420
+				}
+			]
+		},
+		{
+			"functionName": "BeginPlayerTurn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "RollForPlayer",
+					"sid": 529163426759396
+				},
+				{
+					"id": "restart-fade",
+					"objectClass": "InfoText",
+					"sid": 334388432679662,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "InfoText",
+					"sid": 230690875832304,
+					"parameters": {
+						"text": "\"Your turn\""
+					}
+				}
+			],
+			"sid": 608652197141665,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 305198731600093,
+							"parameters": {
+								"variable": "IsPlayerFirstThisRound"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 872578077364943
+				}
+			]
+		},
+		{
+			"functionName": "BeginAITurn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "RollForAI",
+					"sid": 423078502925560
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "InfoSecondary",
+					"sid": 604308030423277,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "restart-fade",
+					"objectClass": "InfoSecondary",
+					"sid": 667120122733912,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "InfoSecondary",
+					"sid": 569126461873264,
+					"parameters": {
+						"text": "\"Opponent's turn\""
+					}
+				}
+			],
+			"sid": 178540846688015
+		},
+		{
+			"functionName": "PlayForAI",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 137683297634426,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 230491058704691,
+							"parameters": {
+								"object": "Roll"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Roll",
+							"sid": 829771102358052,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "\"AI\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 327075639275193,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Board",
+									"sid": 188857786901252,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"AI\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Board",
+									"sid": 601888153580487,
+									"parameters": {
+										"instance-variable": "NumberOfDicePlayed",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 752476853485836
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Die",
+									"sid": 846071463516414,
+									"parameters": {
+										"object": "Roll"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 596740147128160,
+									"parameters": {
+										"seconds": "0.2 * loopindex"
+									}
+								},
+								{
+									"callFunction": "MoveAIDie",
+									"sid": 598997064371711,
+									"parameters": [
+										"Die.UID"
+									]
+								}
+							],
+							"sid": 724133443368399
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 946743774570414,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						}
+					],
+					"sid": 528688537408421,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 300394707411767,
+									"parameters": {
+										"first-value": "Functions.IsGameComplete",
+										"comparison": 0,
+										"second-value": "\"Yes\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ScoreGame",
+									"sid": 536620892198596
+								}
+							],
+							"sid": 282928522699232
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 820519962971011
+								}
+							],
+							"actions": [],
+							"sid": 755094978815715,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 121098314429556,
+											"parameters": {
+												"variable": "IsPlayerFirstThisRound"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BeginRound",
+											"sid": 768456260647198
+										}
+									],
+									"sid": 149778616886584
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 396707299124612
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BeginPlayerTurn",
+											"sid": 210864137420589
+										}
+									],
+									"sid": 103331506796420
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "MoveAIDie",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "DieUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 757109599615289
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Die",
+					"sid": 399095610935430,
+					"parameters": {
+						"unique-id": "DieUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 996144027388029,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Cell",
+							"sid": 849732236913059,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "\"AI\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 335414835450420,
+							"parameters": {
+								"instance-variable": "IsEmpty"
+							}
+						},
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 405087948950395,
+							"parameters": {
+								"object": "Cell"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Cell",
+							"sid": 768466735990457,
+							"parameters": {
+								"instance-variable": "IsEmpty",
+								"value": "false"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Die",
+							"sid": 747996263402189,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Cell.X",
+								"end-y": "Cell.Y",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "no"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 614724732760786
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Cell",
+							"sid": 138635128350999,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 526622298503273
+				}
+			]
+		},
+		{
+			"functionName": "IsGameComplete",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 104271495652601,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "PlayersDone",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 539986248042549
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 656746924390275,
+							"parameters": {
+								"object": "Board"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 127168408598307,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Board",
+									"sid": 603338728651200,
+									"parameters": {
+										"instance-variable": "NumberOfDicePlayed",
+										"comparison": 0,
+										"value": "36"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 238591718870470,
+									"parameters": {
+										"variable": "PlayersDone",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 887764292178410
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 544363444747886,
+							"parameters": {
+								"first-value": "PlayersDone",
+								"comparison": 0,
+								"second-value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 876777488124860,
+							"parameters": {
+								"value": "\"Yes\""
+							}
+						}
+					],
+					"sid": 194582139235976
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 175278769800181
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 806219853754215,
+							"parameters": {
+								"value": "\"No\""
+							}
+						}
+					],
+					"sid": 925552400922704
+				}
+			]
+		},
+		{
+			"functionName": "ScoreGame",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "restart-fade",
+					"objectClass": "InfoText",
+					"sid": 222262803102535,
+					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "InfoText",
+					"sid": 550985798438917,
+					"parameters": {
+						"text": "\"Scores:\""
+					}
+				}
+			],
+			"sid": 498658617928885
+		}
+	],
+	"sid": 261054466708431
+}

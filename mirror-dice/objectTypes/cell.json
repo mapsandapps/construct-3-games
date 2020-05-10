@@ -1,0 +1,98 @@
+{
+	"name": "Cell",
+	"plugin-id": "Sprite",
+	"sid": 878561594868416,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Row",
+			"type": "number",
+			"desc": "",
+			"sid": 244886632832220
+		},
+		{
+			"name": "Column",
+			"type": "number",
+			"desc": "",
+			"sid": 140830875951683
+		},
+		{
+			"name": "IsEmpty",
+			"type": "boolean",
+			"desc": "",
+			"sid": 309349405017353
+		},
+		{
+			"name": "Player",
+			"type": "string",
+			"desc": "",
+			"sid": 229162445290266
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 256,
+						"height": 256,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 26081,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 256,
+						"height": 256,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4124623,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 399310170033706,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
