@@ -461,6 +461,21 @@
 							"sid": 347679373454709
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cell",
+							"sid": 105391278061636,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 305741127016398
 				}
 			]
 		},
@@ -842,79 +857,205 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Cell",
-							"sid": 230723642170720,
-							"parameters": {
-								"instance-variable": "Player",
-								"comparison": 0,
-								"value": "\"Opponent\""
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Cell",
-							"sid": 335414835450420,
-							"parameters": {
-								"instance-variable": "IsEmpty"
-							}
-						},
-						{
-							"id": "pick-random-instance",
+							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 405087948950395,
+							"sid": 920316098842521,
 							"parameters": {
-								"object": "Cell"
+								"variable": "IsPlayerFirstThisRound"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 322984219786312,
+					"children": [
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Cell",
-							"sid": 768466735990457,
-							"parameters": {
-								"instance-variable": "IsEmpty",
-								"value": "false"
-							}
-						},
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Cell",
+									"sid": 355080853331039,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Opponent\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cell",
+									"sid": 957577217921295,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Cell",
+									"sid": 970335747435022,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								},
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 802143482491293,
+									"parameters": {
+										"object": "Cell"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Cell",
+									"sid": 174499898724301,
+									"parameters": {
+										"instance-variable": "IsEmpty",
+										"value": "false"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Die",
+									"sid": 403999643935430,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Cell.X",
+										"end-y": "Cell.Y",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 873634837324615
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Cell",
+									"sid": 733210214507328,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "CalculatePlayerScore",
+									"sid": 781667010001215,
+									"parameters": [
+										"\"Opponent\""
+									]
+								}
+							],
+							"sid": 495699085171966
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
 						{
-							"id": "tween-two-properties",
-							"objectClass": "Die",
-							"sid": 747996263402189,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Cell.X",
-								"end-y": "Cell.Y",
-								"time": "0.2",
-								"ease": "default",
-								"destroy-on-complete": "no"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
+							"id": "else",
 							"objectClass": "System",
-							"sid": 614724732760786
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Cell",
-							"sid": 138635128350999,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						},
-						{
-							"callFunction": "CalculatePlayerScore",
-							"sid": 180297225548229,
-							"parameters": [
-								"\"Opponent\""
-							]
+							"sid": 918512948932353
 						}
 					],
-					"sid": 526622298503273
+					"actions": [],
+					"sid": 526622298503273,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Cell",
+									"sid": 411100216436620,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Opponent\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cell",
+									"sid": 386814046934872,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								},
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 765676875053305,
+									"parameters": {
+										"object": "Cell"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Cell",
+									"sid": 799340670285843,
+									"parameters": {
+										"instance-variable": "IsEmpty",
+										"value": "false"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Die",
+									"sid": 361403081963073,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Cell.X",
+										"end-y": "Cell.Y",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 269126598650781
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Cell",
+									"sid": 494364144873280,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "CalculatePlayerScore",
+									"sid": 776119242741291,
+									"parameters": [
+										"\"Opponent\""
+									]
+								},
+								{
+									"callFunction": "SetCellRequired",
+									"sid": 760921827890235,
+									"parameters": [
+										"Cell.Row",
+										"Cell.Column"
+									]
+								}
+							],
+							"sid": 560554380472788
+						}
+					]
 				}
 			]
 		},
@@ -939,6 +1080,26 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 539986248042549
+				},
+				{
+					"eventType": "variable",
+					"name": "PlayerScore",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 660293363503000
+				},
+				{
+					"eventType": "variable",
+					"name": "AIScore",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 142772096532303
 				},
 				{
 					"eventType": "block",
@@ -981,6 +1142,65 @@
 								}
 							],
 							"sid": 887764292178410
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Board",
+									"sid": 796519862543574,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Player\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 691839176144576,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "Board.Score"
+									}
+								}
+							],
+							"sid": 200573141935357
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 468679944123192
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Board",
+									"sid": 462085627978848,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Opponent\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 131710800238534,
+									"parameters": {
+										"variable": "AIScore",
+										"value": "Board.Score"
+									}
+								}
+							],
+							"sid": 166207461361917
 						}
 					]
 				},
@@ -1008,7 +1228,105 @@
 							}
 						}
 					],
-					"sid": 194582139235976
+					"sid": 194582139235976,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 887850449970784,
+									"parameters": {
+										"first-value": "PlayerScore",
+										"comparison": 4,
+										"second-value": "AIScore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-fade",
+									"objectClass": "InfoText",
+									"sid": 153836051772861,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "InfoText",
+									"sid": 391169132330760,
+									"parameters": {
+										"text": "\"You win!!\""
+									}
+								}
+							],
+							"sid": 182233938733388
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 560244443597570,
+									"parameters": {
+										"first-value": "PlayerScore",
+										"comparison": 2,
+										"second-value": "AIScore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-fade",
+									"objectClass": "InfoText",
+									"sid": 500810079956018,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "InfoText",
+									"sid": 489304652444564,
+									"parameters": {
+										"text": "\"You lose\""
+									}
+								}
+							],
+							"sid": 517801106971724
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 886527850541736,
+									"parameters": {
+										"first-value": "PlayerScore",
+										"comparison": 0,
+										"second-value": "AIScore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-fade",
+									"objectClass": "InfoText",
+									"sid": 155066957273712,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "InfoText",
+									"sid": 709600391771333,
+									"parameters": {
+										"text": "\"Draw\""
+									}
+								}
+							],
+							"sid": 301477953432254
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1173,6 +1491,63 @@
 				}
 			],
 			"sid": 760278354701635
+		},
+		{
+			"functionName": "SetCellRequired",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Row",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 587598664346051
+				},
+				{
+					"name": "Column",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 377325410943265
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Cell",
+					"sid": 126467162075832,
+					"parameters": {
+						"instance-variable": "Column",
+						"comparison": 0,
+						"value": "Column"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Cell",
+					"sid": 272906928075154,
+					"parameters": {
+						"instance-variable": "Row",
+						"comparison": 0,
+						"value": "Row"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Cell",
+					"sid": 345390769340604,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 496794717811324
 		}
 	],
 	"sid": 261054466708431

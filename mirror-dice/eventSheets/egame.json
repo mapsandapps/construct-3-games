@@ -70,16 +70,6 @@
 			"sid": 146923369330284
 		},
 		{
-			"eventType": "variable",
-			"name": "IS_IN_MIRROR_MODE",
-			"type": "boolean",
-			"initialValue": "true",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 800524061373480
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -291,84 +281,40 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Die",
-							"sid": 456151009901786,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 759996366406433,
 							"parameters": {
-								"object": "Cell"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Cell",
-							"sid": 170510327949167,
-							"parameters": {
-								"instance-variable": "IsEmpty"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Cell",
-							"sid": 871450861067094,
-							"parameters": {
-								"instance-variable": "Player",
-								"comparison": 0,
-								"value": "\"Player\""
+								"variable": "IsPlayerFirstThisRound"
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-enabled",
-							"objectClass": "Die",
-							"sid": 614767304585213,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Die",
-							"sid": 923637066183358,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Cell.X",
-								"end-y": "Cell.Y",
-								"time": "0.1",
-								"ease": "default",
-								"destroy-on-complete": "no"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Cell",
-							"sid": 653582284963271,
-							"parameters": {
-								"instance-variable": "IsEmpty",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "Cell",
-							"sid": 551020229518442,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 856304989066401,
+					"actions": [],
+					"sid": 848038722084378,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Die",
+									"sid": 696548076383267,
+									"parameters": {
+										"object": "Cell"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cell",
+									"sid": 431186903961327,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								},
+								{
 									"id": "compare-instance-variable",
-									"objectClass": "Board",
-									"sid": 202153961125572,
+									"objectClass": "Cell",
+									"sid": 851306905292176,
 									"parameters": {
 										"instance-variable": "Player",
 										"comparison": 0,
@@ -378,32 +324,146 @@
 							],
 							"actions": [
 								{
-									"id": "add-to-instvar",
-									"objectClass": "Board",
-									"sid": 874327243618609,
+									"id": "set-enabled",
+									"objectClass": "Die",
+									"sid": 896318834785167,
+									"behaviorType": "DragDrop",
 									"parameters": {
-										"instance-variable": "NumberOfDicePlayed",
-										"value": "1"
+										"state": "disabled"
 									}
 								},
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 347366290562527,
+									"id": "tween-two-properties",
+									"objectClass": "Die",
+									"sid": 674282209594660,
+									"behaviorType": "Tween",
 									"parameters": {
-										"variable": "PlayerDiceMovedThisRound",
-										"value": "1"
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Cell.X",
+										"end-y": "Cell.Y",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no"
 									}
 								},
 								{
-									"callFunction": "CalculatePlayerScore",
-									"sid": 607582465162402,
+									"id": "set-boolean-instvar",
+									"objectClass": "Cell",
+									"sid": 782512203846514,
+									"parameters": {
+										"instance-variable": "IsEmpty",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Cell",
+									"sid": 755383782416996,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "SetCellRequired",
+									"sid": 553111292296327,
 									"parameters": [
-										"\"Player\""
+										"Cell.Row",
+										"Cell.Column"
 									]
 								}
 							],
-							"sid": 143577891248480
+							"sid": 739088631800622,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Board",
+											"sid": 783012081847105,
+											"parameters": {
+												"instance-variable": "Player",
+												"comparison": 0,
+												"value": "\"Player\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Board",
+											"sid": 424898657048375,
+											"parameters": {
+												"instance-variable": "NumberOfDicePlayed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 715971900216081,
+											"parameters": {
+												"variable": "PlayerDiceMovedThisRound",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "CalculatePlayerScore",
+											"sid": 876575525443429,
+											"parameters": [
+												"\"Player\""
+											]
+										}
+									],
+									"sid": 490832354950730
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 683339267843738
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Roll",
+									"sid": 746336452963067,
+									"parameters": {
+										"unique-id": "DieMovingFromRollUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Die",
+									"sid": 313514225114301,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Roll.X",
+										"end-y": "Roll.Y",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Die",
+									"sid": 821942025235401,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 948152537246804
 						}
 					]
 				},
@@ -413,44 +473,201 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 414739016615275
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Roll",
-							"sid": 688311502603835,
-							"parameters": {
-								"unique-id": "DieMovingFromRollUID"
-							}
+							"sid": 793732762906584
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 583208271949801,
+					"children": [
 						{
-							"id": "tween-two-properties",
-							"objectClass": "Die",
-							"sid": 859251054454468,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Roll.X",
-								"end-y": "Roll.Y",
-								"time": "0.1",
-								"ease": "default",
-								"destroy-on-complete": "no"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Die",
+									"sid": 336606069239812,
+									"parameters": {
+										"object": "Cell"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cell",
+									"sid": 740913361534564,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Cell",
+									"sid": 228534967224012,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Player\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Cell",
+									"sid": 954001961472677,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Die",
+									"sid": 462480764839143,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Die",
+									"sid": 989477492346917,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Cell.X",
+										"end-y": "Cell.Y",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Cell",
+									"sid": 188318814286970,
+									"parameters": {
+										"instance-variable": "IsEmpty",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Cell",
+									"sid": 253562203664808,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 214296018688466,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Board",
+											"sid": 522139765091857,
+											"parameters": {
+												"instance-variable": "Player",
+												"comparison": 0,
+												"value": "\"Player\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Board",
+											"sid": 562570077253280,
+											"parameters": {
+												"instance-variable": "NumberOfDicePlayed",
+												"value": "1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 580090911749323,
+											"parameters": {
+												"variable": "PlayerDiceMovedThisRound",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "CalculatePlayerScore",
+											"sid": 427276923347639,
+											"parameters": [
+												"\"Player\""
+											]
+										}
+									],
+									"sid": 214387087779429
+								}
+							]
 						},
 						{
-							"id": "set-enabled",
-							"objectClass": "Die",
-							"sid": 643356098477148,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "enabled"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 413275673352502
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Roll",
+									"sid": 931520382674398,
+									"parameters": {
+										"unique-id": "DieMovingFromRollUID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-fade",
+									"objectClass": "InfoText",
+									"sid": 845024914878343,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "InfoText",
+									"sid": 110619035409328,
+									"parameters": {
+										"text": "\"You must play in a highlighted cell\""
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Die",
+									"sid": 240301335772748,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "Roll.X",
+										"end-y": "Roll.Y",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Die",
+									"sid": 423312868260669,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 772702204825148
 						}
-					],
-					"sid": 438330141729273
+					]
 				}
 			]
 		},

@@ -561,7 +561,8 @@
 					"uid": 201,
 					"instanceVariables": {
 						"NumberOfDicePlayed": 0,
-						"Player": "Player"
+						"Player": "Player",
+						"Score": 0
 					},
 					"behaviors": {},
 					"world": {
@@ -593,7 +594,8 @@
 					"uid": 202,
 					"instanceVariables": {
 						"NumberOfDicePlayed": 0,
-						"Player": "Opponent"
+						"Player": "Opponent",
+						"Score": 0
 					},
 					"behaviors": {},
 					"world": {
@@ -624,7 +626,7 @@
 					},
 					"uid": 214,
 					"instanceVariables": {
-						"Row": 0,
+						"Row": 3,
 						"Column": 0,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -658,7 +660,7 @@
 					},
 					"uid": 215,
 					"instanceVariables": {
-						"Row": 0,
+						"Row": 3,
 						"Column": 1,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -692,7 +694,7 @@
 					},
 					"uid": 216,
 					"instanceVariables": {
-						"Row": 0,
+						"Row": 3,
 						"Column": 2,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -726,7 +728,7 @@
 					},
 					"uid": 217,
 					"instanceVariables": {
-						"Row": 0,
+						"Row": 3,
 						"Column": 3,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -760,7 +762,7 @@
 					},
 					"uid": 220,
 					"instanceVariables": {
-						"Row": 1,
+						"Row": 2,
 						"Column": 0,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -794,7 +796,7 @@
 					},
 					"uid": 221,
 					"instanceVariables": {
-						"Row": 1,
+						"Row": 2,
 						"Column": 1,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -828,7 +830,7 @@
 					},
 					"uid": 222,
 					"instanceVariables": {
-						"Row": 1,
+						"Row": 2,
 						"Column": 2,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -862,7 +864,7 @@
 					},
 					"uid": 223,
 					"instanceVariables": {
-						"Row": 1,
+						"Row": 2,
 						"Column": 3,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -896,7 +898,7 @@
 					},
 					"uid": 226,
 					"instanceVariables": {
-						"Row": 2,
+						"Row": 1,
 						"Column": 0,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -930,7 +932,7 @@
 					},
 					"uid": 227,
 					"instanceVariables": {
-						"Row": 2,
+						"Row": 1,
 						"Column": 1,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -964,7 +966,7 @@
 					},
 					"uid": 228,
 					"instanceVariables": {
-						"Row": 2,
+						"Row": 1,
 						"Column": 2,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -998,7 +1000,7 @@
 					},
 					"uid": 229,
 					"instanceVariables": {
-						"Row": 2,
+						"Row": 1,
 						"Column": 3,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -1032,7 +1034,7 @@
 					},
 					"uid": 232,
 					"instanceVariables": {
-						"Row": 3,
+						"Row": 0,
 						"Column": 0,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -1066,7 +1068,7 @@
 					},
 					"uid": 233,
 					"instanceVariables": {
-						"Row": 3,
+						"Row": 0,
 						"Column": 1,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -1100,7 +1102,7 @@
 					},
 					"uid": 234,
 					"instanceVariables": {
-						"Row": 3,
+						"Row": 0,
 						"Column": 2,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -1134,7 +1136,7 @@
 					},
 					"uid": 235,
 					"instanceVariables": {
-						"Row": 3,
+						"Row": 0,
 						"Column": 3,
 						"IsEmpty": true,
 						"Player": "Opponent"
@@ -1474,7 +1476,7 @@
 					"instanceVariables": {
 						"IsColumn": false,
 						"Column": 0,
-						"Row": 0,
+						"Row": 3,
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
@@ -1512,7 +1514,7 @@
 					"instanceVariables": {
 						"IsColumn": false,
 						"Column": 0,
-						"Row": 1,
+						"Row": 2,
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
@@ -1550,7 +1552,7 @@
 					"instanceVariables": {
 						"IsColumn": false,
 						"Column": 0,
-						"Row": 2,
+						"Row": 1,
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
@@ -1588,7 +1590,7 @@
 					"instanceVariables": {
 						"IsColumn": false,
 						"Column": 0,
-						"Row": 3,
+						"Row": 0,
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
@@ -1975,8 +1977,8 @@
 						"Fade": {
 							"properties": {
 								"fade-in-time": 0,
-								"wait-time": 0.5,
-								"fade-out-time": 0.5,
+								"wait-time": 1,
+								"fade-out-time": 1,
 								"destroy": false,
 								"enabled": true,
 								"live-preview": false
@@ -1984,10 +1986,10 @@
 						}
 					},
 					"world": {
-						"x": 40,
-						"y": 392,
-						"width": 640,
-						"height": 80,
+						"x": 0,
+						"y": 352,
+						"width": 720,
+						"height": 96,
 						"originX": 0,
 						"originY": 0,
 						"color": [

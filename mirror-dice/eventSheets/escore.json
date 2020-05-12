@@ -549,6 +549,33 @@
 						}
 					],
 					"sid": 869121277896688
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Board",
+							"sid": 460342916541479,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Board",
+							"sid": 509230428037251,
+							"parameters": {
+								"instance-variable": "Score",
+								"value": "PlayerScore"
+							}
+						}
+					],
+					"sid": 269708366766710
 				}
 			]
 		}
