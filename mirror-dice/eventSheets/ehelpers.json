@@ -48,6 +48,15 @@
 					"parameters": {
 						"state": "disabled"
 					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Die",
+					"sid": 199157338020246,
+					"parameters": {
+						"width": "128",
+						"height": "128"
+					}
 				}
 			],
 			"sid": 177963656015086,
@@ -78,28 +87,6 @@
 						}
 					],
 					"sid": 901705323164279
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 657837448950256
-						}
-					],
-					"actions": [
-						{
-							"id": "set-size",
-							"objectClass": "Die",
-							"sid": 178128101860589,
-							"parameters": {
-								"width": "128",
-								"height": "128"
-							}
-						}
-					],
-					"sid": 850274823400584
 				},
 				{
 					"eventType": "block",
