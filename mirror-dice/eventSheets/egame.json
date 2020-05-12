@@ -2,6 +2,14 @@
 	"name": "eGame",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "eInGameMenu"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eHover"
+		},
+		{
 			"eventType": "variable",
 			"name": "DieMovingFromRollUID",
 			"type": "number",

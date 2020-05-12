@@ -1174,7 +1174,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1211,7 +1212,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1248,7 +1250,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1285,7 +1288,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1322,7 +1326,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1359,7 +1364,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1396,7 +1402,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1433,7 +1440,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Player",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1470,7 +1478,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1507,7 +1516,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1544,7 +1554,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1581,7 +1592,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1618,7 +1630,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1655,7 +1668,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1692,7 +1706,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -1729,7 +1744,8 @@
 						"ObjectiveType": "",
 						"Objective": "",
 						"Player": "Opponent",
-						"CorrectForObjective": 0
+						"CorrectForObjective": 0,
+						"IsClickable": true
 					},
 					"behaviors": {},
 					"world": {
@@ -2151,6 +2167,351 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"global": false
+		},
+		{
+			"name": "In-game Menu",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "MenuBackground",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 267,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 24,
+						"width": 656,
+						"height": 1216,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.9
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Objectives",
+						"enable-bbcode": true,
+						"font": "Cookie-Regular",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.17254901960784313,
+							0.24313725490196078,
+							0.3137254901960784,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 268,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 48,
+						"y": 80,
+						"width": 624,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "The objectives change with each game. The goal is to get as many dice as possible to match each of the objectives. The objectives for the rows are shown on the left side of the board, and objectives for columns are shown at the bottom of the board.",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.17254901960784313,
+							0.24313725490196078,
+							0.3137254901960784,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 269,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 64,
+						"y": 184,
+						"width": 592,
+						"height": 120,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Scoring",
+						"enable-bbcode": true,
+						"font": "Cookie-Regular",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.17254901960784313,
+							0.24313725490196078,
+							0.3137254901960784,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 270,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 48,
+						"y": 328,
+						"width": 624,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Each objective is scored based on the number of dice that meet that objective:",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.17254901960784313,
+							0.24313725490196078,
+							0.3137254901960784,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 271,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 64,
+						"y": 432,
+						"width": 592,
+						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "1 die: 1 point\n2 dice: 2 points\n3 dice: 4 points\n4 dice: 8 points\n5 dice: 16 points\n6 dice: 32 points",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.17254901960784313,
+							0.24313725490196078,
+							0.3137254901960784,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 272,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 48,
+						"y": 488,
+						"width": 624,
+						"height": 160,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 273,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 152,
+						"y": 1032,
+						"width": 416,
+						"height": 104,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Return to Game",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 40,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 274,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 1040,
+						"width": 400,
+						"height": 80,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 388244014696025,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": true
 		}
 	],
 	"sid": 177386632001165,

@@ -8,8 +8,8 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
-			"id": "Sprite",
-			"name": "Sprite",
+			"id": "TiledBg",
+			"name": "Tiled Background",
 			"author": "Scirra",
 			"version": "r198",
 			"bundled": false
@@ -32,6 +32,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r198",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
@@ -40,16 +48,24 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
+			"id": "Mouse",
+			"name": "Mouse",
 			"author": "Scirra",
 			"version": "r198",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Browser",
-			"name": "Browser",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r198",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
 			"author": "Scirra",
 			"version": "r198",
 			"bundled": false
@@ -90,14 +106,31 @@
 			"InfoSecondary",
 			"BoardSizeButton",
 			"Title",
-			"Touch",
 			"Objective",
 			"ObjectivesArray",
 			"ScoreText",
-			"DiceArray",
-			"Browser"
+			"DiceArray"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"MenuBackground",
+					"MenuText",
+					"MenuButton"
+				],
+				"subfolders": [],
+				"name": "In-game Menu"
+			},
+			{
+				"items": [
+					"Browser",
+					"Touch",
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "Basic"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
@@ -120,7 +153,9 @@
 			"eGame",
 			"eHelpers",
 			"eMenu",
-			"eScore"
+			"eScore",
+			"eInGameMenu",
+			"eHover"
 		],
 		"subfolders": []
 	},

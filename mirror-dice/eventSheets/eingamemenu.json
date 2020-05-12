@@ -1,0 +1,154 @@
+{
+	"name": "eInGameMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 140670170882286,
+					"parameters": {
+						"object": "Objective"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Objective",
+					"sid": 404874275610409,
+					"parameters": {
+						"instance-variable": "IsClickable"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 299635241217031,
+					"parameters": {
+						"layer": "\"In-game Menu\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Die",
+					"sid": 685210399873698,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				}
+			],
+			"sid": 586355714990520,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 963261063192508,
+							"parameters": {
+								"object": "Objective"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Objective",
+							"sid": 392061631114538,
+							"parameters": {
+								"instance-variable": "IsClickable",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 761577946214916
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 771133857045448,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 332277521301459,
+					"parameters": {
+						"layer": "\"In-game Menu\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 547728890095166,
+					"parameters": {
+						"layer": "\"In-game Menu\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Objective",
+					"sid": 578797040663019,
+					"parameters": {
+						"instance-variable": "IsClickable",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 447489467520865,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Die",
+							"sid": 767214790642429,
+							"parameters": {
+								"object": "Roll"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Roll",
+							"sid": 643019812359035,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Die",
+							"sid": 769357187249665,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 401770397552103
+				}
+			]
+		}
+	],
+	"sid": 924533508808034
+}

@@ -1,0 +1,131 @@
+{
+	"name": "eHover",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 759063645884259,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 748286621422671,
+					"parameters": {
+						"layer": "\"In-game Menu\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 378270570164183,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 119984681585098
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 611186742500581
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 472688329096268,
+					"parameters": {
+						"object": "Objective"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Objective",
+					"sid": 260106759048892,
+					"parameters": {
+						"instance-variable": "IsClickable"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 102849486264819,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 974425022720623
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 919767385202344
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 167847546103371,
+					"parameters": {
+						"object": "Die"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Die",
+					"sid": 762450459384104,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 601949161402592,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 414830804589895
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 892766167464762
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 974300452073879,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 206844317280886
+		}
+	],
+	"sid": 790612612217036
+}

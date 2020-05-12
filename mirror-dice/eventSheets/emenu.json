@@ -105,6 +105,51 @@
 					"sid": 530201406485076
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 482221164882013,
+					"parameters": {
+						"object": "BoardSizeButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 433727014299979,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 871247102419851
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 615747459850572
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 856506449105040,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 611468658812727
 		}
 	],
 	"sid": 887802482226467
