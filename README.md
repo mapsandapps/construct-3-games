@@ -1,5 +1,12 @@
 # My Construct 3 Games Monorepo
 
+## Mirror Dice
+
+Roll & write game made for [Weekly Game Jam #148: "Mirror"](https://itch.io/jam/weekly-game-jam-148/rate/642444) in May 2020
+
+* Folder: [/mirror-dice](./mirror-dice)
+* [Play on Itch](https://mapsandapps.itch.io/mirror-dice)
+
 ## Hidden Column
 
 Solitaire card game made for [Weekly Game Jam #147: "Invisible"](https://itch.io/jam/weekly-game-jam-147/rate/634771) in May 2020
