@@ -39,6 +39,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r198",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r198",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -74,7 +90,12 @@
 			"InfoSecondary",
 			"BoardSizeButton",
 			"Title",
-			"Touch"
+			"Touch",
+			"Objective",
+			"ObjectivesArray",
+			"ScoreText",
+			"DiceArray",
+			"Browser"
 		],
 		"subfolders": []
 	},
@@ -98,7 +119,8 @@
 		"items": [
 			"eGame",
 			"eHelpers",
-			"eMenu"
+			"eMenu",
+			"eScore"
 		],
 		"subfolders": []
 	},
@@ -201,9 +223,9 @@
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0,
-			0,
-			0,
+			0.9254901960784314,
+			0.9411764705882353,
+			0.9450980392156862,
 			0
 		],
 		"splashColor": [

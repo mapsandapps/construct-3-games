@@ -146,6 +146,13 @@
 							}
 						},
 						{
+							"callFunction": "SetDie",
+							"sid": 602106188025888,
+							"parameters": [
+								"Die.UID"
+							]
+						},
+						{
 							"id": "set-enabled",
 							"objectClass": "Die",
 							"sid": 565514100779188,
@@ -256,6 +263,28 @@
 								}
 							],
 							"sid": 378250474784194
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 461600295347887,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"callFunction": "SetDie",
+									"sid": 756751661878661,
+									"parameters": [
+										"Die.UID"
+									]
+								}
+							],
+							"sid": 534821621929051
 						}
 					]
 				},
@@ -752,12 +781,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"callFunction": "ScoreGame",
-									"sid": 536620892198596
-								}
-							],
+							"actions": [],
 							"sid": 282928522699232
 						},
 						{
@@ -1033,7 +1057,7 @@
 			]
 		},
 		{
-			"functionName": "ScoreGame",
+			"functionName": "DeterminePlayerObjectives",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
@@ -1041,23 +1065,138 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
+			"actions": [],
+			"sid": 156954141261237,
+			"children": [
 				{
-					"id": "restart-fade",
-					"objectClass": "InfoText",
-					"sid": 222262803102535,
-					"behaviorType": "Fade"
+					"eventType": "variable",
+					"name": "ObjectiveIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 965265906682990
 				},
 				{
-					"id": "set-text",
-					"objectClass": "InfoText",
-					"sid": 550985798438917,
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 735786073811096,
+							"parameters": {
+								"object": "Objective"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Objective",
+							"sid": 412805193992158,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 343911082763548,
+							"parameters": {
+								"variable": "ObjectiveIndex",
+								"value": "random(ObjectivesArray.Width)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Objective",
+							"sid": 857311604665375,
+							"parameters": {
+								"frame-number": "ObjectiveIndex"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Objective",
+							"sid": 741643940791667,
+							"parameters": {
+								"instance-variable": "Objective",
+								"value": "ObjectivesArray.At(ObjectiveIndex, 2)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Objective",
+							"sid": 444291538202164,
+							"parameters": {
+								"instance-variable": "ObjectiveType",
+								"value": "ObjectivesArray.At(ObjectiveIndex, 1)"
+							}
+						}
+					],
+					"sid": 877241222240141
+				}
+			]
+		},
+		{
+			"functionName": "SetDie",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "DieUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 389563735410100
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Die",
+					"sid": 990910493202607,
 					"parameters": {
-						"text": "\"Scores:\""
+						"unique-id": "DieUID"
 					}
 				}
 			],
-			"sid": 498658617928885
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Die",
+					"sid": 346645235710018,
+					"parameters": {
+						"instance-variable": "Color",
+						"value": "DiceArray.At(Die.AnimationFrame, 2)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Die",
+					"sid": 894095280441469,
+					"parameters": {
+						"instance-variable": "Number",
+						"value": "DiceArray.At(Die.AnimationFrame, 1)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 427781030820304,
+					"parameters": {
+						"type": "log",
+						"message": "\"setdie\"&DieUID"
+					}
+				}
+			],
+			"sid": 760278354701635
 		}
 	],
 	"sid": 261054466708431

@@ -1,0 +1,557 @@
+{
+	"name": "eScore",
+	"events": [
+		{
+			"functionName": "CalculatePlayerScore",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Player",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 663571274442417
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 866752632934468,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "PlayerScore",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 299977029553570
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 198928821468635,
+							"parameters": {
+								"object": "Objective"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Objective",
+							"sid": 448862514081435,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Objective",
+							"sid": 360885226382091,
+							"parameters": {
+								"instance-variable": "CorrectForObjective",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 301994287933483,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Objective",
+									"sid": 584866933251517,
+									"parameters": {
+										"instance-variable": "IsColumn"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 737768671266994,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 200102281060680,
+											"parameters": {
+												"object": "Die"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Die",
+											"sid": 447480802471439,
+											"parameters": {
+												"object": "Cell"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 710523385861566,
+											"parameters": {
+												"instance-variable": "Player",
+												"comparison": 0,
+												"value": "Player"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 864022897829291,
+											"parameters": {
+												"instance-variable": "Column",
+												"comparison": 0,
+												"value": "Objective.Column"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 809684984574096,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Objective",
+													"sid": 348841166242341,
+													"parameters": {
+														"instance-variable": "ObjectiveType",
+														"comparison": 0,
+														"value": "\"same color\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Die",
+													"sid": 740799472330887,
+													"parameters": {
+														"instance-variable": "Color",
+														"comparison": 0,
+														"value": "Objective.Objective"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Objective",
+													"sid": 122263728271259,
+													"parameters": {
+														"instance-variable": "CorrectForObjective",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 725273643143024
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Objective",
+													"sid": 385500464427630,
+													"parameters": {
+														"instance-variable": "ObjectiveType",
+														"comparison": 0,
+														"value": "\"same number\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Die",
+													"sid": 675007604729008,
+													"parameters": {
+														"instance-variable": "Number",
+														"comparison": 0,
+														"value": "Objective.Objective"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Objective",
+													"sid": 518661480131311,
+													"parameters": {
+														"instance-variable": "CorrectForObjective",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 223433939007029
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 685722812626319
+								}
+							],
+							"actions": [],
+							"sid": 188226643600375,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 362188435802848,
+											"parameters": {
+												"object": "Die"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Die",
+											"sid": 776455579936137,
+											"parameters": {
+												"object": "Cell"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 971029675761613,
+											"parameters": {
+												"instance-variable": "Player",
+												"comparison": 0,
+												"value": "Player"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 609709777933198,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "Objective.Row"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 646433088772633,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Objective",
+													"sid": 387536165661257,
+													"parameters": {
+														"instance-variable": "ObjectiveType",
+														"comparison": 0,
+														"value": "\"same color\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Die",
+													"sid": 495983516222524,
+													"parameters": {
+														"instance-variable": "Color",
+														"comparison": 0,
+														"value": "Objective.Objective"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Objective",
+													"sid": 175096947014526,
+													"parameters": {
+														"instance-variable": "CorrectForObjective",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 884619580695689
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Objective",
+													"sid": 849361819356571,
+													"parameters": {
+														"instance-variable": "ObjectiveType",
+														"comparison": 0,
+														"value": "\"same number\""
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Die",
+													"sid": 498115927665115,
+													"parameters": {
+														"instance-variable": "Number",
+														"comparison": 0,
+														"value": "Objective.Objective"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Objective",
+													"sid": 243032014692494,
+													"parameters": {
+														"instance-variable": "CorrectForObjective",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 993284256030866
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Objective",
+									"sid": 330048448557119,
+									"parameters": {
+										"instance-variable": "CorrectForObjective",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 999930726874217,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 522436404069622
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 533278241269367
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Objective",
+									"sid": 896605880405121,
+									"parameters": {
+										"instance-variable": "CorrectForObjective",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 868833611575365,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 389842020384307
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 613718158631242
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Objective",
+									"sid": 789760159728531,
+									"parameters": {
+										"instance-variable": "CorrectForObjective",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 821149340585944,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "4"
+									}
+								}
+							],
+							"sid": 420795628419954
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 682678068106635
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Objective",
+									"sid": 477179612959557,
+									"parameters": {
+										"instance-variable": "CorrectForObjective",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 342513434835126,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "8"
+									}
+								}
+							],
+							"sid": 419447395551739
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 887349611190507
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Objective",
+									"sid": 645888368669534,
+									"parameters": {
+										"instance-variable": "CorrectForObjective",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 910278132258555,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "16"
+									}
+								}
+							],
+							"sid": 490026846915255
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 507304814464495
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Objective",
+									"sid": 976176410090189,
+									"parameters": {
+										"instance-variable": "CorrectForObjective",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 626655374998957,
+									"parameters": {
+										"variable": "PlayerScore",
+										"value": "32"
+									}
+								}
+							],
+							"sid": 811738863212877
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ScoreText",
+							"sid": 738406209563039,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "ScoreText",
+							"sid": 219480422817046,
+							"parameters": {
+								"text": "\"Score: \" & PlayerScore"
+							}
+						}
+					],
+					"sid": 869121277896688
+				}
+			]
+		}
+	],
+	"sid": 930862114044180
+}
