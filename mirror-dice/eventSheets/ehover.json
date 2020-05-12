@@ -112,19 +112,57 @@
 					"id": "else",
 					"objectClass": "System",
 					"sid": 892766167464762
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 285449535213760,
+					"parameters": {
+						"layer": "\"In-game Menu\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 914949903717177,
+					"parameters": {
+						"object": "ExitButton"
+					}
 				}
 			],
 			"actions": [
 				{
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
-					"sid": 974300452073879,
+					"sid": 764821297035394,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 206844317280886
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 920007303993512
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 649615717296486,
 					"parameters": {
 						"cursor-style": "normal"
 					}
 				}
 			],
-			"sid": 206844317280886
+			"sid": 250523407743060
 		}
 	],
 	"sid": 790612612217036

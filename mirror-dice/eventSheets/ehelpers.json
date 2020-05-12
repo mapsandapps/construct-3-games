@@ -584,24 +584,7 @@
 					}
 				}
 			],
-			"sid": 608652197141665,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 305198731600093,
-							"parameters": {
-								"variable": "IsPlayerFirstThisRound"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 872578077364943
-				}
-			]
+			"sid": 608652197141665
 		},
 		{
 			"functionName": "BeginAITurn",

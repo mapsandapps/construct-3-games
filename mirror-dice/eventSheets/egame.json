@@ -70,6 +70,16 @@
 			"sid": 146923369330284
 		},
 		{
+			"eventType": "variable",
+			"name": "IS_IN_MIRROR_MODE",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 800524061373480
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -554,6 +564,30 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 429033165514335,
+					"parameters": {
+						"object": "ExitButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 401671724269732,
+					"parameters": {
+						"layout": "Menu"
+					}
+				}
+			],
+			"sid": 714469817985449
 		}
 	],
 	"sid": 119852478581554
