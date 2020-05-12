@@ -192,11 +192,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Roll",
-							"sid": 798523912607878,
+							"sid": 519262937246084,
 							"parameters": {
 								"instance-variable": "Player",
 								"comparison": 0,
-								"value": "\"AI\""
+								"value": "\"Opponent\""
 							}
 						}
 					],
@@ -681,11 +681,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Roll",
-							"sid": 829771102358052,
+							"sid": 131703397552245,
 							"parameters": {
 								"instance-variable": "Player",
 								"comparison": 0,
-								"value": "\"AI\""
+								"value": "\"Opponent\""
 							}
 						}
 					],
@@ -698,11 +698,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Board",
-									"sid": 188857786901252,
+									"sid": 291143171858177,
 									"parameters": {
 										"instance-variable": "Player",
 										"comparison": 0,
-										"value": "\"AI\""
+										"value": "\"Opponent\""
 									}
 								}
 							],
@@ -874,11 +874,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Cell",
-							"sid": 849732236913059,
+							"sid": 230723642170720,
 							"parameters": {
 								"instance-variable": "Player",
 								"comparison": 0,
-								"value": "\"AI\""
+								"value": "\"Opponent\""
 							}
 						},
 						{
@@ -935,6 +935,13 @@
 							"parameters": {
 								"visibility": "invisible"
 							}
+						},
+						{
+							"callFunction": "CalculatePlayerScore",
+							"sid": 180297225548229,
+							"parameters": [
+								"\"Opponent\""
+							]
 						}
 					],
 					"sid": 526622298503273
@@ -1062,7 +1069,15 @@
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "Player",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 631220298816093
+				}
+			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [],
@@ -1092,11 +1107,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Objective",
-							"sid": 412805193992158,
+							"sid": 446519654317930,
 							"parameters": {
 								"instance-variable": "Player",
 								"comparison": 0,
-								"value": "\"Player\""
+								"value": "Player"
 							}
 						}
 					],
@@ -1184,15 +1199,6 @@
 					"parameters": {
 						"instance-variable": "Number",
 						"value": "DiceArray.At(Die.AnimationFrame, 1)"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 427781030820304,
-					"parameters": {
-						"type": "log",
-						"message": "\"setdie\"&DieUID"
 					}
 				}
 			],

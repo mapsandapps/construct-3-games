@@ -204,7 +204,17 @@
 					"actions": [
 						{
 							"callFunction": "DeterminePlayerObjectives",
-							"sid": 402039651358716
+							"sid": 730954260861655,
+							"parameters": [
+								"\"Player\""
+							]
+						},
+						{
+							"callFunction": "DeterminePlayerObjectives",
+							"sid": 934753016530066,
+							"parameters": [
+								"\"Opponent\""
+							]
 						},
 						{
 							"callFunction": "BeginRound",
