@@ -726,7 +726,7 @@
 									}
 								},
 								{
-									"callFunction": "MoveAIDie",
+									"callFunction": "ChooseAIMove",
 									"sid": 598997064371711,
 									"parameters": [
 										"Die.UID"
@@ -825,7 +825,7 @@
 			]
 		},
 		{
-			"functionName": "MoveAIDie",
+			"functionName": "ChooseAIMove",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
@@ -840,16 +840,7 @@
 				}
 			],
 			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Die",
-					"sid": 399095610935430,
-					"parameters": {
-						"unique-id": "DieUID"
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [],
 			"sid": 996144027388029,
 			"children": [
@@ -909,47 +900,11 @@
 							],
 							"actions": [
 								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Cell",
-									"sid": 174499898724301,
-									"parameters": {
-										"instance-variable": "IsEmpty",
-										"value": "false"
-									}
-								},
-								{
-									"id": "tween-two-properties",
-									"objectClass": "Die",
-									"sid": 403999643935430,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "position",
-										"end-x": "Cell.X",
-										"end-y": "Cell.Y",
-										"time": "0.2",
-										"ease": "default",
-										"destroy-on-complete": "no"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 873634837324615
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Cell",
-									"sid": 733210214507328,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"callFunction": "CalculatePlayerScore",
-									"sid": 781667010001215,
+									"callFunction": "MoveAIDieToCell",
+									"sid": 190943219368687,
 									"parameters": [
-										"\"Opponent\""
+										"DieUID",
+										"Cell.UID"
 									]
 								}
 							],
@@ -1001,47 +956,11 @@
 							],
 							"actions": [
 								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Cell",
-									"sid": 799340670285843,
-									"parameters": {
-										"instance-variable": "IsEmpty",
-										"value": "false"
-									}
-								},
-								{
-									"id": "tween-two-properties",
-									"objectClass": "Die",
-									"sid": 361403081963073,
-									"behaviorType": "Tween",
-									"parameters": {
-										"tags": "\"\"",
-										"property": "position",
-										"end-x": "Cell.X",
-										"end-y": "Cell.Y",
-										"time": "0.2",
-										"ease": "default",
-										"destroy-on-complete": "no"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 269126598650781
-								},
-								{
-									"id": "set-visible",
-									"objectClass": "Cell",
-									"sid": 494364144873280,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								},
-								{
-									"callFunction": "CalculatePlayerScore",
-									"sid": 776119242741291,
+									"callFunction": "MoveAIDieToCell",
+									"sid": 524163042145834,
 									"parameters": [
-										"\"Opponent\""
+										"DieUID",
+										"Cell.UID"
 									]
 								},
 								{
@@ -1548,6 +1467,95 @@
 				}
 			],
 			"sid": 496794717811324
+		},
+		{
+			"functionName": "MoveAIDieToCell",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "DieUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 906994430290298
+				},
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 586295037431221
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Die",
+					"sid": 898737679412011,
+					"parameters": {
+						"unique-id": "DieUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Cell",
+					"sid": 530120864447542,
+					"parameters": {
+						"unique-id": "CellUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Cell",
+					"sid": 174499898724301,
+					"parameters": {
+						"instance-variable": "IsEmpty",
+						"value": "false"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Die",
+					"sid": 403999643935430,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Cell.X",
+						"end-y": "Cell.Y",
+						"time": "0.2",
+						"ease": "default",
+						"destroy-on-complete": "no"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 873634837324615
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Cell",
+					"sid": 733210214507328,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"callFunction": "CalculatePlayerScore",
+					"sid": 781667010001215,
+					"parameters": [
+						"\"Opponent\""
+					]
+				}
+			],
+			"sid": 592803247804258
 		}
 	],
 	"sid": 261054466708431
