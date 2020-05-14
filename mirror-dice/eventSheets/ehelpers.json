@@ -845,19 +845,33 @@
 			"sid": 996144027388029,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 626149355775422
+				},
+				{
+					"eventType": "comment",
+					"text": "pick a random cell to move to, in case no better move is found"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 920316098842521,
+							"sid": 296252899511310,
 							"parameters": {
 								"variable": "IsPlayerFirstThisRound"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 322984219786312,
+					"sid": 842063204955944,
 					"children": [
 						{
 							"eventType": "block",
@@ -865,7 +879,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Cell",
-									"sid": 355080853331039,
+									"sid": 531964197459427,
 									"parameters": {
 										"instance-variable": "Player",
 										"comparison": 0,
@@ -875,7 +889,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Cell",
-									"sid": 957577217921295,
+									"sid": 970878640436221,
 									"parameters": {
 										"instance-variable": "IsEmpty"
 									}
@@ -883,7 +897,7 @@
 								{
 									"id": "compare-animation-frame",
 									"objectClass": "Cell",
-									"sid": 970335747435022,
+									"sid": 151143263920232,
 									"parameters": {
 										"comparison": 0,
 										"number": "1"
@@ -892,7 +906,7 @@
 								{
 									"id": "pick-random-instance",
 									"objectClass": "System",
-									"sid": 802143482491293,
+									"sid": 543463328314691,
 									"parameters": {
 										"object": "Cell"
 									}
@@ -900,15 +914,16 @@
 							],
 							"actions": [
 								{
-									"callFunction": "MoveAIDieToCell",
-									"sid": 190943219368687,
-									"parameters": [
-										"DieUID",
-										"Cell.UID"
-									]
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 652089826741721,
+									"parameters": {
+										"variable": "CellUID",
+										"value": "Cell.UID"
+									}
 								}
 							],
-							"sid": 495699085171966
+							"sid": 835488434139100
 						}
 					]
 				},
@@ -918,11 +933,11 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 918512948932353
+							"sid": 472416036490602
 						}
 					],
 					"actions": [],
-					"sid": 526622298503273,
+					"sid": 831260049803370,
 					"children": [
 						{
 							"eventType": "block",
@@ -930,7 +945,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Cell",
-									"sid": 411100216436620,
+									"sid": 223157529364260,
 									"parameters": {
 										"instance-variable": "Player",
 										"comparison": 0,
@@ -940,7 +955,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Cell",
-									"sid": 386814046934872,
+									"sid": 321323351652633,
 									"parameters": {
 										"instance-variable": "IsEmpty"
 									}
@@ -948,7 +963,7 @@
 								{
 									"id": "pick-random-instance",
 									"objectClass": "System",
-									"sid": 765676875053305,
+									"sid": 744733923616425,
 									"parameters": {
 										"object": "Cell"
 									}
@@ -956,25 +971,336 @@
 							],
 							"actions": [
 								{
-									"callFunction": "MoveAIDieToCell",
-									"sid": 524163042145834,
-									"parameters": [
-										"DieUID",
-										"Cell.UID"
-									]
-								},
-								{
-									"callFunction": "SetCellRequired",
-									"sid": 760921827890235,
-									"parameters": [
-										"Cell.Row",
-										"Cell.Column"
-									]
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 148158055214994,
+									"parameters": {
+										"variable": "CellUID",
+										"value": "Cell.UID"
+									}
 								}
 							],
-							"sid": 560554380472788
+							"sid": 314778761501089
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "try to find a better-than-random cell to move to"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 295207081682678,
+							"parameters": {
+								"variable": "IsPlayerFirstThisRound"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 780520088935285,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 673811161578167,
+									"parameters": {
+										"object": "Cell"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Cell",
+									"sid": 241493347526799,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Opponent\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cell",
+									"sid": 567487699555912,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Cell",
+									"sid": 380873753586215,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 732218620243129,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 868650343083880,
+											"parameters": {
+												"instance-variable": "ObjectiveType",
+												"comparison": 0,
+												"value": "\"same number\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 738092682700829,
+											"parameters": {
+												"instance-variable": "Objective",
+												"comparison": 0,
+												"value": "Die.Number"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 361373677010096,
+											"parameters": {
+												"variable": "CellUID",
+												"value": "Cell.UID"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 746423016182888,
+											"parameters": {
+												"type": "log",
+												"message": "\"smart move is set\""
+											}
+										}
+									],
+									"sid": 842516709290213
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 212710417958033,
+											"parameters": {
+												"instance-variable": "ObjectiveType",
+												"comparison": 0,
+												"value": "\"same color\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 458853367837658,
+											"parameters": {
+												"instance-variable": "Objective",
+												"comparison": 0,
+												"value": "Die.Color"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 511795138751391,
+											"parameters": {
+												"variable": "CellUID",
+												"value": "Cell.UID"
+											}
+										}
+									],
+									"sid": 580852481660771
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 946186207910779
+						}
+					],
+					"actions": [],
+					"sid": 487787749624765,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 479199077495848,
+									"parameters": {
+										"object": "Cell"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Cell",
+									"sid": 808884839234658,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "\"Opponent\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Cell",
+									"sid": 216073971660300,
+									"parameters": {
+										"instance-variable": "IsEmpty"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Die",
+									"sid": 856762641177673,
+									"parameters": {
+										"object": "Cell"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 840591193608049,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 456682951862333,
+											"parameters": {
+												"instance-variable": "ObjectiveType",
+												"comparison": 0,
+												"value": "\"same number\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 699208058103322,
+											"parameters": {
+												"instance-variable": "Objective",
+												"comparison": 0,
+												"value": "Die.Number"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 216486254111444,
+											"parameters": {
+												"variable": "CellUID",
+												"value": "Cell.UID"
+											}
+										}
+									],
+									"sid": 128973066931386
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 453701345763060,
+											"parameters": {
+												"instance-variable": "ObjectiveType",
+												"comparison": 0,
+												"value": "\"same color\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Objective",
+											"sid": 159627748882535,
+											"parameters": {
+												"instance-variable": "Objective",
+												"comparison": 0,
+												"value": "Die.Color"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 832369854622953,
+											"parameters": {
+												"variable": "CellUID",
+												"value": "Cell.UID"
+											}
+										}
+									],
+									"sid": 223358127693741
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "MoveAIDieToCell",
+							"sid": 100105042253597,
+							"parameters": [
+								"DieUID",
+								"CellUID"
+							]
+						}
+					],
+					"sid": 813326650072603
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 679014381808680,
+							"parameters": {
+								"variable": "IsPlayerFirstThisRound"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetCellRequired",
+							"sid": 703912763300516,
+							"parameters": [
+								"CellUID"
+							]
+						}
+					],
+					"sid": 262525273338620
 				}
 			]
 		},
@@ -1419,54 +1745,128 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "Row",
+					"name": "CellUID",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
-					"sid": 587598664346051
-				},
-				{
-					"name": "Column",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 377325410943265
+					"sid": 460215778396242
 				}
 			],
 			"eventType": "function-block",
 			"conditions": [
 				{
-					"id": "compare-instance-variable",
+					"id": "pick-by-unique-id",
 					"objectClass": "Cell",
-					"sid": 126467162075832,
+					"sid": 312411828223475,
 					"parameters": {
-						"instance-variable": "Column",
-						"comparison": 0,
-						"value": "Column"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Cell",
-					"sid": 272906928075154,
-					"parameters": {
-						"instance-variable": "Row",
-						"comparison": 0,
-						"value": "Row"
+						"unique-id": "CellUID"
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "set-animation-frame",
-					"objectClass": "Cell",
-					"sid": 345390769340604,
-					"parameters": {
-						"frame-number": "1"
-					}
+					"callFunction": "HighlightCell",
+					"sid": 821399584937283,
+					"parameters": [
+						"Cell.Row",
+						"Cell.Column",
+						"Cell.Player"
+					]
 				}
 			],
 			"sid": 496794717811324
+		},
+		{
+			"functionName": "HighlightCell",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CellRow",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 890798176047689
+				},
+				{
+					"name": "CellColumn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 982414052574284
+				},
+				{
+					"name": "PlayerDeterminingCell",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 300501480436976
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 397134324172630,
+					"parameters": {
+						"type": "log",
+						"message": "PlayerDeterminingCell"
+					}
+				}
+			],
+			"sid": 927071582953065,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Cell",
+							"sid": 587374146846848,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "CellColumn"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Cell",
+							"sid": 352967856986425,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "CellRow"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Cell",
+							"sid": 842873725057156,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 1,
+								"value": "PlayerDeterminingCell"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cell",
+							"sid": 830716469820532,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 600673925106445
+				}
+			]
 		},
 		{
 			"functionName": "MoveAIDieToCell",
