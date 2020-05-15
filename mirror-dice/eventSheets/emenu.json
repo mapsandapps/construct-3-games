@@ -136,6 +136,35 @@
 				{
 					"id": "else",
 					"objectClass": "System",
+					"sid": 528298219145738
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 447443408159165,
+					"parameters": {
+						"object": "LinkText"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 844537515012606,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 988200933460269
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
 					"sid": 615747459850572
 				}
 			],
@@ -150,6 +179,152 @@
 				}
 			],
 			"sid": 611468658812727
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 684242131586316,
+					"parameters": {
+						"object": "AudioButton"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 940023795888142,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Settings",
+							"sid": 456634935298178,
+							"parameters": {
+								"key": "\"Audio\"",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Settings",
+							"sid": 394162191122575,
+							"parameters": {
+								"key": "\"Audio\"",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "AudioButton",
+							"sid": 768751558088337,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 171385526174503
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 982985997123952
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Settings",
+							"sid": 221082642918055,
+							"parameters": {
+								"key": "\"Audio\"",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "AudioButton",
+							"sid": 707889525999068,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 737501864837769
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 220190299351356,
+					"parameters": {
+						"object": "LinkText"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "open-url-in-new-window",
+					"objectClass": "Browser",
+					"sid": 216781602905321,
+					"parameters": {
+						"url": "LinkText.URL",
+						"tag": "\"NewWindow\""
+					}
+				}
+			],
+			"sid": 585445737826015
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 161935922712191
+				},
+				{
+					"id": "has-key",
+					"objectClass": "Settings",
+					"sid": 393329129019834,
+					"parameters": {
+						"key": "\"Audio\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "add-key",
+					"objectClass": "Settings",
+					"sid": 582795149313131,
+					"parameters": {
+						"key": "\"Audio\"",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "AudioButton",
+					"sid": 350472107174908,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 554482097338699
 		}
 	],
 	"sid": 887802482226467

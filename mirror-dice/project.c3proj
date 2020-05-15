@@ -56,6 +56,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r199",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -66,6 +74,14 @@
 			"type": "plugin",
 			"id": "Arr",
 			"name": "Array",
+			"author": "Scirra",
+			"version": "r199",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
 			"author": "Scirra",
 			"version": "r199",
 			"bundled": false
@@ -110,7 +126,10 @@
 			"ObjectivesArray",
 			"ScoreText",
 			"DiceArray",
-			"ExitButton"
+			"ExitButton",
+			"AudioButton",
+			"LinkText",
+			"Settings"
 		],
 		"subfolders": [
 			{
@@ -126,7 +145,8 @@
 				"items": [
 					"Browser",
 					"Touch",
-					"Mouse"
+					"Mouse",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "Basic"
@@ -166,7 +186,23 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "dieThrow3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 366948929200138
+				},
+				{
+					"name": "dieGrab1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 773973832490346
+				},
+				{
+					"name": "chipLay3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 859990968557599
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

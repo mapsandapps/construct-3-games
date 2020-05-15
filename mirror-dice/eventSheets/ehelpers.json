@@ -9,53 +9,25 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "for-each",
-					"objectClass": "System",
-					"sid": 412164955875834,
-					"parameters": {
-						"object": "Roll"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Roll",
-					"sid": 796152342018987,
-					"parameters": {
-						"instance-variable": "Player",
-						"comparison": 0,
-						"value": "\"Player\""
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
-					"id": "spawn-another-object",
-					"objectClass": "Roll",
-					"sid": 917227866345325,
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 155597608799732,
 					"parameters": {
-						"object": "Die",
-						"layer": "\"Dice\"",
-						"image-point": "0"
+						"seconds": "0.5"
 					}
 				},
 				{
-					"id": "set-enabled",
-					"objectClass": "Die",
-					"sid": 646908850750342,
-					"behaviorType": "DragDrop",
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 352552013326323,
 					"parameters": {
-						"state": "disabled"
-					}
-				},
-				{
-					"id": "set-size",
-					"objectClass": "Die",
-					"sid": 199157338020246,
-					"parameters": {
-						"width": "128",
-						"height": "128"
+						"audio-file": "dieThrow3",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
 					}
 				}
 			],
@@ -65,91 +37,147 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
+							"id": "for-each",
 							"objectClass": "System",
-							"sid": 467298240677657,
+							"sid": 838663548754294,
 							"parameters": {
-								"variable": "GAME_SIZE",
+								"object": "Roll"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Roll",
+							"sid": 269906097309857,
+							"parameters": {
+								"instance-variable": "Player",
 								"comparison": 0,
-								"value": "6"
+								"value": "\"Player\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-size",
-							"objectClass": "Die",
-							"sid": 861645646896108,
+							"id": "spawn-another-object",
+							"objectClass": "Roll",
+							"sid": 627308928841750,
 							"parameters": {
-								"width": "96",
-								"height": "96"
+								"object": "Die",
+								"layer": "\"Dice\"",
+								"image-point": "0"
 							}
-						}
-					],
-					"sid": 901705323164279
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "repeat",
-							"objectClass": "System",
-							"sid": 194353535267036,
-							"parameters": {
-								"count": "5"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 508699759084157,
-							"parameters": {
-								"seconds": "loopindex * 0.1"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Die",
-							"sid": 125050421558103,
-							"parameters": {
-								"frame-number": "random(Die.AnimationFrameCount)"
-							}
-						}
-					],
-					"sid": 303620009542852
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 823139352041175,
-							"parameters": {
-								"seconds": "0.5"
-							}
-						},
-						{
-							"callFunction": "SetDie",
-							"sid": 602106188025888,
-							"parameters": [
-								"Die.UID"
-							]
 						},
 						{
 							"id": "set-enabled",
 							"objectClass": "Die",
-							"sid": 565514100779188,
+							"sid": 296909136367671,
 							"behaviorType": "DragDrop",
 							"parameters": {
-								"state": "enabled"
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Die",
+							"sid": 221040690945414,
+							"parameters": {
+								"width": "128",
+								"height": "128"
 							}
 						}
 					],
-					"sid": 643732394599386
+					"sid": 617754977671013,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 972976344427988,
+									"parameters": {
+										"variable": "GAME_SIZE",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Die",
+									"sid": 573105201955570,
+									"parameters": {
+										"width": "96",
+										"height": "96"
+									}
+								}
+							],
+							"sid": 229650889964915
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 445542563955368,
+									"parameters": {
+										"count": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 669960404093748,
+									"parameters": {
+										"seconds": "loopindex * 0.1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Die",
+									"sid": 933483733406589,
+									"parameters": {
+										"frame-number": "random(Die.AnimationFrameCount)"
+									}
+								}
+							],
+							"sid": 264834889843987
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 445707532383251,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"callFunction": "SetDie",
+									"sid": 786927641584923,
+									"parameters": [
+										"Die.UID"
+									]
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Die",
+									"sid": 828886174200689,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 897666307959468
+						}
+					]
 				}
 			]
 		},
@@ -162,7 +190,27 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 693825727526319,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 310659309713470,
+					"parameters": {
+						"audio-file": "dieThrow3",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
 			"sid": 638723272554807,
 			"children": [
 				{
@@ -674,7 +722,17 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 741933930450031,
+							"disabled": true,
+							"parameters": {
+								"seconds": "0.5 * loopindex"
+							}
+						}
+					],
 					"sid": 327075639275193,
 					"children": [
 						{
@@ -1917,6 +1975,17 @@
 					"parameters": {
 						"instance-variable": "IsEmpty",
 						"value": "false"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 483805345506002,
+					"parameters": {
+						"audio-file": "dieGrab1",
+						"loop": "not-looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
 					}
 				},
 				{

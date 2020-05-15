@@ -24,9 +24,9 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 848,
-						"width": 272,
+						"x": 496,
+						"y": 432,
+						"width": 176,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -59,9 +59,9 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 592,
-						"width": 272,
+						"x": 48,
+						"y": 432,
+						"width": 176,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -102,7 +102,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 64,
-						"y": 64,
+						"y": 48,
 						"width": 592,
 						"height": 192,
 						"originX": 0,
@@ -143,9 +143,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 592,
-						"width": 208,
+						"x": 80,
+						"y": 432,
+						"width": 112,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -178,9 +178,9 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 720,
-						"width": 272,
+						"x": 272,
+						"y": 432,
+						"width": 176,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -220,9 +220,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 848,
-						"width": 208,
+						"x": 528,
+						"y": 432,
+						"width": 112,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -262,9 +262,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 720,
-						"width": 208,
+						"x": 304,
+						"y": 432,
+						"width": 112,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
@@ -305,9 +305,254 @@
 					"behaviors": {},
 					"world": {
 						"x": 128,
-						"y": 496,
+						"y": 336,
 						"width": 464,
 						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "AudioButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 280,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 240,
+						"y": 672,
+						"width": 98,
+						"height": 98,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Title",
+					"properties": {
+						"text": "Audio",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 281,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 624,
+						"width": 208,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Title",
+					"properties": {
+						"text": "Credits",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 283,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 864,
+						"width": 208,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LinkText",
+					"properties": {
+						"text": "Design & development: mapsandapps",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 284,
+					"instanceVariables": {
+						"URL": "https://mapsandapps.itch.io/"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 64,
+						"y": 960,
+						"width": 592,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LinkText",
+					"properties": {
+						"text": "Dice & objectives art: mapsandapps",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 282,
+					"instanceVariables": {
+						"URL": "https://mapsandapps.itch.io/"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 64,
+						"y": 1008,
+						"width": 592,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LinkText",
+					"properties": {
+						"text": "UI assets & sound effects: Kenney",
+						"enable-bbcode": true,
+						"font": "Jost-400-Book",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 285,
+					"instanceVariables": {
+						"URL": "https://kenney.nl/assets"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 64,
+						"y": 1056,
+						"width": 592,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -366,6 +611,12 @@
 				"depth": 1
 			},
 			"uid": 155,
+			"instanceVariables": {}
+		},
+		{
+			"type": "Settings",
+			"properties": {},
+			"uid": 286,
 			"instanceVariables": {}
 		}
 	],

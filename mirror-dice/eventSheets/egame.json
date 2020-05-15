@@ -70,6 +70,16 @@
 			"sid": 146923369330284
 		},
 		{
+			"eventType": "variable",
+			"name": "IsAudioOn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 302877886010187
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -103,6 +113,32 @@
 			],
 			"sid": 607625019712216,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Settings",
+							"sid": 339891875226724,
+							"parameters": {
+								"key": "\"Audio\"",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-silent",
+							"objectClass": "Audio",
+							"sid": 933795641666753,
+							"parameters": {
+								"mode": "silent"
+							}
+						}
+					],
+					"sid": 919946986008018
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -338,6 +374,17 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 943173620833617,
+									"parameters": {
+										"audio-file": "chipLay3",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "tween-two-properties",
 									"objectClass": "Die",
 									"sid": 674282209594660,
@@ -530,6 +577,17 @@
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "disabled"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 168939373124585,
+									"parameters": {
+										"audio-file": "chipLay3",
+										"loop": "not-looping",
+										"volume": "-10",
+										"tag-optional": "\"\""
 									}
 								},
 								{

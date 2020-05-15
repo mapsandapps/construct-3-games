@@ -1,5 +1,7 @@
 # My Construct 3 Games Monorepo
 
+Note: you can open these in the [Construct editor](https://editor.construct.net/), but you will need to set up Construct and Chrome to use [folder-based projects](https://www.construct.net/en/forum/construct-3/general-discussion-7/local-file-folder-saves-chrome-147071).
+
 ## Mirror Dice
 
 Roll & write game made for [Weekly Game Jam #148: "Mirror"](https://itch.io/jam/weekly-game-jam-148/rate/642444) in May 2020
