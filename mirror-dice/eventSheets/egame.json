@@ -143,6 +143,30 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 501198116265505
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 198090751140954,
+							"parameters": {
+								"audio-file": "One Man Symphony - Royalty Free Soundtrack Collection - 76 Silence Of The Machines",
+								"loop": "looping",
+								"volume": "-10",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 664285340912005
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-two-values",
 							"objectClass": "System",
 							"sid": 206674468826723,

@@ -129,3 +129,4 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
 * [Fantasy Map Generator](https://github.com/Azgaar/Fantasy-Map-Generator) (MIT license)
 * ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)
+* ["Silence of the Machines" composed by onemansymphony.bandcamp.com](https://onemansymphony.bandcamp.com) (CC BY 4.0)
