@@ -12,6 +12,16 @@
 			"sid": 111580805186099
 		},
 		{
+			"eventType": "variable",
+			"name": "BottomOfNorthTableau",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 156712018729934
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Color Filter Mode Helpers",
@@ -1263,268 +1273,32 @@
 						}
 					],
 					"sid": 858576739860800
-				}
-			],
-			"sid": 906637440295640
-		},
-		{
-			"eventType": "variable",
-			"name": "BottomOfNorthTableau",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 257961716734784
-		},
-		{
-			"functionName": "RepositionTableaus",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "for-each",
-					"objectClass": "System",
-					"sid": 234080393968052,
-					"parameters": {
-						"object": "Tableau"
-					}
 				},
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "Tableau",
-					"sid": 512694843849094,
-					"parameters": {
-						"instance-variable": "Row",
-						"comparison": 0,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 929030144376548,
-					"parameters": {
-						"variable": "BottomOfNorthTableau",
-						"value": "Tableau.Y + Tableau.Height"
-					}
-				},
-				{
-					"callFunction": "RepositionTableausInColumn",
-					"sid": 326631787415731,
-					"parameters": [
-						"Tableau.Column"
-					]
-				}
-			],
-			"sid": 574743477368194,
-			"children": [
-				{
-					"eventType": "block",
+					"functionName": "RepositionTableaus",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
 					"conditions": [
 						{
-							"id": "is-any-playing",
-							"objectClass": "Audio",
-							"sid": 433449226930068,
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 592889137974944,
-							"parameters": {
-								"audio-file": "cardShove1",
-								"loop": "not-looping",
-								"volume": "0",
-								"tag-optional": "\"\""
-							}
-						}
-					],
-					"sid": 529902359055676
-				}
-			]
-		},
-		{
-			"functionName": "RepositionTableausInColumn",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Column",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 280008371839566
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 336608603211895,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
+							"id": "for-each",
 							"objectClass": "System",
-							"sid": 345803040733413,
+							"sid": 297060004035141,
 							"parameters": {
-								"object": "Tableau",
-								"expression": "Tableau.Row",
-								"order": "ascending"
+								"object": "Tableau"
 							}
 						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Tableau",
-							"sid": 637859926092533,
-							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "Column"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Tableau",
-							"sid": 249567001375662,
+							"sid": 772653739965378,
 							"parameters": {
 								"instance-variable": "Row",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-y",
-							"objectClass": "Tableau",
-							"sid": 168567406546823,
-							"parameters": {
-								"y": "BottomOfNorthTableau + TABLEAU_OFFSET"
-							}
-						}
-					],
-					"sid": 333675326180136,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 478626596066755,
-									"parameters": {
-										"instance-variable": "TableauUID",
-										"comparison": 0,
-										"value": "Tableau.UID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Card",
-									"sid": 731291453548103,
-									"parameters": {
-										"y": "Tableau.Y + (CARD_OFFSET * Card.IndexInTableau)"
-									}
-								}
-							],
-							"sid": 438452312895274
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 398645322330547,
-									"parameters": {
-										"variable": "BottomOfNorthTableau",
-										"value": "Tableau.Y + Tableau.Height"
-									}
-								}
-							],
-							"sid": 272015748225468
-						}
-					]
-				}
-			]
-		},
-		{
-			"functionName": "AutoMoveCard",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "CardUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 151926208279347
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 689711743875191,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "MoveToUID",
-					"type": "number",
-					"initialValue": "-1",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 404429236096297
-				},
-				{
-					"eventType": "variable",
-					"name": "HasCardMoved",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 796690433367513
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 565131448348173,
-							"parameters": {
-								"object": "Tableau",
-								"expression": "Tableau.NumberOfCards",
-								"order": "ascending"
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 456167396552913,
-							"parameters": {
-								"first-value": "Functions.CanCardMoveToTableau(CardUID, Tableau.UID)",
 								"comparison": 0,
-								"second-value": "\"Yes\""
+								"value": "0"
 							}
 						}
 					],
@@ -1532,16 +1306,163 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 635386240120663,
+							"sid": 848581830458687,
 							"parameters": {
-								"variable": "MoveToUID",
-								"value": "Tableau.UID"
+								"variable": "BottomOfNorthTableau",
+								"value": "Tableau.Y + Tableau.Height"
 							}
+						},
+						{
+							"callFunction": "RepositionTableausInColumn",
+							"sid": 102614151780442,
+							"parameters": [
+								"Tableau.Column"
+							]
 						}
 					],
-					"sid": 948056581819209
+					"sid": 108249576342897,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-any-playing",
+									"objectClass": "Audio",
+									"sid": 957992661070544,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 126726482424583,
+									"parameters": {
+										"audio-file": "cardShove1",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 435705039018535
+						}
+					]
+				},
+				{
+					"functionName": "RepositionTableausInColumn",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Column",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 280008371839566
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 555447300071256,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 110982877795398,
+									"parameters": {
+										"object": "Tableau",
+										"expression": "Tableau.Row",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Tableau",
+									"sid": 249021818045771,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "Column"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Tableau",
+									"sid": 509545965218625,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Tableau",
+									"sid": 990374094504588,
+									"parameters": {
+										"y": "BottomOfNorthTableau + TABLEAU_OFFSET"
+									}
+								}
+							],
+							"sid": 296081621864497,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 896523298878939,
+											"parameters": {
+												"instance-variable": "TableauUID",
+												"comparison": 0,
+												"value": "Tableau.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Card",
+											"sid": 732772801178755,
+											"parameters": {
+												"y": "Tableau.Y + (CARD_OFFSET * Card.IndexInTableau)"
+											}
+										}
+									],
+									"sid": 308119310711428
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 601906029163428,
+											"parameters": {
+												"variable": "BottomOfNorthTableau",
+												"value": "Tableau.Y + Tableau.Height"
+											}
+										}
+									],
+									"sid": 336905306188731
+								}
+							]
+						}
+					]
 				}
-			]
+			],
+			"sid": 906637440295640
 		}
 	],
 	"sid": 906649335853212
