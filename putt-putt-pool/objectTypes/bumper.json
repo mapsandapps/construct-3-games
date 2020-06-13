@@ -1,0 +1,48 @@
+{
+	"name": "Bumper",
+	"plugin-id": "Sprite",
+	"sid": 842127224798360,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 798444269042275
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 596548348176431
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9050696,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 437405046758156,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,172 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 848046752259254
+				}
+			],
+			"actions": [
+				{
+					"id": "set-world-gravity",
+					"objectClass": "CueBall",
+					"sid": 295044053762635,
+					"behaviorType": "Physics",
+					"parameters": {
+						"gravity": "0"
+					}
+				}
+			],
+			"sid": 998013596030516
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-start",
+					"objectClass": "Touch",
+					"sid": 355252876622490,
+					"parameters": {
+						"touch-number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 442770173088093,
+					"parameters": {
+						"object-to-create": "Aim",
+						"layer": "\"Balls\"",
+						"x": "0",
+						"y": "0"
+					}
+				},
+				{
+					"id": "set-velocity",
+					"objectClass": "CueBall",
+					"sid": 299698550795964,
+					"behaviorType": "Physics",
+					"parameters": {
+						"x-component": "0",
+						"y-component": "0"
+					}
+				}
+			],
+			"sid": 115435185977733
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 514094948199391,
+					"parameters": {
+						"touch-number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "apply-force-at-angle",
+					"objectClass": "CueBall",
+					"sid": 222915440839009,
+					"behaviorType": "Physics",
+					"parameters": {
+						"force": "100",
+						"angle": "angle(CueBall.X, CueBall.Y, Touch.X, Touch.Y)",
+						"image-point": "0"
+					}
+				}
+			],
+			"sid": 903722457979372
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Ball",
+					"sid": 791821612507445,
+					"parameters": {
+						"object": "Hole"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Ball",
+					"sid": 704754352982273
+				}
+			],
+			"sid": 284797839033348
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-nth-touch",
+					"objectClass": "Touch",
+					"sid": 659281974445292,
+					"parameters": {
+						"touch-number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "Aim",
+					"sid": 560397347156736,
+					"parameters": {
+						"angle": "angle(CueBall.X, CueBall.Y, Touch.X, Touch.Y)"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Aim",
+					"sid": 140444404135471,
+					"parameters": {
+						"x": "CueBall.X + (CueBall.X - Touch.X)",
+						"y": "CueBall.Y + (CueBall.Y - Touch.Y)"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Aim",
+					"sid": 648468885406339,
+					"parameters": {
+						"width": "sqrt((CueBall.X - Touch.X)^2 + (CueBall.Y - Touch.Y)^2)"
+					}
+				}
+			],
+			"sid": 921324384804770
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 771571093044485
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Aim",
+					"sid": 125221582261417
+				}
+			],
+			"sid": 557468880699205
+		}
+	],
+	"sid": 879637936446964
+}
