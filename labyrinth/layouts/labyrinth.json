@@ -90,7 +90,7 @@
 					}
 				},
 				{
-					"type": "LineSegment",
+					"type": "Point",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -98,18 +98,18 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 3,
+					"uid": 2,
 					"instanceVariables": {
 						"Index": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 864,
-						"y": 1120,
-						"width": 250,
-						"height": 250,
-						"originX": 0,
-						"originY": 0.5,
+						"x": 960,
+						"y": 1376,
+						"width": 225,
+						"height": 225,
+						"originX": 0.49777777777777776,
+						"originY": 0.49777777777777776,
 						"color": [
 							1,
 							1,
@@ -122,6 +122,64 @@
 				}
 			],
 			"sid": 332340022369909,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "TouchFollower",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "TouchFollower",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 5,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 512,
+						"y": 1440,
+						"width": 112,
+						"height": 112,
+						"originX": 0.4725274725274725,
+						"originY": 0.4945054945054944,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 309550030340421,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
