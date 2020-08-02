@@ -1,0 +1,101 @@
+{
+	"name": "eSetup",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 494546047495075
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "PointsArray",
+					"sid": 217491459476731,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[48,2,1],\"\"data\"\":[[[512],[64]],[[571.04],[73.25]],[[624.33],[100.27]],[[666.76],[142.35]],[[694.24],[195.41]],[[703.99],[254.36]],[[695.25],[313.48]],[[668.68],[367]],[[626.96],[409.79]],[[574.14],[437.72]],[[515.27],[447.97]],[[568.27],[441.8]],[[624.73],[421.91]],[[675.01],[389.41]],[[716.4],[346.16]],[[746.65],[294.5]],[[764.02],[237.22]],[[767.68],[206.54]],[[759.43],[265.89]],[[740.21],[322.63]],[[710.7],[374.77]],[[672.01],[420.52]],[[625.51],[458.29]],[[572.79],[486.76]],[[515.67],[504.83]],[[456.18],[511.9]],[[396.8],[505.1]],[[342.4],[480.37]],[[298.22],[440.13]],[[268.5],[388.29]],[[256.25],[329.81]],[[265.68],[368.92]],[[300.56],[417.07]],[[353.39],[444.32]],[[412.11],[441.51]],[[446.99],[395.39]],[[465.55],[339.98]],[[519.99],[319.51]],[[567.92],[287.15]],[[570.21],[229.37]],[[524.99],[193.32]],[[469.18],[208.44]],[[447.69],[262.36]],[[416.57],[311.1]],[[358.34],[317.43]],[[304.47],[292.3]],[[267.71],[245.57]],[[256],[192]]]}\""
+					}
+				}
+			],
+			"sid": 853254720370808,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "PointsArray",
+							"sid": 553308817509792,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 688034280975778,
+							"parameters": {
+								"object-to-create": "Waypoint",
+								"layer": "\"Waypoints\"",
+								"x": "PointsArray.At(PointsArray.CurX, 0) + Path.BBoxLeft",
+								"y": "PointsArray.At(PointsArray.CurX, 1) + Path.BBoxTop"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 995897071112371,
+							"parameters": {
+								"type": "log",
+								"message": "\"hello\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 545305183365916,
+							"parameters": {
+								"type": "log",
+								"message": "PointsArray.CurX"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 968765033917390,
+							"parameters": {
+								"type": "log",
+								"message": "PointsArray.At(PointsArray.CurX, 0)"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 594967474760421,
+							"parameters": {
+								"type": "log",
+								"message": "PointsArray.At(PointsArray.CurX, 1)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Waypoint",
+							"sid": 159884899575824,
+							"parameters": {
+								"instance-variable": "Index",
+								"value": "PointsArray.CurX"
+							}
+						}
+					],
+					"sid": 553007771784035
+				}
+			]
+		}
+	],
+	"sid": 626012400195507
+}

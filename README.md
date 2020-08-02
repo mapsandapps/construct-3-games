@@ -119,6 +119,7 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * Word list from [David Ruffner](https://github.com/davidruffner/scrabble-word-finder/blob/master/resources/enable1-wwf-v4.0-wordlist.txt) (MIT license)
 * Some art by [me](https://github.com/mapsandapps)
 * Art from the [2D Game Art Bundle](https://www.gamedevmarket.net/asset/2d-game-art-bundle-2018/) (purchased in the Humble 2D Game Dev Bundle)
+* [8-ball pool assets](https://opengameart.org/content/8-ball-pool-assets) (CC0)
 * [BigEval](https://github.com/aviaryan/bigEval.js) (Apache-2.0)
 * [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) font (Open Font License)
 * [Jost](https://fonts.google.com/specimen/Jost) font (Open Font License)

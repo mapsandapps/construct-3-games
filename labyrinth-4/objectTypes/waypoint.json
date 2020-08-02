@@ -1,0 +1,64 @@
+{
+	"name": "Waypoint",
+	"plugin-id": "Sprite",
+	"sid": 368423149139910,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Index",
+			"type": "number",
+			"desc": "",
+			"sid": 657841388327755
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2914189,
+						"collisionPoly": {
+							"points": [
+								0.184,
+								0.184,
+								0.5,
+								0.052,
+								0.812,
+								0.184,
+								0.94,
+								0.5,
+								0.808,
+								0.808,
+								0.5,
+								0.94,
+								0.184,
+								0.812,
+								0.052,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 914405538641997,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

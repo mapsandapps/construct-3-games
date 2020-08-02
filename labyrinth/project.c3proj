@@ -1,33 +1,25 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 19600,
-	"name": "Labyrinth",
+	"savedWithRelease": 20900,
+	"name": "labyrinth",
 	"runtime": "c3",
-	"useWorker": false,
+	"useWorker": "auto",
 	"bundleAddons": false,
 	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r209",
+			"bundled": false
+		},
 		{
 			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Keyboard",
-			"name": "Keyboard",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Audio",
-			"name": "Audio",
-			"author": "Scirra",
-			"version": "r196",
+			"version": "r209",
 			"bundled": false
 		},
 		{
@@ -35,15 +27,31 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r209",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Mouse",
-			"name": "Mouse",
+			"id": "SVGPicture",
+			"name": "SVG Picture",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r209",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "DrawingCanvas",
+			"name": "Drawing canvas",
+			"author": "Scirra",
+			"version": "r209",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r209",
 			"bundled": false
 		},
 		{
@@ -51,135 +59,29 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "NinePatch",
-			"name": "9-patch",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Tilemap",
-			"name": "Tilemap",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Dictionary",
-			"name": "Dictionary",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "EightDir",
-			"name": "8 Direction",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "scrollto",
-			"name": "Scroll To",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
-			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "solid",
-			"name": "Solid",
-			"author": "Scirra",
-			"version": "r196",
+			"version": "r209",
 			"bundled": false
 		}
 	],
-	"uniqueId": "0o64h37l6o3",
+	"uniqueId": "0ls5lvmnymf",
 	"objectTypes": {
 		"items": [
-			"Player",
-			"Coin",
-			"Paint",
-			"Tilemap",
-			"Barrier",
-			"snowy",
-			"LevelsCompleted",
-			"SettingsText",
-			"CreditsText",
-			"Tile"
+			"svg",
+			"DrawingCanvas",
+			"command",
+			"swoopy",
+			"PointsArray",
+			"Point"
 		],
 		"subfolders": [
 			{
 				"items": [
+					"Mouse",
 					"Touch",
-					"Keyboard",
-					"Audio",
-					"Browser",
-					"Mouse"
+					"Browser"
 				],
 				"subfolders": [],
-				"name": "System"
-			},
-			{
-				"items": [
-					"l1_nebula",
-					"l2_stars",
-					"l1backgrounds",
-					"l3mountains",
-					"forest1",
-					"forest2",
-					"forest3",
-					"cloudsBg",
-					"fog",
-					"mountainsBg",
-					"mountainsMg",
-					"sky",
-					"sun"
-				],
-				"subfolders": [],
-				"name": "Backgrounds"
-			},
-			{
-				"items": [
-					"Level",
-					"LevelSelectionButton",
-					"RestartButton",
-					"MenuButton",
-					"NextLevelButton",
-					"PreviousScreenButton",
-					"NextScreenButton",
-					"LevelNumber",
-					"SettingsButton",
-					"RegionName",
-					"Checkbox"
-				],
-				"subfolders": [],
-				"name": "UI"
+				"name": "Input"
 			}
 		]
 	},
@@ -191,31 +93,14 @@
 	},
 	"layouts": {
 		"items": [
-			"Objects",
-			"Settings",
-			"Space Levels",
-			"Space 1",
-			"Space 2",
-			"Space 3",
-			"Space 4",
-			"Space 5",
-			"Space 6",
-			"Snowy 1",
-			"Snowy 2",
-			"Snowy 3",
-			"Snowy 4",
-			"Snowy 5",
-			"Snowy 6",
-			"Forest temp",
-			"Desert 1"
+			"Labyrinth"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"eGame",
-			"eLevelSelection",
-			"eSettings"
+			"eLabyrinth",
+			"eNotes"
 		],
 		"subfolders": []
 	},
@@ -225,18 +110,7 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [
-				{
-					"name": "Foley Footstep Boots Walking On Leaves 01.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 759317588120000
-				},
-				{
-					"name": "Foley Footstep Work Boots Rug Carpet Walking 01.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 279199728678536
-				}
-			],
+			"items": [],
 			"subfolders": []
 		},
 		"music": {
@@ -248,57 +122,88 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [
-				{
-					"name": "Monoton-Regular.ttf",
-					"type": "application/font-sfnt",
-					"sid": 174119016164952
-				}
-			],
+			"items": [],
 			"subfolders": []
 		},
 		"icon": {
 			"items": [
 				{
-					"name": "loading-logo.png",
-					"type": "image/png",
-					"sid": 736416638527615
-				},
-				{
 					"name": "icon-16.png",
 					"type": "image/png",
-					"sid": 654516039621013
+					"sid": 595907928160005,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-32.png",
 					"type": "image/png",
-					"sid": 502704714537015
+					"sid": 767541851674421,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-64.png",
 					"type": "image/png",
-					"sid": 528430886991781
+					"sid": 962620348232226,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-128.png",
 					"type": "image/png",
-					"sid": 203841704848725
+					"sid": 970442539160630,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-256.png",
 					"type": "image/png",
-					"sid": 478543476922523
+					"sid": 767694984013366,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-512.png",
 					"type": "image/png",
-					"sid": 428468995849033
+					"sid": 221356411293783,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 888964882553481,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
 				}
 			],
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "test.svg",
+					"type": "image/svg+xml",
+					"sid": 676696145598361
+				},
+				{
+					"name": "command.svg",
+					"type": "image/svg+xml",
+					"sid": 114748595333524
+				},
+				{
+					"name": "swoopy.svg",
+					"type": "image/svg+xml",
+					"sid": 956484546016718
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -312,15 +217,15 @@
 		]
 	},
 	"properties": {
-		"description": "A sauntering simulator",
-		"version": "1.0.0.0",
+		"description": "",
+		"version": "0.5.0.0",
 		"author": "Shawn Taylor",
 		"authorEmail": "",
-		"authorWebsite": "",
-		"appId": "",
+		"authorWebsite": "https://mapsandapps.itch.io/",
+		"appId": "net.mapsandapps.labyrinth",
 		"pixelRounding": false,
 		"useLoaderLayout": false,
-		"fullscreenMode": "off",
+		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -343,7 +248,7 @@
 			0
 		],
 		"useHighDpi": true,
-		"orientations": "any",
+		"orientations": "portrait",
 		"enableWebGL": true,
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",
@@ -351,12 +256,13 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "progress-logo",
+		"loaderStyle": "splash",
 		"preloadSounds": true,
 		"clearBackground": true,
-		"enhancedAccelerationPrecision": true
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
 	},
-	"viewportWidth": 640,
-	"viewportHeight": 480,
-	"firstLayout": "Space Levels"
+	"viewportWidth": 720,
+	"viewportHeight": 1280,
+	"firstLayout": null
 }

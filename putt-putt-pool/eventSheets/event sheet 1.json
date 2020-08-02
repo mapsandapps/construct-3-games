@@ -2,6 +2,16 @@
 	"name": "Event sheet 1",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "SPEED_MULTIPLIER",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 356938496262436
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -76,11 +86,11 @@
 				{
 					"id": "apply-force-at-angle",
 					"objectClass": "CueBall",
-					"sid": 222915440839009,
+					"sid": 874680234991271,
 					"behaviorType": "Physics",
 					"parameters": {
-						"force": "100",
-						"angle": "angle(CueBall.X, CueBall.Y, Touch.X, Touch.Y)",
+						"force": "SPEED_MULTIPLIER * sqrt((CueBall.X - Touch.X)^2 + (CueBall.Y - Touch.Y)^2)",
+						"angle": "angle(Touch.X, Touch.Y, CueBall.X, CueBall.Y)",
 						"image-point": "0"
 					}
 				}
@@ -124,7 +134,7 @@
 				{
 					"id": "set-angle",
 					"objectClass": "Aim",
-					"sid": 560397347156736,
+					"sid": 215157296153164,
 					"parameters": {
 						"angle": "angle(CueBall.X, CueBall.Y, Touch.X, Touch.Y)"
 					}
@@ -132,10 +142,10 @@
 				{
 					"id": "set-position",
 					"objectClass": "Aim",
-					"sid": 140444404135471,
+					"sid": 175541546140822,
 					"parameters": {
-						"x": "CueBall.X + (CueBall.X - Touch.X)",
-						"y": "CueBall.Y + (CueBall.Y - Touch.Y)"
+						"x": "CueBall.X",
+						"y": "CueBall.Y"
 					}
 				},
 				{

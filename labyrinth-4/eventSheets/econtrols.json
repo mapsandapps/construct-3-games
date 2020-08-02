@@ -1,0 +1,148 @@
+{
+	"name": "eControls",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 299446241316161,
+					"parameters": {
+						"object": "Waypoint"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 473742757282764,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Waypoint",
+							"sid": 804324075219304,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "Path.CurrentWaypointIndex"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Waypoint",
+							"sid": 928589385020524,
+							"parameters": {
+								"color": "rgbEx(0, 255, 0)"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Waypoint",
+							"sid": 260814046972233,
+							"parameters": {
+								"opacity": "10"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Path",
+							"sid": 185555058029530,
+							"parameters": {
+								"instance-variable": "CurrentWaypointIndex",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 234542676122689
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 185999066682568
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Waypoint",
+							"sid": 583288527123423,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "Path.CurrentWaypointIndex - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Particles",
+							"sid": 444413689535543,
+							"parameters": {
+								"x": "Waypoint.X",
+								"y": "Waypoint.Y"
+							}
+						},
+						{
+							"id": "set-rate",
+							"objectClass": "Particles",
+							"sid": 479818335714206,
+							"parameters": {
+								"rate": "50"
+							}
+						}
+					],
+					"sid": 496175560447181
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 197507508454876
+						}
+					],
+					"actions": [
+						{
+							"id": "set-rate",
+							"objectClass": "Particles",
+							"sid": 287475908207535,
+							"parameters": {
+								"rate": "0"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Particles",
+							"sid": 950216933211456,
+							"parameters": {
+								"x": "0",
+								"y": "-100"
+							}
+						}
+					],
+					"sid": 695761070390858
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 204382106576331
+				}
+			],
+			"actions": [],
+			"sid": 899792580091234
+		}
+	],
+	"sid": 775999420695491
+}

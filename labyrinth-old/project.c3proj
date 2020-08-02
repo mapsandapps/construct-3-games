@@ -1,0 +1,362 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 19600,
+	"name": "Labyrinth",
+	"runtime": "c3",
+	"useWorker": false,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "bound",
+			"name": "Bound to layout",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r196",
+			"bundled": false
+		}
+	],
+	"uniqueId": "0o64h37l6o3",
+	"objectTypes": {
+		"items": [
+			"Player",
+			"Coin",
+			"Paint",
+			"Tilemap",
+			"Barrier",
+			"snowy",
+			"LevelsCompleted",
+			"SettingsText",
+			"CreditsText",
+			"Tile"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Touch",
+					"Keyboard",
+					"Audio",
+					"Browser",
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"l1_nebula",
+					"l2_stars",
+					"l1backgrounds",
+					"l3mountains",
+					"forest1",
+					"forest2",
+					"forest3",
+					"cloudsBg",
+					"fog",
+					"mountainsBg",
+					"mountainsMg",
+					"sky",
+					"sun"
+				],
+				"subfolders": [],
+				"name": "Backgrounds"
+			},
+			{
+				"items": [
+					"Level",
+					"LevelSelectionButton",
+					"RestartButton",
+					"MenuButton",
+					"NextLevelButton",
+					"PreviousScreenButton",
+					"NextScreenButton",
+					"LevelNumber",
+					"SettingsButton",
+					"RegionName",
+					"Checkbox"
+				],
+				"subfolders": [],
+				"name": "UI"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Objects",
+			"Settings",
+			"Space Levels",
+			"Space 1",
+			"Space 2",
+			"Space 3",
+			"Space 4",
+			"Space 5",
+			"Space 6",
+			"Snowy 1",
+			"Snowy 2",
+			"Snowy 3",
+			"Snowy 4",
+			"Snowy 5",
+			"Snowy 6",
+			"Forest temp",
+			"Desert 1"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"eGame",
+			"eLevelSelection",
+			"eSettings"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "Foley Footstep Boots Walking On Leaves 01.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 759317588120000
+				},
+				{
+					"name": "Foley Footstep Work Boots Rug Carpet Walking 01.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 279199728678536
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Monoton-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 174119016164952
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 736416638527615
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 654516039621013
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 502704714537015
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 528430886991781
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 203841704848725
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 478543476922523
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 428468995849033
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "A sauntering simulator",
+		"version": "1.0.0.0",
+		"author": "Shawn Taylor",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "off",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "any",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 480,
+	"firstLayout": "Space Levels"
+}
