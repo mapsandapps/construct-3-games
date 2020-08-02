@@ -2,6 +2,34 @@
 	"name": "Labyrinth",
 	"layers": [
 		{
+			"name": "Background",
+			"overriden": 0,
+			"instances": [],
+			"sid": 668145832207993,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0,
+				0,
+				0,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
 			"name": "Points",
 			"overriden": 0,
 			"instances": [],
@@ -15,12 +43,12 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0,
+				0,
+				0,
 				1
 			],
-			"isTransparent": false,
+			"isTransparent": true,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,
@@ -34,90 +62,9 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "DrawingCanvas",
+					"type": "LabyrinthSVG",
 					"properties": {
-						"initially-visible": true,
-						"origin": "top-left",
-						"antialiasing": "off"
-					},
-					"uid": 3,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 0,
-						"y": 0,
-						"width": 736,
-						"height": 1312,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						]
-					}
-				},
-				{
-					"type": "svg",
-					"properties": {
-						"svg-file": 676696145598361,
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 2,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": -1056,
-						"y": 768,
-						"width": 832,
-						"height": 704,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0,
-						"blendMode": "destination-in"
-					}
-				},
-				{
-					"type": "command",
-					"properties": {
-						"svg-file": 114748595333524,
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 5,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": -928,
-						"y": -32,
-						"width": 896,
-						"height": 896,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0,
-						"blendMode": "destination-in"
-					}
-				},
-				{
-					"type": "swoopy",
-					"properties": {
-						"svg-file": 956484546016718,
+						"svg-file": -1,
 						"initially-visible": true,
 						"origin": "top-left"
 					},
@@ -143,7 +90,7 @@
 					}
 				},
 				{
-					"type": "Point",
+					"type": "LineSegment",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -151,16 +98,18 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 10,
-					"instanceVariables": {},
+					"uid": 3,
+					"instanceVariables": {
+						"Index": 0
+					},
 					"behaviors": {},
 					"world": {
-						"x": 1056,
-						"y": 128,
-						"width": 57.6,
-						"height": 57.6,
-						"originX": 0.5022222222222222,
-						"originY": 0.5288888888888889,
+						"x": 864,
+						"y": 1120,
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
