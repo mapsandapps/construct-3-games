@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "OffsetX",
 			"type": "number",
-			"initialValue": "-224",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "OffsetY",
 			"type": "number",
-			"initialValue": "128",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -40,6 +40,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 765248043441256
+		},
+		{
+			"eventType": "variable",
+			"name": "LevelIndex",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 447603814029406
 		},
 		{
 			"eventType": "variable",
@@ -92,6 +102,16 @@
 			"sid": 428361979033285
 		},
 		{
+			"eventType": "variable",
+			"name": "ANIMATE_PATH",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 550450461289400
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -102,241 +122,11 @@
 			],
 			"actions": [
 				{
-					"id": "load",
-					"objectClass": "PointsArray",
-					"sid": 696324628420753,
-					"parameters": {
-						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[189,2,1],\"\"data\"\":[[[512],[64]],[[526.99],[64.58]],[[541.88],[66.31]],[[556.59],[69.21]],[[571.04],[73.25]],[[585.11],[78.41]],[[598.74],[84.67]],[[611.84],[91.97]],[[624.33],[100.27]],[[636.13],[109.52]],[[647.18],[119.66]],[[657.42],[130.62]],[[666.76],[142.35]],[[675.17],[154.77]],[[682.59],[167.8]],[[688.96],[181.38]],[[694.24],[195.41]],[[698.41],[209.82]],[[701.43],[224.5]],[[703.29],[239.38]],[[703.99],[254.36]],[[703.54],[269.35]],[[701.93],[284.26]],[[699.17],[299]],[[695.25],[313.48]],[[690.2],[327.6]],[[684.07],[341.28]],[[676.88],[354.44]],[[668.68],[367]],[[659.53],[378.88]],[[649.49],[390.02]],[[638.61],[400.34]],[[626.96],[409.79]],[[614.62],[418.3]],[[601.65],[425.83]],[[588.13],[432.32]],[[574.14],[437.72]],[[559.77],[442.01]],[[545.11],[445.16]],[[530.24],[447.14]],[[515.27],[447.97]],[[523.73],[447.74]],[[538.68],[446.63]],[[553.55],[444.65]],[[568.27],[441.8]],[[582.8],[438.08]],[[597.09],[433.52]],[[611.08],[428.12]],[[624.73],[421.91]],[[637.99],[414.9]],[[650.82],[407.13]],[[663.17],[398.62]],[[675.01],[389.41]],[[686.28],[379.52]],[[696.96],[368.99]],[[707.01],[357.86]],[[716.4],[346.16]],[[725.09],[333.93]],[[733.04],[321.22]],[[740.24],[308.06]],[[746.65],[294.5]],[[752.26],[280.59]],[[757.03],[266.37]],[[760.95],[251.9]],[[764.02],[237.22]],[[766.22],[222.38]],[[767.54],[207.44]],[[768],[192.45]],[[767.68],[206.54]],[[766.66],[221.51]],[[764.94],[236.41]],[[762.53],[251.21]],[[759.43],[265.89]],[[755.63],[280.4]],[[751.16],[294.71]],[[746.01],[308.8]],[[740.21],[322.63]],[[733.76],[336.17]],[[726.68],[349.39]],[[718.99],[362.27]],[[710.7],[374.77]],[[701.84],[386.87]],[[692.42],[398.55]],[[682.47],[409.77]],[[672.01],[420.52]],[[661.06],[430.76]],[[649.64],[440.49]],[[637.78],[449.67]],[[625.51],[458.29]],[[612.84],[466.33]],[[599.82],[473.76]],[[586.46],[480.58]],[[572.79],[486.76]],[[558.85],[492.28]],[[544.66],[497.14]],[[530.25],[501.33]],[[515.67],[504.83]],[[500.94],[507.64]],[[486.09],[509.76]],[[471.16],[511.17]],[[456.18],[511.9]],[[441.18],[511.88]],[[426.22],[510.78]],[[411.4],[508.52]],[[396.8],[505.1]],[[382.51],[500.54]],[[368.62],[494.88]],[[355.23],[488.14]],[[342.4],[480.37]],[[330.21],[471.63]],[[318.74],[461.97]],[[308.06],[451.45]],[[298.22],[440.13]],[[289.29],[428.08]],[[281.33],[415.38]],[[274.38],[402.09]],[[268.5],[388.29]],[[263.72],[374.08]],[[260.07],[359.53]],[[257.58],[344.74]],[[256.25],[329.81]],[[256.1],[325.19]],[[257.57],[340.11]],[[260.77],[354.75]],[[265.68],[368.92]],[[272.22],[382.41]],[[280.29],[395.04]],[[289.78],[406.64]],[[300.56],[417.07]],[[312.47],[426.17]],[[325.37],[433.81]],[[339.07],[439.89]],[[353.39],[444.32]],[[368.14],[447.03]],[[383.1],[448]],[[397.99],[446.47]],[[412.11],[441.51]],[[424.69],[433.4]],[[435.05],[422.61]],[[442.63],[409.7]],[[446.99],[395.39]],[[448.1],[380.45]],[[450.65],[365.7]],[[456.58],[351.96]],[[465.55],[339.98]],[[477.04],[330.39]],[[490.44],[323.72]],[[505.02],[320.38]],[[519.99],[319.51]],[[534.52],[315.93]],[[547.81],[309.05]],[[559.15],[299.28]],[[567.92],[287.15]],[[573.63],[273.32]],[[575.95],[258.54]],[[574.8],[243.61]],[[570.21],[229.37]],[[562.43],[216.59]],[[551.9],[205.96]],[[539.19],[198.05]],[[524.99],[193.32]],[[510.08],[192.03]],[[495.28],[194.21]],[[481.39],[199.78]],[[469.18],[208.44]],[[459.3],[219.68]],[[452.29],[232.9]],[[448.57],[247.4]],[[447.69],[262.36]],[[444.48],[276.98]],[[437.95],[290.44]],[[428.47],[302.03]],[[416.57],[311.1]],[[402.89],[317.17]],[[388.17],[319.87]],[[373.19],[319.55]],[[358.34],[317.43]],[[343.86],[313.58]],[[329.92],[308.05]],[[316.73],[300.92]],[[304.47],[292.3]],[[293.29],[282.31]],[[283.35],[271.09]],[[274.78],[258.79]],[[267.71],[245.57]],[[262.25],[231.61]],[[258.46],[217.1]],[[256.4],[202.25]],[[256],[192]]]}\""
-					}
-				},
-				{
-					"id": "set-image",
-					"objectClass": "LabyrinthSVG",
-					"sid": 571415519000011,
-					"parameters": {
-						"file": "swoopy.svg"
-					}
-				},
-				{
-					"id": "set-size",
-					"objectClass": "LabyrinthSVG",
-					"sid": 677157528437439,
-					"parameters": {
-						"width": "1120",
-						"height": "1120"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "LabyrinthSVG",
-					"sid": 274718020453850,
-					"parameters": {
-						"x": "OffsetX",
-						"y": "OffsetY"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 639160776363998,
-					"parameters": {
-						"variable": "NextPoint",
-						"value": "0"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 276125731210900,
-					"parameters": {
-						"variable": "Direction",
-						"value": "0"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 122537148531226,
-					"parameters": {
-						"variable": "PointSize",
-						"value": "45"
-					}
+					"callFunction": "StartNextLevel",
+					"sid": 736359911589833
 				}
 			],
-			"sid": 984787871402705,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "Multiplier",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 477122195008555
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-element",
-							"objectClass": "PointsArray",
-							"sid": 177175251219629,
-							"parameters": {
-								"axes": "x"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 709999467747979,
-							"parameters": {
-								"variable": "Multiplier",
-								"value": "1120 / 960"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 890527054380649,
-							"parameters": {
-								"object-to-create": "Point",
-								"layer": "\"Points\"",
-								"x": "PointsArray.At(PointsArray.CurX, 0) * Multiplier + OffsetX",
-								"y": "PointsArray.At(PointsArray.CurX, 1) * Multiplier + OffsetY"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "Point",
-							"sid": 795628666953697,
-							"parameters": {
-								"width": "PointSize * Multiplier",
-								"height": "PointSize * Multiplier"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Point",
-							"sid": 951739154656380,
-							"parameters": {
-								"instance-variable": "Index",
-								"value": "PointsArray.CurX"
-							}
-						}
-					],
-					"sid": 591479462142371
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "TouchFollower",
-					"sid": 102591545003153,
-					"parameters": {
-						"object": "Point"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Point",
-					"sid": 395422722218316,
-					"parameters": {
-						"instance-variable": "Index",
-						"comparison": 0,
-						"value": "NextPoint"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "MarkPoint",
-					"sid": 354609853410990,
-					"parameters": [
-						"Point.UID"
-					]
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 220846147169302,
-					"parameters": {
-						"variable": "NextPoint",
-						"value": "Point.Index + 1"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 178556953537876,
-					"parameters": {
-						"type": "log",
-						"message": "Point.Index"
-					}
-				}
-			],
-			"sid": 280528033338158,
-			"disabled": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "TODO: for reversed labyrinth, need to pick instance with lowest index and set nextPoint to Point.Index - 1",
-					"background-color": [
-						0.30196078431372547,
-						0.13725490196078433,
-						0.13725490196078433,
-						1
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 252783926435780,
-							"parameters": {
-								"object": "Point",
-								"expression": "Point.Index",
-								"order": "ascending"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "MarkPoint",
-							"sid": 616956720791000,
-							"parameters": [
-								"Point.UID"
-							]
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 300788084978076,
-							"parameters": {
-								"variable": "NextPoint",
-								"value": "Point.Index + 1"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 177347310191747,
-							"parameters": {
-								"type": "log",
-								"message": "Point.Index"
-							}
-						}
-					],
-					"sid": 286737645021666
-				}
-			]
+			"sid": 984787871402705
 		},
 		{
 			"eventType": "comment",
@@ -413,6 +203,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 979972247663918
+				},
+				{
+					"name": "Wait",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 375747743434343
 				}
 			],
 			"eventType": "function-block",
@@ -426,22 +223,85 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 395807877726902,
+			"children": [
 				{
-					"id": "set-default-color",
-					"objectClass": "Point",
-					"sid": 266052138927122,
-					"parameters": {
-						"color": "rgbEx(0, 0, 255)"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 629324191504367,
+							"parameters": {
+								"variable": "ANIMATE_PATH"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 392301209909369,
+							"parameters": {
+								"seconds": "0.05 * Wait"
+							}
+						}
+					],
+					"sid": 956755056672104
 				},
 				{
-					"id": "move-to-top",
-					"objectClass": "Point",
-					"sid": 316592600416303
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Point",
+							"sid": 938236955406472,
+							"parameters": {
+								"color": "rgbEx(0, 0, 255)"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Point",
+							"sid": 670560004371264
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 297766626649352,
+							"parameters": {
+								"type": "log",
+								"message": "Point.Index"
+							}
+						}
+					],
+					"sid": 830843706768778
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 638936101388737,
+							"parameters": {
+								"first-value": "Point.Index",
+								"comparison": 0,
+								"second-value": "Point.Count - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "WinLevel",
+							"sid": 826982995224726
+						}
+					],
+					"sid": 600209523118190
 				}
-			],
-			"sid": 395807877726902
+			]
 		},
 		{
 			"eventType": "block",
@@ -467,33 +327,6 @@
 				}
 			],
 			"sid": 878614331028202
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-click",
-					"objectClass": "Mouse",
-					"sid": 483366607852781,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-size",
-					"objectClass": "TouchFollower",
-					"sid": 905644368624593,
-					"parameters": {
-						"width": "32",
-						"height": "32"
-					}
-				}
-			],
-			"sid": 622332356373182,
-			"disabled": true
 		},
 		{
 			"functionName": "MarkNTouchedPoints",
@@ -576,32 +409,21 @@
 							}
 						},
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 617114371318379,
-							"disabled": true,
-							"parameters": {
-								"type": "log",
-								"message": "\"LastPointToMark\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 562213353490111,
-							"disabled": true,
-							"parameters": {
-								"type": "log",
-								"message": "LastPointToMark"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 849300898486109,
 							"parameters": {
 								"variable": "NextPoint",
 								"value": "LastPointToMark + 1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 606371655161094,
+							"parameters": {
+								"variable": "PointCurrentlyTouched",
+								"value": "LastPointToMark"
 							}
 						}
 					],
@@ -632,24 +454,271 @@
 					"actions": [
 						{
 							"callFunction": "MarkPoint",
-							"sid": 560710852989528,
+							"sid": 958998671470640,
 							"parameters": [
-								"Point.UID"
+								"Point.UID",
+								"Point.Index - FirstPointTouched"
 							]
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 664330862995738,
-							"parameters": {
-								"type": "log",
-								"message": "LastPointToMark - FirstPointTouched + 1"
-							}
 						}
 					],
 					"sid": 779326781972427
 				}
 			]
+		},
+		{
+			"functionName": "StartNextLevel",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 843775757168803,
+					"parameters": {
+						"variable": "NextPoint",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 746508754417764,
+					"parameters": {
+						"variable": "Direction",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 330472454734396,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "NumberOfPoints",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 688152169038860
+				},
+				{
+					"eventType": "variable",
+					"name": "LevelFile",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 459641688680778
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "localVars.NumberOfPoints = globalThis.GetNumberOfPoints(runtime);"
+						},
+						{
+							"type": "script",
+							"script": "localVars.LevelFile = globalThis.GetLevelFile(runtime);"
+						},
+						{
+							"id": "set-image-by-name",
+							"objectClass": "LabyrinthSVG",
+							"sid": 295522742885074,
+							"parameters": {
+								"file": "LevelFile"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 114973574336946,
+							"parameters": {
+								"variable": "PointSize",
+								"value": "40"
+							}
+						}
+					],
+					"sid": 528783178130759
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 140633752502491,
+							"parameters": {
+								"count": "NumberOfPoints"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 750999301460907,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "PointX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 176541742737145
+						},
+						{
+							"eventType": "variable",
+							"name": "PointY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 452720172945850
+						},
+						{
+							"eventType": "variable",
+							"name": "Index",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 578492481399987
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 294295866016174,
+									"parameters": {
+										"variable": "Index",
+										"value": "loopindex"
+									}
+								},
+								{
+									"type": "script",
+									"script": "[localVars.PointX, localVars.PointY] = globalThis.GetPointPosition(localVars.Index);"
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 105128326977020,
+									"parameters": {
+										"object-to-create": "Point",
+										"layer": "\"Points\"",
+										"x": "PointX",
+										"y": "PointY"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Point",
+									"sid": 606076441089866,
+									"parameters": {
+										"width": "PointSize",
+										"height": "PointSize"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Point",
+									"sid": 497101475851226,
+									"parameters": {
+										"instance-variable": "Index",
+										"value": "Index"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 663322441262262,
+									"parameters": {
+										"type": "log",
+										"message": "Point.Index"
+									}
+								}
+							],
+							"sid": 566718795553655
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "DestroyLevel",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 330476718758660,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 883471563673557,
+							"parameters": {
+								"object": "Point"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Point",
+							"sid": 678155718734009
+						}
+					],
+					"sid": 173756414512481
+				}
+			]
+		},
+		{
+			"functionName": "WinLevel",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "DestroyLevel",
+					"sid": 995515808174460
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 912338795210289,
+					"parameters": {
+						"variable": "LevelIndex",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "StartNextLevel",
+					"sid": 954239899329430
+				}
+			],
+			"sid": 105440961380410
 		}
 	],
 	"sid": 768800158045704

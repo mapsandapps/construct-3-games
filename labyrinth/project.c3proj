@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 21000,
+	"savedWithRelease": 21100,
 	"name": "labyrinth",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
-			"version": "r210",
+			"version": "r211",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r210",
+			"version": "r211",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r210",
+			"version": "r211",
 			"bundled": false
 		},
 		{
@@ -35,15 +35,7 @@
 			"id": "SVGPicture",
 			"name": "SVG Picture",
 			"author": "Scirra",
-			"version": "r210",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
-			"author": "Scirra",
-			"version": "r210",
+			"version": "r211",
 			"bundled": false
 		},
 		{
@@ -51,7 +43,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r210",
+			"version": "r211",
 			"bundled": false
 		}
 	],
@@ -59,7 +51,6 @@
 	"objectTypes": {
 		"items": [
 			"LabyrinthSVG",
-			"PointsArray",
 			"Point",
 			"TouchFollower"
 		],
@@ -83,7 +74,8 @@
 	},
 	"layouts": {
 		"items": [
-			"Labyrinth"
+			"Labyrinth",
+			"Objects"
 		],
 		"subfolders": []
 	},
@@ -96,7 +88,18 @@
 	},
 	"rootFileFolders": {
 		"script": {
-			"items": [],
+			"items": [
+				{
+					"name": "Points.js",
+					"type": "application/javascript",
+					"sid": 573463365612834
+				},
+				{
+					"name": "svg.min.js",
+					"type": "text/javascript",
+					"sid": 896530412892601
+				}
+			],
 			"subfolders": []
 		},
 		"sound": {
@@ -192,6 +195,16 @@
 					"name": "swoopy.svg",
 					"type": "image/svg+xml",
 					"sid": 956484546016718
+				},
+				{
+					"name": "crescent.svg",
+					"type": "image/svg+xml",
+					"sid": 459180163538666
+				},
+				{
+					"name": "command-2.svg",
+					"type": "image/svg+xml",
+					"sid": 834905476527757
 				}
 			],
 			"subfolders": []
@@ -238,7 +251,7 @@
 			0
 		],
 		"useHighDpi": true,
-		"orientations": "portrait",
+		"orientations": "any",
 		"enableWebGL": true,
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",
@@ -252,7 +265,7 @@
 		"enhancedAccelerationPrecision": true,
 		"cordovaiOSScheme": "app"
 	},
-	"viewportWidth": 720,
-	"viewportHeight": 1280,
+	"viewportWidth": 1280,
+	"viewportHeight": 720,
 	"firstLayout": null
 }

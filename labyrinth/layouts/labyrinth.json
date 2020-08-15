@@ -15,9 +15,9 @@
 				1
 			],
 			"backgroundColor": [
-				0,
-				0,
-				0,
+				0.0784313725490196,
+				0.0784313725490196,
+				0.0784313725490196,
 				1
 			],
 			"isTransparent": false,
@@ -64,7 +64,7 @@
 				{
 					"type": "LabyrinthSVG",
 					"properties": {
-						"svg-file": -1,
+						"svg-file": 459180163538666,
 						"initially-visible": true,
 						"origin": "top-left"
 					},
@@ -74,8 +74,8 @@
 					"world": {
 						"x": 0,
 						"y": 0,
-						"width": 960,
-						"height": 960,
+						"width": 1280,
+						"height": 720,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -87,37 +87,6 @@
 						"angle": 0,
 						"zElevation": 0,
 						"blendMode": "destination-in"
-					}
-				},
-				{
-					"type": "Point",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 2,
-					"instanceVariables": {
-						"Index": 0
-					},
-					"behaviors": {},
-					"world": {
-						"x": 960,
-						"y": 1376,
-						"width": 225,
-						"height": 225,
-						"originX": 0.49777777777777776,
-						"originY": 0.49777777777777776,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
 					}
 				}
 			],
@@ -205,21 +174,10 @@
 		}
 	],
 	"sid": 484338318892195,
-	"nonworld-instances": [
-		{
-			"type": "PointsArray",
-			"properties": {
-				"width": 10,
-				"height": 1,
-				"depth": 1
-			},
-			"uid": 8,
-			"instanceVariables": {}
-		}
-	],
+	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 720,
-	"height": 1280,
+	"width": 1280,
+	"height": 720,
 	"unboundedScrolling": false,
 	"eventSheet": "eLabyrinth"
 }
