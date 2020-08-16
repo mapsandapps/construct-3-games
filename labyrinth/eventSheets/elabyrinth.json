@@ -3,46 +3,6 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "OffsetX",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 946485749661735
-		},
-		{
-			"eventType": "variable",
-			"name": "OffsetY",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 253944698330914
-		},
-		{
-			"eventType": "variable",
-			"name": "NextPoint",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 496435718693228
-		},
-		{
-			"eventType": "variable",
-			"name": "PointSize",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 765248043441256
-		},
-		{
-			"eventType": "variable",
 			"name": "LevelIndex",
 			"type": "number",
 			"initialValue": "0",
@@ -52,6 +12,20 @@
 			"sid": 447603814029406
 		},
 		{
+			"eventType": "comment",
+			"text": "mechanics"
+		},
+		{
+			"eventType": "variable",
+			"name": "NextPoint",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 822941124848563
+		},
+		{
 			"eventType": "variable",
 			"name": "Loops",
 			"type": "boolean",
@@ -59,7 +33,7 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 702934798119972
+			"sid": 796265380145626
 		},
 		{
 			"eventType": "variable",
@@ -69,7 +43,7 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 493666582765221
+			"sid": 297781925783791
 		},
 		{
 			"eventType": "variable",
@@ -79,7 +53,7 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 408032947369029
+			"sid": 658865501926905
 		},
 		{
 			"eventType": "variable",
@@ -89,7 +63,7 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
-			"sid": 502924023753907
+			"sid": 114984425763303
 		},
 		{
 			"eventType": "variable",
@@ -99,7 +73,7 @@
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 428361979033285
+			"sid": 860081306350238
 		},
 		{
 			"eventType": "variable",
@@ -110,6 +84,30 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 550450461289400
+		},
+		{
+			"eventType": "comment",
+			"text": "drawing SVG & points"
+		},
+		{
+			"eventType": "variable",
+			"name": "POINT_SIZE",
+			"type": "number",
+			"initialValue": "52",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 201910658534701
+		},
+		{
+			"eventType": "variable",
+			"name": "LENGTH_BETWEEN_POINTS",
+			"type": "number",
+			"initialValue": "15",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 690259519402347
 		},
 		{
 			"eventType": "block",
@@ -266,15 +264,6 @@
 							"id": "move-to-top",
 							"objectClass": "Point",
 							"sid": 670560004371264
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 297766626649352,
-							"parameters": {
-								"type": "log",
-								"message": "Point.Index"
-							}
 						}
 					],
 					"sid": 830843706768778
@@ -535,15 +524,6 @@
 							"parameters": {
 								"file": "LevelFile"
 							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 114973574336946,
-							"parameters": {
-								"variable": "PointSize",
-								"value": "40"
-							}
 						}
 					],
 					"sid": 528783178130759
@@ -608,7 +588,7 @@
 								},
 								{
 									"type": "script",
-									"script": "[localVars.PointX, localVars.PointY] = globalThis.GetPointPosition(localVars.Index);"
+									"script": "[localVars.PointX, localVars.PointY] = globalThis.GetPointPosition(runtime, localVars.Index);"
 								},
 								{
 									"id": "create-object",
@@ -626,8 +606,8 @@
 									"objectClass": "Point",
 									"sid": 606076441089866,
 									"parameters": {
-										"width": "PointSize",
-										"height": "PointSize"
+										"width": "POINT_SIZE",
+										"height": "POINT_SIZE"
 									}
 								},
 								{
@@ -637,15 +617,6 @@
 									"parameters": {
 										"instance-variable": "Index",
 										"value": "Index"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 663322441262262,
-									"parameters": {
-										"type": "log",
-										"message": "Point.Index"
 									}
 								}
 							],
