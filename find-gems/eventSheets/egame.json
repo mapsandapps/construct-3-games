@@ -1,0 +1,967 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GEMS_ON_BOARD",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 543342989977426
+		},
+		{
+			"eventType": "variable",
+			"name": "NUMBER_OF_GEM_FRAMES",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 651713841979116
+		},
+		{
+			"eventType": "variable",
+			"name": "STARTING_TIME",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 567521945364756
+		},
+		{
+			"eventType": "variable",
+			"name": "TIME_BAR_MAX_WIDTH",
+			"type": "number",
+			"initialValue": "240",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 755874127353407
+		},
+		{
+			"eventType": "variable",
+			"name": "TIME_LOSS_FOR_MISTAKE",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 559018679935922
+		},
+		{
+			"eventType": "variable",
+			"name": "GemToMatch",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 424162514147170
+		},
+		{
+			"eventType": "variable",
+			"name": "Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 572336779162062
+		},
+		{
+			"eventType": "variable",
+			"name": "TimeRemaining",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 551065133665465
+		},
+		{
+			"eventType": "variable",
+			"name": "IsGameOver",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 334822480284671
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 440294978448351
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 938059542737026,
+					"parameters": {
+						"layer": "\"Game Over\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 105310525843433,
+					"parameters": {
+						"variable": "IsGameOver",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 190799675395861,
+					"parameters": {
+						"variable": "Score",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 105392521893776,
+					"parameters": {
+						"variable": "TimeRemaining",
+						"value": "STARTING_TIME"
+					}
+				},
+				{
+					"callFunction": "SetGemToMatch",
+					"sid": 988976507469893
+				},
+				{
+					"id": "set-text",
+					"objectClass": "TimeText",
+					"sid": 274247715039528,
+					"parameters": {
+						"text": "\"Time Remaining: \" & TimeRemaining"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "ScoreText",
+					"sid": 964969252348241,
+					"parameters": {
+						"text": "\"Score: \" & Score"
+					}
+				}
+			],
+			"sid": 205739928961392,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 562523838553452,
+							"parameters": {
+								"count": "GEMS_ON_BOARD"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 936259431375026,
+							"parameters": {
+								"seconds": "0.1 * loopindex"
+							}
+						},
+						{
+							"callFunction": "SpawnGem",
+							"sid": 282369778565981
+						}
+					],
+					"sid": 974744440180209
+				}
+			]
+		},
+		{
+			"functionName": "SpawnGem",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 643439419412145,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "SpawnSide",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 466329747728299
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 574887724652423,
+							"parameters": {
+								"object": "Barrier"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 368512701016515,
+							"parameters": {
+								"variable": "SpawnSide",
+								"value": "Barrier.Side"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 684931790710194,
+							"parameters": {
+								"type": "log",
+								"message": "SpawnSide"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 582438195456650,
+							"parameters": {
+								"type": "log",
+								"message": "Barrier.BBoxLeft"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 847780455741915,
+							"parameters": {
+								"object-to-create": "Gem",
+								"layer": "\"Playing Field\"",
+								"x": "random(Barrier.BBoxLeft, Barrier.BBoxRight)",
+								"y": "random(Barrier.BBoxTop, Barrier.BBoxBottom)"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Gem",
+							"sid": 442112340880670,
+							"parameters": {
+								"width": "128",
+								"height": "128"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Gem",
+							"sid": 766199095656385,
+							"parameters": {
+								"angle": "random(360)"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Gem",
+							"sid": 766817151843008,
+							"parameters": {
+								"frame-number": "random(NUMBER_OF_GEM_FRAMES)"
+							}
+						},
+						{
+							"callFunction": "MoveGem",
+							"sid": 710755987873928,
+							"parameters": [
+								"Gem.UID",
+								"SpawnSide"
+							]
+						}
+					],
+					"sid": 978552265066432
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Barrier",
+					"sid": 780895575068459,
+					"parameters": {
+						"object": "Gem"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "Gem",
+					"sid": 311913074556274,
+					"parameters": {
+						"layer": "\"Playing Field\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 477530932405582,
+					"parameters": {
+						"first-value": "Barrier.Side",
+						"comparison": 0,
+						"second-value": "Gem.MovingTowardBarrier"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Gem",
+					"sid": 228269855391229
+				},
+				{
+					"callFunction": "SpawnGem",
+					"sid": 373488097692761
+				}
+			],
+			"sid": 536396985925674
+		},
+		{
+			"functionName": "MoveGem",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "GemUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 170766828456278
+				},
+				{
+					"name": "SpawnSide",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 996042709700068
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Gem",
+					"sid": 545718118943369,
+					"parameters": {
+						"unique-id": "GemUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 141502402870351,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-evaluate",
+							"objectClass": "System",
+							"sid": 427831184899077,
+							"parameters": {
+								"object": "Barrier",
+								"expression": "Barrier.Side <> SpawnSide"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Gem",
+							"sid": 213206768948561,
+							"parameters": {
+								"instance-variable": "MovingTowardBarrier",
+								"value": "Barrier.Side"
+							}
+						},
+						{
+							"id": "set-stop-on-solids",
+							"objectClass": "Gem",
+							"sid": 841705566806464,
+							"disabled": true,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": false
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "Gem",
+							"sid": 462845905205614,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"acceleration": "0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Gem",
+							"sid": 952526171680805,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"speed": "random(50,400)"
+							}
+						},
+						{
+							"id": "move-to-position",
+							"objectClass": "Gem",
+							"sid": 396029419462992,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "random(Barrier.BBoxLeft, Barrier.BBoxRight)",
+								"y": "random(Barrier.BBoxTop, Barrier.BBoxBottom)",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 688221177549300
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 947340848286903,
+					"parameters": {
+						"object": "MatchButton"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 921365046461721,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 110400129837269,
+							"parameters": {
+								"variable": "IsGameOver"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 925528608719778
+						}
+					],
+					"sid": 555473178045967
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 459264476574508
+						}
+					],
+					"actions": [],
+					"sid": 787740139157010,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Gem",
+									"sid": 945302614348016,
+									"parameters": {
+										"layer": "\"Playing Field\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Gem",
+									"sid": 653599208063580,
+									"parameters": {
+										"comparison": 0,
+										"number": "GemToMatch"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Match",
+									"sid": 748998537632144,
+									"parameters": [
+										"GemToMatch",
+										"Gem.UID"
+									]
+								}
+							],
+							"sid": 827940409491226
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 758362136675397
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ReduceTimeRemaining",
+									"sid": 932229389316897
+								}
+							],
+							"sid": 819017023237650
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "SetGemToMatch",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 202516588761197,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "Gem",
+							"sid": 305931139473634,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Gem",
+							"sid": 578343419848105,
+							"parameters": {
+								"frame-number": "random(NUMBER_OF_GEM_FRAMES)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 927257356394882,
+							"parameters": {
+								"variable": "GemToMatch",
+								"value": "Gem.AnimationFrame"
+							}
+						}
+					],
+					"sid": 960959948626507
+				}
+			]
+		},
+		{
+			"functionName": "Match",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "AnimationFrame",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 948824525110581
+				},
+				{
+					"name": "GemUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 716612625711234
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Gem",
+					"sid": 945831587175816,
+					"parameters": {
+						"unique-id": "GemUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Gem",
+					"sid": 333560442545530
+				},
+				{
+					"callFunction": "SwitchGemToMatch",
+					"sid": 912681575612712
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 631729595919419,
+					"parameters": {
+						"variable": "Score",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "ScoreText",
+					"sid": 233400417930733,
+					"parameters": {
+						"text": "\"Score:\" & newline & str(Score)"
+					}
+				}
+			],
+			"sid": 451827131353424
+		},
+		{
+			"functionName": "ReduceTimeRemaining",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "MatchButton",
+					"sid": 556045991485994,
+					"parameters": {
+						"color": "rgbEx(100, 0, 0)"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 292362312722912,
+					"parameters": {
+						"seconds": "0.3"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "MatchButton",
+					"sid": 616783192251653,
+					"parameters": {
+						"color": "rgbEx(100, 100, 100)"
+					}
+				},
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 855980404281691,
+					"parameters": {
+						"variable": "TimeRemaining",
+						"value": "TIME_LOSS_FOR_MISTAKE"
+					}
+				},
+				{
+					"callFunction": "CheckTime",
+					"sid": 743286190561591
+				}
+			],
+			"sid": 501553488814725
+		},
+		{
+			"functionName": "SwitchGemToMatch",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 596132498948609,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "Gem",
+							"sid": 270663850712222,
+							"parameters": {
+								"layer": "\"UI\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 293474573757736,
+							"parameters": {
+								"variable": "GemToMatch",
+								"value": "999999"
+							}
+						},
+						{
+							"type": "comment",
+							"text": "TODO: lerp gem opacity",
+							"text-color": [
+								0.9411764705882353,
+								0,
+								0,
+								1
+							]
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Gem",
+							"sid": 866172845433745,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "MatchButton",
+							"sid": 624643855089404,
+							"parameters": {
+								"color": "rgbEx(0, 100, 0)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 445558746640753,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"callFunction": "SetGemToMatch",
+							"sid": 610237553847209
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Gem",
+							"sid": 176321402224682,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "MatchButton",
+							"sid": 870671969309318,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 885296586500124
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 808621834465818,
+					"parameters": {
+						"variable": "IsGameOver"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 954160488815888,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 506536035165553,
+					"parameters": {
+						"variable": "TimeRemaining",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "CheckTime",
+					"sid": 938712335084289
+				}
+			],
+			"sid": 561724833616375
+		},
+		{
+			"functionName": "CheckTime",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 365658038451579,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 460652368696535,
+							"parameters": {
+								"first-value": "TimeRemaining",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TimeText",
+							"sid": 344957450852079,
+							"parameters": {
+								"text": "\"Time Remaining: \" & TimeRemaining"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "TimeBar",
+							"sid": 251789978152833,
+							"parameters": {
+								"width": "(TIME_BAR_MAX_WIDTH / STARTING_TIME) * TimeRemaining"
+							}
+						}
+					],
+					"sid": 595875407492058
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 410367315827098,
+							"parameters": {
+								"variable": "IsGameOver"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 269132709465178,
+							"parameters": {
+								"first-value": "TimeRemaining",
+								"comparison": 3,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Gem",
+							"sid": 986248174498775
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TimeBar",
+							"sid": 135491811536236,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TimeMeterDecoration",
+							"sid": 413449257236036,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TimeText",
+							"sid": 148068839319662,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 536704497362907,
+							"parameters": {
+								"layer": "\"Game Over\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 302970848331701,
+							"parameters": {
+								"variable": "IsGameOver",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 917124889054223
+				}
+			]
+		}
+	],
+	"sid": 212503426686222
+}

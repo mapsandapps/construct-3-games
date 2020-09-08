@@ -1,0 +1,30 @@
+{
+	"name": "eIntro",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 237686836462119,
+					"parameters": {
+						"object": "MatchButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 392420197668474,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 985938876445944
+		}
+	],
+	"sid": 962723983113918
+}

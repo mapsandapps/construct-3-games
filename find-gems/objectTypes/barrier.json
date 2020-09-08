@@ -1,0 +1,44 @@
+{
+	"name": "Barrier",
+	"plugin-id": "Sprite",
+	"sid": 812939850714726,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Side",
+			"type": "string",
+			"desc": "",
+			"sid": 533459230922983
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7738061,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 464388535962875,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
