@@ -1,0 +1,73 @@
+{
+	"name": "Piece",
+	"plugin-id": "Sprite",
+	"sid": 560221857087085,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Touched",
+			"type": "number",
+			"desc": "",
+			"sid": 769787522159640
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 615250660784076
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 2,
+						"originY": 2,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6516201,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 583172157064973,
+				"name": "Straight",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 192,
+						"height": 192,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8327092,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 826839746571144,
+				"name": "Quarter Circle",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

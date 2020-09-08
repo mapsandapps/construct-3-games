@@ -1,0 +1,294 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "AllTouched",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 798880159853524
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 829444485730266,
+					"parameters": {
+						"object": "Piece"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Piece",
+					"sid": 229144004660942
+				},
+				{
+					"type": "comment",
+					"text": "TODO: maybe if you touch it then move away then touch it again, it turns another shade (not sure how to handle intersections)",
+					"text-color": [
+						0.8588235294117647,
+						0.0392156862745098,
+						0.0392156862745098,
+						1
+					]
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Piece",
+					"sid": 859856669669445,
+					"parameters": {
+						"instance-variable": "Touched",
+						"value": "AllTouched + 1"
+					}
+				},
+				{
+					"callFunction": "CheckIfAllHaveBeenTouched",
+					"sid": 245859646706357
+				}
+			],
+			"sid": 849489453114531,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 167818258975920,
+							"parameters": {
+								"variable": "AllTouched",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Piece",
+							"sid": 545736544422411,
+							"parameters": {
+								"color": "rgbEx255(246, 152, 64)"
+							}
+						}
+					],
+					"sid": 970467802446959
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 414543014168012
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 548237452448057,
+							"parameters": {
+								"variable": "AllTouched",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Piece",
+							"sid": 787657962453180,
+							"parameters": {
+								"color": "rgbEx255(140, 120, 192)"
+							}
+						}
+					],
+					"sid": 854761021569848
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 635392664776801
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Piece",
+							"sid": 599705969006050,
+							"parameters": {
+								"color": "rgbEx255(88, 189, 146)"
+							}
+						}
+					],
+					"sid": 205735468696206
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 968015591719102
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 753871265832810,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "Piece",
+					"sid": 166614371644622,
+					"parameters": {
+						"color": "rgbEx(100, 100, 100)"
+					}
+				}
+			],
+			"sid": 550557821029229
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 353852262978199,
+					"parameters": {
+						"object": "NextButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 147984140272148,
+					"parameters": {
+						"which": "next"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 820517521069758,
+					"parameters": {
+						"variable": "AllTouched",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 272991665085706
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 899782790711732
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 873779295455778,
+					"parameters": {
+						"layer": "\"Game\"",
+						"color": "rgbEx255(65, 85, 94)"
+					}
+				},
+				{
+					"id": "set-default-color",
+					"objectClass": "Piece",
+					"sid": 547790467102081,
+					"parameters": {
+						"color": "rgbEx255(255, 230, 118)"
+					}
+				}
+			],
+			"sid": 340643155691657
+		},
+		{
+			"functionName": "CheckIfAllHaveBeenTouched",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 542439597343311,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Piece",
+							"sid": 529458819323041,
+							"parameters": {
+								"instance-variable": "Touched",
+								"comparison": 0,
+								"value": "AllTouched"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 433806147961550
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 118701411222762
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 568601706490338,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 834097801669092,
+							"parameters": {
+								"variable": "AllTouched",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 204631850220290
+				}
+			]
+		}
+	],
+	"sid": 865371091566456
+}
