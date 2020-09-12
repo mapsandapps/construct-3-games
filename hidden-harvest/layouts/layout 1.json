@@ -1,0 +1,256 @@
+{
+	"name": "Layout 1",
+	"layers": [
+		{
+			"name": "Tiles",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Walls",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 64,
+						"tile-height": 64,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 4,
+						"tile-y-spacing": 4,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 2,
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"ownData": {
+						"tilemapData": {
+							"width": 40,
+							"height": 30,
+							"max-width": 100,
+							"max-height": 75,
+							"data": "30x158,45x0,158,3x0,55,24x0,158,45x0,158,5x0,109,22x0,158,45x0,158,0,53,13x0,3x6,3,9x0,158,45x0,158,5x0,108,9x0,6,0,3,6,9x0,158,45x0,158,8x0,331,6x0,6,2x3,6,9x0,158,45x0,158,3x0,58,11x0,3,6,0,3,9x0,158,45x0,158,28x0,158,45x0,158,0,54,4x0,57,21x0,158,45x0,158,28x0,158,45x0,158,4x0,56,23x0,158,45x0,158,248,300,352,508,560,0,107,21x0,158,45x0,158,249,301,353,509,561,23x0,158,45x0,158,250,302,354,510,562,0,273,21x0,158,45x0,158,28x0,158,45x0,158,5x0,280,333,21x0,158,45x0,158,28x0,158,45x0,158,5x0,281,332,21x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,158,28x0,158,45x0,30x158,54x0,23,69x0,17,2x0,3,3x0,103,0,83,468x0,20,40,224x0,55,208,138,69x0,89,109,2x0,210,70x0,89,109,144x0,196,71x0,54,2x0,197,71x0,55,2x0,197,74x0,197,3x0,84,2x0,36,56,35,65x0,197,3x0,84,67x0,15,36,5x0,84,74x0,84,2x0,3x330,69x0,86,0,370,65x0,16,35,5x0,85,74x0,84,67x0,34,9x0,39,74x0,19,2591x0"
+						},
+						"tile-width": 64,
+						"tile-height": 64,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 4,
+						"tile-y-spacing": 4
+					},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 2560,
+						"height": 1920,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 322257195188022,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				0.7098039215686275,
+				0.4392156862745098,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Items",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Items",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 64,
+						"tile-height": 64,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 4,
+						"tile-y-spacing": 4,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 3,
+					"instanceVariables": {},
+					"behaviors": {},
+					"ownData": {
+						"tilemapData": {
+							"width": 40,
+							"height": 30,
+							"max-width": 100,
+							"max-height": 100,
+							"data": "215x0,295,98x0,1410,297x0,1202,299x0,1524,2x0,1319,94x0,1421,107x0,1471,192x0,1525,2x0,1362,294x0,1204,4x0,1360,97x0,1472,3x0,1266,86x0,1473,101x0,86,4x0,1474,3x0,1265,291x0,139,6x0,191,3x0,1579,87x0,1476,105x0,1475,114x0,1315,295x0,1511,604x0,1364,183x0,1468,9x0,1314,94x0,1518,7x0,1466,988x0,8x173,5x67,392x0,740,4x0,263,4x0,226,186x0,72,102x0,24,8x0,149,100x0,149,86x0,39,4x0,460,7x0,84,85x0,256,13x0,84,83x0,8,4x0,329,96x0,254,3x0,618,7x0,20,85x0,7,101x0,2,0,937,4x0,476,190x0,5,5x0,908,3681x0"
+						},
+						"tile-width": 64,
+						"tile-height": 64,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 4,
+						"tile-y-spacing": 4
+					},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 2560,
+						"height": 1920,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 265247900652556,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Player",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Player",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 4,
+					"instanceVariables": {},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 64,
+								"grid-height": 64,
+								"grid-offset-x": 0,
+								"grid-offset-y": 0,
+								"speed-x": 400,
+								"speed-y": 400,
+								"enabled": true,
+								"default-controls": true,
+								"isometric": false
+							}
+						},
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 384,
+						"y": 128,
+						"width": 64,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.29411764705882354,
+							0.3568627450980392,
+							0.6705882352941176,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 653639907039980,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 872788758402493,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 2560,
+	"height": 1920,
+	"unboundedScrolling": false,
+	"eventSheet": "eGame"
+}
