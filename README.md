@@ -2,6 +2,13 @@
 
 Note: you can open these in the [Construct editor](https://editor.construct.net/), but you will need to set up Construct and Chrome to use [folder-based projects](https://www.construct.net/en/forum/construct-3/general-discussion-7/local-file-folder-saves-chrome-147071).
 
+## Gems!
+
+Arcade game made for [Weekly Game Jam #165: "One Button Mash"](https://itch.io/jam/weekly-game-jam-165/rate/750744) in September 2020
+
+* Folder: [/find-gems](./find-gems)
+* [Play on Itch](https://mapsandapps.itch.io/gems)
+
 ## Mirror Dice
 
 Roll & write game made for [Weekly Game Jam #148: "Mirror"](https://itch.io/jam/weekly-game-jam-148/rate/642444) in May 2020
@@ -112,6 +119,8 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * Folder: [/camouflage](./camouflage)
 * [Play on Itch](https://mapsandapps.itch.io/paint-it-black)
 
+## Various other tests, false starts, prototypes, etc.
+
 
 # Credits
 
@@ -127,7 +136,10 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 * [Roboto](https://fonts.google.com/specimen/Roboto) font (Open Font License)
 * [Poppins](https://fonts.google.com/specimen/Poppins) font (Open Font License)
 * [Odibee Sans](https://fonts.google.com/specimen/Odibee+Sans) font (Open Font License)
+* [Metamorphous](https://fonts.google.com/specimen/Metamorphous) (Open Font License)
 * Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
 * [Fantasy Map Generator](https://github.com/Azgaar/Fantasy-Map-Generator) (MIT license)
 * ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)
 * ["Silence of the Machines" composed by onemansymphony.bandcamp.com](https://onemansymphony.bandcamp.com) (CC BY 4.0)
+* [Humble 7000 Game Dev Icons Bundle](https://www.humblebundle.com/software/7000-game-dev-icons-software) (purchased)
+* [Heroic UI](https://assetstore.unity.com/packages/2d/gui/icons/heroic-ui-106778#description) by [Rexard](https://assetstore.unity.com/publishers/13229) (purchased)
