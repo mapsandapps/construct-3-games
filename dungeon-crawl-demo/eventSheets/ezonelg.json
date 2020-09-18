@@ -1,0 +1,278 @@
+{
+	"name": "eZoneLG",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eOverworld"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 428876391702319
+				}
+			],
+			"actions": [],
+			"sid": 446278140028561,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 161918674341795,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"LG0202\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 224583552588611,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 682146420191406,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 934991132395844,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0302\""
+									}
+								}
+							],
+							"sid": 793267762277330
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 958074813961906,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 180518629219362,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0102\""
+									}
+								}
+							],
+							"sid": 373851907172609
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 739247028612655,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Top\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 942326916765503,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0201\""
+									}
+								}
+							],
+							"sid": 677787757221013
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 624704638005672,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Bottom\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 895759299073846,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0203\""
+									}
+								}
+							],
+							"sid": 695273047884401
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 721058777358280,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"LG0302\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 283229952375589,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 389168603633466,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 288943656524867,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0402\""
+									}
+								}
+							],
+							"sid": 165082761047332
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 937621825413576,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 387892296826415,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0202\""
+									}
+								}
+							],
+							"sid": 377618523412608
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 342920985470406,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Top\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 127680970231379,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0301\""
+									}
+								}
+							],
+							"sid": 939333675127329
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 596786434189659,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"Bottom\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "OverworldScreenBarrier",
+									"sid": 186233307505529,
+									"parameters": {
+										"instance-variable": "GoesToRoom",
+										"value": "\"LG0303\""
+									}
+								}
+							],
+							"sid": 415397978054956
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 610828387246233
+}

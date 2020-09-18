@@ -1,0 +1,525 @@
+{
+	"name": "eOverworldPlayer",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GoingToRoom",
+			"type": "string",
+			"initialValue": "None",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 207079955203308
+		},
+		{
+			"eventType": "variable",
+			"name": "GoingInDirection",
+			"type": "string",
+			"initialValue": "None",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 423420155005089
+		},
+		{
+			"eventType": "variable",
+			"name": "NextRoomPlayerX",
+			"type": "number",
+			"initialValue": "64",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 826126228251391
+		},
+		{
+			"eventType": "variable",
+			"name": "NextRoomPlayerY",
+			"type": "number",
+			"initialValue": "112",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 772691617353015
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_OFFSET_WHEN_ENTERING_ROOM",
+			"type": "number",
+			"initialValue": "24",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 297172927596755
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 447033351861740
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 273800891953328,
+					"parameters": {
+						"variable": "GoingToRoom",
+						"value": "\"None\""
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Player",
+					"sid": 910036621461611,
+					"parameters": {
+						"x": "NextRoomPlayerX",
+						"y": "NextRoomPlayerY"
+					}
+				}
+			],
+			"sid": 278634681963943
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 984053493705145,
+					"parameters": {
+						"object": "OverworldScreenBarrier"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 911119902411145,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				}
+			],
+			"sid": 823880204940666,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OverworldScreenBarrier",
+							"sid": 985996975817945,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"Right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 113996178099897,
+							"parameters": {
+								"angle": "0"
+							}
+						}
+					],
+					"sid": 432303399682809
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OverworldScreenBarrier",
+							"sid": 279966173703773,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"Bottom\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 443682174173673,
+							"parameters": {
+								"angle": "90"
+							}
+						}
+					],
+					"sid": 989842682030660
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OverworldScreenBarrier",
+							"sid": 669961491434415,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"Left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 863361669208398,
+							"parameters": {
+								"angle": "180"
+							}
+						}
+					],
+					"sid": 948920529504655
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "OverworldScreenBarrier",
+							"sid": 101003561784841,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"Top\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 110639040460443,
+							"parameters": {
+								"angle": "270"
+							}
+						}
+					],
+					"sid": 805715216874594
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Cursor",
+							"sid": 892549340717558,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 244064007715068
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 319394880060784
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 271359986608169,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Cursor",
+					"sid": 724552207478445,
+					"parameters": {
+						"x": "-200",
+						"y": "200"
+					}
+				}
+			],
+			"sid": 241270540534406
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 359610140339589
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "Player",
+					"sid": 742690645508470,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 296590176633862,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 560026067235789,
+							"parameters": {
+								"object": "OverworldScreenBarrier"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 946454166440076,
+							"parameters": {
+								"variable": "GoingToRoom",
+								"value": "OverworldScreenBarrier.GoesToRoom"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 167600346621348,
+							"parameters": {
+								"variable": "GoingInDirection",
+								"value": "OverworldScreenBarrier.Side"
+							}
+						}
+					],
+					"sid": 356916093175675
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 205691129034678
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 299778854832510,
+							"parameters": {
+								"variable": "GoingToRoom",
+								"value": "\"None\""
+							}
+						}
+					],
+					"sid": 402544632380130
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 491404907274849,
+					"parameters": {
+						"object": "OverworldScreenBarrier"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 784876443422104,
+					"parameters": {
+						"variable": "GoingToRoom",
+						"comparison": 0,
+						"value": "OverworldScreenBarrier.GoesToRoom"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 872013439664864,
+					"parameters": {
+						"layout": "GoingToRoom"
+					}
+				}
+			],
+			"sid": 311756814689540,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 803190935518658,
+							"parameters": {
+								"first-value": "GoingInDirection",
+								"comparison": 0,
+								"second-value": "\"Right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 573241521587766,
+							"parameters": {
+								"variable": "NextRoomPlayerX",
+								"value": "PLAYER_OFFSET_WHEN_ENTERING_ROOM"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 784638231631303,
+							"parameters": {
+								"variable": "NextRoomPlayerY",
+								"value": "Player.Y"
+							}
+						}
+					],
+					"sid": 664009690211505
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 201203115832248,
+							"parameters": {
+								"first-value": "GoingInDirection",
+								"comparison": 0,
+								"second-value": "\"Left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 745126462742975,
+							"parameters": {
+								"variable": "NextRoomPlayerX",
+								"value": "LayoutWidth - PLAYER_OFFSET_WHEN_ENTERING_ROOM"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 141145701290459,
+							"parameters": {
+								"variable": "NextRoomPlayerY",
+								"value": "Player.Y"
+							}
+						}
+					],
+					"sid": 936719769868676
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 926551230093452,
+							"parameters": {
+								"first-value": "GoingInDirection",
+								"comparison": 0,
+								"second-value": "\"Top\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 671171488975369,
+							"parameters": {
+								"variable": "NextRoomPlayerX",
+								"value": "Player.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 768715117585589,
+							"parameters": {
+								"variable": "NextRoomPlayerY",
+								"value": "LayoutHeight - PLAYER_OFFSET_WHEN_ENTERING_ROOM"
+							}
+						}
+					],
+					"sid": 102471390107759
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 869804729619646,
+							"parameters": {
+								"first-value": "GoingInDirection",
+								"comparison": 0,
+								"second-value": "\"Bottom\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 352826501520797,
+							"parameters": {
+								"variable": "NextRoomPlayerX",
+								"value": "Player.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 616259278229925,
+							"parameters": {
+								"variable": "NextRoomPlayerY",
+								"value": "PLAYER_OFFSET_WHEN_ENTERING_ROOM"
+							}
+						}
+					],
+					"sid": 911420419098169
+				}
+			]
+		}
+	],
+	"sid": 992095124878796
+}

@@ -1,5 +1,5 @@
 {
-	"name": "Overworld",
+	"name": "LG0302",
 	"layers": [
 		{
 			"name": "Background",
@@ -19,16 +19,16 @@
 						"tile-y-drawing-offset": 0,
 						"drawing-mode": "top-to-right"
 					},
-					"uid": 2,
+					"uid": 16,
 					"instanceVariables": {},
 					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
-							"width": 32,
-							"height": 30,
-							"max-width": 64,
-							"max-height": 60,
-							"data": "6,34,5x6,3,7x6,45x0,2x6,34,4x6,3,7x6,45x0,6,2x34,4x6,3,6,34,5x6,45x0,7x6,3,7x6,45x0,5x6,70,6,3,7x6,45x0,6,34,4x6,3,8x6,45x0,6,34,3x6,3,34,8x6,45x0,5x6,3,6,34,7x6,45x0,2x6,34,2x6,3,6,34,7x6,171,44x0,5x6,3,9x6,45x0,5x6,3,9x6,45x0,5x6,34,3,8x6,45x0,6,34,4x6,3,8x6,45x0,2x6,34,3x6,3,8x6,45x0,6,34,4x6,3,34,7x6,45x0,34,5x6,3,8x6,167x0,199,69x0,359,2687x0"
+							"width": 16,
+							"height": 10,
+							"max-width": 79,
+							"max-height": 70,
+							"data": "6x6,3,4x6,0,6,0,6,55x0,6x6,3,5x6,0,2x6,55x0,34,6,34,4x6,3,2x6,0,6,2x0,6,55x0,8x6,3,4x6,0,6,55x0,8x6,3,6,0,3x6,56x0,8x6,3,3x6,58x0,6,34,4x6,3x3,3x6,58x0,6x6,3,4x6,2x0,6,56x0,34,3x6,2x3,7x6,0,6,55x0,3x6,2x3,6x6,2x0,6,56x0,6,71,6,3,7x6,59x0,3x6,3,4x6,34,3x6,58x0,2x6,3,9x6,58x0,34,6,3,9x6,58x0,2x6,3,4x6,34,4x6,0,6,56x0,2x6,3,9x6,4468x0"
 						},
 						"tile-width": 16,
 						"tile-height": 16,
@@ -40,8 +40,8 @@
 					"world": {
 						"x": 0,
 						"y": 0,
-						"width": 512,
-						"height": 480,
+						"width": 256,
+						"height": 160,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -58,16 +58,116 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
-						"initial-frame": 0,
+						"initial-frame": 47,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 3,
-					"instanceVariables": {},
-					"behaviors": {},
+					"uid": 17,
+					"instanceVariables": {
+						"TimeUntilMove": 0
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
 					"world": {
-						"x": -64,
-						"y": 64,
+						"x": 96,
+						"y": 16,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 47,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 18,
+					"instanceVariables": {
+						"TimeUntilMove": 0
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 160,
+						"y": 144,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 47,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 19,
+					"instanceVariables": {
+						"TimeUntilMove": 0
+					},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 600,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 176,
+						"y": 128,
 						"width": 16,
 						"height": 16,
 						"originX": 0.5,
@@ -83,7 +183,7 @@
 					}
 				}
 			],
-			"sid": 866651095497509,
+			"sid": 294511103237487,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -111,7 +211,7 @@
 			"name": "Enemies",
 			"overriden": 0,
 			"instances": [],
-			"sid": 330600361235636,
+			"sid": 382089026853055,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -148,7 +248,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 8,
+					"uid": 20,
 					"instanceVariables": {},
 					"behaviors": {
 						"MoveTo": {
@@ -186,7 +286,7 @@
 					}
 				}
 			],
-			"sid": 163176885062894,
+			"sid": 162321501696877,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -214,7 +314,7 @@
 			"name": "OverworldUI",
 			"overriden": 1,
 			"instances": [],
-			"sid": 492565453721811,
+			"sid": 449725712313805,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -237,77 +337,13 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"global": false
-		},
-		{
-			"name": "Camera",
-			"overriden": 0,
-			"instances": [
-				{
-					"type": "Camera",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 10,
-					"instanceVariables": {},
-					"behaviors": {
-						"ScrollTo": {
-							"properties": {
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 128,
-						"y": 120,
-						"width": 256,
-						"height": 240,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
-			"sid": 886736253442144,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": false,
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"global": false
 		}
 	],
-	"sid": 582473129262293,
+	"sid": 531175508707086,
 	"nonworld-instances": [],
 	"effectTypes": [],
-	"width": 512,
-	"height": 480,
+	"width": 256,
+	"height": 160,
 	"unboundedScrolling": false,
-	"eventSheet": "eOverworld"
+	"eventSheet": "eZoneLG"
 }

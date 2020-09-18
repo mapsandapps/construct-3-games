@@ -3,8 +3,21 @@
 	"plugin-id": "Sprite",
 	"sid": 891805065218406,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "TimeUntilMove",
+			"type": "number",
+			"desc": "",
+			"sid": 764965463794664
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 891507066912821
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -30041,7 +30054,7 @@
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 5
+				"speed": 0
 			}
 		],
 		"subfolders": []

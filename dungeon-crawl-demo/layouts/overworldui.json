@@ -49,11 +49,12 @@
 					},
 					"uid": 5,
 					"instanceVariables": {
-						"Side": "Right"
+						"Side": "Right",
+						"GoesToRoom": ""
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
+						"x": 248,
 						"y": 80,
 						"width": 16,
 						"height": 160,
@@ -80,11 +81,12 @@
 					},
 					"uid": 6,
 					"instanceVariables": {
-						"Side": "Left"
+						"Side": "Left",
+						"GoesToRoom": ""
 					},
 					"behaviors": {},
 					"world": {
-						"x": 0,
+						"x": 8,
 						"y": 80,
 						"width": 16,
 						"height": 160,
@@ -111,13 +113,14 @@
 					},
 					"uid": 7,
 					"instanceVariables": {
-						"Side": "Top"
+						"Side": "Top",
+						"GoesToRoom": ""
 					},
 					"behaviors": {},
 					"world": {
 						"x": 128,
-						"y": 0,
-						"width": 256,
+						"y": 8,
+						"width": 224,
 						"height": 16,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -142,16 +145,86 @@
 					},
 					"uid": 9,
 					"instanceVariables": {
-						"Side": "Bottom"
+						"Side": "Bottom",
+						"GoesToRoom": ""
 					},
 					"behaviors": {},
 					"world": {
 						"x": 128,
-						"y": 160,
-						"width": 256,
+						"y": 152,
+						"width": 224,
 						"height": 16,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Cursor",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 10,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -32,
+						"y": 48,
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SpriteFont",
+					"properties": {
+						"text": "wmixn",
+						"enable-bbcode": true,
+						"character-width": 16,
+						"character-height": 16,
+						"character-set": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,?!abcdefghijklmnopqrstuvwxyz",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": -5,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 22,
+					"instanceVariables": {
+						"Use": "Zone Name"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 160,
+						"width": 256,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

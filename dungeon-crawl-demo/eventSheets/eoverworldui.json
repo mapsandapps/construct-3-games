@@ -1,5 +1,46 @@
 {
 	"name": "eOverworldUI",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 226638470673516
+				}
+			],
+			"actions": [],
+			"sid": 311940690918415,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SpriteFont",
+							"sid": 725741152681048,
+							"parameters": {
+								"instance-variable": "Use",
+								"comparison": 0,
+								"value": "\"Zone Name\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "SpriteFont",
+							"sid": 188776730669121,
+							"parameters": {
+								"text": "CurrentZone"
+							}
+						}
+					],
+					"sid": 932391171677572
+				}
+			]
+		}
+	],
 	"sid": 933999445713239
 }

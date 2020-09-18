@@ -1,0 +1,146 @@
+{
+	"name": "eOverworldEnemy",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 433019971935422
+				}
+			],
+			"actions": [],
+			"sid": 268644790565841,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 680775468776399,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 219978507497324,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 753548000896258,
+									"parameters": {
+										"first-value": "Enemy.TimeUntilMove",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 461975068176166,
+									"parameters": {
+										"instance-variable": "TimeUntilMove",
+										"value": "random(0, 30)"
+									}
+								}
+							],
+							"sid": 372655760199386
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 684795354738134,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Enemy",
+					"sid": 469584102183667,
+					"parameters": {
+						"instance-variable": "TimeUntilMove",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 331952871838333,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 167713705195738,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 938776047473487,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 843568648181901,
+									"parameters": {
+										"first-value": "Enemy.TimeUntilMove",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-position",
+									"objectClass": "Enemy",
+									"sid": 596822045490469,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "random(LayoutWidth)",
+										"y": "random(LayoutHeight)",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 752872666682631,
+									"parameters": {
+										"instance-variable": "TimeUntilMove",
+										"value": "random(0, 30)"
+									}
+								}
+							],
+							"sid": 519633465312059
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 127567114141764
+}

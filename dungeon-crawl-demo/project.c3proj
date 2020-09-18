@@ -8,8 +8,24 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
-			"id": "Tilemap",
-			"name": "Tilemap",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
 			"author": "Scirra",
 			"version": "r216",
 			"bundled": false
@@ -32,16 +48,16 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Touch",
-			"name": "Touch",
+			"id": "Spritefont2",
+			"name": "Sprite font",
 			"author": "Scirra",
 			"version": "r216",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Browser",
-			"name": "Browser",
+			"id": "Tilemap",
+			"name": "Tilemap",
 			"author": "Scirra",
 			"version": "r216",
 			"bundled": false
@@ -61,14 +77,6 @@
 			"author": "Scirra",
 			"version": "r216",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "scrollto",
-			"name": "Scroll To",
-			"author": "Scirra",
-			"version": "r216",
-			"bundled": false
 		}
 	],
 	"uniqueId": "66frapzy0z9",
@@ -76,14 +84,29 @@
 		"items": [
 			"Background",
 			"Enemy",
-			"UIPlaceholder",
 			"Player",
-			"OverworldScreenBarrier",
-			"Camera",
-			"Touch",
-			"Browser"
+			"OverworldScreenBarrier"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Browser",
+					"Touch",
+					"Mouse",
+					"Cursor"
+				],
+				"subfolders": [],
+				"name": "Misc"
+			},
+			{
+				"items": [
+					"UIPlaceholder",
+					"SpriteFont"
+				],
+				"subfolders": [],
+				"name": "UI"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
@@ -101,10 +124,11 @@
 				"subfolders": [
 					{
 						"items": [
-							"Overworld"
+							"LG0202",
+							"LG0302"
 						],
 						"subfolders": [],
-						"name": "Ratling Run"
+						"name": "Langburgh Green"
 					}
 				],
 				"name": "Overworld"
@@ -112,11 +136,27 @@
 		]
 	},
 	"eventSheets": {
-		"items": [
-			"eOverworld",
-			"eOverworldUI"
-		],
-		"subfolders": []
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"eOverworld",
+					"eOverworldEnemy",
+					"eOverworldPlayer",
+					"eOverworldUI"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"eZoneLG"
+						],
+						"subfolders": [],
+						"name": "Zones"
+					}
+				],
+				"name": "Overworld"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {
@@ -136,7 +176,18 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "kenney_mini_square-webfont.ttf",
+					"type": "application/font-sfnt",
+					"sid": 527748732351204
+				},
+				{
+					"name": "kenney_pixel-webfont.ttf",
+					"type": "application/font-sfnt",
+					"sid": 558355517727236
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {

@@ -2,6 +2,18 @@
 	"name": "eOverworld",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "eOverworldEnemy"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eOverworldPlayer"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eOverworldUI"
+		},
+		{
 			"eventType": "variable",
 			"name": "SCENE_WIDTH",
 			"type": "number",
@@ -23,223 +35,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "IsPaused",
-			"type": "boolean",
-			"initialValue": "false",
+			"name": "CurrentZone",
+			"type": "string",
+			"initialValue": "Langburgh Green",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 120743105323031
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "OverworldScreenBarrier",
-					"sid": 489143014065088,
-					"parameters": {
-						"object": "Player"
-					}
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 902169410694761,
-					"parameters": {
-						"variable": "IsPaused"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 880362033657815,
-					"parameters": {
-						"variable": "IsPaused",
-						"value": "true"
-					}
-				}
-			],
-			"sid": 823880204940666,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "OverworldScreenBarrier",
-							"sid": 985996975817945,
-							"parameters": {
-								"instance-variable": "Side",
-								"comparison": 0,
-								"value": "\"Right\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 435418984837587,
-							"parameters": {
-								"x": "Camera.X + SCENE_WIDTH",
-								"y": "Camera.Y"
-							}
-						}
-					],
-					"sid": 432303399682809
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "OverworldScreenBarrier",
-							"sid": 669961491434415,
-							"parameters": {
-								"instance-variable": "Side",
-								"comparison": 0,
-								"value": "\"Left\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 158955297178407,
-							"parameters": {
-								"x": "Camera.X - SCENE_WIDTH",
-								"y": "Camera.Y"
-							}
-						}
-					],
-					"sid": 948920529504655
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "OverworldScreenBarrier",
-							"sid": 252517598248482,
-							"parameters": {
-								"instance-variable": "Side",
-								"comparison": 0,
-								"value": "\"Bottom\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 759154879358523,
-							"parameters": {
-								"type": "log",
-								"message": "Camera.Y + SCENE_HEIGHT"
-							}
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 214076225097167,
-							"parameters": {
-								"x": "Camera.X",
-								"y": "Camera.Y + SCENE_HEIGHT"
-							}
-						}
-					],
-					"sid": 121615695430526
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "OverworldScreenBarrier",
-							"sid": 101003561784841,
-							"parameters": {
-								"instance-variable": "Side",
-								"comparison": 0,
-								"value": "\"Top\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Camera",
-							"sid": 778742068901239,
-							"parameters": {
-								"x": "Camera.X",
-								"y": "Camera.Y - SCENE_HEIGHT"
-							}
-						}
-					],
-					"sid": 805715216874594
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 682068297866745,
-							"parameters": {
-								"seconds": "0.5"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 518875443827024,
-							"parameters": {
-								"variable": "IsPaused",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 805048531110847
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-touch-start",
-					"objectClass": "Touch",
-					"sid": 359610140339589
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 753830003003815,
-					"parameters": {
-						"variable": "IsPaused"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "move-to-position",
-					"objectClass": "Player",
-					"sid": 742690645508470,
-					"behaviorType": "MoveTo",
-					"parameters": {
-						"x": "Touch.X",
-						"y": "Touch.Y",
-						"mode": "direct"
-					}
-				}
-			],
-			"sid": 296590176633862
+			"sid": 715912300497285
 		}
 	],
 	"sid": 443471932581491
