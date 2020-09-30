@@ -1,0 +1,60 @@
+{
+	"name": "eCombat",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eActions"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eEnemy"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Enemy",
+					"sid": 329221407869745,
+					"parameters": {
+						"instance-variable": "Health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Enemy",
+					"sid": 447810042329648
+				}
+			],
+			"sid": 640311527878019
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 614292852135166,
+					"parameters": {
+						"instance-variable": "Health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Player",
+					"sid": 318289759453507
+				}
+			],
+			"sid": 432310246106556
+		}
+	],
+	"sid": 666783603412486
+}

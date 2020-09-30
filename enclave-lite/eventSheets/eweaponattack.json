@@ -1,0 +1,329 @@
+{
+	"name": "eWeaponAttack",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 866278409203602,
+					"parameters": {
+						"object": "Attack"
+					}
+				},
+				{
+					"id": "compare-opacity",
+					"objectClass": "Attack",
+					"sid": 325186257638522,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "100"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 852248934130073,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Enemy",
+							"sid": 295781376121870,
+							"parameters": {
+								"unique-id": "TargetedEnemyID"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 891823964365728,
+							"parameters": {
+								"first-value": "distance(Player.X, Player.Y, Enemy.X, Enemy.Y)",
+								"comparison": 3,
+								"second-value": "Player.WeaponRange"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AttemptToHitEnemy",
+							"sid": 955927249993666
+						}
+					],
+					"sid": 958989718650906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 833660409631914
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveTowardEnemy",
+							"sid": 496361299869690
+						}
+					],
+					"sid": 859860165356086
+				}
+			]
+		},
+		{
+			"functionName": "MoveTowardEnemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Enemy",
+					"sid": 107376182659073,
+					"parameters": {
+						"unique-id": "TargetedEnemyID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-object",
+					"objectClass": "Player",
+					"sid": 517387197277455,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"object": "Enemy",
+						"image-point": "0",
+						"mode": "add-waypoint"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 340684457811369,
+					"parameters": {
+						"seconds": "Player.DistancePerMove / Player.MoveTo.MaxSpeed"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 952116900794832,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"sid": 201946173564073
+		},
+		{
+			"functionName": "AttemptToHitEnemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Enemy",
+					"sid": 183561327383771,
+					"parameters": {
+						"unique-id": "TargetedEnemyID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 241590481282650,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "HitAmount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 463256103622556
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 770314522532432,
+							"parameters": {
+								"first-value": "random(101)",
+								"comparison": 3,
+								"second-value": "Player.HitPercentage"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "HitEnemy",
+							"sid": 700782291006327
+						}
+					],
+					"sid": 452469344623703
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 645245360121539
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MissEnemy",
+							"sid": 940631488046536
+						}
+					],
+					"sid": 165380336711877
+				}
+			]
+		},
+		{
+			"functionName": "CalculateHitAmount",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "HitForce",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 564177277610906
+				},
+				{
+					"name": "HitStdDev",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 158873423056712
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 728032773044895,
+					"parameters": {
+						"value": "HitForce + random(HitStdDev)"
+					}
+				}
+			],
+			"sid": 103177248565361
+		},
+		{
+			"functionName": "HitEnemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Enemy",
+					"sid": 143059048530322,
+					"parameters": {
+						"unique-id": "TargetedEnemyID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 190227020375469,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "HitAmount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 755550854249026
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 424090917950395,
+							"parameters": {
+								"variable": "HitAmount",
+								"value": "Functions.CalculateHitAmount(Player.HitForce, Player.HitStdDev)"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 927585986815334,
+							"parameters": {
+								"object-to-create": "Particles",
+								"layer": "\"Enemy\"",
+								"x": "Enemy.X",
+								"y": "Enemy.Y"
+							}
+						},
+						{
+							"id": "move-to-bottom",
+							"objectClass": "Particles",
+							"sid": 576562400532525
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 235438649179525,
+							"parameters": {
+								"type": "log",
+								"message": "\"Hit for \" & HitAmount"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 801275799898086,
+							"parameters": {
+								"instance-variable": "Health",
+								"value": "Enemy.Health - HitAmount"
+							}
+						}
+					],
+					"sid": 177134819556999
+				}
+			]
+		},
+		{
+			"functionName": "MissEnemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 486915955859108
+		}
+	],
+	"sid": 894867006680922
+}

@@ -1,0 +1,27 @@
+{
+	"name": "eEnemy",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 102695857393536
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Enemy",
+					"sid": 205763439104271,
+					"parameters": {
+						"frame-number": "random(Enemy.AnimationFrameCount)"
+					}
+				}
+			],
+			"sid": 280888881770707
+		}
+	],
+	"sid": 907109014941253
+}

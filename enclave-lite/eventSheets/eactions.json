@@ -1,0 +1,175 @@
+{
+	"name": "eActions",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eWeaponAttack"
+		},
+		{
+			"eventType": "variable",
+			"name": "TargetedEnemyID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 795719539228044
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 620519660158772,
+					"parameters": {
+						"object": "Actions"
+					}
+				},
+				{
+					"id": "compare-opacity",
+					"objectClass": "Actions",
+					"sid": 845087857171506,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "100"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 845393952434624,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 144314885545475
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 979514896538409
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 498563389737151,
+					"parameters": {
+						"object": "Enemy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 329190214660113,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 562244060851262
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 193624976636271
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 931199476886371,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 663888987157348
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 256299779361417,
+					"parameters": {
+						"variable": "TargetedEnemyID",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Attack",
+					"sid": 688068437348527,
+					"parameters": {
+						"opacity": "20"
+					}
+				}
+			],
+			"sid": 279959327118989
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 265985999980536
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Attack",
+					"sid": 772945601701833,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 941265212541492
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 627358086445121,
+					"parameters": {
+						"object": "Enemy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 868255959993675,
+					"parameters": {
+						"variable": "TargetedEnemyID",
+						"value": "Enemy.UID"
+					}
+				}
+			],
+			"sid": 472699191487169
+		}
+	],
+	"sid": 404589895878401
+}

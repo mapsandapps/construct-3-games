@@ -1,0 +1,40 @@
+{
+	"name": "eTown",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 134951705522626,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 860573613303976,
+					"parameters": {
+						"instance-variable": "name",
+						"comparison": 0,
+						"value": "\"Random\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 665304387812140,
+					"parameters": {
+						"layout": "Combat"
+					}
+				}
+			],
+			"sid": 489056268644744
+		}
+	],
+	"sid": 135422962786018
+}
