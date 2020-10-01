@@ -37,6 +37,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "REQUIRE_POINTS_IN_ORDER",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 150505420750691
+		},
+		{
+			"eventType": "variable",
 			"name": "MovingForward",
 			"type": "boolean",
 			"initialValue": "true",
@@ -146,47 +156,93 @@
 					"parameters": {
 						"object": "Point"
 					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Point",
-					"sid": 534429687437735,
-					"parameters": {
-						"instance-variable": "Index",
-						"comparison": 0,
-						"value": "NextPoint"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Point",
-					"sid": 841591081993527,
-					"parameters": {
-						"instance-variable": "Index",
-						"comparison": 1,
-						"value": "PointCurrentlyTouched"
-					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 574622064112584,
+			"children": [
 				{
-					"callFunction": "MarkNTouchedPoints",
-					"sid": 535881681896869,
-					"parameters": [
-						"Point.Index"
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 313600878650413,
+							"parameters": {
+								"variable": "REQUIRE_POINTS_IN_ORDER"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 467436163934792,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Point",
+									"sid": 663303406126761,
+									"parameters": {
+										"instance-variable": "Index",
+										"comparison": 0,
+										"value": "NextPoint"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Point",
+									"sid": 690568565551321,
+									"parameters": {
+										"instance-variable": "Index",
+										"comparison": 1,
+										"value": "PointCurrentlyTouched"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MarkNTouchedPoints",
+									"sid": 154040090438487,
+									"parameters": [
+										"Point.Index"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 441799348887196,
+									"parameters": {
+										"variable": "PointCurrentlyTouched",
+										"value": "Point.Index"
+									}
+								}
+							],
+							"sid": 294188615968461
+						}
 					]
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 145709238589578,
-					"parameters": {
-						"variable": "PointCurrentlyTouched",
-						"value": "Point.Index"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 745930264322996
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MarkAllTouchedPoints",
+							"sid": 169487802878374,
+							"parameters": [
+								"0"
+							]
+						}
+					],
+					"sid": 866178213522676
 				}
-			],
-			"sid": 574622064112584
+			]
 		},
 		{
 			"functionName": "MarkPoint",
@@ -451,6 +507,72 @@
 						}
 					],
 					"sid": 779326781972427
+				}
+			]
+		},
+		{
+			"functionName": "MarkAllTouchedPoints",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "FirstPointTouched",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 352283995458878
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 755940397661826,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "LastPointTouched",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 773143836075588
+				},
+				{
+					"eventType": "variable",
+					"name": "LastPointToMark",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 803758410459730
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "TouchFollower",
+							"sid": 777377267064990,
+							"parameters": {
+								"object": "Point"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MarkPoint",
+							"sid": 355205216841491,
+							"parameters": [
+								"Point.UID",
+								"0"
+							]
+						}
+					],
+					"sid": 554634735791863
 				}
 			]
 		},
