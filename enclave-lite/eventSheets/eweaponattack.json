@@ -43,7 +43,7 @@
 							"parameters": {
 								"first-value": "distance(Player.X, Player.Y, Enemy.X, Enemy.Y)",
 								"comparison": 3,
-								"second-value": "Player.WeaponRange"
+								"second-value": "Player.MeleeReach"
 							}
 						}
 					],
@@ -109,7 +109,7 @@
 					"objectClass": "System",
 					"sid": 340684457811369,
 					"parameters": {
-						"seconds": "Player.DistancePerMove / Player.MoveTo.MaxSpeed"
+						"seconds": "Player.MovementSpeed / Player.MoveTo.MaxSpeed"
 					}
 				},
 				{
@@ -156,13 +156,12 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "evaluate-expression",
 							"objectClass": "System",
-							"sid": 770314522532432,
+							"sid": 895016089815306,
+							"disabled": true,
 							"parameters": {
-								"first-value": "random(101)",
-								"comparison": 3,
-								"second-value": "Player.HitPercentage"
+								"value": "1"
 							}
 						}
 					],
@@ -189,7 +188,8 @@
 							"sid": 940631488046536
 						}
 					],
-					"sid": 165380336711877
+					"sid": 165380336711877,
+					"disabled": true
 				}
 			]
 		},
@@ -201,18 +201,25 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "HitForce",
+					"name": "MeleeDiceNumber",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
 					"sid": 564177277610906
 				},
 				{
-					"name": "HitStdDev",
+					"name": "MeleeDiceSides",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
 					"sid": 158873423056712
+				},
+				{
+					"name": "MeleeDiceModifier",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 919900710060841
 				}
 			],
 			"eventType": "function-block",
@@ -221,9 +228,9 @@
 				{
 					"id": "set-function-return-value",
 					"objectClass": "Functions",
-					"sid": 728032773044895,
+					"sid": 837740259003771,
 					"parameters": {
-						"value": "HitForce + random(HitStdDev)"
+						"value": "Functions.RollDice(MeleeDiceNumber, MeleeDiceSides, MeleeDiceModifier)"
 					}
 				}
 			],
@@ -267,10 +274,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 424090917950395,
+							"sid": 150803949850536,
 							"parameters": {
 								"variable": "HitAmount",
-								"value": "Functions.CalculateHitAmount(Player.HitForce, Player.HitStdDev)"
+								"value": "Functions.CalculateHitAmount(Player.MeleeDiceNumber, Player.MeleeDiceSides, Player.MeleeDiceModifier)"
 							}
 						},
 						{
@@ -303,8 +310,8 @@
 							"objectClass": "Enemy",
 							"sid": 801275799898086,
 							"parameters": {
-								"instance-variable": "Health",
-								"value": "Enemy.Health - HitAmount"
+								"instance-variable": "HitPoints",
+								"value": "Enemy.HitPoints - HitAmount"
 							}
 						}
 					],

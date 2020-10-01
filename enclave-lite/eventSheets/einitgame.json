@@ -1,0 +1,298 @@
+{
+	"name": "eInitGame",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 979708891263430
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Player",
+					"sid": 818375647734839,
+					"parameters": {
+						"instance-variable": "STR",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "RollForStats",
+					"sid": 345862682142200
+				},
+				{
+					"type": "comment",
+					"text": "temporary",
+					"background-color": [
+						0.34901960784313724,
+						0.12941176470588237,
+						0.12941176470588237,
+						1
+					]
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 909105610523393,
+					"parameters": {
+						"instance-variable": "MaxHitPoints",
+						"value": "Functions.RollDice(2, 8, 2)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 847832063510247,
+					"parameters": {
+						"instance-variable": "HitPoints",
+						"value": "Enemy.MaxHitPoints"
+					}
+				}
+			],
+			"sid": 855326741190057
+		},
+		{
+			"functionName": "RollForStats",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 876481732046721,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Stat1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 298851990509321
+				},
+				{
+					"eventType": "variable",
+					"name": "Stat2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 680399384775549
+				},
+				{
+					"eventType": "variable",
+					"name": "Stat3",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 540645260772444
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 710195676286107,
+							"parameters": {
+								"variable": "Stat1",
+								"value": "Functions.RollForStat"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 411258050175637,
+							"parameters": {
+								"variable": "Stat2",
+								"value": "Functions.RollForStat"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 139476527052600,
+							"parameters": {
+								"variable": "Stat3",
+								"value": "Functions.RollForStat"
+							}
+						}
+					],
+					"sid": 876870189793460
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 676734979079775,
+							"parameters": {
+								"instance-variable": "Class",
+								"comparison": 0,
+								"value": "\"Barbarian\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "for Barbarian, set STR to highest roll, DEX to 2nd highest, and INT to lowest"
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 850675625051010,
+							"parameters": {
+								"instance-variable": "STR",
+								"value": "max(Stat1, Stat2, Stat3)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 776571092981639,
+							"parameters": {
+								"instance-variable": "INT",
+								"value": "min(Stat1, Stat2, Stat3)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 608701725112868,
+							"parameters": {
+								"instance-variable": "DEX",
+								"value": "Stat1 + Stat2 + Stat3 - max(Stat1, Stat2, Stat3) - min(Stat1, Stat2, Stat3)"
+							}
+						}
+					],
+					"sid": 913575997610358
+				}
+			]
+		},
+		{
+			"functionName": "RollForStat",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "roll 4d6, take the highest 3 rolls"
+				}
+			],
+			"sid": 777786288776659,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Roll1",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 140989398987882
+				},
+				{
+					"eventType": "variable",
+					"name": "Roll2",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 958331752797115
+				},
+				{
+					"eventType": "variable",
+					"name": "Roll3",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 923247581594500
+				},
+				{
+					"eventType": "variable",
+					"name": "Roll4",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 248217226431934
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 181292582397934,
+							"parameters": {
+								"variable": "Roll1",
+								"value": "Functions.RollDie(6)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 752414660044300,
+							"parameters": {
+								"variable": "Roll2",
+								"value": "Functions.RollDie(6)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 543050096708441,
+							"parameters": {
+								"variable": "Roll3",
+								"value": "Functions.RollDie(6)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 450953167966245,
+							"parameters": {
+								"variable": "Roll4",
+								"value": "Functions.RollDie(6)"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 882959384142284,
+							"parameters": {
+								"value": "Roll1 + Roll2 + Roll3 + Roll4 - min(Roll1, Roll2, Roll3, Roll4)"
+							}
+						}
+					],
+					"sid": 391346511519149
+				}
+			]
+		}
+	],
+	"sid": 933493875547132
+}

@@ -1,0 +1,139 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"functionName": "RollDie",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"sid": 685318971130988
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 686179873998394,
+					"parameters": {
+						"value": "floor(random(Sides) + 1)"
+					}
+				}
+			],
+			"sid": 318927961900905
+		},
+		{
+			"functionName": "RollDice",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Number",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 802914938280698
+				},
+				{
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"sid": 875008406075827
+				},
+				{
+					"name": "Modifier",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 763034746291575
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 497209837847291,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Total",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 866119558962747
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 271536552017909,
+							"parameters": {
+								"count": "Number"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 101657289923736,
+							"parameters": {
+								"variable": "Total",
+								"value": "Functions.RollDie(Sides)"
+							}
+						}
+					],
+					"sid": 435972125796638
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 912986543959287,
+							"parameters": {
+								"variable": "Total",
+								"value": "Modifier"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 668776804272490,
+							"parameters": {
+								"type": "log",
+								"message": "\"Rolling \" & Number & \"d\" & Sides & \"+\" & Modifier & \": \" & Total"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 829782421832045,
+							"parameters": {
+								"value": "Total"
+							}
+						}
+					],
+					"sid": 840758321364934
+				}
+			]
+		}
+	],
+	"sid": 637187752778747
+}
