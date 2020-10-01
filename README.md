@@ -2,6 +2,20 @@
 
 Note: you can open these in the [Construct editor](https://editor.construct.net/), but you will need to set up Construct and Chrome to use [folder-based projects](https://www.construct.net/en/forum/construct-3/general-discussion-7/local-file-folder-saves-chrome-147071).
 
+## Labyrinth Desktop
+
+A not-a-game game, keyboard-controlled version
+
+* Folder: [/labyrinth-desktop](./labyrinth-desktop)
+
+## Labyrinth Mobile
+
+A not-a-game game, mobile version
+
+Started in September 2020
+
+* Folder: [/labyrinth-mobile](./labyrinth-mobile)
+
 ## Gems!
 
 Arcade game made for [Weekly Game Jam #165: "One Button Mash"](https://itch.io/jam/weekly-game-jam-165/rate/750744) in September 2020
