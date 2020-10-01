@@ -5,34 +5,22 @@
 	"isGlobal": false,
 	"instanceVariables": [
 		{
-			"name": "DistancePerMove",
+			"name": "ArmorClass",
 			"type": "number",
 			"desc": "",
-			"sid": 152206324304643
+			"sid": 418227912180658
 		},
 		{
-			"name": "Health",
+			"name": "Class",
+			"type": "string",
+			"desc": "",
+			"sid": 678015871886853
+		},
+		{
+			"name": "HitPoints",
 			"type": "number",
 			"desc": "",
 			"sid": 403347315669312
-		},
-		{
-			"name": "HitForce",
-			"type": "number",
-			"desc": "",
-			"sid": 192555746634042
-		},
-		{
-			"name": "HitPercentage",
-			"type": "number",
-			"desc": "",
-			"sid": 846509655934572
-		},
-		{
-			"name": "HitStdDev",
-			"type": "number",
-			"desc": "",
-			"sid": 403786001715525
 		},
 		{
 			"name": "Initiative",
@@ -41,10 +29,76 @@
 			"sid": 365525427024545
 		},
 		{
-			"name": "WeaponRange",
+			"name": "MaxHitPoints",
+			"type": "number",
+			"desc": "",
+			"sid": 404930742249516
+		},
+		{
+			"name": "MeleeDiceNumber",
+			"type": "number",
+			"desc": "",
+			"sid": 192555746634042
+		},
+		{
+			"name": "MeleeDiceSides",
+			"type": "number",
+			"desc": "",
+			"sid": 390424042869492
+		},
+		{
+			"name": "MeleeMaxTargets",
+			"type": "number",
+			"desc": "",
+			"sid": 557550226068340
+		},
+		{
+			"name": "MeleeReach",
 			"type": "number",
 			"desc": "",
 			"sid": 270999002084923
+		},
+		{
+			"name": "MeleeDiceModifier",
+			"type": "number",
+			"desc": "",
+			"sid": 846509655934572
+		},
+		{
+			"name": "MeleePlusToHit",
+			"type": "number",
+			"desc": "",
+			"sid": 403786001715525
+		},
+		{
+			"name": "MeleeType",
+			"type": "string",
+			"desc": "",
+			"sid": 416734267971759
+		},
+		{
+			"name": "MovementSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 152206324304643
+		},
+		{
+			"name": "STR",
+			"type": "number",
+			"desc": "",
+			"sid": 271547836352714
+		},
+		{
+			"name": "DEX",
+			"type": "number",
+			"desc": "",
+			"sid": 487975770470863
+		},
+		{
+			"name": "INT",
+			"type": "number",
+			"desc": "",
+			"sid": 999043846616331
 		}
 	],
 	"behaviorTypes": [

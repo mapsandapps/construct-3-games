@@ -44,7 +44,21 @@
 					},
 					"uid": 6,
 					"instanceVariables": {
-						"Health": 100
+						"ArmorClass": 0,
+						"HitPoints": 100,
+						"MaxHitPoints": 0,
+						"MeleeDiceModifier": 0,
+						"MeleeDiceNumber": 0,
+						"MeleeDiceSides": 0,
+						"MeleeMaxTargets": 1,
+						"MeleePlusToHit": 0,
+						"MeleeReach": 0,
+						"MeleeType": "",
+						"MovementSpeed": 0,
+						"XPGrantedWhenKilled": 0,
+						"STR": 0,
+						"DEX": 0,
+						"INT": 0
 					},
 					"behaviors": {
 						"MoveTo": {
@@ -127,13 +141,22 @@
 					},
 					"uid": 8,
 					"instanceVariables": {
-						"DistancePerMove": 128,
-						"Health": 100,
-						"HitForce": 20,
-						"HitPercentage": 60,
-						"HitStdDev": 10,
+						"ArmorClass": 0,
+						"Class": "Barbarian",
+						"HitPoints": 100,
 						"Initiative": 0,
-						"WeaponRange": 32
+						"MaxHitPoints": 0,
+						"MeleeDiceNumber": 1,
+						"MeleeDiceSides": 4,
+						"MeleeMaxTargets": 1,
+						"MeleeReach": 32,
+						"MeleeDiceModifier": 0,
+						"MeleePlusToHit": 10,
+						"MeleeType": "Bludgeoning",
+						"MovementSpeed": 128,
+						"STR": 0,
+						"DEX": 0,
+						"INT": 0
 					},
 					"behaviors": {
 						"MoveTo": {

@@ -10,6 +10,10 @@
 			"includeSheet": "eEnemy"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eInitGame"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -17,7 +21,7 @@
 					"objectClass": "Enemy",
 					"sid": 329221407869745,
 					"parameters": {
-						"instance-variable": "Health",
+						"instance-variable": "HitPoints",
 						"comparison": 3,
 						"value": "0"
 					}
@@ -40,7 +44,7 @@
 					"objectClass": "Player",
 					"sid": 614292852135166,
 					"parameters": {
-						"instance-variable": "Health",
+						"instance-variable": "HitPoints",
 						"comparison": 3,
 						"value": "0"
 					}
