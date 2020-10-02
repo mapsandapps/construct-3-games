@@ -2,6 +2,14 @@
 	"name": "eGame",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "eGameAudio"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eGameUI"
+		},
+		{
 			"eventType": "variable",
 			"name": "ZoomToSeeAll",
 			"type": "number",
@@ -23,6 +31,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "IsMoving",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 465586430072531
+		},
+		{
+			"eventType": "variable",
 			"name": "LAST_LEVEL",
 			"type": "string",
 			"initialValue": "Desert 1",
@@ -30,6 +48,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 696303407471789
+		},
+		{
+			"eventType": "variable",
+			"name": "SPEED",
+			"type": "number",
+			"initialValue": "300",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 209240244709285
 		},
 		{
 			"eventType": "block",
@@ -48,6 +76,24 @@
 					"parameters": {
 						"variable": "ZoomToSeeAll",
 						"value": "min(ViewportWidth(\"Tiles\")/LayoutWidth, ViewportHeight(\"Tiles\")/LayoutHeight)"
+					}
+				},
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 226437367962448,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"max-speed": "SPEED"
+					}
+				},
+				{
+					"id": "set-deceleration",
+					"objectClass": "Player",
+					"sid": 523245743723948,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"deceleration": "0"
 					}
 				}
 			],
@@ -102,16 +148,25 @@
 					"objectClass": "Player",
 					"sid": 586368637595893,
 					"behaviorType": "8Direction"
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 866546244387022,
+					"parameters": {
+						"variable": "IsMoving"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
 				{
 					"id": "set-speed",
 					"objectClass": "Player",
-					"sid": 458327124124960,
+					"sid": 321295675130443,
 					"behaviorType": "8Direction",
 					"parameters": {
-						"speed": "200"
+						"speed": "SPEED"
 					}
 				},
 				{
@@ -131,6 +186,15 @@
 						"animation": "\"Walking\"",
 						"from": "beginning"
 					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 875915930058284,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
 				}
 			],
 			"sid": 983531768149725
@@ -145,9 +209,35 @@
 					"parameters": {
 						"object": "Barrier"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 411551622476576,
+					"parameters": {
+						"variable": "IsMoving"
+					}
 				}
 			],
 			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 709014929138240,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Player",
+					"sid": 854481816430251,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"speed": "0"
+					}
+				},
 				{
 					"id": "set-ignoring-input",
 					"objectClass": "Player",
@@ -168,99 +258,92 @@
 				}
 			],
 			"sid": 505401212425416,
-			"isOrBlock": true
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 362847754193894,
+							"parameters": {
+								"object": "Coin"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Player",
+							"sid": 340901264497930,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 226276877041488,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-key",
+							"objectClass": "LevelsCompleted",
+							"sid": 323885917127116,
+							"parameters": {
+								"key": "LayoutName",
+								"value": "\"true\""
+							}
+						},
+						{
+							"id": "set-layer-parallax",
+							"objectClass": "System",
+							"sid": 127458208707829,
+							"parameters": {
+								"layer": "\"Parallax Near\"",
+								"parallax-x": "100",
+								"parallax-y": "100"
+							}
+						},
+						{
+							"id": "set-layer-parallax",
+							"objectClass": "System",
+							"sid": 476098549645915,
+							"parameters": {
+								"layer": "\"Parallax Far\"",
+								"parallax-x": "100",
+								"parallax-y": "100"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 276975617281826,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Coin",
+							"sid": 690161793296152
+						},
+						{
+							"callFunction": "MakeUIVisible",
+							"sid": 359275861208947
+						}
+					],
+					"sid": 393958547417339
+				}
+			]
 		},
 		{
 			"eventType": "comment",
 			"text": "TODO: also try qarp and cubic instead of lerp"
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Player",
-					"sid": 415136932082618,
-					"parameters": {
-						"object": "Barrier"
-					}
-				},
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "Player",
-					"sid": 189065607261665,
-					"parameters": {
-						"object": "Coin"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-ignoring-input",
-					"objectClass": "Player",
-					"sid": 256268466224132,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"input": "start-ignoring"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Player",
-					"sid": 405566525532900,
-					"behaviorType": "ScrollTo",
-					"parameters": {
-						"state": "disabled"
-					}
-				},
-				{
-					"id": "set-key",
-					"objectClass": "LevelsCompleted",
-					"sid": 642414636257055,
-					"parameters": {
-						"key": "LayoutName",
-						"value": "\"true\""
-					}
-				},
-				{
-					"id": "set-layer-parallax",
-					"objectClass": "System",
-					"sid": 140916670451044,
-					"parameters": {
-						"layer": "\"Parallax Near\"",
-						"parallax-x": "100",
-						"parallax-y": "100"
-					}
-				},
-				{
-					"id": "set-layer-parallax",
-					"objectClass": "System",
-					"sid": 697906325387737,
-					"parameters": {
-						"layer": "\"Parallax Far\"",
-						"parallax-x": "100",
-						"parallax-y": "100"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 970078976311204,
-					"parameters": {
-						"seconds": "3"
-					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Coin",
-					"sid": 842469950909310
-				},
-				{
-					"callFunction": "MakeUIVisible",
-					"sid": 648282096312732
-				}
-			],
-			"sid": 257449871138526
 		},
 		{
 			"eventType": "block",
@@ -748,413 +831,6 @@
 				}
 			],
 			"sid": 414333881449413
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Audio",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-animation-frame-changed",
-							"objectClass": "Player",
-							"sid": 556121309188818
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "Player",
-							"sid": 916004151667566,
-							"parameters": {
-								"animation": "\"Walking\""
-							}
-						},
-						{
-							"id": "is-any-playing",
-							"objectClass": "Audio",
-							"sid": 629965866427398,
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-paused",
-							"objectClass": "Audio",
-							"sid": 413664222772254,
-							"parameters": {
-								"tag": "\"walking\"",
-								"state": "resume"
-							}
-						}
-					],
-					"sid": 552791281883867
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving",
-							"objectClass": "Player",
-							"sid": 992582289101064,
-							"behaviorType": "8Direction",
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-paused",
-							"objectClass": "Audio",
-							"sid": 938176896915565,
-							"parameters": {
-								"tag": "\"walking\"",
-								"state": "pause"
-							}
-						}
-					],
-					"sid": 330970158813996
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 340271332629789
-						}
-					],
-					"actions": [
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 328053366148060,
-							"parameters": {
-								"audio-file": "Foley Footstep Boots Walking On Leaves 01",
-								"loop": "looping",
-								"volume": "0",
-								"tag-optional": "\"walking\""
-							}
-						},
-						{
-							"id": "set-paused",
-							"objectClass": "Audio",
-							"sid": 793602818160918,
-							"parameters": {
-								"tag": "\"walking\"",
-								"state": "pause"
-							}
-						}
-					],
-					"sid": 554156634841921
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 584301318780955,
-							"parameters": {
-								"variable": "IsSoundOn"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-silent",
-							"objectClass": "Audio",
-							"sid": 476587001945281,
-							"parameters": {
-								"mode": "not-silent"
-							}
-						}
-					],
-					"sid": 275725557943026
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 328337367700941,
-							"parameters": {
-								"variable": "IsSoundOn"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-silent",
-							"objectClass": "Audio",
-							"sid": 102227693440302,
-							"parameters": {
-								"mode": "silent"
-							}
-						}
-					],
-					"sid": 942682718569739
-				}
-			],
-			"sid": 196358284369729
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "UI",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-start-of-layout",
-							"objectClass": "System",
-							"sid": 499186235436397
-						}
-					],
-					"actions": [
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 641176948943176,
-							"parameters": {
-								"layer": "\"UI\"",
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 839115925800859
-				},
-				{
-					"functionName": "MakeUIVisible",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 411937860266788,
-							"parameters": {
-								"layer": "\"UI\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-scale",
-							"objectClass": "System",
-							"sid": 808357923905093,
-							"parameters": {
-								"layer": "\"UI\"",
-								"scale": "1 / ZoomToSeeAll"
-							}
-						}
-					],
-					"sid": 949748831039839,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 382170686744235,
-									"parameters": {
-										"first-value": "LayoutName",
-										"comparison": 0,
-										"second-value": "LAST_LEVEL"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "NextLevelButton",
-									"sid": 839521520732255,
-									"parameters": {
-										"visibility": "invisible"
-									}
-								}
-							],
-							"sid": 107958013847507
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 488959710098004
-								}
-							],
-							"actions": [
-								{
-									"id": "set-visible",
-									"objectClass": "NextLevelButton",
-									"sid": 230743490081868,
-									"parameters": {
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 394123565381504
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "TODO: keyboard control for next level"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 456936343159117,
-							"parameters": {
-								"object": "NextLevelButton"
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 187224858474781,
-							"parameters": {
-								"layer": "\"UI\""
-							}
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "NextLevelButton",
-							"sid": 116811796251648
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-nextprevious-layout",
-							"objectClass": "System",
-							"sid": 872659873320724,
-							"parameters": {
-								"which": "next"
-							}
-						}
-					],
-					"sid": 168985521099013
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 143613867957100,
-							"parameters": {
-								"object": "RestartButton"
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 706952264880473,
-							"parameters": {
-								"layer": "\"UI\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "restart-layout",
-							"objectClass": "System",
-							"sid": 160804633189115
-						}
-					],
-					"sid": 264952821683062
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-tap-object",
-							"objectClass": "Touch",
-							"sid": 120085122006189,
-							"parameters": {
-								"object": "MenuButton"
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 880043148651914,
-							"parameters": {
-								"layer": "\"UI\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 945723707465853,
-							"parameters": {
-								"layout": "Space Levels"
-							}
-						}
-					],
-					"sid": 685566765897582
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 287662008251053,
-							"parameters": {
-								"object": "MenuButton"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 176036551140663,
-							"parameters": {
-								"object": "NextLevelButton"
-							}
-						},
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 142588254451379,
-							"parameters": {
-								"object": "RestartButton"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-cursor-style",
-							"objectClass": "Mouse",
-							"sid": 261229720241340,
-							"parameters": {
-								"cursor-style": "hand"
-							}
-						}
-					],
-					"sid": 356041172429031,
-					"isOrBlock": true
-				}
-			],
-			"sid": 446349941102973
 		}
 	],
 	"sid": 341145607795163

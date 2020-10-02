@@ -660,9 +660,9 @@
 					"behaviors": {
 						"8Direction": {
 							"properties": {
-								"max-speed": 150,
+								"max-speed": 1600,
 								"acceleration": 150,
-								"deceleration": 100,
+								"deceleration": 0,
 								"directions": "dir-4",
 								"set-angle": "no",
 								"default-controls": true,
@@ -672,11 +672,6 @@
 						"ScrollTo": {
 							"properties": {
 								"enabled": true
-							}
-						},
-						"BoundToLayout": {
-							"properties": {
-								"bound-by": "origin"
 							}
 						}
 					},

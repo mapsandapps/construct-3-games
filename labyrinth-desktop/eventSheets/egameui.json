@@ -1,0 +1,272 @@
+{
+	"name": "eGameUI",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 640411895094417
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 911630867366574,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 747261355685716
+		},
+		{
+			"functionName": "MakeUIVisible",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 163199957607051,
+					"parameters": {
+						"layer": "\"UI\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 276162146231764,
+					"parameters": {
+						"layer": "\"UI\"",
+						"scale": "1 / ZoomToSeeAll"
+					}
+				}
+			],
+			"sid": 770232160892739,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 175494219319880,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "LAST_LEVEL"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NextLevelButton",
+							"sid": 539648822532476,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 100004885170252
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 775487653062938
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "NextLevelButton",
+							"sid": 499284583366146,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 441811133813939
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "TODO: keyboard control for next level"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 726991929552522,
+					"parameters": {
+						"object": "NextLevelButton"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 920609150258516,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "NextLevelButton",
+					"sid": 102330396900893
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-nextprevious-layout",
+					"objectClass": "System",
+					"sid": 670630382674408,
+					"parameters": {
+						"which": "next"
+					}
+				}
+			],
+			"sid": 556968117661495
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 155293283986488,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 653436394798401,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 994143298434111
+				}
+			],
+			"sid": 692532917690374
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 143211276040856,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 210088468180108,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 252616022605850,
+					"parameters": {
+						"layout": "Space Levels"
+					}
+				}
+			],
+			"sid": 914330363666043
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 446093133166918,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 352635149865753,
+					"parameters": {
+						"object": "NextLevelButton"
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 146352068467035,
+					"parameters": {
+						"object": "RestartButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 752882787893187,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 415227971172069,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 153364296104897
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 693943227802010,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 366095939389061
+		}
+	],
+	"sid": 565039858329597
+}
