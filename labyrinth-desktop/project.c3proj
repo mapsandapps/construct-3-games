@@ -1,9 +1,9 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 19600,
+	"savedWithRelease": 21800,
 	"name": "Labyrinth",
 	"runtime": "c3",
-	"useWorker": false,
+	"useWorker": "dom",
 	"bundleAddons": false,
 	"usedAddons": [
 		{
@@ -11,7 +11,7 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,7 @@
 			"id": "NinePatch",
 			"name": "9-patch",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -67,7 +67,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -75,7 +75,7 @@
 			"id": "Tilemap",
 			"name": "Tilemap",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -83,7 +83,7 @@
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -91,7 +91,7 @@
 			"id": "EightDir",
 			"name": "8 Direction",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -99,15 +99,7 @@
 			"id": "scrollto",
 			"name": "Scroll To",
 			"author": "Scirra",
-			"version": "r196",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
-			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		},
 		{
@@ -115,7 +107,7 @@
 			"id": "solid",
 			"name": "Solid",
 			"author": "Scirra",
-			"version": "r196",
+			"version": "r218",
 			"bundled": false
 		}
 	],
@@ -215,7 +207,9 @@
 		"items": [
 			"eGame",
 			"eLevelSelection",
-			"eSettings"
+			"eSettings",
+			"eGameUI",
+			"eGameAudio"
 		],
 		"subfolders": []
 	},
@@ -262,37 +256,58 @@
 				{
 					"name": "loading-logo.png",
 					"type": "image/png",
-					"sid": 736416638527615
+					"sid": 736416638527615,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
 				},
 				{
 					"name": "icon-16.png",
 					"type": "image/png",
-					"sid": 654516039621013
+					"sid": 654516039621013,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-32.png",
 					"type": "image/png",
-					"sid": 502704714537015
+					"sid": 502704714537015,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-64.png",
 					"type": "image/png",
-					"sid": 528430886991781
+					"sid": 528430886991781,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-128.png",
 					"type": "image/png",
-					"sid": 203841704848725
+					"sid": 203841704848725,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-256.png",
 					"type": "image/png",
-					"sid": 478543476922523
+					"sid": 478543476922523,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-512.png",
 					"type": "image/png",
-					"sid": 428468995849033
+					"sid": 428468995849033,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				}
 			],
 			"subfolders": []
@@ -354,7 +369,8 @@
 		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
-		"enhancedAccelerationPrecision": true
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "file"
 	},
 	"viewportWidth": 640,
 	"viewportHeight": 480,
