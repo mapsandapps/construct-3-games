@@ -1,0 +1,195 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "ObjectsRemaining",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 263866459133229
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eScreenControls"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eInit"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 649556059204181,
+					"parameters": {
+						"object": "Object"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 823122792483772,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "LookingForFrame",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 547873849200906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "LookingFor",
+							"sid": 292842080499536,
+							"parameters": {
+								"comparison": 0,
+								"number": "Object.AnimationFrame"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 183532767733985,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "FoundAndTotal",
+									"sid": 193983038486549,
+									"parameters": {
+										"instance-variable": "Index",
+										"comparison": 0,
+										"value": "LookingFor.Index"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "LookingFor",
+									"sid": 417104025784588,
+									"parameters": {
+										"instance-variable": "FoundNumber",
+										"value": "1"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 563377652165283,
+									"parameters": {
+										"variable": "ObjectsRemaining",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "FoundAndTotal",
+									"sid": 399113579027030,
+									"parameters": {
+										"text": "LookingFor.FoundNumber & \" of \" & LookingFor.TotalNumber"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Object",
+									"sid": 268295200779245
+								}
+							],
+							"sid": 313895146532694,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 669300061935226,
+											"parameters": {
+												"first-value": "LookingFor.TotalNumber",
+												"comparison": 0,
+												"second-value": "LookingFor.FoundNumber"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "LookingFor",
+											"sid": 417701953990122,
+											"parameters": {
+												"opacity": "30"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "FoundAndTotal",
+											"sid": 864473799614824,
+											"parameters": {
+												"opacity": "30"
+											}
+										},
+										{
+											"callFunction": "CheckForWin",
+											"sid": 471641836133966
+										}
+									],
+									"sid": 799163902572914
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "CheckForWin",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 302326198527725,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 535868627294742,
+							"parameters": {
+								"first-value": "ObjectsRemaining",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 837681416815808
+						}
+					],
+					"sid": 953834426805617
+				}
+			]
+		}
+	],
+	"sid": 330119257658529
+}

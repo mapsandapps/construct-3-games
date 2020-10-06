@@ -1,0 +1,446 @@
+{
+	"name": "eInit",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Prevent infinite loop when placing objects on the board"
+		},
+		{
+			"eventType": "variable",
+			"name": "DrawFailures",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 442630227065306
+		},
+		{
+			"eventType": "variable",
+			"name": "OBJECTS_TO_DRAW",
+			"type": "number",
+			"initialValue": "200",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 320824559836793
+		},
+		{
+			"eventType": "variable",
+			"name": "MAX_ROTATION",
+			"type": "number",
+			"initialValue": "45",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 930969467734414
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 784292005271969
+				}
+			],
+			"actions": [],
+			"sid": 505880176298925,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 291270352095101,
+							"parameters": {
+								"count": "OBJECTS_TO_DRAW"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DropObject",
+							"sid": 427452180906503
+						}
+					],
+					"sid": 445910209994312
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 477999499263990
+						}
+					],
+					"sid": 184372099204112,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 205779466460674,
+									"parameters": {
+										"name": "\"LookingForLoop\"",
+										"start-index": "0",
+										"end-index": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 828216606896754,
+									"parameters": {
+										"type": "log",
+										"message": "loopindex(\"LookingForLoop\")"
+									}
+								},
+								{
+									"callFunction": "ChooseLookingFor",
+									"sid": 670444275607453,
+									"parameters": [
+										"loopindex(\"LookingForLoop\")"
+									]
+								}
+							],
+							"sid": 218299249763201
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "DropObject",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 747655940318757,
+					"parameters": {
+						"object-to-create": "OverlapChecker",
+						"layer": "\"Game\"",
+						"x": "random(LayoutWidth)",
+						"y": "random(LayoutHeight)"
+					}
+				}
+			],
+			"sid": 354036173159717,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "XToDrop",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 791763743679038
+				},
+				{
+					"eventType": "variable",
+					"name": "YToDrop",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 467418454116455
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "OverlapChecker",
+							"sid": 241088118320949,
+							"parameters": {
+								"object": "Object"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "OverlapChecker",
+							"sid": 666807635360133
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 816617115886290,
+							"parameters": {
+								"variable": "DrawFailures",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 780716726727400,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 996733380021923,
+									"parameters": {
+										"variable": "DrawFailures",
+										"comparison": 2,
+										"value": "OBJECTS_TO_DRAW"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 689412078679281,
+									"parameters": {
+										"type": "log",
+										"message": "\"redraw\""
+									}
+								},
+								{
+									"callFunction": "DropObject",
+									"sid": 754024216237405
+								}
+							],
+							"sid": 440576738079319
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 649239964928519
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 647344781273350,
+							"parameters": {
+								"variable": "XToDrop",
+								"value": "OverlapChecker.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 718590561715911,
+							"parameters": {
+								"variable": "YToDrop",
+								"value": "OverlapChecker.Y"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 117312036409270,
+							"parameters": {
+								"object-to-create": "Object",
+								"layer": "\"Game\"",
+								"x": "XToDrop",
+								"y": "YToDrop"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Object",
+							"sid": 417689920159200,
+							"parameters": {
+								"frame-number": "random(Object.AnimationFrameCount)"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Object",
+							"sid": 427864676814340,
+							"parameters": {
+								"angle": "MAX_ROTATION - random(MAX_ROTATION * 2)"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "OverlapChecker",
+							"sid": 917327412381214
+						}
+					],
+					"sid": 267443731837184
+				}
+			]
+		},
+		{
+			"functionName": "ChooseLookingFor",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "LookingForIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 595462204339274
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "LookingFor",
+					"sid": 665527173618786,
+					"parameters": {
+						"instance-variable": "Index",
+						"comparison": 0,
+						"value": "LookingForIndex"
+					}
+				},
+				{
+					"id": "pick-random-instance",
+					"objectClass": "System",
+					"sid": 505583786956814,
+					"parameters": {
+						"object": "Object"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "FIXME: currently it doesn't know which objects are already being looked for, so it can pick the same one more than once",
+					"background-color": [
+						0.4470588235294118,
+						0.11372549019607843,
+						0.11372549019607843,
+						1
+					]
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "LookingFor",
+					"sid": 522480611322282,
+					"parameters": {
+						"frame-number": "Object.AnimationFrame"
+					}
+				},
+				{
+					"callFunction": "SetTotalNumber",
+					"sid": 475310911558567,
+					"parameters": [
+						"LookingForIndex"
+					]
+				}
+			],
+			"sid": 419051943077893
+		},
+		{
+			"functionName": "SetTotalNumber",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "LookingForIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 953942795351503
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "LookingFor",
+					"sid": 547825663177341,
+					"parameters": {
+						"instance-variable": "Index",
+						"comparison": 0,
+						"value": "LookingForIndex"
+					}
+				},
+				{
+					"id": "pick-by-evaluate",
+					"objectClass": "System",
+					"sid": 886150127849880,
+					"parameters": {
+						"object": "Object",
+						"expression": "Object.AnimationFrame = LookingFor.AnimationFrame"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "LookingFor",
+					"sid": 596203880380228,
+					"parameters": {
+						"instance-variable": "TotalNumber",
+						"value": "Object.PickedCount"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 203635021017978,
+					"parameters": {
+						"variable": "ObjectsRemaining",
+						"value": "Object.PickedCount"
+					}
+				}
+			],
+			"sid": 488567789166145,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "FoundAndTotal",
+							"sid": 304036768360256,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "LookingForIndex"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "FoundAndTotal",
+							"sid": 980072733765465,
+							"parameters": {
+								"text": "\"0 of \" & Object.PickedCount"
+							}
+						}
+					],
+					"sid": 766696799369306
+				}
+			]
+		}
+	],
+	"sid": 952088882838405
+}

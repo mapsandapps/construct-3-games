@@ -1,0 +1,170 @@
+{
+	"name": "eScreenControls",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SWIPE_SPEED_COEFFICIENT",
+			"type": "number",
+			"initialValue": "0.04",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 541589661836714
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-touch",
+					"objectClass": "Touch",
+					"sid": 778525695003024
+				},
+				{
+					"id": "compare-touch-speed",
+					"objectClass": "Touch",
+					"sid": 232126056570003,
+					"parameters": {
+						"touch-index": "0",
+						"comparison": 4,
+						"speed": "20"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 461066743085327,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-between-values",
+							"objectClass": "System",
+							"sid": 236452731399493,
+							"parameters": {
+								"value": "Touch.AngleAt(0)",
+								"lower-bound": "340",
+								"upper-bound": "360"
+							}
+						},
+						{
+							"id": "is-between-values",
+							"objectClass": "System",
+							"sid": 731456151217940,
+							"parameters": {
+								"value": "Touch.AngleAt(0)",
+								"lower-bound": "0",
+								"upper-bound": "20"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 718013674329969,
+							"parameters": {
+								"type": "log",
+								"message": "\"swipe right\""
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 558769341305303,
+							"parameters": {
+								"type": "log",
+								"message": "ViewportWidth(\"Game\") - LayoutWidth / 2"
+							}
+						}
+					],
+					"sid": 303400718328851,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "TouchFollower",
+									"sid": 359804054429803,
+									"parameters": {
+										"comparison": 5,
+										"x-co-ordinate": "ViewportWidth(\"Game\") / 2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "TouchFollower",
+									"sid": 960732464711015,
+									"parameters": {
+										"x": "TouchFollower.X - (Touch.SpeedAt(0) * SWIPE_SPEED_COEFFICIENT)",
+										"y": "TouchFollower.Y"
+									}
+								}
+							],
+							"sid": 301481368478954
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-between-values",
+							"objectClass": "System",
+							"sid": 723073649256467,
+							"parameters": {
+								"value": "Touch.AngleAt(0)",
+								"lower-bound": "160",
+								"upper-bound": "200"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 400153149998520,
+							"parameters": {
+								"type": "log",
+								"message": "\"swipe left\""
+							}
+						}
+					],
+					"sid": 664446424883584,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "TouchFollower",
+									"sid": 208115970304528,
+									"parameters": {
+										"comparison": 3,
+										"x-co-ordinate": "LayoutWidth - ViewportWidth(\"Game\") / 2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "TouchFollower",
+									"sid": 256650701058527,
+									"parameters": {
+										"x": "TouchFollower.X + (Touch.SpeedAt(0) * SWIPE_SPEED_COEFFICIENT)",
+										"y": "TouchFollower.Y"
+									}
+								}
+							],
+							"sid": 654782061305853
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 784577578262543
+}
