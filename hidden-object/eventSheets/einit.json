@@ -75,45 +75,64 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 477999499263990
+						},
+						{
+							"callFunction": "ChooseLookingFor",
+							"sid": 609291161118440,
+							"parameters": [
+								"0"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 721068536037306
+						},
+						{
+							"callFunction": "ChooseLookingFor",
+							"sid": 306676676068900,
+							"parameters": [
+								"1"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 983337334448181
+						},
+						{
+							"callFunction": "ChooseLookingFor",
+							"sid": 926818571777744,
+							"parameters": [
+								"2"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 574668791981243
+						},
+						{
+							"callFunction": "ChooseLookingFor",
+							"sid": 399311705627350,
+							"parameters": [
+								"3"
+							]
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 331857162278481
+						},
+						{
+							"callFunction": "ChooseLookingFor",
+							"sid": 235832320256393,
+							"parameters": [
+								"4"
+							]
 						}
 					],
-					"sid": 184372099204112,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for",
-									"objectClass": "System",
-									"sid": 205779466460674,
-									"parameters": {
-										"name": "\"LookingForLoop\"",
-										"start-index": "0",
-										"end-index": "4"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 828216606896754,
-									"parameters": {
-										"type": "log",
-										"message": "loopindex(\"LookingForLoop\")"
-									}
-								},
-								{
-									"callFunction": "ChooseLookingFor",
-									"sid": 670444275607453,
-									"parameters": [
-										"loopindex(\"LookingForLoop\")"
-									]
-								}
-							],
-							"sid": 218299249763201
-						}
-					]
+					"sid": 184372099204112
 				}
 			]
 		},
@@ -206,15 +225,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 689412078679281,
-									"parameters": {
-										"type": "log",
-										"message": "\"redraw\""
-									}
-								},
 								{
 									"callFunction": "DropObject",
 									"sid": 754024216237405
@@ -335,24 +345,74 @@
 						0.11372549019607843,
 						1
 					]
-				},
-				{
-					"id": "set-animation-frame",
-					"objectClass": "LookingFor",
-					"sid": 522480611322282,
-					"parameters": {
-						"frame-number": "Object.AnimationFrame"
-					}
-				},
-				{
-					"callFunction": "SetTotalNumber",
-					"sid": 475310911558567,
-					"parameters": [
-						"LookingForIndex"
-					]
 				}
 			],
-			"sid": 419051943077893
+			"sid": 419051943077893,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 303977546358322,
+							"parameters": {
+								"object": "LookingFor",
+								"expression": "LookingFor.AnimationFrame",
+								"comparison": 0,
+								"value": "Object.AnimationFrame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ChooseLookingFor",
+							"sid": 703753595057312,
+							"parameters": [
+								"LookingForIndex"
+							]
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 489458715155349,
+							"parameters": {
+								"type": "log",
+								"message": "\"retry\""
+							}
+						}
+					],
+					"sid": 615772675101933
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 573812599056191
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "LookingFor",
+							"sid": 473475096547972,
+							"parameters": {
+								"frame-number": "Object.AnimationFrame"
+							}
+						},
+						{
+							"callFunction": "SetTotalNumber",
+							"sid": 861735745464909,
+							"parameters": [
+								"LookingForIndex"
+							]
+						}
+					],
+					"sid": 209129621718614
+				}
+			]
 		},
 		{
 			"functionName": "SetTotalNumber",
