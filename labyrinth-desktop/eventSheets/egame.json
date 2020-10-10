@@ -60,6 +60,26 @@
 			"sid": 209240244709285
 		},
 		{
+			"eventType": "variable",
+			"name": "NextDirection",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 403259848827411
+		},
+		{
+			"eventType": "variable",
+			"name": "LastCheckpoint",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 313328688198047
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -79,25 +99,46 @@
 					}
 				},
 				{
-					"id": "set-max-speed",
-					"objectClass": "Player",
-					"sid": 226437367962448,
-					"behaviorType": "8Direction",
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 786625860559756,
 					"parameters": {
-						"max-speed": "SPEED"
-					}
-				},
-				{
-					"id": "set-deceleration",
-					"objectClass": "Player",
-					"sid": 523245743723948,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"deceleration": "0"
+						"variable": "IsMoving",
+						"value": "false"
 					}
 				}
 			],
-			"sid": 250742342554707
+			"sid": 250742342554707,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Waypoint",
+							"sid": 382132492849064,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Waypoint",
+							"sid": 450852731485845,
+							"parameters": {
+								"object": "Player",
+								"layer": "\"Tiles\"",
+								"image-point": "0"
+							}
+						}
+					],
+					"sid": 158123408374858
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -141,207 +182,6 @@
 			"sid": 422501087760690
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-moving",
-					"objectClass": "Player",
-					"sid": 586368637595893,
-					"behaviorType": "8Direction"
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 866546244387022,
-					"parameters": {
-						"variable": "IsMoving"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-speed",
-					"objectClass": "Player",
-					"sid": 321295675130443,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"speed": "SPEED"
-					}
-				},
-				{
-					"id": "set-ignoring-input",
-					"objectClass": "Player",
-					"sid": 888868364626995,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"input": "start-ignoring"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Player",
-					"sid": 172133298997458,
-					"parameters": {
-						"animation": "\"Walking\"",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 875915930058284,
-					"parameters": {
-						"variable": "IsMoving",
-						"value": "true"
-					}
-				}
-			],
-			"sid": 983531768149725
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-collision-with-another-object",
-					"objectClass": "Player",
-					"sid": 357884271736635,
-					"parameters": {
-						"object": "Barrier"
-					}
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 411551622476576,
-					"parameters": {
-						"variable": "IsMoving"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 709014929138240,
-					"parameters": {
-						"variable": "IsMoving",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-speed",
-					"objectClass": "Player",
-					"sid": 854481816430251,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"speed": "0"
-					}
-				},
-				{
-					"id": "set-ignoring-input",
-					"objectClass": "Player",
-					"sid": 261068364745148,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"input": "stop-ignoring"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Player",
-					"sid": 544752339248866,
-					"parameters": {
-						"animation": "\"Idle\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 505401212425416,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Player",
-							"sid": 362847754193894,
-							"parameters": {
-								"object": "Coin"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-ignoring-input",
-							"objectClass": "Player",
-							"sid": 340901264497930,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"input": "start-ignoring"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Player",
-							"sid": 226276877041488,
-							"behaviorType": "ScrollTo",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "set-key",
-							"objectClass": "LevelsCompleted",
-							"sid": 323885917127116,
-							"parameters": {
-								"key": "LayoutName",
-								"value": "\"true\""
-							}
-						},
-						{
-							"id": "set-layer-parallax",
-							"objectClass": "System",
-							"sid": 127458208707829,
-							"parameters": {
-								"layer": "\"Parallax Near\"",
-								"parallax-x": "100",
-								"parallax-y": "100"
-							}
-						},
-						{
-							"id": "set-layer-parallax",
-							"objectClass": "System",
-							"sid": 476098549645915,
-							"parameters": {
-								"layer": "\"Parallax Far\"",
-								"parallax-x": "100",
-								"parallax-y": "100"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 276975617281826,
-							"parameters": {
-								"seconds": "3"
-							}
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Coin",
-							"sid": 690161793296152
-						},
-						{
-							"callFunction": "MakeUIVisible",
-							"sid": 359275861208947
-						}
-					],
-					"sid": 393958547417339
-				}
-			]
-		},
-		{
 			"eventType": "comment",
 			"text": "TODO: also try qarp and cubic instead of lerp"
 		},
@@ -353,11 +193,68 @@
 					"objectClass": "Player",
 					"sid": 220499789407317,
 					"parameters": {
-						"object": "Coin"
+						"object": "Waypoint"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Waypoint",
+					"sid": 920665942533870,
+					"parameters": {
+						"instance-variable": "Index",
+						"comparison": 0,
+						"value": "Waypoint.Count - 1"
 					}
 				}
 			],
 			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 857447992694801,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 373089342609087,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-key",
+					"objectClass": "LevelsCompleted",
+					"sid": 585761390941457,
+					"parameters": {
+						"key": "LayoutName",
+						"value": "\"true\""
+					}
+				},
+				{
+					"id": "set-layer-parallax",
+					"objectClass": "System",
+					"sid": 930248826205821,
+					"parameters": {
+						"layer": "\"Parallax Near\"",
+						"parallax-x": "100",
+						"parallax-y": "100"
+					}
+				},
+				{
+					"id": "set-layer-parallax",
+					"objectClass": "System",
+					"sid": 990881281919219,
+					"parameters": {
+						"layer": "\"Parallax Far\"",
+						"parallax-x": "100",
+						"parallax-y": "100"
+					}
+				},
 				{
 					"id": "set-layout-scale",
 					"objectClass": "System",
@@ -381,9 +278,415 @@
 					"parameters": {
 						"y": "lerp(Player.Y, LayoutHeight / 2, 0.025)"
 					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 301755235246323,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"callFunction": "MakeUIVisible",
+					"sid": 968578593439828
 				}
 			],
 			"sid": 666524158935041
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 524181847648757,
+					"parameters": {
+						"object": "Waypoint"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 479175818867382,
+					"parameters": {
+						"variable": "LastCheckpoint",
+						"value": "Waypoint.Index"
+					}
+				}
+			],
+			"sid": 315629761744640,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-between-angles",
+							"objectClass": "Waypoint",
+							"sid": 957356884558062,
+							"parameters": {
+								"first-angle": "359",
+								"second-angle": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 395486832127635,
+							"parameters": {
+								"variable": "NextDirection",
+								"value": "\"Up\""
+							}
+						}
+					],
+					"sid": 770001779248979
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 545448294321568
+						},
+						{
+							"id": "is-between-angles",
+							"objectClass": "Waypoint",
+							"sid": 275042407329763,
+							"parameters": {
+								"first-angle": "89",
+								"second-angle": "91"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 951166268944197,
+							"parameters": {
+								"variable": "NextDirection",
+								"value": "\"Right\""
+							}
+						}
+					],
+					"sid": 500063052424888
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 598393834503594
+						},
+						{
+							"id": "is-between-angles",
+							"objectClass": "Waypoint",
+							"sid": 647548918299088,
+							"parameters": {
+								"first-angle": "179",
+								"second-angle": "181"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 144185616776992,
+							"parameters": {
+								"variable": "NextDirection",
+								"value": "\"Down\""
+							}
+						}
+					],
+					"sid": 287410862605724
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 702787956823078
+						},
+						{
+							"id": "is-between-angles",
+							"objectClass": "Waypoint",
+							"sid": 958323494350624,
+							"parameters": {
+								"first-angle": "269",
+								"second-angle": "271"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 390259895840706,
+							"parameters": {
+								"variable": "NextDirection",
+								"value": "\"Left\""
+							}
+						}
+					],
+					"sid": 573782118066599
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "Player",
+					"sid": 607583000726657,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 965447773820100,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 460735265596196,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 317823694195776
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 707003178678039,
+					"parameters": {
+						"variable": "IsMoving"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 346710266525877,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 156481328554426,
+							"parameters": {
+								"key": 38
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 116828596805546,
+							"parameters": {
+								"variable": "NextDirection",
+								"comparison": 0,
+								"value": "\"Up\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 346468032206692
+						}
+					],
+					"sid": 565086236262892
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 918570280389576,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 589120979436398,
+							"parameters": {
+								"variable": "NextDirection",
+								"comparison": 0,
+								"value": "\"Right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 833834827589015,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 427332137591637
+						}
+					],
+					"sid": 474929349303428
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 490073440936998,
+							"parameters": {
+								"key": 40
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 963724623396490,
+							"parameters": {
+								"variable": "NextDirection",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 263724750384788
+						}
+					],
+					"sid": 990575265453050
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 768887075668088,
+							"parameters": {
+								"key": 37
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 742789475322232,
+							"parameters": {
+								"variable": "NextDirection",
+								"comparison": 0,
+								"value": "\"Left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Player",
+							"sid": 503382501717392,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 370981227333105
+						}
+					],
+					"sid": 472616439105901
+				}
+			]
+		},
+		{
+			"functionName": "MoveToNextCheckpoint",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 469323746663226,
+					"parameters": {
+						"variable": "IsMoving",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 810300265209619,
+					"parameters": {
+						"animation": "\"Walking\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 684528249021892,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Waypoint",
+							"sid": 463330750825988,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "LastCheckpoint + 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-object",
+							"objectClass": "Player",
+							"sid": 447674489907587,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"object": "Waypoint",
+								"image-point": "0",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 631150351904365
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -438,6 +741,16 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 475715513319319,
+									"parameters": {
+										"variable": "NextDirection",
+										"comparison": 0,
+										"value": "\"Up\""
+									}
+								},
+								{
 									"id": "is-between-angles",
 									"objectClass": "System",
 									"sid": 744034046764735,
@@ -450,13 +763,8 @@
 							],
 							"actions": [
 								{
-									"id": "simulate-control",
-									"objectClass": "Player",
-									"sid": 177151708815278,
-									"behaviorType": "8Direction",
-									"parameters": {
-										"control": "up"
-									}
+									"callFunction": "MoveToNextCheckpoint",
+									"sid": 471774549627838
 								}
 							],
 							"sid": 662152857298480
@@ -464,6 +772,16 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 627619741736026,
+									"parameters": {
+										"variable": "NextDirection",
+										"comparison": 0,
+										"value": "\"Left\""
+									}
+								},
 								{
 									"id": "is-between-angles",
 									"objectClass": "System",
@@ -477,13 +795,8 @@
 							],
 							"actions": [
 								{
-									"id": "simulate-control",
-									"objectClass": "Player",
-									"sid": 434797220969271,
-									"behaviorType": "8Direction",
-									"parameters": {
-										"control": "left"
-									}
+									"callFunction": "MoveToNextCheckpoint",
+									"sid": 621899304809226
 								},
 								{
 									"id": "set-mirrored",
@@ -500,6 +813,16 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 704529618183938,
+									"parameters": {
+										"variable": "NextDirection",
+										"comparison": 0,
+										"value": "\"Down\""
+									}
+								},
+								{
 									"id": "is-between-angles",
 									"objectClass": "System",
 									"sid": 247620876589224,
@@ -512,13 +835,8 @@
 							],
 							"actions": [
 								{
-									"id": "simulate-control",
-									"objectClass": "Player",
-									"sid": 352083382917064,
-									"behaviorType": "8Direction",
-									"parameters": {
-										"control": "down"
-									}
+									"callFunction": "MoveToNextCheckpoint",
+									"sid": 785136742438560
 								}
 							],
 							"sid": 540759638546347
@@ -526,6 +844,16 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 476692568130148,
+									"parameters": {
+										"variable": "NextDirection",
+										"comparison": 0,
+										"value": "\"Right\""
+									}
+								},
 								{
 									"id": "is-between-angles",
 									"objectClass": "System",
@@ -539,13 +867,8 @@
 							],
 							"actions": [
 								{
-									"id": "simulate-control",
-									"objectClass": "Player",
-									"sid": 217727881476901,
-									"behaviorType": "8Direction",
-									"parameters": {
-										"control": "right"
-									}
+									"callFunction": "MoveToNextCheckpoint",
+									"sid": 907275890042181
 								},
 								{
 									"id": "set-mirrored",
@@ -574,13 +897,8 @@
 					],
 					"actions": [
 						{
-							"id": "simulate-control",
-							"objectClass": "Player",
-							"sid": 233875820096590,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "up"
-							}
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 280629402919603
 						}
 					],
 					"sid": 377631978281733,
@@ -600,18 +918,13 @@
 					],
 					"actions": [
 						{
-							"id": "simulate-control",
-							"objectClass": "Player",
-							"sid": 178904432544681,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "left"
-							}
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 235071040795162
 						},
 						{
 							"id": "set-mirrored",
 							"objectClass": "Player",
-							"sid": 612378527148262,
+							"sid": 467232916577114,
 							"parameters": {
 								"state": "mirrored"
 							}
@@ -634,13 +947,8 @@
 					],
 					"actions": [
 						{
-							"id": "simulate-control",
-							"objectClass": "Player",
-							"sid": 551721341451436,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "down"
-							}
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 194873224175053
 						}
 					],
 					"sid": 866763276314107,
@@ -660,13 +968,8 @@
 					],
 					"actions": [
 						{
-							"id": "simulate-control",
-							"objectClass": "Player",
-							"sid": 136170511577813,
-							"behaviorType": "8Direction",
-							"parameters": {
-								"control": "right"
-							}
+							"callFunction": "MoveToNextCheckpoint",
+							"sid": 686048119183622
 						},
 						{
 							"id": "set-mirrored",
@@ -682,64 +985,6 @@
 				}
 			],
 			"sid": 302494974595170
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Animations",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 832574585770849,
-							"parameters": {
-								"key": 37
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-mirrored",
-							"objectClass": "Player",
-							"sid": 455713030345392,
-							"parameters": {
-								"state": "mirrored"
-							}
-						}
-					],
-					"sid": 204949921240348
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 477565145857347,
-							"parameters": {
-								"key": 39
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-mirrored",
-							"objectClass": "Player",
-							"sid": 107446358786501,
-							"parameters": {
-								"state": "not-mirrored"
-							}
-						}
-					],
-					"sid": 895446186857991
-				}
-			],
-			"sid": 906707102171307
 		},
 		{
 			"eventType": "group",

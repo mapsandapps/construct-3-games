@@ -39,15 +39,7 @@
 		},
 		{
 			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-moving",
-					"objectClass": "Player",
-					"sid": 992582289101064,
-					"behaviorType": "8Direction",
-					"isInverted": true
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"id": "set-paused",

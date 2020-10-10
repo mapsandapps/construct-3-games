@@ -1,47 +1,56 @@
 {
-	"name": "Barrier",
+	"name": "Waypoint",
 	"plugin-id": "Sprite",
-	"sid": 268601164638249,
+	"sid": 566071312508397,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [
+	"instanceVariables": [
 		{
-			"behaviorId": "solid",
-			"name": "Solid",
-			"sid": 770921467742766
+			"name": "Index",
+			"type": "number",
+			"desc": "",
+			"sid": 732798691349125
 		}
 	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 8,
-						"height": 64,
+						"width": 100,
+						"height": 100,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 102,
+						"imageSpriteId": 1959509,
 						"collisionPoly": {
 							"points": [
-								0.003968253968253968,
-								0.003968253968253968,
-								0.996031746031746,
-								0.003968253968253968,
-								0.996031746031746,
-								0.996031746031746,
-								0.003968253968253968,
-								0.996031746031746
+								0.34375,
+								0.34375,
+								0.5,
+								0.28125,
+								0.640625,
+								0.34375,
+								0.703125,
+								0.5,
+								0.640625,
+								0.640625,
+								0.5,
+								0.703125,
+								0.34375,
+								0.640625,
+								0.28125,
+								0.5
 							]
 						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 688751367915243,
+				"sid": 857133403206982,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
