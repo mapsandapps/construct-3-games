@@ -1,0 +1,206 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"functionName": "RollDie",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"sid": 351116462461347
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 673480413538412,
+					"parameters": {
+						"value": "floor(random(Sides) + 1)"
+					}
+				}
+			],
+			"sid": 980973752975954
+		},
+		{
+			"functionName": "RollDice",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Number",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 785343562917608
+				},
+				{
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"sid": 897821032823132
+				},
+				{
+					"name": "Modifier",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 513447951322921
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 622199581938036,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Total",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 412364843985786
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 644121303868313,
+							"parameters": {
+								"count": "Number"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 214599878183495,
+							"parameters": {
+								"variable": "Total",
+								"value": "Functions.RollDie(Sides)"
+							}
+						}
+					],
+					"sid": 627028137895632
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 759439933786327,
+							"parameters": {
+								"variable": "Total",
+								"value": "Modifier"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 106561512111034,
+							"parameters": {
+								"type": "log",
+								"message": "\"Rolling \" & Number & \"d\" & Sides & \"+\" & Modifier & \": \" & Total"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 158887530048249,
+							"parameters": {
+								"value": "Total"
+							}
+						}
+					],
+					"sid": 385769796813629
+				}
+			]
+		},
+		{
+			"functionName": "RollToHit",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "AttackerHitRollModifier",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 160577611759931
+				},
+				{
+					"name": "DefenderAC",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 426979964033449
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 919919014938593,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Attack",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 740612517603442
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "if the attack equals or exceeds the defense, the attack happens"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 993275540204107,
+							"parameters": {
+								"variable": "Attack",
+								"value": "Functions.RollDie(20) + AttackerHitRollModifier"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 790168308653782,
+							"parameters": {
+								"value": "Attack >= DefenderAC ? \"True\" : \"False\""
+							}
+						}
+					],
+					"sid": 422500191024909
+				}
+			]
+		}
+	],
+	"sid": 460257336635382
+}

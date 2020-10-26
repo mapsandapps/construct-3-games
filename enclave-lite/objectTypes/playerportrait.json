@@ -1,0 +1,110 @@
+{
+	"name": "PlayerPortrait",
+	"plugin-id": "Sprite",
+	"sid": 192459688232749,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "AC",
+			"type": "number",
+			"desc": "",
+			"sid": 620869344676938
+		},
+		{
+			"name": "Class",
+			"type": "string",
+			"desc": "",
+			"sid": 696213237283963
+		},
+		{
+			"name": "DamageNumberOfDice",
+			"type": "number",
+			"desc": "",
+			"sid": 984493900488099
+		},
+		{
+			"name": "DamageSides",
+			"type": "number",
+			"desc": "",
+			"sid": 846293126913129
+		},
+		{
+			"name": "DamageModifier",
+			"type": "number",
+			"desc": "",
+			"sid": 823523987586031
+		},
+		{
+			"name": "HitRollModifier",
+			"type": "number",
+			"desc": "",
+			"sid": 851193581467137
+		},
+		{
+			"name": "HPCurrent",
+			"type": "number",
+			"desc": "",
+			"sid": 266898279391010
+		},
+		{
+			"name": "HPMax",
+			"type": "number",
+			"desc": "",
+			"sid": 709302942363736
+		},
+		{
+			"name": "STR",
+			"type": "number",
+			"desc": "",
+			"sid": 612509292931416
+		},
+		{
+			"name": "DEX",
+			"type": "number",
+			"desc": "",
+			"sid": 180469829680630
+		},
+		{
+			"name": "INT",
+			"type": "number",
+			"desc": "",
+			"sid": 631567240163712
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 910861528100192
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4710147,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 155981070761225,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

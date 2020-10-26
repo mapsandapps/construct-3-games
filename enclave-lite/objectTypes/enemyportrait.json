@@ -1,0 +1,116 @@
+{
+	"name": "EnemyPortrait",
+	"plugin-id": "Sprite",
+	"sid": 138967232469675,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "AC",
+			"type": "number",
+			"desc": "",
+			"sid": 884474609249318
+		},
+		{
+			"name": "DamageModifier",
+			"type": "number",
+			"desc": "",
+			"sid": 643200192676718
+		},
+		{
+			"name": "DamageNumberOfDice",
+			"type": "number",
+			"desc": "",
+			"sid": 297396998791209
+		},
+		{
+			"name": "DamageSides",
+			"type": "number",
+			"desc": "",
+			"sid": 414402129041232
+		},
+		{
+			"name": "HitRollModifier",
+			"type": "number",
+			"desc": "",
+			"sid": 630631052580577
+		},
+		{
+			"name": "HPCurrent",
+			"type": "number",
+			"desc": "",
+			"sid": 595430469275932
+		},
+		{
+			"name": "HPMax",
+			"type": "number",
+			"desc": "",
+			"sid": 365642588829514
+		},
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"sid": 934725071498273
+		},
+		{
+			"name": "XP",
+			"type": "number",
+			"desc": "",
+			"sid": 799626480288735
+		},
+		{
+			"name": "STR",
+			"type": "number",
+			"desc": "",
+			"sid": 618275437693103
+		},
+		{
+			"name": "DEX",
+			"type": "number",
+			"desc": "",
+			"sid": 345170204072733
+		},
+		{
+			"name": "INT",
+			"type": "number",
+			"desc": "",
+			"sid": 510307796422179
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 264344249083608
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4896559,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 830942682948874,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

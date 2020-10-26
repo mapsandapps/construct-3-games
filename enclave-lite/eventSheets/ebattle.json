@@ -1,0 +1,487 @@
+{
+	"name": "eBattle",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 124836786540744,
+					"parameters": {
+						"object": "Flee"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "TODO: should have a chance of failing flee"
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 155548353035854,
+					"parameters": {
+						"layout": "Town"
+					}
+				}
+			],
+			"sid": 320198943048427
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 118666754813563,
+					"parameters": {
+						"object": "MeleeAttack"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "MeleeAttack",
+					"sid": 869931027795964,
+					"parameters": {
+						"instance-variable": "IsDisabled"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "MeleeAttack",
+					"sid": 457267386552350,
+					"parameters": {
+						"instance-variable": "IsDisabled",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 985009389481770,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 883794782998706,
+							"parameters": {
+								"first-value": "Functions.RollToHit(PlayerPortrait.HitRollModifier, EnemyPortrait.AC)",
+								"comparison": 0,
+								"second-value": "\"True\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "EnemyPortrait",
+							"sid": 137718688667150,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.3"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "EnemyPortrait",
+							"sid": 770764170414219,
+							"parameters": {
+								"instance-variable": "HPCurrent",
+								"value": "Functions.RollDice(PlayerPortrait.DamageNumberOfDice, PlayerPortrait.DamageSides, PlayerPortrait.DamageModifier)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "EnemyHealth",
+							"sid": 740226169769229,
+							"parameters": {
+								"text": "\"HP: \" & EnemyPortrait.HPCurrent & \"/\" & EnemyPortrait.HPMax"
+							}
+						}
+					],
+					"sid": 792492969903962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 334689768093771
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Shield",
+							"sid": 894039559825753,
+							"parameters": {
+								"x": "EnemyPortrait.X",
+								"y": "EnemyPortrait.Y"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Shield",
+							"sid": 333842210932239,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 204831287899575
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 772239085418864,
+							"parameters": {
+								"seconds": "0.3"
+							}
+						}
+					],
+					"sid": 437227187774194
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "EnemyPortrait",
+							"sid": 611390307933760,
+							"parameters": {
+								"instance-variable": "HPCurrent",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "EnemyPortrait",
+							"sid": 946405102565413,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 935907898220566,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Deck",
+							"sid": 789690907573436,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DeckText",
+							"sid": 566250033647243,
+							"parameters": {
+								"text": "Deck.NumberOfCards"
+							}
+						},
+						{
+							"callFunction": "SpawnMonster",
+							"sid": 129436371824278
+						}
+					],
+					"sid": 229564403215239
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 559005831941207
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 153959111160974,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						}
+					],
+					"sid": 797327091175194,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 473135201186265,
+									"parameters": {
+										"first-value": "Functions.RollToHit(EnemyPortrait.HitRollModifier, PlayerPortrait.AC)",
+										"comparison": 0,
+										"second-value": "\"True\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "PlayerPortrait",
+									"sid": 400096130556844,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "0.3"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "PlayerPortrait",
+									"sid": 414507933179210,
+									"parameters": {
+										"instance-variable": "HPCurrent",
+										"value": "Functions.RollDice(EnemyPortrait.DamageNumberOfDice, EnemyPortrait.DamageSides, EnemyPortrait.DamageModifier)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "PlayerHealth",
+									"sid": 232022977789297,
+									"parameters": {
+										"text": "\"HP: \" & PlayerPortrait.HPCurrent & \"/\" & PlayerPortrait.HPMax"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 579404647670830,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								}
+							],
+							"sid": 628210151527952,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "PlayerPortrait",
+											"sid": 475057722551399,
+											"parameters": {
+												"instance-variable": "HPCurrent",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "PlayerPortrait",
+											"sid": 940559813809112,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 375452426645891,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 906072052867240,
+											"parameters": {
+												"layout": "Town"
+											}
+										}
+									],
+									"sid": 107744094853344
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 164771125074462
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Shield",
+									"sid": 845018703606891,
+									"parameters": {
+										"x": "PlayerPortrait.X",
+										"y": "PlayerPortrait.Y"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "Shield",
+									"sid": 757025342476020,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 785568485355205
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerPortrait",
+							"sid": 814212931727694,
+							"parameters": {
+								"instance-variable": "HPCurrent",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "MeleeAttack",
+							"sid": 899037190906563,
+							"parameters": {
+								"instance-variable": "IsDisabled",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 110914776963525
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 651862740880258
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SpawnMonster",
+					"sid": 160063522949013
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerPortrait",
+					"sid": 466712313159587,
+					"parameters": {
+						"instance-variable": "HPCurrent",
+						"value": "PlayerPortrait.HPMax"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "EnemyHealth",
+					"sid": 263567651502832,
+					"parameters": {
+						"text": "\"HP: \" & EnemyPortrait.HPCurrent & \"/\" & EnemyPortrait.HPMax"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "PlayerHealth",
+					"sid": 179039513320735,
+					"parameters": {
+						"text": "\"HP: \" & PlayerPortrait.HPCurrent & \"/\" & PlayerPortrait.HPMax"
+					}
+				}
+			],
+			"sid": 593970674874592
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "MeleeAttack",
+					"sid": 217051223184853,
+					"parameters": {
+						"instance-variable": "IsDisabled"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "MeleeAttack",
+					"sid": 896456835450830,
+					"parameters": {
+						"opacity": "50"
+					}
+				}
+			],
+			"sid": 606355118527438
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "MeleeAttack",
+					"sid": 698062094511810,
+					"parameters": {
+						"instance-variable": "IsDisabled"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "MeleeAttack",
+					"sid": 488921840702417,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 313803977593866
+		}
+	],
+	"sid": 124913265373675
+}

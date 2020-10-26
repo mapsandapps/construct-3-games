@@ -1,0 +1,646 @@
+{
+	"name": "eMonsters",
+	"events": [
+		{
+			"functionName": "SpawnMonster",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 236533610037992,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "P",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 997499111386626
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 625180637724768,
+							"parameters": {
+								"variable": "P",
+								"value": "random(100)"
+							}
+						}
+					],
+					"sid": 537677215935465
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 744831458283066,
+							"parameters": {
+								"first-value": "P",
+								"comparison": 2,
+								"second-value": "25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnBat",
+							"sid": 840878104630845
+						}
+					],
+					"sid": 475950387398519
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 313291838791484
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 191991079955198,
+							"parameters": {
+								"first-value": "P",
+								"comparison": 2,
+								"second-value": "70"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnRat",
+							"sid": 648438315217285
+						}
+					],
+					"sid": 291903790744054
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 938881607010341
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 530520145932691,
+							"parameters": {
+								"first-value": "P",
+								"comparison": 2,
+								"second-value": "95"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnSprite",
+							"sid": 628286539444873
+						}
+					],
+					"sid": 505764617474496
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 191508718760838
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnZombie",
+							"sid": 352383447375144
+						}
+					],
+					"sid": 811498020742765
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "EnemyType",
+							"sid": 298911500312422,
+							"parameters": {
+								"text": "EnemyPortrait.Type"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "EnemyHealth",
+							"sid": 990145394987614,
+							"parameters": {
+								"text": "\"HP: \" & EnemyPortrait.HPCurrent & \"/\" & EnemyPortrait.HPMax"
+							}
+						}
+					],
+					"sid": 155577368891472
+				}
+			]
+		},
+		{
+			"functionName": "SpawnBat",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 981904686003414,
+					"parameters": {
+						"instance-variable": "AC",
+						"value": "12"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 783459266521167,
+					"parameters": {
+						"instance-variable": "DamageNumberOfDice",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 216612615547269,
+					"parameters": {
+						"instance-variable": "DamageSides",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 571640263036605,
+					"parameters": {
+						"instance-variable": "DamageModifier",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 636715879160327,
+					"parameters": {
+						"instance-variable": "HitRollModifier",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 258110215940126,
+					"parameters": {
+						"instance-variable": "HPMax",
+						"value": "Functions.RollDice(1, 4, 0)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 287679191939833,
+					"parameters": {
+						"instance-variable": "HPCurrent",
+						"value": "EnemyPortrait.HPMax"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 460737541196924,
+					"parameters": {
+						"instance-variable": "Type",
+						"value": "\"Bat\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 641828406227645,
+					"parameters": {
+						"instance-variable": "XP",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 999267015485834,
+					"parameters": {
+						"instance-variable": "STR",
+						"value": "8"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 754982532109175,
+					"parameters": {
+						"instance-variable": "DEX",
+						"value": "15"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 238025965183968,
+					"parameters": {
+						"instance-variable": "INT",
+						"value": "7"
+					}
+				}
+			],
+			"sid": 562106036171578
+		},
+		{
+			"functionName": "SpawnRat",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 262959848308956,
+					"parameters": {
+						"instance-variable": "AC",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 730302559251361,
+					"parameters": {
+						"instance-variable": "DamageNumberOfDice",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 424514965172660,
+					"parameters": {
+						"instance-variable": "DamageSides",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 336508371205458,
+					"parameters": {
+						"instance-variable": "DamageModifier",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 266210972549319,
+					"parameters": {
+						"instance-variable": "HitRollModifier",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 233316587343572,
+					"parameters": {
+						"instance-variable": "HPMax",
+						"value": "Functions.RollDice(1, 4, 0)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 560290237146179,
+					"parameters": {
+						"instance-variable": "HPCurrent",
+						"value": "EnemyPortrait.HPMax"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 471163859293055,
+					"parameters": {
+						"instance-variable": "Type",
+						"value": "\"Rat\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 671732467214680,
+					"parameters": {
+						"instance-variable": "XP",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 689953273055290,
+					"parameters": {
+						"instance-variable": "STR",
+						"value": "5"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 611726640392772,
+					"parameters": {
+						"instance-variable": "DEX",
+						"value": "11"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 255907585369420,
+					"parameters": {
+						"instance-variable": "INT",
+						"value": "6"
+					}
+				}
+			],
+			"sid": 404840139127314
+		},
+		{
+			"functionName": "SpawnZombie",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 811802423703461,
+					"parameters": {
+						"instance-variable": "AC",
+						"value": "8"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 898548694480810,
+					"parameters": {
+						"instance-variable": "DamageNumberOfDice",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 781324428033783,
+					"parameters": {
+						"instance-variable": "DamageSides",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 551184378490092,
+					"parameters": {
+						"instance-variable": "DamageModifier",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 950078853680160,
+					"parameters": {
+						"instance-variable": "HitRollModifier",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 383762412981414,
+					"parameters": {
+						"instance-variable": "HPMax",
+						"value": "Functions.RollDice(3, 8, 9)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 363534248942976,
+					"parameters": {
+						"instance-variable": "HPCurrent",
+						"value": "EnemyPortrait.HPMax"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 559927003300271,
+					"parameters": {
+						"instance-variable": "Type",
+						"value": "\"Zombie\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 481455981194780,
+					"parameters": {
+						"instance-variable": "XP",
+						"value": "50"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 794477159974358,
+					"parameters": {
+						"instance-variable": "STR",
+						"value": "14"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 295545909510349,
+					"parameters": {
+						"instance-variable": "DEX",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 818368159389219,
+					"parameters": {
+						"instance-variable": "INT",
+						"value": "4"
+					}
+				}
+			],
+			"sid": 722167826887138
+		},
+		{
+			"functionName": "SpawnSprite",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 772260010486686,
+					"parameters": {
+						"instance-variable": "AC",
+						"value": "15"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 923477042555040,
+					"parameters": {
+						"instance-variable": "DamageNumberOfDice",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 936201960926704,
+					"parameters": {
+						"instance-variable": "DamageSides",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 369490723290672,
+					"parameters": {
+						"instance-variable": "DamageModifier",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 456185378822871,
+					"parameters": {
+						"instance-variable": "HitRollModifier",
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 592628932135806,
+					"parameters": {
+						"instance-variable": "HPMax",
+						"value": "Functions.RollDice(1, 4, 0)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 792347711271576,
+					"parameters": {
+						"instance-variable": "HPCurrent",
+						"value": "EnemyPortrait.HPMax"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 713487824998031,
+					"parameters": {
+						"instance-variable": "Type",
+						"value": "\"Sprite\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 197176818123291,
+					"parameters": {
+						"instance-variable": "XP",
+						"value": "50"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 886399218075474,
+					"parameters": {
+						"instance-variable": "STR",
+						"value": "6"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 171952672754240,
+					"parameters": {
+						"instance-variable": "DEX",
+						"value": "18"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "EnemyPortrait",
+					"sid": 521289168854335,
+					"parameters": {
+						"instance-variable": "INT",
+						"value": "13"
+					}
+				}
+			],
+			"sid": 414357716957601
+		}
+	],
+	"sid": 716887015074599
+}
