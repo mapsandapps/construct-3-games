@@ -1,0 +1,428 @@
+{
+	"name": "Playground",
+	"layers": [
+		{
+			"name": "Background",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 4,
+					"instanceVariables": {
+						"Suit": "A",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 704,
+						"y": 64,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 5,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 0,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 96,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 96,
+						"y": 64,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Discard",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 192,
+						"y": 64,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 1,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 192,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 13,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 2,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 288,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 14,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 3,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 384,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 4,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 480,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 16,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 5,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 576,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {
+						"NumberOfCards": 0,
+						"Column": 6,
+						"Row": 0,
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 672,
+						"y": 192,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 152150738710947,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Cards",
+			"overriden": 0,
+			"instances": [],
+			"sid": 905465944891592,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 996203305212554,
+	"nonworld-instances": [
+		{
+			"type": "StockArray",
+			"properties": {
+				"width": 65,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 3,
+			"instanceVariables": {}
+		},
+		{
+			"type": "CardDeck",
+			"properties": {
+				"width": 65,
+				"height": 3,
+				"depth": 1
+			},
+			"uid": 8,
+			"instanceVariables": {}
+		},
+		{
+			"type": "InitialDeal",
+			"properties": {
+				"width": 10,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 11,
+			"instanceVariables": {}
+		}
+	],
+	"effectTypes": [],
+	"width": 800,
+	"height": 600,
+	"unboundedScrolling": false,
+	"eventSheet": "eVariantPlayground"
+}

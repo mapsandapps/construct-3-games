@@ -1,0 +1,383 @@
+{
+	"name": "eShuffleAndDeal",
+	"events": [
+		{
+			"functionName": "Shuffle",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "CardDeck",
+					"sid": 809377016623710,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[65,3,1],\"\"data\"\":[[[0],[1],[\"\"A\"\"]],[[1],[2],[\"\"A\"\"]],[[2],[3],[\"\"A\"\"]],[[3],[4],[\"\"A\"\"]],[[4],[5],[\"\"A\"\"]],[[5],[6],[\"\"A\"\"]],[[6],[7],[\"\"A\"\"]],[[7],[8],[\"\"A\"\"]],[[8],[9],[\"\"A\"\"]],[[9],[10],[\"\"A\"\"]],[[10],[11],[\"\"A\"\"]],[[11],[12],[\"\"A\"\"]],[[12],[13],[\"\"A\"\"]],[[13],[1],[\"\"B\"\"]],[[14],[2],[\"\"B\"\"]],[[15],[3],[\"\"B\"\"]],[[16],[4],[\"\"B\"\"]],[[17],[5],[\"\"B\"\"]],[[18],[6],[\"\"B\"\"]],[[19],[7],[\"\"B\"\"]],[[20],[8],[\"\"B\"\"]],[[21],[9],[\"\"B\"\"]],[[22],[10],[\"\"B\"\"]],[[23],[11],[\"\"B\"\"]],[[24],[12],[\"\"B\"\"]],[[25],[13],[\"\"B\"\"]],[[26],[1],[\"\"C\"\"]],[[27],[2],[\"\"C\"\"]],[[28],[3],[\"\"C\"\"]],[[29],[4],[\"\"C\"\"]],[[30],[5],[\"\"C\"\"]],[[31],[6],[\"\"C\"\"]],[[32],[7],[\"\"C\"\"]],[[33],[8],[\"\"C\"\"]],[[34],[9],[\"\"C\"\"]],[[35],[10],[\"\"C\"\"]],[[36],[11],[\"\"C\"\"]],[[37],[12],[\"\"C\"\"]],[[38],[13],[\"\"C\"\"]],[[39],[1],[\"\"D\"\"]],[[40],[2],[\"\"D\"\"]],[[41],[3],[\"\"D\"\"]],[[42],[4],[\"\"D\"\"]],[[43],[5],[\"\"D\"\"]],[[44],[6],[\"\"D\"\"]],[[45],[7],[\"\"D\"\"]],[[46],[8],[\"\"D\"\"]],[[47],[9],[\"\"D\"\"]],[[48],[10],[\"\"D\"\"]],[[49],[11],[\"\"D\"\"]],[[50],[12],[\"\"D\"\"]],[[51],[13],[\"\"D\"\"]],[[52],[1],[\"\"E\"\"]],[[53],[2],[\"\"E\"\"]],[[54],[3],[\"\"E\"\"]],[[55],[4],[\"\"E\"\"]],[[56],[5],[\"\"E\"\"]],[[57],[6],[\"\"E\"\"]],[[58],[7],[\"\"E\"\"]],[[59],[8],[\"\"E\"\"]],[[60],[9],[\"\"E\"\"]],[[61],[10],[\"\"E\"\"]],[[62],[11],[\"\"E\"\"]],[[63],[12],[\"\"E\"\"]],[[64],[13],[\"\"E\"\"]]]}\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "StockArray",
+					"sid": 199682062344884,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 933799970736519,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				}
+			],
+			"sid": 418982505402235,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "CardDeck",
+							"sid": 669344267922326,
+							"parameters": {
+								"width": "NUMBER_OF_SUITS * 13",
+								"height": "3",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "StockArray",
+							"sid": 318639167189546,
+							"parameters": {
+								"width": "NUMBER_OF_SUITS * 13",
+								"height": "3",
+								"depth": "1"
+							}
+						}
+					],
+					"sid": 688087495302226
+				},
+				{
+					"eventType": "variable",
+					"name": "PickIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 477333196590009
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "StockArray",
+							"sid": 764305332122332,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 518005006420961,
+							"parameters": {
+								"variable": "PickIndex",
+								"value": "floor(random(CardDeck.Width))"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "StockArray",
+							"sid": 546400478340516,
+							"parameters": {
+								"x": "StockArray.CurX",
+								"y": "0",
+								"value": "CardDeck.At(PickIndex, 0)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "StockArray",
+							"sid": 326761554093257,
+							"parameters": {
+								"x": "StockArray.CurX",
+								"y": "1",
+								"value": "CardDeck.At(PickIndex, 1)"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "StockArray",
+							"sid": 697397847579994,
+							"parameters": {
+								"x": "StockArray.CurX",
+								"y": "2",
+								"value": "CardDeck.At(PickIndex, 2)"
+							}
+						},
+						{
+							"id": "delete",
+							"objectClass": "CardDeck",
+							"sid": 555361189291476,
+							"parameters": {
+								"index": "PickIndex",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 423669685618714
+				}
+			]
+		},
+		{
+			"functionName": "DealCardToDiscard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 388225741429666,
+					"parameters": {
+						"object-to-create": "Card",
+						"layer": "\"Cards\"",
+						"x": "Discard.X",
+						"y": "Discard.Y"
+					}
+				},
+				{
+					"callFunction": "DealCard",
+					"sid": 989553454126564,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 537514671959593
+		},
+		{
+			"functionName": "DealCardToTableau",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "TableauColumn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 769644695910705
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Tableau",
+					"sid": 300622217677054,
+					"parameters": {
+						"instance-variable": "Column",
+						"comparison": 0,
+						"value": "TableauColumn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 574316326116649,
+					"parameters": {
+						"object-to-create": "Card",
+						"layer": "\"Cards\"",
+						"x": "Tableau.X",
+						"y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET"
+					}
+				},
+				{
+					"callFunction": "DealCard",
+					"sid": 794276540712956,
+					"parameters": [
+						"Card.UID"
+					]
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Tableau",
+					"sid": 382745150217164,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "Tableau",
+					"sid": 871295690031751,
+					"parameters": {
+						"height": "Card.Height + CARD_OFFSET * (Tableau.NumberOfCards - 1)"
+					}
+				}
+			],
+			"sid": 603546359354584
+		},
+		{
+			"functionName": "InitialDeal",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 427994113942622,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "InitialDeal",
+							"sid": 669434172554508,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DealCardToTableau",
+							"sid": 868664276636573,
+							"parameters": [
+								"InitialDeal.At(0)"
+							]
+						},
+						{
+							"id": "delete",
+							"objectClass": "InitialDeal",
+							"sid": 227085656472200,
+							"parameters": {
+								"index": "0",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 843730878426990,
+							"parameters": {
+								"seconds": "loopindex * 0.1"
+							}
+						}
+					],
+					"sid": 481141233928080
+				}
+			]
+		},
+		{
+			"functionName": "DealCard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 441359306013141
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 935162675884444,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Card",
+					"sid": 973978601945774,
+					"parameters": {
+						"animation": "DECK_ART",
+						"from": "current-frame"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Card",
+					"sid": 208121461617035,
+					"parameters": {
+						"frame-number": "StockArray.At(0, 0)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 861609010748750,
+					"parameters": {
+						"instance-variable": "Value",
+						"value": "StockArray.At(0, 1)"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 957506167697915,
+					"parameters": {
+						"instance-variable": "Suit",
+						"value": "StockArray.At(0, 2)"
+					}
+				},
+				{
+					"id": "pop",
+					"objectClass": "StockArray",
+					"sid": 268588089242446,
+					"parameters": {
+						"where": "front",
+						"axis": "x"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 801550145244901,
+					"parameters": {
+						"type": "log",
+						"message": "StockArray.At(0, 2)"
+					}
+				}
+			],
+			"sid": 462232459840845
+		}
+	],
+	"sid": 533729986536694
+}

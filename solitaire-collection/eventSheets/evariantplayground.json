@@ -1,0 +1,56 @@
+{
+	"name": "eVariantPlayground",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGame"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 659157272651003
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "set config & rules"
+				},
+				{
+					"id": "load",
+					"objectClass": "InitialDeal",
+					"sid": 129476478483164,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[28,1,1],\"\"data\"\":[[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[2]],[[3]],[[4]],[[5]],[[6]],[[3]],[[4]],[[5]],[[6]],[[4]],[[5]],[[6]],[[5]],[[6]],[[6]]]}\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 869782547770277,
+					"parameters": {
+						"variable": "NUMBER_OF_SUITS",
+						"value": "5"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "init (deal, etc.)"
+				},
+				{
+					"callFunction": "Shuffle",
+					"sid": 784719454542141
+				},
+				{
+					"callFunction": "InitialDeal",
+					"sid": 515991251409225
+				}
+			],
+			"sid": 111433076121791
+		}
+	],
+	"sid": 218263479517225
+}

@@ -1,0 +1,54 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eRulesConstants"
+		},
+		{
+			"eventType": "variable",
+			"name": "Variant",
+			"type": "string",
+			"initialValue": "Playground",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 399367974342503
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 616456110178303,
+					"parameters": {
+						"object": "Stock"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 438946730386144,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Discard",
+							"sid": 139834814173207
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DealCardToDiscard",
+							"sid": 210653245755096
+						}
+					],
+					"sid": 791990729485033
+				}
+			]
+		}
+	],
+	"sid": 458908244364340
+}
