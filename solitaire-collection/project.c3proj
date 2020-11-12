@@ -24,16 +24,16 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Sprite",
-			"name": "Sprite",
+			"id": "Arr",
+			"name": "Array",
 			"author": "Scirra",
 			"version": "r224",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
+			"id": "Sprite",
+			"name": "Sprite",
 			"author": "Scirra",
 			"version": "r224",
 			"bundled": false
@@ -59,13 +59,11 @@
 	"objectTypes": {
 		"items": [
 			"Card",
-			"StockArray",
 			"Foundation",
 			"Tableau",
 			"Stock",
-			"CardDeck",
 			"Discard",
-			"InitialDeal"
+			"UndoButton"
 		],
 		"subfolders": [
 			{
@@ -75,6 +73,16 @@
 				],
 				"subfolders": [],
 				"name": "System"
+			},
+			{
+				"items": [
+					"CardDeck",
+					"InitialDeal",
+					"StockArray",
+					"UndoArray"
+				],
+				"subfolders": [],
+				"name": "Arrays"
 			}
 		]
 	},
@@ -99,7 +107,8 @@
 			"eVariantPlayground",
 			"eTODO",
 			"eDecks",
-			"eFoundations"
+			"eFoundations",
+			"eUndo"
 		],
 		"subfolders": []
 	},

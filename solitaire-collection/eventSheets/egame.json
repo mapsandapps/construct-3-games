@@ -10,6 +10,10 @@
 			"includeSheet": "eFoundations"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eUndo"
+		},
+		{
 			"eventType": "variable",
 			"name": "Variant",
 			"type": "string",
@@ -20,14 +24,47 @@
 			"sid": 399367974342503
 		},
 		{
+			"eventType": "variable",
+			"name": "CurrentCardFromStackType",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 340403022144455
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentCardFromStackUID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 267037744942095
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-tap-object",
+					"id": "on-any-touch-end",
 					"objectClass": "Touch",
-					"sid": 616456110178303,
+					"sid": 355084566995266
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 403253765398279,
 					"parameters": {
 						"object": "Stock"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Stock",
+					"sid": 104951055846766,
+					"parameters": {
+						"object": "Card"
 					}
 				}
 			],
@@ -77,7 +114,111 @@
 					]
 				}
 			],
-			"sid": 679022954888898
+			"sid": 679022954888898,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 319291939980615,
+							"parameters": {
+								"object": "Discard"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 979616129138490,
+							"parameters": {
+								"variable": "CurrentCardFromStackType",
+								"value": "\"Discard\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 857637271553096,
+							"parameters": {
+								"variable": "CurrentCardFromStackUID",
+								"value": "Discard.UID"
+							}
+						}
+					],
+					"sid": 163539972307047
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 231398236439553,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 619626778819853,
+							"parameters": {
+								"variable": "CurrentCardFromStackType",
+								"value": "\"Foundation\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 736137419287685,
+							"parameters": {
+								"variable": "CurrentCardFromStackUID",
+								"value": "Foundation.UID"
+							}
+						}
+					],
+					"sid": 518718509034756
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 301574871394396,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 158382166554129,
+							"parameters": {
+								"variable": "CurrentCardFromStackType",
+								"value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 614268862205241,
+							"parameters": {
+								"variable": "CurrentCardFromStackUID",
+								"value": "Tableau.UID"
+							}
+						}
+					],
+					"sid": 750490102187113
+				}
+			]
 		},
 		{
 			"functionName": "GetValidMoves",

@@ -1,0 +1,127 @@
+{
+	"name": "eUndo",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 774389830518389
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 975191225535123,
+					"parameters": {
+						"object": "UndoButton"
+					}
+				},
+				{
+					"id": "compare-opacity",
+					"objectClass": "UndoButton",
+					"sid": 444681680219586,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "100"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 572230848063015
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-size",
+					"objectClass": "UndoArray",
+					"sid": 926349710520765,
+					"parameters": {
+						"axis": "x",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "UndoButton",
+					"sid": 197436675094788,
+					"parameters": {
+						"opacity": "30"
+					}
+				}
+			],
+			"sid": 752739307022525
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 179068361355151
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "UndoButton",
+					"sid": 458015452099820,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 764194001158981
+		},
+		{
+			"functionName": "PushToUndoArray",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 862626677932731
+				},
+				{
+					"name": "FromType",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 986618021985952
+				},
+				{
+					"name": "FromUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 618784523508909
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "push",
+					"objectClass": "UndoArray",
+					"sid": 316683153023460,
+					"parameters": {
+						"where": "back",
+						"value": "CardUID &\",\"& FromType &\",\"& FromUID &\";\"",
+						"axis": "x"
+					}
+				}
+			],
+			"sid": 474556955649895
+		}
+	],
+	"sid": 556817675701426
+}
