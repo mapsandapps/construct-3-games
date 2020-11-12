@@ -16,15 +16,16 @@
 					},
 					"uid": 4,
 					"instanceVariables": {
-						"Suit": "A",
+						"IsValidDrop": false,
+						"Suit": "",
 						"TopCardValue": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 688,
-						"y": 32,
+						"x": 400,
+						"y": 0,
 						"width": 64,
-						"height": 84,
+						"height": 160,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -321,6 +322,105 @@
 						"y": 176,
 						"width": 64,
 						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 22,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 496,
+						"y": 0,
+						"width": 64,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 23,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 592,
+						"y": 0,
+						"width": 64,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 24,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 688,
+						"y": 0,
+						"width": 64,
+						"height": 160,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [

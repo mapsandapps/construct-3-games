@@ -1,0 +1,632 @@
+{
+	"name": "eFoundations",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Card",
+					"sid": 543392842399383,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [],
+			"sid": 388667890135535,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 481310156154757,
+							"parameters": {
+								"object": "Foundation"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Foundation",
+							"sid": 554839513004349,
+							"parameters": {
+								"instance-variable": "IsValidDrop"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 372517642907660,
+							"parameters": {
+								"x": "Foundation.X",
+								"y": "Foundation.Y"
+							}
+						}
+					],
+					"sid": 833311902167674,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 348221789424679,
+									"parameters": {
+										"variable": "FOUNDATIONS_DIRECTION",
+										"comparison": 0,
+										"value": "\"Up\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Foundation",
+									"sid": 593829200853919,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"value": "FOUNDATIONS_INCREMENT_BY"
+									}
+								}
+							],
+							"sid": 473714091729760
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 187403139008190,
+									"parameters": {
+										"variable": "FOUNDATIONS_DIRECTION",
+										"comparison": 0,
+										"value": "\"Down\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Foundation",
+									"sid": 398229275025682,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"value": "FOUNDATIONS_INCREMENT_BY"
+									}
+								}
+							],
+							"sid": 386492195337749
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 841812354090144,
+									"parameters": {
+										"variable": "FOUNDATIONS_SUIT_MATCH"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Foundation",
+									"sid": 430526554819090,
+									"parameters": {
+										"instance-variable": "Suit",
+										"value": "Card.Suit"
+									}
+								}
+							],
+							"sid": 903820218632276
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Foundation",
+							"sid": 310540221832190,
+							"parameters": {
+								"instance-variable": "IsValidDrop",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 398741488107255
+				}
+			]
+		},
+		{
+			"functionName": "CanCardMoveToFoundation",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 926250570303236
+				},
+				{
+					"name": "FoundationUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 658614479974601
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 927563608106176,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Foundation",
+					"sid": 615910996700729,
+					"parameters": {
+						"unique-id": "FoundationUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 402171211414932,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 456306190566208,
+							"parameters": {
+								"variable": "FOUNDATIONS_START_WITH",
+								"comparison": 0,
+								"value": "Foundation.TopCardValue"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Foundation",
+							"sid": 513262895324082,
+							"parameters": {
+								"instance-variable": "Suit",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 147792206336194,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "Foundation.TopCardValue + 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 254593401533207,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 419853278550555
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 711296530035884
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 592207256616784,
+							"parameters": {
+								"variable": "FOUNDATIONS_DIRECTION",
+								"comparison": 0,
+								"value": "\"Up\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 541375825925601,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "Foundation.TopCardValue + FOUNDATIONS_INCREMENT_BY"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 930620846990108,
+							"parameters": {
+								"instance-variable": "Suit",
+								"comparison": 0,
+								"value": "Foundation.Suit"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 702462444417920,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 306620554963958,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 271066324378532,
+									"parameters": {
+										"variable": "FOUNDATIONS_SUIT_MATCH"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 356924004405452,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 425642529022564,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "Foundation.Suit"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 785141088117985,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 435902875163733
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 690694486338686
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 211945611964263,
+											"parameters": {
+												"value": "0"
+											}
+										}
+									],
+									"sid": 691977129662730
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 534270363456789
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 101746245655996,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 582141788933895
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 675936847761642
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 322356561974241,
+							"parameters": {
+								"variable": "FOUNDATIONS_DIRECTION",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 780303734397575,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "Foundation.TopCardValue - FOUNDATIONS_INCREMENT_BY"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 854490904145437,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 607316087022176,
+									"parameters": {
+										"variable": "FOUNDATIONS_SUIT_MATCH"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 810167540220498,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 356546923365314,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "Foundation.Suit"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 534127529222353,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 383053426532813
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 117003890943921
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 455026234730690,
+											"parameters": {
+												"value": "0"
+											}
+										}
+									],
+									"sid": 415643614158177
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 962027088081336
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 418967743598950,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 283862331916368
+				}
+			]
+		},
+		{
+			"functionName": "GetValidFoundationMoves",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 880911543698905
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 628068088769839,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Foundation",
+					"sid": 522421686132650,
+					"parameters": {
+						"instance-variable": "IsValidDrop",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 538764612262030,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 958378255382519,
+							"parameters": {
+								"object": "Foundation",
+								"expression": "Foundation.UID",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 799359255630886,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 679363685116053,
+									"parameters": {
+										"first-value": "Functions.CanCardMoveToFoundation(Card.UID, Foundation.UID)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Foundation",
+									"sid": 670514565611980,
+									"parameters": {
+										"instance-variable": "IsValidDrop",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 132151737331829
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Foundation",
+					"sid": 452598441121116,
+					"parameters": {
+						"instance-variable": "IsValidDrop"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "Foundation",
+					"sid": 857203567589413,
+					"parameters": {
+						"color": "rgbEx(0, 100, 0)"
+					}
+				}
+			],
+			"sid": 883711226777491
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 500833220464364
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "Foundation",
+					"sid": 691373849400504,
+					"parameters": {
+						"color": "rgbEx(100, 100, 100)"
+					}
+				}
+			],
+			"sid": 380266758410037
+		}
+	],
+	"sid": 973815333106618
+}

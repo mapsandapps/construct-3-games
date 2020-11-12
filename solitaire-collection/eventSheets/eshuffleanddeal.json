@@ -164,7 +164,32 @@
 					]
 				}
 			],
-			"sid": 537514671959593
+			"sid": 537514671959593,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "StockArray",
+							"sid": 151694585922288,
+							"parameters": {
+								"axis": "x",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Stock",
+							"sid": 804094873405586
+						}
+					],
+					"sid": 511033908678846
+				}
+			]
 		},
 		{
 			"functionName": "DealCardToTableau",
@@ -357,15 +382,6 @@
 					"parameters": {
 						"where": "front",
 						"axis": "x"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 801550145244901,
-					"parameters": {
-						"type": "log",
-						"message": "StockArray.At(0, 2)"
 					}
 				}
 			],

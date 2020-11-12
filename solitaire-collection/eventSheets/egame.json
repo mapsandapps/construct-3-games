@@ -6,6 +6,10 @@
 			"includeSheet": "eRulesConstants"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eFoundations"
+		},
+		{
 			"eventType": "variable",
 			"name": "Variant",
 			"type": "string",
@@ -48,6 +52,69 @@
 					"sid": 791990729485033
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drag-start",
+					"objectClass": "Card",
+					"sid": 651950951535112,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Card",
+					"sid": 659698110435794
+				},
+				{
+					"callFunction": "GetValidMoves",
+					"sid": 717957642967794,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 679022954888898
+		},
+		{
+			"functionName": "GetValidMoves",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 486907260226066
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 569897567489613,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "GetValidFoundationMoves",
+					"sid": 662300830452920,
+					"parameters": [
+						"Card.UID"
+					]
+				}
+			],
+			"sid": 292757725274018
 		}
 	],
 	"sid": 458908244364340
