@@ -1,0 +1,106 @@
+{
+	"name": "eDecks",
+	"events": [
+		{
+			"functionName": "UseDeck",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Deck",
+					"type": "string",
+					"initialValue": "Shapes",
+					"comment": "",
+					"sid": 799012453813308
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 150764445461295,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 991326959508814,
+							"parameters": {
+								"variable": "Deck",
+								"comparison": 0,
+								"value": "\"Kenney\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 320910716153640,
+							"parameters": {
+								"variable": "DECK_ART",
+								"value": "\"Kenney\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 537486854286229,
+							"parameters": {
+								"variable": "CARD_OFFSET",
+								"value": "30"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 756075642803696,
+							"parameters": {
+								"variable": "CARD_SCALE",
+								"value": "0.4"
+							}
+						}
+					],
+					"sid": 185802132890167
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 257458583596402,
+							"parameters": {
+								"animation": "DECK_ART",
+								"from": "current-frame"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Stock",
+							"sid": 569680757214139,
+							"parameters": {
+								"animation": "DECK_ART",
+								"from": "current-frame"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "Stock",
+							"sid": 449090031428175,
+							"parameters": {
+								"scale": "CARD_SCALE"
+							}
+						}
+					],
+					"sid": 578285087320546
+				}
+			]
+		}
+	],
+	"sid": 345236013157679
+}

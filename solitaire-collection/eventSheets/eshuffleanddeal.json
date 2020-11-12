@@ -28,14 +28,6 @@
 						"height": "1",
 						"depth": "1"
 					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 933799970736519,
-					"parameters": {
-						"seconds": "0.1"
-					}
 				}
 			],
 			"sid": 418982505402235,
@@ -231,10 +223,11 @@
 					}
 				},
 				{
-					"id": "set-height",
+					"id": "set-size",
 					"objectClass": "Tableau",
-					"sid": 871295690031751,
+					"sid": 976190187140642,
 					"parameters": {
+						"width": "Card.Width",
 						"height": "Card.Height + CARD_OFFSET * (Tableau.NumberOfCards - 1)"
 					}
 				}
@@ -281,14 +274,6 @@
 								"index": "0",
 								"axis": "x"
 							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 843730878426990,
-							"parameters": {
-								"seconds": "loopindex * 0.1"
-							}
 						}
 					],
 					"sid": 481141233928080
@@ -329,6 +314,14 @@
 					"parameters": {
 						"animation": "DECK_ART",
 						"from": "current-frame"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "Card",
+					"sid": 289659247780497,
+					"parameters": {
+						"scale": "CARD_SCALE"
 					}
 				},
 				{
