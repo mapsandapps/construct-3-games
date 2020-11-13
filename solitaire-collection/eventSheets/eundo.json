@@ -25,10 +25,238 @@
 						"comparison": 0,
 						"opacity": "100"
 					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 513811806583115,
+					"parameters": {
+						"unique-id": "UndoArray.At(UndoArray.Width - 1,0)"
+					}
 				}
 			],
 			"actions": [],
-			"sid": 572230848063015
+			"sid": 572230848063015,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "FromType",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 226585203836869
+				},
+				{
+					"eventType": "variable",
+					"name": "FromUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 681657479666601
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 799526051521230,
+							"parameters": {
+								"variable": "FromType",
+								"value": "UndoArray.At(UndoArray.Width - 1, 1)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 805274000433575,
+							"parameters": {
+								"variable": "FromUID",
+								"value": "UndoArray.At(UndoArray.Width - 1, 2)"
+							}
+						}
+					],
+					"sid": 639765299756614
+				},
+				{
+					"eventType": "comment",
+					"text": "returning to"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 803590055674380,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Discard\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Discard",
+							"sid": 329887517326824,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 372844663170756,
+							"parameters": {
+								"x": "Discard.X",
+								"y": "Discard.Y"
+							}
+						}
+					],
+					"sid": 579787161503297
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 548053814499576,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Foundation\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Foundation",
+							"sid": 172204993289045,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 428668577790784,
+							"parameters": {
+								"x": "Foundation.X",
+								"y": "Foundation.Y"
+							}
+						}
+					],
+					"sid": 555350597451529
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 552357325281056,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Stock\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stock",
+							"sid": 551100734886958,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 609671073182821,
+							"parameters": {
+								"animation": "DECK_ART & \"Backs\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 450424225862681,
+							"parameters": {
+								"x": "Stock.X",
+								"y": "Stock.Y"
+							}
+						}
+					],
+					"sid": 173326926092133
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 141351700076770,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 176182648418121,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 542822257878312,
+							"parameters": {
+								"x": "Tableau.X",
+								"y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET"
+							}
+						}
+					],
+					"sid": 118612152362961
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "pop",
+							"objectClass": "UndoArray",
+							"sid": 477159171569524,
+							"parameters": {
+								"where": "back",
+								"axis": "x"
+							}
+						},
+						{
+							"callFunction": "RecalculateEverything",
+							"sid": 671364319272933
+						}
+					],
+					"sid": 951167902352569
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -112,11 +340,31 @@
 				{
 					"id": "push",
 					"objectClass": "UndoArray",
-					"sid": 316683153023460,
+					"sid": 536093857210066,
 					"parameters": {
 						"where": "back",
-						"value": "CardUID &\",\"& FromType &\",\"& FromUID &\";\"",
+						"value": "CardUID",
 						"axis": "x"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "UndoArray",
+					"sid": 714822212197016,
+					"parameters": {
+						"x": "UndoArray.Width - 1",
+						"y": "1",
+						"value": "FromType"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "UndoArray",
+					"sid": 806374374806442,
+					"parameters": {
+						"x": "UndoArray.Width - 1",
+						"y": "2",
+						"value": "FromUID"
 					}
 				}
 			],

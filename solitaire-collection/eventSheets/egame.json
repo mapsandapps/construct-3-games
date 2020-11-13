@@ -256,6 +256,189 @@
 				}
 			],
 			"sid": 292757725274018
+		},
+		{
+			"functionName": "RecalculateEverything",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 370900848910824,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 186004734096822,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 855914778404425,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 551501362682933,
+									"parameters": {
+										"object": "Foundation"
+									}
+								},
+								{
+									"id": "pick-topbottom",
+									"objectClass": "Card",
+									"sid": 123987644699660,
+									"parameters": {
+										"which": "top"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Foundation",
+									"sid": 297026908434436,
+									"parameters": {
+										"instance-variable": "Suit",
+										"value": "Card.Suit"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Foundation",
+									"sid": 899563177254855,
+									"parameters": {
+										"instance-variable": "TopCardValue",
+										"value": "Card.Value"
+									}
+								}
+							],
+							"sid": 615593248917359
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Foundation",
+									"sid": 249376064129078,
+									"parameters": {
+										"object": "Card"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Foundation",
+									"sid": 602561922040146,
+									"parameters": {
+										"instance-variable": "Suit",
+										"value": "\"\""
+									}
+								}
+							],
+							"sid": 167091940500962
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 306505717269847,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 988437144455235,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 902608227268614,
+									"parameters": {
+										"object": "Tableau"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Tableau",
+									"sid": 650020073352302,
+									"parameters": {
+										"instance-variable": "NumberOfCards",
+										"value": "Card.PickedCount"
+									}
+								}
+							],
+							"sid": 987158219852392,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-topbottom",
+											"objectClass": "Card",
+											"sid": 789920177331906,
+											"parameters": {
+												"which": "top"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Tableau",
+											"sid": 721853374745994,
+											"parameters": {
+												"instance-variable": "TopCardValue",
+												"value": "Card.Value"
+											}
+										}
+									],
+									"sid": 119452330296875
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-height",
+									"objectClass": "Tableau",
+									"sid": 582920129223939,
+									"parameters": {
+										"height": "Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET"
+									}
+								}
+							],
+							"sid": 183598425155831
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 458908244364340

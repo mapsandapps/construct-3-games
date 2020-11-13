@@ -43,90 +43,22 @@
 								"x": "Foundation.X",
 								"y": "Foundation.Y"
 							}
+						},
+						{
+							"callFunction": "PushToUndoArray",
+							"sid": 182195653819207,
+							"parameters": [
+								"Card.UID",
+								"CurrentCardFromStackType",
+								"CurrentCardFromStackUID"
+							]
+						},
+						{
+							"callFunction": "RecalculateEverything",
+							"sid": 685603118337285
 						}
 					],
-					"sid": 833311902167674,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 348221789424679,
-									"parameters": {
-										"variable": "FOUNDATIONS_DIRECTION",
-										"comparison": 0,
-										"value": "\"Up\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-instvar",
-									"objectClass": "Foundation",
-									"sid": 593829200853919,
-									"parameters": {
-										"instance-variable": "TopCardValue",
-										"value": "FOUNDATIONS_INCREMENT_BY"
-									}
-								}
-							],
-							"sid": 473714091729760
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 187403139008190,
-									"parameters": {
-										"variable": "FOUNDATIONS_DIRECTION",
-										"comparison": 0,
-										"value": "\"Down\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-instvar",
-									"objectClass": "Foundation",
-									"sid": 398229275025682,
-									"parameters": {
-										"instance-variable": "TopCardValue",
-										"value": "FOUNDATIONS_INCREMENT_BY"
-									}
-								}
-							],
-							"sid": 386492195337749
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 841812354090144,
-									"parameters": {
-										"variable": "FOUNDATIONS_SUIT_MATCH"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Foundation",
-									"sid": 430526554819090,
-									"parameters": {
-										"instance-variable": "Suit",
-										"value": "Card.Suit"
-									}
-								}
-							],
-							"sid": 903820218632276
-						}
-					]
+					"sid": 833311902167674
 				},
 				{
 					"eventType": "block",
