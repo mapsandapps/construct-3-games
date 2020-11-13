@@ -123,6 +123,152 @@
 			"sid": 402171211414932,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "NextFoundationValue",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 767263264953350
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 998656745529851,
+							"parameters": {
+								"variable": "FOUNDATIONS_DIRECTION",
+								"comparison": 0,
+								"value": "\"Up\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 524629159100803,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 583724510482459,
+									"parameters": {
+										"first-value": "Foundation.TopCardValue + FOUNDATIONS_INCREMENT_BY",
+										"comparison": 4,
+										"second-value": "NUMBER_OF_CARDS_PER_SUIT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 497920342924532,
+									"parameters": {
+										"variable": "NextFoundationValue",
+										"value": "Foundation.TopCardValue + FOUNDATIONS_INCREMENT_BY - NUMBER_OF_CARDS_PER_SUIT"
+									}
+								}
+							],
+							"sid": 132764026156359
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 354965724053922
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 475279105958584,
+									"parameters": {
+										"variable": "NextFoundationValue",
+										"value": "Foundation.TopCardValue + FOUNDATIONS_INCREMENT_BY"
+									}
+								}
+							],
+							"sid": 470746289133574
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 913095140737248,
+							"parameters": {
+								"variable": "FOUNDATIONS_DIRECTION",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 563613301859446,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 711528616169259,
+									"parameters": {
+										"first-value": "Foundation.TopCardValue - FOUNDATIONS_INCREMENT_BY",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 555100824236096,
+									"parameters": {
+										"variable": "NextFoundationValue",
+										"value": "Foundation.TopCardValue - FOUNDATIONS_INCREMENT_BY + NUMBER_OF_CARDS_PER_SUIT"
+									}
+								}
+							],
+							"sid": 721958436534305
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 794391785055496
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 979014752857388,
+									"parameters": {
+										"variable": "NextFoundationValue",
+										"value": "Foundation.TopCardValue - FOUNDATIONS_INCREMENT_BY"
+									}
+								}
+							],
+							"sid": 220511541589875
+						}
+					]
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -189,11 +335,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Card",
-							"sid": 541375825925601,
+							"sid": 960547982072250,
 							"parameters": {
 								"instance-variable": "Value",
 								"comparison": 0,
-								"value": "Foundation.TopCardValue + FOUNDATIONS_INCREMENT_BY"
+								"value": "NextFoundationValue"
 							}
 						},
 						{
@@ -327,11 +473,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Card",
-							"sid": 780303734397575,
+							"sid": 854214408903617,
 							"parameters": {
 								"instance-variable": "Value",
 								"comparison": 0,
-								"value": "Foundation.TopCardValue - FOUNDATIONS_INCREMENT_BY"
+								"value": "NextFoundationValue"
 							}
 						}
 					],
