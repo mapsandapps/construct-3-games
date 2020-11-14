@@ -1,0 +1,191 @@
+{
+	"name": "eStock",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 355084566995266
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 403253765398279,
+					"parameters": {
+						"object": "Stock"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 438946730386144,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Stock",
+							"sid": 256458562281913,
+							"parameters": {
+								"object": "Card"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 366083653330175,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Discard",
+									"sid": 414881564727686
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "DealCardToDiscard",
+									"sid": 659532607601997
+								}
+							],
+							"sid": 394938311357758
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 847607822333744
+						}
+					],
+					"actions": [],
+					"sid": 111684027098071,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Discard",
+									"sid": 905379274898026
+								}
+							],
+							"actions": [],
+							"sid": 356261468894404,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Card",
+											"sid": 212331809660651,
+											"parameters": {
+												"object": "Discard"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Stock",
+											"sid": 902970603447271,
+											"parameters": {
+												"instance-variable": "FlipsRemaining",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Stock",
+											"sid": 444710577674386,
+											"parameters": {
+												"instance-variable": "FlipsRemaining",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "RecalculateEverything",
+											"sid": 263905774995109
+										},
+										{
+											"type": "comment",
+											"text": "TODO: make sure undo works",
+											"background-color": [
+												0.8901960784313725,
+												0.9019607843137255,
+												0.1568627450980392,
+												1
+											]
+										},
+										{
+											"callFunction": "PushToUndoArray",
+											"sid": 902678213155553,
+											"parameters": [
+												"0",
+												"\"StockFlip\"",
+												"Stock.UID"
+											]
+										}
+									],
+									"sid": 337731604086129,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-ordered",
+													"objectClass": "System",
+													"sid": 152942734739420,
+													"parameters": {
+														"object": "Card",
+														"expression": "Card.ZIndex",
+														"order": "descending"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Card",
+													"sid": 412732827610275,
+													"parameters": {
+														"x": "Stock.X",
+														"y": "Stock.Y"
+													}
+												},
+												{
+													"id": "move-to-top",
+													"objectClass": "Card",
+													"sid": 771016390733903
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Card",
+													"sid": 216706730271688,
+													"parameters": {
+														"animation": "DECK_ART & \"Backs\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 217346237501122
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 457750011881145
+}

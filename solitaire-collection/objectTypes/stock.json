@@ -3,7 +3,14 @@
 	"plugin-id": "Sprite",
 	"sid": 163167945995600,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "FlipsRemaining",
+			"type": "number",
+			"desc": "",
+			"sid": 451038151202972
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -54,14 +61,26 @@
 			{
 				"frames": [
 					{
-						"width": 250,
+						"width": 225,
 						"height": 315,
-						"originX": 0.5,
-						"originY": 0,
+						"originX": 0.5066666666666667,
+						"originY": 0.0031746031746031746,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 504221,
+						"imageSpriteId": 9428453,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.0031746031746031746,
+								1,
+								0.0031746031746031746,
+								1,
+								1,
+								0,
+								1
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}

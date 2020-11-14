@@ -11,6 +11,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "eStock"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "eUndo"
 		},
 		{
@@ -42,53 +46,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 267037744942095
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-touch-end",
-					"objectClass": "Touch",
-					"sid": 355084566995266
-				},
-				{
-					"id": "is-touching-object",
-					"objectClass": "Touch",
-					"sid": 403253765398279,
-					"parameters": {
-						"object": "Stock"
-					}
-				},
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "Stock",
-					"sid": 104951055846766,
-					"parameters": {
-						"object": "Card"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 438946730386144,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-on-screen",
-							"objectClass": "Discard",
-							"sid": 139834814173207
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "DealCardToDiscard",
-							"sid": 210653245755096
-						}
-					],
-					"sid": 791990729485033
-				}
-			]
 		},
 		{
 			"eventType": "block",
@@ -269,6 +226,32 @@
 			"actions": [],
 			"sid": 370900848910824,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Stock",
+							"sid": 727449882410873,
+							"parameters": {
+								"instance-variable": "FlipsRemaining",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Stock",
+							"sid": 364592317843896,
+							"parameters": {
+								"opacity": "0"
+							}
+						}
+					],
+					"sid": 857205078302746
+				},
 				{
 					"eventType": "block",
 					"conditions": [

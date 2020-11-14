@@ -45,6 +45,15 @@
 							}
 						},
 						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 950496627544575,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
 							"callFunction": "PushToUndoArray",
 							"sid": 182195653819207,
 							"parameters": [

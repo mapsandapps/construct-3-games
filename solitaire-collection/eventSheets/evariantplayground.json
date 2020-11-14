@@ -37,6 +37,15 @@
 					}
 				},
 				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 708786004049961,
+					"parameters": {
+						"variable": "STOCK_FLIPS",
+						"value": "2"
+					}
+				},
+				{
 					"callFunction": "UseDeck",
 					"sid": 987510740703470,
 					"parameters": [
