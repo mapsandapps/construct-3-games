@@ -154,7 +154,170 @@
 							}
 						}
 					],
-					"sid": 423669685618714
+					"sid": 423669685618714,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 171804964099689,
+									"parameters": {
+										"variable": "CARDS_TRADITIONAL"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 799559772106495,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 681384885077530,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "\"A\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 623329564580320,
+											"parameters": {
+												"instance-variable": "Suit",
+												"value": "\"Spades\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 662674813173182,
+											"parameters": {
+												"instance-variable": "Color",
+												"value": "\"Black\""
+											}
+										}
+									],
+									"sid": 580393053204362
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 470521050276770,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "\"B\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 718491247204476,
+											"parameters": {
+												"instance-variable": "Suit",
+												"value": "\"Hearts\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 285441426730753,
+											"parameters": {
+												"instance-variable": "Color",
+												"value": "\"Red\""
+											}
+										}
+									],
+									"sid": 218269238716733
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 319909432112243,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "\"C\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 892333210125661,
+											"parameters": {
+												"instance-variable": "Suit",
+												"value": "\"Clubs\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 104760018135308,
+											"parameters": {
+												"instance-variable": "Color",
+												"value": "\"Black\""
+											}
+										}
+									],
+									"sid": 791301319695842
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 812682387959451,
+											"parameters": {
+												"instance-variable": "Suit",
+												"comparison": 0,
+												"value": "\"D\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 742566307705617,
+											"parameters": {
+												"instance-variable": "Suit",
+												"value": "\"Diamonds\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Card",
+											"sid": 349212925347451,
+											"parameters": {
+												"instance-variable": "Color",
+												"value": "\"Red\""
+											}
+										}
+									],
+									"sid": 224719506616188
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -367,12 +530,48 @@
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 253144643737385,
+							"parameters": {
+								"instance-variable": "TableauUID",
+								"value": "Tableau.UID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 880225523399427,
+							"parameters": {
+								"instance-variable": "IndexInTableau",
+								"value": "Tableau.NumberOfCards"
+							}
+						},
+						{
 							"id": "add-to-instvar",
 							"objectClass": "Tableau",
 							"sid": 300726161700764,
 							"parameters": {
 								"instance-variable": "NumberOfCards",
 								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 499467675996674,
+							"parameters": {
+								"instance-variable": "TopCardColor",
+								"value": "Card.Color"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 893115502835636,
+							"parameters": {
+								"instance-variable": "TopCardSuit",
+								"value": "Card.Suit"
 							}
 						},
 						{

@@ -196,15 +196,6 @@
 					],
 					"actions": [
 						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 509390667591924,
-							"parameters": {
-								"type": "log",
-								"message": "\"dragging\""
-							}
-						},
-						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 514471236025910,
@@ -231,15 +222,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 779834496256021,
-							"parameters": {
-								"type": "log",
-								"message": "\"dragging\""
-							}
-						},
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
@@ -298,17 +280,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 400146410511388,
-					"parameters": {
-						"type": "log",
-						"message": "\"after tap\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 669836465827805,
 			"children": [
 				{
@@ -670,10 +642,10 @@
 						},
 						{
 							"callFunction": "MoveCardToTableau",
-							"sid": 441617031994031,
+							"sid": 479787018453475,
 							"parameters": [
 								"Card.UID",
-								"Foundation.UID",
+								"Tableau.UID",
 								false
 							]
 						}
@@ -842,15 +814,6 @@
 					"parameters": [
 						"Card.UID"
 					]
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 413966906978287,
-					"parameters": {
-						"type": "log",
-						"message": "\"PrepForCardMove\""
-					}
 				}
 			],
 			"sid": 967834040167709,
@@ -1012,6 +975,90 @@
 					]
 				}
 			]
+		},
+		{
+			"functionName": "MoveCardToXAndY",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 649341509249137
+				},
+				{
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 169035175978671
+				},
+				{
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 982837013869505
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 924643979395784,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 884142735159989,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 395944147949677,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "X",
+						"end-y": "Y",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 546431795810909
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 607197206211100,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				}
+			],
+			"sid": 975793514780441
 		}
 	],
 	"sid": 458908244364340

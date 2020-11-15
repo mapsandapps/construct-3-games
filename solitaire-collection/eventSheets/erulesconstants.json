@@ -23,6 +23,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "CARDS_TRADITIONAL",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 435845718400407
+		},
+		{
+			"eventType": "variable",
 			"name": "DECK_ART",
 			"type": "string",
 			"initialValue": "Shapes",
@@ -123,7 +133,17 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "TABLEAU_CAN_MOVE_ANY_CARD_TO_EMPTY",
+			"name": "TABLEAUS_ALTERNATE_COLOR",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 881925533324547
+		},
+		{
+			"eventType": "variable",
+			"name": "TABLEAUS_CAN_MOVE_ANY_CARD_TO_EMPTY",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
@@ -133,13 +153,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "TABLEAU_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY",
+			"name": "TABLEAUS_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 598849226745889
+		},
+		{
+			"eventType": "variable",
+			"name": "TABLEAUS_DIRECTION",
+			"type": "string",
+			"initialValue": "Down",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 166525969416687
 		}
 	],
 	"sid": 156417442193538

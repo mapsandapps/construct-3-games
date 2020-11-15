@@ -37,6 +37,24 @@
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 354437883619439,
+					"parameters": {
+						"variable": "TABLEAUS_ALTERNATE_COLOR",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 362660985563919,
+					"parameters": {
+						"variable": "TABLEAUS_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY",
+						"value": "13"
+					}
+				},
+				{
 					"callFunction": "UseDeck",
 					"sid": 976489443884208,
 					"parameters": [

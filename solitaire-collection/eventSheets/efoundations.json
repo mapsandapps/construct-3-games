@@ -846,24 +846,6 @@
 			],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 734702542818628,
-					"parameters": {
-						"type": "log",
-						"message": "\"move to foundation\""
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 608387375169523,
-					"parameters": {
-						"type": "log",
-						"message": "CardUID"
-					}
-				},
-				{
 					"id": "set-instvar-value",
 					"objectClass": "Foundation",
 					"sid": 611833749290738,
@@ -882,44 +864,13 @@
 					}
 				},
 				{
-					"id": "set-enabled",
-					"objectClass": "Card",
-					"sid": 224178985271966,
-					"behaviorType": "DragDrop",
-					"parameters": {
-						"state": "disabled"
-					}
-				},
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Card",
-					"sid": 681139767615806,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "position",
-						"end-x": "Foundation.X",
-						"end-y": "Foundation.Y",
-						"time": "0.1",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 773961691291511
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Card",
-					"sid": 893362640678744,
-					"behaviorType": "DragDrop",
-					"parameters": {
-						"state": "enabled"
-					}
+					"callFunction": "MoveCardToXAndY",
+					"sid": 591436751025680,
+					"parameters": [
+						"Card.UID",
+						"Foundation.X",
+						"Foundation.Y"
+					]
 				}
 			],
 			"sid": 454272975474271,

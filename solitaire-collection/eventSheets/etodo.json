@@ -7,7 +7,27 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "animations"
+			"text": "if you hold it for a second and don't drag it anywhere, when you release it should snap back instead of auto-moving"
+		},
+		{
+			"eventType": "comment",
+			"text": "set tweens to go the same speed, not take the same duration"
+		},
+		{
+			"eventType": "comment",
+			"text": "make sure the \"movecardtotableau\" etc functions get called when initially dealing cards"
+		},
+		{
+			"eventType": "comment",
+			"text": "can probably remove isCardMovable boolean since it should always have the same value as drag&drop enabled?"
+		},
+		{
+			"eventType": "comment",
+			"text": "when you move from or to a tableau stack, recalculate what number of cards are in order at the bottom of it"
+		},
+		{
+			"eventType": "comment",
+			"text": "mark those cards as movable, other cards in the tableau as not movable"
 		}
 	],
 	"sid": 362205341000481
