@@ -524,6 +524,7 @@
 							"id": "set-enabled",
 							"objectClass": "Card",
 							"sid": 729077089623044,
+							"disabled": true,
 							"behaviorType": "DragDrop",
 							"parameters": {
 								"state": "enabled"
@@ -533,6 +534,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "Card",
 							"sid": 253144643737385,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "TableauUID",
 								"value": "Tableau.UID"
@@ -542,6 +544,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "Card",
 							"sid": 880225523399427,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "IndexInTableau",
 								"value": "Tableau.NumberOfCards"
@@ -551,6 +554,7 @@
 							"id": "add-to-instvar",
 							"objectClass": "Tableau",
 							"sid": 300726161700764,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "NumberOfCards",
 								"value": "1"
@@ -560,6 +564,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "Tableau",
 							"sid": 499467675996674,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "TopCardColor",
 								"value": "Card.Color"
@@ -569,6 +574,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "Tableau",
 							"sid": 893115502835636,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "TopCardSuit",
 								"value": "Card.Suit"
@@ -578,6 +584,7 @@
 							"id": "set-instvar-value",
 							"objectClass": "Tableau",
 							"sid": 228836452185583,
+							"disabled": true,
 							"parameters": {
 								"instance-variable": "TopCardValue",
 								"value": "Card.Value"
@@ -587,9 +594,19 @@
 							"id": "set-height",
 							"objectClass": "Tableau",
 							"sid": 422272030641468,
+							"disabled": true,
 							"parameters": {
 								"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 							}
+						},
+						{
+							"callFunction": "MoveCardToTableau",
+							"sid": 153391451297082,
+							"parameters": [
+								"Card.UID",
+								"Tableau.UID",
+								false
+							]
 						}
 					],
 					"sid": 981129494906486

@@ -1327,6 +1327,14 @@
 							"parameters": {
 								"state": "enabled"
 							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Card",
+							"sid": 309780281727536,
+							"parameters": {
+								"color": "rgbEx255(255, 255, 255)"
+							}
 						}
 					],
 					"sid": 561458007274686
@@ -1371,6 +1379,14 @@
 							"behaviorType": "DragDrop",
 							"parameters": {
 								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Card",
+							"sid": 642244213519705,
+							"parameters": {
+								"color": "rgbEx255(255, 255, 255)"
 							}
 						},
 						{
@@ -1517,6 +1533,14 @@
 													"behaviorType": "DragDrop",
 													"parameters": {
 														"state": "enabled"
+													}
+												},
+												{
+													"id": "set-default-color",
+													"objectClass": "Card",
+													"sid": 313886965752686,
+													"parameters": {
+														"color": "rgbEx255(255, 255, 255)"
 													}
 												},
 												{
@@ -1669,7 +1693,33 @@
 									}
 								}
 							],
-							"sid": 489744205383090
+							"sid": 489744205383090,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 150104775261556,
+											"parameters": {
+												"variable": "TABLEAUS_GRAY_OUT_IMMOVABLE_CARDS"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "Card",
+											"sid": 172101444274545,
+											"parameters": {
+												"color": "rgbEx255(209, 209, 209)"
+											}
+										}
+									],
+									"sid": 520271291228324
+								}
+							]
 						}
 					]
 				},
