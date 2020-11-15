@@ -641,6 +641,14 @@
 					"parameters": {
 						"color": "rgbEx(0, 100, 0)"
 					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Foundation",
+					"sid": 108026841584432,
+					"parameters": {
+						"width": "Card.Width * 1.1"
+					}
 				}
 			],
 			"sid": 883711226777491
@@ -661,6 +669,14 @@
 					"sid": 691373849400504,
 					"parameters": {
 						"color": "rgbEx(100, 100, 100)"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Foundation",
+					"sid": 719306564873382,
+					"parameters": {
+						"width": "Card.Width"
 					}
 				}
 			],

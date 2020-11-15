@@ -155,6 +155,45 @@
 						}
 					],
 					"sid": 423669685618714
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 912143580927768
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Discard",
+							"sid": 373519791540840,
+							"parameters": {
+								"width": "Card.Width",
+								"height": "Card.Height"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Foundation",
+							"sid": 568389569277321,
+							"parameters": {
+								"width": "Card.Width",
+								"height": "Card.Height"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Tableau",
+							"sid": 582263540091061,
+							"parameters": {
+								"width": "Card.Width",
+								"height": "Card.Height"
+							}
+						}
+					],
+					"sid": 243762983002424
 				}
 			]
 		},
@@ -245,7 +284,7 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "TableauColumn",
+					"name": "TableauIID",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -261,13 +300,12 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Tableau",
-							"sid": 541386910947785,
+							"id": "pick-by-evaluate",
+							"objectClass": "System",
+							"sid": 607535139465859,
 							"parameters": {
-								"instance-variable": "Column",
-								"comparison": 0,
-								"value": "TableauColumn"
+								"object": "Tableau",
+								"expression": "Tableau.IID = TableauIID"
 							}
 						},
 						{
