@@ -103,7 +103,8 @@
 	"layouts": {
 		"items": [
 			"Playground",
-			"Objects"
+			"Objects",
+			"Klondike"
 		],
 		"subfolders": []
 	},
@@ -112,7 +113,6 @@
 			"eGame",
 			"eRulesConstants",
 			"eShuffleAndDeal",
-			"eVariantPlayground",
 			"eTODO",
 			"eDecks",
 			"eFoundations",
@@ -120,7 +120,16 @@
 			"eStock",
 			"eTableaus"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"eVariantKlondike",
+					"eVariantPlayground"
+				],
+				"subfolders": [],
+				"name": "Variants"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {

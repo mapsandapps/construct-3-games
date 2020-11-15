@@ -1,0 +1,63 @@
+{
+	"name": "eVariantKlondike",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGame"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 578743808703076
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "set config & rules"
+				},
+				{
+					"id": "load",
+					"objectClass": "InitialDeal",
+					"sid": 251144849369079,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[28,1,1],\"\"data\"\":[[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[2]],[[3]],[[4]],[[5]],[[6]],[[3]],[[4]],[[5]],[[6]],[[4]],[[5]],[[6]],[[5]],[[6]],[[6]]]}\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 194949310256501,
+					"parameters": {
+						"variable": "STOCK_FLIPS",
+						"value": "2"
+					}
+				},
+				{
+					"callFunction": "UseDeck",
+					"sid": 976489443884208,
+					"parameters": [
+						"\"Kenney\""
+					]
+				},
+				{
+					"type": "comment",
+					"text": "init (deal, etc.)"
+				},
+				{
+					"callFunction": "Shuffle",
+					"sid": 422672446619403
+				},
+				{
+					"callFunction": "InitialDeal",
+					"sid": 159919530353360
+				}
+			],
+			"sid": 877795445160259
+		}
+	],
+	"sid": 749168466460123
+}
