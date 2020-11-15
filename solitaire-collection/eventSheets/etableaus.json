@@ -42,8 +42,156 @@
 					}
 				}
 			],
-			"actions": [],
-			"sid": 922265269922068
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 149872419748101,
+					"parameters": {
+						"type": "log",
+						"message": "\"CanCardMoveToTableau\""
+					}
+				}
+			],
+			"sid": 922265269922068,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-enabled",
+							"objectClass": "Card",
+							"sid": 332540127207570,
+							"behaviorType": "DragDrop",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 807999727385211,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 712227532083410
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 611261315309175
+						}
+					],
+					"actions": [],
+					"sid": 573773325540888,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Tableau",
+									"sid": 586959573224507,
+									"parameters": {
+										"instance-variable": "NumberOfCards",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 563091199042458,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 380314196828392,
+											"parameters": {
+												"variable": "TABLEAU_CAN_MOVE_ANY_CARD_TO_EMPTY"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 219103858666686,
+											"parameters": {
+												"type": "log",
+												"message": "\"Yes\""
+											}
+										},
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 188188917605082,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 632541324749386
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 630657774513650,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "TABLEAU_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 355529927769791,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 713377410108216
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 425222260787790
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 596874351271469,
+									"parameters": {
+										"value": "0"
+									}
+								}
+							],
+							"sid": 359778488613432
+						}
+					]
+				}
+			]
 		},
 		{
 			"functionName": "GetValidTableauMoves",
@@ -53,7 +201,7 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "TableauUID",
+					"name": "CardUID",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -61,16 +209,7 @@
 				}
 			],
 			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Tableau",
-					"sid": 839649658220837,
-					"parameters": {
-						"unique-id": "TableauUID"
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"id": "set-boolean-instvar",
@@ -80,6 +219,15 @@
 						"instance-variable": "IsValidDrop",
 						"value": "false"
 					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 455440565416743,
+					"parameters": {
+						"type": "log",
+						"message": "\"GetValidTableauMoves\""
+					}
 				}
 			],
 			"sid": 902242312482561,
@@ -88,13 +236,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each-ordered",
+							"id": "for-each",
 							"objectClass": "System",
-							"sid": 134263154809879,
+							"sid": 229418559366643,
 							"parameters": {
-								"object": "Tableau",
-								"expression": "Tableau.UID",
-								"order": "ascending"
+								"object": "Tableau"
 							}
 						}
 					],
@@ -107,9 +253,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 411369811553069,
+									"sid": 224519213929450,
 									"parameters": {
-										"first-value": "Functions.CanCardMoveToTableau(Card.UID, Tableau.UID)",
+										"first-value": "Functions.CanCardMoveToTableau(CardUID, Tableau.UID)",
 										"comparison": 0,
 										"second-value": "1"
 									}
@@ -228,6 +374,24 @@
 			],
 			"actions": [
 				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 751802309789127,
+					"parameters": {
+						"type": "log",
+						"message": "\"MoveCardFromTableau\""
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 748078204383830,
+					"parameters": {
+						"type": "log",
+						"message": "Tableau.NumberOfCards"
+					}
+				},
+				{
 					"id": "subtract-from-instvar",
 					"objectClass": "Tableau",
 					"sid": 115944242242691,
@@ -242,6 +406,15 @@
 					"sid": 219692607345549,
 					"parameters": {
 						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 799739158997864,
+					"parameters": {
+						"type": "log",
+						"message": "Tableau.NumberOfCards"
 					}
 				}
 			],
@@ -428,7 +601,7 @@
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Card",
-							"sid": 505981805787512,
+							"sid": 972858519944459,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",

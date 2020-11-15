@@ -30,20 +30,19 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 651662498022695,
-					"disabled": true,
-					"parameters": {
-						"variable": "FOUNDATIONS_DIRECTION",
-						"value": "\"Down\""
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
 					"sid": 708786004049961,
 					"parameters": {
 						"variable": "STOCK_FLIPS",
 						"value": "2"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 484614410488800,
+					"parameters": {
+						"variable": "TABLEAU_CAN_MOVE_ANY_CARD_TO_EMPTY",
+						"value": "true"
 					}
 				},
 				{

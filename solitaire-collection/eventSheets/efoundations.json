@@ -49,12 +49,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-animation-playing",
+							"id": "is-enabled",
 							"objectClass": "Card",
-							"sid": 491914053511320,
-							"parameters": {
-								"animation": "DECK_ART & \"Backs\""
-							}
+							"sid": 272935332418965,
+							"behaviorType": "DragDrop",
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -550,16 +549,7 @@
 				}
 			],
 			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Card",
-					"sid": 628068088769839,
-					"parameters": {
-						"unique-id": "CardUID"
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"id": "set-boolean-instvar",
@@ -577,13 +567,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each-ordered",
+							"id": "for-each",
 							"objectClass": "System",
-							"sid": 958378255382519,
+							"sid": 452000265807857,
 							"parameters": {
-								"object": "Foundation",
-								"expression": "Foundation.UID",
-								"order": "ascending"
+								"object": "Foundation"
 							}
 						}
 					],
@@ -596,9 +584,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 679363685116053,
+									"sid": 441597211110560,
 									"parameters": {
-										"first-value": "Functions.CanCardMoveToFoundation(Card.UID, Foundation.UID)",
+										"first-value": "Functions.CanCardMoveToFoundation(CardUID, Foundation.UID)",
 										"comparison": 0,
 										"second-value": "1"
 									}
@@ -857,6 +845,24 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 734702542818628,
+					"parameters": {
+						"type": "log",
+						"message": "\"move to foundation\""
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 608387375169523,
+					"parameters": {
+						"type": "log",
+						"message": "CardUID"
+					}
+				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Foundation",

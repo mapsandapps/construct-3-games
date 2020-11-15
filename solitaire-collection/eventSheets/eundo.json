@@ -464,7 +464,17 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 426033628971026,
+					"parameters": {
+						"type": "log",
+						"message": "\"ReturnCardToLastPosition\""
+					}
+				}
+			],
 			"sid": 197237194085310,
 			"children": [
 				{
