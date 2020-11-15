@@ -665,6 +665,270 @@
 				}
 			],
 			"sid": 380266758410037
+		},
+		{
+			"functionName": "MoveCardFromFoundation",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 932502231418033
+				},
+				{
+					"name": "FoundationUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 290510458740288
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Foundation",
+					"sid": 486144118042502,
+					"parameters": {
+						"unique-id": "FoundationUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Foundation",
+					"sid": 175687842671212,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 701823861337742,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Foundation",
+							"sid": 978924732151257,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Foundation",
+							"sid": 141396112214556,
+							"parameters": {
+								"instance-variable": "Suit",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Foundation",
+							"sid": 229588932444725,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "FOUNDATIONS_START_WITH"
+							}
+						}
+					],
+					"sid": 900911660037436
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-topbottom",
+							"objectClass": "Card",
+							"sid": 367371887082719,
+							"parameters": {
+								"which": "top"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 180186018013533,
+							"parameters": {
+								"object": "Foundation"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Card",
+							"sid": 114390468921940,
+							"parameters": {
+								"unique-id": "CardUID"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Foundation",
+							"sid": 882862023625180,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
+							}
+						}
+					],
+					"sid": 134235655044798
+				}
+			]
+		},
+		{
+			"functionName": "MoveCardToFoundation",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 509080959736450
+				},
+				{
+					"name": "FoundationUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 176905381695479
+				},
+				{
+					"name": "IsCancelingMove",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 810409797685783
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 904559446816893,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Foundation",
+					"sid": 579691535055557,
+					"parameters": {
+						"unique-id": "FoundationUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Foundation",
+					"sid": 611833749290738,
+					"parameters": {
+						"instance-variable": "Suit",
+						"value": "Card.Suit"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Foundation",
+					"sid": 421015767817642,
+					"parameters": {
+						"instance-variable": "TopCardValue",
+						"value": "Card.Value"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 224178985271966,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 681139767615806,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Foundation.X",
+						"end-y": "Foundation.Y",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 773961691291511
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 893362640678744,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				}
+			],
+			"sid": 454272975474271,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 188963914026004,
+							"parameters": {
+								"variable": "IsCancelingMove"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Foundation",
+							"sid": 386013938575525,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 312926264315000
+				}
+			]
 		}
 	],
 	"sid": 973815333106618

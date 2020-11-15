@@ -69,7 +69,8 @@
 							"parameters": [
 								"Card.UID",
 								"UndoArray.At(UndoArray.Width - 1, 1)",
-								"UndoArray.At(UndoArray.Width - 1, 2)"
+								"UndoArray.At(UndoArray.Width - 1, 2)",
+								false
 							]
 						}
 					],
@@ -170,6 +171,15 @@
 											"parameters": {
 												"frame-number": "Card.Frame"
 											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Card",
+											"sid": 370146974759058,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
 										}
 									],
 									"sid": 887034472931983
@@ -190,10 +200,6 @@
 								"where": "back",
 								"axis": "x"
 							}
-						},
-						{
-							"callFunction": "RecalculateEverything",
-							"sid": 671364319272933
 						}
 					],
 					"sid": 951167902352569
@@ -310,7 +316,61 @@
 					}
 				}
 			],
-			"sid": 474556955649895
+			"sid": 474556955649895,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 547513750902363,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Foundation\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardFromFoundation",
+							"sid": 654589341740390,
+							"parameters": [
+								"0",
+								"FromUID"
+							]
+						}
+					],
+					"sid": 770827305267040
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 552787116957290,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Tableau\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardFromTableau",
+							"sid": 317129567313815,
+							"parameters": [
+								"0",
+								"FromUID"
+							]
+						}
+					],
+					"sid": 444342415695872
+				}
+			]
 		},
 		{
 			"functionName": "ReturnCardToLastPosition",
@@ -339,6 +399,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 395798620912525
+				},
+				{
+					"name": "IsCancelingMove",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 418025627580096
 				}
 			],
 			"eventType": "function-block",
@@ -352,9 +419,101 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 213931197106588,
+					"parameters": {
+						"type": "log",
+						"message": "\"ReturnCardToLastPosition \" & FromType"
+					}
+				}
+			],
 			"sid": 197237194085310,
 			"children": [
+				{
+					"eventType": "comment",
+					"text": "returning from"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 292071718916385,
+							"parameters": {
+								"object": "Discard"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 331834194056964
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 161514355970620,
+							"parameters": {
+								"object": "Foundation"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardFromFoundation",
+							"sid": 196995927735686,
+							"parameters": [
+								"Card.UID",
+								"Foundation.UID"
+							]
+						}
+					],
+					"sid": 871608732345143
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 257469585195529,
+							"parameters": {
+								"object": "Stock"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 337872788355828
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 707532318571674,
+							"parameters": {
+								"object": "Tableau"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardFromTableau",
+							"sid": 387320709612549,
+							"parameters": [
+								"Card.UID",
+								"Tableau.UID"
+							]
+						}
+					],
+					"sid": 413501458414946
+				},
 				{
 					"eventType": "comment",
 					"text": "returning to"
@@ -418,13 +577,13 @@
 					],
 					"actions": [
 						{
-							"id": "set-position",
-							"objectClass": "Card",
-							"sid": 262538473736685,
-							"parameters": {
-								"x": "Foundation.X",
-								"y": "Foundation.Y"
-							}
+							"callFunction": "MoveCardToFoundation",
+							"sid": 399460390395300,
+							"parameters": [
+								"Card.UID",
+								"Foundation.UID",
+								false
+							]
 						}
 					],
 					"sid": 801272649245621
@@ -474,6 +633,15 @@
 							"id": "move-to-top",
 							"objectClass": "Card",
 							"sid": 936033659211008
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 257596614322688,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
 						}
 					],
 					"sid": 484892980046984
@@ -502,13 +670,13 @@
 					],
 					"actions": [
 						{
-							"id": "set-position",
-							"objectClass": "Card",
-							"sid": 246983305638249,
-							"parameters": {
-								"x": "Tableau.X",
-								"y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET"
-							}
+							"callFunction": "MoveCardToTableau",
+							"sid": 427282543166415,
+							"parameters": [
+								"Card.UID",
+								"Tableau.UID",
+								false
+							]
 						}
 					],
 					"sid": 649487091183266

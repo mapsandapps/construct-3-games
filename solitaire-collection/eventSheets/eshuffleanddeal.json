@@ -254,17 +254,7 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 480781280041826,
-					"parameters": {
-						"type": "log",
-						"message": "Card.Count"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 603546359354584,
 			"children": [
 				{
@@ -345,6 +335,15 @@
 							"parameters": {
 								"instance-variable": "NumberOfCards",
 								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Tableau",
+							"sid": 228836452185583,
+							"parameters": {
+								"instance-variable": "TopCardValue",
+								"value": "Card.Value"
 							}
 						},
 						{

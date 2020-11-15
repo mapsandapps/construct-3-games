@@ -112,10 +112,6 @@
 											}
 										},
 										{
-											"callFunction": "RecalculateEverything",
-											"sid": 263905774995109
-										},
-										{
 											"callFunction": "PushToUndoArray",
 											"sid": 902678213155553,
 											"parameters": [
@@ -163,6 +159,15 @@
 													"parameters": {
 														"animation": "DECK_ART & \"Backs\"",
 														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "Card",
+													"sid": 854496543219162,
+													"behaviorType": "DragDrop",
+													"parameters": {
+														"state": "disabled"
 													}
 												}
 											],

@@ -15,6 +15,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "eTableaus"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "eUndo"
 		},
 		{
@@ -46,6 +50,32 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 267037744942095
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Stock",
+					"sid": 473531413828105,
+					"parameters": {
+						"instance-variable": "FlipsRemaining",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Stock",
+					"sid": 830113383735946,
+					"parameters": {
+						"opacity": "0"
+					}
+				}
+			],
+			"sid": 325185698802411
 		},
 		{
 			"eventType": "block",
@@ -193,235 +223,17 @@
 				}
 			],
 			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Card",
-					"sid": 569897567489613,
-					"parameters": {
-						"unique-id": "CardUID"
-					}
-				}
-			],
+			"conditions": [],
 			"actions": [
 				{
 					"callFunction": "GetValidFoundationMoves",
-					"sid": 662300830452920,
+					"sid": 312194185841218,
 					"parameters": [
-						"Card.UID"
+						"CardUID"
 					]
 				}
 			],
 			"sid": 292757725274018
-		},
-		{
-			"functionName": "RecalculateEverything",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 370900848910824,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Stock",
-							"sid": 727449882410873,
-							"parameters": {
-								"instance-variable": "FlipsRemaining",
-								"comparison": 0,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-opacity",
-							"objectClass": "Stock",
-							"sid": 364592317843896,
-							"parameters": {
-								"opacity": "0"
-							}
-						}
-					],
-					"sid": 857205078302746
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 186004734096822,
-							"parameters": {
-								"object": "Foundation"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 855914778404425,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Card",
-									"sid": 551501362682933,
-									"parameters": {
-										"object": "Foundation"
-									}
-								},
-								{
-									"id": "pick-topbottom",
-									"objectClass": "Card",
-									"sid": 123987644699660,
-									"parameters": {
-										"which": "top"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Foundation",
-									"sid": 297026908434436,
-									"parameters": {
-										"instance-variable": "Suit",
-										"value": "Card.Suit"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Foundation",
-									"sid": 899563177254855,
-									"parameters": {
-										"instance-variable": "TopCardValue",
-										"value": "Card.Value"
-									}
-								}
-							],
-							"sid": 615593248917359
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Foundation",
-									"sid": 249376064129078,
-									"parameters": {
-										"object": "Card"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Foundation",
-									"sid": 602561922040146,
-									"parameters": {
-										"instance-variable": "Suit",
-										"value": "\"\""
-									}
-								}
-							],
-							"sid": 167091940500962
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 306505717269847,
-							"parameters": {
-								"object": "Tableau"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 988437144455235,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Card",
-									"sid": 902608227268614,
-									"parameters": {
-										"object": "Tableau"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Tableau",
-									"sid": 650020073352302,
-									"parameters": {
-										"instance-variable": "NumberOfCards",
-										"value": "Card.PickedCount"
-									}
-								}
-							],
-							"sid": 987158219852392,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-topbottom",
-											"objectClass": "Card",
-											"sid": 789920177331906,
-											"parameters": {
-												"which": "top"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Tableau",
-											"sid": 721853374745994,
-											"parameters": {
-												"instance-variable": "TopCardValue",
-												"value": "Card.Value"
-											}
-										}
-									],
-									"sid": 119452330296875
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "set-height",
-									"objectClass": "Tableau",
-									"sid": 582920129223939,
-									"parameters": {
-										"height": "Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET"
-									}
-								}
-							],
-							"sid": 183598425155831
-						}
-					]
-				}
-			]
 		},
 		{
 			"eventType": "block",
@@ -433,7 +245,15 @@
 					"behaviorType": "DragDrop"
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"callFunction": "GetValidMoves",
+					"sid": 529214232269738,
+					"parameters": [
+						"-1"
+					]
+				}
+			],
 			"sid": 567857594982173,
 			"children": [
 				{
@@ -458,24 +278,6 @@
 					],
 					"actions": [
 						{
-							"id": "set-position",
-							"objectClass": "Card",
-							"sid": 829107684109853,
-							"parameters": {
-								"x": "Foundation.X",
-								"y": "Foundation.Y"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Card",
-							"sid": 317689957189531,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
 							"callFunction": "PushToUndoArray",
 							"sid": 109831062007694,
 							"parameters": [
@@ -485,8 +287,13 @@
 							]
 						},
 						{
-							"callFunction": "RecalculateEverything",
-							"sid": 482402471352662
+							"callFunction": "MoveCardToFoundation",
+							"sid": 121014623278249,
+							"parameters": [
+								"Card.UID",
+								"Foundation.UID",
+								false
+							]
 						}
 					],
 					"sid": 364782163715605,
@@ -529,22 +336,14 @@
 					],
 					"actions": [
 						{
-							"id": "tween-two-properties",
-							"objectClass": "Card",
-							"sid": 996893265272767,
-							"disabled": true,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "0",
-								"end-y": "0",
-								"time": "5",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no"
-							}
+							"callFunction": "ReturnCardToLastPosition",
+							"sid": 675722631021059,
+							"parameters": [
+								"Card.UID",
+								"CurrentCardFromStackType",
+								"CurrentCardFromStackUID",
+								true
+							]
 						}
 					],
 					"sid": 544991962897952
