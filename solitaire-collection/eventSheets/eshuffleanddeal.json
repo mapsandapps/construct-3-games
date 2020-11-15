@@ -347,12 +347,11 @@
 							}
 						},
 						{
-							"id": "set-size",
+							"id": "set-height",
 							"objectClass": "Tableau",
-							"sid": 178464803842184,
+							"sid": 422272030641468,
 							"parameters": {
-								"width": "Card.Width",
-								"height": "Card.Height + CARD_OFFSET * (Tableau.NumberOfCards - 1)"
+								"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 							}
 						}
 					],

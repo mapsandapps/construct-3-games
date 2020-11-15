@@ -2,32 +2,6 @@
 	"name": "eTableaus",
 	"events": [
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Tableau",
-					"sid": 713415711597180,
-					"parameters": {
-						"instance-variable": "NumberOfCards",
-						"comparison": 4,
-						"value": "-1"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-height",
-					"objectClass": "Tableau",
-					"sid": 341651178072732,
-					"parameters": {
-						"height": "min(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-					}
-				}
-			],
-			"sid": 452518658351294
-		},
-		{
 			"functionName": "CanCardMoveToTableau",
 			"functionDescription": "",
 			"functionCategory": "",
@@ -265,10 +239,9 @@
 				{
 					"id": "set-height",
 					"objectClass": "Tableau",
-					"sid": 650649498809213,
-					"disabled": true,
+					"sid": 219692607345549,
 					"parameters": {
-						"height": "Card.Height + Tableau.NumberOfCards * CARD_OFFSET"
+						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 					}
 				}
 			],
@@ -401,15 +374,6 @@
 						"instance-variable": "TopCardValue",
 						"value": "Card.Value"
 					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 654665048133203,
-					"parameters": {
-						"type": "log",
-						"message": "\"move card to tableau\" & TableauUID"
-					}
 				}
 			],
 			"sid": 452598518690653,
@@ -440,10 +404,9 @@
 						{
 							"id": "set-height",
 							"objectClass": "Tableau",
-							"sid": 883080984670568,
-							"disabled": true,
+							"sid": 785650381244603,
 							"parameters": {
-								"height": "Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET"
+								"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 							}
 						}
 					],
