@@ -422,6 +422,134 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Card",
+					"sid": 332178497399567,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [],
+			"sid": 567857594982173,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Card",
+							"sid": 251988622079212,
+							"parameters": {
+								"object": "Foundation"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Foundation",
+							"sid": 301280525413829,
+							"parameters": {
+								"instance-variable": "IsValidDrop"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 829107684109853,
+							"parameters": {
+								"x": "Foundation.X",
+								"y": "Foundation.Y"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 317689957189531,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"callFunction": "PushToUndoArray",
+							"sid": 109831062007694,
+							"parameters": [
+								"Card.UID",
+								"CurrentCardFromStackType",
+								"CurrentCardFromStackUID"
+							]
+						},
+						{
+							"callFunction": "RecalculateEverything",
+							"sid": 482402471352662
+						}
+					],
+					"sid": 364782163715605,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 655193075813550,
+									"parameters": {
+										"object": "Foundation"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Foundation",
+									"sid": 694017672293735,
+									"parameters": {
+										"instance-variable": "IsValidDrop",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 351302752460323
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 361804240571990
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 996893265272767,
+							"disabled": true,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "0",
+								"end-y": "0",
+								"time": "5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 544991962897952
+				}
+			]
 		}
 	],
 	"sid": 458908244364340

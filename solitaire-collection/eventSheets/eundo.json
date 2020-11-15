@@ -52,203 +52,28 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 799526051521230,
-							"parameters": {
-								"variable": "FromType",
-								"value": "UndoArray.At(UndoArray.Width - 1, 1)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 805274000433575,
-							"parameters": {
-								"variable": "FromUID",
-								"value": "UndoArray.At(UndoArray.Width - 1, 2)"
-							}
-						}
-					],
-					"sid": 639765299756614
-				},
-				{
-					"eventType": "comment",
-					"text": "returning to"
-				},
-				{
-					"eventType": "block",
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Card",
-							"sid": 512562045220471,
+							"sid": 866228491232797,
 							"parameters": {
 								"unique-id": "UndoArray.At(UndoArray.Width - 1,0)"
 							}
 						}
 					],
-					"actions": [],
-					"sid": 503471165604445,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 254968507771200,
-									"parameters": {
-										"variable": "FromType",
-										"comparison": 0,
-										"value": "\"Discard\""
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Discard",
-									"sid": 529972927841591,
-									"parameters": {
-										"unique-id": "FromUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Card",
-									"sid": 875860735810203,
-									"parameters": {
-										"x": "Discard.X",
-										"y": "Discard.Y"
-									}
-								}
-							],
-							"sid": 322016042643682
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 114086477660463,
-									"parameters": {
-										"variable": "FromType",
-										"comparison": 0,
-										"value": "\"Foundation\""
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Foundation",
-									"sid": 193117765400933,
-									"parameters": {
-										"unique-id": "FromUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Card",
-									"sid": 572830724060997,
-									"parameters": {
-										"x": "Foundation.X",
-										"y": "Foundation.Y"
-									}
-								}
-							],
-							"sid": 745406240085452
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 817797604537017,
-									"parameters": {
-										"variable": "FromType",
-										"comparison": 0,
-										"value": "\"Stock\""
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Stock",
-									"sid": 922642415866303,
-									"parameters": {
-										"unique-id": "FromUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Card",
-									"sid": 529361082678410,
-									"parameters": {
-										"animation": "DECK_ART & \"Backs\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-position",
-									"objectClass": "Card",
-									"sid": 585341966243627,
-									"parameters": {
-										"x": "Stock.X",
-										"y": "Stock.Y"
-									}
-								},
-								{
-									"id": "move-to-top",
-									"objectClass": "Card",
-									"sid": 463843979542935
-								}
-							],
-							"sid": 796851822636239
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 701603735546029,
-									"parameters": {
-										"variable": "FromType",
-										"comparison": 0,
-										"value": "\"Tableau\""
-									}
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Tableau",
-									"sid": 864331247773953,
-									"parameters": {
-										"unique-id": "FromUID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Card",
-									"sid": 640918327818465,
-									"parameters": {
-										"x": "Tableau.X",
-										"y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET"
-									}
-								}
-							],
-							"sid": 977549318484120
+							"callFunction": "ReturnCardToLastPosition",
+							"sid": 575968148037609,
+							"parameters": [
+								"Card.UID",
+								"UndoArray.At(UndoArray.Width - 1, 1)",
+								"UndoArray.At(UndoArray.Width - 1, 2)"
+							]
 						}
-					]
+					],
+					"sid": 250839644360086
 				},
 				{
 					"eventType": "block",
@@ -486,6 +311,209 @@
 				}
 			],
 			"sid": 474556955649895
+		},
+		{
+			"functionName": "ReturnCardToLastPosition",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 371815288763754
+				},
+				{
+					"name": "FromType",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 772989341188485
+				},
+				{
+					"name": "FromUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 395798620912525
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 210379781808546,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 197237194085310,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "returning to"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 259464984773321,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Discard\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Discard",
+							"sid": 355677224574447,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 846049557993667,
+							"parameters": {
+								"x": "Discard.X",
+								"y": "Discard.Y"
+							}
+						}
+					],
+					"sid": 488807605715800
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 263682881176619,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Foundation\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Foundation",
+							"sid": 172659255957784,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 262538473736685,
+							"parameters": {
+								"x": "Foundation.X",
+								"y": "Foundation.Y"
+							}
+						}
+					],
+					"sid": 801272649245621
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 569958637077620,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Stock\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Stock",
+							"sid": 881348620357661,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 604401882740452,
+							"parameters": {
+								"animation": "DECK_ART & \"Backs\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 428299866161163,
+							"parameters": {
+								"x": "Stock.X",
+								"y": "Stock.Y"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Card",
+							"sid": 936033659211008
+						}
+					],
+					"sid": 484892980046984
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 415016535441559,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Tableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 465003135520723,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Card",
+							"sid": 246983305638249,
+							"parameters": {
+								"x": "Tableau.X",
+								"y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET"
+							}
+						}
+					],
+					"sid": 649487091183266
+				}
+			]
 		}
 	],
 	"sid": 556817675701426
