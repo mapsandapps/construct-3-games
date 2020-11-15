@@ -19,9 +19,9 @@
 				{
 					"id": "set-height",
 					"objectClass": "Tableau",
-					"sid": 427276399575582,
+					"sid": 341651178072732,
 					"parameters": {
-						"height": "Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET"
+						"height": "min(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 					}
 				}
 			],
