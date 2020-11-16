@@ -24,7 +24,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 400,
-						"y": 32,
+						"y": 64,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -61,7 +61,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 112,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -92,7 +92,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 112,
-						"y": 32,
+						"y": 64,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -121,7 +121,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 208,
-						"y": 32,
+						"y": 64,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -158,7 +158,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 208,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -195,7 +195,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 304,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -232,7 +232,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 400,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -269,7 +269,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 496,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -306,7 +306,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 592,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -343,7 +343,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 688,
-						"y": 160,
+						"y": 176,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -377,7 +377,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 496,
-						"y": 32,
+						"y": 64,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -411,7 +411,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 592,
-						"y": 32,
+						"y": 64,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -445,7 +445,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 688,
-						"y": 32,
+						"y": 64,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -488,38 +488,64 @@
 		{
 			"name": "Cards",
 			"overriden": 0,
-			"instances": [
-				{
-					"type": "UndoButton",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 82,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 304,
-						"y": 80,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 160572815207315,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Debug",
+			"overriden": 1,
+			"instances": [],
+			"sid": 627300984025661,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI",
+			"overriden": 1,
+			"instances": [],
+			"sid": 279308589197786,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [

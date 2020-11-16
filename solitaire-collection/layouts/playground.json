@@ -24,7 +24,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 400,
-						"y": 32,
+						"y": 48,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -92,7 +92,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 112,
-						"y": 32,
+						"y": 48,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -121,7 +121,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 208,
-						"y": 32,
+						"y": 48,
 						"width": 64,
 						"height": 84,
 						"originX": 0.5,
@@ -377,7 +377,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 496,
-						"y": 32,
+						"y": 48,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -411,7 +411,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 592,
-						"y": 32,
+						"y": 48,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -445,7 +445,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 688,
-						"y": 32,
+						"y": 48,
 						"width": 64,
 						"height": 80,
 						"originX": 0.5,
@@ -489,35 +489,6 @@
 			"name": "Cards",
 			"overriden": 0,
 			"instances": [
-				{
-					"type": "UndoButton",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 25,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 304,
-						"y": 80,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
 				{
 					"type": "Tableau",
 					"properties": {
@@ -1353,9 +1324,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 0,
-						"y": 0,
-						"width": 200,
-						"height": 30,
+						"y": 576,
+						"width": 208,
+						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1391,7 +1362,160 @@
 			"forceOwnTexture": false,
 			"useRenderCells": false,
 			"blendMode": "normal",
-			"global": false
+			"global": true
+		},
+		{
+			"name": "UI",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "TopBarButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Inactive",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 62,
+					"instanceVariables": {
+						"Name": "New Game"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 200,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TopBarButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Active",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 63,
+					"instanceVariables": {
+						"Name": "Undo"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 200,
+						"y": 0,
+						"width": 200,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TopBarButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Inactive",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 64,
+					"instanceVariables": {
+						"Name": "Choose Game"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 400,
+						"y": 0,
+						"width": 200,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TopBarButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Inactive",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 65,
+					"instanceVariables": {
+						"Name": "Settings"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 600,
+						"y": 0,
+						"width": 200,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 999695624556768,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": true
 		}
 	],
 	"sid": 996203305212554,
