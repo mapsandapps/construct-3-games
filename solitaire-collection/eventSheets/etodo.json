@@ -23,11 +23,7 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "when you move from or to a tableau stack, recalculate what number of cards are in order at the bottom of it"
-		},
-		{
-			"eventType": "comment",
-			"text": "mark those cards as movable, other cards in the tableau as not movable"
+			"text": "BUG: dragging a random card from the discard and releasing it over a tableau stack causes the isMovable status of the cards in the stack to get wonky"
 		}
 	],
 	"sid": 362205341000481

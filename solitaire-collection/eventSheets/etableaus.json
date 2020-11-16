@@ -773,29 +773,65 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Tableau",
-							"sid": 370638830908357,
+							"id": "pick-by-unique-id",
+							"objectClass": "Card",
+							"sid": 810687147585715,
+							"parameters": {
+								"unique-id": "CardUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 837787733540122,
+							"parameters": {
+								"instance-variable": "TableauUID",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 753219016253246,
+							"parameters": {
+								"instance-variable": "IndexInTableau",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 785751745420305
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 278459827657230,
 							"parameters": {
 								"object": "Card"
 							}
 						},
 						{
-							"id": "pick-topbottom",
+							"id": "compare-instance-variable",
 							"objectClass": "Card",
-							"sid": 174289924814916,
+							"sid": 636531652851249,
 							"parameters": {
-								"which": "top"
+								"instance-variable": "TableauUID",
+								"comparison": 0,
+								"value": "TableauUID"
 							}
 						},
 						{
-							"id": "pick-by-unique-id",
+							"id": "pick-highestlowest",
 							"objectClass": "Card",
-							"sid": 785056979228279,
+							"sid": 944402444324046,
 							"parameters": {
-								"unique-id": "CardUID"
-							},
-							"isInverted": true
+								"which": "highest",
+								"instance-variable": "IndexInTableau"
+							}
 						}
 					],
 					"actions": [
@@ -833,13 +869,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
+							"id": "compare-instance-variable",
 							"objectClass": "Tableau",
-							"sid": 313461324967231,
+							"sid": 316936205913143,
 							"parameters": {
-								"object": "Card"
-							},
-							"isInverted": true
+								"instance-variable": "NumberOfCards",
+								"comparison": 0,
+								"value": "0"
+							}
 						}
 					],
 					"actions": [
@@ -886,48 +923,6 @@
 						}
 					],
 					"sid": 979133508457039
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 106967675208037,
-							"parameters": {
-								"object": "Card"
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Card",
-							"sid": 587255231896619,
-							"parameters": {
-								"unique-id": "CardUID"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 664106536922565,
-							"parameters": {
-								"instance-variable": "TableauUID",
-								"value": "-1"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 728826444847632,
-							"parameters": {
-								"instance-variable": "IndexInTableau",
-								"value": "-1"
-							}
-						}
-					],
-					"sid": 682572567238156
 				}
 			]
 		},
