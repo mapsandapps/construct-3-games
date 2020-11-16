@@ -380,9 +380,9 @@
 					"actions": [
 						{
 							"callFunction": "MoveCardFromFoundation",
-							"sid": 654589341740390,
+							"sid": 118018180660719,
 							"parameters": [
-								"0",
+								"CardUID",
 								"FromUID"
 							]
 						}
@@ -406,9 +406,9 @@
 					"actions": [
 						{
 							"callFunction": "MoveCardFromTableau",
-							"sid": 317129567313815,
+							"sid": 449739646669453,
 							"parameters": [
-								"0",
+								"CardUID",
 								"FromUID"
 							]
 						}
@@ -464,17 +464,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 426033628971026,
-					"parameters": {
-						"type": "log",
-						"message": "\"ReturnCardToLastPosition\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 197237194085310,
 			"children": [
 				{

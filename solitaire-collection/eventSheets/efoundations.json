@@ -720,6 +720,40 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Card",
+							"sid": 641458823070049,
+							"parameters": {
+								"unique-id": "CardUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 845089936583148,
+							"parameters": {
+								"instance-variable": "FoundationUID",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 972924999824823,
+							"parameters": {
+								"instance-variable": "IndexInFoundation",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 169273445396734
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "Foundation",
 							"sid": 978924732151257,
@@ -756,29 +790,32 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-topbottom",
-							"objectClass": "Card",
-							"sid": 367371887082719,
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 774024678809893,
 							"parameters": {
-								"which": "top"
+								"object": "Card"
 							}
 						},
 						{
-							"id": "is-overlapping-another-object",
+							"id": "compare-instance-variable",
 							"objectClass": "Card",
-							"sid": 180186018013533,
+							"sid": 212987440850249,
 							"parameters": {
-								"object": "Foundation"
+								"instance-variable": "IndexInFoundation",
+								"comparison": 0,
+								"value": "Foundation.NumberOfCards - 1"
 							}
 						},
 						{
-							"id": "pick-by-unique-id",
+							"id": "compare-instance-variable",
 							"objectClass": "Card",
-							"sid": 114390468921940,
+							"sid": 510753045268798,
 							"parameters": {
-								"unique-id": "CardUID"
-							},
-							"isInverted": true
+								"instance-variable": "FoundationUID",
+								"comparison": 0,
+								"value": "Foundation.UID"
+							}
 						}
 					],
 					"actions": [
@@ -862,15 +899,6 @@
 						"instance-variable": "TopCardValue",
 						"value": "Card.Value"
 					}
-				},
-				{
-					"callFunction": "MoveCardToXAndY",
-					"sid": 591436751025680,
-					"parameters": [
-						"Card.UID",
-						"Foundation.X",
-						"Foundation.Y"
-					]
 				}
 			],
 			"sid": 454272975474271,
@@ -900,6 +928,40 @@
 						}
 					],
 					"sid": 312926264315000
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 759367168836086,
+							"parameters": {
+								"instance-variable": "FoundationUID",
+								"value": "FoundationUID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 507245805337804,
+							"parameters": {
+								"instance-variable": "IndexInFoundation",
+								"value": "Foundation.NumberOfCards - 1"
+							}
+						},
+						{
+							"callFunction": "MoveCardToXAndY",
+							"sid": 880370018270603,
+							"parameters": [
+								"Card.UID",
+								"Foundation.X",
+								"Foundation.Y"
+							]
+						}
+					],
+					"sid": 279162427548977
 				}
 			]
 		}

@@ -765,6 +765,24 @@
 					"parameters": {
 						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 451131538134019,
+					"parameters": {
+						"type": "log",
+						"message": "\"move card from tableau\""
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 645283611472211,
+					"parameters": {
+						"type": "log",
+						"message": "CardUID"
+					}
 				}
 			],
 			"sid": 991938819055046,
@@ -782,6 +800,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 483094552486657,
+							"parameters": {
+								"type": "log",
+								"message": "-1"
+							}
+						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
@@ -976,15 +1003,6 @@
 			],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 720205840240746,
-					"parameters": {
-						"type": "log",
-						"message": "\"move card to tableau\""
-					}
-				},
-				{
 					"id": "set-instvar-value",
 					"objectClass": "Tableau",
 					"sid": 571730441231384,
@@ -1144,26 +1162,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 474062962519802,
-					"parameters": {
-						"type": "log",
-						"message": "\"hope this doesn't recurse too many times\""
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 684653192658783,
-					"parameters": {
-						"type": "log",
-						"message": "Card.Value & \" of \" & Card.Suit"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 604536919988422,
 			"children": [
 				{
@@ -1587,17 +1586,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 285463119033475,
-					"parameters": {
-						"type": "log",
-						"message": "\"calc movable cards\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 423567094644657,
 			"children": [
 				{
@@ -1614,44 +1603,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 423240464581190,
-							"parameters": {
-								"type": "log",
-								"message": "\"PickedCount\""
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 293359824638497,
-							"parameters": {
-								"type": "log",
-								"message": "Card.PickedCount"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 135410119259155,
-							"parameters": {
-								"type": "log",
-								"message": "Tableau.IID"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 801838313196259,
-							"parameters": {
-								"type": "log",
-								"message": "\"can i just call CalculateMCardInT here? will it call it PickedCount times?\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 990681217912070,
 					"children": [
 						{
