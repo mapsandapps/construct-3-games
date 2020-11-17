@@ -38,15 +38,89 @@
 						{
 							"id": "set-size",
 							"objectClass": "CardDeck",
-							"sid": 669344267922326,
+							"sid": 675277669328508,
 							"parameters": {
-								"width": "NUMBER_OF_SUITS * 13",
+								"width": "NUMBER_OF_SUITS * 13 * NUMBER_OF_DECKS",
 								"height": "3",
 								"depth": "1"
 							}
 						}
 					],
 					"sid": 688087495302226
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 412539984651815,
+							"parameters": {
+								"variable": "NUMBER_OF_DECKS",
+								"comparison": 4,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 970632070019932,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 713088351421768,
+									"parameters": {
+										"count": "NUMBER_OF_SUITS * 13 * (NUMBER_OF_DECKS - 1)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 568431284114062,
+									"parameters": {
+										"type": "log",
+										"message": "CardDeck.At(loopindex - NUMBER_OF_SUITS * 13)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "CardDeck",
+									"sid": 575389373452917,
+									"parameters": {
+										"x": "loopindex + NUMBER_OF_SUITS * 13",
+										"y": "0",
+										"value": "CardDeck.At(loopindex, 0)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "CardDeck",
+									"sid": 354265575913575,
+									"parameters": {
+										"x": "loopindex + NUMBER_OF_SUITS * 13",
+										"y": "1",
+										"value": "CardDeck.At(loopindex, 1)"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "CardDeck",
+									"sid": 964287594838795,
+									"parameters": {
+										"x": "loopindex + NUMBER_OF_SUITS * 13",
+										"y": "2",
+										"value": "CardDeck.At(loopindex, 2)"
+									}
+								}
+							],
+							"sid": 153739287901676
+						}
+					]
 				},
 				{
 					"eventType": "variable",

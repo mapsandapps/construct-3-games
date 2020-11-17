@@ -1,0 +1,108 @@
+{
+	"name": "eVariantNapoleonsSquare",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGame"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 671808665278811
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "set config & rules"
+				},
+				{
+					"id": "load",
+					"objectClass": "InitialDeal",
+					"sid": 456969232507839,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[48,1,1],\"\"data\"\":[[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]],[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[10]],[[11]]]}\""
+					}
+				},
+				{
+					"callFunction": "UseDeck",
+					"sid": 588438100179253,
+					"parameters": [
+						"\"Shapes\""
+					]
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 627973960592245,
+					"parameters": {
+						"variable": "CARD_OFFSET",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 706601720036303,
+					"parameters": {
+						"variable": "NUMBER_OF_DECKS",
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 429951752701662,
+					"parameters": {
+						"variable": "STOCK_FLIPS",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 271623673389329,
+					"parameters": {
+						"variable": "TABLEAUS_ALTERNATE_COLOR",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 493574224981749,
+					"parameters": {
+						"variable": "TABLEAUS_SAME_SUIT",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 386346704081098,
+					"parameters": {
+						"variable": "TABLEAUS_CAN_MOVE_ANY_CARD_TO_EMPTY",
+						"value": "true"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "init (deal, etc.)"
+				},
+				{
+					"callFunction": "Shuffle",
+					"sid": 689976573297846
+				},
+				{
+					"callFunction": "InitialDeal",
+					"sid": 903075354698390
+				}
+			],
+			"sid": 664022525472069
+		}
+	],
+	"sid": 645028637669407
+}

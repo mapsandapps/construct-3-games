@@ -160,9 +160,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 247843795126724,
+									"sid": 550519504955627,
 									"parameters": {
-										"first-value": "Functions.CalculateCanCardMoveToTableau(Card.Color, Card.Value, Tableau.TopCardColor, Tableau.TopCardValue)",
+										"first-value": "Functions.CalculateCanCardMoveToTableau(Card.Color, Card.Suit, Card.Value, Tableau.TopCardColor, Tableau.TopCardSuit, Tableau.TopCardValue)",
 										"comparison": 0,
 										"second-value": "1"
 									}
@@ -220,6 +220,13 @@
 					"sid": 269278758158577
 				},
 				{
+					"name": "CardSuit",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 617507317556814
+				},
+				{
 					"name": "CardValue",
 					"type": "number",
 					"initialValue": "0",
@@ -232,6 +239,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 119336506203528
+				},
+				{
+					"name": "TableauTopCardSuit",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 869860476847334
 				},
 				{
 					"name": "TableauTopCardValue",
@@ -385,6 +399,75 @@
 										}
 									],
 									"sid": 610509077464943
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 359621493686263
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 337006867841137,
+									"parameters": {
+										"variable": "TABLEAUS_SAME_SUIT"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 127091933358042,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 649346125641144,
+											"parameters": {
+												"variable": "CardSuit",
+												"comparison": 0,
+												"value": "TableauTopCardSuit"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 371866876384485,
+											"parameters": {
+												"value": "1"
+											}
+										}
+									],
+									"sid": 286997928709314
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 451645932161731
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 741919678584650,
+											"parameters": {
+												"value": "0"
+											}
+										}
+									],
+									"sid": 895317526291400
 								}
 							]
 						},
@@ -1189,6 +1272,16 @@
 				},
 				{
 					"eventType": "variable",
+					"name": "NorthCardSuit",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 608830743933990
+				},
+				{
+					"eventType": "variable",
 					"name": "NorthCardUID",
 					"type": "number",
 					"initialValue": "0",
@@ -1216,6 +1309,16 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 372425420478289
+				},
+				{
+					"eventType": "variable",
+					"name": "SouthCardSuit",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 739419549026665
 				},
 				{
 					"eventType": "variable",
@@ -1248,6 +1351,15 @@
 							"parameters": {
 								"variable": "NorthCardColor",
 								"value": "Card.Color"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 738447128907116,
+							"parameters": {
+								"variable": "NorthCardSuit",
+								"value": "Card.Suit"
 							}
 						},
 						{
@@ -1455,6 +1567,15 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
+									"sid": 737246281260113,
+									"parameters": {
+										"variable": "SouthCardSuit",
+										"value": "Card.Suit"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
 									"sid": 941866712876233,
 									"parameters": {
 										"variable": "SouthCardUID",
@@ -1479,9 +1600,9 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 676619519720394,
+											"sid": 640474419996405,
 											"parameters": {
-												"first-value": "Functions.CalculateCanCardMoveToTableau(SouthCardColor, SouthCardValue, NorthCardColor, NorthCardValue)",
+												"first-value": "Functions.CalculateCanCardMoveToTableau(SouthCardColor, SouthCardSuit, SouthCardValue, NorthCardColor, NorthCardSuit, NorthCardValue)",
 												"comparison": 0,
 												"second-value": "1"
 											}

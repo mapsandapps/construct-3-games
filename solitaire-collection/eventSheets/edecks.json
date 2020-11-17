@@ -68,6 +68,51 @@
 				},
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 433758158866775,
+							"parameters": {
+								"variable": "Deck",
+								"comparison": 0,
+								"value": "\"Shapes\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 139714033020894,
+							"parameters": {
+								"variable": "DECK_ART",
+								"value": "\"Shapes\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 189248345291439,
+							"parameters": {
+								"variable": "CARD_OFFSET",
+								"value": "22"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 103131649061272,
+							"parameters": {
+								"variable": "CARD_SCALE",
+								"value": "0.3"
+							}
+						}
+					],
+					"sid": 647385316931877
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{

@@ -28,6 +28,13 @@
 					}
 				},
 				{
+					"callFunction": "UseDeck",
+					"sid": 400977756148072,
+					"parameters": [
+						"\"Kenney\""
+					]
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 708786004049961,
@@ -44,13 +51,6 @@
 						"variable": "TABLEAUS_CAN_MOVE_ANY_CARD_TO_EMPTY",
 						"value": "true"
 					}
-				},
-				{
-					"callFunction": "UseDeck",
-					"sid": 987510740703470,
-					"parameters": [
-						"\"Kenney\""
-					]
 				},
 				{
 					"type": "comment",

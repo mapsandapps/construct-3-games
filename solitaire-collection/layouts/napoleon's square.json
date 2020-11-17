@@ -1,0 +1,901 @@
+{
+	"name": "Napoleon's Square",
+	"layers": [
+		{
+			"name": "Background",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 25,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 224,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 66,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 224,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 67,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 448,
+						"y": 224,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 68,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 544,
+						"y": 224,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 69,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 336,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 70,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 336,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 71,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 448,
+						"y": 336,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Foundation",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Lettered",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 72,
+					"instanceVariables": {
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Suit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 544,
+						"y": 336,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Stock",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Shapes",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 73,
+					"instanceVariables": {
+						"FlipsRemaining": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 448,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Discard",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 74,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 448,
+						"y": 448,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 75,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 448,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 76,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 336,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 77,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 224,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 78,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 112,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 79,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 112,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 80,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 112,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 81,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 448,
+						"y": 112,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 82,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 544,
+						"y": 112,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 83,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 112,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 84,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 224,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 85,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 336,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tableau",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 86,
+					"instanceVariables": {
+						"Column": 2,
+						"IsValidDrop": false,
+						"NumberOfCards": 0,
+						"Row": 0,
+						"TopCardColor": "",
+						"TopCardSuit": "",
+						"TopCardValue": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 448,
+						"width": 64,
+						"height": 84,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 228176865430886,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Cards",
+			"overriden": 0,
+			"instances": [],
+			"sid": 341275517017957,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Debug",
+			"overriden": 1,
+			"instances": [],
+			"sid": 821470222494668,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI",
+			"overriden": 1,
+			"instances": [],
+			"sid": 129129319707702,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 297489241365882,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 800,
+	"height": 600,
+	"unboundedScrolling": false,
+	"eventSheet": "eVariantNapoleonsSquare"
+}
