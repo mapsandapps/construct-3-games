@@ -108,7 +108,43 @@
 				{
 					"id": "is-touching-object",
 					"objectClass": "Touch",
-					"sid": 862230524238356,
+					"sid": 764583336479233,
+					"parameters": {
+						"object": "TopBarButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 345274611761759,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"New Game\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 147363768627651
+				}
+			],
+			"sid": 669607585870489
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 656028643888425
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 539649655804315,
 					"parameters": {
 						"object": "Card"
 					}
@@ -116,14 +152,14 @@
 				{
 					"id": "is-enabled",
 					"objectClass": "Card",
-					"sid": 140083377566978,
+					"sid": 218448081138045,
 					"behaviorType": "DragDrop"
 				}
 			],
 			"actions": [
 				{
 					"callFunction": "PrepForCardMove",
-					"sid": 319287403727993,
+					"sid": 195434436768027,
 					"parameters": [
 						"Card.UID"
 					]
@@ -131,7 +167,7 @@
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 571294307031371,
+					"sid": 929333671597352,
 					"parameters": {
 						"variable": "HasBeenDragged",
 						"value": "false"
@@ -140,7 +176,7 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 512522699487906,
+					"sid": 734815588811339,
 					"parameters": {
 						"variable": "PreDragX",
 						"value": "Card.X"
@@ -149,14 +185,14 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 786646376958956,
+					"sid": 106201674681827,
 					"parameters": {
 						"variable": "PreDragY",
 						"value": "Card.Y"
 					}
 				}
 			],
-			"sid": 669607585870489
+			"sid": 168230086865688
 		},
 		{
 			"eventType": "block",
