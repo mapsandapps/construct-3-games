@@ -282,7 +282,7 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "after tapping card"
+			"text": "after tapping card (e.g. click-to-move)"
 		},
 		{
 			"eventType": "block",
@@ -419,11 +419,11 @@
 						{
 							"id": "for-each-ordered",
 							"objectClass": "System",
-							"sid": 856846235255218,
+							"sid": 461626484151050,
 							"parameters": {
 								"object": "Tableau",
-								"expression": "Tableau.UID",
-								"order": "ascending"
+								"expression": "Tableau.NumberOfCards",
+								"order": "descending"
 							}
 						}
 					],
