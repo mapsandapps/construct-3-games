@@ -43,6 +43,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "HasBeenDragged",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 976470967969086
+		},
+		{
+			"eventType": "variable",
 			"name": "PreDragX",
 			"type": "number",
 			"initialValue": "0",
@@ -62,14 +72,38 @@
 			"sid": 767101206281820
 		},
 		{
+			"eventType": "comment",
+			"text": "if the user holds on to a card for a bit (longer than MAX_CLICK_TIME), stop considering it a tap"
+		},
+		{
 			"eventType": "variable",
-			"name": "HasBeenDragged",
+			"name": "MAX_CLICK_TIME",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 750596236499184
+		},
+		{
+			"eventType": "variable",
+			"name": "TimeSincePickUp",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 477217416120365
+		},
+		{
+			"eventType": "variable",
+			"name": "WasHeldTooLongForClick",
 			"type": "boolean",
 			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 612661712982293
+			"sid": 391717793125352
 		},
 		{
 			"eventType": "block",
@@ -184,6 +218,24 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
+					"sid": 446269129903664,
+					"parameters": {
+						"variable": "TimeSincePickUp",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 479730979995497,
+					"parameters": {
+						"variable": "WasHeldTooLongForClick",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
 					"sid": 734815588811339,
 					"parameters": {
 						"variable": "PreDragX",
@@ -201,6 +253,84 @@
 				}
 			],
 			"sid": 168230086865688
+		},
+		{
+			"eventType": "comment",
+			"text": "if the user holds on to a card for a bit (longer than MAX_CLICK_TIME), stop considering it a tap"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 445002803357361
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 872454026098720,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "is-dragging",
+					"objectClass": "Card",
+					"sid": 927458974089476,
+					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 100918458030609,
+					"parameters": {
+						"variable": "WasHeldTooLongForClick"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 826497318760985,
+					"parameters": {
+						"variable": "TimeSincePickUp",
+						"value": "dt"
+					}
+				}
+			],
+			"sid": 164801260419886,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 278994743569228,
+							"parameters": {
+								"variable": "MAX_CLICK_TIME",
+								"comparison": 2,
+								"value": "TimeSincePickUp"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 788638085740894,
+							"parameters": {
+								"variable": "WasHeldTooLongForClick",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 282117545855671
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -298,6 +428,15 @@
 					"sid": 844679395741386,
 					"parameters": {
 						"variable": "HasBeenDragged"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 460665589790445,
+					"parameters": {
+						"variable": "WasHeldTooLongForClick"
 					},
 					"isInverted": true
 				},
@@ -575,7 +714,7 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "after dropping dragged card"
+			"text": "after dropping dragged card or card that was held too long to be a click"
 		},
 		{
 			"eventType": "block",
@@ -585,14 +724,6 @@
 					"objectClass": "Card",
 					"sid": 392190442154559,
 					"behaviorType": "DragDrop"
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 230449441622352,
-					"parameters": {
-						"variable": "HasBeenDragged"
-					}
 				}
 			],
 			"actions": [],
@@ -602,177 +733,203 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 328924815814667,
-							"parameters": {
-								"object": "Foundation"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Foundation",
-							"sid": 998260393555829,
-							"parameters": {
-								"instance-variable": "IsValidDrop"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "PushToUndoArray",
-							"sid": 347655460909731,
-							"parameters": [
-								"Card.UID",
-								"CurrentCardFromStackType",
-								"CurrentCardFromStackUID"
-							]
-						},
-						{
-							"callFunction": "MoveCardToFoundation",
-							"sid": 579477143352867,
-							"parameters": [
-								"Card.UID",
-								"Foundation.UID",
-								false
-							]
-						}
-					],
-					"sid": 516774673917713
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
+							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 942692472796699
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 519561071053511,
+							"sid": 492721457361941,
 							"parameters": {
-								"object": "Tableau"
+								"variable": "HasBeenDragged"
 							}
 						},
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Tableau",
-							"sid": 492134015900722,
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 282581455003767,
 							"parameters": {
-								"instance-variable": "IsValidDrop"
+								"variable": "WasHeldTooLongForClick"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 912342937010646,
+					"children": [
 						{
-							"callFunction": "PushToUndoArray",
-							"sid": 676412998165261,
-							"parameters": [
-								"Card.UID",
-								"CurrentCardFromStackType",
-								"CurrentCardFromStackUID"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 782565027948282,
+									"parameters": {
+										"object": "Foundation"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Foundation",
+									"sid": 771953417203434,
+									"parameters": {
+										"instance-variable": "IsValidDrop"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PushToUndoArray",
+									"sid": 605164910714778,
+									"parameters": [
+										"Card.UID",
+										"CurrentCardFromStackType",
+										"CurrentCardFromStackUID"
+									]
+								},
+								{
+									"callFunction": "MoveCardToFoundation",
+									"sid": 834945569307970,
+									"parameters": [
+										"Card.UID",
+										"Foundation.UID",
+										false
+									]
+								}
+							],
+							"sid": 686930979032145
 						},
 						{
-							"callFunction": "MoveCardToTableau",
-							"sid": 479787018453475,
-							"parameters": [
-								"Card.UID",
-								"Tableau.UID",
-								false
-							]
-						}
-					],
-					"sid": 954625026333581
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 446608904063959
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Card",
+									"sid": 910992792181281,
+									"parameters": {
+										"object": "Tableau"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Tableau",
+									"sid": 123501442766901,
+									"parameters": {
+										"instance-variable": "IsValidDrop"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PushToUndoArray",
+									"sid": 340723687330327,
+									"parameters": [
+										"Card.UID",
+										"CurrentCardFromStackType",
+										"CurrentCardFromStackUID"
+									]
+								},
+								{
+									"callFunction": "MoveCardToTableau",
+									"sid": 241061955334955,
+									"parameters": [
+										"Card.UID",
+										"Tableau.UID",
+										false
+									]
+								}
+							],
+							"sid": 314544614313832
+						},
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 203747987184525
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 721714547536277
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ReturnCardToLastPosition",
+									"sid": 697827095116230,
+									"parameters": [
+										"Card.UID",
+										"CurrentCardFromStackType",
+										"CurrentCardFromStackUID",
+										true
+									]
+								}
+							],
+							"sid": 207050072082830
+						},
 						{
-							"callFunction": "ReturnCardToLastPosition",
-							"sid": 395689909757999,
-							"parameters": [
-								"Card.UID",
-								"CurrentCardFromStackType",
-								"CurrentCardFromStackUID",
-								true
-							]
-						}
-					],
-					"sid": 904516291823982
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 795578767498400,
+									"parameters": {
+										"object": "Foundation"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Foundation",
+									"sid": 319235841564739,
+									"parameters": {
+										"instance-variable": "IsValidDrop",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 947554199007695
+						},
 						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 867696897314428,
-							"parameters": {
-								"object": "Foundation"
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 701076808215848,
+									"parameters": {
+										"object": "Tableau"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Tableau",
+									"sid": 399771651504606,
+									"parameters": {
+										"instance-variable": "IsValidDrop",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 720606090312752
+						},
 						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Foundation",
-							"sid": 956633165518862,
-							"parameters": {
-								"instance-variable": "IsValidDrop",
-								"value": "false"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "GetValidMoves",
+									"sid": 911205663722990,
+									"parameters": [
+										"-1"
+									]
+								}
+							],
+							"sid": 601860327290517
 						}
 					],
-					"sid": 250063669340312
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 536339182202109,
-							"parameters": {
-								"object": "Tableau"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Tableau",
-							"sid": 491588591948864,
-							"parameters": {
-								"instance-variable": "IsValidDrop",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 577682413589149
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "GetValidMoves",
-							"sid": 310783496571386,
-							"parameters": [
-								"-1"
-							]
-						}
-					],
-					"sid": 247078171192201
+					"isOrBlock": true
 				}
 			]
 		},
