@@ -79,15 +79,6 @@
 							],
 							"actions": [
 								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 568431284114062,
-									"parameters": {
-										"type": "log",
-										"message": "CardDeck.At(loopindex - NUMBER_OF_SUITS * 13)"
-									}
-								},
-								{
 									"id": "set-at-xy",
 									"objectClass": "CardDeck",
 									"sid": 575389373452917,

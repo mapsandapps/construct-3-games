@@ -848,24 +848,6 @@
 					"parameters": {
 						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 451131538134019,
-					"parameters": {
-						"type": "log",
-						"message": "\"move card from tableau\""
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 645283611472211,
-					"parameters": {
-						"type": "log",
-						"message": "CardUID"
-					}
 				}
 			],
 			"sid": 991938819055046,
@@ -883,15 +865,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 483094552486657,
-							"parameters": {
-								"type": "log",
-								"message": "-1"
-							}
-						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
@@ -1110,24 +1083,6 @@
 					"parameters": {
 						"instance-variable": "TopCardValue",
 						"value": "Card.Value"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 529686358869234,
-					"parameters": {
-						"type": "log",
-						"message": "\"MoveCardToTableau\""
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 743385743964984,
-					"parameters": {
-						"type": "log",
-						"message": "IsCancelingMove"
 					}
 				}
 			],

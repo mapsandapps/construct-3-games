@@ -97,6 +97,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "TWEEN_SPEED",
+			"type": "number",
+			"initialValue": "2800",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 937979491645617
+		},
+		{
+			"eventType": "variable",
 			"name": "WasHeldTooLongForClick",
 			"type": "boolean",
 			"initialValue": "false",
@@ -1219,16 +1229,25 @@
 					}
 				},
 				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 224369017630718,
+					"parameters": {
+						"type": "log",
+						"message": "min(max(distance(Card.X, Card.Y, X, Y) / TWEEN_SPEED, 0.08), 0.25)"
+					}
+				},
+				{
 					"id": "tween-two-properties",
 					"objectClass": "Card",
-					"sid": 395944147949677,
+					"sid": 307558697196996,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "position",
 						"end-x": "X",
 						"end-y": "Y",
-						"time": "0.1",
+						"time": "min(max(distance(Card.X, Card.Y, X, Y) / TWEEN_SPEED, 0.08), 0.25)",
 						"ease": "default",
 						"destroy-on-complete": "no",
 						"loop": "no",
