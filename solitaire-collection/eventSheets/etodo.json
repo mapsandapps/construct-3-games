@@ -19,11 +19,19 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "can probably remove isCardMovable boolean since it should always have the same value as drag&drop enabled?"
+			"text": "improved peek mode, i.e. allow moving the card a bit farther away before auto-moving it (e.g. wanting to see the card below in Napoleon's Square)"
 		},
 		{
 			"eventType": "comment",
-			"text": "BUG: dragging a random card from the discard and releasing it over a tableau stack causes the isMovable status of the cards in the stack to get wonky"
+			"text": "for click-to-move, prefer tableau stacks with cards on them over empty tableaus"
+		},
+		{
+			"eventType": "comment",
+			"text": "for drag&drop, prefer tableau stacks that aren't the one you're dragging from"
+		},
+		{
+			"eventType": "comment",
+			"text": "can probably remove isCardMovable boolean since it should always have the same value as drag&drop enabled?"
 		}
 	],
 	"sid": 362205341000481

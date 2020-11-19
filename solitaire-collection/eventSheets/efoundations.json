@@ -119,6 +119,14 @@
 												"comparison": 4,
 												"second-value": "NUMBER_OF_CARDS_PER_SUIT"
 											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 235411855978990,
+											"parameters": {
+												"variable": "TABLEAUS_CAN_WRAP"
+											}
 										}
 									],
 									"actions": [
@@ -186,6 +194,14 @@
 												"first-value": "Foundation.TopCardValue - FOUNDATIONS_INCREMENT_BY",
 												"comparison": 3,
 												"second-value": "0"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 217819463710716,
+											"parameters": {
+												"variable": "TABLEAUS_CAN_WRAP"
 											}
 										}
 									],
