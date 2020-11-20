@@ -1,0 +1,123 @@
+{
+	"name": "eMouse",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 822236296309405,
+					"parameters": {
+						"object": "TopBarButton"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "TopBarButton",
+					"sid": 938766805598048,
+					"parameters": {
+						"animation": "\"Active\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 781796551541394,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 874561686233724
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 301344739507441
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 704363991673448,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Card",
+					"sid": 871531516218112,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 775776003801034,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 145166068538933
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 145440636153545
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 294918581337965,
+					"parameters": {
+						"object": "Stock"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 141189572388997,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 447763108918936
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 619712229329374
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 450480508246779,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 176293494583448
+		}
+	],
+	"sid": 458859841177730
+}

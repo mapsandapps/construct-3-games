@@ -1,0 +1,90 @@
+{
+	"name": "eChooseGame",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 347555228072448
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 406408593789638,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 215781408232623,
+					"parameters": {
+						"layout": "Button.Layout"
+					}
+				}
+			],
+			"sid": 746714618525214
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 660495015594580,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Button",
+					"sid": 683558731947304,
+					"parameters": {
+						"instance-variable": "Layout",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 250575143200399,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 525240820715848
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 306135570017394
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 664866628154571,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 292597715624908
+		}
+	],
+	"sid": 888311771542165
+}

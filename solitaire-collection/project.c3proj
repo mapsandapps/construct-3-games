@@ -24,6 +24,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
@@ -32,16 +40,24 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Sprite",
-			"name": "Sprite",
+			"id": "Text",
+			"name": "Text",
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
@@ -87,7 +103,8 @@
 			{
 				"items": [
 					"Browser",
-					"Touch"
+					"Touch",
+					"Mouse"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -100,6 +117,14 @@
 				],
 				"subfolders": [],
 				"name": "Arrays"
+			},
+			{
+				"items": [
+					"MenuText",
+					"Button"
+				],
+				"subfolders": [],
+				"name": "Menus"
 			}
 		]
 	},
@@ -111,6 +136,7 @@
 	},
 	"layouts": {
 		"items": [
+			"Choose Game",
 			"Playground",
 			"Objects",
 			"Klondike",
@@ -120,16 +146,9 @@
 	},
 	"eventSheets": {
 		"items": [
-			"eGame",
-			"eRulesConstants",
-			"eShuffleAndDeal",
 			"eTODO",
-			"eDecks",
-			"eFoundations",
-			"eUndo",
-			"eStock",
-			"eTableaus",
-			"eCredits"
+			"eCredits",
+			"eChooseGame"
 		],
 		"subfolders": [
 			{
@@ -140,6 +159,21 @@
 				],
 				"subfolders": [],
 				"name": "Variants"
+			},
+			{
+				"items": [
+					"eDecks",
+					"eFoundations",
+					"eGame",
+					"eRulesConstants",
+					"eShuffleAndDeal",
+					"eStock",
+					"eTableaus",
+					"eUndo",
+					"eMouse"
+				],
+				"subfolders": [],
+				"name": "Game"
 			}
 		]
 	},
@@ -161,7 +195,18 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "LilitaOne-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 201954395069371
+				},
+				{
+					"name": "OpenSans-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 377412080407861
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -287,5 +332,5 @@
 	},
 	"viewportWidth": 800,
 	"viewportHeight": 600,
-	"firstLayout": null
+	"firstLayout": "Choose Game"
 }
