@@ -453,6 +453,13 @@
 			],
 			"actions": [
 				{
+					"callFunction": "PrepForCardMove",
+					"sid": 820143001542806,
+					"parameters": [
+						"Card.UID"
+					]
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "Card",
 					"sid": 856851757932792,
@@ -499,7 +506,8 @@
 				{
 					"id": "move-to-top",
 					"objectClass": "Card",
-					"sid": 692685589789792
+					"sid": 692685589789792,
+					"disabled": true
 				},
 				{
 					"callFunction": "PushToUndoArray",
@@ -564,6 +572,13 @@
 					],
 					"actions": [
 						{
+							"callFunction": "PrepForCardMove",
+							"sid": 577286913626432,
+							"parameters": [
+								"Card.UID"
+							]
+						},
+						{
 							"id": "set-animation",
 							"objectClass": "Card",
 							"sid": 622309229480773,
@@ -592,7 +607,8 @@
 						{
 							"id": "move-to-top",
 							"objectClass": "Card",
-							"sid": 405544520585627
+							"sid": 405544520585627,
+							"disabled": true
 						},
 						{
 							"callFunction": "MoveCardToTableau",
