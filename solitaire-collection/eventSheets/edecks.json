@@ -113,6 +113,51 @@
 				},
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 113021181078939,
+							"parameters": {
+								"variable": "Deck",
+								"comparison": 0,
+								"value": "\"Classic\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 667961733360715,
+							"parameters": {
+								"variable": "DECK_ART",
+								"value": "\"Classic\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 550218344688644,
+							"parameters": {
+								"variable": "CARD_OFFSET",
+								"value": "22"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 102325181761457,
+							"parameters": {
+								"variable": "CARD_SCALE",
+								"value": "0.6"
+							}
+						}
+					],
+					"sid": 796702858573581
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
@@ -128,6 +173,7 @@
 							"id": "set-animation",
 							"objectClass": "Stock",
 							"sid": 569680757214139,
+							"disabled": true,
 							"parameters": {
 								"animation": "DECK_ART",
 								"from": "current-frame"
@@ -137,6 +183,7 @@
 							"id": "set-scale",
 							"objectClass": "Stock",
 							"sid": 449090031428175,
+							"disabled": true,
 							"parameters": {
 								"scale": "CARD_SCALE"
 							}
