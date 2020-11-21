@@ -776,8 +776,7 @@
 									"sid": 637130571393249,
 									"parameters": [
 										"Card.UID",
-										"Tableau.UID",
-										false
+										"Tableau.UID"
 									]
 								},
 								{
@@ -790,7 +789,64 @@
 									}
 								}
 							],
-							"sid": 108489653309083
+							"sid": 108489653309083,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 712685445585582,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Card",
+											"sid": 432018388692929,
+											"behaviorType": "Pin"
+										},
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 686772020552639,
+											"parameters": {
+												"object": "Card",
+												"expression": "Card.ZIndex",
+												"order": "ascending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PushToUndoArray",
+											"sid": 798577268520647,
+											"parameters": [
+												"Card.UID",
+												"CurrentCardFromStackType",
+												"CurrentCardFromStackUID"
+											]
+										},
+										{
+											"id": "unpin",
+											"objectClass": "Card",
+											"sid": 296470355432547,
+											"behaviorType": "Pin"
+										},
+										{
+											"callFunction": "MoveCardToTableau",
+											"sid": 288415481435299,
+											"parameters": [
+												"Card.UID",
+												"Tableau.UID"
+											]
+										}
+									],
+									"sid": 571542269577042
+								}
+							]
 						}
 					]
 				},
@@ -1009,8 +1065,7 @@
 									"sid": 269053483948622,
 									"parameters": [
 										"Card.UID",
-										"Tableau.UID",
-										false
+										"Tableau.UID"
 									]
 								}
 							],
@@ -1065,8 +1120,7 @@
 											"sid": 108292883656029,
 											"parameters": [
 												"Card.UID",
-												"Tableau.UID",
-												false
+												"Tableau.UID"
 											]
 										}
 									],

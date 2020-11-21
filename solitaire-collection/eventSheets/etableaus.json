@@ -836,27 +836,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "Tableau",
-					"sid": 115944242242691,
-					"disabled": true,
-					"parameters": {
-						"instance-variable": "NumberOfCards",
-						"value": "1"
-					}
-				},
-				{
-					"id": "set-height",
-					"objectClass": "Tableau",
-					"sid": 219692607345549,
-					"disabled": true,
-					"parameters": {
-						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 991938819055046,
 			"children": [
 				{
@@ -1036,13 +1016,6 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 516544635467401
-				},
-				{
-					"name": "IsCancelingMove",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "",
-					"sid": 744419169800379
 				}
 			],
 			"eventType": "function-block",
@@ -1112,23 +1085,6 @@
 			],
 			"sid": 452598518690653,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 351068200489830,
-							"parameters": {
-								"variable": "IsCancelingMove"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [],
-					"sid": 618421156418638,
-					"disabled": true
-				},
 				{
 					"eventType": "block",
 					"conditions": [],
