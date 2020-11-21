@@ -224,6 +224,45 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 262581335700291,
+					"parameters": {
+						"object": "Card"
+					}
+				},
+				{
+					"id": "pick-topbottom",
+					"objectClass": "Card",
+					"sid": 230371752816470,
+					"parameters": {
+						"which": "top"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Card",
+					"sid": 755822628361907,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Drag",
+					"sid": 236879915221626,
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y"
+					}
+				}
+			],
+			"sid": 838439844182733
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-any-touch-start",
 					"objectClass": "Touch",
 					"sid": 656028643888425
@@ -251,61 +290,115 @@
 					"behaviorType": "DragDrop"
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 168230086865688,
+			"children": [
 				{
-					"callFunction": "PrepForCardMove",
-					"sid": 195434436768027,
-					"parameters": [
-						"Card.UID"
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Drag",
+							"sid": 141110871647457
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Drag",
+							"sid": 555724606164540,
+							"parameters": {
+								"x": "Touch.X",
+								"y": "Touch.Y"
+							}
+						}
+					],
+					"sid": 869183315104864
 				},
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 929333671597352,
-					"parameters": {
-						"variable": "HasBeenDragged",
-						"value": "false"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 873442640439219
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 826844237172743,
+							"parameters": {
+								"object-to-create": "Drag",
+								"layer": "\"Debug\"",
+								"x": "Touch.X",
+								"y": "Touch.Y"
+							}
+						}
+					],
+					"sid": 806444765918323
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 446269129903664,
-					"parameters": {
-						"variable": "TimeSincePickUp",
-						"value": "0"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 479730979995497,
-					"parameters": {
-						"variable": "WasHeldTooLongForClick",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 734815588811339,
-					"parameters": {
-						"variable": "PreDragX",
-						"value": "Card.X"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 106201674681827,
-					"parameters": {
-						"variable": "PreDragY",
-						"value": "Card.Y"
-					}
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "PrepForCardMove",
+							"sid": 799230470473084,
+							"parameters": [
+								"Card.UID"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 175479694943654,
+							"parameters": {
+								"variable": "HasBeenDragged",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 105183498762205,
+							"parameters": {
+								"variable": "TimeSincePickUp",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 518028558792391,
+							"parameters": {
+								"variable": "WasHeldTooLongForClick",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 490924577311499,
+							"parameters": {
+								"variable": "PreDragX",
+								"value": "Card.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 733915837815348,
+							"parameters": {
+								"variable": "PreDragY",
+								"value": "Card.Y"
+							}
+						}
+					],
+					"sid": 261212310296044
 				}
-			],
-			"sid": 168230086865688
+			]
 		},
 		{
 			"eventType": "comment",
@@ -1163,7 +1256,114 @@
 							}
 						}
 					],
-					"sid": 750490102187113
+					"sid": 750490102187113,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "DraggedCardIndexInTableau",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 747661515047029
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 583981030775813,
+									"parameters": {
+										"instance-variable": "IndexInTableau",
+										"comparison": 1,
+										"value": "Tableau.NumberOfCards - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 692809498527877,
+									"parameters": {
+										"variable": "DraggedCardIndexInTableau",
+										"value": "Card.IndexInTableau"
+									}
+								}
+							],
+							"sid": 123176441476507,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 186963928113732,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 775685634531593,
+											"parameters": {
+												"object": "Card",
+												"expression": "Card.IndexInTableau",
+												"order": "ascending"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 156236962408942,
+											"parameters": {
+												"instance-variable": "TableauUID",
+												"comparison": 0,
+												"value": "Tableau.UID"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 287438391110849,
+											"parameters": {
+												"instance-variable": "IndexInTableau",
+												"comparison": 4,
+												"value": "DraggedCardIndexInTableau"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Card",
+											"sid": 425224352860945,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Drag",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "move-to-top",
+											"objectClass": "Card",
+											"sid": 497106583038612
+										}
+									],
+									"sid": 885895180607668
+								}
+							]
+						}
+					]
 				}
 			]
 		},
