@@ -2,20 +2,91 @@
 	"name": "eTODO",
 	"events": [
 		{
-			"eventType": "comment",
-			"text": "win condition"
+			"eventType": "group",
+			"disabled": false,
+			"title": "Bugs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "BUG: when there are 2+ cards already in order after the original deal, you can't move them together"
+				}
+			],
+			"sid": 392508065587170
 		},
 		{
-			"eventType": "comment",
-			"text": "tween/animate card moving from stock to discard"
+			"eventType": "group",
+			"disabled": false,
+			"title": "Feature: Must Have",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "win condition"
+				}
+			],
+			"sid": 945514980151730
 		},
 		{
-			"eventType": "comment",
-			"text": "for drag&drop, prefer tableau stacks that aren't the one you're dragging from"
+			"eventType": "group",
+			"disabled": false,
+			"title": "Feature: Should Have",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "tween/animate card moving from stock to discard"
+				},
+				{
+					"eventType": "comment",
+					"text": "for drag&drop, prefer tableau stacks that aren't the one you're dragging from"
+				},
+				{
+					"eventType": "comment",
+					"text": "let the player know when there are \"no valid moves remaining\""
+				}
+			],
+			"sid": 924943169711307
 		},
 		{
-			"eventType": "comment",
-			"text": "can probably remove isCardMovable boolean since it should always have the same value as drag&drop enabled?"
+			"eventType": "group",
+			"disabled": false,
+			"title": "Feature: Nice to Have",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 815929028811340
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Misc",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "can probably remove isCardMovable boolean since it should always have the same value as drag&drop enabled?"
+				}
+			],
+			"sid": 182841674010141
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Next Up",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "implement undo functionality for multi-drag"
+				}
+			],
+			"sid": 797793260912188
 		}
 	],
 	"sid": 362205341000481

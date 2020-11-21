@@ -968,7 +968,7 @@
 							"actions": [
 								{
 									"callFunction": "PushToUndoArray",
-									"sid": 340723687330327,
+									"sid": 157954393019154,
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
@@ -977,7 +977,7 @@
 								},
 								{
 									"callFunction": "MoveCardToTableau",
-									"sid": 241061955334955,
+									"sid": 269053483948622,
 									"parameters": [
 										"Card.UID",
 										"Tableau.UID",
@@ -985,7 +985,65 @@
 									]
 								}
 							],
-							"sid": 314544614313832
+							"sid": 314544614313832,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 698880239054703,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Card",
+											"sid": 121492126020403,
+											"behaviorType": "Pin"
+										},
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 540423407002211,
+											"parameters": {
+												"object": "Card",
+												"expression": "Card.ZIndex",
+												"order": "ascending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PushToUndoArray",
+											"sid": 405897437353568,
+											"parameters": [
+												"Card.UID",
+												"CurrentCardFromStackType",
+												"CurrentCardFromStackUID"
+											]
+										},
+										{
+											"id": "unpin",
+											"objectClass": "Card",
+											"sid": 561824862480247,
+											"behaviorType": "Pin"
+										},
+										{
+											"callFunction": "MoveCardToTableau",
+											"sid": 108292883656029,
+											"parameters": [
+												"Card.UID",
+												"Tableau.UID",
+												false
+											]
+										}
+									],
+									"sid": 984303362564527
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -999,7 +1057,7 @@
 							"actions": [
 								{
 									"callFunction": "ReturnCardToLastPosition",
-									"sid": 697827095116230,
+									"sid": 574406168813915,
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
@@ -1008,7 +1066,57 @@
 									]
 								}
 							],
-							"sid": 207050072082830
+							"sid": 207050072082830,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 584858173695350,
+											"parameters": {
+												"object": "Card"
+											}
+										},
+										{
+											"id": "is-pinned",
+											"objectClass": "Card",
+											"sid": 972176544904623,
+											"behaviorType": "Pin"
+										},
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 456211900008256,
+											"parameters": {
+												"object": "Card",
+												"expression": "Card.ZIndex",
+												"order": "ascending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "unpin",
+											"objectClass": "Card",
+											"sid": 288910230166440,
+											"behaviorType": "Pin"
+										},
+										{
+											"callFunction": "ReturnCardToLastPosition",
+											"sid": 444583883288117,
+											"parameters": [
+												"Card.UID",
+												"CurrentCardFromStackType",
+												"CurrentCardFromStackUID",
+												true
+											]
+										}
+									],
+									"sid": 473343159818539
+								}
+							]
 						},
 						{
 							"eventType": "block",
