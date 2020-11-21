@@ -841,6 +841,7 @@
 					"id": "subtract-from-instvar",
 					"objectClass": "Tableau",
 					"sid": 115944242242691,
+					"disabled": true,
 					"parameters": {
 						"instance-variable": "NumberOfCards",
 						"value": "1"
@@ -850,6 +851,7 @@
 					"id": "set-height",
 					"objectClass": "Tableau",
 					"sid": 219692607345549,
+					"disabled": true,
 					"parameters": {
 						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
 					}
@@ -1089,6 +1091,23 @@
 						"instance-variable": "TopCardValue",
 						"value": "Card.Value"
 					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Tableau",
+					"sid": 461638038721419,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "Tableau",
+					"sid": 699637836662623,
+					"parameters": {
+						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
+					}
 				}
 			],
 			"sid": 452598518690653,
@@ -1106,26 +1125,9 @@
 							"isInverted": true
 						}
 					],
-					"actions": [
-						{
-							"id": "add-to-instvar",
-							"objectClass": "Tableau",
-							"sid": 144935698309446,
-							"parameters": {
-								"instance-variable": "NumberOfCards",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-height",
-							"objectClass": "Tableau",
-							"sid": 785650381244603,
-							"parameters": {
-								"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-							}
-						}
-					],
-					"sid": 618421156418638
+					"actions": [],
+					"sid": 618421156418638,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
