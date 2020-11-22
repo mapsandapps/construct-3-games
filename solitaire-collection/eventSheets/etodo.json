@@ -51,6 +51,10 @@
 				{
 					"eventType": "comment",
 					"text": "let the player know when there are \"no valid moves remaining\""
+				},
+				{
+					"eventType": "comment",
+					"text": "ART: buttons going down the side would be preferable for layouts with fanned tableaus"
 				}
 			],
 			"sid": 924943169711307
@@ -61,7 +65,12 @@
 			"title": "Feature: Nice to Have",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "stats"
+				}
+			],
 			"sid": 815929028811340
 		},
 		{
@@ -84,12 +93,7 @@
 			"title": "Next Up",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "implement undo functionality for multi-drag"
-				}
-			],
+			"children": [],
 			"sid": 797793260912188
 		}
 	],

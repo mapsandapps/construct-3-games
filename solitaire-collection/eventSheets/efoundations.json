@@ -49,6 +49,80 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 362118815305053,
+							"parameters": {
+								"unique-id": "Card.TableauUID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 291168116316175,
+							"parameters": {
+								"instance-variable": "IndexInTableau",
+								"comparison": 1,
+								"value": "Tableau.NumberOfCards - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 650683150479756,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 997583441229400,
+					"disabled": true
+				},
+				{
+					"eventType": "comment",
+					"text": "if _any_ card is pinned, this card is not the southernmost in its tableau, and therefore should not be able to move to the foundation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 938501964598428,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-pinned",
+							"objectClass": "Card",
+							"sid": 732297131215838,
+							"behaviorType": "Pin"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 429147586459159,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 114936569318227
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 363829511613349
+						},
+						{
 							"id": "is-enabled",
 							"objectClass": "Card",
 							"sid": 272935332418965,
