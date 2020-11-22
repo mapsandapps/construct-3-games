@@ -41,33 +41,23 @@
 			"children": [
 				{
 					"eventType": "variable",
-					"name": "CardUID",
+					"name": "NumberOfMovesToUndo",
 					"type": "number",
-					"initialValue": "-1",
+					"initialValue": "1",
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
-					"sid": 393063787280293
+					"sid": 502782142045550
 				},
 				{
 					"eventType": "variable",
-					"name": "FromType",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 226585203836869
-				},
-				{
-					"eventType": "variable",
-					"name": "FromUID",
+					"name": "CheckingIndexOfUndoArray",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
-					"sid": 681657479666601
+					"sid": 978151244626748
 				},
 				{
 					"eventType": "block",
@@ -76,40 +66,155 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 754758727379751,
+							"sid": 272594699026132,
 							"parameters": {
-								"variable": "CardUID",
-								"value": "UndoArray.At(UndoArray.Width - 1, 0)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 907843820604539,
-							"parameters": {
-								"variable": "FromType",
-								"value": "UndoArray.At(UndoArray.Width - 1, 1)"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 871831049799866,
-							"parameters": {
-								"variable": "FromUID",
-								"value": "UndoArray.At(UndoArray.Width - 1, 2)"
+								"variable": "CheckingIndexOfUndoArray",
+								"value": "UndoArray.Width - 1"
 							}
 						}
 					],
-					"sid": 531304894696559
+					"sid": 826033519223743
 				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "while",
+							"objectClass": "System",
+							"sid": 715545127397707
+						},
+						{
+							"id": "compare-at-xy",
+							"objectClass": "UndoArray",
+							"sid": 683798916414800,
+							"parameters": {
+								"x": "CheckingIndexOfUndoArray",
+								"y": "3",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 471619142020640,
+							"parameters": {
+								"variable": "NumberOfMovesToUndo",
+								"value": "1"
+							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 114124012403086,
+							"parameters": {
+								"variable": "CheckingIndexOfUndoArray",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 333244091352708
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 305931092822174,
+							"parameters": {
+								"count": "NumberOfMovesToUndo"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Undo",
+							"sid": 725162580789513,
+							"parameters": [
+								"UndoArray.At(CheckingIndexOfUndoArray, 0)",
+								"UndoArray.At(CheckingIndexOfUndoArray, 1)",
+								"UndoArray.At(CheckingIndexOfUndoArray, 2)",
+								"UndoArray.At(CheckingIndexOfUndoArray, 3)",
+								"CheckingIndexOfUndoArray"
+							]
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 447125611498483,
+							"parameters": {
+								"type": "log",
+								"message": "\"Undoing \" & NumberOfMovesToUndo & \" moves\""
+							}
+						}
+					],
+					"sid": 393062363522865
+				}
+			]
+		},
+		{
+			"functionName": "Undo",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 351903265818138
+				},
+				{
+					"name": "FromType",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 903778362252521
+				},
+				{
+					"name": "FromUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 987326380478932
+				},
+				{
+					"name": "Pinned",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 943883155849349
+				},
+				{
+					"name": "IndexInUndoArray",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 173750517298321
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "can recurse"
+				}
+			],
+			"sid": 293547819675673,
+			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 554080240418166,
+							"sid": 156703413786887,
 							"parameters": {
 								"variable": "CardUID",
 								"comparison": 4,
@@ -120,7 +225,7 @@
 					"actions": [
 						{
 							"callFunction": "ReturnCardToLastPosition",
-							"sid": 469608448741369,
+							"sid": 860462677532888,
 							"parameters": [
 								"CardUID",
 								"FromType",
@@ -129,7 +234,7 @@
 							]
 						}
 					],
-					"sid": 566638339495638
+					"sid": 480760542446971
 				},
 				{
 					"eventType": "block",
@@ -137,7 +242,7 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 645159203822701,
+							"sid": 560162807481236,
 							"parameters": {
 								"variable": "FromType",
 								"comparison": 0,
@@ -147,7 +252,7 @@
 						{
 							"id": "pick-by-unique-id",
 							"objectClass": "Stock",
-							"sid": 715742857300960,
+							"sid": 461671909668474,
 							"parameters": {
 								"unique-id": "FromUID"
 							}
@@ -157,14 +262,14 @@
 						{
 							"id": "add-to-instvar",
 							"objectClass": "Stock",
-							"sid": 646925347541372,
+							"sid": 548533662582841,
 							"parameters": {
 								"instance-variable": "FlipsRemaining",
 								"value": "1"
 							}
 						}
 					],
-					"sid": 305305729396155,
+					"sid": 574683466596464,
 					"children": [
 						{
 							"eventType": "block",
@@ -172,7 +277,7 @@
 								{
 									"id": "pick-all",
 									"objectClass": "System",
-									"sid": 902230207204702,
+									"sid": 934830210528998,
 									"parameters": {
 										"object": "Card"
 									}
@@ -180,7 +285,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Card",
-									"sid": 687383179332276,
+									"sid": 961303337949275,
 									"parameters": {
 										"object": "Stock"
 									}
@@ -188,7 +293,7 @@
 								{
 									"id": "for-each-ordered",
 									"objectClass": "System",
-									"sid": 919084640142008,
+									"sid": 679173676550018,
 									"parameters": {
 										"object": "Card",
 										"expression": "Card.ZIndex",
@@ -200,7 +305,7 @@
 								{
 									"id": "set-position",
 									"objectClass": "Card",
-									"sid": 384214481763858,
+									"sid": 899562076478319,
 									"parameters": {
 										"x": "Discard.X",
 										"y": "Discard.Y"
@@ -209,12 +314,12 @@
 								{
 									"id": "move-to-top",
 									"objectClass": "Card",
-									"sid": 139045090272689
+									"sid": 896946251037956
 								},
 								{
 									"id": "set-animation",
 									"objectClass": "Card",
-									"sid": 162073788708316,
+									"sid": 388905114793008,
 									"parameters": {
 										"animation": "DECK_ART",
 										"from": "beginning"
@@ -223,7 +328,7 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "Card",
-									"sid": 733218477221956,
+									"sid": 618504381866250,
 									"parameters": {
 										"frame-number": "Card.Frame"
 									}
@@ -231,14 +336,14 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "Card",
-									"sid": 518844851398129,
+									"sid": 228168415555680,
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "enabled"
 									}
 								}
 							],
-							"sid": 913881820344031
+							"sid": 542305859689177
 						}
 					]
 				},
@@ -247,16 +352,45 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "pop",
+							"id": "delete",
 							"objectClass": "UndoArray",
-							"sid": 477159171569524,
+							"sid": 743592390533913,
 							"parameters": {
-								"where": "back",
+								"index": "IndexInUndoArray",
 								"axis": "x"
 							}
 						}
 					],
-					"sid": 951167902352569
+					"sid": 657687260267705
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 264591139338421,
+							"parameters": {
+								"variable": "Pinned",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Undo",
+							"sid": 790114723157687,
+							"parameters": [
+								"UndoArray.At(UndoArray.Width - 1, 0)",
+								"UndoArray.At(UndoArray.Width - 1, 1)",
+								"UndoArray.At(UndoArray.Width - 1, 2)",
+								"UndoArray.At(UndoArray.Width - 1, 3)",
+								"0"
+							]
+						}
+					],
+					"sid": 425851448364601
 				}
 			]
 		},
@@ -356,11 +490,22 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 618784523508909
+				},
+				{
+					"name": "Pinned",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 713803634484874
 				}
 			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
+				{
+					"type": "comment",
+					"text": "pinned: part (but not the first card) of a multi-card move"
+				},
 				{
 					"id": "push",
 					"objectClass": "UndoArray",
@@ -389,6 +534,16 @@
 						"x": "UndoArray.Width - 1",
 						"y": "2",
 						"value": "FromUID"
+					}
+				},
+				{
+					"id": "set-at-xy",
+					"objectClass": "UndoArray",
+					"sid": 213962144936782,
+					"parameters": {
+						"x": "UndoArray.Width - 1",
+						"y": "3",
+						"value": "Pinned"
 					}
 				}
 			],
@@ -592,6 +747,23 @@
 										"Card.UID",
 										"Tableau.UID"
 									]
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Tableau",
+									"sid": 992629280991174,
+									"parameters": {
+										"instance-variable": "NumberOfCards",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-height",
+									"objectClass": "Tableau",
+									"sid": 397643296420085,
+									"parameters": {
+										"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
+									}
 								}
 							],
 							"sid": 466037712005926
@@ -812,8 +984,7 @@
 									"sid": 306758218746588,
 									"parameters": [
 										"Card.UID",
-										"Tableau.UID",
-										true
+										"Tableau.UID"
 									]
 								}
 							],
@@ -834,8 +1005,7 @@
 									"sid": 427282543166415,
 									"parameters": [
 										"Card.UID",
-										"Tableau.UID",
-										false
+										"Tableau.UID"
 									]
 								}
 							],

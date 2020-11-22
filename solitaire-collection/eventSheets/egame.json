@@ -692,7 +692,8 @@
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
-										"CurrentCardFromStackUID"
+										"CurrentCardFromStackUID",
+										"0"
 									]
 								},
 								{
@@ -768,7 +769,8 @@
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
-										"CurrentCardFromStackUID"
+										"CurrentCardFromStackUID",
+										"0"
 									]
 								},
 								{
@@ -822,11 +824,12 @@
 									"actions": [
 										{
 											"callFunction": "PushToUndoArray",
-											"sid": 798577268520647,
+											"sid": 298493558869313,
 											"parameters": [
 												"Card.UID",
 												"CurrentCardFromStackType",
-												"CurrentCardFromStackUID"
+												"CurrentCardFromStackUID",
+												"1"
 											]
 										},
 										{
@@ -1010,7 +1013,8 @@
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
-										"CurrentCardFromStackUID"
+										"CurrentCardFromStackUID",
+										"0"
 									]
 								},
 								{
@@ -1057,7 +1061,8 @@
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
-										"CurrentCardFromStackUID"
+										"CurrentCardFromStackUID",
+										"0"
 									]
 								},
 								{
@@ -1102,11 +1107,12 @@
 									"actions": [
 										{
 											"callFunction": "PushToUndoArray",
-											"sid": 405897437353568,
+											"sid": 746243694533626,
 											"parameters": [
 												"Card.UID",
 												"CurrentCardFromStackType",
-												"CurrentCardFromStackUID"
+												"CurrentCardFromStackUID",
+												"1"
 											]
 										},
 										{
