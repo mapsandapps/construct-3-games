@@ -840,6 +840,16 @@
 			"sid": 991938819055046,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "CardIndexInTableau",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 637327096177299
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -852,6 +862,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 449628325601042,
+							"parameters": {
+								"variable": "CardIndexInTableau",
+								"value": "Card.IndexInTableau"
+							}
+						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
@@ -979,6 +998,103 @@
 						}
 					],
 					"sid": 642570947508826
+				},
+				{
+					"eventType": "comment",
+					"text": "take the card north of the one being moved, and flip it face-up if it's currently face-down"
+				},
+				{
+					"eventType": "comment",
+					"text": "TODO: add undo functionality for this"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 127345321071545,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 676437249400714,
+							"parameters": {
+								"instance-variable": "TableauUID",
+								"comparison": 0,
+								"value": "Tableau.UID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 524098883542501,
+							"parameters": {
+								"instance-variable": "IndexInTableau",
+								"comparison": 0,
+								"value": "CardIndexInTableau - 1"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Card",
+							"sid": 449064864826213,
+							"parameters": {
+								"animation": "DECK_ART & \"Backs\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 821216641515478,
+							"parameters": {
+								"animation": "DECK_ART",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 631752068600366,
+							"parameters": {
+								"frame-number": "Card.Frame"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 837311134179948,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 933781920987440,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"callFunction": "PushToUndoArray",
+							"sid": 259609013906011,
+							"parameters": [
+								"-1",
+								"\"FlipSouthCardInTableau\"",
+								"Tableau.UID",
+								"0"
+							]
+						}
+					],
+					"sid": 966306916460411
 				},
 				{
 					"eventType": "block",
@@ -1459,155 +1575,176 @@
 					"sid": 447727692893819,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "if it's face-down, it's not movable"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-all",
-									"objectClass": "System",
-									"sid": 726059201630638,
-									"parameters": {
-										"object": "Card"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
+									"id": "is-animation-playing",
 									"objectClass": "Card",
-									"sid": 131049710119809,
+									"sid": 919958221569856,
 									"parameters": {
-										"instance-variable": "IndexInTableau",
-										"comparison": 0,
-										"value": "CardIndexInTableau + 1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 373366522190703,
-									"parameters": {
-										"instance-variable": "TableauUID",
-										"comparison": 0,
-										"value": "TableauUID"
+										"animation": "DECK_ART"
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 424556161676508,
-									"parameters": {
-										"variable": "SouthCardColor",
-										"value": "Card.Color"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 737246281260113,
-									"parameters": {
-										"variable": "SouthCardSuit",
-										"value": "Card.Suit"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 941866712876233,
-									"parameters": {
-										"variable": "SouthCardUID",
-										"value": "Card.UID"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 871791312800939,
-									"parameters": {
-										"variable": "SouthCardValue",
-										"value": "Card.Value"
-									}
-								}
-							],
-							"sid": 921713731822488,
+							"actions": [],
+							"sid": 499241781014200,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
+											"id": "pick-all",
 											"objectClass": "System",
-											"sid": 640474419996405,
+											"sid": 533424634715987,
 											"parameters": {
-												"first-value": "Functions.CalculateCanCardMoveToTableau(SouthCardColor, SouthCardSuit, SouthCardValue, NorthCardColor, NorthCardSuit, NorthCardValue)",
+												"object": "Card"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 117838128652062,
+											"parameters": {
+												"instance-variable": "IndexInTableau",
 												"comparison": 0,
-												"second-value": "1"
+												"value": "CardIndexInTableau + 1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 831214840273685,
+											"parameters": {
+												"instance-variable": "TableauUID",
+												"comparison": 0,
+												"value": "TableauUID"
 											}
 										}
 									],
-									"actions": [],
-									"sid": 506226823706038,
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 226114210195644,
+											"parameters": {
+												"variable": "SouthCardColor",
+												"value": "Card.Color"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 220042761941324,
+											"parameters": {
+												"variable": "SouthCardSuit",
+												"value": "Card.Suit"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 222041777919767,
+											"parameters": {
+												"variable": "SouthCardUID",
+												"value": "Card.UID"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 724715250693273,
+											"parameters": {
+												"variable": "SouthCardValue",
+												"value": "Card.Value"
+											}
+										}
+									],
+									"sid": 149794909988604,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "pick-all",
+													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 314075393183960,
+													"sid": 901499785660913,
 													"parameters": {
-														"object": "Card"
-													}
-												},
-												{
-													"id": "pick-by-unique-id",
-													"objectClass": "Card",
-													"sid": 130852762856485,
-													"parameters": {
-														"unique-id": "NorthCardUID"
+														"first-value": "Functions.CalculateCanCardMoveToTableau(SouthCardColor, SouthCardSuit, SouthCardValue, NorthCardColor, NorthCardSuit, NorthCardValue)",
+														"comparison": 0,
+														"second-value": "1"
 													}
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 545803581857357,
+											"children": [
 												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Card",
-													"sid": 356528830187910,
-													"parameters": {
-														"instance-variable": "IsMovable",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Card",
-													"sid": 922742790926049,
-													"behaviorType": "DragDrop",
-													"parameters": {
-														"state": "enabled"
-													}
-												},
-												{
-													"id": "set-default-color",
-													"objectClass": "Card",
-													"sid": 313886965752686,
-													"parameters": {
-														"color": "rgbEx255(255, 255, 255)"
-													}
-												},
-												{
-													"type": "comment",
-													"text": "recurse to see if the card north of this should also be set to movable"
-												},
-												{
-													"callFunction": "CalculateMovableCardInTableau",
-													"sid": 650701697836216,
-													"parameters": [
-														"CardIndexInTableau - 1",
-														"TableauUID"
-													]
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-all",
+															"objectClass": "System",
+															"sid": 695619849958107,
+															"parameters": {
+																"object": "Card"
+															}
+														},
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "Card",
+															"sid": 859529383482668,
+															"parameters": {
+																"unique-id": "NorthCardUID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Card",
+															"sid": 798632095894045,
+															"parameters": {
+																"instance-variable": "IsMovable",
+																"value": "true"
+															}
+														},
+														{
+															"id": "set-enabled",
+															"objectClass": "Card",
+															"sid": 156044586673358,
+															"behaviorType": "DragDrop",
+															"parameters": {
+																"state": "enabled"
+															}
+														},
+														{
+															"id": "set-default-color",
+															"objectClass": "Card",
+															"sid": 947896215919665,
+															"parameters": {
+																"color": "rgbEx255(255, 255, 255)"
+															}
+														},
+														{
+															"type": "comment",
+															"text": "recurse to see if the card north of this should also be set to movable"
+														},
+														{
+															"callFunction": "CalculateMovableCardInTableau",
+															"sid": 788643866299933,
+															"parameters": [
+																"CardIndexInTableau - 1",
+																"TableauUID"
+															]
+														}
+													],
+													"sid": 438672117172092
 												}
-											],
-											"sid": 457382531760368
+											]
 										}
 									]
 								}

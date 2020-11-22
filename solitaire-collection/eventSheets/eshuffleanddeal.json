@@ -507,9 +507,18 @@
 					]
 				},
 				{
+					"id": "set-position",
+					"objectClass": "Card",
+					"sid": 409630178330453,
+					"parameters": {
+						"x": "Discard.X",
+						"y": "Discard.Y"
+					}
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "Card",
-					"sid": 856851757932792,
+					"sid": 859247295893607,
 					"parameters": {
 						"animation": "DECK_ART",
 						"from": "current-frame"
@@ -518,18 +527,9 @@
 				{
 					"id": "set-animation-frame",
 					"objectClass": "Card",
-					"sid": 792625761629461,
+					"sid": 825145971128084,
 					"parameters": {
 						"frame-number": "Card.Frame"
-					}
-				},
-				{
-					"id": "set-position",
-					"objectClass": "Card",
-					"sid": 409630178330453,
-					"parameters": {
-						"x": "Discard.X",
-						"y": "Discard.Y"
 					}
 				},
 				{
@@ -549,12 +549,6 @@
 						"instance-variable": "IsMovable",
 						"value": "true"
 					}
-				},
-				{
-					"id": "move-to-top",
-					"objectClass": "Card",
-					"sid": 692685589789792,
-					"disabled": true
 				},
 				{
 					"callFunction": "PushToUndoArray",
@@ -653,12 +647,6 @@
 							}
 						},
 						{
-							"id": "move-to-top",
-							"objectClass": "Card",
-							"sid": 405544520585627,
-							"disabled": true
-						},
-						{
 							"callFunction": "MoveCardToTableau",
 							"sid": 153391451297082,
 							"parameters": [
@@ -667,7 +655,82 @@
 							]
 						}
 					],
-					"sid": 981129494906486
+					"sid": 981129494906486,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 602498405637865,
+									"parameters": {
+										"variable": "DEAL_FACE_DOWN"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 198825034782008,
+									"parameters": {
+										"animation": "DECK_ART & \"Backs\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 185127966201246,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Card",
+									"sid": 565319263910434,
+									"parameters": {
+										"instance-variable": "IsMovable",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 318478785179023
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 208919470909857
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 117752378915587,
+									"parameters": {
+										"animation": "DECK_ART",
+										"from": "current-frame"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Card",
+									"sid": 944105789332829,
+									"parameters": {
+										"frame-number": "Card.Frame"
+									}
+								}
+							],
+							"sid": 894149313009758
+						}
+					]
 				}
 			]
 		},
@@ -720,6 +783,94 @@
 						}
 					],
 					"sid": 239010652623682
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 711714138876052,
+							"parameters": {
+								"variable": "DEAL_LAST_CARD_FACE_UP"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 789606992674763,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 322270832848758,
+									"parameters": {
+										"object": "Tableau"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 669108323950331,
+									"parameters": {
+										"instance-variable": "TableauUID",
+										"comparison": 0,
+										"value": "Tableau.UID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 298099537822249,
+									"parameters": {
+										"instance-variable": "IndexInTableau",
+										"comparison": 0,
+										"value": "Tableau.NumberOfCards - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Card",
+									"sid": 545988817586495,
+									"parameters": {
+										"instance-variable": "IsMovable",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 411552958252568,
+									"parameters": {
+										"animation": "DECK_ART",
+										"from": "current-frame"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Card",
+									"sid": 205351337509005,
+									"parameters": {
+										"frame-number": "Card.Frame"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 195872920002647,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 794205893420541
+						}
+					]
 				}
 			]
 		}

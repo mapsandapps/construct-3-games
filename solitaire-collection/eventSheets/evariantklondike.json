@@ -46,7 +46,25 @@
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 354437883619439,
+					"sid": 611892983956706,
+					"parameters": {
+						"variable": "DEAL_FACE_DOWN",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 386732802470831,
+					"parameters": {
+						"variable": "DEAL_LAST_CARD_FACE_UP",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 709175740513917,
 					"parameters": {
 						"variable": "TABLEAUS_ALTERNATE_COLOR",
 						"value": "true"

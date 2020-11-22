@@ -429,6 +429,110 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
+							"sid": 905220410351355,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"FlipSouthCardInTableau\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 401084092592336,
+							"parameters": {
+								"unique-id": "FromUID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 484568300568754,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 149218128630869,
+									"parameters": {
+										"instance-variable": "TableauUID",
+										"comparison": 0,
+										"value": "FromUID"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 873694492710872,
+									"parameters": {
+										"instance-variable": "IndexInTableau",
+										"comparison": 0,
+										"value": "Tableau.NumberOfCards - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 633844678028829,
+									"parameters": {
+										"animation": "DECK_ART & \"Backs\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Card",
+									"sid": 631371983733529,
+									"parameters": {
+										"instance-variable": "IsMovable",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 198224876369310,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 841512812506591
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "so far, we have only flipped the card. recurse to actually move a card on top of the flipped card"
+								},
+								{
+									"callFunction": "Undo",
+									"sid": 291701579313636,
+									"parameters": [
+										"UndoArray.At(UndoArray.Width - 1, 0)",
+										"UndoArray.At(UndoArray.Width - 1, 1)",
+										"UndoArray.At(UndoArray.Width - 1, 2)",
+										"UndoArray.At(UndoArray.Width - 1, 3)",
+										"UndoArray.Width - 1"
+									]
+								}
+							],
+							"sid": 151653555136377
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
 							"sid": 264591139338421,
 							"parameters": {
 								"variable": "Pinned",

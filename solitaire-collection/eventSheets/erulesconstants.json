@@ -33,6 +33,26 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "DEAL_FACE_DOWN",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 738682764643154
+		},
+		{
+			"eventType": "variable",
+			"name": "DEAL_LAST_CARD_FACE_UP",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 568600654808536
+		},
+		{
+			"eventType": "variable",
 			"name": "DECK_ART",
 			"type": "string",
 			"initialValue": "Shapes",

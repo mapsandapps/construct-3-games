@@ -7,7 +7,12 @@
 			"title": "Bugs",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "BUG: undoing multi-card move is broken"
+				}
+			],
 			"sid": 392508065587170
 		},
 		{
@@ -17,10 +22,6 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "comment",
-					"text": "win condition"
-				},
 				{
 					"eventType": "comment",
 					"text": "ART: tableaus, stock, etc. for each deck (maybe different foundations too)"
@@ -88,7 +89,12 @@
 			"title": "Next Up",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "win condition"
+				}
+			],
 			"sid": 797793260912188
 		}
 	],
