@@ -79,6 +79,10 @@
 				{
 					"eventType": "comment",
 					"text": "can probably remove isCardMovable boolean since it should always have the same value as drag&drop enabled?"
+				},
+				{
+					"eventType": "comment",
+					"text": "try to move PushToUndoArray calls inside MoveToX functions"
 				}
 			],
 			"sid": 182841674010141

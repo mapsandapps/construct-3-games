@@ -274,6 +274,16 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
+							"sid": 328559878739208,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 1,
+								"value": "\"FlipCard\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
 							"sid": 156703413786887,
 							"parameters": {
 								"variable": "CardUID",
@@ -429,19 +439,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 905220410351355,
+							"sid": 165899714692134,
 							"parameters": {
 								"variable": "FromType",
 								"comparison": 0,
-								"value": "\"FlipSouthCardInTableau\""
-							}
-						},
-						{
-							"id": "pick-by-unique-id",
-							"objectClass": "Tableau",
-							"sid": 401084092592336,
-							"parameters": {
-								"unique-id": "FromUID"
+								"value": "\"FlipCard\""
 							}
 						}
 					],
@@ -452,23 +454,11 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
+									"id": "pick-by-unique-id",
 									"objectClass": "Card",
-									"sid": 149218128630869,
+									"sid": 579320408143616,
 									"parameters": {
-										"instance-variable": "TableauUID",
-										"comparison": 0,
-										"value": "FromUID"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Card",
-									"sid": 873694492710872,
-									"parameters": {
-										"instance-variable": "IndexInTableau",
-										"comparison": 0,
-										"value": "Tableau.NumberOfCards - 1"
+										"unique-id": "CardUID"
 									}
 								}
 							],
@@ -554,7 +544,8 @@
 							]
 						}
 					],
-					"sid": 425851448364601
+					"sid": 425851448364601,
+					"disabled": true
 				}
 			]
 		},

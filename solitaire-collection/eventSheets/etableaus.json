@@ -1004,10 +1004,6 @@
 					"text": "take the card north of the one being moved, and flip it face-up if it's currently face-down"
 				},
 				{
-					"eventType": "comment",
-					"text": "TODO: add undo functionality for this"
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1085,10 +1081,10 @@
 						},
 						{
 							"callFunction": "PushToUndoArray",
-							"sid": 259609013906011,
+							"sid": 601097039458554,
 							"parameters": [
-								"-1",
-								"\"FlipSouthCardInTableau\"",
+								"Card.UID",
+								"\"FlipCard\"",
 								"Tableau.UID",
 								"0"
 							]
