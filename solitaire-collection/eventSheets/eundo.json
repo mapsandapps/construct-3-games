@@ -105,8 +105,25 @@
 					}
 				}
 			],
+			"actions": [
+				{
+					"callFunction": "Undo",
+					"sid": 227647027632775
+				}
+			],
+			"sid": 572230848063015
+		},
+		{
+			"functionName": "Undo",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [],
-			"sid": 572230848063015,
+			"sid": 955424412037964,
 			"children": [
 				{
 					"eventType": "variable",
@@ -116,7 +133,7 @@
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
-					"sid": 502782142045550
+					"sid": 346826907957143
 				},
 				{
 					"eventType": "variable",
@@ -126,7 +143,7 @@
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
-					"sid": 978151244626748
+					"sid": 182126824309567
 				},
 				{
 					"eventType": "block",
@@ -135,14 +152,14 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 272594699026132,
+							"sid": 584433420595203,
 							"parameters": {
 								"variable": "CheckingIndexOfUndoArray",
 								"value": "UndoArray.Width - 1"
 							}
 						}
 					],
-					"sid": 826033519223743
+					"sid": 501978853841282
 				},
 				{
 					"eventType": "block",
@@ -150,12 +167,12 @@
 						{
 							"id": "while",
 							"objectClass": "System",
-							"sid": 715545127397707
+							"sid": 185419647156991
 						},
 						{
 							"id": "compare-at-xy",
 							"objectClass": "UndoArray",
-							"sid": 683798916414800,
+							"sid": 362096709363839,
 							"parameters": {
 								"x": "CheckingIndexOfUndoArray",
 								"y": "3",
@@ -168,7 +185,7 @@
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 471619142020640,
+							"sid": 839389779149544,
 							"parameters": {
 								"variable": "NumberOfMovesToUndo",
 								"value": "1"
@@ -177,14 +194,14 @@
 						{
 							"id": "subtract-from-eventvar",
 							"objectClass": "System",
-							"sid": 114124012403086,
+							"sid": 519448097763415,
 							"parameters": {
 								"variable": "CheckingIndexOfUndoArray",
 								"value": "1"
 							}
 						}
 					],
-					"sid": 333244091352708
+					"sid": 255855356563574
 				},
 				{
 					"eventType": "block",
@@ -192,7 +209,7 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 305931092822174,
+							"sid": 334970953283007,
 							"parameters": {
 								"count": "NumberOfMovesToUndo"
 							}
@@ -200,8 +217,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "Undo",
-							"sid": 725162580789513,
+							"callFunction": "UndoMove",
+							"sid": 999406517431600,
 							"parameters": [
 								"UndoArray.At(CheckingIndexOfUndoArray, 0)",
 								"UndoArray.At(CheckingIndexOfUndoArray, 1)",
@@ -211,12 +228,12 @@
 							]
 						}
 					],
-					"sid": 393062363522865
+					"sid": 999829221617759
 				}
 			]
 		},
 		{
-			"functionName": "Undo",
+			"functionName": "UndoMove",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
@@ -503,49 +520,12 @@
 								},
 								{
 									"callFunction": "Undo",
-									"sid": 291701579313636,
-									"parameters": [
-										"UndoArray.At(UndoArray.Width - 1, 0)",
-										"UndoArray.At(UndoArray.Width - 1, 1)",
-										"UndoArray.At(UndoArray.Width - 1, 2)",
-										"UndoArray.At(UndoArray.Width - 1, 3)",
-										"UndoArray.Width - 1"
-									]
+									"sid": 605720290669703
 								}
 							],
 							"sid": 151653555136377
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 264591139338421,
-							"parameters": {
-								"variable": "Pinned",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Undo",
-							"sid": 790114723157687,
-							"parameters": [
-								"UndoArray.At(UndoArray.Width - 1, 0)",
-								"UndoArray.At(UndoArray.Width - 1, 1)",
-								"UndoArray.At(UndoArray.Width - 1, 2)",
-								"UndoArray.At(UndoArray.Width - 1, 3)",
-								"0"
-							]
-						}
-					],
-					"sid": 425851448364601,
-					"disabled": true
 				}
 			]
 		},

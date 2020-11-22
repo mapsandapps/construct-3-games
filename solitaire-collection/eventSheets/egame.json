@@ -689,7 +689,34 @@
 									}
 								}
 							],
-							"sid": 447998323123512
+							"sid": 447998323123512,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 827894998494420,
+											"parameters": {
+												"variable": "CurrentCardFromStackType",
+												"comparison": 0,
+												"value": "\"Tableau\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "FlipSouthmostCardFaceUp",
+											"sid": 927583170841998,
+											"parameters": [
+												"CurrentCardFromStackUID"
+											]
+										}
+									],
+									"sid": 707406553119311
+								}
+							]
 						}
 					]
 				},
@@ -822,6 +849,31 @@
 										}
 									],
 									"sid": 571542269577042
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 531558145876177,
+											"parameters": {
+												"variable": "CurrentCardFromStackType",
+												"comparison": 0,
+												"value": "\"Tableau\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "FlipSouthmostCardFaceUp",
+											"sid": 564231842679875,
+											"parameters": [
+												"CurrentCardFromStackUID"
+											]
+										}
+									],
+									"sid": 915942023209342
 								}
 							]
 						}
@@ -1001,7 +1053,34 @@
 									]
 								}
 							],
-							"sid": 686930979032145
+							"sid": 686930979032145,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 688444019496030,
+											"parameters": {
+												"variable": "CurrentCardFromStackType",
+												"comparison": 0,
+												"value": "\"Tableau\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "FlipSouthmostCardFaceUp",
+											"sid": 671171653057269,
+											"parameters": [
+												"CurrentCardFromStackUID"
+											]
+										}
+									],
+									"sid": 485364325183072
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -1105,6 +1184,31 @@
 										}
 									],
 									"sid": 984303362564527
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 734731407142750,
+											"parameters": {
+												"variable": "CurrentCardFromStackType",
+												"comparison": 0,
+												"value": "\"Tableau\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "FlipSouthmostCardFaceUp",
+											"sid": 275672964592065,
+											"parameters": [
+												"CurrentCardFromStackUID"
+											]
+										}
+									],
+									"sid": 239860933879393
 								}
 							]
 						},

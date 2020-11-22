@@ -1000,10 +1000,6 @@
 					"sid": 642570947508826
 				},
 				{
-					"eventType": "comment",
-					"text": "take the card north of the one being moved, and flip it face-up if it's currently face-down"
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1090,7 +1086,8 @@
 							]
 						}
 					],
-					"sid": 966306916460411
+					"sid": 966306916460411,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1105,6 +1102,125 @@
 						}
 					],
 					"sid": 979133508457039
+				}
+			]
+		},
+		{
+			"functionName": "FlipSouthmostCardFaceUp",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "TableauUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 285043244790249
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Tableau",
+					"sid": 117321147469507,
+					"parameters": {
+						"unique-id": "TableauUID"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Card",
+					"sid": 902950318908582,
+					"parameters": {
+						"instance-variable": "TableauUID",
+						"comparison": 0,
+						"value": "TableauUID"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Card",
+					"sid": 821724701083222,
+					"parameters": {
+						"instance-variable": "IndexInTableau",
+						"comparison": 0,
+						"value": "Tableau.NumberOfCards - 1"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "Card",
+					"sid": 502809564822313,
+					"parameters": {
+						"animation": "DECK_ART & \"Backs\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Card",
+					"sid": 151386351516889,
+					"parameters": {
+						"animation": "DECK_ART",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Card",
+					"sid": 652235257551721,
+					"parameters": {
+						"frame-number": "Card.Frame"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Card",
+					"sid": 795621365404611,
+					"parameters": {
+						"instance-variable": "IsMovable",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 652709744234017,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"callFunction": "PushToUndoArray",
+					"sid": 287183528529371,
+					"parameters": [
+						"Card.UID",
+						"\"FlipCard\"",
+						"Tableau.UID",
+						"0"
+					]
+				}
+			],
+			"sid": 420849917139351,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "CalculateMovableCardsInTableau",
+							"sid": 137564244144574,
+							"parameters": [
+								"TableauUID"
+							]
+						}
+					],
+					"sid": 991916112432367
 				}
 			]
 		},
