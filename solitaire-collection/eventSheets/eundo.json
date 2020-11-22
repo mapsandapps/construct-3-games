@@ -5,6 +5,75 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "compare-size",
+					"objectClass": "UndoArray",
+					"sid": 967303895906615,
+					"parameters": {
+						"axis": "x",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 282736449911986,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Undo\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "TopBarButton",
+					"sid": 116086896191446,
+					"parameters": {
+						"animation": "\"Inactive\"",
+						"from": "current-frame"
+					}
+				}
+			],
+			"sid": 757312960592671
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 919421609951220
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 356290280597775,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Undo\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "TopBarButton",
+					"sid": 504224401538117,
+					"parameters": {
+						"animation": "\"Active\"",
+						"from": "current-frame"
+					}
+				}
+			],
+			"sid": 524919923979359
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-any-touch-end",
 					"objectClass": "Touch",
 					"sid": 774389830518389
@@ -140,15 +209,6 @@
 								"UndoArray.At(CheckingIndexOfUndoArray, 3)",
 								"CheckingIndexOfUndoArray"
 							]
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 447125611498483,
-							"parameters": {
-								"type": "log",
-								"message": "\"Undoing \" & NumberOfMovesToUndo & \" moves\""
-							}
 						}
 					],
 					"sid": 393062363522865
@@ -393,75 +453,6 @@
 					"sid": 425851448364601
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-size",
-					"objectClass": "UndoArray",
-					"sid": 926349710520765,
-					"parameters": {
-						"axis": "x",
-						"comparison": 0,
-						"value": "0"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "TopBarButton",
-					"sid": 809137101382936,
-					"parameters": {
-						"instance-variable": "Name",
-						"comparison": 0,
-						"value": "\"Undo\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "TopBarButton",
-					"sid": 863628088087359,
-					"parameters": {
-						"animation": "\"Inactive\"",
-						"from": "current-frame"
-					}
-				}
-			],
-			"sid": 752739307022525
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 179068361355151
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "TopBarButton",
-					"sid": 523809865623398,
-					"parameters": {
-						"instance-variable": "Name",
-						"comparison": 0,
-						"value": "\"Undo\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "TopBarButton",
-					"sid": 432273467306524,
-					"parameters": {
-						"animation": "\"Active\"",
-						"from": "current-frame"
-					}
-				}
-			],
-			"sid": 764194001158981
 		},
 		{
 			"functionName": "PushToUndoArray",

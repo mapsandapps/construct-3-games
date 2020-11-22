@@ -12,6 +12,17 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 661187622143080,
+					"parameters": {
+						"object-to-create": "Drag",
+						"layer": "\"Debug\"",
+						"x": "0",
+						"y": "0"
+					}
+				},
+				{
 					"id": "load",
 					"objectClass": "CardDeck",
 					"sid": 809377016623710,
@@ -207,6 +218,42 @@
 							"parameters": {
 								"instance-variable": "Suit",
 								"value": "CardDeck.At(PickIndex, 2)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 732284282980297,
+							"parameters": {
+								"instance-variable": "IndexInFoundation",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 278479799239311,
+							"parameters": {
+								"instance-variable": "FoundationUID",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 574975462487495,
+							"parameters": {
+								"instance-variable": "TableauUID",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 854478734443264,
+							"parameters": {
+								"instance-variable": "IndexInTableau",
+								"value": "-1"
 							}
 						},
 						{

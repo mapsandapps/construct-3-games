@@ -319,55 +319,19 @@
 					"behaviorType": "DragDrop"
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Drag",
+					"sid": 958940490954557,
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y"
+					}
+				}
+			],
 			"sid": 168230086865688,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-on-screen",
-							"objectClass": "Drag",
-							"sid": 141110871647457
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Drag",
-							"sid": 555724606164540,
-							"parameters": {
-								"x": "Touch.X",
-								"y": "Touch.Y"
-							}
-						}
-					],
-					"sid": 869183315104864
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 873442640439219
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 826844237172743,
-							"parameters": {
-								"object-to-create": "Drag",
-								"layer": "\"Debug\"",
-								"x": "Touch.X",
-								"y": "Touch.Y"
-							}
-						}
-					],
-					"sid": 806444765918323
-				},
 				{
 					"eventType": "block",
 					"conditions": [],
@@ -1742,15 +1706,6 @@
 					"id": "move-to-top",
 					"objectClass": "Card",
 					"sid": 899292587196893
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 224369017630718,
-					"parameters": {
-						"type": "log",
-						"message": "min(max(distance(Card.X, Card.Y, X, Y) / TWEEN_SPEED, 0.08), 0.25)"
-					}
 				},
 				{
 					"id": "tween-two-properties",
