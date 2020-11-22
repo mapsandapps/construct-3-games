@@ -1842,18 +1842,36 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 546431795810909
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Card",
-					"sid": 607197206211100,
-					"behaviorType": "DragDrop",
-					"parameters": {
-						"state": "enabled"
-					}
 				}
 			],
-			"sid": 975793514780441
+			"sid": 975793514780441,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Card",
+							"sid": 458109138546010,
+							"parameters": {
+								"instance-variable": "IsMovable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 972756562058949,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 523935853382798
+				}
+			]
 		}
 	],
 	"sid": 458908244364340
