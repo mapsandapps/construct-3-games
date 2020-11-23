@@ -72,16 +72,8 @@
 		},
 		{
 			"type": "behavior",
-			"id": "bound",
-			"name": "Bound to layout",
-			"author": "Scirra",
-			"version": "r225",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Tween",
-			"name": "Tween",
+			"id": "Physics",
+			"name": "Physics",
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
@@ -90,6 +82,14 @@
 			"type": "behavior",
 			"id": "Pin",
 			"name": "Pin",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
@@ -179,7 +179,8 @@
 					"eStock",
 					"eTableaus",
 					"eUndo",
-					"eMouse"
+					"eMouse",
+					"eWin"
 				],
 				"subfolders": [],
 				"name": "Game"

@@ -33,19 +33,28 @@
 								"enabled": true
 							}
 						},
-						"BoundToLayout": {
+						"Physics": {
 							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
 							}
 						},
 						"Pin": {
 							"properties": {
 								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -94,19 +103,28 @@
 								"enabled": true
 							}
 						},
-						"BoundToLayout": {
+						"Physics": {
 							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
 							}
 						},
 						"Pin": {
 							"properties": {
 								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -155,19 +173,28 @@
 								"enabled": true
 							}
 						},
-						"BoundToLayout": {
+						"Physics": {
 							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
 							}
 						},
 						"Pin": {
 							"properties": {
 								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -216,19 +243,28 @@
 								"enabled": true
 							}
 						},
-						"BoundToLayout": {
+						"Physics": {
 							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
 							}
 						},
 						"Pin": {
 							"properties": {
 								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
@@ -277,19 +313,28 @@
 								"enabled": true
 							}
 						},
-						"BoundToLayout": {
+						"Physics": {
 							"properties": {
-								"bound-by": "edge"
-							}
-						},
-						"Tween": {
-							"properties": {
-								"enabled": true
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
 							}
 						},
 						"Pin": {
 							"properties": {
 								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
 							}
 						}
 					},
