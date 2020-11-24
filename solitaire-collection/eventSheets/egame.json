@@ -1620,12 +1620,11 @@
 											}
 										},
 										{
-											"id": "set-height",
-											"objectClass": "Tableau",
-											"sid": 200095586158063,
-											"parameters": {
-												"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-											}
+											"callFunction": "SetTableauHeight",
+											"sid": 324797807232660,
+											"parameters": [
+												"Tableau.UID"
+											]
 										},
 										{
 											"id": "pin-to-object-properties",
@@ -1666,12 +1665,11 @@
 									}
 								},
 								{
-									"id": "set-height",
-									"objectClass": "Tableau",
-									"sid": 970913426445551,
-									"parameters": {
-										"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-									}
+									"callFunction": "SetTableauHeight",
+									"sid": 374998956990507,
+									"parameters": [
+										"Tableau.UID"
+									]
 								}
 							],
 							"sid": 935484874833847

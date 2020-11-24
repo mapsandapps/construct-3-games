@@ -7,7 +7,16 @@
 			"title": "Bugs",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "BUG: when you drop a card on to an empty tableau that it's already on, that gets added to the undo array"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: when undoing moves a card to the stock, it jumps instead of tweening"
+				}
+			],
 			"sid": 392508065587170
 		},
 		{

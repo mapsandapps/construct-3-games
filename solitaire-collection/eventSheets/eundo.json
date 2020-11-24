@@ -824,12 +824,11 @@
 									}
 								},
 								{
-									"id": "set-height",
-									"objectClass": "Tableau",
-									"sid": 397643296420085,
-									"parameters": {
-										"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-									}
+									"callFunction": "SetTableauHeight",
+									"sid": 656941638328807,
+									"parameters": [
+										"Tableau.UID"
+									]
 								}
 							],
 							"sid": 466037712005926

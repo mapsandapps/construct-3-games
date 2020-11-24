@@ -459,13 +459,19 @@
 							}
 						},
 						{
-							"id": "set-size",
+							"id": "set-width",
 							"objectClass": "Tableau",
-							"sid": 582263540091061,
+							"sid": 185276127232349,
 							"parameters": {
-								"width": "Card.Width",
-								"height": "Card.Height"
+								"width": "Card.Width * 9 / 8"
 							}
+						},
+						{
+							"callFunction": "SetTableauHeight",
+							"sid": 531971282326229,
+							"parameters": [
+								"Tableau.UID"
+							]
 						}
 					],
 					"sid": 243762983002424

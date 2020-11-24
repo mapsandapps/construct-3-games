@@ -795,9 +795,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "Tableau",
-					"sid": 790563631345050,
+					"sid": 619714947980330,
 					"parameters": {
-						"width": "Card.Width"
+						"width": "Card.Width * 9 / 8 "
 					}
 				}
 			],
@@ -1303,12 +1303,11 @@
 					}
 				},
 				{
-					"id": "set-height",
-					"objectClass": "Tableau",
-					"sid": 699637836662623,
-					"parameters": {
-						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height)"
-					}
+					"callFunction": "SetTableauHeight",
+					"sid": 373930518310315,
+					"parameters": [
+						"Tableau.UID"
+					]
 				}
 			],
 			"sid": 452598518690653,
@@ -2001,6 +2000,44 @@
 					"sid": 931891806465625
 				}
 			]
+		},
+		{
+			"functionName": "SetTableauHeight",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "TableauUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 142428433236356
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Tableau",
+					"sid": 110353952665989,
+					"parameters": {
+						"unique-id": "TableauUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-height",
+					"objectClass": "Tableau",
+					"sid": 312831654348017,
+					"parameters": {
+						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height) * 1.095"
+					}
+				}
+			],
+			"sid": 452797717195068
 		}
 	],
 	"sid": 279179437726863
