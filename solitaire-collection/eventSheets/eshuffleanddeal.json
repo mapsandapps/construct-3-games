@@ -504,6 +504,13 @@
 					"parameters": {
 						"which": "top"
 					}
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Card",
+					"sid": 127144721117164,
+					"behaviorType": "Tween",
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -519,16 +526,6 @@
 			"children": [
 				{
 					"eventType": "variable",
-					"name": "CardInitialWidth",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 694628731950177
-				},
-				{
-					"eventType": "variable",
 					"name": "TweenTime",
 					"type": "number",
 					"initialValue": "0.5",
@@ -542,13 +539,9 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
+							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 782027822004151,
-							"parameters": {
-								"variable": "CardInitialWidth",
-								"value": "Card.Width"
-							}
+							"sid": 286182892261722
 						},
 						{
 							"id": "tween-two-properties",
@@ -570,12 +563,12 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Card",
-							"sid": 562291450851660,
+							"sid": 522468610894639,
 							"behaviorType": "Tween",
 							"parameters": {
-								"tags": "\"\"",
+								"tags": "\"FlipCardTweenWidth\"",
 								"property": "offsetWidth",
-								"end-value": "CardInitialWidth / 2",
+								"end-value": "0",
 								"time": "TweenTime / 2",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -625,6 +618,11 @@
 								"instance-variable": "IsMovable",
 								"value": "true"
 							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 536756027753438
 						},
 						{
 							"callFunction": "PushToUndoArray",

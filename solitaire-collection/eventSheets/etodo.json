@@ -15,6 +15,10 @@
 				{
 					"eventType": "comment",
 					"text": "BUG: when undoing moves a card to the stock, it jumps instead of tweening"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: the stock flip width tween can cause the width of foundations and tableaus to tween 😳"
 				}
 			],
 			"sid": 392508065587170
@@ -40,10 +44,6 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "comment",
-					"text": "tween/animate card moving from stock to discard"
-				},
 				{
 					"eventType": "comment",
 					"text": "for drag&drop, prefer tableau stacks that aren't the one you're dragging from"
