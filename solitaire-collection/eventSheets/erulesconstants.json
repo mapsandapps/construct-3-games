@@ -157,6 +157,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "TABLEAUS_CAN_MULTI_MOVE",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 222872907579009
+		},
+		{
+			"eventType": "variable",
 			"name": "TABLEAUS_CAN_WRAP",
 			"type": "boolean",
 			"initialValue": "false",
@@ -198,16 +208,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 430378551708267
-		},
-		{
-			"eventType": "variable",
-			"name": "TABLEAU_HEIGHT_MULTIPLIER",
-			"type": "number",
-			"initialValue": "1.095",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 147734155782894
 		},
 		{
 			"eventType": "comment",
@@ -256,6 +256,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 942574795987551
+		},
+		{
+			"eventType": "variable",
+			"name": "TABLEAU_HEIGHT_MULTIPLIER",
+			"type": "number",
+			"initialValue": "1.095",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 749902575092167
 		}
 	],
 	"sid": 156417442193538

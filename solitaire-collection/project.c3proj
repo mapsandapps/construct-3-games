@@ -147,11 +147,19 @@
 		"items": [
 			"Choose Game",
 			"Playground",
-			"Objects",
-			"Klondike",
-			"Napoleon's Square"
+			"Objects"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Forty Thieves",
+					"Klondike",
+					"Napoleon's Square"
+				],
+				"subfolders": [],
+				"name": "Variants"
+			}
+		]
 	},
 	"eventSheets": {
 		"items": [
@@ -164,7 +172,8 @@
 				"items": [
 					"eVariantKlondike",
 					"eVariantPlayground",
-					"eVariantNapoleonsSquare"
+					"eVariantNapoleonsSquare",
+					"eVariantFortyThieves"
 				],
 				"subfolders": [],
 				"name": "Variants"

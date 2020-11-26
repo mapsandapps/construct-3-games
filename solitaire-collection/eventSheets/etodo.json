@@ -11,6 +11,10 @@
 				{
 					"eventType": "comment",
 					"text": "BUG: the stock flip width tween can cause the width of foundations and tableaus to tween 😳"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: the size of the tableau changes before the cards finish animating to it. name the movement tween, and then in the setTableauHeight method, wait until the tween finishes before graphically (but not data-wise) changing the tableau size"
 				}
 			],
 			"sid": 392508065587170
@@ -69,6 +73,14 @@
 				{
 					"eventType": "comment",
 					"text": "auto-complete once cards are in order"
+				},
+				{
+					"eventType": "comment",
+					"text": "hint button"
+				},
+				{
+					"eventType": "comment",
+					"text": "SFX: foundation is completed, e.g. https://games.aarp.org/games/forty-thieves-solitaire"
 				}
 			],
 			"sid": 815929028811340

@@ -59,7 +59,7 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 32,
+						"x": 416,
 						"y": 256,
 						"width": 352,
 						"height": 64,
@@ -185,7 +185,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 64,
+						"x": 448,
 						"y": 256,
 						"width": 288,
 						"height": 56,
@@ -264,6 +264,83 @@
 					"world": {
 						"x": 448,
 						"y": 160,
+						"width": 288,
+						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 138,
+					"instanceVariables": {
+						"Layout": "Forty Thieves"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 256,
+						"width": 352,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Forty Thieves",
+						"enable-bbcode": true,
+						"font": "OpenSans-Regular",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 139,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 64,
+						"y": 256,
 						"width": 288,
 						"height": 56,
 						"originX": 0,

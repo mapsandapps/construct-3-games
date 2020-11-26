@@ -1,0 +1,131 @@
+{
+	"name": "eVariantFortyThieves",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGame"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 367509301533503
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "set config & rules"
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 750039913021854
+				},
+				{
+					"id": "load",
+					"objectClass": "InitialDeal",
+					"sid": 261321450796519,
+					"parameters": {
+						"json": "\"{\"\"c2array\"\":true,\"\"size\"\":[40,1,1],\"\"data\"\":[[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]],[[0]],[[1]],[[2]],[[3]],[[4]],[[5]],[[6]],[[7]],[[8]],[[9]]]}\""
+					}
+				},
+				{
+					"callFunction": "UseDeck",
+					"sid": 843489519762451,
+					"parameters": [
+						"\"Shapes\""
+					]
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 894736098473223,
+					"parameters": {
+						"variable": "CARD_OFFSET",
+						"value": "24"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 939982076293940,
+					"parameters": {
+						"variable": "CARD_SCALE",
+						"value": "0.25"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 776266861815318,
+					"parameters": {
+						"variable": "NUMBER_OF_DECKS",
+						"value": "2"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 270811082088203,
+					"parameters": {
+						"variable": "STOCK_FLIPS",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 985780925266307,
+					"parameters": {
+						"variable": "TABLEAUS_ALTERNATE_COLOR",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 920344027344664,
+					"parameters": {
+						"variable": "TABLEAUS_CAN_MULTI_MOVE",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 369148493462714,
+					"parameters": {
+						"variable": "TABLEAUS_SAME_SUIT",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 846902384330494,
+					"parameters": {
+						"variable": "TABLEAUS_CAN_MOVE_ANY_CARD_TO_EMPTY",
+						"value": "true"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "init (deal, etc.)"
+				},
+				{
+					"callFunction": "Shuffle",
+					"sid": 850833375291537
+				},
+				{
+					"callFunction": "InitialDeal",
+					"sid": 449086480718228
+				}
+			],
+			"sid": 835661501960673
+		}
+	],
+	"sid": 320344565845749
+}
