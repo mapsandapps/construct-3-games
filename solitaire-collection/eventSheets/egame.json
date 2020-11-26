@@ -1111,28 +1111,52 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"callFunction": "PushToUndoArray",
-									"sid": 157954393019154,
-									"parameters": [
-										"Card.UID",
-										"CurrentCardFromStackType",
-										"CurrentCardFromStackUID",
-										"0"
-									]
-								},
-								{
-									"callFunction": "MoveCardToTableau",
-									"sid": 269053483948622,
-									"parameters": [
-										"Card.UID",
-										"Tableau.UID"
-									]
-								}
-							],
+							"actions": [],
 							"sid": 314544614313832,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 438130595437650,
+											"parameters": {
+												"instance-variable": "TableauUID",
+												"comparison": 1,
+												"value": "Tableau.UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PushToUndoArray",
+											"sid": 121274464459595,
+											"parameters": [
+												"Card.UID",
+												"CurrentCardFromStackType",
+												"CurrentCardFromStackUID",
+												"0"
+											]
+										}
+									],
+									"sid": 774555113381130
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "MoveCardToTableau",
+											"sid": 704127217002030,
+											"parameters": [
+												"Card.UID",
+												"Tableau.UID"
+											]
+										}
+									],
+									"sid": 169816828511737
+								},
 								{
 									"eventType": "block",
 									"conditions": [

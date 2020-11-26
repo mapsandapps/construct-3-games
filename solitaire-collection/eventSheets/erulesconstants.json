@@ -2,24 +2,8 @@
 	"name": "eRulesConstants",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "CARD_OFFSET",
-			"type": "number",
-			"initialValue": "22",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 537619052701235
-		},
-		{
-			"eventType": "variable",
-			"name": "CARD_SCALE",
-			"type": "number",
-			"initialValue": "1",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 413668301048876
+			"eventType": "comment",
+			"text": "rules"
 		},
 		{
 			"eventType": "variable",
@@ -50,16 +34,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 568600654808536
-		},
-		{
-			"eventType": "variable",
-			"name": "DECK_ART",
-			"type": "string",
-			"initialValue": "Shapes",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 510889782484312
 		},
 		{
 			"eventType": "variable",
@@ -140,16 +114,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 407733658903485
-		},
-		{
-			"eventType": "variable",
-			"name": "STOCK_FLIP_TWEEN_TIME",
-			"type": "number",
-			"initialValue": "0.1",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 751005197370729
 		},
 		{
 			"eventType": "variable",
@@ -244,6 +208,54 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 147734155782894
+		},
+		{
+			"eventType": "comment",
+			"text": "deck config"
+		},
+		{
+			"eventType": "variable",
+			"name": "CARD_OFFSET",
+			"type": "number",
+			"initialValue": "22",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 545665958396311
+		},
+		{
+			"eventType": "variable",
+			"name": "CARD_SCALE",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 965069798921417
+		},
+		{
+			"eventType": "variable",
+			"name": "DECK_ART",
+			"type": "string",
+			"initialValue": "Shapes",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535233722571868
+		},
+		{
+			"eventType": "comment",
+			"text": "misc"
+		},
+		{
+			"eventType": "variable",
+			"name": "STOCK_FLIP_TWEEN_TIME",
+			"type": "number",
+			"initialValue": "0.1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 942574795987551
 		}
 	],
 	"sid": 156417442193538
