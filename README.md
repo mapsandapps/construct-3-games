@@ -2,6 +2,18 @@
 
 Note: you can open these in the [Construct editor](https://editor.construct.net/), but you will need to set up Construct and Chrome to use [folder-based projects](https://www.construct.net/en/forum/construct-3/general-discussion-7/local-file-folder-saves-chrome-147071).
 
+## Sandwiches
+
+Puzzle game prototype started in November 2020
+
+* Folder: [/sandwich](./sandwich)
+
+## Solitaire Collection
+
+Started in November 2020
+
+* Folder: [/solitaire-collection](./solitaire-collection)
+
 ## Hidden Object
 
 A simple hidden object game made for [Weekly Game Jam #169: "Treasure Hunt"](https://itch.io/jam/weekly-game-jam-169/rate/782763) in October 2020
