@@ -1850,10 +1850,10 @@
 				{
 					"id": "tween-two-properties",
 					"objectClass": "Card",
-					"sid": 307558697196996,
+					"sid": 366206307375815,
 					"behaviorType": "Tween",
 					"parameters": {
-						"tags": "\"\"",
+						"tags": "\"MoveCardToXY\"",
 						"property": "position",
 						"end-x": "X",
 						"end-y": "Y",
@@ -1868,6 +1868,14 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 546431795810909
+				},
+				{
+					"id": "signal",
+					"objectClass": "System",
+					"sid": 151913799278013,
+					"parameters": {
+						"tag": "\"MoveCardToXY\""
+					}
 				}
 			],
 			"sid": 975793514780441,

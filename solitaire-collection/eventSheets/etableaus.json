@@ -1301,13 +1301,6 @@
 						"instance-variable": "NumberOfCards",
 						"value": "1"
 					}
-				},
-				{
-					"callFunction": "SetTableauHeight",
-					"sid": 373930518310315,
-					"parameters": [
-						"Tableau.UID"
-					]
 				}
 			],
 			"sid": 452598518690653,
@@ -1352,6 +1345,28 @@
 						}
 					],
 					"sid": 231072816879467
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 150374311016663,
+							"parameters": {
+								"tag": "\"MoveCardToXY\""
+							}
+						},
+						{
+							"callFunction": "SetTableauHeight",
+							"sid": 125134401958399,
+							"parameters": [
+								"Tableau.UID"
+							]
+						}
+					],
+					"sid": 781162426467940
 				}
 			]
 		},
@@ -2110,7 +2125,7 @@
 				{
 					"id": "set-height",
 					"objectClass": "Tableau",
-					"sid": 312831654348017,
+					"sid": 315107551539072,
 					"parameters": {
 						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height) * 1.095"
 					}
