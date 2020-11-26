@@ -520,124 +520,105 @@
 					"parameters": [
 						"Card.UID"
 					]
-				}
-			],
-			"sid": 537514671959593,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "TweenTime",
-					"type": "number",
-					"initialValue": "0.1",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 282230851675376
 				},
 				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 286182892261722
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Card",
-							"sid": 173588635363580,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Discard.X",
-								"end-y": "Discard.Y",
-								"time": "TweenTime",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no"
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Card",
-							"sid": 522468610894639,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"FlipCardTweenWidth\"",
-								"property": "offsetWidth",
-								"end-value": "0",
-								"time": "TweenTime / 2",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "yes"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 947199804470058,
-							"parameters": {
-								"seconds": "TweenTime / 2"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Card",
-							"sid": 273912810575538,
-							"parameters": {
-								"animation": "DECK_ART",
-								"from": "current-frame"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Card",
-							"sid": 291073729466299,
-							"parameters": {
-								"frame-number": "Card.Frame"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Card",
-							"sid": 257790277436375,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "enabled"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Card",
-							"sid": 525277189379827,
-							"parameters": {
-								"instance-variable": "IsMovable",
-								"value": "true"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 536756027753438
-						},
-						{
-							"callFunction": "PushToUndoArray",
-							"sid": 473331745064369,
-							"parameters": [
-								"Card.UID",
-								"\"Stock\"",
-								"Stock.UID",
-								"0"
-							]
-						}
-					],
-					"sid": 282271838328367
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 572402980783811
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 348327367935621,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Discard.X",
+						"end-y": "Discard.Y",
+						"time": "STOCK_FLIP_TWEEN_TIME",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Card",
+					"sid": 480349495843684,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FlipCardTweenWidth\"",
+						"property": "offsetWidth",
+						"end-value": "0",
+						"time": "STOCK_FLIP_TWEEN_TIME / 2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "yes"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 453378713878642,
+					"parameters": {
+						"seconds": "STOCK_FLIP_TWEEN_TIME / 2"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Card",
+					"sid": 198104323966309,
+					"parameters": {
+						"animation": "DECK_ART",
+						"from": "current-frame"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Card",
+					"sid": 741505958112339,
+					"parameters": {
+						"frame-number": "Card.Frame"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 945127412352409,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Card",
+					"sid": 506503811326364,
+					"parameters": {
+						"instance-variable": "IsMovable",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 524450084182612
+				},
+				{
+					"callFunction": "PushToUndoArray",
+					"sid": 697545281448370,
+					"parameters": [
+						"Card.UID",
+						"\"Stock\"",
+						"Stock.UID",
+						"0"
+					]
 				}
-			]
+			],
+			"sid": 537514671959593
 		},
 		{
 			"functionName": "DealCardToTableau",
