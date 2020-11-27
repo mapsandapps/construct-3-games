@@ -16,6 +16,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 681826159019745,
+					"parameters": {
+						"layer": "\"Interstitial\"",
+						"visibility": "visible"
+					}
+				},
+				{
 					"type": "comment",
 					"text": "set config & rules"
 				},

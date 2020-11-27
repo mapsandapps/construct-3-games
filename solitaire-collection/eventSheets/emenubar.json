@@ -1,0 +1,84 @@
+{
+	"name": "eMenuBar",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 855168802070391
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 944080540116677,
+					"parameters": {
+						"object": "TopBarButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 581371245147938,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"New Game\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 326735385515986,
+					"parameters": {
+						"layout": "LayoutName"
+					}
+				}
+			],
+			"sid": 718708156592025
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 712398720158784
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 386550879527567,
+					"parameters": {
+						"object": "TopBarButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 751634681878982,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Choose Game\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 659567914213823,
+					"parameters": {
+						"layout": "Choose Game"
+					}
+				}
+			],
+			"sid": 877908057533384
+		}
+	],
+	"sid": 701924682305882
+}
