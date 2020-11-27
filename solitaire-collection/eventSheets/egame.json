@@ -131,32 +131,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "Stock",
-					"sid": 473531413828105,
-					"parameters": {
-						"instance-variable": "FlipsRemaining",
-						"comparison": 0,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-opacity",
-					"objectClass": "Stock",
-					"sid": 830113383735946,
-					"parameters": {
-						"opacity": "0"
-					}
-				}
-			],
-			"sid": 325185698802411
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "is-touching-object",
 					"objectClass": "Touch",
 					"sid": 262581335700291,
@@ -526,17 +500,7 @@
 					"behaviorType": "DragDrop"
 				}
 			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 555930850902266,
-					"parameters": {
-						"type": "log",
-						"message": "\"click to move\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 669836465827805,
 			"children": [
 				{
@@ -683,15 +647,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 859726155245915,
-									"parameters": {
-										"type": "log",
-										"message": "\"valid tableau move\""
-									}
-								},
 								{
 									"id": "stop-loop",
 									"objectClass": "System",
@@ -1419,15 +1374,6 @@
 					"id": "move-to-top",
 					"objectClass": "Card",
 					"sid": 659698110435794
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 172240477545149,
-					"parameters": {
-						"type": "log",
-						"message": "\"prep for card move\""
-					}
 				}
 			],
 			"sid": 967834040167709,
@@ -1692,15 +1638,6 @@
 									],
 									"actions": [
 										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 476579721255249,
-											"parameters": {
-												"type": "log",
-												"message": "\"subtract 1 a\""
-											}
-										},
-										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Tableau",
 											"sid": 400571088680328,
@@ -1760,15 +1697,6 @@
 									"parameters": [
 										"Tableau.UID"
 									]
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 981590074599845,
-									"parameters": {
-										"type": "log",
-										"message": "\"subtract 1 b\""
-									}
 								}
 							],
 							"sid": 935484874833847

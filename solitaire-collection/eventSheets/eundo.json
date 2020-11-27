@@ -347,6 +347,14 @@
 					],
 					"actions": [
 						{
+							"id": "set-opacity",
+							"objectClass": "Stock",
+							"sid": 464670572356913,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
 							"id": "add-to-instvar",
 							"objectClass": "Stock",
 							"sid": 548533662582841,
@@ -568,15 +576,6 @@
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 309424056028468,
-					"parameters": {
-						"type": "log",
-						"message": "\"push to undo array\""
-					}
-				},
 				{
 					"type": "comment",
 					"text": "pinned: part (but not the first card) of a multi-card move"

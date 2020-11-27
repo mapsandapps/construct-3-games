@@ -836,17 +836,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 641426302466917,
-					"parameters": {
-						"type": "log",
-						"message": "\"move card from tableau\""
-					}
-				}
-			],
+			"actions": [],
 			"sid": 991938819055046,
 			"children": [
 				{
@@ -1048,15 +1038,6 @@
 				}
 			],
 			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 974379979722441,
-					"parameters": {
-						"type": "log",
-						"message": "\"move card to tableau\""
-					}
-				},
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Tableau",

@@ -471,6 +471,15 @@
 							}
 						},
 						{
+							"id": "set-size",
+							"objectClass": "Stock",
+							"sid": 443353754267199,
+							"parameters": {
+								"width": "Card.Width",
+								"height": "Card.Height"
+							}
+						},
+						{
 							"id": "set-width",
 							"objectClass": "Tableau",
 							"sid": 185276127232349,
@@ -486,7 +495,35 @@
 							]
 						}
 					],
-					"sid": 243762983002424
+					"sid": 243762983002424,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Stock",
+									"sid": 886909289300551,
+									"parameters": {
+										"instance-variable": "FlipsRemaining",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Stock",
+									"sid": 337106631778179,
+									"parameters": {
+										"opacity": "0"
+									}
+								}
+							],
+							"sid": 724731678296580
+						}
+					]
 				}
 			]
 		},

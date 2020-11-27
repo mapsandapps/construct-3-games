@@ -128,6 +128,32 @@
 											"eventType": "block",
 											"conditions": [
 												{
+													"id": "compare-instance-variable",
+													"objectClass": "Stock",
+													"sid": 553672848789910,
+													"parameters": {
+														"instance-variable": "FlipsRemaining",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Stock",
+													"sid": 617135194516926,
+													"parameters": {
+														"opacity": "0"
+													}
+												}
+											],
+											"sid": 972756559178636
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
 													"id": "for-each-ordered",
 													"objectClass": "System",
 													"sid": 152942734739420,
