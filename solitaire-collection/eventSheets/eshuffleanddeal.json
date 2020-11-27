@@ -12,6 +12,16 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "set-size",
+					"objectClass": "UndoArray",
+					"sid": 249399179936318,
+					"parameters": {
+						"width": "0",
+						"height": "UndoArray.Height",
+						"depth": "UndoArray.Depth"
+					}
+				},
+				{
 					"id": "create-object",
 					"objectClass": "System",
 					"sid": 661187622143080,
@@ -522,6 +532,25 @@
 					]
 				},
 				{
+					"callFunction": "PushToUndoArray",
+					"sid": 766379122982971,
+					"parameters": [
+						"Card.UID",
+						"\"Stock\"",
+						"Stock.UID",
+						"0"
+					]
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 143183922811575,
+					"parameters": {
+						"instance-variable": "DiscardUID",
+						"value": "Discard.UID"
+					}
+				},
+				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 572402980783811
@@ -601,21 +630,6 @@
 						"instance-variable": "IsMovable",
 						"value": "true"
 					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 524450084182612
-				},
-				{
-					"callFunction": "PushToUndoArray",
-					"sid": 697545281448370,
-					"parameters": [
-						"Card.UID",
-						"\"Stock\"",
-						"Stock.UID",
-						"0"
-					]
 				}
 			],
 			"sid": 537514671959593
@@ -913,6 +927,108 @@
 					]
 				}
 			]
+		},
+		{
+			"functionName": "MoveCardToDiscard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 472573786312865
+				},
+				{
+					"name": "DiscardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 824614844318065
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 860609785158515,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Discard",
+					"sid": 388423288334425,
+					"parameters": {
+						"unique-id": "DiscardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 483638348343913,
+					"parameters": {
+						"instance-variable": "DiscardUID",
+						"value": "DiscardUID"
+					}
+				},
+				{
+					"callFunction": "MoveCardToXY",
+					"sid": 701189621985256,
+					"parameters": [
+						"CardUID",
+						"Discard.X",
+						"Discard.Y"
+					]
+				}
+			],
+			"sid": 402946283023646
+		},
+		{
+			"functionName": "MoveCardFromDiscard",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 706079874942552
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 991915059262647,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 593656162253780,
+					"parameters": {
+						"instance-variable": "DiscardUID",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 833588205680881
 		}
 	],
 	"sid": 533729986536694

@@ -569,6 +569,15 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 309424056028468,
+					"parameters": {
+						"type": "log",
+						"message": "\"push to undo array\""
+					}
+				},
+				{
 					"type": "comment",
 					"text": "pinned: part (but not the first card) of a multi-card move"
 				},
@@ -621,6 +630,31 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
+							"sid": 415144075041929,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Discard\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardFromDiscard",
+							"sid": 297643011767788,
+							"parameters": [
+								"CardUID"
+							]
+						}
+					],
+					"sid": 455377536331105
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
 							"sid": 547513750902363,
 							"parameters": {
 								"variable": "FromType",
@@ -647,7 +681,32 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 552787116957290,
+							"sid": 353565465138413,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"Stock\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveCardFromStock",
+							"sid": 772494791458992,
+							"parameters": [
+								"CardUID"
+							]
+						}
+					],
+					"sid": 181200151267376
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 152183816358121,
 							"parameters": {
 								"variable": "FromType",
 								"comparison": 0,
@@ -658,14 +717,14 @@
 					"actions": [
 						{
 							"callFunction": "MoveCardFromTableau",
-							"sid": 449739646669453,
+							"sid": 853794071091880,
 							"parameters": [
 								"CardUID",
 								"FromUID"
 							]
 						}
 					],
-					"sid": 444342415695872
+					"sid": 534560372792545
 				}
 			]
 		},
@@ -743,36 +802,48 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
+									"id": "compare-instance-variable",
 									"objectClass": "Card",
-									"sid": 499002418962808,
+									"sid": 728238180115231,
 									"parameters": {
-										"object": "Discard"
+										"instance-variable": "DiscardUID",
+										"comparison": 4,
+										"value": "-1"
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "MoveCardFromDiscard",
+									"sid": 781589625441932,
+									"parameters": [
+										"Card.UID"
+									]
+								}
+							],
 							"sid": 641858431677693
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
+									"id": "compare-instance-variable",
 									"objectClass": "Card",
-									"sid": 993273607935152,
+									"sid": 908328246055765,
 									"parameters": {
-										"object": "Foundation"
+										"instance-variable": "FoundationUID",
+										"comparison": 4,
+										"value": "-1"
 									}
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "MoveCardFromFoundation",
-									"sid": 568075771905816,
+									"sid": 458497124875144,
 									"parameters": [
 										"Card.UID",
-										"Foundation.UID"
+										"Card.FoundationUID"
 									]
 								}
 							],
@@ -782,26 +853,46 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
+									"id": "compare-instance-variable",
 									"objectClass": "Card",
-									"sid": 506842773901242,
+									"sid": 892091606392470,
 									"parameters": {
-										"object": "Stock"
+										"instance-variable": "StockUID",
+										"comparison": 4,
+										"value": "-1"
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "MoveCardFromStock",
+									"sid": 410590888693468,
+									"parameters": [
+										"Card.UID"
+									]
+								}
+							],
 							"sid": 117608401181811
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
+									"id": "compare-instance-variable",
 									"objectClass": "Card",
-									"sid": 495957988944269,
+									"sid": 923957024841866,
 									"parameters": {
-										"object": "Tableau"
+										"instance-variable": "TableauUID",
+										"comparison": 4,
+										"value": "-1"
+									}
+								},
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Tableau",
+									"sid": 844713723905201,
+									"parameters": {
+										"unique-id": "Card.TableauUID"
 									}
 								}
 							],
@@ -825,7 +916,7 @@
 								},
 								{
 									"callFunction": "SetTableauHeight",
-									"sid": 656941638328807,
+									"sid": 285316339033700,
 									"parameters": [
 										"Tableau.UID"
 									]
@@ -863,12 +954,11 @@
 					],
 					"actions": [
 						{
-							"callFunction": "MoveCardToXY",
-							"sid": 736921146216199,
+							"callFunction": "MoveCardToDiscard",
+							"sid": 306862534589982,
 							"parameters": [
 								"Card.UID",
-								"Discard.X",
-								"Discard.Y"
+								"Discard.UID"
 							]
 						}
 					],
@@ -977,6 +1067,15 @@
 							"sid": 421613627739482
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 567062692577409,
+							"parameters": {
+								"instance-variable": "StockUID",
+								"value": "Stock.UID"
+							}
+						},
+						{
 							"id": "set-enabled",
 							"objectClass": "Card",
 							"sid": 580494562364310,
@@ -1083,15 +1182,6 @@
 										"Card.UID",
 										"Tableau.UID"
 									]
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 563647151910859,
-									"parameters": {
-										"type": "log",
-										"message": "\"move card to tableau \" & Card.UID"
-									}
 								}
 							],
 							"sid": 138005359963806

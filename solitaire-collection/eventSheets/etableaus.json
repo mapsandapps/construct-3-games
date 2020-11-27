@@ -836,19 +836,19 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 641426302466917,
+					"parameters": {
+						"type": "log",
+						"message": "\"move card from tableau\""
+					}
+				}
+			],
 			"sid": 991938819055046,
 			"children": [
-				{
-					"eventType": "variable",
-					"name": "CardIndexInTableau",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 637327096177299
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -862,15 +862,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 449628325601042,
-							"parameters": {
-								"variable": "CardIndexInTableau",
-								"value": "Card.IndexInTableau"
-							}
-						},
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Card",
@@ -1001,96 +992,6 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 127345321071545,
-							"parameters": {
-								"object": "Card"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Card",
-							"sid": 676437249400714,
-							"parameters": {
-								"instance-variable": "TableauUID",
-								"comparison": 0,
-								"value": "Tableau.UID"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Card",
-							"sid": 524098883542501,
-							"parameters": {
-								"instance-variable": "IndexInTableau",
-								"comparison": 0,
-								"value": "CardIndexInTableau - 1"
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "Card",
-							"sid": 449064864826213,
-							"parameters": {
-								"animation": "DECK_ART & \"Backs\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Card",
-							"sid": 821216641515478,
-							"parameters": {
-								"animation": "DECK_ART",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Card",
-							"sid": 631752068600366,
-							"parameters": {
-								"frame-number": "Card.Frame"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Card",
-							"sid": 837311134179948,
-							"parameters": {
-								"instance-variable": "IsMovable",
-								"value": "true"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Card",
-							"sid": 933781920987440,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "enabled"
-							}
-						},
-						{
-							"callFunction": "PushToUndoArray",
-							"sid": 601097039458554,
-							"parameters": [
-								"Card.UID",
-								"\"FlipCard\"",
-								"Tableau.UID",
-								"0"
-							]
-						}
-					],
-					"sid": 966306916460411,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
@@ -1102,6 +1003,161 @@
 						}
 					],
 					"sid": 979133508457039
+				}
+			]
+		},
+		{
+			"functionName": "MoveCardToTableau",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 453209371360834
+				},
+				{
+					"name": "TableauUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 516544635467401
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 679246832082887,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Tableau",
+					"sid": 152820412752567,
+					"parameters": {
+						"unique-id": "TableauUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 974379979722441,
+					"parameters": {
+						"type": "log",
+						"message": "\"move card to tableau\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Tableau",
+					"sid": 468973788463324,
+					"parameters": {
+						"instance-variable": "TopCardColor",
+						"value": "Card.Color"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Tableau",
+					"sid": 310479323603248,
+					"parameters": {
+						"instance-variable": "TopCardSuit",
+						"value": "Card.Suit"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Tableau",
+					"sid": 576906023877127,
+					"parameters": {
+						"instance-variable": "TopCardValue",
+						"value": "Card.Value"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Tableau",
+					"sid": 893759204407335,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 496013005068225,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 277636599518835,
+							"parameters": {
+								"instance-variable": "TableauUID",
+								"value": "TableauUID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 402801661933141,
+							"parameters": {
+								"instance-variable": "IndexInTableau",
+								"value": "Tableau.NumberOfCards - 1"
+							}
+						},
+						{
+							"callFunction": "MoveCardToXY",
+							"sid": 228596112427430,
+							"parameters": [
+								"Card.UID",
+								"Tableau.X",
+								"Tableau.Y + CARD_OFFSET * (Tableau.NumberOfCards - 1)"
+							]
+						},
+						{
+							"callFunction": "CalculateMovableCardsInTableau",
+							"sid": 311924404410165,
+							"parameters": [
+								"TableauUID"
+							]
+						}
+					],
+					"sid": 980599823346147
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-signal",
+							"objectClass": "System",
+							"sid": 600320903174264,
+							"parameters": {
+								"tag": "\"MoveCardToXY\""
+							}
+						},
+						{
+							"callFunction": "SetTableauHeight",
+							"sid": 492460766395049,
+							"parameters": [
+								"Tableau.UID"
+							]
+						}
+					],
+					"sid": 181713003975710
 				}
 			]
 		},
@@ -1221,152 +1277,6 @@
 						}
 					],
 					"sid": 991916112432367
-				}
-			]
-		},
-		{
-			"functionName": "MoveCardToTableau",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "CardUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 453209371360834
-				},
-				{
-					"name": "TableauUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 516544635467401
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Card",
-					"sid": 257705184574248,
-					"parameters": {
-						"unique-id": "CardUID"
-					}
-				},
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Tableau",
-					"sid": 355705219841951,
-					"parameters": {
-						"unique-id": "TableauUID"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Tableau",
-					"sid": 571730441231384,
-					"parameters": {
-						"instance-variable": "TopCardColor",
-						"value": "Card.Color"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Tableau",
-					"sid": 117545805764052,
-					"parameters": {
-						"instance-variable": "TopCardSuit",
-						"value": "Card.Suit"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Tableau",
-					"sid": 987220493400146,
-					"parameters": {
-						"instance-variable": "TopCardValue",
-						"value": "Card.Value"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Tableau",
-					"sid": 461638038721419,
-					"parameters": {
-						"instance-variable": "NumberOfCards",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 452598518690653,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 245742021385149,
-							"parameters": {
-								"instance-variable": "TableauUID",
-								"value": "TableauUID"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 815056160915197,
-							"parameters": {
-								"instance-variable": "IndexInTableau",
-								"value": "Tableau.NumberOfCards - 1"
-							}
-						},
-						{
-							"callFunction": "MoveCardToXY",
-							"sid": 239210188790485,
-							"parameters": [
-								"Card.UID",
-								"Tableau.X",
-								"Tableau.Y + CARD_OFFSET * (Tableau.NumberOfCards - 1)"
-							]
-						},
-						{
-							"callFunction": "CalculateMovableCardsInTableau",
-							"sid": 848522697511999,
-							"parameters": [
-								"TableauUID"
-							]
-						}
-					],
-					"sid": 231072816879467
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "wait-for-signal",
-							"objectClass": "System",
-							"sid": 150374311016663,
-							"parameters": {
-								"tag": "\"MoveCardToXY\""
-							}
-						},
-						{
-							"callFunction": "SetTableauHeight",
-							"sid": 125134401958399,
-							"parameters": [
-								"Tableau.UID"
-							]
-						}
-					],
-					"sid": 781162426467940
 				}
 			]
 		},

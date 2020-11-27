@@ -190,6 +190,45 @@
 					]
 				}
 			]
+		},
+		{
+			"functionName": "MoveCardFromStock",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 977523513444002
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 605052123632981,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 665911734997071,
+					"parameters": {
+						"instance-variable": "StockUID",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 133514120990019
 		}
 	],
 	"sid": 457750011881145

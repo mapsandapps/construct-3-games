@@ -261,70 +261,61 @@
 						"x": "Touch.X",
 						"y": "Touch.Y"
 					}
+				},
+				{
+					"callFunction": "PrepForCardMove",
+					"sid": 581234075678827,
+					"parameters": [
+						"Card.UID"
+					]
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 579362190214781,
+					"parameters": {
+						"variable": "HasBeenDragged",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 145840813008198,
+					"parameters": {
+						"variable": "TimeSincePickUp",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 802503715419371,
+					"parameters": {
+						"variable": "WasHeldTooLongForClick",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 375467999952206,
+					"parameters": {
+						"variable": "PreDragX",
+						"value": "Card.X"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 166366252715133,
+					"parameters": {
+						"variable": "PreDragY",
+						"value": "Card.Y"
+					}
 				}
 			],
-			"sid": 168230086865688,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "PrepForCardMove",
-							"sid": 799230470473084,
-							"parameters": [
-								"Card.UID"
-							]
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 175479694943654,
-							"parameters": {
-								"variable": "HasBeenDragged",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 105183498762205,
-							"parameters": {
-								"variable": "TimeSincePickUp",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 518028558792391,
-							"parameters": {
-								"variable": "WasHeldTooLongForClick",
-								"value": "false"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 490924577311499,
-							"parameters": {
-								"variable": "PreDragX",
-								"value": "Card.X"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 733915837815348,
-							"parameters": {
-								"variable": "PreDragY",
-								"value": "Card.Y"
-							}
-						}
-					],
-					"sid": 261212310296044
-				}
-			]
+			"sid": 168230086865688
 		},
 		{
 			"eventType": "comment",
@@ -535,7 +526,17 @@
 					"behaviorType": "DragDrop"
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 555930850902266,
+					"parameters": {
+						"type": "log",
+						"message": "\"click to move\""
+					}
+				}
+			],
 			"sid": 669836465827805,
 			"children": [
 				{
@@ -682,6 +683,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 859726155245915,
+									"parameters": {
+										"type": "log",
+										"message": "\"valid tableau move\""
+									}
+								},
 								{
 									"id": "stop-loop",
 									"objectClass": "System",
@@ -937,15 +947,6 @@
 										"CurrentCardFromStackUID",
 										true
 									]
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 156970964881279,
-									"parameters": {
-										"type": "log",
-										"message": "\"cancel move card \" & Card.UID"
-									}
 								}
 							],
 							"sid": 535724389440404
@@ -1081,6 +1082,16 @@
 									}
 								},
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 220825903501135,
+									"parameters": {
+										"instance-variable": "TableauUID",
+										"comparison": 1,
+										"value": "Tableau.UID"
+									}
+								},
+								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Tableau",
 									"sid": 123501442766901,
@@ -1094,36 +1105,18 @@
 							"children": [
 								{
 									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Card",
-											"sid": 438130595437650,
-											"parameters": {
-												"instance-variable": "TableauUID",
-												"comparison": 1,
-												"value": "Tableau.UID"
-											}
-										}
-									],
+									"conditions": [],
 									"actions": [
 										{
 											"callFunction": "PushToUndoArray",
-											"sid": 121274464459595,
+											"sid": 868503763108275,
 											"parameters": [
 												"Card.UID",
 												"CurrentCardFromStackType",
 												"CurrentCardFromStackUID",
 												"0"
 											]
-										}
-									],
-									"sid": 774555113381130
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
+										},
 										{
 											"callFunction": "MoveCardToTableau",
 											"sid": 704127217002030,
@@ -1285,15 +1278,6 @@
 												"CurrentCardFromStackUID",
 												true
 											]
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 828079986634990,
-											"parameters": {
-												"type": "log",
-												"message": "\"cancel move card \" & Card.UID"
-											}
 										}
 									],
 									"sid": 473343159818539
@@ -1435,6 +1419,15 @@
 					"id": "move-to-top",
 					"objectClass": "Card",
 					"sid": 659698110435794
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 172240477545149,
+					"parameters": {
+						"type": "log",
+						"message": "\"prep for card move\""
+					}
 				}
 			],
 			"sid": 967834040167709,
@@ -1445,9 +1438,20 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Card",
-							"sid": 319291939980615,
+							"sid": 117403225224868,
+							"disabled": true,
 							"parameters": {
 								"object": "Discard"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 426551747276503,
+							"parameters": {
+								"instance-variable": "DiscardUID",
+								"comparison": 4,
+								"value": "-1"
 							}
 						}
 					],
@@ -1464,10 +1468,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 857637271553096,
+							"sid": 850947191516973,
 							"parameters": {
 								"variable": "CurrentCardFromStackUID",
-								"value": "Discard.UID"
+								"value": "Card.DiscardUID"
 							}
 						}
 					],
@@ -1477,9 +1481,20 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 191542951250190,
+							"parameters": {
+								"instance-variable": "FoundationUID",
+								"comparison": 4,
+								"value": "-1"
+							}
+						},
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Card",
 							"sid": 231398236439553,
+							"disabled": true,
 							"parameters": {
 								"object": "Foundation"
 							}
@@ -1498,10 +1513,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 736137419287685,
+							"sid": 372400298589619,
 							"parameters": {
 								"variable": "CurrentCardFromStackUID",
-								"value": "Foundation.UID"
+								"value": "Card.FoundationUID"
 							}
 						}
 					],
@@ -1513,9 +1528,64 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Card",
-							"sid": 936466319222618,
+							"sid": 620104555709063,
+							"disabled": true,
 							"parameters": {
-								"object": "Tableau"
+								"object": "Stock"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 866515807390482,
+							"parameters": {
+								"instance-variable": "StockUID",
+								"comparison": 4,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 863508748400508,
+							"parameters": {
+								"variable": "CurrentCardFromStackType",
+								"value": "\"Stock\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 174250277618606,
+							"parameters": {
+								"variable": "CurrentCardFromStackUID",
+								"value": "Card.StockUID"
+							}
+						}
+					],
+					"sid": 374774621711196
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 386464127401499,
+							"parameters": {
+								"instance-variable": "TableauUID",
+								"comparison": 4,
+								"value": "-1"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Tableau",
+							"sid": 408909118313947,
+							"parameters": {
+								"unique-id": "Card.TableauUID"
 							}
 						}
 					],
@@ -1532,10 +1602,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 261943949445964,
+							"sid": 617598390766440,
 							"parameters": {
 								"variable": "CurrentCardFromStackUID",
-								"value": "Tableau.UID"
+								"value": "Card.TableauUID"
 							}
 						}
 					],
@@ -1622,6 +1692,15 @@
 									],
 									"actions": [
 										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 476579721255249,
+											"parameters": {
+												"type": "log",
+												"message": "\"subtract 1 a\""
+											}
+										},
+										{
 											"id": "subtract-from-instvar",
 											"objectClass": "Tableau",
 											"sid": 400571088680328,
@@ -1681,6 +1760,15 @@
 									"parameters": [
 										"Tableau.UID"
 									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 981590074599845,
+									"parameters": {
+										"type": "log",
+										"message": "\"subtract 1 b\""
+									}
 								}
 							],
 							"sid": 935484874833847

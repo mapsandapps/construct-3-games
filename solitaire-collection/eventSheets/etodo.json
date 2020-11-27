@@ -15,6 +15,14 @@
 				{
 					"eventType": "comment",
 					"text": "BUG: presumably, the tableau stacks could get long enough to run off the screen"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: undoing a card from the stock causes it to stay face down?"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: on forty thieves easy mode, either the stock doesn't flip or it doesn't look like it flips"
 				}
 			],
 			"sid": 392508065587170
@@ -88,7 +96,19 @@
 				},
 				{
 					"eventType": "comment",
+					"text": "Setting: deck choice"
+				},
+				{
+					"eventType": "comment",
 					"text": "SFX: foundation is completed, e.g. https://games.aarp.org/games/forty-thieves-solitaire"
+				},
+				{
+					"eventType": "comment",
+					"text": "art: something to go under the stock + discard and/or a border for the foundations (to distinguish discard from foundations)"
+				},
+				{
+					"eventType": "comment",
+					"text": "clicking the northernmost card of a sorted same-suit stack will move the whole stack to the foundation"
 				}
 			],
 			"sid": 815929028811340
