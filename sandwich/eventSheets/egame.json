@@ -10,6 +10,113 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 826183162052024
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentSelectedNumber",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 398641763992223
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 172503401282949,
+					"parameters": {
+						"object": "NumberSelect"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 397453037908184,
+					"parameters": {
+						"variable": "CurrentSelectedNumber",
+						"value": "NumberSelect.AnimationFrame"
+					}
+				}
+			],
+			"sid": 850698710632793
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 308300915677939,
+					"parameters": {
+						"object": "Cell"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Cell",
+					"sid": 461388836626525,
+					"parameters": {
+						"instance-variable": "IsFixed"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Cell",
+					"sid": 937738404242770,
+					"parameters": {
+						"frame-number": "CurrentSelectedNumber"
+					}
+				}
+			],
+			"sid": 307751842151129
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 892291503161126
+				}
+			],
+			"actions": [],
+			"sid": 636426917954312,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 395516120535914,
+							"parameters": {
+								"instance-variable": "IsFixed"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cell",
+							"sid": 711510237089896,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 693839151190879
+				}
+			]
 		}
 	],
 	"sid": 259221014811680
