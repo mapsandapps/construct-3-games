@@ -863,13 +863,13 @@
 					],
 					"actions": [
 						{
-							"id": "set-position",
-							"objectClass": "Card",
-							"sid": 846049557993667,
-							"parameters": {
-								"x": "Discard.X",
-								"y": "Discard.Y"
-							}
+							"callFunction": "MoveCardToXY",
+							"sid": 736921146216199,
+							"parameters": [
+								"Card.UID",
+								"Discard.X",
+								"Discard.Y"
+							]
 						}
 					],
 					"sid": 488807605715800
@@ -1083,6 +1083,15 @@
 										"Card.UID",
 										"Tableau.UID"
 									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 563647151910859,
+									"parameters": {
+										"type": "log",
+										"message": "\"move card to tableau \" & Card.UID"
+									}
 								}
 							],
 							"sid": 138005359963806

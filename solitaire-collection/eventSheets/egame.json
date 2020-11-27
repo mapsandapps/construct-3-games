@@ -972,7 +972,66 @@
 							]
 						}
 					],
-					"sid": 626998671393262
+					"sid": 626998671393262,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 759912920264371,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "is-pinned",
+									"objectClass": "Card",
+									"sid": 798904509460764,
+									"behaviorType": "Pin"
+								},
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 423643248813049,
+									"parameters": {
+										"object": "Card",
+										"expression": "Card.ZIndex",
+										"order": "ascending"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "unpin",
+									"objectClass": "Card",
+									"sid": 203466128946056,
+									"behaviorType": "Pin"
+								},
+								{
+									"callFunction": "ReturnCardToLastPosition",
+									"sid": 595576164229536,
+									"parameters": [
+										"Card.UID",
+										"CurrentCardFromStackType",
+										"CurrentCardFromStackUID",
+										true
+									]
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 156970964881279,
+									"parameters": {
+										"type": "log",
+										"message": "\"cancel move card \" & Card.UID"
+									}
+								}
+							],
+							"sid": 535724389440404
+						}
+					]
 				}
 			]
 		},
@@ -1307,6 +1366,15 @@
 												"CurrentCardFromStackUID",
 												true
 											]
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 828079986634990,
+											"parameters": {
+												"type": "log",
+												"message": "\"cancel move card \" & Card.UID"
+											}
 										}
 									],
 									"sid": 473343159818539
