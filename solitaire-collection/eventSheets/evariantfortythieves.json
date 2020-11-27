@@ -67,29 +67,11 @@
 					}
 				},
 				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 270811082088203,
-					"parameters": {
-						"variable": "STOCK_FLIPS",
-						"value": "0"
-					}
-				},
-				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 985780925266307,
 					"parameters": {
 						"variable": "TABLEAUS_ALTERNATE_COLOR",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 920344027344664,
-					"parameters": {
-						"variable": "TABLEAUS_CAN_MULTI_MOVE",
 						"value": "false"
 					}
 				},
@@ -110,21 +92,134 @@
 						"variable": "TABLEAUS_CAN_MOVE_ANY_CARD_TO_EMPTY",
 						"value": "true"
 					}
-				},
-				{
-					"type": "comment",
-					"text": "init (deal, etc.)"
-				},
-				{
-					"callFunction": "Shuffle",
-					"sid": 850833375291537
-				},
-				{
-					"callFunction": "InitialDeal",
-					"sid": 449086480718228
 				}
 			],
 			"sid": 835661501960673
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 823090807952386
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 410533965178051,
+					"parameters": {
+						"layer": "\"Interstitial\""
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 276686313408131,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 268237489501097,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 469165069162851,
+							"parameters": {
+								"instance-variable": "Variant",
+								"comparison": 0,
+								"value": "\"Easy\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 357250993228852,
+							"parameters": {
+								"variable": "TABLEAUS_CAN_MULTI_MOVE",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 114506301029794,
+							"parameters": {
+								"variable": "STOCK_FLIPS",
+								"value": "2"
+							}
+						}
+					],
+					"sid": 145498636762901
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 439942241218211
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 413283184060594,
+							"parameters": {
+								"variable": "TABLEAUS_CAN_MULTI_MOVE",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 442975982056328,
+							"parameters": {
+								"variable": "STOCK_FLIPS",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 929440981319351
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "init (deal, etc.)"
+						},
+						{
+							"callFunction": "Shuffle",
+							"sid": 645453379274885
+						},
+						{
+							"callFunction": "InitialDeal",
+							"sid": 939788324963235
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 361872711169064,
+							"parameters": {
+								"layer": "\"Interstitial\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 188589780535124
+				}
+			]
 		}
 	],
 	"sid": 320344565845749

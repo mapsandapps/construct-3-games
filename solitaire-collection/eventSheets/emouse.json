@@ -103,6 +103,43 @@
 				{
 					"id": "else",
 					"objectClass": "System",
+					"sid": 550404242265326
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 146491504150254,
+					"parameters": {
+						"object": "Button"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 632782094733492,
+					"parameters": {
+						"layer": "\"Interstitial\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 467157314518750,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 416869091907078
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
 					"sid": 619712229329374
 				}
 			],

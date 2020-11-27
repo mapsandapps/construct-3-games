@@ -56,6 +56,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -130,7 +138,8 @@
 			{
 				"items": [
 					"MenuText",
-					"Button"
+					"Button",
+					"TiledBackground"
 				],
 				"subfolders": [],
 				"name": "Menus"

@@ -11,6 +11,14 @@
 				{
 					"eventType": "comment",
 					"text": "BUG: the stock flip width tween can cause the width of foundations and tableaus to tween 😳"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: presumably, the tableau stacks could get long enough to run off the screen"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: if two cards are ordered, clicking the northern one when it has nowhere to move causes issues"
 				}
 			],
 			"sid": 392508065587170
@@ -47,6 +55,14 @@
 				{
 					"eventType": "comment",
 					"text": "ART: buttons going down the side would be preferable for layouts with fanned tableaus"
+				},
+				{
+					"eventType": "comment",
+					"text": "interstitial screen for variants of variants, e.g. 1 vs 3 card flip for klondike"
+				},
+				{
+					"eventType": "comment",
+					"text": "menu button for rules?"
 				}
 			],
 			"sid": 924943169711307
@@ -108,7 +124,19 @@
 			"children": [
 				{
 					"eventType": "comment",
+					"text": "PROTOTYPE RELEASE LIST:"
+				},
+				{
+					"eventType": "comment",
 					"text": "win condition"
+				},
+				{
+					"eventType": "comment",
+					"text": "note in text that there aren't any settings yet"
+				},
+				{
+					"eventType": "comment",
+					"text": "make sure debug stuff doesn't show up in build"
 				}
 			],
 			"sid": 797793260912188
