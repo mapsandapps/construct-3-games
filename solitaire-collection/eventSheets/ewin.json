@@ -22,7 +22,18 @@
 				{
 					"id": "destroy",
 					"objectClass": "Card",
-					"sid": 824333498897538
+					"sid": 824333498897538,
+					"disabled": true
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Stock",
+					"sid": 313982907698385
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Discard",
+					"sid": 399621261985130
 				}
 			],
 			"sid": 177054400691519,
@@ -129,15 +140,23 @@
 						{
 							"id": "set-world-gravity",
 							"objectClass": "Card",
-							"sid": 694327244079922,
+							"sid": 995668376230598,
 							"behaviorType": "Physics",
 							"parameters": {
-								"gravity": "5"
+								"gravity": "20"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 820651884066514,
+							"behaviorType": "Physics",
+							"parameters": {
+								"mode": "enabled"
 							}
 						}
 					],
 					"sid": 295168918834023,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -157,24 +176,16 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 208176472844480,
+									"sid": 161184246143018,
 									"parameters": {
-										"seconds": "0.2 * loopindex"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "Card",
-									"sid": 429829075097071,
-									"behaviorType": "Physics",
-									"parameters": {
-										"mode": "enabled"
+										"seconds": "0.05 * loopindex"
 									}
 								},
 								{
 									"id": "apply-impulse-towards-position",
 									"objectClass": "Card",
 									"sid": 226839271523783,
+									"disabled": true,
 									"behaviorType": "Physics",
 									"parameters": {
 										"impulse": "20",
@@ -184,29 +195,96 @@
 									}
 								},
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 819317333022788,
-									"parameters": {
-										"seconds": "2"
-									}
-								},
-								{
-									"id": "destroy",
+									"id": "apply-impulse-towards-position",
 									"objectClass": "Card",
-									"sid": 307875173662116
+									"sid": 892335046929374,
+									"behaviorType": "Physics",
+									"parameters": {
+										"impulse": "20",
+										"x": "LayoutWidth / Card.Count * Card.ZIndex",
+										"y": "Card.Height",
+										"image-point": "0"
+									}
 								},
 								{
 									"type": "comment",
 									"text": "the foundations & tableaus disappear because their width is set to that of card, and there are now no cards. this shouldn't be an issue once custom art is complete."
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 634819331246176,
+									"parameters": {
+										"type": "log",
+										"message": "LayoutWidth & \" \" & Card.Count & \" \" & loopindex"
+									}
 								}
 							],
-							"sid": 561908316875338,
-							"disabled": true
+							"sid": 561908316875338
 						}
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 111836939521948,
+					"parameters": {
+						"object": "TopBarButton"
+					}
+				},
+				{
+					"id": "is-in-preview",
+					"objectClass": "System",
+					"sid": 848631631461912
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 948629091127151,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Settings\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Win",
+					"sid": 329419165419887
+				}
+			],
+			"sid": 510702233024275,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "Card",
+					"sid": 109812701310659
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Card",
+					"sid": 713461726677066,
+					"behaviorType": "Physics"
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Card",
+					"sid": 308802089970280
+				}
+			],
+			"sid": 495019053894491
 		}
 	],
 	"sid": 553168513264701
