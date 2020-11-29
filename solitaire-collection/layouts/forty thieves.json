@@ -316,7 +316,8 @@
 					},
 					"uid": 126,
 					"instanceVariables": {
-						"FlipsRemaining": 0
+						"FlipsRemaining": 0,
+						"NumberOfCards": 0
 					},
 					"behaviors": {},
 					"world": {
@@ -346,13 +347,15 @@
 						"live-preview": false
 					},
 					"uid": 127,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"NumberOfCards": 0
+					},
 					"behaviors": {},
 					"world": {
 						"x": 120,
 						"y": 64,
-						"width": 64,
-						"height": 84,
+						"width": 65.536,
+						"height": 112.896,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [

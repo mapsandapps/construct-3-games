@@ -25,12 +25,7 @@
 			"title": "Feature: Must Have",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "ART: tableaus, stock, etc. for each deck (maybe different foundations too)"
-				}
-			],
+			"children": [],
 			"sid": 945514980151730
 		},
 		{
@@ -51,10 +46,6 @@
 				{
 					"eventType": "comment",
 					"text": "ART: buttons going down the side would be preferable for layouts with fanned tableaus"
-				},
-				{
-					"eventType": "comment",
-					"text": "interstitial screen for variants of variants, e.g. 1 vs 3 card flip for klondike"
 				},
 				{
 					"eventType": "comment",
@@ -89,6 +80,10 @@
 				{
 					"eventType": "comment",
 					"text": "hint button"
+				},
+				{
+					"eventType": "comment",
+					"text": "art: adjust shapes deck so digits are vertically aligned"
 				},
 				{
 					"eventType": "comment",
@@ -144,11 +139,7 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "klondike 3-card"
-				},
-				{
-					"eventType": "comment",
-					"text": "fix stock size"
+					"text": "rules"
 				},
 				{
 					"eventType": "comment",
@@ -160,6 +151,32 @@
 				}
 			],
 			"sid": 797793260912188
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Klondike 3-flip",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "stagger them"
+				},
+				{
+					"eventType": "comment",
+					"text": "refactor stock and discard to know how many cards they have"
+				},
+				{
+					"eventType": "comment",
+					"text": "flip min(3 cards, num in stock)"
+				},
+				{
+					"eventType": "comment",
+					"text": "refactor DealCardToTableau to not use overlapping card"
+				}
+			],
+			"sid": 366802263334659
 		}
 	],
 	"sid": 362205341000481

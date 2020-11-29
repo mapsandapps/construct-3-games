@@ -3,7 +3,14 @@
 	"plugin-id": "Sprite",
 	"sid": 832067057090739,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "NumberOfCards",
+			"type": "number",
+			"desc": "",
+			"sid": 612244839774911
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -11,14 +18,34 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 256,
+						"height": 336,
 						"originX": 0.5,
 						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5752292,
+						"imageSpriteId": 6584204,
+						"collisionPoly": {
+							"points": [
+								0.03515625,
+								0.026785714285714284,
+								0.5,
+								0.017857142857142856,
+								0.9609375,
+								0.026785714285714284,
+								0.97265625,
+								0.5,
+								0.9609375,
+								0.9702380952380952,
+								0.5,
+								0.9791666666666666,
+								0.03515625,
+								0.9702380952380952,
+								0.0234375,
+								0.5
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}

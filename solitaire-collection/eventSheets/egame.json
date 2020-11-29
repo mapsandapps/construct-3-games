@@ -562,10 +562,10 @@
 						{
 							"id": "for-each-ordered",
 							"objectClass": "System",
-							"sid": 786639470945335,
+							"sid": 930368620151672,
 							"parameters": {
 								"object": "Foundation",
-								"expression": "Foundation.UID",
+								"expression": "distance(Card.X, Card.Y, Foundation.X, Foundation.Y)",
 								"order": "ascending"
 							}
 						}
@@ -1425,15 +1425,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 117403225224868,
-							"disabled": true,
-							"parameters": {
-								"object": "Discard"
-							}
-						},
-						{
 							"id": "compare-instance-variable",
 							"objectClass": "Card",
 							"sid": 426551747276503,
@@ -1478,15 +1469,6 @@
 								"comparison": 4,
 								"value": "-1"
 							}
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 231398236439553,
-							"disabled": true,
-							"parameters": {
-								"object": "Foundation"
-							}
 						}
 					],
 					"actions": [
@@ -1514,15 +1496,6 @@
 				{
 					"eventType": "block",
 					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Card",
-							"sid": 620104555709063,
-							"disabled": true,
-							"parameters": {
-								"object": "Stock"
-							}
-						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Card",

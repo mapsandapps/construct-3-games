@@ -56,12 +56,23 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 131961823777788,
+							"parameters": {
+								"object": "Card",
+								"expression": "Card.ZIndex",
+								"order": "descending"
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "set-enabled",
 							"objectClass": "Card",
-							"sid": 698688254521279,
+							"sid": 216851906117408,
 							"behaviorType": "DragDrop",
 							"parameters": {
 								"state": "disabled"
@@ -70,7 +81,108 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Card",
-							"sid": 298522942995717,
+							"sid": 855497144464468,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 754415831308621,
+							"parameters": {
+								"seconds": "0.1 * loopindex"
+							}
+						},
+						{
+							"callFunction": "MoveCardToXY",
+							"sid": 567664229028322,
+							"parameters": [
+								"Card.UID",
+								"random(LayoutWidth)",
+								"random(LayoutHeight)"
+							]
+						}
+					],
+					"sid": 961399660786367,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 850141193364363,
+							"parameters": {
+								"object": "Card",
+								"expression": "Card.AnimationFrame",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 488945191985346,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 430322171547917,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "false"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Card",
+							"sid": 357194339862552
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 398633445618674,
+							"parameters": {
+								"seconds": "0.1 * loopindex"
+							}
+						},
+						{
+							"callFunction": "MoveCardToXY",
+							"sid": 781947652192795,
+							"parameters": [
+								"Card.UID",
+								"(LayoutWidth * (Card.Value / NUMBER_OF_CARDS_PER_SUIT)) - (Card.Width / 2)",
+								"(LayoutHeight / NUMBER_OF_SUITS  * floor(Card.AnimationFrame / NUMBER_OF_CARDS_PER_SUIT)) + (Card.Height / 2)"
+							]
+						}
+					],
+					"sid": 274590905395868
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 493413383545280,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 976549340070812,
 							"parameters": {
 								"instance-variable": "IsMovable",
 								"value": "false"
@@ -79,7 +191,7 @@
 						{
 							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 529273152037730,
+							"sid": 377904617435264,
 							"behaviorType": "Physics",
 							"parameters": {
 								"object": "Card",
@@ -89,7 +201,7 @@
 						{
 							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 362133005851283,
+							"sid": 671898446391848,
 							"behaviorType": "Physics",
 							"parameters": {
 								"object": "Discard",
@@ -99,7 +211,7 @@
 						{
 							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 104297958616875,
+							"sid": 287339605645599,
 							"behaviorType": "Physics",
 							"parameters": {
 								"object": "Foundation",
@@ -109,7 +221,7 @@
 						{
 							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 720787088395024,
+							"sid": 444748115894224,
 							"behaviorType": "Physics",
 							"parameters": {
 								"object": "Tableau",
@@ -119,7 +231,7 @@
 						{
 							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 952432615599199,
+							"sid": 116182952823763,
 							"behaviorType": "Physics",
 							"parameters": {
 								"object": "Stock",
@@ -129,7 +241,7 @@
 						{
 							"id": "set-world-gravity",
 							"objectClass": "Card",
-							"sid": 995668376230598,
+							"sid": 353201163093036,
 							"behaviorType": "Physics",
 							"parameters": {
 								"gravity": "20"
@@ -138,14 +250,15 @@
 						{
 							"id": "set-enabled",
 							"objectClass": "Card",
-							"sid": 820651884066514,
+							"sid": 615518218866452,
 							"behaviorType": "Physics",
 							"parameters": {
 								"mode": "enabled"
 							}
 						}
 					],
-					"sid": 295168918834023,
+					"sid": 549035195015688,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -153,7 +266,7 @@
 								{
 									"id": "for-each-ordered",
 									"objectClass": "System",
-									"sid": 100531892560743,
+									"sid": 947888257880198,
 									"parameters": {
 										"object": "Card",
 										"expression": "Card.ZIndex",
@@ -165,7 +278,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 161184246143018,
+									"sid": 557892975744450,
 									"parameters": {
 										"seconds": "0.05 * loopindex"
 									}
@@ -173,7 +286,7 @@
 								{
 									"id": "apply-impulse-towards-position",
 									"objectClass": "Card",
-									"sid": 226839271523783,
+									"sid": 267226167006667,
 									"disabled": true,
 									"behaviorType": "Physics",
 									"parameters": {
@@ -186,7 +299,7 @@
 								{
 									"id": "apply-impulse-towards-position",
 									"objectClass": "Card",
-									"sid": 295321926161518,
+									"sid": 766777848535446,
 									"behaviorType": "Physics",
 									"parameters": {
 										"impulse": "20",
@@ -196,20 +309,16 @@
 									}
 								},
 								{
-									"type": "comment",
-									"text": "the foundations & tableaus disappear because their width is set to that of card, and there are now no cards. this shouldn't be an issue once custom art is complete."
-								},
-								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 634819331246176,
+									"sid": 566033285394234,
 									"parameters": {
 										"type": "log",
 										"message": "LayoutWidth & \" \" & Card.Count & \" \" & loopindex"
 									}
 								}
 							],
-							"sid": 561908316875338
+							"sid": 137805335416853
 						}
 					]
 				}

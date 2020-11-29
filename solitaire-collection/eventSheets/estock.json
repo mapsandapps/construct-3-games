@@ -31,6 +31,11 @@
 							"parameters": {
 								"object": "Card"
 							}
+						},
+						{
+							"id": "is-on-screen",
+							"objectClass": "Discard",
+							"sid": 694506896266215
 						}
 					],
 					"actions": [],
@@ -40,17 +45,28 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-on-screen",
-									"objectClass": "Discard",
-									"sid": 414881564727686
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 535029409472681,
+									"parameters": {
+										"variable": "STOCK_FLIPS_NUMBER_OF_CARDS",
+										"comparison": 0,
+										"value": "1"
+									}
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "DealCardToDiscard",
-									"sid": 659532607601997
+									"sid": 228306903488584
 								}
 							],
+							"sid": 870615767882428
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
 							"sid": 394938311357758
 						}
 					]
@@ -166,45 +182,11 @@
 											],
 											"actions": [
 												{
-													"id": "set-position",
-													"objectClass": "Card",
-													"sid": 412732827610275,
-													"parameters": {
-														"x": "Stock.X",
-														"y": "Stock.Y"
-													}
-												},
-												{
-													"id": "move-to-top",
-													"objectClass": "Card",
-													"sid": 771016390733903
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Card",
-													"sid": 216706730271688,
-													"parameters": {
-														"animation": "DECK_ART & \"Backs\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "Card",
-													"sid": 854496543219162,
-													"behaviorType": "DragDrop",
-													"parameters": {
-														"state": "disabled"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Card",
-													"sid": 230220053816147,
-													"parameters": {
-														"instance-variable": "IsMovable",
-														"value": "false"
-													}
+													"callFunction": "MoveCardToStock",
+													"sid": 271473730078400,
+													"parameters": [
+														"Card.UID"
+													]
 												}
 											],
 											"sid": 217346237501122
@@ -252,9 +234,139 @@
 						"instance-variable": "StockUID",
 						"value": "-1"
 					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Stock",
+					"sid": 605840561122552,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
 				}
 			],
 			"sid": 133514120990019
+		},
+		{
+			"functionName": "MoveCardToStock",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CardUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 112693512806239
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Card",
+					"sid": 771301704638962,
+					"parameters": {
+						"unique-id": "CardUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Card",
+					"sid": 815526662856295
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 413420078969052,
+					"parameters": {
+						"instance-variable": "StockUID",
+						"value": "Stock.UID"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Stock",
+					"sid": 959990910391235,
+					"parameters": {
+						"instance-variable": "NumberOfCards",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Card",
+					"sid": 207229966586085,
+					"parameters": {
+						"instance-variable": "IsMovable",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Card",
+					"sid": 580494562364310,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Card",
+					"sid": 645374588090586,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Stock.X",
+						"end-y": "Stock.Y",
+						"time": "STOCK_FLIP_TWEEN_TIME",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Card",
+					"sid": 687024194900809,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"FlipCardTweenWidth\"",
+						"property": "offsetWidth",
+						"end-value": "0",
+						"time": "STOCK_FLIP_TWEEN_TIME / 2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "yes"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 368661395184568,
+					"parameters": {
+						"seconds": "STOCK_FLIP_TWEEN_TIME / 2"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Card",
+					"sid": 604401882740452,
+					"parameters": {
+						"animation": "DECK_ART & \"Backs\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 749719536741943
 		}
 	],
 	"sid": 457750011881145

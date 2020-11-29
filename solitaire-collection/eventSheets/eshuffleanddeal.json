@@ -276,6 +276,15 @@
 								"index": "PickIndex",
 								"axis": "x"
 							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Stock",
+							"sid": 821443510252642,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
 						}
 					],
 					"sid": 423669685618714,
@@ -597,94 +606,12 @@
 					]
 				},
 				{
-					"id": "set-instvar-value",
-					"objectClass": "Card",
-					"sid": 143183922811575,
-					"parameters": {
-						"instance-variable": "DiscardUID",
-						"value": "Discard.UID"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 572402980783811
-				},
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Card",
-					"sid": 348327367935621,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "position",
-						"end-x": "Discard.X",
-						"end-y": "Discard.Y",
-						"time": "STOCK_FLIP_TWEEN_TIME",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "Card",
-					"sid": 699222648495393,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetWidth",
-						"end-value": "0",
-						"time": "STOCK_FLIP_TWEEN_TIME / 2",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "yes"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 453378713878642,
-					"parameters": {
-						"seconds": "STOCK_FLIP_TWEEN_TIME / 2"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Card",
-					"sid": 198104323966309,
-					"parameters": {
-						"animation": "DECK_ART",
-						"from": "current-frame"
-					}
-				},
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Card",
-					"sid": 741505958112339,
-					"parameters": {
-						"frame-number": "Card.Frame"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Card",
-					"sid": 945127412352409,
-					"behaviorType": "DragDrop",
-					"parameters": {
-						"state": "enabled"
-					}
-				},
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Card",
-					"sid": 506503811326364,
-					"parameters": {
-						"instance-variable": "IsMovable",
-						"value": "true"
-					}
+					"callFunction": "MoveCardToDiscard",
+					"sid": 901808273617958,
+					"parameters": [
+						"Card.UID",
+						"Discard.UID"
+					]
 				}
 			],
 			"sid": 537514671959593
@@ -754,6 +681,13 @@
 								"x": "Tableau.X",
 								"y": "Tableau.Y + Tableau.NumberOfCards * CARD_OFFSET"
 							}
+						},
+						{
+							"callFunction": "MoveCardFromStock",
+							"sid": 244331428090680,
+							"parameters": [
+								"Card.UID"
+							]
 						},
 						{
 							"callFunction": "MoveCardToTableau",
@@ -982,108 +916,6 @@
 					]
 				}
 			]
-		},
-		{
-			"functionName": "MoveCardToDiscard",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "CardUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 472573786312865
-				},
-				{
-					"name": "DiscardUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 824614844318065
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Card",
-					"sid": 860609785158515,
-					"parameters": {
-						"unique-id": "CardUID"
-					}
-				},
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Discard",
-					"sid": 388423288334425,
-					"parameters": {
-						"unique-id": "DiscardUID"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Card",
-					"sid": 483638348343913,
-					"parameters": {
-						"instance-variable": "DiscardUID",
-						"value": "DiscardUID"
-					}
-				},
-				{
-					"callFunction": "MoveCardToXY",
-					"sid": 701189621985256,
-					"parameters": [
-						"CardUID",
-						"Discard.X",
-						"Discard.Y"
-					]
-				}
-			],
-			"sid": 402946283023646
-		},
-		{
-			"functionName": "MoveCardFromDiscard",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "CardUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 706079874942552
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Card",
-					"sid": 991915059262647,
-					"parameters": {
-						"unique-id": "CardUID"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Card",
-					"sid": 593656162253780,
-					"parameters": {
-						"instance-variable": "DiscardUID",
-						"value": "-1"
-					}
-				}
-			],
-			"sid": 833588205680881
 		}
 	],
 	"sid": 533729986536694

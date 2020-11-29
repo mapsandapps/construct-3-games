@@ -87,7 +87,8 @@
 					},
 					"uid": 6,
 					"instanceVariables": {
-						"FlipsRemaining": 0
+						"FlipsRemaining": 0,
+						"NumberOfCards": 0
 					},
 					"behaviors": {},
 					"world": {
@@ -117,13 +118,15 @@
 						"live-preview": false
 					},
 					"uid": 9,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"NumberOfCards": 0
+					},
 					"behaviors": {},
 					"world": {
 						"x": 208,
 						"y": 48,
-						"width": 64,
-						"height": 84,
+						"width": 65.536,
+						"height": 112.896,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -1480,6 +1483,48 @@
 						"y": 0,
 						"width": 200,
 						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "WinText",
+					"properties": {
+						"text": "You win!",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 48,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.5764705882352941,
+							0.15294117647058825,
+							0.1568627450980392,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 96,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 160,
+						"width": 800,
+						"height": 112,
 						"originX": 0,
 						"originY": 0,
 						"color": [

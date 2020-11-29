@@ -1061,77 +1061,11 @@
 					],
 					"actions": [
 						{
-							"id": "move-to-top",
-							"objectClass": "Card",
-							"sid": 421613627739482
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Card",
-							"sid": 567062692577409,
-							"parameters": {
-								"instance-variable": "StockUID",
-								"value": "Stock.UID"
-							}
-						},
-						{
-							"id": "set-enabled",
-							"objectClass": "Card",
-							"sid": 580494562364310,
-							"behaviorType": "DragDrop",
-							"parameters": {
-								"state": "disabled"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Card",
-							"sid": 645374588090586,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "position",
-								"end-x": "Stock.X",
-								"end-y": "Stock.Y",
-								"time": "STOCK_FLIP_TWEEN_TIME",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no"
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Card",
-							"sid": 687024194900809,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"FlipCardTweenWidth\"",
-								"property": "offsetWidth",
-								"end-value": "0",
-								"time": "STOCK_FLIP_TWEEN_TIME / 2",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "yes"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 368661395184568,
-							"parameters": {
-								"seconds": "STOCK_FLIP_TWEEN_TIME / 2"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "Card",
-							"sid": 604401882740452,
-							"parameters": {
-								"animation": "DECK_ART & \"Backs\"",
-								"from": "beginning"
-							}
+							"callFunction": "MoveCardToStock",
+							"sid": 421823711408339,
+							"parameters": [
+								"Card.UID"
+							]
 						}
 					],
 					"sid": 484892980046984

@@ -16,6 +16,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 851216802082480,
+					"parameters": {
+						"layer": "\"Interstitial\"",
+						"visibility": "visible"
+					}
+				},
+				{
 					"type": "comment",
 					"text": "set config & rules"
 				},
@@ -83,21 +92,106 @@
 						"variable": "TABLEAUS_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY",
 						"value": "13"
 					}
-				},
-				{
-					"type": "comment",
-					"text": "init (deal, etc.)"
-				},
-				{
-					"callFunction": "Shuffle",
-					"sid": 422672446619403
-				},
-				{
-					"callFunction": "InitialDeal",
-					"sid": 159919530353360
 				}
 			],
 			"sid": 877795445160259
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 325371678019281
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 317013873141719,
+					"parameters": {
+						"layer": "\"Interstitial\""
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 592441338142631,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 669552959314437,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 135686107139645,
+							"parameters": {
+								"instance-variable": "Variant",
+								"comparison": 0,
+								"value": "\"Turn 3\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 568151815204479,
+							"parameters": {
+								"variable": "STOCK_FLIPS_NUMBER_OF_CARDS",
+								"value": "3"
+							}
+						}
+					],
+					"sid": 419819271655103
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 996378133679571
+						}
+					],
+					"actions": [],
+					"sid": 468093695056720
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "init (deal, etc.)"
+						},
+						{
+							"callFunction": "Shuffle",
+							"sid": 426999765284932
+						},
+						{
+							"callFunction": "InitialDeal",
+							"sid": 124112469414089
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 620479082720248,
+							"parameters": {
+								"layer": "\"Interstitial\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 684723824552332
+				}
+			]
 		}
 	],
 	"sid": 749168466460123
