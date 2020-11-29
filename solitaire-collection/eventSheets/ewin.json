@@ -12,81 +12,17 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-enabled",
-					"objectClass": "Card",
-					"sid": 973721228278667,
-					"behaviorType": "DragDrop",
+					"id": "set-visible",
+					"objectClass": "WinText",
+					"sid": 136922889592477,
 					"parameters": {
-						"state": "disabled"
+						"visibility": "visible"
 					}
 				},
 				{
-					"id": "set-boolean-instvar",
+					"id": "destroy",
 					"objectClass": "Card",
-					"sid": 308687896138229,
-					"parameters": {
-						"instance-variable": "IsMovable",
-						"value": "false"
-					}
-				},
-				{
-					"id": "enabledisable-collisions",
-					"objectClass": "Card",
-					"sid": 944746400443161,
-					"behaviorType": "Physics",
-					"parameters": {
-						"object": "Card",
-						"state": "disable"
-					}
-				},
-				{
-					"id": "enabledisable-collisions",
-					"objectClass": "Card",
-					"sid": 615204773746693,
-					"behaviorType": "Physics",
-					"parameters": {
-						"object": "Discard",
-						"state": "disable"
-					}
-				},
-				{
-					"id": "enabledisable-collisions",
-					"objectClass": "Card",
-					"sid": 668357950345466,
-					"behaviorType": "Physics",
-					"parameters": {
-						"object": "Foundation",
-						"state": "disable"
-					}
-				},
-				{
-					"id": "enabledisable-collisions",
-					"objectClass": "Card",
-					"sid": 676557484158904,
-					"behaviorType": "Physics",
-					"parameters": {
-						"object": "Tableau",
-						"state": "disable"
-					}
-				},
-				{
-					"id": "enabledisable-collisions",
-					"objectClass": "Card",
-					"sid": 840380741783582,
-					"behaviorType": "Physics",
-					"parameters": {
-						"object": "Stock",
-						"state": "disable"
-					}
-				},
-				{
-					"id": "set-world-gravity",
-					"objectClass": "Card",
-					"sid": 237659475756565,
-					"behaviorType": "Physics",
-					"parameters": {
-						"gravity": "5"
-					}
+					"sid": 824333498897538
 				}
 			],
 			"sid": 177054400691519,
@@ -95,105 +31,182 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for-each-ordered",
-							"objectClass": "System",
-							"sid": 591818522606047,
+							"id": "compare-instance-variable",
+							"objectClass": "TopBarButton",
+							"sid": 777726249692423,
 							"parameters": {
-								"object": "Card",
-								"expression": "Card.ZIndex",
-								"order": "descending"
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Undo\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 909232512508494,
+							"id": "set-animation",
+							"objectClass": "TopBarButton",
+							"sid": 616344888070105,
 							"parameters": {
-								"seconds": "0.2 * loopindex"
+								"animation": "\"Inactive\"",
+								"from": "current-frame"
 							}
-						},
+						}
+					],
+					"sid": 840209994584295
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
 						{
 							"id": "set-enabled",
 							"objectClass": "Card",
-							"sid": 908702995005748,
+							"sid": 698688254521279,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 298522942995717,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "false"
+							}
+						},
+						{
+							"id": "enabledisable-collisions",
+							"objectClass": "Card",
+							"sid": 529273152037730,
 							"behaviorType": "Physics",
 							"parameters": {
-								"mode": "enabled"
+								"object": "Card",
+								"state": "disable"
 							}
 						},
 						{
-							"id": "apply-impulse-towards-position",
+							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 608971724783633,
+							"sid": 362133005851283,
 							"behaviorType": "Physics",
 							"parameters": {
-								"impulse": "20",
-								"x": "random(LayoutWidth)",
-								"y": "LayoutHeight",
-								"image-point": "0"
+								"object": "Discard",
+								"state": "disable"
 							}
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 905769112309744,
-							"parameters": {
-								"seconds": "2"
-							}
-						},
-						{
-							"id": "destroy",
+							"id": "enabledisable-collisions",
 							"objectClass": "Card",
-							"sid": 144113031736201
+							"sid": 104297958616875,
+							"behaviorType": "Physics",
+							"parameters": {
+								"object": "Foundation",
+								"state": "disable"
+							}
 						},
 						{
-							"type": "comment",
-							"text": "the foundations & tableaus disappear because their width is set to that of card, and there are now no cards. this shouldn't be an issue once custom art is complete."
+							"id": "enabledisable-collisions",
+							"objectClass": "Card",
+							"sid": 720787088395024,
+							"behaviorType": "Physics",
+							"parameters": {
+								"object": "Tableau",
+								"state": "disable"
+							}
+						},
+						{
+							"id": "enabledisable-collisions",
+							"objectClass": "Card",
+							"sid": 952432615599199,
+							"behaviorType": "Physics",
+							"parameters": {
+								"object": "Stock",
+								"state": "disable"
+							}
+						},
+						{
+							"id": "set-world-gravity",
+							"objectClass": "Card",
+							"sid": 694327244079922,
+							"behaviorType": "Physics",
+							"parameters": {
+								"gravity": "5"
+							}
 						}
 					],
-					"sid": 380198339973375,
+					"sid": 295168918834023,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 574493571375572
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 100531892560743,
+									"parameters": {
+										"object": "Card",
+										"expression": "Card.ZIndex",
+										"order": "descending"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 208176472844480,
+									"parameters": {
+										"seconds": "0.2 * loopindex"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 429829075097071,
+									"behaviorType": "Physics",
+									"parameters": {
+										"mode": "enabled"
+									}
+								},
+								{
+									"id": "apply-impulse-towards-position",
+									"objectClass": "Card",
+									"sid": 226839271523783,
+									"behaviorType": "Physics",
+									"parameters": {
+										"impulse": "20",
+										"x": "random(LayoutWidth)",
+										"y": "LayoutHeight",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 819317333022788,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Card",
+									"sid": 307875173662116
+								},
+								{
+									"type": "comment",
+									"text": "the foundations & tableaus disappear because their width is set to that of card, and there are now no cards. this shouldn't be an issue once custom art is complete."
+								}
+							],
+							"sid": 561908316875338,
+							"disabled": true
 						}
 					]
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 559164504545794,
-					"parameters": {
-						"object": "TopBarButton"
-					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "TopBarButton",
-					"sid": 565324342966331,
-					"parameters": {
-						"instance-variable": "Name",
-						"comparison": 0,
-						"value": "\"Settings\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Win",
-					"sid": 473174264820448
-				}
-			],
-			"sid": 293819261157060
 		}
 	],
 	"sid": 553168513264701

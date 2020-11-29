@@ -162,17 +162,40 @@
 						"x": "Touch.X",
 						"y": "Touch.Y"
 					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "Drag",
-					"sid": 975056338725939,
-					"parameters": {
-						"opacity": "100"
-					}
 				}
 			],
-			"sid": 838439844182733
+			"sid": 838439844182733,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 658417613208112
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 160533889067206,
+							"parameters": {
+								"variable": "DEBUG_MODE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Drag",
+							"sid": 244695678591077,
+							"parameters": {
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 931542522948791
+				}
+			]
 		},
 		{
 			"eventType": "block",

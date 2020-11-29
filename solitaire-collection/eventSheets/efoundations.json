@@ -714,6 +714,14 @@
 					"id": "is-in-preview",
 					"objectClass": "System",
 					"sid": 648583382963194
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 419775531825937,
+					"parameters": {
+						"variable": "DEBUG_MODE"
+					}
 				}
 			],
 			"actions": [
@@ -1057,6 +1065,103 @@
 						}
 					],
 					"sid": 279162427548977
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 637506879070283,
+							"parameters": {
+								"variable": "WIN_MEANS_ALL_CARDS_ON_FOUNDATIONS"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "check for win condition"
+						}
+					],
+					"sid": 892087347264472,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "CompletedFoundations",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 646547538060679
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 356827748411173,
+									"parameters": {
+										"object": "Foundation"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 314724887858810,
+									"parameters": {
+										"object": "Foundation"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Foundation",
+									"sid": 916223345933302,
+									"parameters": {
+										"instance-variable": "NumberOfCards",
+										"comparison": 0,
+										"value": "NUMBER_OF_CARDS_PER_SUIT"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 490613186283019,
+									"parameters": {
+										"variable": "CompletedFoundations",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 562176641997444
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 924348763794646,
+									"parameters": {
+										"first-value": "Foundation.Count",
+										"comparison": 0,
+										"second-value": "CompletedFoundations"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Win",
+									"sid": 143739713197768
+								}
+							],
+							"sid": 981124499357439
+						}
+					]
 				}
 			]
 		}

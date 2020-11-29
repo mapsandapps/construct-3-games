@@ -196,6 +196,16 @@
 			"sid": 166525969416687
 		},
 		{
+			"eventType": "variable",
+			"name": "WIN_MEANS_ALL_CARDS_ON_FOUNDATIONS",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 630297955217909
+		},
+		{
 			"eventType": "comment",
 			"text": "game settings"
 		},
@@ -256,6 +266,16 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 942574795987551
+		},
+		{
+			"eventType": "variable",
+			"name": "DEBUG_MODE",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 615841400141257
 		},
 		{
 			"eventType": "variable",
