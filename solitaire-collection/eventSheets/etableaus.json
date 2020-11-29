@@ -774,9 +774,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "Tableau",
-					"sid": 518816681496335,
+					"sid": 708507386256656,
 					"parameters": {
-						"width": "Card.Width * 1.5"
+						"width": "CardWidth * 1.5"
 					}
 				}
 			],
@@ -803,9 +803,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "Tableau",
-					"sid": 619714947980330,
+					"sid": 263354727924115,
 					"parameters": {
-						"width": "Card.Width * 9 / 8 "
+						"width": "CardWidth * 9 / 8 "
 					}
 				}
 			],
@@ -2024,9 +2024,9 @@
 				{
 					"id": "set-height",
 					"objectClass": "Tableau",
-					"sid": 315107551539072,
+					"sid": 937468369965966,
 					"parameters": {
-						"height": "max(Card.Height + (Tableau.NumberOfCards - 1) * CARD_OFFSET, Card.Height) * 1.095"
+						"height": "max(CardHeight + (Tableau.NumberOfCards - 1) * CARD_OFFSET, CardHeight) * 1.095"
 					}
 				}
 			],

@@ -453,38 +453,56 @@
 							"sid": 912143580927768
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 226479981014193,
+							"parameters": {
+								"variable": "CardWidth",
+								"value": "Card.Width"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 764004952868319,
+							"parameters": {
+								"variable": "CardHeight",
+								"value": "Card.Height"
+							}
+						},
+						{
 							"id": "set-size",
 							"objectClass": "Discard",
-							"sid": 373519791540840,
+							"sid": 385883958550184,
 							"parameters": {
-								"width": "Card.Width",
-								"height": "Card.Height"
+								"width": "CardWidth",
+								"height": "CardHeight"
 							}
 						},
 						{
 							"id": "set-size",
 							"objectClass": "Foundation",
-							"sid": 568389569277321,
+							"sid": 876803714827311,
 							"parameters": {
-								"width": "Card.Width",
-								"height": "Card.Height"
+								"width": "CardWidth",
+								"height": "CardHeight"
 							}
 						},
 						{
 							"id": "set-size",
 							"objectClass": "Stock",
-							"sid": 443353754267199,
+							"sid": 306399038095830,
 							"parameters": {
-								"width": "Card.Width",
-								"height": "Card.Height"
+								"width": "CardWidth",
+								"height": "CardHeight"
 							}
 						},
 						{
 							"id": "set-width",
 							"objectClass": "Tableau",
-							"sid": 185276127232349,
+							"sid": 940309999774439,
 							"parameters": {
-								"width": "Card.Width * 9 / 8"
+								"width": "CardWidth * 9 / 8"
 							}
 						},
 						{
@@ -612,10 +630,10 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Card",
-					"sid": 480349495843684,
+					"sid": 699222648495393,
 					"behaviorType": "Tween",
 					"parameters": {
-						"tags": "\"FlipCardTweenWidth\"",
+						"tags": "\"\"",
 						"property": "offsetWidth",
 						"end-value": "0",
 						"time": "STOCK_FLIP_TWEEN_TIME / 2",
