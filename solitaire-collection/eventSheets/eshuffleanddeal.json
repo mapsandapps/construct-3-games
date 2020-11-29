@@ -278,6 +278,15 @@
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 845191591915783,
+							"parameters": {
+								"instance-variable": "IndexInStock",
+								"value": "Stock.NumberOfCards"
+							}
+						},
+						{
 							"id": "add-to-instvar",
 							"objectClass": "Stock",
 							"sid": 821443510252642,
@@ -564,27 +573,13 @@
 			"eventType": "function-block",
 			"conditions": [
 				{
-					"id": "is-overlapping-another-object",
+					"id": "pick-highestlowest",
 					"objectClass": "Card",
-					"sid": 434993104629415,
+					"sid": 188596681127036,
 					"parameters": {
-						"object": "Stock"
+						"which": "highest",
+						"instance-variable": "IndexInStock"
 					}
-				},
-				{
-					"id": "pick-topbottom",
-					"objectClass": "Card",
-					"sid": 853804522264027,
-					"parameters": {
-						"which": "top"
-					}
-				},
-				{
-					"id": "is-any-playing",
-					"objectClass": "Card",
-					"sid": 127144721117164,
-					"behaviorType": "Tween",
-					"isInverted": true
 				}
 			],
 			"actions": [
@@ -649,19 +644,12 @@
 							}
 						},
 						{
-							"id": "is-overlapping-another-object",
+							"id": "pick-highestlowest",
 							"objectClass": "Card",
-							"sid": 278757840949596,
+							"sid": 238211090334315,
 							"parameters": {
-								"object": "Stock"
-							}
-						},
-						{
-							"id": "pick-topbottom",
-							"objectClass": "Card",
-							"sid": 975574935683778,
-							"parameters": {
-								"which": "top"
+								"which": "highest",
+								"instance-variable": "IndexInStock"
 							}
 						}
 					],

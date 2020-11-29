@@ -53,6 +53,15 @@
 					}
 				},
 				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 591860788196229,
+					"parameters": {
+						"instance-variable": "IndexInDiscard",
+						"value": "Discard.NumberOfCards"
+					}
+				},
+				{
 					"id": "add-to-instvar",
 					"objectClass": "Discard",
 					"sid": 261809290439081,
@@ -82,68 +91,91 @@
 						"loop": "no",
 						"ping-pong": "no"
 					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "Card",
-					"sid": 699222648495393,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetWidth",
-						"end-value": "0",
-						"time": "STOCK_FLIP_TWEEN_TIME / 2",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "yes"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 453378713878642,
-					"parameters": {
-						"seconds": "STOCK_FLIP_TWEEN_TIME / 2"
-					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Card",
-					"sid": 198104323966309,
-					"parameters": {
-						"animation": "DECK_ART",
-						"from": "current-frame"
-					}
-				},
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Card",
-					"sid": 741505958112339,
-					"parameters": {
-						"frame-number": "Card.Frame"
-					}
-				},
-				{
-					"id": "set-enabled",
-					"objectClass": "Card",
-					"sid": 945127412352409,
-					"behaviorType": "DragDrop",
-					"parameters": {
-						"state": "enabled"
-					}
-				},
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "Card",
-					"sid": 506503811326364,
-					"parameters": {
-						"instance-variable": "IsMovable",
-						"value": "true"
-					}
 				}
 			],
-			"sid": 402946283023646
+			"sid": 402946283023646,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Card",
+							"sid": 628440483112228,
+							"parameters": {
+								"animation": "DECK_ART"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "if it's already face up, it shouldn't flip over"
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Card",
+							"sid": 230041697631076,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetWidth",
+								"end-value": "0",
+								"time": "STOCK_FLIP_TWEEN_TIME / 2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 257565102067598,
+							"parameters": {
+								"seconds": "STOCK_FLIP_TWEEN_TIME / 2"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 831004741944141,
+							"parameters": {
+								"animation": "DECK_ART",
+								"from": "current-frame"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Card",
+							"sid": 343852231295428,
+							"parameters": {
+								"frame-number": "Card.Frame"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 904487325877645,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 393477643218412,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 743177873541681
+				}
+			]
 		},
 		{
 			"functionName": "MoveCardFromDiscard",
@@ -178,6 +210,15 @@
 					"sid": 593656162253780,
 					"parameters": {
 						"instance-variable": "DiscardUID",
+						"value": "-1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 604658251518211,
+					"parameters": {
+						"instance-variable": "IndexInDiscard",
 						"value": "-1"
 					}
 				},

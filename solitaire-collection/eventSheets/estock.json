@@ -236,6 +236,15 @@
 					}
 				},
 				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 905736096162297,
+					"parameters": {
+						"instance-variable": "IndexInStock",
+						"value": "-1"
+					}
+				},
+				{
 					"id": "subtract-from-instvar",
 					"objectClass": "Stock",
 					"sid": 605840561122552,
@@ -286,6 +295,15 @@
 					"parameters": {
 						"instance-variable": "StockUID",
 						"value": "Stock.UID"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Card",
+					"sid": 618977732540400,
+					"parameters": {
+						"instance-variable": "IndexInStock",
+						"value": "Stock.NumberOfCards"
 					}
 				},
 				{
