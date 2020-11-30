@@ -146,6 +146,16 @@
 					"sid": 182126824309567
 				},
 				{
+					"eventType": "variable",
+					"name": "TypeOfMove",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 690170868643406
+				},
+				{
 					"eventType": "block",
 					"conditions": [],
 					"actions": [
@@ -156,6 +166,15 @@
 							"parameters": {
 								"variable": "CheckingIndexOfUndoArray",
 								"value": "UndoArray.Width - 1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 667437347609931,
+							"parameters": {
+								"variable": "TypeOfMove",
+								"value": "UndoArray.At(CheckingIndexOfUndoArray, 1)"
 							}
 						}
 					],
@@ -172,12 +191,12 @@
 						{
 							"id": "compare-at-xy",
 							"objectClass": "UndoArray",
-							"sid": 362096709363839,
+							"sid": 513789180415407,
 							"parameters": {
 								"x": "CheckingIndexOfUndoArray",
 								"y": "3",
-								"comparison": 0,
-								"value": "1"
+								"comparison": 4,
+								"value": "0"
 							}
 						}
 					],
@@ -207,28 +226,93 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "repeat",
+							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 334970953283007,
+							"sid": 806071248904073,
 							"parameters": {
-								"count": "NumberOfMovesToUndo"
+								"variable": "TypeOfMove",
+								"comparison": 0,
+								"value": "\"Tableau\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "UndoMove",
-							"sid": 999406517431600,
-							"parameters": [
-								"UndoArray.At(CheckingIndexOfUndoArray, 0)",
-								"UndoArray.At(CheckingIndexOfUndoArray, 1)",
-								"UndoArray.At(CheckingIndexOfUndoArray, 2)",
-								"UndoArray.At(CheckingIndexOfUndoArray, 3)",
-								"CheckingIndexOfUndoArray"
-							]
+							"type": "comment",
+							"text": "moves from the tableau need to be undone FIFO so they will stay stacked the same, other undo mechanics are LIFO"
 						}
 					],
-					"sid": 999829221617759
+					"sid": 655147311200516,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 884277247800387,
+									"parameters": {
+										"count": "NumberOfMovesToUndo"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "UndoMove",
+									"sid": 527004901350086,
+									"parameters": [
+										"UndoArray.At(CheckingIndexOfUndoArray, 0)",
+										"UndoArray.At(CheckingIndexOfUndoArray, 1)",
+										"UndoArray.At(CheckingIndexOfUndoArray, 2)",
+										"UndoArray.At(CheckingIndexOfUndoArray, 3)",
+										"CheckingIndexOfUndoArray"
+									]
+								}
+							],
+							"sid": 651851131421981
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 830344314218229
+						}
+					],
+					"actions": [],
+					"sid": 461289679450258,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 455230001395143,
+									"parameters": {
+										"count": "NumberOfMovesToUndo"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "UndoMove",
+									"sid": 787232164151414,
+									"parameters": [
+										"UndoArray.At(UndoArray.Width - 1, 0)",
+										"UndoArray.At(UndoArray.Width - 1, 1)",
+										"UndoArray.At(UndoArray.Width - 1, 2)",
+										"UndoArray.At(UndoArray.Width - 1, 3)",
+										"UndoArray.Width - 1"
+									]
+								}
+							],
+							"sid": 101633830632016
+						}
+					]
 				}
 			]
 		},
@@ -724,6 +808,50 @@
 						}
 					],
 					"sid": 534560372792545
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 417716067970772,
+							"parameters": {
+								"variable": "FromType",
+								"comparison": 0,
+								"value": "\"StockFlip\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 307709202862574,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Card",
+									"sid": 113467803543732,
+									"parameters": {
+										"instance-variable": "DiscardUID",
+										"comparison": 4,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCardFromDiscard",
+									"sid": 268255458886419,
+									"parameters": [
+										"Card.UID"
+									]
+								}
+							],
+							"sid": 323821119895836
+						}
+					]
 				}
 			]
 		},
@@ -951,17 +1079,59 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 488807605715800,
+					"children": [
 						{
-							"callFunction": "MoveCardToDiscard",
-							"sid": 306862534589982,
-							"parameters": [
-								"Card.UID",
-								"Discard.UID"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 600162057672267,
+									"parameters": {
+										"variable": "IsCancelingMove"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCardToDiscard",
+									"sid": 419806914468106,
+									"parameters": [
+										"Card.UID",
+										"Discard.UID",
+										true,
+										"0"
+									]
+								}
+							],
+							"sid": 808959341802916
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 270005683717993
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "MoveCardToDiscard",
+									"sid": 899274670159394,
+									"parameters": [
+										"Card.UID",
+										"Discard.UID",
+										false,
+										"0"
+									]
+								}
+							],
+							"sid": 349161699667366
 						}
-					],
-					"sid": 488807605715800
+					]
 				},
 				{
 					"eventType": "block",

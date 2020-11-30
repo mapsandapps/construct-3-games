@@ -21,6 +21,20 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 824614844318065
+				},
+				{
+					"name": "IsCancelingMove",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 694424767199048
+				},
+				{
+					"name": "StaggerBy",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 311106998002573
 				}
 			],
 			"eventType": "function-block",
@@ -74,27 +88,117 @@
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 572402980783811
-				},
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Card",
-					"sid": 348327367935621,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "position",
-						"end-x": "Discard.X",
-						"end-y": "Discard.Y",
-						"time": "STOCK_FLIP_TWEEN_TIME",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no"
-					}
 				}
 			],
 			"sid": 402946283023646,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 649105773726107,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 244973392520827,
+							"parameters": {
+								"instance-variable": "DiscardUID",
+								"comparison": 0,
+								"value": "DiscardUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 943598092165275,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 687710010409554,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 370300207493753
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 702318087649654,
+							"parameters": {
+								"variable": "IsCancelingMove"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 991479884187903,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Discard.X + Discard.NumberOfStaggeredCards * DISCARD_STAGGER",
+								"end-y": "Discard.Y",
+								"time": "STOCK_FLIP_TWEEN_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 141957492453412
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 653898215326023
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Card",
+							"sid": 861480813550265,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Discard.X + StaggerBy * DISCARD_STAGGER",
+								"end-y": "Discard.Y",
+								"time": "STOCK_FLIP_TWEEN_TIME",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 965845427385918
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -153,11 +257,44 @@
 							"parameters": {
 								"frame-number": "Card.Frame"
 							}
+						}
+					],
+					"sid": 743177873541681
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 956608695471004,
+							"parameters": {
+								"instance-variable": "DiscardUID",
+								"comparison": 0,
+								"value": "DiscardUID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 311553556829505,
+							"parameters": {
+								"instance-variable": "IndexInDiscard",
+								"comparison": 0,
+								"value": "Discard.NumberOfCards - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 575286028596844
 						},
 						{
 							"id": "set-enabled",
 							"objectClass": "Card",
-							"sid": 904487325877645,
+							"sid": 293490674011316,
 							"behaviorType": "DragDrop",
 							"parameters": {
 								"state": "enabled"
@@ -166,14 +303,41 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Card",
-							"sid": 393477643218412,
+							"sid": 490447614412678,
 							"parameters": {
 								"instance-variable": "IsMovable",
 								"value": "true"
 							}
 						}
 					],
-					"sid": 743177873541681
+					"sid": 238466445962320
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 788662274318087,
+							"parameters": {
+								"variable": "StaggerBy",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Discard",
+							"sid": 527130049515967,
+							"parameters": {
+								"instance-variable": "NumberOfStaggeredCards",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 522694452320864
 				}
 			]
 		},
@@ -232,7 +396,89 @@
 					}
 				}
 			],
-			"sid": 833588205680881
+			"sid": 833588205680881,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Discard",
+							"sid": 971281798497085,
+							"parameters": {
+								"instance-variable": "NumberOfStaggeredCards",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Discard",
+							"sid": 843481064738336,
+							"parameters": {
+								"instance-variable": "NumberOfStaggeredCards",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 578770829006747
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 639107263412233,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 234101178857970,
+							"parameters": {
+								"instance-variable": "DiscardUID",
+								"comparison": 0,
+								"value": "Discard.UID"
+							}
+						},
+						{
+							"id": "pick-highestlowest",
+							"objectClass": "Card",
+							"sid": 444272733057371,
+							"parameters": {
+								"which": "highest",
+								"instance-variable": "IndexInDiscard"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 184207587546123,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Card",
+							"sid": 910520516147107,
+							"parameters": {
+								"instance-variable": "IsMovable",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 353891573081765
+				}
+			]
 		}
 	],
 	"sid": 769920277669757

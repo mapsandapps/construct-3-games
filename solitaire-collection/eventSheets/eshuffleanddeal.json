@@ -287,6 +287,15 @@
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 163345314531606,
+							"parameters": {
+								"instance-variable": "StockUID",
+								"value": "Stock.UID"
+							}
+						},
+						{
 							"id": "add-to-instvar",
 							"objectClass": "Stock",
 							"sid": 821443510252642,
@@ -569,7 +578,15 @@
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "StaggerBy",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 347375138509734
+				}
+			],
 			"eventType": "function-block",
 			"conditions": [
 				{
@@ -579,6 +596,16 @@
 					"parameters": {
 						"which": "highest",
 						"instance-variable": "IndexInStock"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Card",
+					"sid": 762777841434634,
+					"parameters": {
+						"instance-variable": "IndexInStock",
+						"comparison": 4,
+						"value": "-1"
 					}
 				}
 			],
@@ -592,24 +619,86 @@
 				},
 				{
 					"callFunction": "PushToUndoArray",
-					"sid": 766379122982971,
+					"sid": 989051300110239,
 					"parameters": [
 						"Card.UID",
 						"\"Stock\"",
 						"Stock.UID",
-						"0"
+						"StaggerBy"
 					]
 				},
 				{
 					"callFunction": "MoveCardToDiscard",
-					"sid": 901808273617958,
+					"sid": 319792379576053,
 					"parameters": [
 						"Card.UID",
-						"Discard.UID"
+						"Discard.UID",
+						false,
+						"StaggerBy"
 					]
 				}
 			],
-			"sid": 537514671959593
+			"sid": 537514671959593,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 633180914961975,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 722824779724127,
+							"parameters": {
+								"instance-variable": "DiscardUID",
+								"comparison": 0,
+								"value": "Discard.UID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Card",
+							"sid": 694767321208368,
+							"parameters": {
+								"instance-variable": "IndexInDiscard",
+								"comparison": 2,
+								"value": "Discard.NumberOfCards - 1 - Discard.NumberOfStaggeredCards"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "square up any previously staggered cards when flipping more cards"
+						}
+					],
+					"sid": 377178703227074,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Card",
+									"sid": 939549715878618,
+									"parameters": {
+										"x": "Discard.X",
+										"y": "Discard.Y"
+									}
+								}
+							],
+							"sid": 587556522779249
+						}
+					]
+				}
+			]
 		},
 		{
 			"functionName": "DealCardToTableau",

@@ -14,7 +14,11 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "BUG: undoing a card from the stock causes it to stay face down?"
+					"text": "possible BUG (or possibly expected?): flipping three cards twice in a row and then hitting undo only displays one card fanned, not three"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: multi-flip tween isn't correct after first StockFlip"
 				}
 			],
 			"sid": 392508065587170
@@ -151,32 +155,6 @@
 				}
 			],
 			"sid": 797793260912188
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Klondike 3-flip",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "stagger them"
-				},
-				{
-					"eventType": "comment",
-					"text": "refactor stock and discard to know how many cards they have"
-				},
-				{
-					"eventType": "comment",
-					"text": "flip min(3 cards, num in stock)"
-				},
-				{
-					"eventType": "comment",
-					"text": "refactor DealCardToTableau to not use overlapping card"
-				}
-			],
-			"sid": 366802263334659
 		}
 	],
 	"sid": 362205341000481

@@ -18,24 +18,31 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Discard",
+					"sid": 390801834908724,
+					"parameters": {
+						"instance-variable": "NumberOfStaggeredCards",
+						"value": "0"
+					}
+				}
+			],
 			"sid": 438946730386144,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
+							"id": "compare-instance-variable",
 							"objectClass": "Stock",
-							"sid": 256458562281913,
+							"sid": 638473614463037,
 							"parameters": {
-								"object": "Card"
+								"instance-variable": "NumberOfCards",
+								"comparison": 4,
+								"value": "0"
 							}
-						},
-						{
-							"id": "is-on-screen",
-							"objectClass": "Discard",
-							"sid": 694506896266215
 						}
 					],
 					"actions": [],
@@ -58,16 +65,50 @@
 							"actions": [
 								{
 									"callFunction": "DealCardToDiscard",
-									"sid": 228306903488584
+									"sid": 228306903488584,
+									"parameters": [
+										"0"
+									]
 								}
 							],
 							"sid": 870615767882428
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 219433811101265
+								}
+							],
 							"actions": [],
-							"sid": 394938311357758
+							"sid": 181597387984478,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "repeat",
+											"objectClass": "System",
+											"sid": 180959803688623,
+											"parameters": {
+												"count": "STOCK_FLIPS_NUMBER_OF_CARDS"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "DealCardToDiscard",
+											"sid": 859500646824842,
+											"parameters": [
+												"loopindex"
+											]
+										}
+									],
+									"sid": 787447872411458
+								}
+							]
 						}
 					]
 				},
@@ -87,49 +128,55 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-on-screen",
-									"objectClass": "Discard",
-									"sid": 905379274898026
+									"id": "compare-instance-variable",
+									"objectClass": "Stock",
+									"sid": 662557575456166,
+									"parameters": {
+										"instance-variable": "FlipsRemaining",
+										"comparison": 4,
+										"value": "0"
+									}
 								}
 							],
-							"actions": [],
-							"sid": 356261468894404,
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Stock",
+									"sid": 376907815980033,
+									"parameters": {
+										"instance-variable": "FlipsRemaining",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 379158983560174,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Card",
-											"sid": 212331809660651,
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 366500999066252,
 											"parameters": {
-												"object": "Discard"
+												"object": "Card"
 											}
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Stock",
-											"sid": 902970603447271,
+											"objectClass": "Card",
+											"sid": 721212713457450,
 											"parameters": {
-												"instance-variable": "FlipsRemaining",
+												"instance-variable": "DiscardUID",
 												"comparison": 4,
-												"value": "0"
+												"value": "-1"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Stock",
-											"sid": 444710577674386,
-											"parameters": {
-												"instance-variable": "FlipsRemaining",
-												"value": "1"
-											}
-										},
-										{
 											"callFunction": "PushToUndoArray",
-											"sid": 985649989024875,
+											"sid": 888292097168018,
 											"parameters": [
 												"-1",
 												"\"StockFlip\"",
@@ -138,7 +185,7 @@
 											]
 										}
 									],
-									"sid": 337731604086129,
+									"sid": 716704284414279,
 									"children": [
 										{
 											"eventType": "block",
@@ -146,7 +193,7 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Stock",
-													"sid": 553672848789910,
+													"sid": 396102035412585,
 													"parameters": {
 														"instance-variable": "FlipsRemaining",
 														"comparison": 0,
@@ -158,13 +205,13 @@
 												{
 													"id": "set-opacity",
 													"objectClass": "Stock",
-													"sid": 617135194516926,
+													"sid": 985914292338352,
 													"parameters": {
 														"opacity": "0"
 													}
 												}
 											],
-											"sid": 972756559178636
+											"sid": 675184832940796
 										},
 										{
 											"eventType": "block",
@@ -172,7 +219,7 @@
 												{
 													"id": "for-each-ordered",
 													"objectClass": "System",
-													"sid": 152942734739420,
+													"sid": 130669336335398,
 													"parameters": {
 														"object": "Card",
 														"expression": "Card.ZIndex",
@@ -183,13 +230,13 @@
 											"actions": [
 												{
 													"callFunction": "MoveCardToStock",
-													"sid": 271473730078400,
+													"sid": 196567313938678,
 													"parameters": [
 														"Card.UID"
 													]
 												}
 											],
-											"sid": 217346237501122
+											"sid": 349716039182083
 										}
 									]
 								}
