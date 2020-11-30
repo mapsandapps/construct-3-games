@@ -121,7 +121,17 @@
 							"sid": 847607822333744
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Discard",
+							"sid": 438425918654026,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "0"
+							}
+						}
+					],
 					"sid": 111684027098071,
 					"children": [
 						{
