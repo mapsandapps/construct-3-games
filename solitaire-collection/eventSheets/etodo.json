@@ -15,6 +15,14 @@
 				{
 					"eventType": "comment",
 					"text": "possible BUG (or possibly expected?): flipping three cards twice in a row and then hitting undo only displays one card fanned, not three"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: somehow tableaus are showing as having 1 card when they have 0"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: undoing a bunch of moves can cause a card to have Card.IndexInDiscard = Discard.NumberOfCards"
 				}
 			],
 			"sid": 392508065587170

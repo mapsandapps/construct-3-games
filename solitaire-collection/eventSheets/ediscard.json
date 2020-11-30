@@ -56,40 +56,7 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Card",
-					"sid": 143183922811575,
-					"parameters": {
-						"instance-variable": "DiscardUID",
-						"value": "Discard.UID"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Card",
-					"sid": 591860788196229,
-					"parameters": {
-						"instance-variable": "IndexInDiscard",
-						"value": "Discard.NumberOfCards"
-					}
-				},
-				{
-					"id": "add-to-instvar",
-					"objectClass": "Discard",
-					"sid": 261809290439081,
-					"parameters": {
-						"instance-variable": "NumberOfCards",
-						"value": "1"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 572402980783811
-				}
-			],
+			"actions": [],
 			"sid": 402946283023646,
 			"children": [
 				{
@@ -179,6 +146,33 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 813661702163458,
+							"parameters": {
+								"instance-variable": "DiscardUID",
+								"value": "Discard.UID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Card",
+							"sid": 760820087192017,
+							"parameters": {
+								"instance-variable": "IndexInDiscard",
+								"value": "Discard.NumberOfCards"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Discard",
+							"sid": 501696027665972,
+							"parameters": {
+								"instance-variable": "NumberOfCards",
+								"value": "1"
+							}
+						},
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Card",
