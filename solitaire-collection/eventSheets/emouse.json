@@ -42,106 +42,71 @@
 					"sid": 301344739507441
 				},
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 704363991673448,
-					"parameters": {
-						"object": "Card"
-					}
-				},
-				{
-					"id": "is-enabled",
-					"objectClass": "Card",
-					"sid": 871531516218112,
-					"behaviorType": "DragDrop"
-				}
-			],
-			"actions": [
-				{
-					"id": "set-cursor-style",
-					"objectClass": "Mouse",
-					"sid": 775776003801034,
-					"parameters": {
-						"cursor-style": "hand"
-					}
-				}
-			],
-			"sid": 145166068538933
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 145440636153545
-				},
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 294918581337965,
-					"parameters": {
-						"object": "Stock"
-					}
-				},
-				{
-					"id": "compare-opacity",
-					"objectClass": "Stock",
-					"sid": 453550225046056,
-					"parameters": {
-						"comparison": 0,
-						"opacity": "100"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-cursor-style",
-					"objectClass": "Mouse",
-					"sid": 141189572388997,
-					"parameters": {
-						"cursor-style": "hand"
-					}
-				}
-			],
-			"sid": 447763108918936
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 550404242265326
-				},
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 146491504150254,
-					"parameters": {
-						"object": "Button"
-					}
-				},
-				{
 					"id": "layer-is-visible",
 					"objectClass": "System",
-					"sid": 632782094733492,
+					"sid": 683601773335301,
 					"parameters": {
 						"layer": "\"Interstitial\""
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 145166068538933,
+			"children": [
 				{
-					"id": "set-cursor-style",
-					"objectClass": "Mouse",
-					"sid": 467157314518750,
-					"parameters": {
-						"cursor-style": "hand"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 122646086150489,
+							"parameters": {
+								"object": "Button"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 689698692463786,
+							"parameters": {
+								"layer": "\"Interstitial\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 637452946953429,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 414030458050989
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 123863593659396
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 591200044944152,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 751463715903970
 				}
-			],
-			"sid": 416869091907078
+			]
 		},
 		{
 			"eventType": "block",
@@ -152,17 +117,99 @@
 					"sid": 619712229329374
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 176293494583448,
+			"children": [
 				{
-					"id": "set-cursor-style",
-					"objectClass": "Mouse",
-					"sid": 450480508246779,
-					"parameters": {
-						"cursor-style": "normal"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 700163007141907,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-enabled",
+							"objectClass": "Card",
+							"sid": 654362346710219,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 610538536681092,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 660903863230027
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 744209295395834
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 588200326871279,
+							"parameters": {
+								"object": "Stock"
+							}
+						},
+						{
+							"id": "compare-opacity",
+							"objectClass": "Stock",
+							"sid": 390942181001881,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "100"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 319922317224756,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 418361582826936
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 357297008286052
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 333434944555184,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 361320812905834
 				}
-			],
-			"sid": 176293494583448
+			]
 		}
 	],
 	"sid": 458859841177730

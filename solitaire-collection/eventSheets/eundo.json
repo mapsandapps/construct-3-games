@@ -723,6 +723,15 @@
 					],
 					"actions": [
 						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 309589329338561,
+							"parameters": {
+								"type": "log",
+								"message": "\"push to undo array\""
+							}
+						},
+						{
 							"callFunction": "MoveCardFromDiscard",
 							"sid": 297643011767788,
 							"parameters": [
@@ -841,6 +850,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 938159850338206,
+									"parameters": {
+										"type": "log",
+										"message": "\"push to undo array stockflip\""
+									}
+								},
 								{
 									"callFunction": "MoveCardFromDiscard",
 									"sid": 268255458886419,
@@ -1096,6 +1114,15 @@
 							],
 							"actions": [
 								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 648647600901499,
+									"parameters": {
+										"type": "log",
+										"message": "\"canceling move\""
+									}
+								},
+								{
 									"callFunction": "MoveCardToDiscard",
 									"sid": 419806914468106,
 									"parameters": [
@@ -1118,6 +1145,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 408710478000929,
+									"parameters": {
+										"type": "log",
+										"message": "\"not canceling move\""
+									}
+								},
 								{
 									"callFunction": "MoveCardToDiscard",
 									"sid": 899274670159394,

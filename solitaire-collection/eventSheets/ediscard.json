@@ -56,7 +56,13 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "move-to-top",
+					"objectClass": "Card",
+					"sid": 190817231192080
+				}
+			],
 			"sid": 402946283023646,
 			"children": [
 				{
@@ -174,6 +180,15 @@
 							}
 						},
 						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 431980074244764,
+							"parameters": {
+								"type": "log",
+								"message": "\"MoveCardToDiscard: \" & Discard.NumberOfCards"
+							}
+						},
+						{
 							"id": "tween-two-properties",
 							"objectClass": "Card",
 							"sid": 861480813550265,
@@ -257,28 +272,7 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Card",
-							"sid": 956608695471004,
-							"parameters": {
-								"instance-variable": "DiscardUID",
-								"comparison": 0,
-								"value": "DiscardUID"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Card",
-							"sid": 311553556829505,
-							"parameters": {
-								"instance-variable": "IndexInDiscard",
-								"comparison": 0,
-								"value": "Discard.NumberOfCards - 1"
-							}
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"id": "wait-for-previous-actions",
@@ -387,6 +381,15 @@
 					"parameters": {
 						"instance-variable": "NumberOfCards",
 						"value": "1"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 695914694072959,
+					"parameters": {
+						"type": "log",
+						"message": "\"MoveCardFromDiscard: \" & Discard.NumberOfCards"
 					}
 				}
 			],

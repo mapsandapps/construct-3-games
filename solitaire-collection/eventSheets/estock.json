@@ -45,7 +45,12 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "stock is not empty; flip STOCK_FLIPS_NUMBER_OF_CARDS cards"
+						}
+					],
 					"sid": 366083653330175,
 					"children": [
 						{
@@ -123,13 +128,8 @@
 					],
 					"actions": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Discard",
-							"sid": 438425918654026,
-							"parameters": {
-								"instance-variable": "NumberOfCards",
-								"value": "0"
-							}
+							"type": "comment",
+							"text": "stock is empty; move all discard back to stock"
 						}
 					],
 					"sid": 111684027098071,
@@ -239,6 +239,24 @@
 											],
 											"actions": [
 												{
+													"id": "set-instvar-value",
+													"objectClass": "Card",
+													"sid": 428270996865814,
+													"parameters": {
+														"instance-variable": "DiscardUID",
+														"value": "-1"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Card",
+													"sid": 617675783654430,
+													"parameters": {
+														"instance-variable": "IndexInDiscard",
+														"value": "-1"
+													}
+												},
+												{
 													"callFunction": "MoveCardToStock",
 													"sid": 196567313938678,
 													"parameters": [
@@ -249,6 +267,40 @@
 											"sid": 349716039182083
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 997450704614229,
+											"parameters": {
+												"type": "log",
+												"message": "\"set to 0\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Discard",
+											"sid": 757677004041707,
+											"parameters": {
+												"instance-variable": "NumberOfCards",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Discard",
+											"sid": 451859714246167,
+											"parameters": {
+												"instance-variable": "NumberOfStaggeredCards",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 454832349519564
 								}
 							]
 						}
