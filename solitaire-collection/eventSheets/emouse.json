@@ -165,28 +165,46 @@
 							"parameters": {
 								"object": "Stock"
 							}
-						},
-						{
-							"id": "compare-opacity",
-							"objectClass": "Stock",
-							"sid": 390942181001881,
-							"parameters": {
-								"comparison": 0,
-								"opacity": "100"
-							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 418361582826936,
+					"children": [
 						{
-							"id": "set-cursor-style",
-							"objectClass": "Mouse",
-							"sid": 319922317224756,
-							"parameters": {
-								"cursor-style": "hand"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Stock",
+									"sid": 741175444291844,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "compare-opacity",
+									"objectClass": "Stock",
+									"sid": 615491820513302,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style",
+									"objectClass": "Mouse",
+									"sid": 163864030900414,
+									"parameters": {
+										"cursor-style": "hand"
+									}
+								}
+							],
+							"sid": 591806199000557,
+							"isOrBlock": true
 						}
-					],
-					"sid": 418361582826936
+					]
 				},
 				{
 					"eventType": "block",
