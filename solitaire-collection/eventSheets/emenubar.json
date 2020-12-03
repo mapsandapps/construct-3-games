@@ -5,9 +5,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-start",
+					"id": "on-any-touch-end",
 					"objectClass": "Touch",
-					"sid": 855168802070391
+					"sid": 983180131598754
 				},
 				{
 					"id": "is-touching-object",
@@ -30,6 +30,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 630156821823263,
+					"parameters": {
+						"layer": "\"Rules\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "go-to-layout-by-name",
 					"objectClass": "System",
 					"sid": 326735385515986,
@@ -44,9 +53,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-start",
+					"id": "on-any-touch-end",
 					"objectClass": "Touch",
-					"sid": 712398720158784
+					"sid": 922108452322796
 				},
 				{
 					"id": "is-touching-object",
@@ -69,6 +78,15 @@
 			],
 			"actions": [
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 355251111009922,
+					"parameters": {
+						"layer": "\"Rules\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "go-to-layout",
 					"objectClass": "System",
 					"sid": 659567914213823,
@@ -78,6 +96,771 @@
 				}
 			],
 			"sid": 877908057533384
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 562885956925522
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 372068366416975,
+					"parameters": {
+						"object": "TopBarButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TopBarButton",
+					"sid": 694286864581151,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Rules\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 254586628995024,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 512231398625710,
+							"parameters": {
+								"layer": "\"Rules\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 793871015668995,
+							"parameters": {
+								"variable": "IsGamePaused",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 682381911056119,
+							"parameters": {
+								"layer": "\"Rules\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 804495186624245
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 810960367831306
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 958170047876048,
+							"parameters": {
+								"variable": "IsGamePaused",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 722975245697863,
+							"parameters": {
+								"layer": "\"Rules\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 783045679357121,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "MenuText",
+									"sid": 124691523340368,
+									"parameters": {
+										"layer": "\"Rules\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuText",
+									"sid": 523467420716728,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "\"Variant\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "MenuText",
+									"sid": 904263194290006,
+									"parameters": {
+										"text": "LayoutName"
+									}
+								}
+							],
+							"sid": 991948188805466
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "MenuText",
+									"sid": 386242446182153,
+									"parameters": {
+										"layer": "\"Rules\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuText",
+									"sid": 127376810253246,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "\"Rules\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "MenuText",
+									"sid": 727973687003147,
+									"parameters": {
+										"text": "\"Cards: There are \" & NUMBER_OF_DECKS & \" decks of cards with \" & NUMBER_OF_SUITS & \" suits. \""
+									}
+								}
+							],
+							"sid": 666081823232792,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 453021246769634,
+											"parameters": {
+												"text": "\"Click or drag the card you want to move.\" & newline & newline"
+											}
+										}
+									],
+									"sid": 277025741942545
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 973789676811793,
+											"parameters": {
+												"variable": "WIN_MEANS_ALL_CARDS_ON_FOUNDATIONS"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 811816926743399,
+											"parameters": {
+												"text": "\"Foundations: The objective is to move all cards to the foundations. \""
+											}
+										}
+									],
+									"sid": 818824466536792
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 751673644294040,
+											"parameters": {
+												"text": "\"Build up foundations with cards of \""
+											}
+										}
+									],
+									"sid": 249157639767769
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 638820549203638,
+											"parameters": {
+												"variable": "FOUNDATIONS_DIRECTION",
+												"comparison": 0,
+												"value": "\"Up\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 466917264851940,
+											"parameters": {
+												"text": "\"increasing value and \""
+											}
+										}
+									],
+									"sid": 330350024824480
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 484382254192436,
+											"parameters": {
+												"variable": "FOUNDATIONS_DIRECTION",
+												"comparison": 0,
+												"value": "\"Down\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 869060905910906,
+											"parameters": {
+												"text": "\"decreasing value and \""
+											}
+										}
+									],
+									"sid": 160458975717536
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 733163433408493,
+											"parameters": {
+												"variable": "FOUNDATIONS_SUIT_MATCH"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 819624017727299,
+											"parameters": {
+												"text": "\"the same suit. \" & newline & newline"
+											}
+										}
+									],
+									"sid": 763270492045507
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 944096239820017
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 261126660564693,
+											"parameters": {
+												"text": "\"any suit. \" & newline & newline"
+											}
+										}
+									],
+									"sid": 804342343908275
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 513391224339980,
+											"parameters": {
+												"text": "\"Tableau: Build \" & lowercase(TABLEAUS_DIRECTION) & \" \""
+											}
+										}
+									],
+									"sid": 986050119145243
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 156442427443230,
+											"parameters": {
+												"variable": "TABLEAUS_SAME_SUIT"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 356391518185384,
+											"parameters": {
+												"text": "\"with cards of the same suit. \""
+											}
+										}
+									],
+									"sid": 931288375347717
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 580060065680975
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 101576074629239,
+											"parameters": {
+												"variable": "TABLEAUS_ALTERNATE_COLOR"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 114288440290017,
+											"parameters": {
+												"text": "\"in alternating colors. \""
+											}
+										}
+									],
+									"sid": 401501405552290
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 947811110504145
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 843114556420179,
+											"parameters": {
+												"text": "\"with cards of any suit. \""
+											}
+										}
+									],
+									"sid": 339599913620935
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 539143613339090,
+											"parameters": {
+												"variable": "TABLEAUS_CAN_MULTI_MOVE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 595433590009269,
+											"parameters": {
+												"text": "\"Cards in order may move together. \""
+											}
+										}
+									],
+									"sid": 353476824154232
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 376014445226370
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 294671166996553,
+											"parameters": {
+												"text": "\"Cards must move one at a time. \""
+											}
+										}
+									],
+									"sid": 197823575755442
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 479199308404092,
+											"parameters": {
+												"variable": "TABLEAUS_CAN_MOVE_ANY_CARD_TO_EMPTY"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 405541309074400,
+											"parameters": {
+												"text": "\"Fill spaces with any card. \" & newline & newline"
+											}
+										}
+									],
+									"sid": 417354405443447
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 928074314606788
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 299042026419667,
+											"parameters": {
+												"variable": "TABLEAUS_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY",
+												"comparison": 0,
+												"value": "13"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 333902933210359,
+											"parameters": {
+												"text": "\"Fill spaces with a king. \" & newline & newline"
+											}
+										}
+									],
+									"sid": 677608731750160
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 919299849941717
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 260685087700044,
+											"parameters": {
+												"variable": "TABLEAUS_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 950228844086895,
+											"parameters": {
+												"text": "\"Fill spaces with cards with value \" & TABLEAUS_CAN_MOVE_SPECIFIC_CARD_TO_EMPTY & \".\" & newline & newline"
+											}
+										}
+									],
+									"sid": 952325988056362
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 555183359626315,
+											"parameters": {
+												"text": "\"Stock: Cards are dealt from the stock \" & STOCK_FLIPS_NUMBER_OF_CARDS & \" at a time. \""
+											}
+										}
+									],
+									"sid": 496236597993763
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 962848761763572,
+											"parameters": {
+												"variable": "STOCK_FLIPS",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 564838963105447,
+											"parameters": {
+												"text": "\"You may only work through the stock once. \""
+											}
+										}
+									],
+									"sid": 815431880937407
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 142978027049113
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 200530416307129,
+											"parameters": {
+												"variable": "STOCK_FLIPS",
+												"comparison": 0,
+												"value": "-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 245836863279066,
+											"parameters": {
+												"text": "\"You may only work through the stock as many times as needed. \""
+											}
+										}
+									],
+									"sid": 442006685137964
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 643305550695210
+										}
+									],
+									"actions": [
+										{
+											"id": "append-text",
+											"objectClass": "MenuText",
+											"sid": 553965891714664,
+											"parameters": {
+												"text": "\"You may work through the stock \" & STOCK_FLIPS + 1 & \" times. \""
+											}
+										}
+									],
+									"sid": 937577097890259
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 703825337598464
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 316460193760148,
+					"parameters": {
+						"layer": "\"Rules\""
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 473939581399333,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 608226695244435,
+					"parameters": {
+						"variable": "IsGamePaused",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 219116475939654,
+					"parameters": {
+						"layer": "\"Rules\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 756124342684732
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 437029970519916,
+					"parameters": {
+						"layer": "\"Interstitial\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 826284709208157,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TopBarButton",
+							"sid": 799222016192246,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Rules\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "TopBarButton",
+							"sid": 846167082472226,
+							"parameters": {
+								"animation": "\"Inactive\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 938730029386520
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 715318908999423
+				}
+			],
+			"actions": [],
+			"sid": 457394377729955,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TopBarButton",
+							"sid": 298143465692200,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Rules\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "TopBarButton",
+							"sid": 736218513475175,
+							"parameters": {
+								"animation": "\"Active\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 163765247848706
+				}
+			]
 		}
 	],
 	"sid": 701924682305882

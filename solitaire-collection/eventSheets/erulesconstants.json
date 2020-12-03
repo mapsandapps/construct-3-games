@@ -116,10 +116,14 @@
 			"sid": 407733658903485
 		},
 		{
+			"eventType": "comment",
+			"text": "STOCK_FLIPS: -1 means infinite, 0 means one time through, >0 means n + 1 times through"
+		},
+		{
 			"eventType": "variable",
 			"name": "STOCK_FLIPS",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "-1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,

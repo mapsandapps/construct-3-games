@@ -100,7 +100,9 @@
 						"origin": "top-left"
 					},
 					"uid": 87,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 128,
@@ -142,7 +144,9 @@
 						"origin": "top-left"
 					},
 					"uid": 88,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 64,
@@ -184,7 +188,9 @@
 						"origin": "top-left"
 					},
 					"uid": 89,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 448,
@@ -262,7 +268,9 @@
 						"origin": "top-left"
 					},
 					"uid": 95,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 448,
@@ -340,13 +348,59 @@
 						"origin": "top-left"
 					},
 					"uid": 139,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 64,
 						"y": 256,
 						"width": 288,
 						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Credits:\nGame dev & some assets by Shawn Taylor - mapsandapps.net\nSome art assets from Kenney - kenney.nl\nFonts: Lilita One & Open Sans",
+						"enable-bbcode": true,
+						"font": "OpenSans-Regular",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 108,
+					"instanceVariables": {
+						"ID": "Credits"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 472,
+						"width": 736,
+						"height": 128,
 						"originX": 0,
 						"originY": 0,
 						"color": [

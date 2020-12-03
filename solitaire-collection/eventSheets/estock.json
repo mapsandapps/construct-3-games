@@ -10,6 +10,15 @@
 					"sid": 355084566995266
 				},
 				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 536191763139927,
+					"parameters": {
+						"variable": "IsGamePaused"
+					},
+					"isInverted": true
+				},
+				{
 					"id": "is-touching-object",
 					"objectClass": "Touch",
 					"sid": 403253765398279,

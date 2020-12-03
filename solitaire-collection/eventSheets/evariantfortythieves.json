@@ -128,6 +128,14 @@
 					"parameters": {
 						"object": "Button"
 					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "Button",
+					"sid": 289018577655039,
+					"parameters": {
+						"layer": "\"Interstitial\""
+					}
 				}
 			],
 			"actions": [],
@@ -173,9 +181,14 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 439942241218211
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 729191094451826,
+							"parameters": {
+								"instance-variable": "Variant",
+								"comparison": 0,
+								"value": "\"Hard\""
+							}
 						}
 					],
 					"actions": [

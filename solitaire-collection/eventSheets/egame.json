@@ -85,6 +85,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "IsGamePaused",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 100691044057233
+		},
+		{
+			"eventType": "variable",
 			"name": "PreDragX",
 			"type": "number",
 			"initialValue": "0",
@@ -150,6 +160,15 @@
 		{
 			"eventType": "block",
 			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 282035967020687,
+					"parameters": {
+						"variable": "IsGamePaused"
+					},
+					"isInverted": true
+				},
 				{
 					"id": "is-touching-object",
 					"objectClass": "Touch",
@@ -247,6 +266,15 @@
 					"sid": 656028643888425
 				},
 				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 832688209718781,
+					"parameters": {
+						"variable": "IsGamePaused"
+					},
+					"isInverted": true
+				},
+				{
 					"id": "is-touching-object",
 					"objectClass": "Touch",
 					"sid": 539649655804315,
@@ -341,6 +369,15 @@
 		{
 			"eventType": "block",
 			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 600383806072818,
+					"parameters": {
+						"variable": "IsGamePaused"
+					},
+					"isInverted": true
+				},
 				{
 					"id": "every-tick",
 					"objectClass": "System",
@@ -501,6 +538,15 @@
 					"id": "on-any-touch-end",
 					"objectClass": "Touch",
 					"sid": 214944881078108
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 314947390940689,
+					"parameters": {
+						"variable": "IsGamePaused"
+					},
+					"isInverted": true
 				},
 				{
 					"id": "compare-boolean-eventvar",

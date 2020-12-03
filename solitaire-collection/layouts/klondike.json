@@ -577,7 +577,9 @@
 						"origin": "top-left"
 					},
 					"uid": 98,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 0,
@@ -691,7 +693,9 @@
 						"origin": "top-left"
 					},
 					"uid": 101,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 64,
@@ -733,7 +737,9 @@
 						"origin": "top-left"
 					},
 					"uid": 102,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 448,
@@ -756,6 +762,34 @@
 			"sid": 538410242971816,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Rules",
+			"overriden": 1,
+			"instances": [],
+			"sid": 446778412145642,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
 			"color": [
 				1,
 				1,
