@@ -73,7 +73,9 @@
 			"AJAX",
 			"JSON",
 			"Browser",
-			"CellGrid"
+			"CellGrid",
+			"MenuButton",
+			"MenuBackground"
 		],
 		"subfolders": []
 	},
@@ -85,15 +87,15 @@
 	},
 	"layouts": {
 		"items": [
-			"5x5",
-			"7x7"
+			"5x5"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"eGame",
-			"eLoadPuzzle"
+			"eLoadPuzzle",
+			"eCredits"
 		],
 		"subfolders": []
 	},
@@ -115,7 +117,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "OpenDyslexic-Regular.otf",
+					"type": "application/font-sfnt",
+					"sid": 671726461035056
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -267,6 +275,6 @@
 		"cordovaiOSScheme": "app"
 	},
 	"viewportWidth": 480,
-	"viewportHeight": 640,
+	"viewportHeight": 854,
 	"firstLayout": "5x5"
 }

@@ -446,10 +446,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 689218394797963,
+											"sid": 191838628648071,
 											"parameters": {
 												"variable": "Value",
-												"value": "min(JSON.Get(\"grid.\" & RowIndex & \".\" & ColIndex), Size - 1)"
+												"value": "JSON.Get(\"grid.\" & RowIndex & \".\" & ColIndex)"
 											}
 										},
 										{
@@ -469,19 +469,68 @@
 												"type": "log",
 												"message": "Value"
 											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Cell",
-											"sid": 976426793084861,
-											"parameters": {
-												"instance-variable": "RealValue",
-												"value": "Value"
-											}
 										}
 									],
 									"sid": 827813699203052,
 									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 267604596328671,
+													"parameters": {
+														"variable": "Value",
+														"comparison": 5,
+														"value": "Size - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 325902870867501,
+													"parameters": {
+														"variable": "Value",
+														"value": "min(JSON.Get(\"grid.\" & RowIndex & \".\" & ColIndex), Size - 1)"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cell",
+													"sid": 360944209121625,
+													"parameters": {
+														"instance-variable": "RealValue",
+														"value": "BREAD_INDEX"
+													}
+												}
+											],
+											"sid": 735390793596682
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 701550237332152
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cell",
+													"sid": 128974695715757,
+													"parameters": {
+														"instance-variable": "RealValue",
+														"value": "Value"
+													}
+												}
+											],
+											"sid": 707845065663729
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -500,9 +549,9 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "Cell",
-													"sid": 699431919312161,
+													"sid": 662937352415482,
 													"parameters": {
-														"frame-number": "Value"
+														"frame-number": "Cell.RealValue"
 													}
 												},
 												{
@@ -512,6 +561,15 @@
 													"parameters": {
 														"instance-variable": "IsFixed",
 														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Cell",
+													"sid": 865449830202009,
+													"parameters": {
+														"animation": "\"Fixed\"",
+														"from": "current-frame"
 													}
 												}
 											],

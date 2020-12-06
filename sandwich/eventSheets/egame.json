@@ -26,37 +26,155 @@
 			"sid": 398641763992223
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 172503401282949,
-					"parameters": {
-						"object": "NumberSelect"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 397453037908184,
-					"parameters": {
-						"variable": "CurrentSelectedNumber",
-						"value": "NumberSelect.AnimationFrame"
-					}
-				}
-			],
-			"sid": 850698710632793
+			"eventType": "variable",
+			"name": "BREAD_INDEX",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 116709529635915
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-tap-object",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 308300915677939,
+					"sid": 817821954052555,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 613824419905313,
+					"parameters": {
+						"object": "NumberSelect"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 850698710632793,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 256588698696887,
+							"parameters": {
+								"first-value": "CurrentSelectedNumber",
+								"comparison": 0,
+								"second-value": "NumberSelect.AnimationFrame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 463968673288358,
+							"parameters": {
+								"variable": "CurrentSelectedNumber",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 429076187704530
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 611524866451366
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 236109091268042,
+							"parameters": {
+								"variable": "CurrentSelectedNumber",
+								"value": "NumberSelect.AnimationFrame"
+							}
+						}
+					],
+					"sid": 723511377789135
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 339321890402681,
+							"parameters": {
+								"object": "NumberSelect"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "NumberSelect",
+							"sid": 577661793370452,
+							"parameters": {
+								"animation": "\"Inactive\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 751699512251536
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "NumberSelect",
+							"sid": 257815717687173,
+							"parameters": {
+								"comparison": 0,
+								"number": "CurrentSelectedNumber"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "NumberSelect",
+							"sid": 558524966276173,
+							"parameters": {
+								"animation": "\"Active\"",
+								"from": "current-frame"
+							}
+						}
+					],
+					"sid": 166955415377862
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 913212599081650,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 880941299353320,
 					"parameters": {
 						"object": "Cell"
 					}
