@@ -1,0 +1,461 @@
+{
+	"name": "eLoadPuzzle",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Size",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 830060008538073
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 713848650295329
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 990753298303793,
+					"parameters": {
+						"tag": "\"\"",
+						"file": "puzzle0001.json"
+					}
+				}
+			],
+			"sid": 251566449007057
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 601841436450432,
+					"parameters": {
+						"tag": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 354643330987289,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 176735569122503,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 852128510232170,
+							"parameters": {
+								"variable": "Size",
+								"value": "JSON.Get(\"size\")"
+							}
+						}
+					],
+					"sid": 795970004681680
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "SetColSums",
+							"sid": 191735260666448
+						},
+						{
+							"callFunction": "SetRowSums",
+							"sid": 559695797525775
+						},
+						{
+							"callFunction": "SetGrid",
+							"sid": 997447870772400
+						}
+					],
+					"sid": 418271304967864
+				}
+			]
+		},
+		{
+			"functionName": "SetColSums",
+			"functionDescription": "",
+			"functionCategory": "Load Puzzle",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 828159483781975,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "ColIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 206584358155286
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 358465577388746,
+							"parameters": {
+								"path": "\"colSums\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 413744169845413,
+							"parameters": {
+								"variable": "ColIndex",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 628867552714611,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RowOrColNumber",
+									"sid": 972894339499306,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "-1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RowOrColNumber",
+									"sid": 921460516380384,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "ColIndex"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "RowOrColNumber",
+									"sid": 325247771674893,
+									"parameters": {
+										"text": "JSON.CurrentValue"
+									}
+								}
+							],
+							"sid": 763094142509050
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "SetRowSums",
+			"functionDescription": "",
+			"functionCategory": "Load Puzzle",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 564229754067915,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "RowIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 675452865517503
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 490882393830540,
+							"parameters": {
+								"path": "\"rowSums\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 990450229921119,
+							"parameters": {
+								"variable": "RowIndex",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 461201933555980,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RowOrColNumber",
+									"sid": 758373481516033,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "RowIndex"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RowOrColNumber",
+									"sid": 618886007897288,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "RowOrColNumber",
+									"sid": 152370679711222,
+									"parameters": {
+										"text": "JSON.CurrentValue"
+									}
+								}
+							],
+							"sid": 146697852762823
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "SetGrid",
+			"functionDescription": "",
+			"functionCategory": "Load Puzzle",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 189371432956250,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "ColIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 873617863907957
+				},
+				{
+					"eventType": "variable",
+					"name": "RowIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 976112933813169
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 214514309282677,
+							"parameters": {
+								"count": "Size"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 436878172277712,
+							"parameters": {
+								"variable": "RowIndex",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 861281226678795,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 979940041771808,
+									"parameters": {
+										"count": "Size"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 653044168978103,
+									"parameters": {
+										"variable": "ColIndex",
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 177069136847539,
+									"parameters": {
+										"type": "log",
+										"message": "RowIndex"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 520830785104977,
+									"parameters": {
+										"type": "log",
+										"message": "ColIndex"
+									}
+								}
+							],
+							"sid": 169258201500905,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Value",
+									"type": "number",
+									"initialValue": "-1",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 486159479694160
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 119706647683067,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "RowIndex"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 974414053661611,
+											"parameters": {
+												"instance-variable": "Column",
+												"comparison": 0,
+												"value": "ColIndex"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 689218394797963,
+											"parameters": {
+												"variable": "Value",
+												"value": "min(JSON.Get(\"grid.\" & RowIndex & \".\" & ColIndex), Size - 1)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 427416798662089,
+											"parameters": {
+												"type": "log",
+												"message": "Value"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Cell",
+											"sid": 830494148087478,
+											"parameters": {
+												"frame-number": "Value"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Cell",
+											"sid": 976426793084861,
+											"parameters": {
+												"instance-variable": "RealValue",
+												"value": "Value"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Cell",
+											"sid": 118894976492183,
+											"parameters": {
+												"instance-variable": "IsFixed",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 827813699203052
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 475670661119153
+}

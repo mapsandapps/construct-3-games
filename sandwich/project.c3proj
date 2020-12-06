@@ -29,6 +29,30 @@
 			"author": "Scirra",
 			"version": "r226",
 			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
 		}
 	],
 	"uniqueId": "sq2d35nms7h",
@@ -37,7 +61,10 @@
 			"Cell",
 			"RowOrColNumber",
 			"NumberSelect",
-			"Touch"
+			"Touch",
+			"AJAX",
+			"JSON",
+			"Browser"
 		],
 		"subfolders": []
 	},
@@ -49,13 +76,15 @@
 	},
 	"layouts": {
 		"items": [
-			"Level 1"
+			"5x5",
+			"7x7"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"eGame"
+			"eGame",
+			"eLoadPuzzle"
 		],
 		"subfolders": []
 	},
@@ -142,7 +171,13 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "puzzle0001.json",
+					"type": "application/json",
+					"sid": 972697277462837
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -204,5 +239,5 @@
 	},
 	"viewportWidth": 480,
 	"viewportHeight": 640,
-	"firstLayout": null
+	"firstLayout": "5x5"
 }

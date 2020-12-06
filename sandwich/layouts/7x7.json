@@ -1,5 +1,5 @@
 {
-	"name": "Level 1",
+	"name": "7x7",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -9,7 +9,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -18,14 +18,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -42,7 +44,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -51,14 +53,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -75,7 +79,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -84,14 +88,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -108,7 +114,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -117,14 +123,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -141,7 +149,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -150,14 +158,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -174,7 +184,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -183,14 +193,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -207,7 +219,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -216,14 +228,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -240,7 +254,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -249,14 +263,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -273,7 +289,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -282,14 +298,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -306,7 +324,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -315,14 +333,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -358,13 +378,16 @@
 						"origin": "top-left"
 					},
 					"uid": 51,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 2
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 192,
-						"width": 32,
-						"height": 32,
+						"x": 32,
+						"y": 176,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -400,13 +423,16 @@
 						"origin": "top-left"
 					},
 					"uid": 52,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 0,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -423,7 +449,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -432,14 +458,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -456,7 +484,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -465,14 +493,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -489,7 +519,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -498,14 +528,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
+						"x": 272,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -522,7 +554,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -531,14 +563,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -555,7 +589,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -564,14 +598,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -588,7 +624,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -597,14 +633,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -621,7 +659,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -630,14 +668,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
+						"x": 128,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -654,7 +694,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -663,14 +703,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -687,7 +729,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -696,14 +738,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -720,7 +764,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
@@ -729,14 +773,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 6
+						"RealValue": 6,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -753,7 +799,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -762,14 +808,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -786,7 +834,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -795,14 +843,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -819,7 +869,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -828,14 +878,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -852,7 +904,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -861,14 +913,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -885,7 +939,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -894,14 +948,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -918,7 +974,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -927,14 +983,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
+						"x": 320,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -951,7 +1009,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -960,14 +1018,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
+						"x": 80,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -984,7 +1044,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -993,14 +1053,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
+						"x": 176,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1017,7 +1079,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1026,14 +1088,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
+						"x": 368,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1050,7 +1114,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1059,14 +1123,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1083,7 +1149,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1092,14 +1158,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1116,7 +1184,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1125,14 +1193,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1149,7 +1219,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1158,14 +1228,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1182,7 +1254,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1191,14 +1263,16 @@
 					"instanceVariables": {
 						"IsFixed": true,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1215,7 +1289,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1224,14 +1298,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1248,7 +1324,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1257,14 +1333,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1281,7 +1359,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1290,14 +1368,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1314,7 +1394,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1323,14 +1403,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1347,7 +1429,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1356,14 +1438,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1380,7 +1464,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1389,14 +1473,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 80,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1413,7 +1499,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1422,14 +1508,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1446,7 +1534,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1455,14 +1543,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1479,7 +1569,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1488,14 +1578,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 5
+						"RealValue": 5,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1512,7 +1604,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1521,14 +1613,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1545,7 +1639,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1554,14 +1648,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 3
+						"RealValue": 3,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1578,7 +1674,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 2,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1587,14 +1683,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 2
+						"RealValue": 2,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1611,7 +1709,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1620,14 +1718,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1644,7 +1744,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1653,14 +1753,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 1
+						"RealValue": 1,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1677,7 +1779,7 @@
 					"type": "Cell",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "7",
 						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1686,14 +1788,16 @@
 					"instanceVariables": {
 						"IsFixed": false,
 						"PlayerSelectedValue": -1,
-						"RealValue": 4
+						"RealValue": 4,
+						"Column": 0,
+						"Row": 0
 					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1729,13 +1833,16 @@
 						"origin": "top-left"
 					},
 					"uid": 53,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 1,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"x": 128,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1771,13 +1878,16 @@
 						"origin": "top-left"
 					},
 					"uid": 54,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 2,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"x": 176,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1813,13 +1923,16 @@
 						"origin": "top-left"
 					},
 					"uid": 55,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 3,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
 						"x": 224,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1855,13 +1968,16 @@
 						"origin": "top-left"
 					},
 					"uid": 56,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 4,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"x": 272,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1897,13 +2013,16 @@
 						"origin": "top-left"
 					},
 					"uid": 57,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 5,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 288,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"x": 320,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1939,13 +2058,16 @@
 						"origin": "top-left"
 					},
 					"uid": 58,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": 6,
+						"Row": -1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 320,
-						"y": 96,
-						"width": 32,
-						"height": 32,
+						"x": 368,
+						"y": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1981,13 +2103,16 @@
 						"origin": "top-left"
 					},
 					"uid": 59,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 0
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 128,
-						"width": 32,
-						"height": 32,
+						"x": 32,
+						"y": 80,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2023,13 +2148,16 @@
 						"origin": "top-left"
 					},
 					"uid": 60,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 1
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 160,
-						"width": 32,
-						"height": 32,
+						"x": 32,
+						"y": 128,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2065,13 +2193,16 @@
 						"origin": "top-left"
 					},
 					"uid": 61,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 3
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
+						"x": 32,
 						"y": 224,
-						"width": 32,
-						"height": 32,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2107,13 +2238,16 @@
 						"origin": "top-left"
 					},
 					"uid": 62,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 4
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 256,
-						"width": 32,
-						"height": 32,
+						"x": 32,
+						"y": 272,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2149,13 +2283,16 @@
 						"origin": "top-left"
 					},
 					"uid": 63,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 5
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 288,
-						"width": 32,
-						"height": 32,
+						"x": 32,
+						"y": 320,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2191,13 +2328,16 @@
 						"origin": "top-left"
 					},
 					"uid": 64,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Column": -1,
+						"Row": 6
+					},
 					"behaviors": {},
 					"world": {
-						"x": 96,
-						"y": 320,
-						"width": 32,
-						"height": 32,
+						"x": 32,
+						"y": 368,
+						"width": 48,
+						"height": 48,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -2223,8 +2363,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 384,
+						"x": 144,
+						"y": 448,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
@@ -2252,8 +2392,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 384,
+						"x": 208,
+						"y": 448,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
@@ -2281,8 +2421,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 192,
-						"y": 384,
+						"x": 272,
+						"y": 448,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
@@ -2310,8 +2450,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 448,
+						"x": 144,
+						"y": 512,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
@@ -2339,8 +2479,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 128,
-						"y": 448,
+						"x": 208,
+						"y": 512,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
@@ -2368,8 +2508,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 384,
+						"x": 272,
+						"y": 512,
 						"width": 64,
 						"height": 64,
 						"originX": 0,
