@@ -1,0 +1,146 @@
+{
+	"name": "eMouse",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 186563696553501,
+					"parameters": {
+						"object": "Cell"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 155192268771847,
+					"parameters": {
+						"variable": "CurrentSelectedNumber",
+						"comparison": 4,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 539477744208253,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 550129000936005,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 792451752527351
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 698151562112547
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 119482842679128,
+					"parameters": {
+						"object": "NumberSelect"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 183613292142913,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 126841901590286,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 118200975908671
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 755668727192893
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 701448704642002,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 380193602811120,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 586306905481237,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 863080950008377
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 233913189806024
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 844441156928018,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 978508427817910
+		}
+	],
+	"sid": 177762438619133
+}

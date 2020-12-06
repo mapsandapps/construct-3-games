@@ -7,13 +7,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "SANDWICH_FRAME",
+			"name": "BREAD_INDEX",
 			"type": "number",
-			"initialValue": "6",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": false,
-			"sid": 826183162052024
+			"isConstant": true,
+			"sid": 139815084904105
 		},
 		{
 			"eventType": "variable",
@@ -27,13 +27,35 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "BREAD_INDEX",
-			"type": "number",
-			"initialValue": "10",
+			"name": "IsPaused",
+			"type": "boolean",
+			"initialValue": "false",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": true,
-			"sid": 116709529635915
+			"isConstant": false,
+			"sid": 638440068207022
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 658110756084927
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 554558818318444,
+					"parameters": {
+						"variable": "IsPaused",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 924561129029965
 		},
 		{
 			"eventType": "block",
@@ -53,6 +75,15 @@
 					"parameters": {
 						"object": "NumberSelect"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 111199768817065,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [],
@@ -172,6 +203,15 @@
 					}
 				},
 				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 262435625373725,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				},
+				{
 					"id": "is-touching-object",
 					"objectClass": "Touch",
 					"sid": 880941299353320,
@@ -197,48 +237,124 @@
 					"parameters": {
 						"frame-number": "CurrentSelectedNumber"
 					}
+				},
+				{
+					"callFunction": "CheckForWin",
+					"sid": 633794149647941
 				}
 			],
 			"sid": 307751842151129
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 892291503161126
-				}
-			],
+			"functionName": "CheckForWin",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
 			"actions": [],
-			"sid": 636426917954312,
+			"sid": 426832834131222,
 			"children": [
+				{
+					"eventType": "variable",
+					"name": "CorrectCells",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 589602547142775
+				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Cell",
-							"sid": 395516120535914,
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 213754716335734,
 							"parameters": {
-								"instance-variable": "IsFixed"
-							},
-							"isInverted": true
+								"object": "Cell"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Cell",
+							"sid": 755434237056359,
+							"parameters": {
+								"comparison": 0,
+								"number": "Cell.CorrectValue"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation-frame",
-							"objectClass": "Cell",
-							"sid": 711510237089896,
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 368706550589577,
 							"parameters": {
-								"frame-number": "0"
+								"variable": "CorrectCells",
+								"value": "1"
 							}
 						}
 					],
-					"sid": 693839151190879
+					"sid": 381977943294822
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 923975824926366,
+							"parameters": {
+								"variable": "CorrectCells",
+								"comparison": 0,
+								"value": "Cell.Count"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Win",
+							"sid": 644393768498912
+						}
+					],
+					"sid": 564974345028405
 				}
 			]
+		},
+		{
+			"functionName": "Win",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 284551290706459,
+					"parameters": {
+						"variable": "IsPaused",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 516216665994616,
+					"parameters": {
+						"layer": "\"Win\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 775656644617257
 		}
 	],
 	"sid": 259221014811680

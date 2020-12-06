@@ -8,6 +8,14 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -56,8 +64,8 @@
 		},
 		{
 			"type": "plugin",
-			"id": "TiledBg",
-			"name": "Tiled Background",
+			"id": "Mouse",
+			"name": "Mouse",
 			"author": "Scirra",
 			"version": "r226",
 			"bundled": false
@@ -74,10 +82,21 @@
 			"JSON",
 			"Browser",
 			"CellGrid",
-			"MenuButton",
-			"MenuBackground"
+			"Mouse"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"InterstitialBackground",
+					"MenuButton",
+					"MenuBackground",
+					"NextLevelButton",
+					"WinText"
+				],
+				"subfolders": [],
+				"name": "Menus"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
@@ -95,7 +114,8 @@
 		"items": [
 			"eGame",
 			"eLoadPuzzle",
-			"eCredits"
+			"eCredits",
+			"eMouse"
 		],
 		"subfolders": []
 	},
