@@ -12,6 +12,16 @@
 			"sid": 830060008538073
 		},
 		{
+			"eventType": "variable",
+			"name": "CurrentPuzzle",
+			"type": "string",
+			"initialValue": "5-5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 207102245330958
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -22,12 +32,12 @@
 			],
 			"actions": [
 				{
-					"id": "request-project-file",
+					"id": "request-url",
 					"objectClass": "AJAX",
-					"sid": 990753298303793,
+					"sid": 968321853728862,
 					"parameters": {
 						"tag": "\"\"",
-						"file": "puzzle0001.json"
+						"url": "\"puzzle\" & CurrentPuzzle & \".json\""
 					}
 				}
 			],
