@@ -163,6 +163,16 @@
 										"comparison": 0,
 										"value": "ColIndex"
 									}
+								},
+								{
+									"id": "compare-value",
+									"objectClass": "JSON",
+									"sid": 506354129878578,
+									"parameters": {
+										"path": "\"colSumsFixed.\" & ColIndex",
+										"cmp": 0,
+										"value": "1"
+									}
 								}
 							],
 							"actions": [
@@ -249,6 +259,16 @@
 										"instance-variable": "Column",
 										"comparison": 0,
 										"value": "-1"
+									}
+								},
+								{
+									"id": "compare-value",
+									"objectClass": "JSON",
+									"sid": 777625780477717,
+									"parameters": {
+										"path": "\"rowSumsFixed.\" & RowIndex",
+										"cmp": 0,
+										"value": "1"
 									}
 								}
 							],
@@ -379,6 +399,16 @@
 									"sid": 486159479694160
 								},
 								{
+									"eventType": "variable",
+									"name": "IsFixed",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 688539372893926
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -413,20 +443,21 @@
 											}
 										},
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 930493966083664,
+											"parameters": {
+												"variable": "IsFixed",
+												"value": "min(JSON.Get(\"gridFixed.\" & RowIndex & \".\" & ColIndex), Size - 1)"
+											}
+										},
+										{
 											"id": "log",
 											"objectClass": "Browser",
 											"sid": 427416798662089,
 											"parameters": {
 												"type": "log",
 												"message": "Value"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Cell",
-											"sid": 830494148087478,
-											"parameters": {
-												"frame-number": "Value"
 											}
 										},
 										{
@@ -437,18 +468,46 @@
 												"instance-variable": "RealValue",
 												"value": "Value"
 											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Cell",
-											"sid": 118894976492183,
-											"parameters": {
-												"instance-variable": "IsFixed",
-												"value": "true"
-											}
 										}
 									],
-									"sid": 827813699203052
+									"sid": 827813699203052,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 444099980560445,
+													"parameters": {
+														"variable": "IsFixed",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Cell",
+													"sid": 699431919312161,
+													"parameters": {
+														"frame-number": "Value"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Cell",
+													"sid": 665870293536351,
+													"parameters": {
+														"instance-variable": "IsFixed",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 612286206620121
+										}
+									]
 								}
 							]
 						}
