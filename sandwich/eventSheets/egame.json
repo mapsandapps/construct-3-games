@@ -36,6 +36,16 @@
 			"sid": 638440068207022
 		},
 		{
+			"eventType": "variable",
+			"name": "ActiveTool",
+			"type": "string",
+			"initialValue": "Pen",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 101151735816618
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -229,21 +239,87 @@
 					"isInverted": true
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 307751842151129,
+			"children": [
 				{
-					"id": "set-animation-frame",
-					"objectClass": "Cell",
-					"sid": 937738404242770,
-					"parameters": {
-						"frame-number": "CurrentSelectedNumber"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 271695783401985,
+							"parameters": {
+								"variable": "ActiveTool",
+								"comparison": 0,
+								"value": "\"Pen\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cell",
+							"sid": 597179818691081,
+							"parameters": {
+								"frame-number": "CurrentSelectedNumber"
+							}
+						},
+						{
+							"callFunction": "TogglePencilMarksVisibility",
+							"sid": 971427224060608,
+							"parameters": [
+								"Cell.UID"
+							]
+						},
+						{
+							"callFunction": "CheckForWin",
+							"sid": 976893267630109
+						}
+					],
+					"sid": 730491129043217
 				},
 				{
-					"callFunction": "CheckForWin",
-					"sid": 633794149647941
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 314203424604760
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 227499888240472,
+							"parameters": {
+								"variable": "ActiveTool",
+								"comparison": 0,
+								"value": "\"Pencil\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Cell",
+							"sid": 849217574676498,
+							"parameters": {
+								"comparison": 0,
+								"number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "TogglePencilMark",
+							"sid": 641317232973686,
+							"parameters": [
+								"Cell.UID",
+								"CurrentSelectedNumber"
+							]
+						}
+					],
+					"sid": 860149473971756
 				}
-			],
-			"sid": 307751842151129
+			]
 		},
 		{
 			"functionName": "CheckForWin",
@@ -355,6 +431,291 @@
 				}
 			],
 			"sid": 775656644617257
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 620326941840881,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 584106712179051,
+					"parameters": {
+						"object": "Tool"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 285525542101490,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tool",
+							"sid": 512965994174354,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "ActiveTool"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 590935710105058,
+							"parameters": {
+								"variable": "ActiveTool",
+								"value": "\"Pen\""
+							}
+						}
+					],
+					"sid": 299472966357402
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 316274668040513
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 600071863309532,
+							"parameters": {
+								"variable": "ActiveTool",
+								"value": "Tool.Type"
+							}
+						}
+					],
+					"sid": 873410065370100
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 203549687449051,
+							"parameters": {
+								"object": "Tool"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Tool",
+							"sid": 115932365154808,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 836612074593388
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tool",
+							"sid": 598543021113465,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "ActiveTool"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Tool",
+							"sid": 546210900646557,
+							"parameters": {
+								"color": "rgbEx255(46, 189, 185)"
+							}
+						}
+					],
+					"sid": 566819402636698
+				}
+			]
+		},
+		{
+			"functionName": "TogglePencilMarksVisibility",
+			"functionDescription": "",
+			"functionCategory": "Pencil Marks",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 688177786820912
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 926888864729104,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 279855136755873,
+							"parameters": {
+								"object": "PencilMark"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 642923601636009,
+							"parameters": {
+								"instance-variable": "CellUID",
+								"comparison": 0,
+								"value": "CellUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "PencilMark",
+							"sid": 786206508525790,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 731751418281175
+				}
+			]
+		},
+		{
+			"functionName": "TogglePencilMark",
+			"functionDescription": "",
+			"functionCategory": "Pencil Marks",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 432624117791359
+				},
+				{
+					"name": "Value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 610355749999997
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 440672210388244,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 724474672248941,
+							"parameters": {
+								"instance-variable": "CellUID",
+								"comparison": 0,
+								"value": "CellUID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 915740578779910,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "CurrentSelectedNumber"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 247462115240304,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PencilMark",
+									"sid": 406321900011987,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "PencilMark.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "PencilMark",
+									"sid": 414553002776686,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 178208650666360
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 478042968625516
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "PencilMark",
+									"sid": 641949536515627,
+									"parameters": {
+										"frame-number": "CurrentSelectedNumber"
+									}
+								}
+							],
+							"sid": 560459920764191
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 259221014811680

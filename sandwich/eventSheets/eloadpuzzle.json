@@ -79,6 +79,10 @@
 								"variable": "Size",
 								"value": "JSON.Get(\"size\")"
 							}
+						},
+						{
+							"callFunction": "AddPencilMarkSprites",
+							"sid": 333927516363319
 						}
 					],
 					"sid": 795970004681680
@@ -571,6 +575,13 @@
 														"animation": "\"Fixed\"",
 														"from": "current-frame"
 													}
+												},
+												{
+													"callFunction": "TogglePencilMarksVisibility",
+													"sid": 375944739096793,
+													"parameters": [
+														"Cell.UID"
+													]
 												}
 											],
 											"sid": 612286206620121
@@ -578,6 +589,335 @@
 									]
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "AddPencilMarkSprites",
+			"functionDescription": "",
+			"functionCategory": "Pencil Marks",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 894291820354486,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 623671315665126,
+							"parameters": {
+								"object": "Cell"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 153329701709335,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 957505342379170,
+									"parameters": {
+										"count": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 612790741848091,
+									"parameters": {
+										"type": "log",
+										"message": "\"hello\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 270944321998052,
+									"parameters": {
+										"type": "log",
+										"message": "loopindex"
+									}
+								}
+							],
+							"sid": 801558215345039,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "PencilMarkFrame",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 938878982016290
+								},
+								{
+									"eventType": "variable",
+									"name": "PencilMarkX",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 678370088150039
+								},
+								{
+									"eventType": "variable",
+									"name": "PencilMarkY",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 720716500700847
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 219122012460322,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"value": "loopindex + 1"
+											}
+										}
+									],
+									"sid": 609270873435880
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 739841513248660,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 518022549200145,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 382754830858160,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 1 / 8"
+											}
+										}
+									],
+									"sid": 393819941869424
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 795340358763759,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 532494239270855,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 1 / 4"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 945158961205813,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 1 / 8"
+											}
+										}
+									],
+									"sid": 565331352573263
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 230478464825215,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 576508585940656,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 2 / 4"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 677609344013487,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 1 / 8"
+											}
+										}
+									],
+									"sid": 454442911124138
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 427106912743540,
+											"parameters": {
+												"object-to-create": "PencilMark",
+												"layer": "\"Pencil Marks\"",
+												"x": "PencilMarkX",
+												"y": "PencilMarkY",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "PencilMark",
+											"sid": 168119478026632,
+											"parameters": {
+												"width": "Cell.Width / 4",
+												"height": "Cell.Height / 4"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "PencilMark",
+											"sid": 674929128856196,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "PencilMark",
+											"sid": 272016450091464,
+											"parameters": {
+												"instance-variable": "CellUID",
+												"value": "Cell.UID"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "PencilMark",
+											"sid": 135678287376181,
+											"parameters": {
+												"instance-variable": "Value",
+												"value": "PencilMarkFrame"
+											}
+										}
+									],
+									"sid": 297176602800968
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 531411758512027,
+									"parameters": {
+										"object-to-create": "PencilMark",
+										"layer": "\"Pencil Marks\"",
+										"x": "Cell.X + Cell.Width * 3 / 4",
+										"y": "Cell.Y + Cell.Height * 1 / 8",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "PencilMark",
+									"sid": 711276501330871,
+									"parameters": {
+										"width": "Cell.Width / 4",
+										"height": "Cell.Height / 4"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "PencilMark",
+									"sid": 480233020892035,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PencilMark",
+									"sid": 329933682280797,
+									"parameters": {
+										"instance-variable": "CellUID",
+										"value": "Cell.UID"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PencilMark",
+									"sid": 282382830572001,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "BREAD_INDEX"
+									}
+								}
+							],
+							"sid": 710720339868360
 						}
 					]
 				}

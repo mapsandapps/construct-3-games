@@ -64,6 +64,34 @@
 			"global": false
 		},
 		{
+			"name": "Pencil Marks",
+			"overriden": 0,
+			"instances": [],
+			"sid": 529729306622495,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
 			"name": "Game",
 			"overriden": 0,
 			"instances": [
@@ -1380,7 +1408,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 16,
+						"x": 0,
 						"y": 544,
 						"width": 96,
 						"height": 96,
@@ -1409,7 +1437,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 112,
+						"x": 96,
 						"y": 544,
 						"width": 96,
 						"height": 96,
@@ -1438,7 +1466,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 208,
+						"x": 192,
 						"y": 544,
 						"width": 96,
 						"height": 96,
@@ -1467,12 +1495,105 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 304,
+						"x": 288,
 						"y": 544,
 						"width": 96,
 						"height": 96,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tool",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 2,
+					"instanceVariables": {
+						"Type": "Pencil"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 432,
+						"y": 592,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tool",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 3,
+					"instanceVariables": {
+						"Type": "Eraser"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 432,
+						"y": 784,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Tool",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 4,
+					"instanceVariables": {
+						"Type": "Cross"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 432,
+						"y": 688,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
