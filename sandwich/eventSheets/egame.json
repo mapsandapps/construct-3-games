@@ -258,26 +258,66 @@
 					],
 					"actions": [
 						{
-							"id": "set-animation-frame",
-							"objectClass": "Cell",
-							"sid": 597179818691081,
-							"parameters": {
-								"frame-number": "CurrentSelectedNumber"
-							}
-						},
-						{
 							"callFunction": "TogglePencilMarksVisibility",
-							"sid": 971427224060608,
+							"sid": 896290516905760,
 							"parameters": [
 								"Cell.UID"
 							]
-						},
-						{
-							"callFunction": "CheckForWin",
-							"sid": 976893267630109
 						}
 					],
-					"sid": 730491129043217
+					"sid": 730491129043217,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Cell",
+									"sid": 587717602093228,
+									"parameters": {
+										"comparison": 0,
+										"number": "CurrentSelectedNumber"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cell",
+									"sid": 738259515986411,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 479708788880628
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 629160049966445
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cell",
+									"sid": 190665912450626,
+									"parameters": {
+										"frame-number": "CurrentSelectedNumber"
+									}
+								},
+								{
+									"callFunction": "CheckForWin",
+									"sid": 595032880077846
+								}
+							],
+							"sid": 389300612274484
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -318,6 +358,130 @@
 						}
 					],
 					"sid": 860149473971756
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 981048511515454,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 150510555955437,
+					"parameters": {
+						"object": "Tool"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 957086713257903,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tool",
+							"sid": 309973736086920,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "ActiveTool"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 604022661498361,
+							"parameters": {
+								"variable": "ActiveTool",
+								"value": "\"Pen\""
+							}
+						}
+					],
+					"sid": 346687632685302
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 606902686930859
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 175406554367857,
+							"parameters": {
+								"variable": "ActiveTool",
+								"value": "Tool.Type"
+							}
+						}
+					],
+					"sid": 657768509351084
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 536399803796499,
+							"parameters": {
+								"object": "Tool"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Tool",
+							"sid": 915905330094624,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						}
+					],
+					"sid": 911069487490600
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Tool",
+							"sid": 599790577072284,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "ActiveTool"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Tool",
+							"sid": 456594478088816,
+							"parameters": {
+								"color": "rgbEx255(46, 189, 185)"
+							}
+						}
+					],
+					"sid": 660297096053633
 				}
 			]
 		},
@@ -428,6 +592,15 @@
 						"layer": "\"Win\"",
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "CellGrid",
+					"sid": 567705539509966,
+					"parameters": {
+						"instance-variable": "CurrentLevel",
+						"value": "1"
+					}
 				}
 			],
 			"sid": 775656644617257
@@ -436,51 +609,50 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-nth-touch-end",
+					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 620326941840881,
+					"sid": 278999726817689,
 					"parameters": {
-						"touch-number": "0"
+						"object": "NextLevelButton"
 					}
 				},
 				{
-					"id": "is-touching-object",
-					"objectClass": "Touch",
-					"sid": 584106712179051,
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 878054384011277,
 					"parameters": {
-						"object": "Tool"
+						"layer": "\"Win\""
 					}
 				}
 			],
 			"actions": [],
-			"sid": 285525542101490,
+			"sid": 535752179882000,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "Tool",
-							"sid": 512965994174354,
+							"objectClass": "CellGrid",
+							"sid": 737764272593985,
 							"parameters": {
-								"instance-variable": "Type",
-								"comparison": 0,
-								"value": "ActiveTool"
+								"instance-variable": "CurrentLevel",
+								"comparison": 4,
+								"value": "CellGrid.MaxLevel"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
+							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 590935710105058,
+							"sid": 800719600053382,
 							"parameters": {
-								"variable": "ActiveTool",
-								"value": "\"Pen\""
+								"layout": "Main Menu"
 							}
 						}
 					],
-					"sid": 299472966357402
+					"sid": 602560392842605
 				},
 				{
 					"eventType": "block",
@@ -488,232 +660,26 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 316274668040513
+							"sid": 248735957849126
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
+							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 600071863309532,
+							"sid": 388269558168687,
 							"parameters": {
-								"variable": "ActiveTool",
-								"value": "Tool.Type"
-							}
-						}
-					],
-					"sid": 873410065370100
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 203549687449051,
-							"parameters": {
-								"object": "Tool"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-default-color",
-							"objectClass": "Tool",
-							"sid": 115932365154808,
-							"parameters": {
-								"color": "rgbEx(100, 100, 100)"
-							}
-						}
-					],
-					"sid": 836612074593388
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Tool",
-							"sid": 598543021113465,
-							"parameters": {
-								"instance-variable": "Type",
-								"comparison": 0,
-								"value": "ActiveTool"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-default-color",
-							"objectClass": "Tool",
-							"sid": 546210900646557,
-							"parameters": {
-								"color": "rgbEx255(46, 189, 185)"
-							}
-						}
-					],
-					"sid": 566819402636698
-				}
-			]
-		},
-		{
-			"functionName": "TogglePencilMarksVisibility",
-			"functionDescription": "",
-			"functionCategory": "Pencil Marks",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "CellUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 688177786820912
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 926888864729104,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 279855136755873,
-							"parameters": {
-								"object": "PencilMark"
+								"layer": "\"Win\"",
+								"visibility": "invisible"
 							}
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "PencilMark",
-							"sid": 642923601636009,
-							"parameters": {
-								"instance-variable": "CellUID",
-								"comparison": 0,
-								"value": "CellUID"
-							}
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 160489579102920
 						}
 					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "PencilMark",
-							"sid": 786206508525790,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						}
-					],
-					"sid": 731751418281175
-				}
-			]
-		},
-		{
-			"functionName": "TogglePencilMark",
-			"functionDescription": "",
-			"functionCategory": "Pencil Marks",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "CellUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 432624117791359
-				},
-				{
-					"name": "Value",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 610355749999997
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 440672210388244,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "PencilMark",
-							"sid": 724474672248941,
-							"parameters": {
-								"instance-variable": "CellUID",
-								"comparison": 0,
-								"value": "CellUID"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "PencilMark",
-							"sid": 915740578779910,
-							"parameters": {
-								"instance-variable": "Value",
-								"comparison": 0,
-								"value": "CurrentSelectedNumber"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 247462115240304,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "PencilMark",
-									"sid": 406321900011987,
-									"parameters": {
-										"instance-variable": "Value",
-										"comparison": 0,
-										"value": "PencilMark.AnimationFrame"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "PencilMark",
-									"sid": 414553002776686,
-									"parameters": {
-										"frame-number": "0"
-									}
-								}
-							],
-							"sid": 178208650666360
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 478042968625516
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "PencilMark",
-									"sid": 641949536515627,
-									"parameters": {
-										"frame-number": "CurrentSelectedNumber"
-									}
-								}
-							],
-							"sid": 560459920764191
-						}
-					]
+					"sid": 247135849456625
 				}
 			]
 		}

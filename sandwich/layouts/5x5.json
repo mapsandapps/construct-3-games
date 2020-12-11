@@ -19,8 +19,16 @@
 						"image-angle": 0
 					},
 					"uid": 84,
-					"instanceVariables": {},
-					"behaviors": {},
+					"instanceVariables": {
+						"CurrentLevel": 1,
+						"MaxLevel": 5,
+						"Size": 5
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 64,
 						"y": 112,

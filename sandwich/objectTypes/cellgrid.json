@@ -3,8 +3,33 @@
 	"plugin-id": "TiledBg",
 	"sid": 750031166180328,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "CurrentLevel",
+			"type": "number",
+			"desc": "",
+			"sid": 755654780860785
+		},
+		{
+			"name": "MaxLevel",
+			"type": "number",
+			"desc": "",
+			"sid": 172716628697019
+		},
+		{
+			"name": "Size",
+			"type": "number",
+			"desc": "",
+			"sid": 501484143821879
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Persist",
+			"name": "Persist",
+			"sid": 314479826773517
+		}
+	],
 	"effectTypes": [],
 	"image": {
 		"width": 128,

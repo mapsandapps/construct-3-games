@@ -1,0 +1,167 @@
+{
+	"name": "ePenciling",
+	"events": [
+		{
+			"functionName": "TogglePencilMarksVisibility",
+			"functionDescription": "",
+			"functionCategory": "Pencil Marks",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 688177786820912
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 926888864729104,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 279855136755873,
+							"parameters": {
+								"object": "PencilMark"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 642923601636009,
+							"parameters": {
+								"instance-variable": "CellUID",
+								"comparison": 0,
+								"value": "CellUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "PencilMark",
+							"sid": 786206508525790,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 731751418281175
+				}
+			]
+		},
+		{
+			"functionName": "TogglePencilMark",
+			"functionDescription": "",
+			"functionCategory": "Pencil Marks",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CellUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 432624117791359
+				},
+				{
+					"name": "Value",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 610355749999997
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 440672210388244,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 724474672248941,
+							"parameters": {
+								"instance-variable": "CellUID",
+								"comparison": 0,
+								"value": "CellUID"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 915740578779910,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "CurrentSelectedNumber"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 247462115240304,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PencilMark",
+									"sid": 406321900011987,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "PencilMark.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "PencilMark",
+									"sid": 414553002776686,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 178208650666360
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 478042968625516
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "PencilMark",
+									"sid": 641949536515627,
+									"parameters": {
+										"frame-number": "CurrentSelectedNumber"
+									}
+								}
+							],
+							"sid": 560459920764191
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 170894049344657
+}

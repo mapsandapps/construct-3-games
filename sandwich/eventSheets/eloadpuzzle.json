@@ -12,16 +12,6 @@
 			"sid": 830060008538073
 		},
 		{
-			"eventType": "variable",
-			"name": "CurrentPuzzle",
-			"type": "string",
-			"initialValue": "5-5",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 207102245330958
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -32,12 +22,26 @@
 			],
 			"actions": [
 				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 774657284819432
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 214970891446548,
+					"parameters": {
+						"variable": "Size",
+						"value": "CellGrid.Size"
+					}
+				},
+				{
 					"id": "request-url",
 					"objectClass": "AJAX",
-					"sid": 968321853728862,
+					"sid": 141178435754286,
 					"parameters": {
 						"tag": "\"\"",
-						"url": "\"puzzle\" & CurrentPuzzle & \".json\""
+						"url": "\"puzzle\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
 					}
 				}
 			],
@@ -71,15 +75,6 @@
 					"eventType": "block",
 					"conditions": [],
 					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 852128510232170,
-							"parameters": {
-								"variable": "Size",
-								"value": "JSON.Get(\"size\")"
-							}
-						},
 						{
 							"callFunction": "AddPencilMarkSprites",
 							"sid": 333927516363319
@@ -380,24 +375,6 @@
 										"variable": "ColIndex",
 										"value": "loopindex"
 									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 177069136847539,
-									"parameters": {
-										"type": "log",
-										"message": "RowIndex"
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 520830785104977,
-									"parameters": {
-										"type": "log",
-										"message": "ColIndex"
-									}
 								}
 							],
 							"sid": 169258201500905,
@@ -463,15 +440,6 @@
 											"parameters": {
 												"variable": "IsFixed",
 												"value": "min(JSON.Get(\"gridFixed.\" & RowIndex & \".\" & ColIndex), Size - 1)"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 427416798662089,
-											"parameters": {
-												"type": "log",
-												"message": "Value"
 											}
 										}
 									],
@@ -633,26 +601,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 612790741848091,
-									"parameters": {
-										"type": "log",
-										"message": "\"hello\""
-									}
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 270944321998052,
-									"parameters": {
-										"type": "log",
-										"message": "loopindex"
-									}
-								}
-							],
+							"actions": [],
 							"sid": 801558215345039,
 							"children": [
 								{
