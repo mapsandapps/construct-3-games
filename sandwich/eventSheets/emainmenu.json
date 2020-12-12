@@ -11,6 +11,22 @@
 					"parameters": {
 						"object": "MenuButton"
 					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 588188692102332,
+					"parameters": {
+						"layer": "\"Rules\""
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "MenuButton",
+					"sid": 133985470051416,
+					"parameters": {
+						"layer": "\"Rules\""
+					}
 				}
 			],
 			"actions": [
@@ -24,6 +40,52 @@
 				}
 			],
 			"sid": 922480484560831
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 377390558417223
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 614229526008724,
+					"parameters": {
+						"layer": "\"Rules\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 970888333493574,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "MenuButton",
+					"sid": 828251570196772,
+					"parameters": {
+						"layer": "\"Main\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 411818581133089,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 136764652702212
 		},
 		{
 			"eventType": "block",
@@ -58,17 +120,88 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 259986914154699,
+			"children": [
 				{
-					"id": "go-to-layout-by-name",
-					"objectClass": "System",
-					"sid": 426465062549600,
-					"parameters": {
-						"layout": "MenuButton.Text"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 982671863356978,
+							"parameters": {
+								"text-to-compare": "\"Return to game\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 301561293968196,
+							"parameters": {
+								"layer": "\"Rules\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 614368011859408
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 701424219934890
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 839453316563354,
+							"parameters": {
+								"text-to-compare": "\"Rules\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 695798257902109,
+							"parameters": {
+								"layer": "\"Rules\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 964684853558818
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 143503704516648
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 967230250986128,
+							"parameters": {
+								"layout": "MenuButton.Text"
+							}
+						}
+					],
+					"sid": 555072893435137
 				}
-			],
-			"sid": 259986914154699
+			]
 		}
 	],
 	"sid": 869699070058364

@@ -72,6 +72,14 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Persist",
 			"name": "Persist",
 			"author": "Scirra",
@@ -116,9 +124,10 @@
 	},
 	"layouts": {
 		"items": [
+			"Main Menu",
 			"5x5",
 			"Objects",
-			"Main Menu"
+			"Learn"
 		],
 		"subfolders": []
 	},
@@ -130,7 +139,8 @@
 			"eMouse",
 			"ePenciling",
 			"eMainMenu",
-			"eTODO"
+			"eTODO",
+			"eLearn"
 		],
 		"subfolders": []
 	},
@@ -248,6 +258,26 @@
 					"name": "puzzle5-5.json",
 					"type": "application/json",
 					"sid": 140942706180065
+				},
+				{
+					"name": "learn5-1.json",
+					"type": "application/json",
+					"sid": 122010411603081
+				},
+				{
+					"name": "learn5-2.json",
+					"type": "application/json",
+					"sid": 794202272444797
+				},
+				{
+					"name": "learn5-3.json",
+					"type": "application/json",
+					"sid": 961029496307787
+				},
+				{
+					"name": "learn5-4.json",
+					"type": "application/json",
+					"sid": 226285623830886
 				}
 			],
 			"subfolders": []
@@ -303,7 +333,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true,
@@ -311,5 +341,5 @@
 	},
 	"viewportWidth": 480,
 	"viewportHeight": 854,
-	"firstLayout": "5x5"
+	"firstLayout": "Main Menu"
 }

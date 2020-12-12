@@ -1,0 +1,319 @@
+{
+	"name": "eLearn",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGame"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 983525187277540
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Tool",
+					"sid": 372427320792955,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 666814491541436,
+					"parameters": {
+						"type": "log",
+						"message": "\"level: \" & CellGrid.CurrentLevel"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 889477486841853,
+					"parameters": {
+						"layer": "\"Win\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 865758179479643,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CellGrid",
+							"sid": 504995872030974,
+							"parameters": {
+								"instance-variable": "CurrentLevel",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 418140601998702,
+							"parameters": {
+								"object-to-create": "InterstitialBackground",
+								"layer": "\"UI\"",
+								"x": "64",
+								"y": "192",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "InterstitialBackground",
+							"sid": 788905762437895,
+							"parameters": {
+								"width": "400",
+								"height": "320"
+							}
+						}
+					],
+					"sid": 263534052604788,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Text",
+									"sid": 115068723641311,
+									"parameters": {
+										"layer": "\"Grid\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 814247152625028,
+									"parameters": {
+										"text": "\"Numbers may not repeat in a row.\""
+									}
+								}
+							],
+							"sid": 418589279226859
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CellGrid",
+							"sid": 304040279107031,
+							"parameters": {
+								"instance-variable": "CurrentLevel",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 706340758057731,
+							"parameters": {
+								"object-to-create": "InterstitialBackground",
+								"layer": "\"UI\"",
+								"x": "144",
+								"y": "112",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "InterstitialBackground",
+							"sid": 592737961966366,
+							"parameters": {
+								"width": "320",
+								"height": "400"
+							}
+						}
+					],
+					"sid": 335631878289811,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Text",
+									"sid": 743294083606496,
+									"parameters": {
+										"layer": "\"Grid\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 526473302457474,
+									"parameters": {
+										"text": "\"Numbers may not repeat in a column.\""
+									}
+								}
+							],
+							"sid": 722737445397846
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CellGrid",
+							"sid": 152976656867696,
+							"parameters": {
+								"instance-variable": "CurrentLevel",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 754851597037596,
+							"parameters": {
+								"object-to-create": "InterstitialBackground",
+								"layer": "\"UI\"",
+								"x": "144",
+								"y": "112",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "InterstitialBackground",
+							"sid": 209337294090377,
+							"parameters": {
+								"width": "320",
+								"height": "400"
+							}
+						}
+					],
+					"sid": 794134491202898,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Text",
+									"sid": 205379355429728,
+									"parameters": {
+										"layer": "\"Grid\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 606485465581851,
+									"parameters": {
+										"text": "\"Each row and column must have two blocks.\""
+									}
+								}
+							],
+							"sid": 162489976583664
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CellGrid",
+							"sid": 252343057220331,
+							"parameters": {
+								"instance-variable": "CurrentLevel",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 912995616887382,
+							"parameters": {
+								"object-to-create": "InterstitialBackground",
+								"layer": "\"UI\"",
+								"x": "64",
+								"y": "192",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "InterstitialBackground",
+							"sid": 878885241168950,
+							"parameters": {
+								"width": "400",
+								"height": "320"
+							}
+						}
+					],
+					"sid": 365170501972052,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Text",
+									"sid": 422274320361595,
+									"parameters": {
+										"layer": "\"Grid\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 446855996332697,
+									"parameters": {
+										"text": "\"Some rows and columns have hints shown outside them. The digits shown outside the grid represent the sum of the digits in between the two blocks in that row. Numbers in the grid must match these hints.\""
+									}
+								},
+								{
+									"id": "set-font-size",
+									"objectClass": "Text",
+									"sid": 788645415866710,
+									"parameters": {
+										"size-pt": "16"
+									}
+								}
+							],
+							"sid": 808116647669437
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 585539599833267
+}

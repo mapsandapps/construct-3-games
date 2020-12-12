@@ -2,7 +2,7 @@
 	"name": "Main Menu",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Main",
 			"overriden": 0,
 			"instances": [
 				{
@@ -32,7 +32,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 192,
-						"y": 192,
+						"y": 288,
 						"width": 96,
 						"height": 64,
 						"originX": 0,
@@ -116,8 +116,92 @@
 					"behaviors": {},
 					"world": {
 						"x": 32,
-						"y": 288,
+						"y": 448,
 						"width": 416,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"text": "Rules",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 15,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 192,
+						"y": 704,
+						"width": 96,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"text": "Learn",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 16,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 192,
+						"y": 192,
+						"width": 96,
 						"height": 64,
 						"originX": 0,
 						"originY": 0,
@@ -148,6 +232,34 @@
 				1
 			],
 			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Rules",
+			"overriden": 1,
+			"instances": [],
+			"sid": 833974422323543,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,

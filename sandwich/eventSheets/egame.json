@@ -591,7 +591,7 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 516216665994616,
+					"sid": 185308221819549,
 					"parameters": {
 						"layer": "\"Win\"",
 						"visibility": "visible"
@@ -607,7 +607,56 @@
 					}
 				}
 			],
-			"sid": 775656644617257
+			"sid": 775656644617257,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "InterstitialBackground",
+							"sid": 108712124067031,
+							"parameters": {
+								"layer": "\"Win\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "InterstitialBackground",
+							"sid": 807414741390634,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-in-time": "1"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "InterstitialBackground",
+							"sid": 161496926084732,
+							"behaviorType": "Fade"
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 184523253082908,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NextLevelButton",
+							"sid": 210160875498065,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 451618207097146
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -627,6 +676,11 @@
 					"parameters": {
 						"layer": "\"Win\""
 					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "NextLevelButton",
+					"sid": 870775203149262
 				}
 			],
 			"actions": [],

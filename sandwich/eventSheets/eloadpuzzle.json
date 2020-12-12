@@ -34,18 +34,78 @@
 						"variable": "Size",
 						"value": "CellGrid.Size"
 					}
-				},
-				{
-					"id": "request-url",
-					"objectClass": "AJAX",
-					"sid": 141178435754286,
-					"parameters": {
-						"tag": "\"\"",
-						"url": "\"puzzle\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
-					}
 				}
 			],
-			"sid": 251566449007057
+			"sid": 251566449007057,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 355245536325609,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Learn\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 322283030547621,
+							"parameters": {
+								"type": "log",
+								"message": "\"level: learn\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
+							}
+						},
+						{
+							"id": "request-url",
+							"objectClass": "AJAX",
+							"sid": 224757769537641,
+							"parameters": {
+								"tag": "\"\"",
+								"url": "\"learn\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
+							}
+						}
+					],
+					"sid": 489026957224669
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 386995111578471
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 422723944070465,
+							"parameters": {
+								"type": "log",
+								"message": "\"level: puzzle\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
+							}
+						},
+						{
+							"id": "request-url",
+							"objectClass": "AJAX",
+							"sid": 524336988990064,
+							"parameters": {
+								"tag": "\"\"",
+								"url": "\"puzzle\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
+							}
+						}
+					],
+					"sid": 702321459477111
+				}
+			]
 		},
 		{
 			"eventType": "block",
