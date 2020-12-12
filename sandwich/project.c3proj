@@ -32,6 +32,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
@@ -101,7 +109,6 @@
 			"Tool",
 			"PencilMark",
 			"MenuButton",
-			"temp",
 			"CellGrid"
 		],
 		"subfolders": [
@@ -110,7 +117,8 @@
 					"InterstitialBackground",
 					"MenuBackground",
 					"NextLevelButton",
-					"Text"
+					"Text",
+					"ButtonBackground"
 				],
 				"subfolders": [],
 				"name": "Menus"
@@ -168,6 +176,16 @@
 					"name": "OpenDyslexic-Regular.otf",
 					"type": "application/font-sfnt",
 					"sid": 671726461035056
+				},
+				{
+					"name": "Montserrat-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 593037356219242
+				},
+				{
+					"name": "Oswald-VariableFont_wght.ttf",
+					"type": "application/font-sfnt",
+					"sid": 346708721243527
 				}
 			],
 			"subfolders": []

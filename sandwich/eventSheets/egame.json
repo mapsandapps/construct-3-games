@@ -451,11 +451,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-default-color",
+							"id": "set-animation",
 							"objectClass": "Tool",
-							"sid": 915905330094624,
+							"sid": 246963784352212,
 							"parameters": {
-								"color": "rgbEx(100, 100, 100)"
+								"animation": "\"Inactive\"",
+								"from": "current-frame"
 							}
 						}
 					],
@@ -477,11 +478,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-default-color",
+							"id": "set-animation",
 							"objectClass": "Tool",
-							"sid": 456594478088816,
+							"sid": 541658531900338,
 							"parameters": {
-								"color": "rgbEx255(46, 189, 185)"
+								"animation": "\"Active\"",
+								"from": "current-frame"
 							}
 						}
 					],
