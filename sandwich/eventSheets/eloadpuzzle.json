@@ -29,7 +29,7 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 214970891446548,
+					"sid": 417449299866182,
 					"parameters": {
 						"variable": "Size",
 						"value": "CellGrid.Size"
@@ -56,7 +56,7 @@
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 322283030547621,
+							"sid": 844496342760098,
 							"parameters": {
 								"type": "log",
 								"message": "\"level: learn\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
@@ -65,7 +65,7 @@
 						{
 							"id": "request-url",
 							"objectClass": "AJAX",
-							"sid": 224757769537641,
+							"sid": 630486176281100,
 							"parameters": {
 								"tag": "\"\"",
 								"url": "\"learn\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
@@ -87,7 +87,7 @@
 						{
 							"id": "log",
 							"objectClass": "Browser",
-							"sid": 422723944070465,
+							"sid": 394257499216687,
 							"parameters": {
 								"type": "log",
 								"message": "\"level: puzzle\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""
@@ -96,7 +96,7 @@
 						{
 							"id": "request-url",
 							"objectClass": "AJAX",
-							"sid": 524336988990064,
+							"sid": 585011378941703,
 							"parameters": {
 								"tag": "\"\"",
 								"url": "\"puzzle\" & CellGrid.Size & \"-\" & CellGrid.CurrentLevel & \".json\""

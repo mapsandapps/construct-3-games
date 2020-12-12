@@ -9,16 +9,12 @@
 					"type": "CellGrid",
 					"properties": {
 						"initially-visible": true,
-						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 0.625,
-						"image-scale-y": 0.625,
-						"image-angle": 0
+						"initial-animation": "5x5",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
 					},
-					"uid": 84,
+					"uid": 58,
 					"instanceVariables": {
 						"CurrentLevel": 1,
 						"MaxLevel": 5,
@@ -30,8 +26,8 @@
 						}
 					},
 					"world": {
-						"x": 64,
-						"y": 112,
+						"x": 80,
+						"y": 128,
 						"width": 400,
 						"height": 400,
 						"originX": 0,
@@ -74,7 +70,37 @@
 		{
 			"name": "Pencil Marks",
 			"overriden": 0,
-			"instances": [],
+			"instances": [
+				{
+					"type": "temp",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 57,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 544,
+						"y": 0,
+						"width": 480,
+						"height": 854,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 529729306622495,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -121,8 +147,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 112,
+						"x": 80,
+						"y": 128,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -155,8 +181,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 192,
+						"x": 80,
+						"y": 208,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -189,8 +215,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 272,
+						"x": 80,
+						"y": 288,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -223,8 +249,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 144,
-						"y": 272,
+						"x": 160,
+						"y": 288,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -257,8 +283,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 272,
+						"x": 240,
+						"y": 288,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -291,8 +317,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 304,
-						"y": 272,
+						"x": 320,
+						"y": 288,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -325,8 +351,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 384,
-						"y": 272,
+						"x": 400,
+						"y": 288,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -449,8 +475,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 192,
+						"x": 240,
+						"y": 208,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -483,8 +509,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 384,
-						"y": 352,
+						"x": 400,
+						"y": 368,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -517,8 +543,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 304,
-						"y": 432,
+						"x": 320,
+						"y": 448,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -551,8 +577,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 144,
-						"y": 352,
+						"x": 160,
+						"y": 368,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -585,8 +611,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 144,
-						"y": 192,
+						"x": 160,
+						"y": 208,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -619,8 +645,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 384,
-						"y": 192,
+						"x": 400,
+						"y": 208,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -653,8 +679,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 304,
-						"y": 192,
+						"x": 320,
+						"y": 208,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -687,8 +713,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 304,
-						"y": 352,
+						"x": 320,
+						"y": 368,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -721,8 +747,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 352,
+						"x": 80,
+						"y": 368,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -755,8 +781,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 352,
+						"x": 240,
+						"y": 368,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -789,8 +815,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 384,
-						"y": 432,
+						"x": 400,
+						"y": 448,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -823,8 +849,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 432,
+						"x": 240,
+						"y": 448,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -857,8 +883,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 144,
-						"y": 432,
+						"x": 160,
+						"y": 448,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -891,8 +917,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 432,
+						"x": 80,
+						"y": 448,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -925,8 +951,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 144,
-						"y": 112,
+						"x": 160,
+						"y": 128,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -959,8 +985,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 224,
-						"y": 112,
+						"x": 240,
+						"y": 128,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -993,8 +1019,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 304,
-						"y": 112,
+						"x": 320,
+						"y": 128,
 						"width": 80,
 						"height": 80,
 						"originX": 0,
@@ -1027,8 +1053,8 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 384,
-						"y": 112,
+						"x": 400,
+						"y": 128,
 						"width": 80,
 						"height": 80,
 						"originX": 0,

@@ -1,45 +1,82 @@
 {
 	"name": "CellGrid",
-	"plugin-id": "TiledBg",
-	"sid": 750031166180328,
+	"plugin-id": "Sprite",
+	"sid": 668252320423776,
 	"isGlobal": false,
 	"instanceVariables": [
 		{
 			"name": "CurrentLevel",
 			"type": "number",
 			"desc": "",
-			"sid": 755654780860785
+			"sid": 844274375545329
 		},
 		{
 			"name": "MaxLevel",
 			"type": "number",
 			"desc": "",
-			"sid": 172716628697019
+			"sid": 765541026848798
 		},
 		{
 			"name": "Size",
 			"type": "number",
 			"desc": "",
-			"sid": 501484143821879
+			"sid": 482644754092763
 		}
 	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Persist",
 			"name": "Persist",
-			"sid": 314479826773517
+			"sid": 161669227862801
 		}
 	],
 	"effectTypes": [],
-	"image": {
-		"width": 128,
-		"height": 128,
-		"originX": 0.5,
-		"originY": 0.5,
-		"originalSource": "",
-		"exportFormat": "png",
-		"exportQuality": 0.8,
-		"imageSpriteId": 6800594,
-		"useCollisionPoly": true
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 400,
+						"height": 400,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9156674,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9975,
+								0,
+								0.9975,
+								0.5,
+								0.9975,
+								0.9975,
+								0.5,
+								0.9975,
+								0,
+								0.9975,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 702045367528386,
+				"name": "5x5",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
 	}
 }
