@@ -8,20 +8,117 @@
 				{
 					"type": "MenuButton",
 					"properties": {
+						"text": "5x5",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"origin": "top-left"
 					},
-					"uid": 7,
+					"uid": 10,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 187,
-						"y": 299,
-						"width": 112,
-						"height": 48,
+						"x": 192,
+						"y": 192,
+						"width": 96,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "SANDWICHES",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 40,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 32,
+						"width": 416,
+						"height": 128,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "(more sizes coming soon)",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 12,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 32,
+						"y": 288,
+						"width": 416,
+						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -66,5 +163,5 @@
 	"width": 480,
 	"height": 854,
 	"unboundedScrolling": false,
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "eMainMenu"
 }

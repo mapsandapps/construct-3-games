@@ -1,0 +1,75 @@
+{
+	"name": "eMainMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 785587307261343,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 479810810730159,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 922480484560831
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 776436872549609
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 458224981405922,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 253907497065225
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 422591168340504,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 426465062549600,
+					"parameters": {
+						"layout": "MenuButton.Text"
+					}
+				}
+			],
+			"sid": 259986914154699
+		}
+	],
+	"sid": 869699070058364
+}

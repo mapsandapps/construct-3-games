@@ -23,6 +23,15 @@
 					}
 				},
 				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Cell",
+					"sid": 753988848229278,
+					"parameters": {
+						"instance-variable": "IsFixed"
+					},
+					"isInverted": true
+				},
+				{
 					"id": "compare-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 539477744208253,
@@ -93,19 +102,26 @@
 				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 701448704642002,
+					"sid": 920143571392912,
 					"parameters": {
 						"object": "MenuButton"
 					}
 				},
 				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 380193602811120,
+					"id": "is-on-layer",
+					"objectClass": "MenuButton",
+					"sid": 929054939092629,
 					"parameters": {
-						"variable": "IsPaused"
-					},
-					"isInverted": true
+						"layer": "\"Rules\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 903148724509017,
+					"parameters": {
+						"layer": "\"Rules\""
+					}
 				}
 			],
 			"actions": [
@@ -119,6 +135,140 @@
 				}
 			],
 			"sid": 863080950008377
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 950591567855657
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 744348749593023,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				},
+				{
+					"id": "is-on-layer",
+					"objectClass": "MenuButton",
+					"sid": 701491361720050,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 558908483100661,
+					"parameters": {
+						"layer": "\"UI\""
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 561100443695462,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 842810674035253,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 585856440892833
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 939094396063602
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 394235539443562,
+					"parameters": {
+						"object": "Tool"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Tool",
+					"sid": 756108137728636
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 874218828904853,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 998961647490818,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 554150230106505
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 914232055196558
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 700812934719604,
+					"parameters": {
+						"layer": "\"Win\""
+					}
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 612428369801829,
+					"parameters": {
+						"object": "NextLevelButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 205472668036990,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 365324832995285
 		},
 		{
 			"eventType": "block",

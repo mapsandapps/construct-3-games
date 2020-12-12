@@ -6,6 +6,10 @@
 			"includeSheet": "eLoadPuzzle"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eMouse"
+		},
+		{
 			"eventType": "variable",
 			"name": "BREAD_INDEX",
 			"type": "number",
@@ -644,6 +648,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-instvar-value",
+							"objectClass": "CellGrid",
+							"sid": 667473290360055,
+							"parameters": {
+								"instance-variable": "CurrentLevel",
+								"value": "1"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 800719600053382,
@@ -680,6 +693,127 @@
 						}
 					],
 					"sid": 247135849456625
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 178179804466842,
+					"parameters": {
+						"object": "MenuButton"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 648547080847830,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 198061830577108,
+							"parameters": {
+								"text-to-compare": "\"Rules\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 404187955605136,
+							"parameters": {
+								"variable": "IsPaused",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 985232675907190,
+							"parameters": {
+								"layer": "\"Rules\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 258153569361811
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 308536752482127,
+							"parameters": {
+								"text-to-compare": "\"Return to game\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 849585301294970,
+							"parameters": {
+								"variable": "IsPaused",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 957894607902739,
+							"parameters": {
+								"layer": "\"Rules\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 164179678624492
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 441912591413939,
+							"parameters": {
+								"text-to-compare": "\"Menu\"",
+								"case-sensitivity": "ignore-case"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 551281388574148,
+							"parameters": {
+								"variable": "IsPaused"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 739692134046739,
+							"parameters": {
+								"layout": "Main Menu"
+							}
+						}
+					],
+					"sid": 604525297765412
 				}
 			]
 		}

@@ -1677,19 +1677,74 @@
 				{
 					"type": "MenuButton",
 					"properties": {
+						"text": "Menu",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
+						"origin": "top-left"
 					},
-					"uid": 89,
+					"uid": 6,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 0,
+						"x": 16,
 						"y": 0,
-						"width": 112,
+						"width": 80,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"text": "Rules",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 7,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 368,
+						"y": 0,
+						"width": 96,
 						"height": 48,
 						"originX": 0,
 						"originY": 0,
@@ -1795,7 +1850,7 @@
 					}
 				},
 				{
-					"type": "WinText",
+					"type": "Text",
 					"properties": {
 						"text": "Level complete!",
 						"enable-bbcode": true,
@@ -1838,6 +1893,194 @@
 				}
 			],
 			"sid": 469423069019862,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Rules",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "InterstitialBackground",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 8,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 480,
+						"height": 864,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "How to play:",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 64,
+						"width": 480,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Fill the grid with numbers and blocks according to the following rules:\n\nNumbers may not repeat in a row.\n\nNumbers may not repeat in a column.\n\nEach row and column must have two blocks.\n\nSome rows and columns have hints shown outside them. The digits shown outside the grid represent the sum of the digits in between the two blocks in that row. Numbers in the grid must match these hints.",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.996078431372549,
+							0.9686274509803922,
+							0.9450980392156862,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 13,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 16,
+						"y": 192,
+						"width": 448,
+						"height": 416,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"text": "Return to Game",
+						"enable-bbcode": true,
+						"font": "OpenDyslexic-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.1803921568627451,
+							0.7411764705882353,
+							0.7254901960784313,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 14,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 208,
+						"y": 768,
+						"width": 240,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 348577892500346,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"color": [
