@@ -104,6 +104,37 @@
 						}
 					],
 					"sid": 702321459477111
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "NumberSelect",
+							"sid": 685298394497358,
+							"parameters": {
+								"comparison": 4,
+								"number": "Size - 2"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "NumberSelect",
+							"sid": 172196671590870,
+							"parameters": {
+								"comparison": 1,
+								"number": "BLOCK_INDEX"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "NumberSelect",
+							"sid": 609408342768076
+						}
+					],
+					"sid": 518808242811070
 				}
 			]
 		},
@@ -535,7 +566,7 @@
 													"sid": 360944209121625,
 													"parameters": {
 														"instance-variable": "CorrectValue",
-														"value": "BREAD_INDEX"
+														"value": "BLOCK_INDEX"
 													}
 												}
 											],

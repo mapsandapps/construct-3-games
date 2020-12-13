@@ -360,6 +360,222 @@
 								},
 								{
 									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 624461753446145,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 758218259632768,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 1 / 5"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 599715588507592,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 2 / 4"
+											}
+										}
+									],
+									"sid": 662440890047682
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 958468300362161,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 127386975221322,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 2 / 5"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 915352219776475,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 2 / 4"
+											}
+										}
+									],
+									"sid": 638556970216046
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 726270456552131,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "6"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 442234774755000,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 3 / 5"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 544842660764886,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 2 / 4"
+											}
+										}
+									],
+									"sid": 316790118183936
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 614939382202144,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 424713231158695,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 1 / 5"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 229276128923284,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 3 / 4"
+											}
+										}
+									],
+									"sid": 283038505723332
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 171773340834790,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "8"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 377288749671413,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 2 / 5"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 107606298762571,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 3 / 4"
+											}
+										}
+									],
+									"sid": 379553386197731
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 126037698096378,
+											"parameters": {
+												"variable": "PencilMarkFrame",
+												"comparison": 0,
+												"value": "9"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 183218695095340,
+											"parameters": {
+												"variable": "PencilMarkX",
+												"value": "Cell.X + Cell.Width * 3 / 5"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 951304741609463,
+											"parameters": {
+												"variable": "PencilMarkY",
+												"value": "Cell.Y + Cell.Height * 3 / 4"
+											}
+										}
+									],
+									"sid": 157803215755353
+								},
+								{
+									"eventType": "block",
 									"conditions": [],
 									"actions": [
 										{
@@ -462,7 +678,7 @@
 									"sid": 282382830572001,
 									"parameters": {
 										"instance-variable": "Value",
-										"value": "BREAD_INDEX"
+										"value": "BLOCK_INDEX"
 									}
 								}
 							],

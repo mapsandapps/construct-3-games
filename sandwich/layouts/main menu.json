@@ -18,6 +18,72 @@
 						"origin": "top-left",
 						"seams": "overlap"
 					},
+					"uid": 207,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 480,
+						"width": 160,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ButtonBackground",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 102,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 288,
+						"width": 160,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ButtonBackground",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
 					"uid": 60,
 					"instanceVariables": {},
 					"behaviors": {},
@@ -56,7 +122,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 160,
-						"y": 288,
+						"y": 384,
 						"width": 160,
 						"height": 64,
 						"originX": 0,
@@ -131,7 +197,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 160,
-						"y": 288,
+						"y": 384,
 						"width": 160,
 						"height": 64,
 						"originX": 0,
@@ -176,48 +242,6 @@
 						"y": 32,
 						"width": 416,
 						"height": 128,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Text",
-					"properties": {
-						"text": "(more sizes coming soon)",
-						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
-						"size": 20,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.996078431372549,
-							0.9686274509803922,
-							0.9450980392156862,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 12,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 32,
-						"y": 448,
-						"width": 416,
-						"height": 64,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -300,6 +324,90 @@
 					"world": {
 						"x": 160,
 						"y": 192,
+						"width": 160,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"text": "4x4",
+						"enable-bbcode": true,
+						"font": "Montserrat-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.34901960784313724,
+							0.25098039215686274,
+							0.4235294117647059,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 69,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 288,
+						"width": 160,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuButton",
+					"properties": {
+						"text": "7x7",
+						"enable-bbcode": true,
+						"font": "Montserrat-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.34901960784313724,
+							0.25098039215686274,
+							0.4235294117647059,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 12,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 480,
 						"width": 160,
 						"height": 64,
 						"originX": 0,
