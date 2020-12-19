@@ -2,7 +2,7 @@
 	"name": "ePenciling",
 	"events": [
 		{
-			"functionName": "TogglePencilMarksVisibility",
+			"functionName": "SetPencilMarksVisibility",
 			"functionDescription": "",
 			"functionCategory": "Pencil Marks",
 			"functionReturnType": "none",
@@ -14,6 +14,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 688177786820912
+				},
+				{
+					"name": "Visibile",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 275245709500960
 				}
 			],
 			"eventType": "function-block",
@@ -43,17 +50,55 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 731751418281175,
+					"children": [
 						{
-							"id": "set-visible",
-							"objectClass": "PencilMark",
-							"sid": 786206508525790,
-							"parameters": {
-								"visibility": "toggle"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 382510226618426,
+									"parameters": {
+										"variable": "Visibile"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "PencilMark",
+									"sid": 885530348782749,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 417992154070409
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 978510521927142
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "PencilMark",
+									"sid": 567167247328058,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 910079751683393
 						}
-					],
-					"sid": 731751418281175
+					]
 				}
 			]
 		},

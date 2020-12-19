@@ -268,15 +268,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"callFunction": "TogglePencilMarksVisibility",
-							"sid": 896290516905760,
-							"parameters": [
-								"Cell.UID"
-							]
-						}
-					],
+					"actions": [],
 					"sid": 730491129043217,
 					"children": [
 						{
@@ -300,6 +292,14 @@
 									"parameters": {
 										"frame-number": "0"
 									}
+								},
+								{
+									"callFunction": "SetPencilMarksVisibility",
+									"sid": 297289170284421,
+									"parameters": [
+										"Cell.UID",
+										true
+									]
 								}
 							],
 							"sid": 479708788880628
@@ -314,6 +314,14 @@
 								}
 							],
 							"actions": [
+								{
+									"callFunction": "SetPencilMarksVisibility",
+									"sid": 118704485154242,
+									"parameters": [
+										"Cell.UID",
+										false
+									]
+								},
 								{
 									"id": "set-animation-frame",
 									"objectClass": "Cell",

@@ -636,10 +636,11 @@
 													}
 												},
 												{
-													"callFunction": "TogglePencilMarksVisibility",
+													"callFunction": "SetPencilMarksVisibility",
 													"sid": 375944739096793,
 													"parameters": [
-														"Cell.UID"
+														"Cell.UID",
+														false
 													]
 												}
 											],
