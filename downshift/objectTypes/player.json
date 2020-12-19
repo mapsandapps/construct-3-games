@@ -1,0 +1,98 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 758760821031752,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "BaseSpeed",
+			"type": "number",
+			"desc": "",
+			"sid": 404638799966535
+		},
+		{
+			"name": "LapsCompleted",
+			"type": "number",
+			"desc": "",
+			"sid": 375204113719444
+		},
+		{
+			"name": "Size",
+			"type": "number",
+			"desc": "",
+			"sid": 238446824038611
+		},
+		{
+			"name": "StartPosition",
+			"type": "number",
+			"desc": "",
+			"sid": 150421529788537
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 863812472844252
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 563926554013178
+		},
+		{
+			"behaviorId": "Car",
+			"name": "Car",
+			"sid": 541465490538187
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 131,
+						"height": 71,
+						"originX": 0.816793893129771,
+						"originY": 0.5070422535211268,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1287109,
+						"collisionPoly": {
+							"points": [
+								0.9618320610687023,
+								0.07042253521126761,
+								1,
+								0.5,
+								0.9618320610687023,
+								0.9154929577464789,
+								0.5,
+								0.9436619718309859,
+								0.04580152671755722,
+								0.9154929577464789,
+								0.007633587786259555,
+								0.5,
+								0.04580152671755722,
+								0.07042253521126761,
+								0.5,
+								0.04225352112676056
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 426678409884271,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

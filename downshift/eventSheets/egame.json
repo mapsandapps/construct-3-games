@@ -1,0 +1,615 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_SPEED",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 161625998579789
+		},
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_ACCELERATION",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 996158205736032
+		},
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_STEER_SPEED",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 461130661343129
+		},
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_DRIFT_RECOVER",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 134026669172162
+		},
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_FRICTION",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 633517625616568
+		},
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_WALL",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 452569331367593
+		},
+		{
+			"eventType": "comment",
+			"text": "max HANDICAP_SIZE: 100"
+		},
+		{
+			"eventType": "variable",
+			"name": "HANDICAP_SIZE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 591007277886724
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 739194286533042
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 718260890995909,
+					"behaviorType": "Car",
+					"parameters": {
+						"max-speed": "Player.Car.MaxSpeed - HANDICAP_SPEED"
+					}
+				},
+				{
+					"id": "set-acceleration",
+					"objectClass": "Player",
+					"sid": 545554121678783,
+					"behaviorType": "Car",
+					"parameters": {
+						"acceleration": "Player.Car.Acceleration - HANDICAP_ACCELERATION"
+					}
+				},
+				{
+					"id": "set-steer-speed",
+					"objectClass": "Player",
+					"sid": 314426776787419,
+					"disabled": true,
+					"behaviorType": "Car",
+					"parameters": {
+						"steer-speed": "Player.Car.SteerSpeed - HANDICAP_STEER_SPEED"
+					}
+				},
+				{
+					"id": "set-drift-recover",
+					"objectClass": "Player",
+					"sid": 290350621278209,
+					"disabled": true,
+					"behaviorType": "Car",
+					"parameters": {
+						"drift-recover": "Player.Car.DriftRecover - HANDICAP_DRIFT_RECOVER"
+					}
+				},
+				{
+					"id": "set-friction",
+					"objectClass": "Player",
+					"sid": 365390019034760,
+					"behaviorType": "Car",
+					"parameters": {
+						"friction": "Player.Car.Friction + HANDICAP_FRICTION"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Player",
+					"sid": 205888167816183,
+					"parameters": {
+						"width": "Player.Width * 100 / (Player.Size - HANDICAP_SIZE)",
+						"height": "Player.Height * 100 / (Player.Size - HANDICAP_SIZE)"
+					}
+				}
+			],
+			"sid": 557270482914519,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PathNode",
+							"sid": 961449094008182,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "Enemy.NextPathNode"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "find-path",
+							"objectClass": "Enemy",
+							"sid": 301866226514471,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "PathNode.X",
+								"y": "PathNode.Y"
+							}
+						}
+					],
+					"sid": 284764088368713,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 500804543788734,
+							"parameters": {
+								"object": "PathNode",
+								"expression": "PathNode.Index",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "find-path",
+							"objectClass": "Enemy",
+							"sid": 262584782158654,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "PathNode.X",
+								"y": "PathNode.Y"
+							}
+						}
+					],
+					"sid": 909013160138435,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 476321943781645,
+					"parameters": {
+						"object": "Wall"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "off-track max speed"
+				},
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 281483015227482,
+					"behaviorType": "Car",
+					"parameters": {
+						"max-speed": "Player.BaseSpeed / 3 - HANDICAP_WALL"
+					}
+				},
+				{
+					"id": "shake",
+					"objectClass": "Player",
+					"sid": 916953264177315,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "1",
+						"duration": "0.1",
+						"mode": "reducing-magnitude"
+					}
+				}
+			],
+			"sid": 881683066691833
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Enemy",
+					"sid": 832236830305034,
+					"parameters": {
+						"object": "Wall"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Enemy",
+					"sid": 580012777026729,
+					"behaviorType": "Car",
+					"parameters": {
+						"max-speed": "Enemy.BaseSpeed / 3"
+					}
+				}
+			],
+			"sid": 146711235386778
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 440778453472753
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 406711800843045,
+					"behaviorType": "Car",
+					"parameters": {
+						"max-speed": "Player.BaseSpeed "
+					}
+				}
+			],
+			"sid": 329018621340183
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-path-found",
+					"objectClass": "Enemy",
+					"sid": 165505128306443,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-along-path",
+					"objectClass": "Enemy",
+					"sid": 544778281899686,
+					"behaviorType": "Pathfinding"
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Enemy",
+					"sid": 646855937613676,
+					"parameters": {
+						"instance-variable": "NextPathNode",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 596437503076198,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "Enemy",
+					"sid": 350731503682716,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"actions": [],
+			"sid": 188384511939066,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PathNode",
+							"sid": 773019447064422,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "Enemy.NextPathNode"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "find-path",
+							"objectClass": "Enemy",
+							"sid": 159532462400117,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"x": "PathNode.X",
+								"y": "PathNode.Y"
+							}
+						}
+					],
+					"sid": 285829890400010,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 455952724212330
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 149168097175506,
+							"parameters": {
+								"instance-variable": "NextPathNode",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 325488942478713,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PathNode",
+									"sid": 571912481258156,
+									"parameters": {
+										"instance-variable": "Index",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "find-path",
+									"objectClass": "Enemy",
+									"sid": 740627419805029,
+									"behaviorType": "Pathfinding",
+									"parameters": {
+										"x": "PathNode.X",
+										"y": "PathNode.Y"
+									}
+								}
+							],
+							"sid": 109146634663571,
+							"disabled": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Enemy",
+					"sid": 242972463419827,
+					"parameters": {
+						"object": "PathNode"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "PathNode",
+					"sid": 361404272525527,
+					"parameters": {
+						"instance-variable": "Index",
+						"comparison": 0,
+						"value": "Enemy.NextPathNode"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 231811935262263,
+					"parameters": {
+						"instance-variable": "NextPathNode",
+						"value": "PathNode.Index + 1"
+					}
+				}
+			],
+			"sid": 569881083952770,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 793689993435020,
+							"parameters": {
+								"instance-variable": "NextPathNode",
+								"comparison": 0,
+								"value": "PathNode.Count - 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 966148887166896,
+							"parameters": {
+								"instance-variable": "NextPathNode",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 269836609896629
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "PathNode",
+					"sid": 641006093061662,
+					"parameters": {
+						"instance-variable": "Index",
+						"comparison": 0,
+						"value": "Enemy.NextPathNode"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 369313387723593,
+					"parameters": {
+						"instance-variable": "AngleToNode",
+						"value": "angle(Enemy.X, Enemy.Y, PathNode.X, PathNode.Y)"
+					}
+				}
+			],
+			"sid": 716666668141940,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-clockwise-from",
+							"objectClass": "System",
+							"sid": 779212841233089,
+							"parameters": {
+								"angle-1": "Enemy.AngleToNode",
+								"angle-2": "Enemy.Angle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Enemy",
+							"sid": 920049432364841,
+							"behaviorType": "Car",
+							"parameters": {
+								"control": "steer-right"
+							}
+						}
+					],
+					"sid": 333585941032236
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 841237088812917
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Enemy",
+							"sid": 556548086043074,
+							"behaviorType": "Car",
+							"parameters": {
+								"control": "steer-left"
+							}
+						}
+					],
+					"sid": 294511471663582
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-within-angle",
+							"objectClass": "System",
+							"sid": 762838058816642,
+							"parameters": {
+								"angle-1": "Enemy.AngleToNode",
+								"within": "30",
+								"angle-2": "Enemy.Angle"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Enemy",
+							"sid": 813121312308888,
+							"behaviorType": "Car",
+							"parameters": {
+								"control": "accelerate"
+							}
+						}
+					],
+					"sid": 985065815388240
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 636290235632292
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Enemy",
+							"sid": 594373013319932,
+							"behaviorType": "Car",
+							"parameters": {
+								"control": "brake"
+							}
+						}
+					],
+					"sid": 440950674836599
+				}
+			]
+		}
+	],
+	"sid": 783059010830377
+}
