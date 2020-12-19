@@ -142,7 +142,32 @@
 					}
 				}
 			],
-			"sid": 557270482914519
+			"sid": 557270482914519,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 131875633271031,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "NavigateEnemyToNextNode",
+							"sid": 390838304917738,
+							"parameters": [
+								"Enemy.UID"
+							]
+						}
+					],
+					"sid": 490581903683773
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -257,9 +282,9 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-overlapping-another-object",
+					"id": "on-collision-with-another-object",
 					"objectClass": "Enemy",
-					"sid": 242972463419827,
+					"sid": 361605071476023,
 					"parameters": {
 						"object": "PathNode"
 					}
@@ -267,7 +292,7 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "PathNode",
-					"sid": 743073287149036,
+					"sid": 462215837991535,
 					"parameters": {
 						"instance-variable": "Index",
 						"comparison": 0,
@@ -277,16 +302,16 @@
 			],
 			"actions": [
 				{
-					"id": "set-instvar-value",
+					"id": "add-to-instvar",
 					"objectClass": "Enemy",
-					"sid": 231811935262263,
+					"sid": 975293507869464,
 					"parameters": {
 						"instance-variable": "NextPathNode",
-						"value": "PathNode.Index + 1"
+						"value": "1"
 					}
 				}
 			],
-			"sid": 569881083952770,
+			"sid": 609878105311358,
 			"children": [
 				{
 					"eventType": "block",
@@ -294,7 +319,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Enemy",
-							"sid": 725455993535829,
+							"sid": 161368001309694,
 							"parameters": {
 								"instance-variable": "NextPathNode",
 								"comparison": 0,
@@ -306,146 +331,100 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Enemy",
-							"sid": 966148887166896,
+							"sid": 443369076331593,
 							"parameters": {
 								"instance-variable": "NextPathNode",
 								"value": "0"
 							}
 						}
 					],
-					"sid": 269836609896629
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "for-each",
-					"objectClass": "System",
-					"sid": 172937063016311,
-					"parameters": {
-						"object": "Enemy"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 611048415307607,
-			"children": [
+					"sid": 531183659988737
+				},
 				{
 					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
-							"id": "simulate-control",
-							"objectClass": "Enemy",
-							"sid": 564296985758969,
-							"behaviorType": "Car",
-							"parameters": {
-								"control": "accelerate"
-							}
-						}
-					],
-					"sid": 405250892125891
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "PathNode",
-							"sid": 205321636109893,
-							"parameters": {
-								"instance-variable": "Index",
-								"comparison": 0,
-								"value": "Enemy.NextPathNode"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 674132737376275,
-							"parameters": {
-								"instance-variable": "AngleToNode",
-								"value": "angle(Enemy.X, Enemy.Y, PathNode.X, PathNode.Y)"
-							}
-						}
-					],
-					"sid": 286270519622887,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-within-angle",
-									"objectClass": "System",
-									"sid": 223704885720418,
-									"parameters": {
-										"angle-1": "Enemy.AngleToNode",
-										"within": "5",
-										"angle-2": "Enemy.Angle"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 610716616335182,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-clockwise-from",
-											"objectClass": "System",
-											"sid": 568504703457848,
-											"parameters": {
-												"angle-1": "Enemy.AngleToNode",
-												"angle-2": "Enemy.Angle"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "simulate-control",
-											"objectClass": "Enemy",
-											"sid": 336232084374095,
-											"behaviorType": "Car",
-											"parameters": {
-												"control": "steer-right"
-											}
-										}
-									],
-									"sid": 613147977252031
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 289818714326366
-										}
-									],
-									"actions": [
-										{
-											"id": "simulate-control",
-											"objectClass": "Enemy",
-											"sid": 351624575977938,
-											"behaviorType": "Car",
-											"parameters": {
-												"control": "steer-left"
-											}
-										}
-									],
-									"sid": 867995452243672
-								}
+							"callFunction": "NavigateEnemyToNextNode",
+							"sid": 757866429491317,
+							"parameters": [
+								"Enemy.UID"
 							]
 						}
-					]
+					],
+					"sid": 537048216025690
 				}
 			]
+		},
+		{
+			"functionName": "NavigateEnemyToNextNode",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "EnemyUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 965197452178554
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Enemy",
+					"sid": 642778666479076,
+					"parameters": {
+						"unique-id": "EnemyUID"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "PathNode",
+					"sid": 951170119382728,
+					"parameters": {
+						"instance-variable": "Index",
+						"comparison": 0,
+						"value": "Enemy.NextPathNode"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "find-path",
+					"objectClass": "Enemy",
+					"sid": 498546520363637,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"x": "PathNode.X",
+						"y": "PathNode.Y"
+					}
+				}
+			],
+			"sid": 742124581629504
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-path-found",
+					"objectClass": "Enemy",
+					"sid": 562623011262694,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-along-path",
+					"objectClass": "Enemy",
+					"sid": 866999634361099,
+					"behaviorType": "Pathfinding"
+				}
+			],
+			"sid": 566940068270620
 		}
 	],
 	"sid": 783059010830377
