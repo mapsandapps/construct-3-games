@@ -3,13 +3,23 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "NUMBER_OF_LAPS",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 655140652799468
+		},
+		{
+			"eventType": "variable",
 			"name": "HANDICAP_SPEED",
 			"type": "number",
 			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 161625998579789
+			"sid": 775827926721591
 		},
 		{
 			"eventType": "variable",
@@ -144,6 +154,22 @@
 			],
 			"sid": 557270482914519,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-obstacle",
+							"objectClass": "Enemy",
+							"sid": 366017988535986,
+							"behaviorType": "Pathfinding",
+							"parameters": {
+								"obstacle": "Wall"
+							}
+						}
+					],
+					"sid": 655514267759012
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -425,6 +451,143 @@
 				}
 			],
 			"sid": 566940068270620
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 807387489442171,
+					"parameters": {
+						"object": "FinishLine"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 625969633545024,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "PlayerCheckpoint",
+							"sid": 976487187145644,
+							"parameters": {
+								"instance-variable": "WasHitThisLap"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "CHECKPOINT MISSED; NO LAP"
+						}
+					],
+					"sid": 243816783429864
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 678869315455850
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Player",
+							"sid": 104017640547219,
+							"parameters": {
+								"instance-variable": "LapsCompleted",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 628837259834218
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "PlayerCheckpoint",
+							"sid": 483953955222898,
+							"parameters": {
+								"instance-variable": "WasHitThisLap",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 553066836839947
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 931952424565951,
+							"parameters": {
+								"instance-variable": "LapsCompleted",
+								"comparison": 0,
+								"value": "NUMBER_OF_LAPS"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Player",
+							"sid": 477229939042811,
+							"behaviorType": "Car",
+							"parameters": {
+								"speed": "100"
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Player",
+							"sid": 925071305734489,
+							"behaviorType": "Car",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						}
+					],
+					"sid": 721328606106615
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 575887548897800,
+					"parameters": {
+						"object": "PlayerCheckpoint"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "PlayerCheckpoint",
+					"sid": 795632442513695,
+					"parameters": {
+						"instance-variable": "WasHitThisLap",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 311970912725610
 		}
 	],
 	"sid": 783059010830377
