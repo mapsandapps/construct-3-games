@@ -115,6 +115,42 @@
 						}
 					],
 					"sid": 689676341872243
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 414300766333972
+						}
+					],
+					"actions": [],
+					"sid": 853174741082848,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "MenuButton",
+									"sid": 499526478468005,
+									"parameters": {
+										"text-to-compare": "\"Save\"",
+										"case-sensitivity": "ignore-case"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "MenuButton",
+									"sid": 441772768296369
+								}
+							],
+							"sid": 904109396396496
+						}
+					]
 				}
 			]
 		},
@@ -1064,6 +1100,15 @@
 								"text-to-compare": "\"Reset\"",
 								"case-sensitivity": "ignore-case"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 973667876105355,
+							"parameters": {
+								"variable": "IsPaused"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -1073,6 +1118,36 @@
 						}
 					],
 					"sid": 523567448208293
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 722333776383903,
+							"parameters": {
+								"text-to-compare": "\"Save\"",
+								"case-sensitivity": "ignore-case"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 215625539974206,
+							"parameters": {
+								"variable": "IsPaused"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SaveCreatedPuzzle",
+							"sid": 157187820632035
+						}
+					],
+					"sid": 236375586720468
 				},
 				{
 					"eventType": "block",
@@ -1264,6 +1339,907 @@
 						}
 					],
 					"sid": 736861239493087
+				}
+			]
+		},
+		{
+			"functionName": "SaveCreatedPuzzle",
+			"functionDescription": "",
+			"functionCategory": "Create",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 580171156646604,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "JSON",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 117407131232932
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 435759235072475,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"{\"\"colSums\"\":[\""
+							}
+						}
+					],
+					"sid": 325546332623622
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Sum",
+							"sid": 156665784572392,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "-1"
+							}
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 594603361624846,
+							"parameters": {
+								"object": "Sum",
+								"expression": "Sum.Column",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 589454107346890,
+							"parameters": {
+								"variable": "JSON",
+								"value": "Sum.Text"
+							}
+						}
+					],
+					"sid": 111446279683180,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 618972517455810,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 1,
+										"value": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 451647013818598,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\",\""
+									}
+								}
+							],
+							"sid": 453772497788517
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 245084904774445,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"],\"\"rowSums\"\":[\""
+							}
+						}
+					],
+					"sid": 114359962877154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Sum",
+							"sid": 993192511215648,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "-1"
+							}
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 166684647436247,
+							"parameters": {
+								"object": "Sum",
+								"expression": "Sum.Row",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 568848107075486,
+							"parameters": {
+								"variable": "JSON",
+								"value": "Sum.Text"
+							}
+						}
+					],
+					"sid": 695237677388880,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 591444830613367,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 1,
+										"value": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 277624096497756,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\",\""
+									}
+								}
+							],
+							"sid": 365206276086783
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 471569289099986,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"],\"\"grid\"\":[\""
+							}
+						}
+					],
+					"sid": 299846368109232
+				},
+				{
+					"eventType": "variable",
+					"name": "ColIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 995159568030620
+				},
+				{
+					"eventType": "variable",
+					"name": "RowIndex",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 769101349469812
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 373181658624550,
+							"parameters": {
+								"count": "Size"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 431680644553806,
+							"parameters": {
+								"variable": "RowIndex",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 400155373378778,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"[\""
+							}
+						}
+					],
+					"sid": 310487007233894,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 278815747696702,
+									"parameters": {
+										"count": "Size"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 896725869824125,
+									"parameters": {
+										"variable": "ColIndex",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 692540709682827,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 718021472665270,
+											"parameters": {
+												"instance-variable": "Column",
+												"comparison": 0,
+												"value": "ColIndex"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 254881864535509,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "RowIndex"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 697390461290472,
+											"parameters": {
+												"variable": "JSON",
+												"value": "Cell.CorrectValue"
+											}
+										}
+									],
+									"sid": 591622851760934
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 340970835725317,
+											"parameters": {
+												"first-value": "ColIndex",
+												"comparison": 1,
+												"second-value": "Size - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 201526290541742,
+											"parameters": {
+												"variable": "JSON",
+												"value": "\",\""
+											}
+										}
+									],
+									"sid": 813439940296816
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 526275347696313,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\"]\""
+									}
+								}
+							],
+							"sid": 796594516461305
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 331934806757873,
+									"parameters": {
+										"first-value": "RowIndex",
+										"comparison": 1,
+										"second-value": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 992715156966900,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\",\""
+									}
+								}
+							],
+							"sid": 825131889448589
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 373022315179130,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"], \"\"size\"\": \" & Size & \",\"\"colSumsFixed\"\": [\""
+							}
+						}
+					],
+					"sid": 193947044442920
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Sum",
+							"sid": 731297391853320,
+							"parameters": {
+								"instance-variable": "Row",
+								"comparison": 0,
+								"value": "-1"
+							}
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 555358402707926,
+							"parameters": {
+								"object": "Sum",
+								"expression": "Sum.Column",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 487915099109606,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Sum",
+									"sid": 278431788640692
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 897677817368903,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\"true\""
+									}
+								}
+							],
+							"sid": 764915798736285
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 261639280591209
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 352311712080896,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\"false\""
+									}
+								}
+							],
+							"sid": 627539791543688
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 226312673068448,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 1,
+										"value": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 264132596438132,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\",\""
+									}
+								}
+							],
+							"sid": 942700556626224
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 967745094276970,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"], \"\"rowSumsFixed\"\": [\""
+							}
+						}
+					],
+					"sid": 192180799888092
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Sum",
+							"sid": 412732042332224,
+							"parameters": {
+								"instance-variable": "Column",
+								"comparison": 0,
+								"value": "-1"
+							}
+						},
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 388135252493885,
+							"parameters": {
+								"object": "Sum",
+								"expression": "Sum.Row",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 964109827161790,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Sum",
+									"sid": 863048949359409
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 551020455973887,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\"true\""
+									}
+								}
+							],
+							"sid": 824343466386660
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 296492863954112
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 214221932868258,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\"false\""
+									}
+								}
+							],
+							"sid": 965928866863905
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 919171977003287,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 1,
+										"value": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 232121575429404,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\",\""
+									}
+								}
+							],
+							"sid": 251825606298097
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 680086523686932,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"], \"\"gridFixed\"\": [\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 150727340577206,
+							"parameters": {
+								"variable": "ColIndex",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 423402029049601,
+							"parameters": {
+								"variable": "RowIndex",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 284307542114656
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 235355125494130,
+							"parameters": {
+								"count": "Size"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 156761078262943,
+							"parameters": {
+								"variable": "RowIndex",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 709415007951908,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"[\""
+							}
+						}
+					],
+					"sid": 371182112761099,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 369325713039746,
+									"parameters": {
+										"count": "Size"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 823119899611624,
+									"parameters": {
+										"variable": "ColIndex",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 808082593666902,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 420895505435677,
+											"parameters": {
+												"instance-variable": "Column",
+												"comparison": 0,
+												"value": "ColIndex"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cell",
+											"sid": 284540190521106,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "RowIndex"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 161315971634541,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Cell",
+													"sid": 794711027679782,
+													"parameters": {
+														"instance-variable": "IsFixed"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 729760361327995,
+													"parameters": {
+														"variable": "JSON",
+														"value": "\"true\""
+													}
+												}
+											],
+											"sid": 505984962367618
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 861869540383014
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 401710540691129,
+													"parameters": {
+														"variable": "JSON",
+														"value": "\"false\""
+													}
+												}
+											],
+											"sid": 906391991704649
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 698095884358869,
+											"parameters": {
+												"first-value": "ColIndex",
+												"comparison": 1,
+												"second-value": "Size - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 819529322851631,
+											"parameters": {
+												"variable": "JSON",
+												"value": "\",\""
+											}
+										}
+									],
+									"sid": 190245618213219
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 434861654657032,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\"]\""
+									}
+								}
+							],
+							"sid": 803357040065893
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 195177829373479,
+									"parameters": {
+										"first-value": "RowIndex",
+										"comparison": 1,
+										"second-value": "Size - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 515549108585839,
+									"parameters": {
+										"variable": "JSON",
+										"value": "\",\""
+									}
+								}
+							],
+							"sid": 457021537320760
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 481917025890541,
+							"parameters": {
+								"variable": "JSON",
+								"value": "\"]}\""
+							}
+						}
+					],
+					"sid": 586767949996113
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 811125619152796,
+							"parameters": {
+								"type": "log",
+								"message": "JSON"
+							}
+						}
+					],
+					"sid": 767399705762762
 				}
 			]
 		}
