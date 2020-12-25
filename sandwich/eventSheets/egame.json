@@ -833,6 +833,27 @@
 						{
 							"id": "compare-text",
 							"objectClass": "MenuButton",
+							"sid": 303090874844561,
+							"parameters": {
+								"text-to-compare": "\"Reset\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResetPuzzle",
+							"sid": 892598935643952
+						}
+					],
+					"sid": 523567448208293
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
 							"sid": 308536752482127,
 							"parameters": {
 								"text-to-compare": "\"Return to game\"",
@@ -895,6 +916,128 @@
 						}
 					],
 					"sid": 604525297765412
+				}
+			]
+		},
+		{
+			"functionName": "ResetPuzzle",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "could probably just restart layout, but i'll probably use this for the level builder"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 216048684351605,
+					"parameters": {
+						"variable": "CurrentSelectedNumber",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 469571101722414,
+					"parameters": {
+						"variable": "ActiveTool",
+						"value": "\"Pen\""
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "NumberSelect",
+					"sid": 367604228337779,
+					"parameters": {
+						"animation": "\"Inactive\"",
+						"from": "current-frame"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Tool",
+					"sid": 254379112179126,
+					"parameters": {
+						"animation": "\"Inactive\"",
+						"from": "current-frame"
+					}
+				}
+			],
+			"sid": 714533648999042,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 474195932044616,
+							"parameters": {
+								"object": "Cell"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 107144021496691,
+							"parameters": {
+								"instance-variable": "IsFixed"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetPencilMarksVisibility",
+							"sid": 323301932238053,
+							"parameters": [
+								"Cell.UID",
+								true
+							]
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cell",
+							"sid": 129142807394599,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 281406333895784
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PencilMark",
+							"sid": 434631453119011,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 1,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "PencilMark",
+							"sid": 709573554781610,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 736861239493087
 				}
 			]
 		}
