@@ -1,5 +1,5 @@
 {
-	"name": "Main Menu",
+	"name": "Create",
 	"layers": [
 		{
 			"name": "Main",
@@ -18,13 +18,13 @@
 						"origin": "top-left",
 						"seams": "overlap"
 					},
-					"uid": 207,
+					"uid": 211,
 					"instanceVariables": {
 						"Name": ""
 					},
 					"behaviors": {},
 					"world": {
-						"x": 256,
+						"x": 160,
 						"y": 384,
 						"width": 160,
 						"height": 64,
@@ -53,119 +53,84 @@
 						"origin": "top-left",
 						"seams": "overlap"
 					},
-					"uid": 102,
+					"uid": 212,
 					"instanceVariables": {
 						"Name": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 64,
-						"y": 288,
-						"width": 160,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonBackground",
-					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 60,
-					"instanceVariables": {
-						"Name": "Create"
 					},
 					"behaviors": {},
 					"world": {
 						"x": 160,
-						"y": 704,
-						"width": 160,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonBackground",
-					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 57,
-					"instanceVariables": {
-						"Name": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 256,
-						"y": 288,
-						"width": 160,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonBackground",
-					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 17,
-					"instanceVariables": {
-						"Name": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 64,
 						"y": 192,
+						"width": 160,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ButtonBackground",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 213,
+					"instanceVariables": {
+						"Name": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 128,
+						"y": 704,
+						"width": 224,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ButtonBackground",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 214,
+					"instanceVariables": {
+						"Name": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 288,
 						"width": 160,
 						"height": 64,
 						"originX": 0,
@@ -202,11 +167,11 @@
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 10,
+					"uid": 216,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
+						"x": 160,
 						"y": 288,
 						"width": 160,
 						"height": 64,
@@ -225,7 +190,7 @@
 				{
 					"type": "Text",
 					"properties": {
-						"text": "Sandwiches",
+						"text": "Create",
 						"enable-bbcode": true,
 						"font": "Oswald-VariableFont_wght",
 						"size": 40,
@@ -244,7 +209,7 @@
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 11,
+					"uid": 217,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -267,7 +232,7 @@
 				{
 					"type": "MenuButton",
 					"properties": {
-						"text": "Create",
+						"text": "Main Menu",
 						"enable-bbcode": true,
 						"font": "Montserrat-Regular",
 						"size": 20,
@@ -286,55 +251,13 @@
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 15,
+					"uid": 218,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
+						"x": 128,
 						"y": 704,
-						"width": 160,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "MenuButton",
-					"properties": {
-						"text": "Learn",
-						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
-						"size": 20,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.34901960784313724,
-							0.25098039215686274,
-							0.4235294117647059,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 16,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 64,
-						"y": 192,
-						"width": 160,
+						"width": 224,
 						"height": 64,
 						"originX": 0,
 						"originY": 0,
@@ -370,12 +293,12 @@
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 69,
+					"uid": 220,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 64,
-						"y": 288,
+						"x": 160,
+						"y": 192,
 						"width": 160,
 						"height": 64,
 						"originX": 0,
@@ -412,89 +335,12 @@
 						"initially-visible": true,
 						"origin": "top-left"
 					},
-					"uid": 12,
+					"uid": 221,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
+						"x": 160,
 						"y": 384,
-						"width": 160,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "ButtonBackground",
-					"properties": {
-						"left-margin": 16,
-						"right-margin": 16,
-						"top-margin": 16,
-						"bottom-margin": 16,
-						"edges": "stretch",
-						"fill": "stretch",
-						"initially-visible": true,
-						"origin": "top-left",
-						"seams": "overlap"
-					},
-					"uid": 209,
-					"instanceVariables": {
-						"Name": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 256,
-						"y": 192,
-						"width": 160,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "MenuButton",
-					"properties": {
-						"text": "Rules",
-						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
-						"size": 20,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0.34901960784313724,
-							0.25098039215686274,
-							0.4235294117647059,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 210,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 256,
-						"y": 192,
 						"width": 160,
 						"height": 64,
 						"originX": 0,
@@ -510,7 +356,7 @@
 					}
 				}
 			],
-			"sid": 265982296251494,
+			"sid": 572442538179988,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -538,7 +384,7 @@
 			"name": "Rules",
 			"overriden": 1,
 			"instances": [],
-			"sid": 833974422323543,
+			"sid": 461123322684146,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"color": [
@@ -563,15 +409,8 @@
 			"global": false
 		}
 	],
-	"sid": 646993839227160,
-	"nonworld-instances": [
-		{
-			"type": "ConfigDict",
-			"properties": {},
-			"uid": 215,
-			"instanceVariables": {}
-		}
-	],
+	"sid": 935049142488850,
+	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 480,
 	"height": 854,

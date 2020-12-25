@@ -31,6 +31,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "IsInCreateMode",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 671367522896047
+		},
+		{
+			"eventType": "variable",
 			"name": "IsPaused",
 			"type": "boolean",
 			"initialValue": "false",
@@ -77,7 +87,36 @@
 					}
 				}
 			],
-			"sid": 924561129029965
+			"sid": 924561129029965,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "ConfigDict",
+							"sid": 500549404117639,
+							"parameters": {
+								"key": "\"IsInCreateMode\"",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 842403331408954,
+							"parameters": {
+								"variable": "IsInCreateMode",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 689676341872243
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -240,15 +279,6 @@
 					"parameters": {
 						"object": "Cell"
 					}
-				},
-				{
-					"id": "is-boolean-instance-variable-set",
-					"objectClass": "Cell",
-					"sid": 461388836626525,
-					"parameters": {
-						"instance-variable": "IsFixed"
-					},
-					"isInverted": true
 				}
 			],
 			"actions": [],
@@ -258,84 +288,68 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 271695783401985,
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Cell",
+							"sid": 781989024990013,
 							"parameters": {
-								"variable": "ActiveTool",
-								"comparison": 0,
-								"value": "\"Pen\""
+								"instance-variable": "IsFixed"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 730491129043217,
+					"sid": 626521209915740,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-animation-frame",
-									"objectClass": "Cell",
-									"sid": 587717602093228,
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 581338413566169,
 									"parameters": {
+										"variable": "IsInCreateMode"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 740422098953237,
+									"parameters": {
+										"variable": "ActiveTool",
 										"comparison": 0,
-										"number": "CurrentSelectedNumber"
+										"value": "\"Pen\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation-frame",
-									"objectClass": "Cell",
-									"sid": 738259515986411,
-									"parameters": {
-										"frame-number": "0"
-									}
-								},
-								{
 									"callFunction": "SetPencilMarksVisibility",
-									"sid": 297289170284421,
+									"sid": 640336365691050,
 									"parameters": [
 										"Cell.UID",
 										true
 									]
-								}
-							],
-							"sid": 479708788880628
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 629160049966445
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "SetPencilMarksVisibility",
-									"sid": 118704485154242,
-									"parameters": [
-										"Cell.UID",
-										false
-									]
 								},
 								{
-									"id": "set-animation-frame",
+									"id": "set-boolean-instvar",
 									"objectClass": "Cell",
-									"sid": 190665912450626,
+									"sid": 497435836420277,
 									"parameters": {
-										"frame-number": "CurrentSelectedNumber"
+										"instance-variable": "IsFixed",
+										"value": "false"
 									}
 								},
 								{
-									"callFunction": "CheckForWin",
-									"sid": 595032880077846
+									"id": "set-animation",
+									"objectClass": "Cell",
+									"sid": 125048413379527,
+									"parameters": {
+										"animation": "\"User\"",
+										"from": "beginning"
+									}
 								}
 							],
-							"sid": 389300612274484
+							"sid": 828135321171354
 						}
 					]
 				},
@@ -345,39 +359,202 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 314203424604760
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 227499888240472,
-							"parameters": {
-								"variable": "ActiveTool",
-								"comparison": 0,
-								"value": "\"Pencil\""
-							}
-						},
-						{
-							"id": "compare-animation-frame",
-							"objectClass": "Cell",
-							"sid": 849217574676498,
-							"parameters": {
-								"comparison": 0,
-								"number": "0"
-							}
+							"sid": 767655419054809
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 245925901047188,
+					"children": [
 						{
-							"callFunction": "TogglePencilMark",
-							"sid": 641317232973686,
-							"parameters": [
-								"Cell.UID",
-								"CurrentSelectedNumber"
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 252263851567595,
+									"parameters": {
+										"variable": "ActiveTool",
+										"comparison": 0,
+										"value": "\"Pen\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 622088850963196,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Cell",
+											"sid": 136896856167744,
+											"parameters": {
+												"comparison": 0,
+												"number": "CurrentSelectedNumber"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 545042060275027,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 773538781602284,
+													"parameters": {
+														"variable": "IsInCreateMode"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "SetPencilMarksVisibility",
+													"sid": 719758770796873,
+													"parameters": [
+														"Cell.UID",
+														false
+													]
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Cell",
+													"sid": 918959473279955,
+													"parameters": {
+														"instance-variable": "IsFixed",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Cell",
+													"sid": 588499308887898,
+													"parameters": {
+														"animation": "\"Fixed\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Cell",
+													"sid": 249053754012513,
+													"parameters": {
+														"frame-number": "Cell.CorrectValue"
+													}
+												}
+											],
+											"sid": 815521963300934
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 629608204743206
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Cell",
+													"sid": 635490181031858,
+													"parameters": {
+														"frame-number": "0"
+													}
+												},
+												{
+													"callFunction": "SetPencilMarksVisibility",
+													"sid": 567140597083414,
+													"parameters": [
+														"Cell.UID",
+														true
+													]
+												}
+											],
+											"sid": 147656193644567
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 992681529775348
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetPencilMarksVisibility",
+											"sid": 429864032016209,
+											"parameters": [
+												"Cell.UID",
+												false
+											]
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Cell",
+											"sid": 199329628262852,
+											"parameters": {
+												"frame-number": "CurrentSelectedNumber"
+											}
+										},
+										{
+											"callFunction": "CheckForWin",
+											"sid": 648943987167991
+										}
+									],
+									"sid": 253661593843443
+								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 339129292691364
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 414479167039543,
+									"parameters": {
+										"variable": "ActiveTool",
+										"comparison": 0,
+										"value": "\"Pencil\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Cell",
+									"sid": 454761844653656,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "TogglePencilMark",
+									"sid": 292341282802644,
+									"parameters": [
+										"Cell.UID",
+										"CurrentSelectedNumber"
+									]
+								}
+							],
+							"sid": 655106007109953
 						}
-					],
-					"sid": 860149473971756
+					]
 				}
 			]
 		},

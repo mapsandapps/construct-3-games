@@ -79,6 +79,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r226",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Fade",
 			"name": "Fade",
@@ -109,7 +117,8 @@
 			"Tool",
 			"PencilMark",
 			"MenuButton",
-			"CellGrid"
+			"CellGrid",
+			"ConfigDict"
 		],
 		"subfolders": [
 			{
@@ -137,6 +146,7 @@
 			"4x4",
 			"5x5",
 			"7x7",
+			"Create",
 			"Objects",
 			"Learn"
 		],
@@ -409,6 +419,23 @@
 					],
 					"subfolders": [],
 					"name": "7x7"
+				},
+				{
+					"items": [],
+					"subfolders": [
+						{
+							"items": [
+								{
+									"name": "create7-1.json",
+									"type": "application/json",
+									"sid": 197265673398794
+								}
+							],
+							"subfolders": [],
+							"name": "7x7"
+						}
+					],
+					"name": "create"
 				}
 			]
 		}

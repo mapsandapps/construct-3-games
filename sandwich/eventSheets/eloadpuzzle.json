@@ -39,6 +39,16 @@
 			"sid": 251566449007057,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "RandomCreateLevel",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 797085507428637
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -80,10 +90,60 @@
 						{
 							"id": "else",
 							"objectClass": "System",
+							"sid": 504002386991097
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "ConfigDict",
+							"sid": 894519224641539,
+							"parameters": {
+								"key": "\"IsInCreateMode\"",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 926576753470752,
+							"parameters": {
+								"type": "log",
+								"message": "\"create mode\""
+							}
+						},
+						{
+							"id": "request-url",
+							"objectClass": "AJAX",
+							"sid": 521703088503272,
+							"parameters": {
+								"tag": "\"\"",
+								"url": "\"create\" & CellGrid.Size & \"-\" & RandomCreateLevel & \".json\""
+							}
+						}
+					],
+					"sid": 381740461112107
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
 							"sid": 386995111578471
 						}
 					],
 					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 986069696616160,
+							"parameters": {
+								"type": "log",
+								"message": "\"not create mode\""
+							}
+						},
 						{
 							"id": "log",
 							"objectClass": "Browser",
@@ -245,32 +305,12 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "RowOrColNumber",
-									"sid": 972894339499306,
-									"parameters": {
-										"instance-variable": "Row",
-										"comparison": 0,
-										"value": "-1"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "RowOrColNumber",
-									"sid": 921460516380384,
-									"parameters": {
-										"instance-variable": "Column",
-										"comparison": 0,
-										"value": "ColIndex"
-									}
-								},
-								{
 									"id": "compare-value",
-									"objectClass": "JSON",
-									"sid": 506354129878578,
+									"objectClass": "ConfigDict",
+									"sid": 878282080896633,
 									"parameters": {
-										"path": "\"colSumsFixed.\" & ColIndex",
-										"cmp": 0,
+										"key": "\"IsInCreateMode\"",
+										"comparison": 0,
 										"value": "1"
 									}
 								}
@@ -279,13 +319,73 @@
 								{
 									"id": "set-text",
 									"objectClass": "RowOrColNumber",
-									"sid": 325247771674893,
+									"sid": 659693799581945,
 									"parameters": {
 										"text": "JSON.CurrentValue"
 									}
 								}
 							],
-							"sid": 763094142509050
+							"sid": 734427773850577
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 965163930691044
+								}
+							],
+							"actions": [],
+							"sid": 432753634940611,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RowOrColNumber",
+											"sid": 568187675219664,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "-1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RowOrColNumber",
+											"sid": 731428171794815,
+											"parameters": {
+												"instance-variable": "Column",
+												"comparison": 0,
+												"value": "ColIndex"
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "JSON",
+											"sid": 767018548915477,
+											"parameters": {
+												"path": "\"colSumsFixed.\" & ColIndex",
+												"cmp": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "RowOrColNumber",
+											"sid": 824414867533921,
+											"parameters": {
+												"text": "JSON.CurrentValue"
+											}
+										}
+									],
+									"sid": 416013336364470
+								}
+							]
 						}
 					]
 				}
@@ -342,32 +442,12 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "RowOrColNumber",
-									"sid": 758373481516033,
-									"parameters": {
-										"instance-variable": "Row",
-										"comparison": 0,
-										"value": "RowIndex"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "RowOrColNumber",
-									"sid": 618886007897288,
-									"parameters": {
-										"instance-variable": "Column",
-										"comparison": 0,
-										"value": "-1"
-									}
-								},
-								{
 									"id": "compare-value",
-									"objectClass": "JSON",
-									"sid": 777625780477717,
+									"objectClass": "ConfigDict",
+									"sid": 773179667124245,
 									"parameters": {
-										"path": "\"rowSumsFixed.\" & RowIndex",
-										"cmp": 0,
+										"key": "\"IsInCreateMode\"",
+										"comparison": 0,
 										"value": "1"
 									}
 								}
@@ -376,13 +456,73 @@
 								{
 									"id": "set-text",
 									"objectClass": "RowOrColNumber",
-									"sid": 152370679711222,
+									"sid": 148866079662084,
 									"parameters": {
 										"text": "JSON.CurrentValue"
 									}
 								}
 							],
-							"sid": 146697852762823
+							"sid": 549340943303069
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 896540446033998
+								}
+							],
+							"actions": [],
+							"sid": 920102352447567,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RowOrColNumber",
+											"sid": 782264811852365,
+											"parameters": {
+												"instance-variable": "Row",
+												"comparison": 0,
+												"value": "RowIndex"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RowOrColNumber",
+											"sid": 801726116136734,
+											"parameters": {
+												"instance-variable": "Column",
+												"comparison": 0,
+												"value": "-1"
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "JSON",
+											"sid": 341669026460111,
+											"parameters": {
+												"path": "\"rowSumsFixed.\" & RowIndex",
+												"cmp": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "RowOrColNumber",
+											"sid": 785936550654608,
+											"parameters": {
+												"text": "JSON.CurrentValue"
+											}
+										}
+									],
+									"sid": 490760106257197
+								}
+							]
 						}
 					]
 				}
@@ -645,6 +785,58 @@
 												}
 											],
 											"sid": 612286206620121
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "ConfigDict",
+													"sid": 910546547149603,
+													"parameters": {
+														"key": "\"IsInCreateMode\"",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Cell",
+													"sid": 787577523330877,
+													"parameters": {
+														"frame-number": "Cell.CorrectValue"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Cell",
+													"sid": 217542188462802,
+													"parameters": {
+														"instance-variable": "IsFixed",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Cell",
+													"sid": 661223095492063,
+													"parameters": {
+														"animation": "\"Fixed\"",
+														"from": "current-frame"
+													}
+												},
+												{
+													"callFunction": "SetPencilMarksVisibility",
+													"sid": 406183607258359,
+													"parameters": [
+														"Cell.UID",
+														false
+													]
+												}
+											],
+											"sid": 918591463978405
 										}
 									]
 								}

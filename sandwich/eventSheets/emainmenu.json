@@ -5,6 +5,74 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 341655429802449
+				}
+			],
+			"actions": [],
+			"sid": 137449341054579,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 411660350625764,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Main Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "ConfigDict",
+							"sid": 914769268813275,
+							"parameters": {
+								"key": "\"IsInCreateMode\"",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 780873149433397
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 677031293065446,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Create\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "ConfigDict",
+							"sid": 637737327281115,
+							"parameters": {
+								"key": "\"IsInCreateMode\"",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 111772004588604
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
 					"sid": 785587307261343,
@@ -200,6 +268,66 @@
 						}
 					],
 					"sid": 555072893435137
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-preview",
+					"objectClass": "System",
+					"sid": 789265195086739,
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 757670240799053,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "ButtonBackground",
+							"sid": 204018653664044,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Create\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "ButtonBackground",
+							"sid": 307564231106060
+						}
+					],
+					"sid": 530424028050839
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-text",
+							"objectClass": "MenuButton",
+							"sid": 242477222738152,
+							"parameters": {
+								"text-to-compare": "\"Create\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "MenuButton",
+							"sid": 931184828732909
+						}
+					],
+					"sid": 239429468523944
 				}
 			]
 		}
