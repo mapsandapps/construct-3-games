@@ -564,6 +564,55 @@
 				{
 					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
+					"sid": 919012813248532,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 204237323916998,
+					"parameters": {
+						"variable": "IsInCreateMode"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 221281096769682,
+					"parameters": {
+						"variable": "IsPaused"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 598308826296566,
+					"parameters": {
+						"object": "Sum"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Sum",
+					"sid": 792613044292283,
+					"parameters": {
+						"visibility": "toggle"
+					}
+				}
+			],
+			"sid": 659464966243726
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
 					"sid": 981048511515454,
 					"parameters": {
 						"touch-number": "0"

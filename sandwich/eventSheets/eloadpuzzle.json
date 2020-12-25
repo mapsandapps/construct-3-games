@@ -313,12 +313,32 @@
 										"comparison": 0,
 										"value": "1"
 									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 460995050023282,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "-1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 769706818104030,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "ColIndex"
+									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-text",
-									"objectClass": "RowOrColNumber",
+									"objectClass": "Sum",
 									"sid": 659693799581945,
 									"parameters": {
 										"text": "JSON.CurrentValue"
@@ -344,7 +364,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "RowOrColNumber",
+											"objectClass": "Sum",
 											"sid": 568187675219664,
 											"parameters": {
 												"instance-variable": "Row",
@@ -354,7 +374,7 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "RowOrColNumber",
+											"objectClass": "Sum",
 											"sid": 731428171794815,
 											"parameters": {
 												"instance-variable": "Column",
@@ -376,7 +396,7 @@
 									"actions": [
 										{
 											"id": "set-text",
-											"objectClass": "RowOrColNumber",
+											"objectClass": "Sum",
 											"sid": 824414867533921,
 											"parameters": {
 												"text": "JSON.CurrentValue"
@@ -450,12 +470,32 @@
 										"comparison": 0,
 										"value": "1"
 									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 856904363208808,
+									"parameters": {
+										"instance-variable": "Row",
+										"comparison": 0,
+										"value": "RowIndex"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Sum",
+									"sid": 999334677988561,
+									"parameters": {
+										"instance-variable": "Column",
+										"comparison": 0,
+										"value": "-1"
+									}
 								}
 							],
 							"actions": [
 								{
 									"id": "set-text",
-									"objectClass": "RowOrColNumber",
+									"objectClass": "Sum",
 									"sid": 148866079662084,
 									"parameters": {
 										"text": "JSON.CurrentValue"
@@ -481,7 +521,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "RowOrColNumber",
+											"objectClass": "Sum",
 											"sid": 782264811852365,
 											"parameters": {
 												"instance-variable": "Row",
@@ -491,7 +531,7 @@
 										},
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "RowOrColNumber",
+											"objectClass": "Sum",
 											"sid": 801726116136734,
 											"parameters": {
 												"instance-variable": "Column",
@@ -513,7 +553,7 @@
 									"actions": [
 										{
 											"id": "set-text",
-											"objectClass": "RowOrColNumber",
+											"objectClass": "Sum",
 											"sid": 785936550654608,
 											"parameters": {
 												"text": "JSON.CurrentValue"
