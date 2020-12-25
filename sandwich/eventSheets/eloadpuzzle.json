@@ -844,36 +844,28 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "Cell",
-													"sid": 787577523330877,
+													"sid": 654363709125845,
 													"parameters": {
-														"frame-number": "Cell.CorrectValue"
+														"frame-number": "0"
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "Cell",
-													"sid": 217542188462802,
+													"sid": 872657642418780,
 													"parameters": {
 														"instance-variable": "IsFixed",
-														"value": "true"
+														"value": "false"
 													}
 												},
 												{
 													"id": "set-animation",
 													"objectClass": "Cell",
-													"sid": 661223095492063,
+													"sid": 933941318616091,
 													"parameters": {
-														"animation": "\"Fixed\"",
-														"from": "current-frame"
+														"animation": "\"User\"",
+														"from": "beginning"
 													}
-												},
-												{
-													"callFunction": "SetPencilMarksVisibility",
-													"sid": 406183607258359,
-													"parameters": [
-														"Cell.UID",
-														false
-													]
 												}
 											],
 											"sid": 918591463978405
