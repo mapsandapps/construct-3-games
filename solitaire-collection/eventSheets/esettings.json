@@ -154,6 +154,15 @@
 						"x": "Card.BBoxLeft",
 						"y": "Card.BBoxTop + Card.Height / 2"
 					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 862731173236491,
+					"parameters": {
+						"key": "\"settings:deck\"",
+						"value": "Card.AnimationName"
+					}
 				}
 			],
 			"sid": 915758216029566

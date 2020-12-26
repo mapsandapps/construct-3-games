@@ -32,6 +32,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r227.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
@@ -130,7 +138,8 @@
 				"items": [
 					"Browser",
 					"Touch",
-					"Mouse"
+					"Mouse",
+					"LocalStorage"
 				],
 				"subfolders": [],
 				"name": "System"

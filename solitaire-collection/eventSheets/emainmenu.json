@@ -158,6 +158,71 @@
 				}
 			],
 			"sid": 920046181889237
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LocalStorage",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 311948425149238
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 154440702639315,
+							"parameters": {
+								"key": "\"settings:deck\""
+							}
+						}
+					],
+					"sid": 999408477851900
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-get",
+							"objectClass": "LocalStorage",
+							"sid": 855492027082406,
+							"parameters": {
+								"key": "\"settings:deck\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 321717176856041,
+							"parameters": {
+								"variable": "DECK_ART",
+								"value": "LocalStorage.ItemValue"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "SettingsDict",
+							"sid": 740342474332400,
+							"parameters": {
+								"key": "\"Deck\"",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 680913407055822
+				}
+			],
+			"sid": 426819205891201
 		}
 	],
 	"sid": 888311771542165
