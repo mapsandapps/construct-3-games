@@ -14,6 +14,20 @@
 					"initialValue": "Shapes",
 					"comment": "",
 					"sid": 799012453813308
+				},
+				{
+					"name": "HasCardOffset",
+					"type": "boolean",
+					"initialValue": "true",
+					"comment": "",
+					"sid": 838619233324086
+				},
+				{
+					"name": "CardScaleModifier",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 872100984168084
 				}
 			],
 			"eventType": "function-block",
@@ -213,8 +227,43 @@
 				},
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 302638755080929,
+							"parameters": {
+								"variable": "HasCardOffset"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 797893045648181,
+							"parameters": {
+								"variable": "CARD_OFFSET",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 426239403418221
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 255325366700396,
+							"parameters": {
+								"variable": "CARD_SCALE",
+								"value": "CARD_SCALE * CardScaleModifier"
+							}
+						},
 						{
 							"id": "set-animation",
 							"objectClass": "Card",

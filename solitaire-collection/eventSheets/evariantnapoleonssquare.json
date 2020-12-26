@@ -35,15 +35,6 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 627973960592245,
-					"parameters": {
-						"variable": "CARD_OFFSET",
-						"value": "0"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
 					"sid": 706601720036303,
 					"parameters": {
 						"variable": "NUMBER_OF_DECKS",
@@ -101,7 +92,11 @@
 				},
 				{
 					"callFunction": "Shuffle",
-					"sid": 689976573297846
+					"sid": 704162352185209,
+					"parameters": [
+						false,
+						"0"
+					]
 				},
 				{
 					"callFunction": "InitialDeal",

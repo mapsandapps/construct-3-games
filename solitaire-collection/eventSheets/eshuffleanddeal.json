@@ -7,7 +7,22 @@
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "HasCardOffset",
+					"type": "boolean",
+					"initialValue": "true",
+					"comment": "",
+					"sid": 627360253900356
+				},
+				{
+					"name": "CardScaleModifier",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 131009857655938
+				}
+			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
@@ -105,13 +120,6 @@
 					"conditions": [],
 					"actions": [
 						{
-							"callFunction": "UseDeck",
-							"sid": 644330958536733,
-							"parameters": [
-								"DECK_ART"
-							]
-						},
-						{
 							"id": "set-size",
 							"objectClass": "CardDeck",
 							"sid": 675277669328508,
@@ -123,6 +131,53 @@
 						}
 					],
 					"sid": 688087495302226
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 640310885676551,
+							"parameters": {
+								"variable": "HasCardOffset"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UseDeck",
+							"sid": 124825007945534,
+							"parameters": [
+								"DECK_ART",
+								true,
+								"CardScaleModifier"
+							]
+						}
+					],
+					"sid": 836522120461564
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 475829294601926
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UseDeck",
+							"sid": 105811435240550,
+							"parameters": [
+								"DECK_ART",
+								false,
+								"CardScaleModifier"
+							]
+						}
+					],
+					"sid": 597997660824280
 				},
 				{
 					"eventType": "block",
