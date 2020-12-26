@@ -1,0 +1,462 @@
+{
+	"name": "Settings",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Settings",
+						"enable-bbcode": true,
+						"font": "LilitaOne-Regular",
+						"size": 30,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.5764705882352941,
+							0.15294117647058825,
+							0.1568627450980392,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 110,
+					"instanceVariables": {
+						"ID": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 128,
+						"y": 16,
+						"width": 544,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button",
+					"properties": {
+						"left-margin": 16,
+						"right-margin": 16,
+						"top-margin": 16,
+						"bottom-margin": 16,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 111,
+					"instanceVariables": {
+						"Layout": "Main Menu",
+						"Variant": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 224,
+						"y": 512,
+						"width": 352,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Return to Main Menu",
+						"enable-bbcode": true,
+						"font": "OpenSans-Regular",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 112,
+					"instanceVariables": {
+						"ID": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 256,
+						"y": 512,
+						"width": 288,
+						"height": 56,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Card",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Shapes",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 113,
+					"instanceVariables": {
+						"Color": "",
+						"DiscardUID": -1,
+						"FoundationUID": 0,
+						"Frame": 0,
+						"IndexInDiscard": -1,
+						"IndexInFoundation": 0,
+						"IndexInStock": -1,
+						"IndexInTableau": -1,
+						"IsMovable": false,
+						"StockUID": -1,
+						"Suit": "",
+						"TableauUID": -1,
+						"Value": -1
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 400,
+						"y": 192,
+						"width": 51.2,
+						"height": 67.2,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Card",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Classic",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 114,
+					"instanceVariables": {
+						"Color": "",
+						"DiscardUID": -1,
+						"FoundationUID": 0,
+						"Frame": 0,
+						"IndexInDiscard": -1,
+						"IndexInFoundation": 0,
+						"IndexInStock": -1,
+						"IndexInTableau": -1,
+						"IsMovable": false,
+						"StockUID": -1,
+						"Suit": "",
+						"TableauUID": -1,
+						"Value": -1
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 400,
+						"y": 288,
+						"width": 51.2,
+						"height": 67.2,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Card",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "A11y",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 115,
+					"instanceVariables": {
+						"Color": "",
+						"DiscardUID": -1,
+						"FoundationUID": 0,
+						"Frame": 0,
+						"IndexInDiscard": -1,
+						"IndexInFoundation": 0,
+						"IndexInStock": -1,
+						"IndexInTableau": -1,
+						"IsMovable": false,
+						"StockUID": -1,
+						"Suit": "",
+						"TableauUID": -1,
+						"Value": -1
+					},
+					"behaviors": {
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"Physics": {
+							"properties": {
+								"immovable": false,
+								"collision-mask": "use-collision-polygon",
+								"prevent-rotation": false,
+								"density": 1,
+								"friction": 0.5,
+								"elasticity": 0.2,
+								"linear-damping": 0,
+								"angular-damping": 0.01,
+								"bullet": false,
+								"enabled": false
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 400,
+						"y": 384,
+						"width": 51.2,
+						"height": 67.2,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuText",
+					"properties": {
+						"text": "Deck",
+						"enable-bbcode": true,
+						"font": "LilitaOne-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.5764705882352941,
+							0.15294117647058825,
+							0.1568627450980392,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 116,
+					"instanceVariables": {
+						"ID": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 288,
+						"y": 112,
+						"width": 224,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SelectedSetting",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 146,
+					"instanceVariables": {
+						"Setting": "Deck"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 368,
+						"y": 192,
+						"width": 48,
+						"height": 48,
+						"originX": 1,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 291391516461115,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.8,
+				0.8,
+				0.8,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 768840594334022,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 800,
+	"height": 600,
+	"unboundedScrolling": false,
+	"eventSheet": "eSettings"
+}

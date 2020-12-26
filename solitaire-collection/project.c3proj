@@ -71,6 +71,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r227.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
@@ -140,7 +148,10 @@
 				"items": [
 					"MenuText",
 					"Button",
-					"TiledBackground"
+					"TiledBackground",
+					"SettingsButton",
+					"SettingsDict",
+					"SelectedSetting"
 				],
 				"subfolders": [],
 				"name": "Menus"
@@ -155,9 +166,10 @@
 	},
 	"layouts": {
 		"items": [
-			"Choose Game",
+			"Main Menu",
 			"Playground",
-			"Objects"
+			"Objects",
+			"Settings"
 		],
 		"subfolders": [
 			{
@@ -175,7 +187,8 @@
 		"items": [
 			"eTODO",
 			"eCredits",
-			"eChooseGame"
+			"eMainMenu",
+			"eSettings"
 		],
 		"subfolders": [
 			{
@@ -364,5 +377,5 @@
 	},
 	"viewportWidth": 800,
 	"viewportHeight": 600,
-	"firstLayout": "Choose Game"
+	"firstLayout": "Main Menu"
 }

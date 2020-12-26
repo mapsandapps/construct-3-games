@@ -55,8 +55,62 @@
 			"children": [
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-key",
+							"objectClass": "SettingsDict",
+							"sid": 921144457128733,
+							"parameters": {
+								"key": "\"Deck\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 697729116985529,
+							"parameters": {
+								"variable": "DECK_ART",
+								"value": "SettingsDict.Get(\"Deck\")"
+							}
+						}
+					],
+					"sid": 794859013591024
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 846350406180521
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 745622153814495,
+							"parameters": {
+								"variable": "DECK_ART",
+								"value": "DEFAULT_DECK_ART"
+							}
+						}
+					],
+					"sid": 137611700872607
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
+						{
+							"callFunction": "UseDeck",
+							"sid": 644330958536733,
+							"parameters": [
+								"DECK_ART"
+							]
+						},
 						{
 							"id": "set-size",
 							"objectClass": "CardDeck",

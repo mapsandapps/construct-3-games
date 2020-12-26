@@ -1,0 +1,273 @@
+{
+	"name": "eSettings",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 730978068570154
+				}
+			],
+			"actions": [],
+			"sid": 292286495328341,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-key",
+							"objectClass": "SettingsDict",
+							"sid": 423172867981530,
+							"parameters": {
+								"key": "\"Deck\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 598261082662751,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 556516810498510,
+									"parameters": {
+										"animation": "SettingsDict.Get(\"Deck\")"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SelectedSetting",
+									"sid": 501625991949617,
+									"parameters": {
+										"instance-variable": "Setting",
+										"comparison": 0,
+										"value": "\"Deck\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "SelectedSetting",
+									"sid": 548607648947099,
+									"parameters": {
+										"x": "Card.BBoxLeft",
+										"y": "Card.BBoxTop + Card.Height / 2"
+									}
+								}
+							],
+							"sid": 797952787893788
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 551441758574125
+						}
+					],
+					"actions": [],
+					"sid": 713757055136724,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 855519844809817,
+									"parameters": {
+										"animation": "DEFAULT_DECK_ART"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "SelectedSetting",
+									"sid": 432337679359101,
+									"parameters": {
+										"instance-variable": "Setting",
+										"comparison": 0,
+										"value": "\"Deck\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "SelectedSetting",
+									"sid": 600810972131576,
+									"parameters": {
+										"x": "Card.BBoxLeft",
+										"y": "Card.BBoxTop + Card.Height / 2"
+									}
+								}
+							],
+							"sid": 364056793234605
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 658498796844213
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 106221372185101,
+					"parameters": {
+						"object": "Card"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-key",
+					"objectClass": "SettingsDict",
+					"sid": 876462049500425,
+					"parameters": {
+						"key": "\"Deck\"",
+						"value": "Card.AnimationName"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "SelectedSetting",
+					"sid": 791963486420240,
+					"parameters": {
+						"x": "Card.BBoxLeft",
+						"y": "Card.BBoxTop + Card.Height / 2"
+					}
+				}
+			],
+			"sid": 915758216029566
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 355113696893018
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 754514991782341,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 116097638548501,
+					"parameters": {
+						"layout": "Button.Layout"
+					}
+				}
+			],
+			"sid": 121161816547149
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Settings Mouse Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 257476411423402,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 163547051269542,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 474858650669012
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 242683535513627
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 475576891406167,
+							"parameters": {
+								"object": "Card"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 454942924468387,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 265560262550356
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 563241207665020
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 468007190785909,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 839577642776046
+				}
+			],
+			"sid": 902076268891695
+		}
+	],
+	"sid": 651322406224482
+}

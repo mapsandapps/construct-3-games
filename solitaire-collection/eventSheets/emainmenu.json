@@ -1,0 +1,158 @@
+{
+	"name": "eMainMenu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 347555228072448
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 406408593789638,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 215781408232623,
+					"parameters": {
+						"layout": "Button.Layout"
+					}
+				}
+			],
+			"sid": 746714618525214
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 633352626418785
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 257061851869001,
+					"parameters": {
+						"object": "SettingsButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 414587131419193,
+					"parameters": {
+						"layout": "Settings"
+					}
+				}
+			],
+			"sid": 945323379936568
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Main Menu Mouse Events",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 792137438481261,
+							"parameters": {
+								"object": "Button"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 914169076472080,
+							"parameters": {
+								"instance-variable": "Layout",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 719212654268052,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 162206179562601
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 630818705667889
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 440051179333989,
+							"parameters": {
+								"object": "SettingsButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 681665055802213,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 697967278136228
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 308046783891250
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 554971618330281,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 179523722246787
+				}
+			],
+			"sid": 920046181889237
+		}
+	],
+	"sid": 888311771542165
+}

@@ -1,5 +1,5 @@
 {
-	"name": "Choose Game",
+	"name": "Main Menu",
 	"layers": [
 		{
 			"name": "Layer 0",
@@ -412,6 +412,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "SettingsButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 109,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 736,
+						"y": 32,
+						"width": 92.16,
+						"height": 92.16,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 141366250428816,
@@ -445,5 +474,5 @@
 	"width": 800,
 	"height": 600,
 	"unboundedScrolling": false,
-	"eventSheet": "eChooseGame"
+	"eventSheet": "eMainMenu"
 }
