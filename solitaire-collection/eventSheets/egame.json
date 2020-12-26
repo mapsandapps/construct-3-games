@@ -158,6 +158,180 @@
 			"sid": 391717793125352
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Disable Multi-Touch",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 946025180227174,
+							"parameters": {
+								"first-value": "Touch.TouchCount",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 685565949411515,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Card",
+									"sid": 446592236471739,
+									"parameters": {
+										"instance-variable": "IsMovable"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 474441240386893,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 782706873243043
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 933612067837565,
+							"parameters": {
+								"first-value": "Touch.TouchCount",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "is-dragging",
+							"objectClass": "Card",
+							"sid": 369377360757015,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 460241401241228,
+							"breakpoint": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"1\""
+							}
+						}
+					],
+					"sid": 893791931704590,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 202731402990326,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "is-dragging",
+									"objectClass": "Card",
+									"sid": 542498577553253,
+									"behaviorType": "DragDrop",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 969184650904799,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 814202695140439
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 352839027994356,
+							"parameters": {
+								"first-value": "Touch.TouchCount",
+								"comparison": 4,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 613646994167046,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 564595677534986,
+									"parameters": {
+										"object": "Card"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "drop",
+									"objectClass": "Card",
+									"sid": 620280552839208,
+									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Card",
+									"sid": 140271762961414,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 579150467029041,
+							"disabled": true
+						}
+					]
+				}
+			],
+			"sid": 861162093650763
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -175,14 +349,6 @@
 					"sid": 262581335700291,
 					"parameters": {
 						"object": "Card"
-					}
-				},
-				{
-					"id": "pick-topbottom",
-					"objectClass": "Card",
-					"sid": 230371752816470,
-					"parameters": {
-						"which": "top"
 					}
 				},
 				{
@@ -240,9 +406,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 174586234346767
+					"sid": 948337252244552,
+					"parameters": {
+						"touch-number": "0"
+					}
 				}
 			],
 			"actions": [
@@ -261,9 +430,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-start",
+					"id": "on-nth-touch-start",
 					"objectClass": "Touch",
-					"sid": 656028643888425
+					"sid": 703200776737770,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "compare-boolean-eventvar",
@@ -392,6 +564,17 @@
 					}
 				},
 				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 860682779569769,
+					"disabled": true,
+					"parameters": {
+						"first-value": "Touch.TouchCount",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				},
+				{
 					"id": "is-dragging",
 					"objectClass": "Card",
 					"sid": 927458974089476,
@@ -452,6 +635,17 @@
 		{
 			"eventType": "block",
 			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 858232298384411,
+					"disabled": true,
+					"parameters": {
+						"first-value": "Touch.TouchCount",
+						"comparison": 0,
+						"second-value": "1"
+					}
+				},
 				{
 					"id": "is-dragging",
 					"objectClass": "Card",
@@ -537,7 +731,7 @@
 				{
 					"id": "on-any-touch-end",
 					"objectClass": "Touch",
-					"sid": 214944881078108
+					"sid": 109584660382984
 				},
 				{
 					"id": "compare-boolean-eventvar",
@@ -1011,6 +1205,17 @@
 					"objectClass": "Card",
 					"sid": 392190442154559,
 					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 181426539598736,
+					"disabled": true,
+					"parameters": {
+						"first-value": "Touch.TouchCount",
+						"comparison": 0,
+						"second-value": "1"
+					}
 				}
 			],
 			"actions": [],
@@ -1022,7 +1227,7 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 492721457361941,
+							"sid": 424338548395669,
 							"parameters": {
 								"variable": "HasBeenDragged"
 							}
@@ -1030,14 +1235,14 @@
 						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 282581455003767,
+							"sid": 559784268430072,
 							"parameters": {
 								"variable": "WasHeldTooLongForClick"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 912342937010646,
+					"sid": 664762001130875,
 					"children": [
 						{
 							"eventType": "block",
@@ -1045,7 +1250,7 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Card",
-									"sid": 782565027948282,
+									"sid": 441613182297982,
 									"parameters": {
 										"object": "Foundation"
 									}
@@ -1053,7 +1258,7 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Foundation",
-									"sid": 771953417203434,
+									"sid": 628519589967367,
 									"parameters": {
 										"instance-variable": "IsValidDrop"
 									}
@@ -1062,7 +1267,7 @@
 							"actions": [
 								{
 									"callFunction": "PushToUndoArray",
-									"sid": 605164910714778,
+									"sid": 512490405522469,
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
@@ -1072,7 +1277,7 @@
 								},
 								{
 									"callFunction": "MoveCardToFoundation",
-									"sid": 834945569307970,
+									"sid": 834702417219028,
 									"parameters": [
 										"Card.UID",
 										"Foundation.UID",
@@ -1080,7 +1285,7 @@
 									]
 								}
 							],
-							"sid": 686930979032145,
+							"sid": 726348940897126,
 							"children": [
 								{
 									"eventType": "block",
@@ -1088,7 +1293,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 688444019496030,
+											"sid": 699500672979558,
 											"parameters": {
 												"variable": "CurrentCardFromStackType",
 												"comparison": 0,
@@ -1099,13 +1304,13 @@
 									"actions": [
 										{
 											"callFunction": "FlipSouthmostCardFaceUp",
-											"sid": 671171653057269,
+											"sid": 530883950937125,
 											"parameters": [
 												"CurrentCardFromStackUID"
 											]
 										}
 									],
-									"sid": 485364325183072
+									"sid": 731725472236490
 								}
 							]
 						},
@@ -1115,12 +1320,12 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 446608904063959
+									"sid": 501360264403066
 								},
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Card",
-									"sid": 910992792181281,
+									"sid": 250961430498159,
 									"parameters": {
 										"object": "Tableau"
 									}
@@ -1128,7 +1333,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Card",
-									"sid": 220825903501135,
+									"sid": 283714399336455,
 									"parameters": {
 										"instance-variable": "TableauUID",
 										"comparison": 1,
@@ -1138,14 +1343,14 @@
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Tableau",
-									"sid": 123501442766901,
+									"sid": 530838753848720,
 									"parameters": {
 										"instance-variable": "IsValidDrop"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 314544614313832,
+							"sid": 247542768450373,
 							"children": [
 								{
 									"eventType": "block",
@@ -1153,7 +1358,7 @@
 									"actions": [
 										{
 											"callFunction": "PushToUndoArray",
-											"sid": 868503763108275,
+											"sid": 675427376741677,
 											"parameters": [
 												"Card.UID",
 												"CurrentCardFromStackType",
@@ -1163,14 +1368,14 @@
 										},
 										{
 											"callFunction": "MoveCardToTableau",
-											"sid": 704127217002030,
+											"sid": 423298396504257,
 											"parameters": [
 												"Card.UID",
 												"Tableau.UID"
 											]
 										}
 									],
-									"sid": 169816828511737
+									"sid": 458199258320123
 								},
 								{
 									"eventType": "block",
@@ -1178,7 +1383,7 @@
 										{
 											"id": "pick-all",
 											"objectClass": "System",
-											"sid": 698880239054703,
+											"sid": 384353421233187,
 											"parameters": {
 												"object": "Card"
 											}
@@ -1186,13 +1391,13 @@
 										{
 											"id": "is-pinned",
 											"objectClass": "Card",
-											"sid": 121492126020403,
+											"sid": 931962782546081,
 											"behaviorType": "Pin"
 										},
 										{
 											"id": "for-each-ordered",
 											"objectClass": "System",
-											"sid": 540423407002211,
+											"sid": 710027850436720,
 											"parameters": {
 												"object": "Card",
 												"expression": "Card.ZIndex",
@@ -1203,7 +1408,7 @@
 									"actions": [
 										{
 											"callFunction": "PushToUndoArray",
-											"sid": 746243694533626,
+											"sid": 830091044714169,
 											"parameters": [
 												"Card.UID",
 												"CurrentCardFromStackType",
@@ -1214,19 +1419,19 @@
 										{
 											"id": "unpin",
 											"objectClass": "Card",
-											"sid": 561824862480247,
+											"sid": 982451836065035,
 											"behaviorType": "Pin"
 										},
 										{
 											"callFunction": "MoveCardToTableau",
-											"sid": 108292883656029,
+											"sid": 515263170822528,
 											"parameters": [
 												"Card.UID",
 												"Tableau.UID"
 											]
 										}
 									],
-									"sid": 984303362564527
+									"sid": 973562800770431
 								},
 								{
 									"eventType": "block",
@@ -1234,7 +1439,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 734731407142750,
+											"sid": 262379906915817,
 											"parameters": {
 												"variable": "CurrentCardFromStackType",
 												"comparison": 0,
@@ -1245,13 +1450,13 @@
 									"actions": [
 										{
 											"callFunction": "FlipSouthmostCardFaceUp",
-											"sid": 275672964592065,
+											"sid": 976600329651397,
 											"parameters": [
 												"CurrentCardFromStackUID"
 											]
 										}
 									],
-									"sid": 239860933879393
+									"sid": 301191059744020
 								}
 							]
 						},
@@ -1261,13 +1466,13 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 721714547536277
+									"sid": 843125006767171
 								}
 							],
 							"actions": [
 								{
 									"callFunction": "ReturnCardToLastPosition",
-									"sid": 574406168813915,
+									"sid": 102084063999545,
 									"parameters": [
 										"Card.UID",
 										"CurrentCardFromStackType",
@@ -1276,7 +1481,7 @@
 									]
 								}
 							],
-							"sid": 207050072082830,
+							"sid": 830932932244342,
 							"children": [
 								{
 									"eventType": "block",
@@ -1284,7 +1489,7 @@
 										{
 											"id": "pick-all",
 											"objectClass": "System",
-											"sid": 584858173695350,
+											"sid": 833083330385975,
 											"parameters": {
 												"object": "Card"
 											}
@@ -1292,13 +1497,13 @@
 										{
 											"id": "is-pinned",
 											"objectClass": "Card",
-											"sid": 972176544904623,
+											"sid": 650673916195567,
 											"behaviorType": "Pin"
 										},
 										{
 											"id": "for-each-ordered",
 											"objectClass": "System",
-											"sid": 456211900008256,
+											"sid": 620546479427248,
 											"parameters": {
 												"object": "Card",
 												"expression": "Card.ZIndex",
@@ -1310,12 +1515,12 @@
 										{
 											"id": "unpin",
 											"objectClass": "Card",
-											"sid": 288910230166440,
+											"sid": 926722450906658,
 											"behaviorType": "Pin"
 										},
 										{
 											"callFunction": "ReturnCardToLastPosition",
-											"sid": 444583883288117,
+											"sid": 321987394579429,
 											"parameters": [
 												"Card.UID",
 												"CurrentCardFromStackType",
@@ -1324,7 +1529,7 @@
 											]
 										}
 									],
-									"sid": 473343159818539
+									"sid": 288465851306112
 								}
 							]
 						},
@@ -1334,7 +1539,7 @@
 								{
 									"id": "pick-all",
 									"objectClass": "System",
-									"sid": 795578767498400,
+									"sid": 955972883011437,
 									"parameters": {
 										"object": "Foundation"
 									}
@@ -1344,14 +1549,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Foundation",
-									"sid": 319235841564739,
+									"sid": 674237493746851,
 									"parameters": {
 										"instance-variable": "IsValidDrop",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 947554199007695
+							"sid": 471693565841280
 						},
 						{
 							"eventType": "block",
@@ -1359,7 +1564,7 @@
 								{
 									"id": "pick-all",
 									"objectClass": "System",
-									"sid": 701076808215848,
+									"sid": 237675496631827,
 									"parameters": {
 										"object": "Tableau"
 									}
@@ -1369,14 +1574,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Tableau",
-									"sid": 399771651504606,
+									"sid": 750710128792435,
 									"parameters": {
 										"instance-variable": "IsValidDrop",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 720606090312752
+							"sid": 121608302732422
 						},
 						{
 							"eventType": "block",
@@ -1384,16 +1589,49 @@
 							"actions": [
 								{
 									"callFunction": "GetValidMoves",
-									"sid": 911205663722990,
+									"sid": 784707802832677,
 									"parameters": [
 										"-1"
 									]
 								}
 							],
-							"sid": 601860327290517
+							"sid": 883346177329913
 						}
 					],
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 292233065147766,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Card",
+							"sid": 443922006782881,
+							"parameters": {
+								"instance-variable": "IsMovable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Card",
+							"sid": 136189886029434,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 661630467592018
 				}
 			]
 		},

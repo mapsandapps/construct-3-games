@@ -74,9 +74,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 774389830518389
+					"sid": 997078757047802,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "is-touching-object",

@@ -5,9 +5,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 347555228072448
+					"sid": 478431221916450,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "is-touching-object",
@@ -34,9 +37,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 633352626418785
+					"sid": 355310885017393,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "is-touching-object",

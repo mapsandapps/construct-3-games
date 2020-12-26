@@ -5,9 +5,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 983180131598754
+					"sid": 108095840508790,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "is-touching-object",
@@ -53,9 +56,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 922108452322796
+					"sid": 885282538131644,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "is-touching-object",
@@ -101,9 +107,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 562885956925522
+					"sid": 318044726344467,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "is-touching-object",
@@ -734,9 +743,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
+					"id": "on-nth-touch-end",
 					"objectClass": "Touch",
-					"sid": 703825337598464
+					"sid": 224963694697835,
+					"parameters": {
+						"touch-number": "0"
+					}
 				},
 				{
 					"id": "layer-is-visible",
