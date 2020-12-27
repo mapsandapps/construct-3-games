@@ -220,26 +220,9 @@
 								"comparison": 0,
 								"second-value": "1"
 							}
-						},
-						{
-							"id": "is-dragging",
-							"objectClass": "Card",
-							"sid": 369377360757015,
-							"behaviorType": "DragDrop"
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 460241401241228,
-							"breakpoint": true,
-							"parameters": {
-								"type": "log",
-								"message": "\"1\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 893791931704590,
 					"children": [
 						{
@@ -273,58 +256,6 @@
 								}
 							],
 							"sid": 814202695140439
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 352839027994356,
-							"parameters": {
-								"first-value": "Touch.TouchCount",
-								"comparison": 4,
-								"second-value": "1"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 613646994167046,
-					"disabled": true,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-all",
-									"objectClass": "System",
-									"sid": 564595677534986,
-									"parameters": {
-										"object": "Card"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "drop",
-									"objectClass": "Card",
-									"sid": 620280552839208,
-									"behaviorType": "DragDrop"
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "Card",
-									"sid": 140271762961414,
-									"behaviorType": "DragDrop",
-									"parameters": {
-										"state": "disabled"
-									}
-								}
-							],
-							"sid": 579150467029041,
-							"disabled": true
 						}
 					]
 				}
@@ -1205,17 +1136,6 @@
 					"objectClass": "Card",
 					"sid": 392190442154559,
 					"behaviorType": "DragDrop"
-				},
-				{
-					"id": "compare-two-values",
-					"objectClass": "System",
-					"sid": 181426539598736,
-					"disabled": true,
-					"parameters": {
-						"first-value": "Touch.TouchCount",
-						"comparison": 0,
-						"second-value": "1"
-					}
 				}
 			],
 			"actions": [],
