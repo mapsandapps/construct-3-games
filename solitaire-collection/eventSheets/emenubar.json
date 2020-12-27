@@ -29,6 +29,15 @@
 						"comparison": 0,
 						"value": "\"New Game\""
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 193505994917008,
+					"parameters": {
+						"variable": "HasBeenDragged"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -80,6 +89,15 @@
 						"comparison": 0,
 						"value": "\"Main Menu\""
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 643832618749585,
+					"parameters": {
+						"variable": "HasBeenDragged"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -131,6 +149,15 @@
 						"comparison": 0,
 						"value": "\"Rules\""
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 313404883634477,
+					"parameters": {
+						"variable": "HasBeenDragged"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [],

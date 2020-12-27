@@ -1552,6 +1552,22 @@
 						}
 					],
 					"sid": 661630467592018
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 513422580844766,
+							"parameters": {
+								"variable": "HasBeenDragged",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 513133757996086
 				}
 			]
 		},

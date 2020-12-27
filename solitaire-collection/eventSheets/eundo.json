@@ -106,6 +106,15 @@
 					"parameters": {
 						"animation": "\"Active\""
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 582300184057983,
+					"parameters": {
+						"variable": "HasBeenDragged"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [

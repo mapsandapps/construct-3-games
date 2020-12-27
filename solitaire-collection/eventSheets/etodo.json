@@ -23,6 +23,14 @@
 				{
 					"eventType": "comment",
 					"text": "BUG: undoing a bunch of moves can cause a card to have Card.IndexInDiscard = Discard.NumberOfCards"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: dragging a stack of cards off-screen makes just one go off-screen while the others stay on"
+				},
+				{
+					"eventType": "comment",
+					"text": "BUG: undo button is active after game is won"
 				}
 			],
 			"sid": 392508065587170
