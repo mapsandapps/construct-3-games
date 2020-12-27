@@ -199,27 +199,68 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 680913407055822,
+					"children": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 321717176856041,
-							"parameters": {
-								"variable": "DECK_ART",
-								"value": "LocalStorage.ItemValue"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 195406159868209,
+									"parameters": {
+										"variable": "DECK_ART",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 229570327283406,
+									"parameters": {
+										"variable": "DECK_ART",
+										"value": "DEFAULT_DECK_ART"
+									}
+								}
+							],
+							"sid": 979045116775950
 						},
 						{
-							"id": "add-key",
-							"objectClass": "SettingsDict",
-							"sid": 740342474332400,
-							"parameters": {
-								"key": "\"Deck\"",
-								"value": "LocalStorage.ItemValue"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 102460598965556
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 752614908504119,
+									"parameters": {
+										"variable": "DECK_ART",
+										"value": "LocalStorage.ItemValue"
+									}
+								},
+								{
+									"id": "add-key",
+									"objectClass": "SettingsDict",
+									"sid": 157755566491302,
+									"parameters": {
+										"key": "\"Deck\"",
+										"value": "LocalStorage.ItemValue"
+									}
+								}
+							],
+							"sid": 909889893358634
 						}
-					],
-					"sid": 680913407055822
+					]
 				}
 			],
 			"sid": 426819205891201
