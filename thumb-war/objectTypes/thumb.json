@@ -1,0 +1,96 @@
+{
+	"name": "Thumb",
+	"plugin-id": "Sprite",
+	"sid": 488157697764841,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Player",
+			"type": "string",
+			"desc": "",
+			"sid": 453330444501672
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 160,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8113689,
+						"collisionPoly": {
+							"points": [
+								0.1,
+								0.1,
+								0.5,
+								0,
+								0.89375,
+								0.1,
+								0.99375,
+								0.5,
+								0.89375,
+								0.89375,
+								0.5,
+								0.99375,
+								0.1,
+								0.89375,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 160,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7950154,
+						"collisionPoly": {
+							"points": [
+								0.1,
+								0.1,
+								0.5,
+								0,
+								0.89375,
+								0.1,
+								0.99375,
+								0.5,
+								0.89375,
+								0.89375,
+								0.5,
+								0.99375,
+								0.1,
+								0.89375,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 198107295713738,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

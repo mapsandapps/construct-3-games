@@ -2,6 +2,13 @@
 
 Note: you can open these in the [Construct editor](https://editor.construct.net/), but you will need to set up Construct and Chrome to use [folder-based projects](https://www.construct.net/en/forum/construct-3/general-discussion-7/local-file-folder-saves-chrome-147071).
 
+## Thumb War
+
+2-player couch game made for [Weekly Game Jam #184: "Thumb War"](https://itch.io/jam/weekly-game-jam-184/rate/885129) in January 2021
+
+* Folder: [/thumb-war](./thumb-war)
+* [Play on Itch](https://mapsandapps.itch.io/thumb-war)
+
 ## Sandwiches
 
 Puzzle game prototype started in November 2020
@@ -181,3 +188,4 @@ Check out the other folders
   * [Poppins](https://fonts.google.com/specimen/Poppins) (Open Font License)
   * [Roboto](https://fonts.google.com/specimen/Roboto) (Open Font License)
   * [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) (Open Font License)
+  * [Yusei Magic](https://fonts.google.com/specimen/Yusei+Magic) by Tanukizamurai (Open Font License)

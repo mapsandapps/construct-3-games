@@ -1,0 +1,1048 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "NumberOfPlayersReady",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 244241130375980
+		},
+		{
+			"eventType": "variable",
+			"name": "TimeRemaining",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 331314115119946
+		},
+		{
+			"eventType": "variable",
+			"name": "GameDuration",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 347737580609196
+		},
+		{
+			"eventType": "variable",
+			"name": "IsCounting",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 865886251455007
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 648579057477307
+				}
+			],
+			"actions": [
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 583697724036733
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 493845685776756,
+					"parameters": {
+						"variable": "TimeRemaining",
+						"value": "GameDuration + 4"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "NewGameButton",
+					"sid": 338287873150645,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 421501006715899,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 399555370500421,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Score\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 242900716800647,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Score Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 368003288940584,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 967294477969280,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 851376551375528
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 182034253816868,
+					"parameters": {
+						"object": "TouchTarget"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 101319039283231,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 510944614792291,
+							"parameters": {
+								"variable": "IsCounting"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CheckForReady",
+							"sid": 419728839014639,
+							"parameters": [
+								"TouchTarget.Player"
+							]
+						}
+					],
+					"sid": 650641150568736
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 838654732098603,
+							"parameters": {
+								"variable": "IsCounting"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 752906665880801,
+							"parameters": {
+								"variable": "TimeRemaining",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 580339716578130,
+							"parameters": {
+								"variable": "TimeRemaining",
+								"comparison": 3,
+								"value": "GameDuration"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "IncrementScore",
+							"sid": 538567109966548,
+							"parameters": [
+								"TouchTarget.Player"
+							]
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 355638333448035,
+							"parameters": {
+								"object-to-create": "Particles",
+								"layer": "0",
+								"x": "Touch.X",
+								"y": "Touch.Y"
+							}
+						}
+					],
+					"sid": 905130994428044
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 524106976046509
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 865431024181293,
+					"parameters": {
+						"object": "NewGameButton"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "NewGameButton",
+					"sid": 283036220365091
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 822303265707830
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 936011906067044,
+					"parameters": {
+						"audio-file": "select_006",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 721615152242058
+		},
+		{
+			"functionName": "StartCountdown",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 510583314444312,
+					"parameters": {
+						"variable": "IsCounting",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 714332710454193
+		},
+		{
+			"functionName": "OnSecondTick",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 682243798117519,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 761108237883667,
+							"parameters": {
+								"variable": "TimeRemaining",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 854029632609028,
+							"parameters": {
+								"variable": "TimeRemaining",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 151491122076630,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 122536327905598,
+									"parameters": {
+										"variable": "TimeRemaining",
+										"comparison": 4,
+										"value": "GameDuration"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TouchTarget",
+									"sid": 664497549829567,
+									"parameters": {
+										"color": "rgbEx255(255, 255, 255)"
+									}
+								}
+							],
+							"sid": 990369032543842,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 671470872708033,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Info\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 722041171437875,
+											"parameters": {
+												"text": "\"Game begins in: \" & newline & TimeRemaining - GameDuration"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 313015288974583,
+											"parameters": {
+												"audio-file": "click_002",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 482086372988462
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 980700323217800
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 485899710512486,
+									"parameters": {
+										"variable": "TimeRemaining",
+										"comparison": 0,
+										"value": "GameDuration"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "StartGame",
+									"sid": 492490672799921
+								},
+								{
+									"id": "set-default-color",
+									"objectClass": "TouchTarget",
+									"sid": 555754845047333,
+									"parameters": {
+										"color": "rgbEx255(54, 170, 72)"
+									}
+								}
+							],
+							"sid": 930889507505538,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 829045544162031,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Info\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 362311914719670,
+											"parameters": {
+												"text": "\"Time left: \" & newline & TimeRemaining"
+											}
+										}
+									],
+									"sid": 290031447171597
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 315472708938252
+								}
+							],
+							"actions": [],
+							"sid": 261654679364467,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 399485597520861,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Info\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 739304197209562,
+											"parameters": {
+												"text": "\"Time left: \" & newline & TimeRemaining"
+											}
+										}
+									],
+									"sid": 789099574156147
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 469523739890887,
+							"parameters": {
+								"variable": "TimeRemaining",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 707201003078800,
+							"parameters": {
+								"variable": "TimeRemaining",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "EndGame",
+							"sid": 511102492198977
+						}
+					],
+					"sid": 588318614315257
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 315008883929642,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 169100550167775,
+					"parameters": {
+						"variable": "IsCounting"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "OnSecondTick",
+					"sid": 739667518984336
+				}
+			],
+			"sid": 986514313290634
+		},
+		{
+			"functionName": "EndGame",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "NewGameButton",
+					"sid": 800660540550249,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 837348480180581,
+					"parameters": {
+						"audio-file": "confirmation_004",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 738447505738942,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-highestlowest",
+							"objectClass": "TouchTarget",
+							"sid": 821449709910086,
+							"parameters": {
+								"which": "highest",
+								"instance-variable": "Score"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "TouchTarget",
+							"sid": 474853226174118,
+							"parameters": {
+								"color": "rgbEx255(54, 170, 72)"
+							}
+						}
+					],
+					"sid": 499072747546833,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 666248165843753,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Info\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 837365745802377,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "TouchTarget.Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 973078821045166,
+									"parameters": {
+										"text": "\"You win!\""
+									}
+								}
+							],
+							"sid": 170538624513180
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-highestlowest",
+							"objectClass": "TouchTarget",
+							"sid": 187566981055374,
+							"parameters": {
+								"which": "lowest",
+								"instance-variable": "Score"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "TouchTarget",
+							"sid": 237416683005279,
+							"parameters": {
+								"color": "rgbEx255(217, 62, 59)"
+							}
+						}
+					],
+					"sid": 571449897223437,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 803259410876026,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Info\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 205460762672813,
+									"parameters": {
+										"instance-variable": "Player",
+										"comparison": 0,
+										"value": "TouchTarget.Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 522173531716354,
+									"parameters": {
+										"text": "\"You lose!\""
+									}
+								}
+							],
+							"sid": 237608712125642
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "CheckForReady",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Player",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 800995080443571
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TouchTarget",
+					"sid": 735709624151206,
+					"parameters": {
+						"instance-variable": "Player",
+						"comparison": 0,
+						"value": "Player"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 153522776579141,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 438887910311323,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Info\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 165339276702928,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "Player"
+							}
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "Text",
+							"sid": 522011145260423,
+							"parameters": {
+								"text-to-compare": "\"Tap to begin\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 588314655728482,
+							"parameters": {
+								"audio-file": "powerUp7",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 262358368090949,
+							"parameters": {
+								"text": "\"Ready!\""
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "TouchTarget",
+							"sid": 703440592601950,
+							"parameters": {
+								"color": "rgbEx255(54, 170, 72)"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 744673382473915,
+							"parameters": {
+								"variable": "NumberOfPlayersReady",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 770045951165774
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 282591961862942,
+							"parameters": {
+								"variable": "NumberOfPlayersReady",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "StartCountdown",
+							"sid": 334640957600692
+						}
+					],
+					"sid": 731150871382922
+				}
+			]
+		},
+		{
+			"functionName": "IncrementScore",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Player",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 674277413251881
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "TouchTarget",
+					"sid": 387716588573013,
+					"parameters": {
+						"instance-variable": "Player",
+						"comparison": 0,
+						"value": "Player"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "TouchTarget",
+					"sid": 682332197718780,
+					"parameters": {
+						"instance-variable": "Score",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 411826861528336,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 361681160925611,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Score\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 946861832493548,
+							"parameters": {
+								"instance-variable": "Player",
+								"comparison": 0,
+								"value": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 430315815737023,
+							"parameters": {
+								"text": "TouchTarget.Score"
+							}
+						}
+					],
+					"sid": 650229445549200
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 783620970179850,
+							"parameters": {
+								"variable": "Player",
+								"comparison": 0,
+								"value": "\"Yellow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 271398238969479,
+							"parameters": {
+								"audio-file": "zap1",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 747081501740949
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 266532709856640
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 263426765096589,
+							"parameters": {
+								"audio-file": "zap2",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 272584203222275
+				}
+			]
+		},
+		{
+			"functionName": "StartGame",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 839190361472551,
+					"parameters": {
+						"audio-file": "confirmation_001",
+						"loop": "not-looping",
+						"volume": "0",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 153515289912211,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 289146471573560,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Score\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 429442419545220,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Score Text\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 299723129065237,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 131981142278922,
+							"parameters": {
+								"audio-file": "confirmation_001",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 309485476925888,
+					"isOrBlock": true
+				}
+			]
+		}
+	],
+	"sid": 928391192298862
+}
