@@ -1,70 +1,68 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 22500,
-	"name": "Thumb War",
+	"savedWithRelease": 23402,
+	"name": "ski",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
 	"usedAddons": [
 		{
 			"type": "plugin",
-			"id": "Touch",
-			"name": "Touch",
-			"author": "Scirra",
-			"version": "r225",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r225",
+			"version": "r234.2",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "NinePatch",
-			"name": "9-patch",
+			"id": "TiledBg",
+			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r225",
+			"version": "r234.2",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
+			"id": "Browser",
+			"name": "Browser",
 			"author": "Scirra",
-			"version": "r225",
+			"version": "r234.2",
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "Particles",
-			"name": "Particles",
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
 			"author": "Scirra",
-			"version": "r225",
+			"version": "r234.2",
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "Audio",
-			"name": "Audio",
+			"type": "behavior",
+			"id": "Platform",
+			"name": "Platform",
 			"author": "Scirra",
-			"version": "r225",
+			"version": "r234.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r234.2",
 			"bundled": false
 		}
 	],
-	"uniqueId": "sxwwcaoyrf9",
+	"uniqueId": "kidoiverr90",
 	"objectTypes": {
 		"items": [
-			"Touch",
-			"Thumb",
-			"TouchTarget",
-			"Text",
-			"NewGameButton",
-			"Particles",
-			"Audio"
+			"Ground",
+			"Player",
+			"Background",
+			"GroundTile",
+			"Browser"
 		],
 		"subfolders": []
 	},
@@ -77,14 +75,14 @@
 	"layouts": {
 		"items": [
 			"Game",
-			"Objects"
+			"Game2"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"eGame",
-			"eCredits"
+			"eAnimation"
 		],
 		"subfolders": []
 	},
@@ -94,43 +92,7 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [
-				{
-					"name": "confirmation_004.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 117918021987147
-				},
-				{
-					"name": "select_006.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 819127355266979
-				},
-				{
-					"name": "zap1.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 253222324729366
-				},
-				{
-					"name": "zap2.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 411569349690610
-				},
-				{
-					"name": "click_002.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 768823888356235
-				},
-				{
-					"name": "powerUp7.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 415438442303957
-				},
-				{
-					"name": "confirmation_001.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 508272265525648
-				}
-			],
+			"items": [],
 			"subfolders": []
 		},
 		"music": {
@@ -142,37 +104,23 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [
-				{
-					"name": "YuseiMagic-Regular.ttf",
-					"type": "application/font-sfnt",
-					"sid": 882857154923282
-				}
-			],
+			"items": [],
 			"subfolders": []
 		},
 		"icon": {
 			"items": [
 				{
-					"name": "loading-logo.png",
+					"name": "icon-16.png",
 					"type": "image/png",
-					"sid": 652600206593224,
-					"icon-info": {
-						"purpose": "loading-logo"
-					}
-				},
-				{
-					"name": "icon-32.png",
-					"type": "image/png",
-					"sid": 257154487651169,
+					"sid": 730641556706444,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
 				},
 				{
-					"name": "icon-16.png",
+					"name": "icon-32.png",
 					"type": "image/png",
-					"sid": 815506838466422,
+					"sid": 608593656041899,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
@@ -180,23 +128,7 @@
 				{
 					"name": "icon-64.png",
 					"type": "image/png",
-					"sid": 451955383691435,
-					"icon-info": {
-						"purpose": "app-icon"
-					}
-				},
-				{
-					"name": "icon-256.png",
-					"type": "image/png",
-					"sid": 812144969031627,
-					"icon-info": {
-						"purpose": "app-icon"
-					}
-				},
-				{
-					"name": "icon-512.png",
-					"type": "image/png",
-					"sid": 760214663241432,
+					"sid": 805532066970628,
 					"icon-info": {
 						"purpose": "app-icon"
 					}
@@ -204,9 +136,33 @@
 				{
 					"name": "icon-128.png",
 					"type": "image/png",
-					"sid": 270718210051690,
+					"sid": 307160484701869,
 					"icon-info": {
 						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 976573527869148,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 316874248006400,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 503324549329839,
+					"icon-info": {
+						"purpose": "loading-logo"
 					}
 				}
 			],
@@ -261,6 +217,7 @@
 		"orientations": "landscape",
 		"enableWebGL": true,
 		"gpuPreference": "high-performance",
+		"scriptsType": "module",
 		"framerateMode": "vsync",
 		"compositingMode": "standard",
 		"sampling": "trilinear",
@@ -272,7 +229,7 @@
 		"enhancedAccelerationPrecision": true,
 		"cordovaiOSScheme": "app"
 	},
-	"viewportWidth": 832,
-	"viewportHeight": 480,
+	"viewportWidth": 1280,
+	"viewportHeight": 720,
 	"firstLayout": null
 }

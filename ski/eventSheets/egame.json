@@ -1,0 +1,358 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "REGULAR_MAX_SPEED",
+			"type": "number",
+			"initialValue": "330",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 420300263405994
+		},
+		{
+			"eventType": "variable",
+			"name": "SkiingMaxSpeed",
+			"type": "number",
+			"initialValue": "1000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 282631353091394
+		},
+		{
+			"eventType": "variable",
+			"name": "LastY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 696287112121197
+		},
+		{
+			"eventType": "variable",
+			"name": "FRICTION",
+			"type": "number",
+			"initialValue": "14",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 838720903012351
+		},
+		{
+			"eventType": "variable",
+			"name": "ACCELERATION",
+			"type": "number",
+			"initialValue": "200",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 612648065126069
+		},
+		{
+			"eventType": "variable",
+			"name": "SLOPE_FRICTION_MULTIPLIER",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 533506394513131
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 224258246804291
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 183522521194859,
+					"behaviorType": "Platform",
+					"parameters": {
+						"max-speed": "REGULAR_MAX_SPEED"
+					}
+				},
+				{
+					"id": "set-acceleration",
+					"objectClass": "Player",
+					"sid": 322543101576085,
+					"behaviorType": "Platform",
+					"parameters": {
+						"acceleration": "ACCELERATION"
+					}
+				}
+			],
+			"sid": 438942367786854
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-landed",
+					"objectClass": "Player",
+					"sid": 308342065587379,
+					"behaviorType": "Platform"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 316564461497211,
+					"behaviorType": "Platform",
+					"parameters": {
+						"max-speed": "SkiingMaxSpeed"
+					}
+				}
+			],
+			"sid": 427148169205424,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 310153446037952,
+							"parameters": {
+								"first-value": "Player.Platform.VectorX",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-vector-x",
+							"objectClass": "Player",
+							"sid": 554197968790334,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-x": "SkiingMaxSpeed"
+							}
+						}
+					],
+					"sid": 955274436574852
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 464411160544233,
+							"parameters": {
+								"first-value": "Player.Platform.VectorX",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-vector-x",
+							"objectClass": "Player",
+							"sid": 253881768646005,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-x": "SkiingMaxSpeed * -1"
+							}
+						}
+					],
+					"sid": 677619813626491
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-jump",
+					"objectClass": "Player",
+					"sid": 960399984944960,
+					"behaviorType": "Platform"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-max-speed",
+					"objectClass": "Player",
+					"sid": 927225563007630,
+					"behaviorType": "Platform",
+					"parameters": {
+						"max-speed": "REGULAR_MAX_SPEED"
+					}
+				}
+			],
+			"sid": 781592705625028
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 269668158335062
+				}
+			],
+			"actions": [],
+			"sid": 269505842299593,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-jumping",
+							"objectClass": "Player",
+							"sid": 388186740240806,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 612828095458162,
+							"parameters": {
+								"variable": "SkiingMaxSpeed",
+								"value": "max(Player.Platform.MaxSpeed, SkiingMaxSpeed)"
+							}
+						}
+					],
+					"sid": 830924460874629
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "Player",
+							"sid": 277724209306567,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "compare-speed",
+							"objectClass": "Player",
+							"sid": 961725314815785,
+							"behaviorType": "Platform",
+							"parameters": {
+								"comparison": 4,
+								"speed": "REGULAR_MAX_SPEED"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 472283810551317,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 955395788270997,
+									"parameters": {
+										"first-value": "Player.Y",
+										"comparison": 2,
+										"second-value": "LastY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "Player",
+									"sid": 869432589241898,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "Player.Platform.MaxSpeed - (FRICTION * SLOPE_FRICTION_MULTIPLIER)"
+									}
+								}
+							],
+							"sid": 417894807172074
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 424202166285018
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 781554278180198,
+									"parameters": {
+										"first-value": "Player.Y",
+										"comparison": 4,
+										"second-value": "LastY"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "Player",
+									"sid": 137839999047053,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "Player.Platform.MaxSpeed - (FRICTION / SLOPE_FRICTION_MULTIPLIER)"
+									}
+								}
+							],
+							"sid": 643127265338876
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 764781279695333
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "Player",
+									"sid": 611301561322785,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "Player.Platform.MaxSpeed - FRICTION"
+									}
+								}
+							],
+							"sid": 920410530304895
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 220842314799672,
+							"parameters": {
+								"variable": "LastY",
+								"value": "Player.Y"
+							}
+						}
+					],
+					"sid": 829940783322781
+				}
+			]
+		}
+	],
+	"sid": 162119984791162
+}

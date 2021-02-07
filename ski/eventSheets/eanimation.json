@@ -1,0 +1,130 @@
+{
+	"name": "eAnimation",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-jump",
+					"objectClass": "Player",
+					"sid": 309040861781897,
+					"behaviorType": "Platform"
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-animation",
+					"objectClass": "Player",
+					"sid": 752153506873420
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 250886180985892,
+					"parameters": {
+						"animation": "\"Jump Start\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 180193682293532,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-animation-finished",
+					"objectClass": "Player",
+					"sid": 981173259508523
+				}
+			],
+			"actions": [],
+			"sid": 688522817805405,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-speed",
+							"objectClass": "Player",
+							"sid": 193399656588572,
+							"behaviorType": "Platform",
+							"parameters": {
+								"comparison": 0,
+								"speed": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 717745279937163,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 351770530862829,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 982197474575098
+						},
+						{
+							"id": "is-jumping",
+							"objectClass": "Player",
+							"sid": 828481166979493,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 745165423889967,
+							"parameters": {
+								"animation": "\"Jump Loop\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 550803097955543,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 119070144450736
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 331893713925898,
+							"parameters": {
+								"animation": "\"Walking\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 109062673083859,
+					"disabled": true
+				}
+			]
+		}
+	],
+	"sid": 984380006307147
+}
