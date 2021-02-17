@@ -10,7 +10,17 @@
 					"sid": 730978068570154
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 988736684716966,
+					"parameters": {
+						"type": "log",
+						"message": "SettingsDict.Get(\"Deck\")"
+					}
+				}
+			],
 			"sid": 292286495328341,
 			"children": [
 				{
@@ -23,47 +33,38 @@
 							"parameters": {
 								"key": "\"Deck\""
 							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Card",
+							"sid": 229312400813383,
+							"parameters": {
+								"animation": "SettingsDict.Get(\"Deck\")"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SelectedSetting",
+							"sid": 801000714622873,
+							"parameters": {
+								"instance-variable": "Setting",
+								"comparison": 0,
+								"value": "\"Deck\""
+							}
 						}
 					],
-					"actions": [],
-					"sid": 598261082662751,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-animation-playing",
-									"objectClass": "Card",
-									"sid": 556516810498510,
-									"parameters": {
-										"animation": "SettingsDict.Get(\"Deck\")"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "SelectedSetting",
-									"sid": 501625991949617,
-									"parameters": {
-										"instance-variable": "Setting",
-										"comparison": 0,
-										"value": "\"Deck\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "SelectedSetting",
-									"sid": 548607648947099,
-									"parameters": {
-										"x": "Card.BBoxLeft",
-										"y": "Card.BBoxTop + Card.Height / 2"
-									}
-								}
-							],
-							"sid": 797952787893788
+							"id": "set-position",
+							"objectClass": "SelectedSetting",
+							"sid": 806601081169205,
+							"parameters": {
+								"x": "Card.BBoxLeft",
+								"y": "Card.BBoxTop + Card.Height / 2"
+							}
 						}
-					]
+					],
+					"sid": 598261082662751
 				},
 				{
 					"eventType": "block",
@@ -101,12 +102,30 @@
 							],
 							"actions": [
 								{
+									"id": "add-key",
+									"objectClass": "SettingsDict",
+									"sid": 199364476155614,
+									"parameters": {
+										"key": "\"Deck\"",
+										"value": "Card.AnimationName"
+									}
+								},
+								{
 									"id": "set-position",
 									"objectClass": "SelectedSetting",
 									"sid": 600810972131576,
 									"parameters": {
 										"x": "Card.BBoxLeft",
 										"y": "Card.BBoxTop + Card.Height / 2"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 133095973098248,
+									"parameters": {
+										"key": "\"settings:deck\"",
+										"value": "Card.AnimationName"
 									}
 								}
 							],

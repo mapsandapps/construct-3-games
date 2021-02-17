@@ -27,6 +27,15 @@
 			"conditions": [],
 			"actions": [
 				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 908680401868163,
+					"parameters": {
+						"type": "log",
+						"message": "SettingsDict.Get(\"Deck\")"
+					}
+				},
+				{
 					"id": "set-size",
 					"objectClass": "UndoArray",
 					"sid": 249399179936318,

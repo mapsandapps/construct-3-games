@@ -206,13 +206,11 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 195406159868209,
+									"id": "has-key",
+									"objectClass": "SettingsDict",
+									"sid": 199764810557325,
 									"parameters": {
-										"variable": "DECK_ART",
-										"comparison": 0,
-										"value": "\"\""
+										"key": "\"Deck\""
 									}
 								}
 							],
@@ -220,10 +218,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 229570327283406,
+									"sid": 885802968215833,
 									"parameters": {
 										"variable": "DECK_ART",
-										"value": "DEFAULT_DECK_ART"
+										"value": "LocalStorage.ItemValue"
 									}
 								}
 							],
@@ -242,19 +240,19 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 752614908504119,
+									"sid": 331228059288182,
 									"parameters": {
 										"variable": "DECK_ART",
-										"value": "LocalStorage.ItemValue"
+										"value": "DEFAULT_DECK_ART"
 									}
 								},
 								{
 									"id": "add-key",
 									"objectClass": "SettingsDict",
-									"sid": 157755566491302,
+									"sid": 860887167725450,
 									"parameters": {
 										"key": "\"Deck\"",
-										"value": "LocalStorage.ItemValue"
+										"value": "DECK_ART"
 									}
 								}
 							],
