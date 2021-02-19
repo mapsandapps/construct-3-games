@@ -33,6 +33,12 @@
 					"objectClass": "Player",
 					"sid": 969974584911735,
 					"behaviorType": "8Direction"
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 731827299847155,
+					"behaviorType": "MoveTo"
 				}
 			],
 			"actions": [
@@ -55,7 +61,8 @@
 					}
 				}
 			],
-			"sid": 119707117642121
+			"sid": 119707117642121,
+			"isOrBlock": true
 		},
 		{
 			"eventType": "block",
@@ -320,6 +327,33 @@
 				}
 			],
 			"sid": 495554386321794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 734199327032662,
+					"parameters": {
+						"touch-number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "Player",
+					"sid": 377132282566555,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 908043980763288
 		}
 	],
 	"sid": 341307043718881
