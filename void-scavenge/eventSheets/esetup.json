@@ -1,0 +1,327 @@
+{
+	"name": "eSetup",
+	"events": [
+		{
+			"functionName": "PlaceItems",
+			"functionDescription": "",
+			"functionCategory": "Setup",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 452551673172685,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 809825963847990,
+							"parameters": {
+								"count": "NUMBER_OF_ITEMS"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlaceItem",
+							"sid": 482189052777093
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 168043702912489,
+							"parameters": {
+								"seconds": "loopindex * 0.05"
+							}
+						}
+					],
+					"sid": 500503386244199
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "get rid of any unused ItemPlaces"
+						},
+						{
+							"id": "destroy",
+							"objectClass": "ItemPlace",
+							"sid": 650271586479134
+						}
+					],
+					"sid": 270188959353909
+				}
+			]
+		},
+		{
+			"functionName": "PlaceItem",
+			"functionDescription": "",
+			"functionCategory": "Setup",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 383321410195571,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Frame",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 658306836213557
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 934058684024137,
+							"parameters": {
+								"variable": "Frame",
+								"value": "random(Item.AnimationFrameCount)"
+							}
+						}
+					],
+					"sid": 463161688004602
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "contains-value",
+							"objectClass": "PlacedItems",
+							"sid": 498723545973912,
+							"parameters": {
+								"value": "Frame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlaceItem",
+							"sid": 460836655273162
+						}
+					],
+					"sid": 694857928003886
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 823618986868737
+						},
+						{
+							"id": "pick-nth-instance",
+							"objectClass": "System",
+							"sid": 566397465608894,
+							"parameters": {
+								"object": "ItemPlace",
+								"instance": "random(ItemPlace.Count)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "PlacedItems",
+							"sid": 142815246841715,
+							"parameters": {
+								"where": "back",
+								"value": "Frame",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "ItemPlace",
+							"sid": 333826977204923,
+							"parameters": {
+								"object": "Item",
+								"layer": "\"Items\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Item",
+							"sid": 169471064421376,
+							"parameters": {
+								"frame-number": "Frame"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Item",
+							"sid": 403851971417964,
+							"parameters": {
+								"instance-variable": "IsFindable",
+								"value": "true"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "ItemPlace",
+							"sid": 560652514117386
+						}
+					],
+					"sid": 115148470697804
+				}
+			]
+		},
+		{
+			"functionName": "PrepClues",
+			"functionDescription": "",
+			"functionCategory": "Setup",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 524515171093984,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 126715523139027,
+							"parameters": {
+								"object": "Item"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Item",
+							"sid": 334739864850683,
+							"parameters": {
+								"instance-variable": "IsFindable"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PrepClue",
+							"sid": 882252315588720,
+							"parameters": [
+								"Item.UID"
+							]
+						}
+					],
+					"sid": 572408115710169
+				}
+			]
+		},
+		{
+			"functionName": "PrepClue",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "ItemUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 217245745723515
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Item",
+					"sid": 861639211639938,
+					"parameters": {
+						"unique-id": "ItemUID"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 529521294471816,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "PlacedItems",
+							"sid": 297854143613677,
+							"parameters": {
+								"axis": "x",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Item",
+							"sid": 753976454806512,
+							"parameters": {
+								"frame-number": "PlacedItems.At(0)"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Item",
+							"sid": 603862312171403,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
+							"id": "pop",
+							"objectClass": "PlacedItems",
+							"sid": 364569495816373,
+							"parameters": {
+								"where": "front",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 522216578243946
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 432578571711165
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Item",
+							"sid": 373683709866035
+						}
+					],
+					"sid": 344833418034962
+				}
+			]
+		}
+	],
+	"sid": 302160854243235
+}

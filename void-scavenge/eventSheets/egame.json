@@ -2,6 +2,10 @@
 	"name": "eGame",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "eSetup"
+		},
+		{
 			"eventType": "variable",
 			"name": "GRID_SIZE",
 			"type": "number",
@@ -10,6 +14,16 @@
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 472453122764082
+		},
+		{
+			"eventType": "variable",
+			"name": "NUMBER_OF_ITEMS",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 917345012089222
 		},
 		{
 			"eventType": "block",
@@ -33,7 +47,7 @@
 				},
 				{
 					"id": "set-position",
-					"objectClass": "ActiveGridMarker",
+					"objectClass": "ActiveCellMarker",
 					"sid": 141299824100507,
 					"parameters": {
 						"x": "floor(Player.X / GRID_SIZE) * GRID_SIZE + (GRID_SIZE / 2)",
@@ -66,9 +80,246 @@
 					"id": "move-to-top",
 					"objectClass": "ShadowLight",
 					"sid": 881095205052265
+				},
+				{
+					"callFunction": "PlaceItems",
+					"sid": 801560078540539
+				},
+				{
+					"callFunction": "PrepClues",
+					"sid": 630217769851575
 				}
 			],
 			"sid": 562629337782463
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "ActiveCellMarker",
+					"sid": 544914315866097,
+					"parameters": {
+						"object": "Item"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Item",
+					"sid": 829665516695986,
+					"parameters": {
+						"instance-variable": "IsFindable"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 834523902641301,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "OverlappedItemFrame",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 476095042954670
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 975258280856543,
+							"parameters": {
+								"variable": "OverlappedItemFrame",
+								"value": "Item.AnimationFrame"
+							}
+						}
+					],
+					"sid": 151846912852286
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 459262308646898,
+							"parameters": {
+								"object": "Item"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 608674029383279,
+							"parameters": {
+								"object": "Item"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Item",
+							"sid": 947280521961814,
+							"parameters": {
+								"instance-variable": "IsFindable"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Item",
+							"sid": 522760291603880,
+							"parameters": {
+								"comparison": 0,
+								"number": "OverlappedItemFrame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "FoundItem",
+							"sid": 274505082621878,
+							"parameters": [
+								"OverlappedItemFrame"
+							]
+						}
+					],
+					"sid": 865697433306060
+				}
+			]
+		},
+		{
+			"functionName": "FoundItem",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Frame",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 800766273079969
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 789152871290009,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Item",
+							"sid": 126186229420049,
+							"parameters": {
+								"comparison": 0,
+								"number": "Frame"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Item",
+							"sid": 526904122597571,
+							"parameters": {
+								"instance-variable": "IsFindable"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Item",
+							"sid": 530943938425856
+						}
+					],
+					"sid": 707461663832243
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Item",
+							"sid": 488766783456230,
+							"parameters": {
+								"comparison": 0,
+								"number": "Frame"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Item",
+							"sid": 699715348169460,
+							"parameters": {
+								"instance-variable": "IsFindable"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PrepClue",
+							"sid": 930984839391845,
+							"parameters": [
+								"Item.UID"
+							]
+						}
+					],
+					"sid": 812896180875172
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 299807761007239,
+							"parameters": {
+								"first-value": "Item.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "WinConditionMet",
+							"sid": 543228065266938
+						}
+					],
+					"sid": 801625959167629
+				}
+			]
+		},
+		{
+			"functionName": "WinConditionMet",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 277096820032016,
+					"parameters": {
+						"type": "log",
+						"message": "\"win!\""
+					}
+				}
+			],
+			"sid": 495554386321794
 		}
 	],
 	"sid": 341307043718881

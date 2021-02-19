@@ -31,6 +31,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "EightDir",
 			"name": "8 Direction",
@@ -61,6 +77,14 @@
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "hsladjust",
+			"name": "Adjust HSL",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
 		}
 	],
 	"uniqueId": "6osvxtfhz8j",
@@ -69,9 +93,13 @@
 			"Player",
 			"Wall",
 			"ShadowLight",
-			"ActiveGridMarker",
-			"purplebg",
-			"TiledBackground"
+			"ActiveCellMarker",
+			"TiledBackground",
+			"Item",
+			"ItemPlace",
+			"PlacedItems",
+			"Browser",
+			"UIBackground"
 		],
 		"subfolders": []
 	},
@@ -89,7 +117,9 @@
 	},
 	"eventSheets": {
 		"items": [
-			"eGame"
+			"eGame",
+			"eTODO",
+			"eSetup"
 		],
 		"subfolders": []
 	},
