@@ -1,0 +1,75 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "GRID_SIZE",
+			"type": "number",
+			"initialValue": "128",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 472453122764082
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 969974584911735,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 346100740390861,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "ActiveGridMarker",
+					"sid": 141299824100507,
+					"parameters": {
+						"x": "floor(Player.X / GRID_SIZE) * GRID_SIZE + (GRID_SIZE / 2)",
+						"y": "floor(Player.Y / GRID_SIZE) * GRID_SIZE + (GRID_SIZE / 2)"
+					}
+				}
+			],
+			"sid": 119707117642121
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 634016136312117
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 897610493198346,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				},
+				{
+					"id": "move-to-top",
+					"objectClass": "ShadowLight",
+					"sid": 881095205052265
+				}
+			],
+			"sid": 562629337782463
+		}
+	],
+	"sid": 341307043718881
+}
