@@ -10,7 +10,12 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"callFunction": "AddToItemPlaces",
+					"sid": 248198618274598
+				}
+			],
 			"sid": 452551673172685,
 			"children": [
 				{
@@ -28,15 +33,10 @@
 					"actions": [
 						{
 							"callFunction": "PlaceItem",
-							"sid": 482189052777093
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 168043702912489,
-							"parameters": {
-								"seconds": "loopindex * 0.05"
-							}
+							"sid": 620269890479550,
+							"parameters": [
+								"ItemPlaces.At(loopindex)"
+							]
 						}
 					],
 					"sid": 500503386244199
@@ -65,7 +65,15 @@
 			"functionCategory": "Setup",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "ItemPlaceUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 844124923648643
+				}
+			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [],
@@ -88,10 +96,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 934058684024137,
+							"sid": 907635380002691,
 							"parameters": {
 								"variable": "Frame",
-								"value": "random(Item.AnimationFrameCount)"
+								"value": "floor(random(Item.AnimationFrameCount))"
 							}
 						}
 					],
@@ -112,7 +120,10 @@
 					"actions": [
 						{
 							"callFunction": "PlaceItem",
-							"sid": 460836655273162
+							"sid": 460836655273162,
+							"parameters": [
+								"0"
+							]
 						}
 					],
 					"sid": 694857928003886
@@ -126,12 +137,11 @@
 							"sid": 823618986868737
 						},
 						{
-							"id": "pick-nth-instance",
-							"objectClass": "System",
-							"sid": 566397465608894,
+							"id": "pick-by-unique-id",
+							"objectClass": "ItemPlace",
+							"sid": 781994176845724,
 							"parameters": {
-								"object": "ItemPlace",
-								"instance": "random(ItemPlace.Count)"
+								"unique-id": "ItemPlaceUID"
 							}
 						}
 					],
@@ -144,6 +154,15 @@
 								"where": "back",
 								"value": "Frame",
 								"axis": "x"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 842827471193880,
+							"parameters": {
+								"type": "log",
+								"message": "ItemPlace.UID"
 							}
 						},
 						{
@@ -319,6 +338,103 @@
 						}
 					],
 					"sid": 344833418034962
+				}
+			]
+		},
+		{
+			"functionName": "AddToItemPlaces",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-nth-instance",
+					"objectClass": "System",
+					"sid": 848089228875962,
+					"parameters": {
+						"object": "ItemPlace",
+						"instance": "random(ItemPlace.Count)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "recursive"
+				}
+			],
+			"sid": 792376153559807,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "contains-value",
+							"objectClass": "ItemPlaces",
+							"sid": 410028970246617,
+							"parameters": {
+								"value": "ItemPlace.UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AddToItemPlaces",
+							"sid": 651286341813036
+						}
+					],
+					"sid": 983600237250530
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 106803813948192
+						}
+					],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "ItemPlaces",
+							"sid": 868981396195987,
+							"parameters": {
+								"where": "back",
+								"value": "ItemPlace.UID",
+								"axis": "x"
+							}
+						}
+					],
+					"sid": 470606533044659,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-size",
+									"objectClass": "ItemPlaces",
+									"sid": 856305429968412,
+									"parameters": {
+										"axis": "x",
+										"comparison": 0,
+										"value": "ItemPlace.Count"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AddToItemPlaces",
+									"sid": 937678968205192
+								}
+							],
+							"sid": 185000241813037
+						}
+					]
 				}
 			]
 		}
