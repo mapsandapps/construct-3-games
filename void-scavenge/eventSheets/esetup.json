@@ -275,7 +275,17 @@
 					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 801896824877690,
+					"parameters": {
+						"type": "log",
+						"message": "ItemUID"
+					}
+				}
+			],
 			"sid": 529521294471816,
 			"children": [
 				{
@@ -294,19 +304,19 @@
 					],
 					"actions": [
 						{
+							"id": "set-default-color",
+							"objectClass": "Item",
+							"sid": 279033938826241,
+							"parameters": {
+								"color": "rgbEx(0, 0, 0)"
+							}
+						},
+						{
 							"id": "set-animation-frame",
 							"objectClass": "Item",
 							"sid": 753976454806512,
 							"parameters": {
 								"frame-number": "PlacedItems.At(0)"
-							}
-						},
-						{
-							"id": "set-default-color",
-							"objectClass": "Item",
-							"sid": 603862312171403,
-							"parameters": {
-								"color": "rgbEx(0, 0, 0)"
 							}
 						},
 						{

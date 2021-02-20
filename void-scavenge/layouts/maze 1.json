@@ -4315,13 +4315,15 @@
 					"instanceVariables": {
 						"IsFindable": false
 					},
-					"behaviors": {},
-					"effects": {
-						"AdjustHSL": {
-							"parameters": {
-								"hue": 0,
-								"saturation": 1,
-								"luminosity": 1
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
 							}
 						}
 					},
@@ -4355,13 +4357,15 @@
 					"instanceVariables": {
 						"IsFindable": false
 					},
-					"behaviors": {},
-					"effects": {
-						"AdjustHSL": {
-							"parameters": {
-								"hue": 0,
-								"saturation": 1,
-								"luminosity": 1
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
 							}
 						}
 					},
@@ -4395,13 +4399,15 @@
 					"instanceVariables": {
 						"IsFindable": false
 					},
-					"behaviors": {},
-					"effects": {
-						"AdjustHSL": {
-							"parameters": {
-								"hue": 0,
-								"saturation": 1,
-								"luminosity": 1
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
 							}
 						}
 					},

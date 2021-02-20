@@ -68,6 +68,53 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 830562591723046,
+					"parameters": {
+						"touch-number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "Player",
+					"sid": 927661489256806,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 294271845323935
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 229020508856419,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 163324918776037,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"sid": 315839665550678
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
 					"sid": 634016136312117
@@ -242,9 +289,19 @@
 					],
 					"actions": [
 						{
-							"id": "destroy",
+							"id": "set-boolean-instvar",
 							"objectClass": "Item",
-							"sid": 530943938425856
+							"sid": 483300209909063,
+							"parameters": {
+								"instance-variable": "IsFindable",
+								"value": "false"
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Item",
+							"sid": 415839381400483,
+							"behaviorType": "Fade"
 						}
 					],
 					"sid": 707461663832243
@@ -272,6 +329,22 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Item",
+							"sid": 205848684670455,
+							"parameters": {
+								"color": "rgbEx(100, 100, 100)"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 458803188859126,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
 						{
 							"callFunction": "PrepClue",
 							"sid": 930984839391845,
@@ -327,33 +400,6 @@
 				}
 			],
 			"sid": 495554386321794
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-nth-touch-end",
-					"objectClass": "Touch",
-					"sid": 734199327032662,
-					"parameters": {
-						"touch-number": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "move-to-position",
-					"objectClass": "Player",
-					"sid": 377132282566555,
-					"behaviorType": "MoveTo",
-					"parameters": {
-						"x": "Touch.X",
-						"y": "Touch.Y",
-						"mode": "direct"
-					}
-				}
-			],
-			"sid": 908043980763288
 		}
 	],
 	"sid": 341307043718881
