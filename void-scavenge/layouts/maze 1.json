@@ -4201,7 +4201,7 @@
 								"acceleration": 1200,
 								"deceleration": 1000,
 								"directions": "dir-8",
-								"set-angle": "smooth",
+								"set-angle": "no",
 								"default-controls": true,
 								"enabled": true
 							}
@@ -4213,11 +4213,11 @@
 						},
 						"MoveTo": {
 							"properties": {
-								"max-speed": 200,
-								"acceleration": 600,
-								"deceleration": 600,
+								"max-speed": 400,
+								"acceleration": 1200,
+								"deceleration": 1200,
 								"rotate-speed": 0,
-								"set-angle": true,
+								"set-angle": false,
 								"stop-on-solids": false,
 								"enabled": true
 							}
@@ -4226,8 +4226,8 @@
 					"world": {
 						"x": 2240,
 						"y": 832,
-						"width": 36,
-						"height": 36,
+						"width": 23.773584905660375,
+						"height": 23.773584905660375,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -4270,26 +4270,26 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "UIBackground",
+					"type": "ClueContainer",
 					"properties": {
+						"left-margin": 64,
+						"right-margin": 64,
+						"top-margin": 64,
+						"bottom-margin": 64,
+						"edges": "stretch",
+						"fill": "stretch",
 						"initially-visible": true,
 						"origin": "top-left",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
+						"seams": "overlap"
 					},
-					"uid": 112,
+					"uid": 117,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
 						"x": 0,
-						"y": 576,
-						"width": 384,
-						"height": 144,
+						"y": 560,
+						"width": 352,
+						"height": 160,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -4325,7 +4325,7 @@
 						}
 					},
 					"world": {
-						"x": 192,
+						"x": 176,
 						"y": 640,
 						"width": 80,
 						"height": 80,
@@ -4364,7 +4364,7 @@
 						}
 					},
 					"world": {
-						"x": 320,
+						"x": 272,
 						"y": 640,
 						"width": 80,
 						"height": 80,
@@ -4403,7 +4403,7 @@
 						}
 					},
 					"world": {
-						"x": 64,
+						"x": 80,
 						"y": 640,
 						"width": 80,
 						"height": 80,
