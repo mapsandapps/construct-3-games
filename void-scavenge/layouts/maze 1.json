@@ -4287,9 +4287,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 0,
-						"y": 512,
-						"width": 1280,
-						"height": 256,
+						"y": 576,
+						"width": 384,
+						"height": 144,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -4313,22 +4313,19 @@
 					},
 					"uid": 78,
 					"instanceVariables": {
-						"IsFindable": false
+						"ClueSlot": 2,
+						"IsFindable": false,
+						"IsClueFound": false
 					},
 					"behaviors": {
-						"Fade": {
+						"Tween": {
 							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
+								"enabled": true
 							}
 						}
 					},
 					"world": {
-						"x": 640,
+						"x": 192,
 						"y": 640,
 						"width": 80,
 						"height": 80,
@@ -4355,22 +4352,19 @@
 					},
 					"uid": 113,
 					"instanceVariables": {
-						"IsFindable": false
+						"ClueSlot": 3,
+						"IsFindable": false,
+						"IsClueFound": false
 					},
 					"behaviors": {
-						"Fade": {
+						"Tween": {
 							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
+								"enabled": true
 							}
 						}
 					},
 					"world": {
-						"x": 768,
+						"x": 320,
 						"y": 640,
 						"width": 80,
 						"height": 80,
@@ -4397,22 +4391,19 @@
 					},
 					"uid": 114,
 					"instanceVariables": {
-						"IsFindable": false
+						"ClueSlot": 1,
+						"IsFindable": false,
+						"IsClueFound": false
 					},
 					"behaviors": {
-						"Fade": {
+						"Tween": {
 							"properties": {
-								"fade-in-time": 0,
-								"wait-time": 0,
-								"fade-out-time": 1,
-								"destroy": true,
-								"enabled": false,
-								"live-preview": false
+								"enabled": true
 							}
 						}
 					},
 					"world": {
-						"x": 512,
+						"x": 64,
 						"y": 640,
 						"width": 80,
 						"height": 80,

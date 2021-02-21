@@ -5,17 +5,29 @@
 	"isGlobal": false,
 	"instanceVariables": [
 		{
+			"name": "ClueSlot",
+			"type": "number",
+			"desc": "",
+			"sid": 680647523174227
+		},
+		{
 			"name": "IsFindable",
 			"type": "boolean",
 			"desc": "",
 			"sid": 540727103408178
+		},
+		{
+			"name": "IsClueFound",
+			"type": "boolean",
+			"desc": "",
+			"sid": 309584115164614
 		}
 	],
 	"behaviorTypes": [
 		{
-			"behaviorId": "Fade",
-			"name": "Fade",
-			"sid": 319564677412988
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 649205108497867
 		}
 	],
 	"effectTypes": [],

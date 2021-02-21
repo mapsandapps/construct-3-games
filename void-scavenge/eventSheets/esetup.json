@@ -120,9 +120,9 @@
 					"actions": [
 						{
 							"callFunction": "PlaceItem",
-							"sid": 460836655273162,
+							"sid": 458718846855908,
 							"parameters": [
-								"0"
+								"ItemPlaceUID"
 							]
 						}
 					],
@@ -146,6 +146,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Item",
+							"sid": 322111553142676,
+							"parameters": {
+								"instance-variable": "IsClueFound",
+								"value": "true"
+							}
+						},
 						{
 							"id": "push",
 							"objectClass": "PlacedItems",
@@ -187,7 +196,7 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Item",
-							"sid": 403851971417964,
+							"sid": 738929086917193,
 							"parameters": {
 								"instance-variable": "IsFindable",
 								"value": "true"
@@ -241,7 +250,8 @@
 							"callFunction": "PrepClue",
 							"sid": 882252315588720,
 							"parameters": [
-								"Item.UID"
+								"Item.UID",
+								false
 							]
 						}
 					],
@@ -262,6 +272,13 @@
 					"initialValue": "0",
 					"comment": "",
 					"sid": 217245745723515
+				},
+				{
+					"name": "FadeIn",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 310014394402565
 				}
 			],
 			"eventType": "function-block",
@@ -306,7 +323,7 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "Item",
-							"sid": 279033938826241,
+							"sid": 907346121298728,
 							"parameters": {
 								"color": "rgbEx(0, 0, 0)"
 							}
@@ -314,22 +331,73 @@
 						{
 							"id": "set-animation-frame",
 							"objectClass": "Item",
-							"sid": 753976454806512,
+							"sid": 336222743717575,
 							"parameters": {
 								"frame-number": "PlacedItems.At(0)"
 							}
 						},
 						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Item",
+							"sid": 818340241159266,
+							"parameters": {
+								"instance-variable": "IsClueFound",
+								"value": "false"
+							}
+						},
+						{
 							"id": "pop",
 							"objectClass": "PlacedItems",
-							"sid": 364569495816373,
+							"sid": 318400434639330,
 							"parameters": {
 								"where": "front",
 								"axis": "x"
 							}
 						}
 					],
-					"sid": 522216578243946
+					"sid": 522216578243946,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 724046277673906,
+									"parameters": {
+										"variable": "FadeIn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "Item",
+									"sid": 755774548171486,
+									"parameters": {
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Item",
+									"sid": 555076534889032,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetOpacity",
+										"end-value": "100",
+										"time": "1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 236033840191530
+						}
+					]
 				},
 				{
 					"eventType": "block",

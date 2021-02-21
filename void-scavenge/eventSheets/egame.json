@@ -298,10 +298,20 @@
 							}
 						},
 						{
-							"id": "start-fade",
+							"id": "tween-one-property",
 							"objectClass": "Item",
-							"sid": 415839381400483,
-							"behaviorType": "Fade"
+							"sid": 996892094169196,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
 						}
 					],
 					"sid": 707461663832243
@@ -319,37 +329,62 @@
 							}
 						},
 						{
+							"id": "compare-instance-variable",
+							"objectClass": "Item",
+							"sid": 392539697545995,
+							"parameters": {
+								"instance-variable": "ClueSlot",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Item",
-							"sid": 699715348169460,
+							"sid": 141763764764743,
 							"parameters": {
-								"instance-variable": "IsFindable"
+								"instance-variable": "IsClueFound"
 							},
 							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"id": "set-default-color",
+							"id": "set-boolean-instvar",
 							"objectClass": "Item",
-							"sid": 205848684670455,
+							"sid": 104572724765781,
 							"parameters": {
-								"color": "rgbEx(100, 100, 100)"
+								"instance-variable": "IsClueFound",
+								"value": "true"
 							}
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 458803188859126,
+							"id": "tween-one-property",
+							"objectClass": "Item",
+							"sid": 694284624062851,
+							"behaviorType": "Tween",
 							"parameters": {
-								"seconds": "0.5"
+								"tags": "\"\"",
+								"property": "offsetColor",
+								"end-value": "rgbEx(100, 100, 100)",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
 							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 382752250565797
 						},
 						{
 							"callFunction": "PrepClue",
-							"sid": 930984839391845,
+							"sid": 234109014303435,
 							"parameters": [
-								"Item.UID"
+								"Item.UID",
+								true
 							]
 						}
 					],
