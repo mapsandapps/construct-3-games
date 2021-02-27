@@ -172,6 +172,8 @@ Color-based puzzler made for [Weekly Game Jam #128: "Camouflage"](https://itch.i
 
 Check out the other folders
 
+Also check out [/utils](./utils) for some helper methods, etc. to be used across games
+
 
 # Credits
 
