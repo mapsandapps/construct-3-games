@@ -4274,7 +4274,7 @@
 					"properties": {
 						"left-margin": 64,
 						"right-margin": 64,
-						"top-margin": 64,
+						"top-margin": 32,
 						"bottom-margin": 64,
 						"edges": "stretch",
 						"fill": "stretch",
@@ -4287,9 +4287,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 0,
-						"y": 560,
+						"y": 512,
 						"width": 352,
-						"height": 160,
+						"height": 208,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -4418,11 +4418,157 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "ClueText",
+					"properties": {
+						"text": "Found: 0/10",
+						"enable-bbcode": true,
+						"font": "Righteous-Regular",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 112,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 16,
+						"y": 528,
+						"width": 320,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 266509831148059,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Win",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "WinBackground",
+					"properties": {
+						"left-margin": 64,
+						"right-margin": 64,
+						"top-margin": 64,
+						"bottom-margin": 64,
+						"edges": "stretch",
+						"fill": "stretch",
+						"initially-visible": true,
+						"origin": "top-left",
+						"seams": "overlap"
+					},
+					"uid": 118,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 84,
+						"width": 640,
+						"height": 360,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "WinText",
+					"properties": {
+						"text": "YOU\nWIN!",
+						"enable-bbcode": true,
+						"font": "Righteous-Regular",
+						"size": 72,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 119,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 112,
+						"width": 576,
+						"height": 288,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 477988213694254,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
 			"color": [
 				1,
 				1,

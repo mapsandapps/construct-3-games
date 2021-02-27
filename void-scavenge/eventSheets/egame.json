@@ -26,6 +26,16 @@
 			"sid": 917345012089222
 		},
 		{
+			"eventType": "variable",
+			"name": "NumberOfItemsFound",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 161168102920648
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -289,6 +299,15 @@
 					],
 					"actions": [
 						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 899391659984026,
+							"parameters": {
+								"variable": "NumberOfItemsFound",
+								"value": "1"
+							}
+						},
+						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Item",
 							"sid": 483300209909063,
@@ -312,9 +331,46 @@
 								"loop": "no",
 								"ping-pong": "no"
 							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 254693296730609
+						},
+						{
+							"id": "set-text",
+							"objectClass": "ClueText",
+							"sid": 751750737963333,
+							"parameters": {
+								"text": "\"Found: \" & NumberOfItemsFound & \"/\" & NUMBER_OF_ITEMS"
+							}
 						}
 					],
-					"sid": 707461663832243
+					"sid": 707461663832243,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 306423186937390,
+									"parameters": {
+										"first-value": "NUMBER_OF_ITEMS",
+										"comparison": 0,
+										"second-value": "NumberOfItemsFound"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "WinConditionMet",
+									"sid": 379418038326421
+								}
+							],
+							"sid": 314380414777802
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -389,28 +445,6 @@
 						}
 					],
 					"sid": 812896180875172
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 299807761007239,
-							"parameters": {
-								"first-value": "Item.Count",
-								"comparison": 0,
-								"second-value": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "WinConditionMet",
-							"sid": 543228065266938
-						}
-					],
-					"sid": 801625959167629
 				}
 			]
 		},
@@ -425,12 +459,36 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 277096820032016,
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 186072918325756,
 					"parameters": {
-						"type": "log",
-						"message": "\"win!\""
+						"layer": "\"Win\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 607303026810632,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 484767265746304,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 687847922898470,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"enabled": false
 					}
 				}
 			],

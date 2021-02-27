@@ -40,14 +40,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Browser",
-			"name": "Browser",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
@@ -58,6 +50,14 @@
 			"type": "plugin",
 			"id": "NinePatch",
 			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -122,10 +122,12 @@
 			"Item",
 			"ItemPlace",
 			"PlacedItems",
-			"Browser",
 			"Touch",
 			"ItemPlaces",
-			"ClueContainer"
+			"ClueContainer",
+			"ClueText",
+			"WinBackground",
+			"WinText"
 		],
 		"subfolders": []
 	},
@@ -168,7 +170,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "Righteous-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 643768720042105
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -249,9 +257,9 @@
 	"properties": {
 		"description": "",
 		"version": "1.0.0.0",
-		"author": "",
+		"author": "Shawn Taylor",
 		"authorEmail": "",
-		"authorWebsite": "",
+		"authorWebsite": "https://mapsandapps.itch.io/",
 		"appId": "",
 		"pixelRounding": false,
 		"useLoaderLayout": false,
@@ -287,7 +295,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true,

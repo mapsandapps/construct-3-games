@@ -1,6 +1,15 @@
 # My Construct 3 Games Monorepo
 
-Note: you can open these in the [Construct editor](https://editor.construct.net/), but you will need to set up Construct and Chrome to use [folder-based projects](https://www.construct.net/en/forum/construct-3/general-discussion-7/local-file-folder-saves-chrome-147071).
+Note: these games were all created using Construct 3. The code isn't really meant to be human-readable, but rather to be opened in the visual editor. You can open the projects by visiting the [Construct editor](https://editor.construct.net/). You will need a Chromium browser (Chrome, latest Edge, etc.) to view them because I'm using [folder-based saves](https://www.construct.net/en/blogs/construct-official-blog-1/local-file-folder-saves-1555). Since I'm using the paid version of Construct and often surpassing the limits of the free version, you may not be able to make certain changes to the code if you're using the free version.
+
+![Construct visual editor](./construct-editor.png)
+
+## Void Scavenge
+
+A hidden object maze made for [Eggplant Podcast Community Game Jam #1: "Going into the Void"](https://itch.io/jam/eggplant-podcast-community-game-jam/rate/930398)
+
+* Folder: [/void-scavenge](./void-scavenge)
+* [Play on Itch](https://mapsandapps.itch.io/void-scavenge)
 
 ## Thumb War
 
@@ -178,6 +187,7 @@ Check out the other folders
 * ["Silence of the Machines" composed by onemansymphony.bandcamp.com](https://onemansymphony.bandcamp.com) (CC BY 4.0)
 * [Humble 7000 Game Dev Icons Bundle](https://www.humblebundle.com/software/7000-game-dev-icons-software) (purchased)
 * [Heroic UI](https://assetstore.unity.com/packages/2d/gui/icons/heroic-ui-106778#description) by [Rexard](https://assetstore.unity.com/publishers/13229) (purchased)
+* [Humble Game Dev Map & Level Creator Bundle](https://www.humblebundle.com/software/game-dev-map-level-creator-software) (purchased)
 * Fonts
   * [Cookie](https://fonts.google.com/specimen/Cookie) (Open Font License)
   * [Jost](https://fonts.google.com/specimen/Jost) (Open Font License)
@@ -186,6 +196,7 @@ Check out the other folders
   * [Odibee Sans](https://fonts.google.com/specimen/Odibee+Sans) (Open Font License)
   * [Oswald](https://fonts.google.com/specimen/Oswald) (Open Font License)
   * [Poppins](https://fonts.google.com/specimen/Poppins) (Open Font License)
+  * [Righteous](https://fonts.google.com/specimen/Righteous) (Open Font License)
   * [Roboto](https://fonts.google.com/specimen/Roboto) (Open Font License)
   * [Sigmar One](https://fonts.google.com/specimen/Sigmar+One) (Open Font License)
   * [Yusei Magic](https://fonts.google.com/specimen/Yusei+Magic) by Tanukizamurai (Open Font License)
