@@ -107,7 +107,8 @@
 	"layouts": {
 		"items": [
 			"Combat",
-			"Objects"
+			"Objects",
+			"Overworld"
 		],
 		"subfolders": []
 	},
@@ -117,7 +118,7 @@
 			"ePrepForCombat",
 			"eRolls",
 			"eHelpers",
-			"eInit"
+			"eOverworld"
 		],
 		"subfolders": []
 	},
@@ -293,5 +294,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": null
+	"firstLayout": "Overworld"
 }

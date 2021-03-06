@@ -2,33 +2,173 @@
 	"name": "ePrepForCombat",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "FilesLoaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 590613137083487
+		},
+		{
+			"eventType": "variable",
+			"name": "IsInitted",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 210467253603724
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 122742507968870
+					"sid": 756594060876143
 				}
 			],
 			"actions": [
 				{
-					"type": "comment",
-					"text": "TODO: probably shouldn't be doing this with wait for signal, esp. for two signals"
-				},
-				{
-					"id": "wait-for-signal",
-					"objectClass": "System",
-					"sid": 288150915925350,
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 722018435192867,
 					"parameters": {
-						"tag": "\"abilitiesLoaded\""
+						"type": "log",
+						"message": "\"init\""
 					}
 				},
 				{
-					"id": "wait-for-signal",
-					"objectClass": "System",
-					"sid": 980194606100505,
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 332332318693853,
 					"parameters": {
-						"tag": "\"enemiesLoaded\""
+						"tag": "\"abilities\"",
+						"file": "abilities.json"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 796040166027936,
+					"parameters": {
+						"tag": "\"enemies\"",
+						"file": "enemies.json"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 972871065285377,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 343880933245146
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 843902728413999,
+					"parameters": {
+						"tag": "\"abilities\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 479121945834802,
+					"parameters": {
+						"path": "\"abilities\"",
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 485567612783517,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 676585969268135
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 761175098026618,
+					"parameters": {
+						"tag": "\"enemies\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 946695683866388,
+					"parameters": {
+						"path": "\"enemies\"",
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 562131403098894,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 121916775960949
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 708854863018881,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 248852619921662,
+					"parameters": {
+						"variable": "IsInitted"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 453881244972894,
+					"parameters": {
+						"variable": "IsInitted",
+						"value": "true"
 					}
 				},
 				{
