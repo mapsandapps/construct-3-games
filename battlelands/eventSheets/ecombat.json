@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "CurrentEnemy",
 			"type": "string",
-			"initialValue": "Dryad",
+			"initialValue": "Ratling",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -304,14 +304,6 @@
 								"variable": "Damage",
 								"value": "Functions.ParseDice(Ability.DamageRoll)"
 							}
-						},
-						{
-							"callFunction": "TakeDamage",
-							"sid": 753876660996442,
-							"parameters": [
-								"CharacterTakingDamage",
-								"Damage"
-							]
 						}
 					],
 					"sid": 213878302360613
@@ -382,6 +374,21 @@
 						}
 					],
 					"sid": 311188751874758
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "TakeDamage",
+							"sid": 983660610226632,
+							"parameters": [
+								"CharacterTakingDamage",
+								"Damage"
+							]
+						}
+					],
+					"sid": 255257837991738
 				}
 			]
 		},
@@ -441,7 +448,31 @@
 							"sid": 263295434213226
 						}
 					],
-					"sid": 595618893551063
+					"sid": 595618893551063,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 876333774019212,
+									"parameters": {
+										"first-value": "Player.CurrentHP",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PlayerDies",
+									"sid": 300789588670671
+								}
+							],
+							"sid": 973397490765494
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -472,7 +503,31 @@
 							"sid": 967507585850578
 						}
 					],
-					"sid": 628157594835834
+					"sid": 628157594835834,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 788155578569189,
+									"parameters": {
+										"first-value": "Enemy.CurrentHP",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "EnemyDies",
+									"sid": 597444235288387
+								}
+							],
+							"sid": 281106736026725
+						}
+					]
 				}
 			]
 		},
@@ -593,6 +648,96 @@
 				}
 			],
 			"sid": 687586611543011
+		},
+		{
+			"functionName": "PlayerDies",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 749266299095172,
+					"parameters": {
+						"variable": "IsPlayerTurn",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 700352390303312,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 782057841681594,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Combat Log\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "Text",
+							"sid": 281957310477487,
+							"parameters": {
+								"text": "\"You were defeated by the \" & Enemy.Name & \".\" & newline"
+							}
+						}
+					],
+					"sid": 569398171274606
+				}
+			]
+		},
+		{
+			"functionName": "EnemyDies",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 665859488933097,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 153310594514998,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Combat Log\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "Text",
+							"sid": 640899064737063,
+							"parameters": {
+								"text": "\"You defeated the \" & Enemy.Name & \"!\" & newline"
+							}
+						}
+					],
+					"sid": 988492818688334
+				}
+			]
 		}
 	],
 	"sid": 772248937910943
