@@ -2,8 +2,176 @@
 	"name": "eCombat",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "IsPlayerTurn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 915269375265163
+		},
+		{
+			"eventType": "variable",
+			"name": "PlayerMaxHP",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 236734481628179
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "ePrepForCombat"
+		},
+		{
+			"functionName": "SetPlayerHPText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "HPText",
+					"sid": 171148001280354,
+					"parameters": {
+						"instance-variable": "BelongsTo",
+						"comparison": 0,
+						"value": "\"Player\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "HPText",
+					"sid": 849708104531887,
+					"parameters": {
+						"text": "Player.CurrentHP & \"/\" & Player.MaxHP"
+					}
+				}
+			],
+			"sid": 522305430009462
+		},
+		{
+			"functionName": "SetEnemyHPText",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "HPText",
+					"sid": 787437801732342,
+					"parameters": {
+						"instance-variable": "BelongsTo",
+						"comparison": 0,
+						"value": "\"Enemy\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "HPText",
+					"sid": 576035149082923,
+					"parameters": {
+						"text": "Enemy.CurrentHP & \"/\" & Enemy.MaxHP"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 704158261681582,
+					"parameters": {
+						"type": "log",
+						"message": "Enemy.CurrentHP"
+					}
+				}
+			],
+			"sid": 957819218971085
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 989295156157393,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 795640469429975,
+					"parameters": {
+						"variable": "IsPlayerTurn"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 377300971435442,
+					"parameters": {
+						"object": "AbilityButton"
+					}
+				},
+				{
+					"id": "is-animation-playing",
+					"objectClass": "AbilityButton",
+					"sid": 756866748475381,
+					"parameters": {
+						"animation": "\"Full\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 121693036853967,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "AbilityBeingUsed",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 203282177335103
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 715571023703848,
+							"parameters": {
+								"variable": "AbilityBeingUsed",
+								"value": "Functions.GetAbilityBeingUsed(AbilityButton.Slot)"
+							}
+						},
+						{
+							"callFunction": "UseAbility",
+							"sid": 364995661425398,
+							"parameters": [
+								"AbilityBeingUsed",
+								"\"Player\""
+							]
+						}
+					],
+					"sid": 378569578251367
+				}
+			]
 		}
 	],
 	"sid": 772248937910943

@@ -268,6 +268,7 @@
 						"Ability2": "",
 						"Ability3": "",
 						"Ability4": "",
+						"CurrentHP": 0,
 						"Level": 1,
 						"MaxHP": 30,
 						"RollForMaxHP": "0d20+30"
@@ -275,6 +276,132 @@
 					"behaviors": {},
 					"world": {
 						"x": 224,
+						"y": 288,
+						"width": 256,
+						"height": 256,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "HPText",
+					"properties": {
+						"text": "0/0",
+						"enable-bbcode": true,
+						"font": "LeagueSpartan-Bold",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top"
+					},
+					"uid": 13,
+					"instanceVariables": {
+						"BelongsTo": "Player"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 224,
+						"y": 128,
+						"width": 192,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "HPText",
+					"properties": {
+						"text": "0/0",
+						"enable-bbcode": true,
+						"font": "LeagueSpartan-Bold",
+						"size": 20,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top"
+					},
+					"uid": 14,
+					"instanceVariables": {
+						"BelongsTo": "Enemy"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 800,
+						"y": 128,
+						"width": 192,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 5,
+					"instanceVariables": {
+						"Ability1": "Club",
+						"Ability2": "",
+						"Ability3": "",
+						"Ability4": "",
+						"CurrentHP": 0,
+						"Level": 1,
+						"MaxHP": 0,
+						"RollForMaxHP": "3d10+12"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 800,
 						"y": 288,
 						"width": 256,
 						"height": 256,

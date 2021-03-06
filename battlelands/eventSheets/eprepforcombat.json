@@ -18,6 +18,10 @@
 				{
 					"callFunction": "PrepEnemy",
 					"sid": 843539795451381
+				},
+				{
+					"callFunction": "PrepPlayer",
+					"sid": 882758867449405
 				}
 			],
 			"sid": 186040442247670
@@ -243,32 +247,68 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "create-object-by-name",
-					"objectClass": "System",
-					"sid": 226747280656156,
-					"parameters": {
-						"object-name": "\"Ratling\"",
-						"layer": "\"Entities\"",
-						"x": "800",
-						"y": "288",
-						"create-hierarchy": false
-					}
-				},
-				{
 					"type": "comment",
-					"text": "TODO: generalize this for any enemy"
+					"text": "TODO: enemy maxHP should actually be determined when spawning on the world map (if flee gets implemented)"
 				},
 				{
 					"id": "set-instvar-value",
-					"objectClass": "Ratling",
+					"objectClass": "Enemy",
 					"sid": 785106727606797,
 					"parameters": {
 						"instance-variable": "MaxHP",
-						"value": "Functions.ParseDice(Ratling.RollForMaxHP)"
+						"value": "Functions.ParseDice(Enemy.RollForMaxHP)"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 446725120103314,
+					"parameters": {
+						"instance-variable": "CurrentHP",
+						"value": "Enemy.MaxHP"
+					}
+				},
+				{
+					"callFunction": "SetEnemyHPText",
+					"sid": 673044561866638
 				}
 			],
 			"sid": 843400195196978
+		},
+		{
+			"functionName": "PrepPlayer",
+			"functionDescription": "",
+			"functionCategory": "PrepForCombat",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 927157600896400,
+					"parameters": {
+						"instance-variable": "MaxHP",
+						"value": "PlayerMaxHP"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 752415030927227,
+					"parameters": {
+						"instance-variable": "CurrentHP",
+						"value": "Player.MaxHP"
+					}
+				},
+				{
+					"callFunction": "SetPlayerHPText",
+					"sid": 233937506468058
+				}
+			],
+			"sid": 438226974376687
 		}
 	],
 	"sid": 590417324907145

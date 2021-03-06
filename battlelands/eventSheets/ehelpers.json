@@ -1,0 +1,391 @@
+{
+	"name": "eHelpers",
+	"events": [
+		{
+			"functionName": "GetAbilityBeingUsed",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 521979744034351
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 396161110138362,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 879376370346898,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 816502557707305,
+							"parameters": {
+								"value": "Player.Ability1"
+							}
+						}
+					],
+					"sid": 208986756496595
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 949715177149649,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 580377149990784,
+							"parameters": {
+								"value": "Player.Ability2"
+							}
+						}
+					],
+					"sid": 734471448326301
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 994828126610800,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 234285719629323,
+							"parameters": {
+								"value": "Player.Ability3"
+							}
+						}
+					],
+					"sid": 955619903325607
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 445641241557497,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 641574439986768,
+							"parameters": {
+								"value": "Player.Ability4"
+							}
+						}
+					],
+					"sid": 992395191168508
+				}
+			]
+		},
+		{
+			"functionName": "UseAbility",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Ability",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 177971052130510
+				},
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 150667746012859
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 505024504528205,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "IsBasicAttack",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 117540557075692
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "BasicAttack",
+							"sid": 174508552505694,
+							"parameters": [
+								"Caster"
+							]
+						}
+					],
+					"sid": 567554225843951
+				}
+			]
+		},
+		{
+			"functionName": "BasicAttack",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 543889386247083
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 638469786085642,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "DamageRoll",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 798323516513054
+				},
+				{
+					"eventType": "variable",
+					"name": "CharacterTakingDamage",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 639246437848545
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 151423032203943,
+							"parameters": {
+								"variable": "Caster",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 747991743316822,
+							"parameters": {
+								"variable": "CharacterTakingDamage",
+								"value": "\"Enemy\""
+							}
+						}
+					],
+					"sid": 753201922630949
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 424458251773411
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 320270703610905,
+							"parameters": {
+								"variable": "CharacterTakingDamage",
+								"value": "\"Player\""
+							}
+						}
+					],
+					"sid": 445902764969491
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 313454350233407,
+							"parameters": {
+								"variable": "DamageRoll",
+								"value": "Club.DamageRoll"
+							}
+						},
+						{
+							"callFunction": "TakeDamage",
+							"sid": 912075570505753,
+							"parameters": [
+								"CharacterTakingDamage",
+								"Functions.ParseDice(DamageRoll)"
+							]
+						}
+					],
+					"sid": 646744301570003
+				}
+			]
+		},
+		{
+			"functionName": "TakeDamage",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Character",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 709029003585657
+				},
+				{
+					"name": "Damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 833276158252624
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 310753636017706,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 923895575125301,
+							"parameters": {
+								"variable": "Character",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 654533775219930,
+							"parameters": {
+								"instance-variable": "CurrentHP",
+								"value": "max(0, Player.CurrentHP - Damage)"
+							}
+						},
+						{
+							"callFunction": "SetPlayerHPText",
+							"sid": 263295434213226
+						}
+					],
+					"sid": 595618893551063
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 407154079398723,
+							"parameters": {
+								"variable": "Character",
+								"comparison": 0,
+								"value": "\"Enemy\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 322599751624221,
+							"parameters": {
+								"instance-variable": "CurrentHP",
+								"value": "max(0, Enemy.CurrentHP - Damage)"
+							}
+						},
+						{
+							"callFunction": "SetEnemyHPText",
+							"sid": 967507585850578
+						}
+					],
+					"sid": 628157594835834
+				}
+			]
+		}
+	],
+	"sid": 510339625128563
+}

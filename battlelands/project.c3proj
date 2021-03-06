@@ -29,13 +29,31 @@
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
 		}
 	],
 	"uniqueId": "3m04ct1bo8p",
 	"objectTypes": {
 		"items": [
 			"Player",
-			"AbilityButton"
+			"AbilityButton",
+			"HPText",
+			"Enemy"
 		],
 		"subfolders": [
 			{
@@ -56,14 +74,8 @@
 			},
 			{
 				"items": [
-					"Ratling"
-				],
-				"subfolders": [],
-				"name": "Enemies"
-			},
-			{
-				"items": [
-					"Browser"
+					"Browser",
+					"Touch"
 				],
 				"subfolders": [],
 				"name": "Base"
@@ -90,7 +102,8 @@
 		"items": [
 			"eCombat",
 			"ePrepForCombat",
-			"eRolls"
+			"eRolls",
+			"eHelpers"
 		],
 		"subfolders": []
 	},
@@ -112,7 +125,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "LeagueSpartan-Bold.otf",
+					"type": "application/font-sfnt",
+					"sid": 123483079447159
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
