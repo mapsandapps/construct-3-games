@@ -1,5 +1,1021 @@
 {
 	"name": "eOverworld",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 427145585884264
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 935840479640123,
+					"parameters": {
+						"tag": "\"map\"",
+						"file": "map0.json"
+					}
+				}
+			],
+			"sid": 217193418345311,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 442184348570872,
+							"parameters": {
+								"key": "\"none\"",
+								"value": "0"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 213938780095131,
+							"parameters": {
+								"key": "\"n\"",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 415107831544208,
+							"parameters": {
+								"key": "\"e\"",
+								"value": "2"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 632932143168220,
+							"parameters": {
+								"key": "\"s\"",
+								"value": "3"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 288666910256333,
+							"parameters": {
+								"key": "\"w\"",
+								"value": "4"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 996040247825779,
+							"parameters": {
+								"key": "\"ne\"",
+								"value": "5"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 942621534504804,
+							"parameters": {
+								"key": "\"ns\"",
+								"value": "6"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 169025411754122,
+							"parameters": {
+								"key": "\"nw\"",
+								"value": "7"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 852481861902455,
+							"parameters": {
+								"key": "\"es\"",
+								"value": "8"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 544181630221702,
+							"parameters": {
+								"key": "\"ew\"",
+								"value": "9"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 908727886589106,
+							"parameters": {
+								"key": "\"sw\"",
+								"value": "10"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 230707586733139,
+							"parameters": {
+								"key": "\"nes\"",
+								"value": "11"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 307984622221217,
+							"parameters": {
+								"key": "\"new\"",
+								"value": "12"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 471131368483909,
+							"parameters": {
+								"key": "\"nsw\"",
+								"value": "13"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 666962071069530,
+							"parameters": {
+								"key": "\"esw\"",
+								"value": "14"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "RoomFramesDict",
+							"sid": 991830989105952,
+							"parameters": {
+								"key": "\"nesw\"",
+								"value": "15"
+							}
+						}
+					],
+					"sid": 870265584995551
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 939236531807604,
+					"parameters": {
+						"tag": "\"map\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 670841457644110,
+					"parameters": {
+						"path": "\"rooms\"",
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 204396099014669,
+					"parameters": {
+						"type": "log",
+						"message": "ViewportWidth(\"RoomSprite\")"
+					}
+				}
+			],
+			"sid": 199239043155526,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 244740754105658,
+							"parameters": {
+								"count": "JSON.ArraySize(\"rooms\")"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DrawRoom",
+							"sid": 237278944234488,
+							"parameters": [
+								"JSON.Get(\"rooms.\" & loopindex & \".biome\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".doorsString\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".isEntrance\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".x\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".y\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".doors.north\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".doors.east\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".doors.south\")",
+								"JSON.Get(\"rooms.\" & loopindex & \".doors.west\")"
+							]
+						}
+					],
+					"sid": 955537386105667
+				}
+			]
+		},
+		{
+			"functionName": "DrawRoom",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Biome",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 333772819303609
+				},
+				{
+					"name": "DoorsString",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 877980368930140
+				},
+				{
+					"name": "IsEntrance",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 503610769976253
+				},
+				{
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 287987227484268
+				},
+				{
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 639262961339707
+				},
+				{
+					"name": "HasNorthDoor",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 562869964373803
+				},
+				{
+					"name": "HasEastDoor",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 205228601849511
+				},
+				{
+					"name": "HasSouthDoor",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 110197309015725
+				},
+				{
+					"name": "HasWestDoor",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 387592903708918
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 548825517244222,
+					"parameters": {
+						"type": "log",
+						"message": "DoorsString"
+					}
+				}
+			],
+			"sid": 433536461002698,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "XPos",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 820575722841933
+				},
+				{
+					"eventType": "variable",
+					"name": "YPos",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 240118532941414
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 291706824186034,
+							"parameters": {
+								"variable": "XPos",
+								"value": "X * ViewportWidth(\"Rooms\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 654825930770069,
+							"parameters": {
+								"variable": "YPos",
+								"value": "Y * ViewportHeight(\"Rooms\")"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 847938457434730,
+							"parameters": {
+								"object-to-create": "RoomSprite",
+								"layer": "\"Rooms\"",
+								"x": "XPos",
+								"y": "YPos",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "RoomSprite",
+							"sid": 940309178089329,
+							"parameters": {
+								"frame-number": "RoomFramesDict.Get(DoorsString)"
+							}
+						}
+					],
+					"sid": 140174416808893
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 449798782960583,
+							"parameters": {
+								"variable": "IsEntrance",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Player",
+							"sid": 679847875865324,
+							"parameters": {
+								"x": "XPos + ViewportWidth(\"Rooms\") / 2",
+								"y": "YPos + ViewportHeight(\"Rooms\") / 2"
+							}
+						},
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 532495505231201,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"sid": 386797041451619
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 121893356215101,
+							"parameters": {
+								"variable": "HasNorthDoor",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 212670468330581,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 797752638442151,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos",
+										"y": "YPos",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 729545821509563,
+									"parameters": {
+										"width": "432",
+										"height": "64"
+									}
+								}
+							],
+							"sid": 270587191940116
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 177773080532986,
+									"parameters": {
+										"object-to-create": "Door",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 432",
+										"y": "YPos",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Door",
+									"sid": 624587417142620,
+									"parameters": {
+										"width": "416",
+										"height": "32"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door",
+									"sid": 773261552611940,
+									"parameters": {
+										"instance-variable": "Side",
+										"value": "\"North\""
+									}
+								}
+							],
+							"sid": 999524976106388
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 505178998690137,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 848",
+										"y": "YPos",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 573438158094405,
+									"parameters": {
+										"width": "432",
+										"height": "64"
+									}
+								}
+							],
+							"sid": 800851940419552
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 454004045901442
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 704182228914428,
+							"parameters": {
+								"object-to-create": "Wall",
+								"layer": "\"Rooms\"",
+								"x": "XPos",
+								"y": "YPos",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Wall",
+							"sid": 202534789507941,
+							"parameters": {
+								"width": "1280",
+								"height": "64"
+							}
+						}
+					],
+					"sid": 619766187145564
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 878273973173556,
+							"parameters": {
+								"variable": "HasEastDoor",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 159277492835964,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 855528300832746,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 1216",
+										"y": "YPos",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 676692778706538,
+									"parameters": {
+										"width": "64",
+										"height": "160"
+									}
+								}
+							],
+							"sid": 727665563701201
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 107631103006745,
+									"parameters": {
+										"object-to-create": "Door",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 1248",
+										"y": "YPos + 160",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Door",
+									"sid": 147642675552606,
+									"parameters": {
+										"width": "32",
+										"height": "400"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door",
+									"sid": 966675154225308,
+									"parameters": {
+										"instance-variable": "Side",
+										"value": "\"East\""
+									}
+								}
+							],
+							"sid": 724276722312514
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 751198925312065,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 1216",
+										"y": "YPos + 560",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 739203121560129,
+									"parameters": {
+										"width": "64",
+										"height": "160"
+									}
+								}
+							],
+							"sid": 954454415312616
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 222698672896866
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 108848549994461,
+							"parameters": {
+								"object-to-create": "Wall",
+								"layer": "\"Rooms\"",
+								"x": "XPos + 1216",
+								"y": "YPos",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Wall",
+							"sid": 955293901333179,
+							"parameters": {
+								"width": "64",
+								"height": "720"
+							}
+						}
+					],
+					"sid": 196446789899388
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 318482256752603,
+							"parameters": {
+								"variable": "HasSouthDoor",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 296614373557919,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 740540937485095,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos",
+										"y": "YPos + 656",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 511102679446094,
+									"parameters": {
+										"width": "432",
+										"height": "64"
+									}
+								}
+							],
+							"sid": 872377023779931
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 273069268530232,
+									"parameters": {
+										"object-to-create": "Door",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 432",
+										"y": "YPos + 688",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Door",
+									"sid": 141853632001850,
+									"parameters": {
+										"width": "416",
+										"height": "32"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door",
+									"sid": 190287680888457,
+									"parameters": {
+										"instance-variable": "Side",
+										"value": "\"South\""
+									}
+								}
+							],
+							"sid": 629525002082922
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 709952231937253,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos + 848",
+										"y": "YPos + 656",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 612990176742823,
+									"parameters": {
+										"width": "432",
+										"height": "64"
+									}
+								}
+							],
+							"sid": 144235049798478
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 484212059498010
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 735393896954306,
+							"parameters": {
+								"object-to-create": "Wall",
+								"layer": "\"Rooms\"",
+								"x": "XPos",
+								"y": "YPos + 656",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Wall",
+							"sid": 144736122143554,
+							"parameters": {
+								"width": "1280",
+								"height": "64"
+							}
+						}
+					],
+					"sid": 744395328739234
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 397446341011295,
+							"parameters": {
+								"variable": "HasWestDoor",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 535530585899728,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 280225149297174,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos",
+										"y": "YPos",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 197795450190216,
+									"parameters": {
+										"width": "64",
+										"height": "160"
+									}
+								}
+							],
+							"sid": 612446454332971
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 170494292094239,
+									"parameters": {
+										"object-to-create": "Door",
+										"layer": "\"Rooms\"",
+										"x": "XPos",
+										"y": "YPos + 160",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Door",
+									"sid": 186076112130676,
+									"parameters": {
+										"width": "32",
+										"height": "400"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Door",
+									"sid": 605150379613887,
+									"parameters": {
+										"instance-variable": "Side",
+										"value": "\"West\""
+									}
+								}
+							],
+							"sid": 597848734365175
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 282757615042689,
+									"parameters": {
+										"object-to-create": "Wall",
+										"layer": "\"Rooms\"",
+										"x": "XPos",
+										"y": "YPos + 560",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Wall",
+									"sid": 934187593276413,
+									"parameters": {
+										"width": "64",
+										"height": "160"
+									}
+								}
+							],
+							"sid": 862678880673608
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 345293966070931
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 532822139039679,
+							"parameters": {
+								"object-to-create": "Wall",
+								"layer": "\"Rooms\"",
+								"x": "XPos",
+								"y": "YPos",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Wall",
+							"sid": 279025819763230,
+							"parameters": {
+								"width": "64",
+								"height": "720"
+							}
+						}
+					],
+					"sid": 729905479641425
+				}
+			]
+		}
+	],
 	"sid": 695284905485469
 }

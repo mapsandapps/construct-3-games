@@ -61,6 +61,22 @@
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
 		}
 	],
 	"uniqueId": "3m04ct1bo8p",
@@ -93,6 +109,16 @@
 				],
 				"subfolders": [],
 				"name": "Base"
+			},
+			{
+				"items": [
+					"RoomSprite",
+					"Door",
+					"RoomFramesDict",
+					"Wall"
+				],
+				"subfolders": [],
+				"name": "Overworld"
 			}
 		]
 	},
@@ -107,8 +133,8 @@
 	"layouts": {
 		"items": [
 			"Combat",
-			"Objects",
-			"Overworld"
+			"Overworld",
+			"Objects"
 		],
 		"subfolders": []
 	},
@@ -233,7 +259,19 @@
 					"sid": 775402703176089
 				}
 			],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "map0.json",
+							"type": "application/json",
+							"sid": 761069032331344
+						}
+					],
+					"subfolders": [],
+					"name": "maps"
+				}
+			]
 		}
 	},
 	"timelines": {
