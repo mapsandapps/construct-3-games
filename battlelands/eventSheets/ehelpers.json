@@ -18,7 +18,17 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 848527826018011,
+					"parameters": {
+						"type": "log",
+						"message": "Player.Ability1"
+					}
+				}
+			],
 			"sid": 396161110138362,
 			"children": [
 				{
@@ -51,6 +61,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 199337306002651
+						},
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "AbilityButton",
 							"sid": 949715177149649,
@@ -77,6 +92,11 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 972300604622727
+						},
+						{
 							"id": "compare-instance-variable",
 							"objectClass": "AbilityButton",
 							"sid": 994828126610800,
@@ -102,6 +122,11 @@
 				{
 					"eventType": "block",
 					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 986353169610051
+						},
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "AbilityButton",
@@ -199,6 +224,101 @@
 				}
 			],
 			"sid": 957819218971085
+		},
+		{
+			"functionName": "ReplaceCombatLogVariables",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 182575981613112
+				},
+				{
+					"name": "CombatLogText",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 256183524290284
+				},
+				{
+					"name": "Damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 617794880208074
+				},
+				{
+					"name": "Opponent",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 603064589447658
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 374350683525861,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "TextToReturn",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 727025489293178
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 846895752024614,
+							"parameters": {
+								"variable": "TextToReturn",
+								"value": "RegexReplace(CombatLogText, \"%C\", \"gi\", Caster)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 750153520885625,
+							"parameters": {
+								"variable": "TextToReturn",
+								"value": "RegexReplace(TextToReturn, \"%O\", \"gi\", Opponent)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 217733589994679,
+							"parameters": {
+								"variable": "TextToReturn",
+								"value": "RegexReplace(TextToReturn, \"%D\", \"gi\", str(Damage))"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 922464181455151,
+							"parameters": {
+								"value": "TextToReturn"
+							}
+						}
+					],
+					"sid": 964871138983843
+				}
+			]
 		}
 	],
 	"sid": 510339625128563

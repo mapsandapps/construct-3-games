@@ -24,6 +24,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
@@ -53,14 +61,6 @@
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
 		}
 	],
 	"uniqueId": "3m04ct1bo8p",
@@ -77,7 +77,9 @@
 				"items": [
 					"Background",
 					"FrameCombat",
-					"Temp"
+					"Temp",
+					"Text",
+					"framecombatlog"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -142,6 +144,16 @@
 					"name": "LeagueSpartan-Bold.otf",
 					"type": "application/font-sfnt",
 					"sid": 123483079447159
+				},
+				{
+					"name": "Metamorphous-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 548491704660566
+				},
+				{
+					"name": "LeagueSpartan-VF.ttf",
+					"type": "application/font-sfnt",
+					"sid": 369697497847350
 				}
 			],
 			"subfolders": []

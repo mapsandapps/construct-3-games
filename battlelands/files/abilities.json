@@ -1,72 +1,102 @@
 {
   "Sleep": {
+    "combatLogCast": "%C casts Sleep.",
+    "combatLogProc": "%O is unable to attack because they are asleep.",
     "damageRoll": null,
     "duration": 1,
     "isBasicAttack": false,
     "name": "Sleep",
+    "description": "Your opponent may not attack on their next turn.",
     "animationFrame": 0
   },
   "Poison Barb": {
+    "combatLogCast": "%C casts Poison Barb.",
+    "combatLogProc": "%O takes %d damage from Poison Barb.",
     "damageRoll": null,
     "duration": 3,
     "isBasicAttack": false,
     "name": "Poison Barb",
+    "description": "If successful, your opponent will be poisoned. They will take damage at the start of each of their next 3 turns.",
     "animationFrame": 1
   },
   "Invisibility": {
+    "combatLogCast": "%C becomes invisible.",
+    "combatLogProc": "The attack misses because %c is invisible!",
     "damageRoll": null,
     "duration": null,
     "isBasicAttack": false,
     "name": "Invisibility",
+    "description": "You turn invisible until your next attack. While invisible, attacks against you are less likely to succeed.",
     "animationFrame": 2
   },
   "Barkskin": {
+    "combatLogCast": "%C gains barkskin.",
+    "combatLogProc": "The attack is reduced because of barkskin.",
     "damageRoll": null,
     "duration": null,
     "isBasicAttack": false,
     "name": "Barkskin",
+    "description": "Until combat ends, damage against you is reduced.",
     "animationFrame": 3
   },
   "Charm": {
+    "combatLogCast": "%C casts Charm.",
+    "combatLogProc": "%O is unable to attack because they are charmed.",
     "damageRoll": null,
     "duration": null,
     "isBasicAttack": false,
     "name": "Charm",
+    "description": "Your opponent may not attack on their next 1 or more turns.",
     "animationFrame": 4
   },
   "Bite": {
+    "combatLogCast": null,
+    "combatLogProc": "%C bites %o for %d HP!",
     "damageRoll": "1d4+2&5L",
     "duration": null,
     "isBasicAttack": true,
     "name": "Bite",
+    "description": "Melee attack: A powerful chomp to your opponent.",
     "animationFrame": 5
   },
   "Sting": {
+    "combatLogCast": null,
+    "combatLogProc": "%C stings %o for %d HP!",
     "damageRoll": "3d2&5L",
     "duration": null,
     "isBasicAttack": true,
     "name": "Sting",
+    "description": "Melee attack: A striking sting.",
     "animationFrame": 6
   },
   "Claw": {
+    "combatLogCast": null,
+    "combatLogProc": "%C claws %o for %d HP!",
     "damageRoll": "2d4&5L",
     "duration": null,
     "isBasicAttack": true,
     "name": "Claw",
+    "description": "Melee attack: A strong but inconsistent slashing claw.",
     "animationFrame": 7
   },
   "Longsword": {
+    "combatLogCast": null,
+    "combatLogProc": "%C strikes %o for %d HP!",
     "damageRoll": "5&5L",
     "duration": null,
     "isBasicAttack": true,
     "name": "Longsword",
+    "description": "Melee attack: A consistent strike.",
     "animationFrame": 8
   },
   "Club": {
+    "combatLogCast": null,
+    "combatLogProc": "%C clubs %o for %d HP!",
     "damageRoll": "1d8&5L",
     "duration": null,
     "isBasicAttack": true,
     "name": "Club",
+    "description": "Melee attack: An unwieldy but powerful strike.",
     "animationFrame": 9
   }
 }

@@ -85,44 +85,17 @@
 					}
 				}
 			],
-			"actions": [],
-			"sid": 121693036853967,
-			"children": [
+			"actions": [
 				{
-					"eventType": "variable",
-					"name": "AbilityBeingUsed",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 203282177335103
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 715571023703848,
-							"parameters": {
-								"variable": "AbilityBeingUsed",
-								"value": "Functions.GetAbilityBeingUsed(AbilityButton.Slot)"
-							}
-						},
-						{
-							"callFunction": "UseAbility",
-							"sid": 364995661425398,
-							"parameters": [
-								"AbilityBeingUsed",
-								"\"Player\""
-							]
-						}
-					],
-					"sid": 378569578251367
+					"callFunction": "UseAbility",
+					"sid": 187920739872799,
+					"parameters": [
+						"Functions.GetAbilityBeingUsed(AbilityButton.Slot)",
+						"\"Player\""
+					]
 				}
-			]
+			],
+			"sid": 121693036853967
 		},
 		{
 			"functionName": "UseAbility",
@@ -132,7 +105,7 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "Ability",
+					"name": "AbilityName",
 					"type": "string",
 					"initialValue": "",
 					"comment": "",
@@ -204,9 +177,11 @@
 					"actions": [
 						{
 							"callFunction": "BasicAttack",
-							"sid": 174508552505694,
+							"sid": 463539636107141,
 							"parameters": [
-								"Caster"
+								"AbilityName",
+								"Caster",
+								"JSON.Get(\"abilities.\" & AbilityName & \".damageRoll\")"
 							]
 						}
 					],
@@ -222,11 +197,25 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
+					"name": "AttackName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 189419425479864
+				},
+				{
 					"name": "Caster",
 					"type": "string",
 					"initialValue": "",
 					"comment": "",
 					"sid": 543889386247083
+				},
+				{
+					"name": "DamageRoll",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 645420139882324
 				}
 			],
 			"eventType": "function-block",
@@ -243,6 +232,16 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 639246437848545
+				},
+				{
+					"eventType": "variable",
+					"name": "Damage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 124277059018778
 				},
 				{
 					"eventType": "block",
@@ -298,15 +297,91 @@
 					"conditions": [],
 					"actions": [
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 431192535619493,
+							"parameters": {
+								"variable": "Damage",
+								"value": "Functions.ParseDice(Ability.DamageRoll)"
+							}
+						},
+						{
 							"callFunction": "TakeDamage",
-							"sid": 819819626758557,
+							"sid": 753876660996442,
 							"parameters": [
 								"CharacterTakingDamage",
-								"Functions.ParseDice(Ability.DamageRoll)"
+								"Damage"
 							]
 						}
 					],
-					"sid": 646744301570003
+					"sid": 213878302360613
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 240117541699222,
+							"parameters": {
+								"variable": "Caster",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 530989381958940,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Combat Log\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "Text",
+							"sid": 328212279499192,
+							"parameters": {
+								"text": "Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Enemy.Name) & newline"
+							}
+						}
+					],
+					"sid": 557497428511977
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 760598115113732
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Text",
+							"sid": 351180654404073,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Combat Log\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "Text",
+							"sid": 817522365408553,
+							"parameters": {
+								"text": "Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Player.Name) & newline"
+							}
+						}
+					],
+					"sid": 311188751874758
 				}
 			]
 		},
