@@ -2,6 +2,10 @@
 	"name": "eOverworld",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "eMovement"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -11,6 +15,24 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 583885562912352,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 468502976991961,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"enabled": true
+					}
+				},
 				{
 					"id": "request-project-file",
 					"objectClass": "AJAX",

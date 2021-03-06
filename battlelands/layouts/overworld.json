@@ -115,7 +115,35 @@
 						"MaxHP": 30,
 						"Name": "Player"
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"MoveTo": {
+							"properties": {
+								"max-speed": 1000,
+								"acceleration": 1200,
+								"deceleration": 2000,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						},
+						"8Direction": {
+							"properties": {
+								"max-speed": 1000,
+								"acceleration": 1200,
+								"deceleration": 2000,
+								"directions": "dir-8",
+								"set-angle": "no",
+								"default-controls": true,
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 130,
 						"y": 130,

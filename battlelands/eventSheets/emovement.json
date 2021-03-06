@@ -1,0 +1,311 @@
+{
+	"name": "eMovement",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 500896260618276,
+					"parameters": {
+						"object": "Door"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Player",
+					"sid": 130769131484585,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 359681991315863,
+					"behaviorType": "8Direction"
+				},
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 970687337649544,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 545711153996237,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 822724332263927,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"enabled": false
+					}
+				}
+			],
+			"sid": 241596709451319,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Door",
+							"sid": 995950222152426,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"North\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Player",
+							"sid": 549910272056612,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Player.Y - 128",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "scroll-to-y",
+							"objectClass": "System",
+							"sid": 460483724083595,
+							"parameters": {
+								"y": "scrolly - ViewportHeight(\"Rooms\")"
+							}
+						}
+					],
+					"sid": 437273342935590
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Door",
+							"sid": 200920143410205,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"East\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Player",
+							"sid": 394619231619575,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Player.X + 128",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "scroll-to-x",
+							"objectClass": "System",
+							"sid": 712874780703854,
+							"parameters": {
+								"x": "scrollx + ViewportWidth(\"Rooms\")"
+							}
+						}
+					],
+					"sid": 289125935656136
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Door",
+							"sid": 899145867711891,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"South\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Player",
+							"sid": 333206163254349,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetY",
+								"end-value": "Player.Y + 128",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "scroll-to-y",
+							"objectClass": "System",
+							"sid": 723237379027275,
+							"parameters": {
+								"y": "scrolly + ViewportHeight(\"Rooms\")"
+							}
+						}
+					],
+					"sid": 366735602164673
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Door",
+							"sid": 400863106060871,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"West\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "Player",
+							"sid": 780911949049745,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Player.X - 128",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "scroll-to-x",
+							"objectClass": "System",
+							"sid": 847262391462710,
+							"parameters": {
+								"x": "scrollx - ViewportWidth(\"Rooms\")"
+							}
+						}
+					],
+					"sid": 809257128673296
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 621657860703387
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 734048743507386,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 954599638491004,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": true
+							}
+						}
+					],
+					"sid": 119875288475725
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 952756209776591,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "is-enabled",
+					"objectClass": "Player",
+					"sid": 545611920374374,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "Player",
+					"sid": 552820110243791,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 718230387358594
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 924661434677787,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 562725258765917,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"sid": 761518123266867
+		}
+	],
+	"sid": 834895233265484
+}

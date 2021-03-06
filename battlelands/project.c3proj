@@ -77,6 +77,30 @@
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
 		}
 	],
 	"uniqueId": "3m04ct1bo8p",
@@ -139,14 +163,27 @@
 		"subfolders": []
 	},
 	"eventSheets": {
-		"items": [
-			"eCombat",
-			"ePrepForCombat",
-			"eRolls",
-			"eHelpers",
-			"eOverworld"
-		],
-		"subfolders": []
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"eCombat",
+					"eHelpers",
+					"ePrepForCombat",
+					"eRolls"
+				],
+				"subfolders": [],
+				"name": "Combat"
+			},
+			{
+				"items": [
+					"eMovement",
+					"eOverworld"
+				],
+				"subfolders": [],
+				"name": "Overworld"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {

@@ -66,6 +66,24 @@
 						"variable": "FilesLoaded",
 						"value": "0"
 					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 986890029298601,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 411202505741851,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"enabled": false
+					}
 				}
 			],
 			"sid": 343880933245146
