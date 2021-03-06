@@ -3,6 +3,10 @@
 	"events": [
 		{
 			"eventType": "include",
+			"includeSheet": "eCursor"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "eMovement"
 		},
 		{
@@ -516,10 +520,10 @@
 								{
 									"id": "set-size",
 									"objectClass": "Door",
-									"sid": 624587417142620,
+									"sid": 220040693891126,
 									"parameters": {
 										"width": "416",
-										"height": "32"
+										"height": "64"
 									}
 								},
 								{
@@ -650,11 +654,11 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 107631103006745,
+									"sid": 485052719582699,
 									"parameters": {
 										"object-to-create": "Door",
 										"layer": "\"Rooms\"",
-										"x": "XPos + 1248",
+										"x": "XPos + 1212",
 										"y": "YPos + 160",
 										"create-hierarchy": false
 									}
@@ -662,9 +666,9 @@
 								{
 									"id": "set-size",
 									"objectClass": "Door",
-									"sid": 147642675552606,
+									"sid": 537768495827234,
 									"parameters": {
-										"width": "32",
+										"width": "64",
 										"height": "400"
 									}
 								},
@@ -796,22 +800,22 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 273069268530232,
+									"sid": 837155167568967,
 									"parameters": {
 										"object-to-create": "Door",
 										"layer": "\"Rooms\"",
 										"x": "XPos + 432",
-										"y": "YPos + 688",
+										"y": "YPos + 656",
 										"create-hierarchy": false
 									}
 								},
 								{
 									"id": "set-size",
 									"objectClass": "Door",
-									"sid": 141853632001850,
+									"sid": 683337028868975,
 									"parameters": {
 										"width": "416",
-										"height": "32"
+										"height": "64"
 									}
 								},
 								{
@@ -954,9 +958,9 @@
 								{
 									"id": "set-size",
 									"objectClass": "Door",
-									"sid": 186076112130676,
+									"sid": 283154249799796,
 									"parameters": {
-										"width": "32",
+										"width": "64",
 										"height": "400"
 									}
 								},

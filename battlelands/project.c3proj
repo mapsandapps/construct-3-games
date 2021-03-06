@@ -64,6 +64,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
@@ -119,7 +127,8 @@
 					"FrameCombat",
 					"Temp",
 					"Text",
-					"framecombatlog"
+					"framecombatlog",
+					"Cursor"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -129,7 +138,8 @@
 					"Browser",
 					"Touch",
 					"AJAX",
-					"JSON"
+					"JSON",
+					"Mouse"
 				],
 				"subfolders": [],
 				"name": "Base"
@@ -163,7 +173,9 @@
 		"subfolders": []
 	},
 	"eventSheets": {
-		"items": [],
+		"items": [
+			"eCursor"
+		],
 		"subfolders": [
 			{
 				"items": [
