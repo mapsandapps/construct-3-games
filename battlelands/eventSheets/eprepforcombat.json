@@ -12,6 +12,10 @@
 			],
 			"actions": [
 				{
+					"type": "comment",
+					"text": "TODO: probably shouldn't be doing this with wait for signal, esp. for two signals"
+				},
+				{
 					"id": "wait-for-signal",
 					"objectClass": "System",
 					"sid": 288150915925350,
@@ -28,16 +32,19 @@
 					}
 				},
 				{
-					"callFunction": "PrepAbilitySlots",
-					"sid": 507179409345422
-				},
-				{
 					"callFunction": "PrepEnemy",
-					"sid": 843539795451381
+					"sid": 194704153575767,
+					"parameters": [
+						"CurrentEnemy"
+					]
 				},
 				{
 					"callFunction": "PrepPlayer",
 					"sid": 882758867449405
+				},
+				{
+					"callFunction": "PrepAbilitySlots",
+					"sid": 368528741660499
 				}
 			],
 			"sid": 186040442247670
@@ -66,65 +73,16 @@
 								"comparison": 1,
 								"value": "\"\""
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 654827188951915,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "1"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation",
-							"objectClass": "AbilityButton",
-							"sid": 987607683100259,
-							"parameters": {
-								"animation": "\"Full\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 265383534985866,
-							"parameters": {
-								"object-to-create": "Ability",
-								"layer": "\"Background\"",
-								"x": "AbilityButton.X",
-								"y": "AbilityButton.Y",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Ability",
-							"sid": 954269481800391,
-							"parameters": {
-								"frame-number": "JSON.Get(\"abilities.\" & Player.Ability1 & \".animationFrame\")"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 434790254679194,
-							"parameters": {
-								"type": "log",
-								"message": "Player.Ability1"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Ability",
-							"sid": 700659480497238,
-							"parameters": {
-								"instance-variable": "DamageRoll",
-								"value": "JSON.Get(\"abilities.\" & Player.Ability1 & \".damageRoll\")"
-							}
+							"callFunction": "PrepAbilitySlot",
+							"sid": 704486889739016,
+							"parameters": [
+								"1",
+								"Player.Ability1"
+							]
 						}
 					],
 					"sid": 909377016473386
@@ -141,39 +99,16 @@
 								"comparison": 1,
 								"value": "\"\""
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 755508340033214,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "2"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation",
-							"objectClass": "AbilityButton",
-							"sid": 736785554828811,
-							"parameters": {
-								"animation": "\"Full\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 911052820687657,
-							"parameters": {
-								"object-to-create": "Ability",
-								"layer": "\"Background\"",
-								"x": "AbilityButton.X",
-								"y": "AbilityButton.Y",
-								"create-hierarchy": false
-							}
+							"callFunction": "PrepAbilitySlot",
+							"sid": 361548185512838,
+							"parameters": [
+								"2",
+								"Player.Ability2"
+							]
 						}
 					],
 					"sid": 288244801969988
@@ -190,39 +125,16 @@
 								"comparison": 1,
 								"value": "\"\""
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 252832786136037,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "3"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation",
-							"objectClass": "AbilityButton",
-							"sid": 206569419425101,
-							"parameters": {
-								"animation": "\"Full\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 304309809277002,
-							"parameters": {
-								"object-to-create": "Ability",
-								"layer": "\"Background\"",
-								"x": "AbilityButton.X",
-								"y": "AbilityButton.Y",
-								"create-hierarchy": false
-							}
+							"callFunction": "PrepAbilitySlot",
+							"sid": 288098981603308,
+							"parameters": [
+								"3",
+								"Player.Ability3"
+							]
 						}
 					],
 					"sid": 664597542143182
@@ -239,39 +151,16 @@
 								"comparison": 1,
 								"value": "\"\""
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 544389469894707,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "4"
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-animation",
-							"objectClass": "AbilityButton",
-							"sid": 191956780900318,
-							"parameters": {
-								"animation": "\"Full\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 151119079669447,
-							"parameters": {
-								"object-to-create": "Ability",
-								"layer": "\"Background\"",
-								"x": "AbilityButton.X",
-								"y": "AbilityButton.Y",
-								"create-hierarchy": false
-							}
+							"callFunction": "PrepAbilitySlot",
+							"sid": 133662241137102,
+							"parameters": [
+								"4",
+								"Player.Ability4"
+							]
 						}
 					],
 					"sid": 140774320756721
@@ -284,7 +173,15 @@
 			"functionCategory": "PrepForCombat",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "EnemyName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 875003304612809
+				}
+			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
@@ -295,10 +192,10 @@
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Enemy",
-					"sid": 785106727606797,
+					"sid": 968727959159583,
 					"parameters": {
 						"instance-variable": "MaxHP",
-						"value": "Functions.ParseDice(Enemy.RollForMaxHP)"
+						"value": "Functions.ParseDice(JSON.Get(\"enemies.\" & EnemyName & \".maxHPRoll\"))"
 					}
 				},
 				{
@@ -313,9 +210,172 @@
 				{
 					"callFunction": "SetEnemyHPText",
 					"sid": 673044561866638
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Enemy",
+					"sid": 860516144053994,
+					"parameters": {
+						"frame-number": "JSON.Get(\"enemies.\" & EnemyName & \".animationFrame\")"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 645051826364888,
+					"parameters": {
+						"instance-variable": "Ability1",
+						"value": "JSON.Get(\"enemies.\" & EnemyName & \".abilities.0\")"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 522485671525256,
+					"parameters": {
+						"instance-variable": "Ability2",
+						"value": "JSON.Get(\"enemies.\" & EnemyName & \".abilities.1\")"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 685466945825218,
+					"parameters": {
+						"instance-variable": "Ability3",
+						"value": "JSON.Get(\"enemies.\" & EnemyName & \".abilities.2\")"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 600549537535311,
+					"parameters": {
+						"instance-variable": "Ability4",
+						"value": "JSON.Get(\"enemies.\" & EnemyName & \".abilities.3\")"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 456616615879153,
+					"parameters": {
+						"variable": "NumberOfEnemyAbilities",
+						"value": "0"
+					}
 				}
 			],
-			"sid": 843400195196978
+			"sid": 843400195196978,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 120357088365152,
+							"parameters": {
+								"instance-variable": "Ability1",
+								"comparison": 1,
+								"value": "\"0\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 730605702131728,
+							"parameters": {
+								"variable": "NumberOfEnemyAbilities",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 613853273330891
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 372572142750325,
+							"parameters": {
+								"instance-variable": "Ability2",
+								"comparison": 1,
+								"value": "\"0\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 922740556287950,
+							"parameters": {
+								"variable": "NumberOfEnemyAbilities",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 487269448141013
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 174018234905629,
+							"parameters": {
+								"instance-variable": "Ability3",
+								"comparison": 1,
+								"value": "\"0\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 275708236059087,
+							"parameters": {
+								"variable": "NumberOfEnemyAbilities",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 928515632629329
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 998891278511799,
+							"parameters": {
+								"instance-variable": "Ability4",
+								"comparison": 1,
+								"value": "\"0\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 747267566650240,
+							"parameters": {
+								"variable": "NumberOfEnemyAbilities",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 123295307092059
+				}
+			]
 		},
 		{
 			"functionName": "PrepPlayer",
@@ -351,6 +411,83 @@
 				}
 			],
 			"sid": 438226974376687
+		},
+		{
+			"functionName": "PrepAbilitySlot",
+			"functionDescription": "",
+			"functionCategory": "PrepForCombat",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 404335751852904
+				},
+				{
+					"name": "AbilityName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 905647162543710
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "AbilityButton",
+					"sid": 148103607887095,
+					"parameters": {
+						"instance-variable": "Slot",
+						"comparison": 0,
+						"value": "Slot"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "AbilityButton",
+					"sid": 987607683100259,
+					"parameters": {
+						"animation": "\"Full\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 265383534985866,
+					"parameters": {
+						"object-to-create": "Ability",
+						"layer": "\"Background\"",
+						"x": "AbilityButton.X",
+						"y": "AbilityButton.Y",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Ability",
+					"sid": 553589378208421,
+					"parameters": {
+						"frame-number": "JSON.Get(\"abilities.\" & AbilityName & \".animationFrame\")"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Ability",
+					"sid": 979196964694439,
+					"parameters": {
+						"instance-variable": "DamageRoll",
+						"value": "JSON.Get(\"abilities.\" & AbilityName & \".damageRoll\")"
+					}
+				}
+			],
+			"sid": 911362956284694
 		}
 	],
 	"sid": 590417324907145

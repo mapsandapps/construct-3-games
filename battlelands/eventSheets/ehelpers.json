@@ -128,395 +128,77 @@
 			]
 		},
 		{
-			"functionName": "UseAbility",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Ability",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 177971052130510
-				},
-				{
-					"name": "Caster",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 150667746012859
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 505024504528205,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "IsBasicAttack",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 117540557075692
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 992817203117398,
-							"parameters": {
-								"variable": "IsPlayerTurn"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "EndPlayerTurn",
-							"sid": 457800085804045
-						}
-					],
-					"sid": 431182316619816
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 860833745285222
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "BeginPlayerTurn",
-							"sid": 421876807844890
-						}
-					],
-					"sid": 299219104538996
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "BasicAttack",
-							"sid": 174508552505694,
-							"parameters": [
-								"Caster"
-							]
-						}
-					],
-					"sid": 567554225843951
-				}
-			]
-		},
-		{
-			"functionName": "BasicAttack",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Caster",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 543889386247083
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 638469786085642,
-			"children": [
-				{
-					"eventType": "variable",
-					"name": "CharacterTakingDamage",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 639246437848545
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 151423032203943,
-							"parameters": {
-								"variable": "Caster",
-								"comparison": 0,
-								"value": "\"Player\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 747991743316822,
-							"parameters": {
-								"variable": "CharacterTakingDamage",
-								"value": "\"Enemy\""
-							}
-						}
-					],
-					"sid": 753201922630949
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 424458251773411
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 320270703610905,
-							"parameters": {
-								"variable": "CharacterTakingDamage",
-								"value": "\"Player\""
-							}
-						}
-					],
-					"sid": 445902764969491
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "TakeDamage",
-							"sid": 819819626758557,
-							"parameters": [
-								"CharacterTakingDamage",
-								"Functions.ParseDice(Ability.DamageRoll)"
-							]
-						}
-					],
-					"sid": 646744301570003
-				}
-			]
-		},
-		{
-			"functionName": "TakeDamage",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Character",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 709029003585657
-				},
-				{
-					"name": "Damage",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 833276158252624
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 310753636017706,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 923895575125301,
-							"parameters": {
-								"variable": "Character",
-								"comparison": 0,
-								"value": "\"Player\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Player",
-							"sid": 654533775219930,
-							"parameters": {
-								"instance-variable": "CurrentHP",
-								"value": "max(0, Player.CurrentHP - Damage)"
-							}
-						},
-						{
-							"callFunction": "SetPlayerHPText",
-							"sid": 263295434213226
-						}
-					],
-					"sid": 595618893551063
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 407154079398723,
-							"parameters": {
-								"variable": "Character",
-								"comparison": 0,
-								"value": "\"Enemy\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 322599751624221,
-							"parameters": {
-								"instance-variable": "CurrentHP",
-								"value": "max(0, Enemy.CurrentHP - Damage)"
-							}
-						},
-						{
-							"callFunction": "SetEnemyHPText",
-							"sid": 967507585850578
-						}
-					],
-					"sid": 628157594835834
-				}
-			]
-		},
-		{
-			"functionName": "BeginPlayerTurn",
+			"functionName": "SetPlayerHPText",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
+			"conditions": [
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 894336418033114,
+					"id": "compare-instance-variable",
+					"objectClass": "HPText",
+					"sid": 171148001280354,
 					"parameters": {
-						"variable": "IsPlayerTurn",
-						"value": "true"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "AbilityButton",
-					"sid": 779881574022131,
-					"parameters": {
-						"opacity": "100"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "Ability",
-					"sid": 914471632430023,
-					"parameters": {
-						"opacity": "100"
+						"instance-variable": "BelongsTo",
+						"comparison": 0,
+						"value": "\"Player\""
 					}
 				}
 			],
-			"sid": 688599025958955
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "HPText",
+					"sid": 849708104531887,
+					"parameters": {
+						"text": "Player.CurrentHP & \"/\" & Player.MaxHP"
+					}
+				}
+			],
+			"sid": 522305430009462
 		},
 		{
-			"functionName": "EndPlayerTurn",
+			"functionName": "SetEnemyHPText",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
+			"conditions": [
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 235821678193045,
+					"id": "compare-instance-variable",
+					"objectClass": "HPText",
+					"sid": 787437801732342,
 					"parameters": {
-						"variable": "IsPlayerTurn",
-						"value": "false"
+						"instance-variable": "BelongsTo",
+						"comparison": 0,
+						"value": "\"Enemy\""
 					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "AbilityButton",
-					"sid": 291907635731462,
-					"parameters": {
-						"opacity": "30"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "Ability",
-					"sid": 543664109853206,
-					"parameters": {
-						"opacity": "30"
-					}
-				},
-				{
-					"callFunction": "TakeEnemyTurn",
-					"sid": 469651095172224
 				}
 			],
-			"sid": 176986080249516
-		},
-		{
-			"functionName": "TakeEnemyTurn",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
 			"actions": [
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 198748695884025,
+					"id": "set-text",
+					"objectClass": "HPText",
+					"sid": 576035149082923,
 					"parameters": {
-						"seconds": "1"
+						"text": "Enemy.CurrentHP & \"/\" & Enemy.MaxHP"
 					}
 				},
 				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 201588118623337
-				},
-				{
-					"callFunction": "UseAbility",
-					"sid": 822973693222747,
-					"parameters": [
-						"Enemy.Ability1",
-						"\"Enemy\""
-					]
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 704158261681582,
+					"parameters": {
+						"type": "log",
+						"message": "Enemy.CurrentHP"
+					}
 				}
 			],
-			"sid": 687586611543011
+			"sid": 957819218971085
 		}
 	],
 	"sid": 510339625128563
