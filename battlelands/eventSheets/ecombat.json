@@ -1,5 +1,10 @@
 {
 	"name": "eCombat",
-	"events": [],
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "ePrepForCombat"
+		}
+	],
 	"sid": 772248937910943
 }

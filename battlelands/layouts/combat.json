@@ -2,7 +2,7 @@
 	"name": "Combat",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Background",
 			"overriden": 0,
 			"instances": [
 				{
@@ -39,30 +39,55 @@
 					}
 				},
 				{
-					"type": "Player",
+					"type": "Temp",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 6,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 1280,
+						"height": 736,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.2
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "FrameCombat",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 2,
-					"instanceVariables": {
-						"Ability1": "Club",
-						"Ability2": "",
-						"Ability3": "",
-						"Ability4": "",
-						"Level": 1,
-						"MaxHP": 30,
-						"RollForMaxHP": "0d20+30"
-					},
+					"uid": 11,
+					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 256,
-						"y": 192,
-						"width": 256,
-						"height": 256,
+						"x": 512,
+						"y": 256,
+						"width": 976,
+						"height": 481,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -76,31 +101,117 @@
 					}
 				},
 				{
-					"type": "Enemy",
+					"type": "AbilityButton",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Empty",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 3,
+					"uid": 7,
 					"instanceVariables": {
-						"Ability1": "Club",
-						"Ability2": "",
-						"Ability3": "",
-						"Ability4": "",
-						"Level": 0,
-						"MaxHP": 0,
-						"RollForMaxHP": "",
-						"Name": "Ratling"
+						"Slot": 1
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1024,
-						"y": 192,
-						"width": 256,
-						"height": 256,
+						"x": 128,
+						"y": 608,
+						"width": 180,
+						"height": 180,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "AbilityButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Empty",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"instanceVariables": {
+						"Slot": 2
+					},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 608,
+						"width": 180,
+						"height": 180,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "AbilityButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Empty",
+						"initial-frame": 2,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"instanceVariables": {
+						"Slot": 3
+					},
+					"behaviors": {},
+					"world": {
+						"x": 512,
+						"y": 608,
+						"width": 180,
+						"height": 180,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "AbilityButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Empty",
+						"initial-frame": 3,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 10,
+					"instanceVariables": {
+						"Slot": 4
+					},
+					"behaviors": {},
+					"world": {
+						"x": 704,
+						"y": 608,
+						"width": 180,
+						"height": 180,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -130,6 +241,72 @@
 				1
 			],
 			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Entities",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Player",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 2,
+					"instanceVariables": {
+						"Ability1": "Club",
+						"Ability2": "",
+						"Ability3": "",
+						"Ability4": "",
+						"Level": 1,
+						"MaxHP": 30,
+						"RollForMaxHP": "0d20+30"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 224,
+						"y": 288,
+						"width": 256,
+						"height": 256,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 609405039201346,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,

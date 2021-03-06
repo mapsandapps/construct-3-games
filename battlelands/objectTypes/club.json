@@ -1,52 +1,9 @@
 {
-	"name": "Ability",
+	"name": "Club",
 	"plugin-id": "Sprite",
-	"sid": 420096157605575,
+	"sid": 239465881360380,
 	"isGlobal": false,
-	"instanceVariables": [
-		{
-			"name": "CombatLogForCast",
-			"type": "string",
-			"desc": "",
-			"sid": 887345011108610
-		},
-		{
-			"name": "CombatLogForProc",
-			"type": "string",
-			"desc": "",
-			"sid": 966229295729595
-		},
-		{
-			"name": "DamageRoll",
-			"type": "string",
-			"desc": "",
-			"sid": 991212553088887
-		},
-		{
-			"name": "Description",
-			"type": "string",
-			"desc": "",
-			"sid": 291547958453888
-		},
-		{
-			"name": "Duration",
-			"type": "number",
-			"desc": "",
-			"sid": 973028462108770
-		},
-		{
-			"name": "IsBasicAttack",
-			"type": "boolean",
-			"desc": "",
-			"sid": 853970724658111
-		},
-		{
-			"name": "Name",
-			"type": "string",
-			"desc": "",
-			"sid": 885072436382637
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -61,7 +18,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5835358,
+						"imageSpriteId": 1852675,
 						"collisionPoly": {
 							"points": [
 								0.21484375,
@@ -86,13 +43,13 @@
 						"duration": 1
 					}
 				],
-				"sid": 864968613707650,
+				"sid": 135513408531491,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 5
+				"speed": 0
 			}
 		],
 		"subfolders": []

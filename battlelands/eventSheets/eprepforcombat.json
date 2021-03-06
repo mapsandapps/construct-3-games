@@ -1,0 +1,275 @@
+{
+	"name": "ePrepForCombat",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 122742507968870
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PrepAbilitySlots",
+					"sid": 507179409345422
+				},
+				{
+					"callFunction": "PrepEnemy",
+					"sid": 843539795451381
+				}
+			],
+			"sid": 186040442247670
+		},
+		{
+			"functionName": "PrepAbilitySlots",
+			"functionDescription": "",
+			"functionCategory": "PrepForCombat",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 603370042536293,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 517174235535632,
+							"parameters": {
+								"instance-variable": "Ability1",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 654827188951915,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "AbilityButton",
+							"sid": 987607683100259,
+							"parameters": {
+								"animation": "\"Full\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 579035725853463,
+							"parameters": {
+								"object-name": "Player.Ability1",
+								"layer": "\"Background\"",
+								"x": "AbilityButton.X",
+								"y": "AbilityButton.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 909377016473386
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 971296550168692,
+							"parameters": {
+								"instance-variable": "Ability2",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 755508340033214,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "AbilityButton",
+							"sid": 736785554828811,
+							"parameters": {
+								"animation": "\"Full\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 831488210294734,
+							"parameters": {
+								"object-name": "Player.Ability2",
+								"layer": "\"Background\"",
+								"x": "AbilityButton.X",
+								"y": "AbilityButton.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 288244801969988
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 974756722017237,
+							"parameters": {
+								"instance-variable": "Ability3",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 252832786136037,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "AbilityButton",
+							"sid": 206569419425101,
+							"parameters": {
+								"animation": "\"Full\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 233047681091709,
+							"parameters": {
+								"object-name": "Player.Ability3",
+								"layer": "\"Background\"",
+								"x": "AbilityButton.X",
+								"y": "AbilityButton.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 664597542143182
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 639508814968694,
+							"parameters": {
+								"instance-variable": "Ability4",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "AbilityButton",
+							"sid": 544389469894707,
+							"parameters": {
+								"instance-variable": "Slot",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "AbilityButton",
+							"sid": 191956780900318,
+							"parameters": {
+								"animation": "\"Full\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "create-object-by-name",
+							"objectClass": "System",
+							"sid": 588396975412061,
+							"parameters": {
+								"object-name": "Player.Ability4",
+								"layer": "\"Background\"",
+								"x": "AbilityButton.X",
+								"y": "AbilityButton.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 140774320756721
+				}
+			]
+		},
+		{
+			"functionName": "PrepEnemy",
+			"functionDescription": "",
+			"functionCategory": "PrepForCombat",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object-by-name",
+					"objectClass": "System",
+					"sid": 226747280656156,
+					"parameters": {
+						"object-name": "\"Ratling\"",
+						"layer": "\"Entities\"",
+						"x": "800",
+						"y": "288",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"type": "comment",
+					"text": "TODO: generalize this for any enemy"
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Ratling",
+					"sid": 785106727606797,
+					"parameters": {
+						"instance-variable": "MaxHP",
+						"value": "Functions.ParseDice(Ratling.RollForMaxHP)"
+					}
+				}
+			],
+			"sid": 843400195196978
+		}
+	],
+	"sid": 590417324907145
+}

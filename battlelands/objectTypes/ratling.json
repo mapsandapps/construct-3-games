@@ -1,16 +1,9 @@
 {
-	"name": "Enemy",
+	"name": "Ratling",
 	"plugin-id": "Sprite",
-	"sid": 942781425991157,
+	"sid": 303226041808262,
 	"isGlobal": false,
-	"instanceVariables": [
-		{
-			"name": "Name",
-			"type": "string",
-			"desc": "",
-			"sid": 238586654630391
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -25,7 +18,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 78039,
+						"imageSpriteId": 3538049,
 						"collisionPoly": {
 							"points": [
 								0.41015625,
@@ -50,13 +43,13 @@
 						"duration": 1
 					}
 				],
-				"sid": 742207860042927,
+				"sid": 732832898512991,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 5
+				"speed": 0
 			}
 		],
 		"subfolders": []

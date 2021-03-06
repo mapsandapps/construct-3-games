@@ -6,7 +6,44 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Ability",
+					"type": "Club",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"Name": "Club",
+						"Description": "",
+						"CombatLogForProc": "",
+						"IsBasicAttack": true,
+						"DamageRoll": "1d8+5L",
+						"Duration": 0,
+						"CombatLogForCast": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 128,
+						"y": 128,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Ratling",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -16,18 +53,18 @@
 					},
 					"uid": 5,
 					"instanceVariables": {
-						"CombatLogForCast": "",
-						"CombatLogForProc": "",
-						"DamageRoll": "1d8+5L",
-						"Description": "",
-						"Duration": 0,
-						"IsBasicAttack": true,
-						"Name": "Club"
+						"Ability1": "Club",
+						"Ability2": "",
+						"Ability3": "",
+						"Ability4": "",
+						"Level": 1,
+						"MaxHP": 0,
+						"RollForMaxHP": "3d10+12"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 312,
-						"y": 244,
+						"x": 128,
+						"y": 384,
 						"width": 256,
 						"height": 256,
 						"originX": 0.5,

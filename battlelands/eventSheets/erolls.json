@@ -1,0 +1,262 @@
+{
+	"name": "eRolls",
+	"events": [
+		{
+			"functionName": "RollDie",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"sid": 257898669603077
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 887806441340797,
+					"parameters": {
+						"value": "ceil(random(Sides))"
+					}
+				}
+			],
+			"sid": 251144003613202
+		},
+		{
+			"functionName": "RollDice",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "NumberOfDice",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 287277771652312
+				},
+				{
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"sid": 368529272301424
+				},
+				{
+					"name": "Modifier",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 984275117280987
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 775600556839767,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Sum",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 778755988911183
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 364835037407508,
+							"parameters": {
+								"count": "NumberOfDice"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 912245666990638,
+							"parameters": {
+								"variable": "Sum",
+								"value": "Functions.RollDie(Sides)"
+							}
+						}
+					],
+					"sid": 961128988754087
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 904844575003906,
+							"parameters": {
+								"variable": "Sum",
+								"value": "Modifier"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 177771329469620,
+							"parameters": {
+								"value": "Sum"
+							}
+						}
+					],
+					"sid": 813643951590569
+				}
+			]
+		},
+		{
+			"functionName": "ParseDice",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "ToRoll",
+					"type": "string",
+					"initialValue": "1d6",
+					"comment": "",
+					"sid": 130767493602022
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 649038706344715,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "NumberOfDice",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 431263849498517
+				},
+				{
+					"eventType": "variable",
+					"name": "Sides",
+					"type": "number",
+					"initialValue": "6",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 688042658814046
+				},
+				{
+					"eventType": "variable",
+					"name": "Modifier",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 707629797993019
+				},
+				{
+					"eventType": "variable",
+					"name": "DIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 747277610587042
+				},
+				{
+					"eventType": "variable",
+					"name": "PlusIndex",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 587797677294886
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 628751928607164,
+							"parameters": {
+								"variable": "DIndex",
+								"value": "find(ToRoll, \"d\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 347006550004199,
+							"parameters": {
+								"variable": "PlusIndex",
+								"value": "find(ToRoll, \"+\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 124744671579491,
+							"parameters": {
+								"variable": "NumberOfDice",
+								"value": "left(ToRoll, DIndex)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 305313755625326,
+							"parameters": {
+								"variable": "Sides",
+								"value": "mid(ToRoll, DIndex + 1, PlusIndex - DIndex - 1)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 135367435088184,
+							"parameters": {
+								"variable": "Modifier",
+								"value": "right(ToRoll, len(ToRoll) - PlusIndex - 1)"
+							}
+						},
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 690632020378263,
+							"parameters": {
+								"value": "Functions.RollDice(NumberOfDice, Sides, Modifier)"
+							}
+						}
+					],
+					"sid": 833231430255641
+				}
+			]
+		}
+	],
+	"sid": 423034754762397
+}

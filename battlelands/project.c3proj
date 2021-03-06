@@ -8,6 +8,14 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -16,8 +24,8 @@
 		},
 		{
 			"type": "plugin",
-			"id": "TiledBg",
-			"name": "Tiled Background",
+			"id": "Browser",
+			"name": "Browser",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -27,17 +35,47 @@
 	"objectTypes": {
 		"items": [
 			"Player",
-			"Enemy",
-			"Background",
-			"Ability"
+			"AbilityButton"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"Background",
+					"FrameCombat",
+					"Temp"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"Club"
+				],
+				"subfolders": [],
+				"name": "Abilities"
+			},
+			{
+				"items": [
+					"Ratling"
+				],
+				"subfolders": [],
+				"name": "Enemies"
+			},
+			{
+				"items": [
+					"Browser"
+				],
+				"subfolders": [],
+				"name": "Base"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
 	"families": {
 		"items": [
-			"Entities"
+			"Entities",
+			"Abilities"
 		],
 		"subfolders": []
 	},
@@ -50,7 +88,9 @@
 	},
 	"eventSheets": {
 		"items": [
-			"eCombat"
+			"eCombat",
+			"ePrepForCombat",
+			"eRolls"
 		],
 		"subfolders": []
 	},
