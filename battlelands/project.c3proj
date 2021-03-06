@@ -40,6 +40,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -53,7 +69,8 @@
 			"Player",
 			"AbilityButton",
 			"HPText",
-			"Enemy"
+			"Enemy",
+			"Ability"
 		],
 		"subfolders": [
 			{
@@ -67,15 +84,10 @@
 			},
 			{
 				"items": [
-					"Club"
-				],
-				"subfolders": [],
-				"name": "Abilities"
-			},
-			{
-				"items": [
 					"Browser",
-					"Touch"
+					"Touch",
+					"AJAX",
+					"JSON"
 				],
 				"subfolders": [],
 				"name": "Base"
@@ -86,8 +98,7 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"Entities",
-			"Abilities"
+			"Entities"
 		],
 		"subfolders": []
 	},
@@ -103,7 +114,8 @@
 			"eCombat",
 			"ePrepForCombat",
 			"eRolls",
-			"eHelpers"
+			"eHelpers",
+			"eInit"
 		],
 		"subfolders": []
 	},
@@ -196,7 +208,18 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "enemies.json",
+					"type": "application/json",
+					"sid": 231807102520169
+				},
+				{
+					"name": "abilities.json",
+					"type": "application/json",
+					"sid": 775402703176089
+				}
+			],
 			"subfolders": []
 		}
 	},

@@ -6,7 +6,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Club",
+					"type": "Ability",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -16,13 +16,7 @@
 					},
 					"uid": 12,
 					"instanceVariables": {
-						"Name": "Club",
-						"Description": "",
-						"CombatLogForProc": "",
-						"IsBasicAttack": true,
-						"DamageRoll": "1d8+5L",
-						"Duration": 0,
-						"CombatLogForCast": ""
+						"DamageRoll": ""
 					},
 					"behaviors": {},
 					"world": {

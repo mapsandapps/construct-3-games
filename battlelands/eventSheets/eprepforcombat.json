@@ -12,6 +12,22 @@
 			],
 			"actions": [
 				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 288150915925350,
+					"parameters": {
+						"tag": "\"abilitiesLoaded\""
+					}
+				},
+				{
+					"id": "wait-for-signal",
+					"objectClass": "System",
+					"sid": 980194606100505,
+					"parameters": {
+						"tag": "\"enemiesLoaded\""
+					}
+				},
+				{
 					"callFunction": "PrepAbilitySlots",
 					"sid": 507179409345422
 				},
@@ -73,15 +89,41 @@
 							}
 						},
 						{
-							"id": "create-object-by-name",
+							"id": "create-object",
 							"objectClass": "System",
-							"sid": 579035725853463,
+							"sid": 265383534985866,
 							"parameters": {
-								"object-name": "Player.Ability1",
+								"object-to-create": "Ability",
 								"layer": "\"Background\"",
 								"x": "AbilityButton.X",
 								"y": "AbilityButton.Y",
 								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Ability",
+							"sid": 954269481800391,
+							"parameters": {
+								"frame-number": "JSON.Get(\"abilities.\" & Player.Ability1 & \".animationFrame\")"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 434790254679194,
+							"parameters": {
+								"type": "log",
+								"message": "Player.Ability1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Ability",
+							"sid": 700659480497238,
+							"parameters": {
+								"instance-variable": "DamageRoll",
+								"value": "JSON.Get(\"abilities.\" & Player.Ability1 & \".damageRoll\")"
 							}
 						}
 					],
@@ -122,11 +164,11 @@
 							}
 						},
 						{
-							"id": "create-object-by-name",
+							"id": "create-object",
 							"objectClass": "System",
-							"sid": 831488210294734,
+							"sid": 911052820687657,
 							"parameters": {
-								"object-name": "Player.Ability2",
+								"object-to-create": "Ability",
 								"layer": "\"Background\"",
 								"x": "AbilityButton.X",
 								"y": "AbilityButton.Y",
@@ -171,11 +213,11 @@
 							}
 						},
 						{
-							"id": "create-object-by-name",
+							"id": "create-object",
 							"objectClass": "System",
-							"sid": 233047681091709,
+							"sid": 304309809277002,
 							"parameters": {
-								"object-name": "Player.Ability3",
+								"object-to-create": "Ability",
 								"layer": "\"Background\"",
 								"x": "AbilityButton.X",
 								"y": "AbilityButton.Y",
@@ -220,11 +262,11 @@
 							}
 						},
 						{
-							"id": "create-object-by-name",
+							"id": "create-object",
 							"objectClass": "System",
-							"sid": 588396975412061,
+							"sid": 151119079669447,
 							"parameters": {
-								"object-name": "Player.Ability4",
+								"object-to-create": "Ability",
 								"layer": "\"Background\"",
 								"x": "AbilityButton.X",
 								"y": "AbilityButton.Y",

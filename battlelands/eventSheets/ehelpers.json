@@ -302,10 +302,10 @@
 					"actions": [
 						{
 							"callFunction": "TakeDamage",
-							"sid": 753932553652603,
+							"sid": 819819626758557,
 							"parameters": [
 								"CharacterTakingDamage",
-								"Functions.ParseDice(Club.DamageRoll)"
+								"Functions.ParseDice(Ability.DamageRoll)"
 							]
 						}
 					],
@@ -433,7 +433,7 @@
 				},
 				{
 					"id": "set-opacity",
-					"objectClass": "Club",
+					"objectClass": "Ability",
 					"sid": 914471632430023,
 					"parameters": {
 						"opacity": "100"
@@ -471,7 +471,7 @@
 				},
 				{
 					"id": "set-opacity",
-					"objectClass": "Club",
+					"objectClass": "Ability",
 					"sid": 543664109853206,
 					"parameters": {
 						"opacity": "30"
