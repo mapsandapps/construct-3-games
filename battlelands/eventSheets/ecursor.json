@@ -179,19 +179,62 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 587956739193823
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 997856686461891,
+							"parameters": {
+								"object": "Enemy"
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation-frame",
 							"objectClass": "Cursor",
-							"sid": 146158747971494,
+							"sid": 115503716144745,
 							"parameters": {
-								"frame-number": "0"
+								"frame-number": "2"
 							}
+						},
+						{
+							"callFunction": "SetFocusedEnemy",
+							"sid": 873782266557800,
+							"parameters": [
+								"Enemy.UID"
+							]
 						}
 					],
 					"sid": 532249807930836
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 734125301375371
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cursor",
+							"sid": 151846966528714,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"callFunction": "SetFocusedEnemy",
+							"sid": 149150416359869,
+							"parameters": [
+								"-1"
+							]
+						}
+					],
+					"sid": 984655672124669
 				}
 			]
 		},

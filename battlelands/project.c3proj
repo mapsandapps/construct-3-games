@@ -79,9 +79,25 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
@@ -149,7 +165,9 @@
 					"RoomSprite",
 					"Door",
 					"RoomFramesDict",
-					"Wall"
+					"Wall",
+					"EnemiesArray",
+					"EnemyInfo"
 				],
 				"subfolders": [],
 				"name": "Overworld"
@@ -190,7 +208,8 @@
 			{
 				"items": [
 					"eMovement",
-					"eOverworld"
+					"eOverworld",
+					"eSpawning"
 				],
 				"subfolders": [],
 				"name": "Overworld"

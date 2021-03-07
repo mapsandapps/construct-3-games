@@ -190,13 +190,6 @@
 					}
 				},
 				{
-					"callFunction": "PrepEnemy",
-					"sid": 194704153575767,
-					"parameters": [
-						"CurrentEnemy"
-					]
-				},
-				{
 					"callFunction": "PrepPlayer",
 					"sid": 882758867449405
 				},
@@ -205,7 +198,56 @@
 					"sid": 368528741660499
 				}
 			],
-			"sid": 186040442247670
+			"sid": 186040442247670,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 542147715623213,
+							"parameters": {
+								"variable": "FocusedEnemyName",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PrepEnemy",
+							"sid": 858010831783667,
+							"parameters": [
+								"\"Ratling\"",
+								"0"
+							]
+						}
+					],
+					"sid": 409550891845808
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 764624552818197
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PrepEnemy",
+							"sid": 674006433134534,
+							"parameters": [
+								"FocusedEnemyName",
+								"FocusedEnemyHP"
+							]
+						}
+					],
+					"sid": 339816932601694
+				}
+			]
 		},
 		{
 			"functionName": "PrepAbilitySlots",
@@ -338,6 +380,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 875003304612809
+				},
+				{
+					"name": "MaxHP",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 499482595807827
 				}
 			],
 			"eventType": "function-block",
@@ -346,24 +395,6 @@
 				{
 					"type": "comment",
 					"text": "TODO: enemy maxHP should actually be determined when spawning on the world map (if flee gets implemented)"
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Enemy",
-					"sid": 968727959159583,
-					"parameters": {
-						"instance-variable": "MaxHP",
-						"value": "Functions.ParseDice(JSON.Get(\"enemies.\" & EnemyName & \".maxHPRoll\"))"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Enemy",
-					"sid": 446725120103314,
-					"parameters": {
-						"instance-variable": "CurrentHP",
-						"value": "Enemy.MaxHP"
-					}
 				},
 				{
 					"callFunction": "SetEnemyHPText",
@@ -434,6 +465,73 @@
 			],
 			"sid": 843400195196978,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 762016089110903,
+							"parameters": {
+								"variable": "MaxHP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 945869727843211,
+							"parameters": {
+								"instance-variable": "MaxHP",
+								"value": "MaxHP"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 490931170340287,
+							"parameters": {
+								"instance-variable": "CurrentHP",
+								"value": "Enemy.MaxHP"
+							}
+						}
+					],
+					"sid": 958710485994429
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 317446087759534
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 873060566167129,
+							"parameters": {
+								"instance-variable": "MaxHP",
+								"value": "Functions.ParseDice(JSON.Get(\"enemies.\" & EnemyName & \".maxHPRoll\"))"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 877227838167015,
+							"parameters": {
+								"instance-variable": "CurrentHP",
+								"value": "Enemy.MaxHP"
+							}
+						}
+					],
+					"sid": 742213931509207
+				},
 				{
 					"eventType": "block",
 					"conditions": [

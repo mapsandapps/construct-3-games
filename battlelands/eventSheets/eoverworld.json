@@ -2,12 +2,46 @@
 	"name": "eOverworld",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "FocusedEnemyArrayIndex",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 122224914768160
+		},
+		{
+			"eventType": "variable",
+			"name": "FocusedEnemyHP",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 658330526389548
+		},
+		{
+			"eventType": "variable",
+			"name": "FocusedEnemyName",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 714477171936493
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "eCursor"
 		},
 		{
 			"eventType": "include",
 			"includeSheet": "eMovement"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eSpawning"
 		},
 		{
 			"eventType": "block",
@@ -44,6 +78,33 @@
 					"parameters": {
 						"tag": "\"map\"",
 						"file": "map0.json"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 857984496845837,
+					"parameters": {
+						"tag": "\"enemies\"",
+						"file": "enemies.json"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 579252663878601,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 659351169929895,
+					"parameters": {
+						"variable": "IsInitted",
+						"value": "false"
 					}
 				}
 			],
@@ -208,6 +269,40 @@
 				{
 					"id": "on-completed",
 					"objectClass": "AJAX",
+					"sid": 169541527644269,
+					"parameters": {
+						"tag": "\"enemies\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-json",
+					"objectClass": "JSON",
+					"sid": 663709318605054,
+					"parameters": {
+						"path": "\"enemies\"",
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 439981110566056,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 793053271592781
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
 					"sid": 939236531807604,
 					"parameters": {
 						"tag": "\"map\""
@@ -222,15 +317,6 @@
 					"parameters": {
 						"path": "\"rooms\"",
 						"json": "AJAX.LastData"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 204396099014669,
-					"parameters": {
-						"type": "log",
-						"message": "ViewportWidth(\"RoomSprite\")"
 					}
 				}
 			],
@@ -266,13 +352,105 @@
 						}
 					],
 					"sid": 955537386105667
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 422460293410622
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 878056551127519,
+							"parameters": {
+								"variable": "FilesLoaded",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 623392163611619
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 596525700360972,
+					"parameters": {
+						"variable": "FilesLoaded",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 366736750750128,
+					"parameters": {
+						"variable": "IsInitted"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 368011550597625,
+					"parameters": {
+						"variable": "IsInitted",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 807530961781500,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "EnemiesArray",
+							"sid": 585325723666747,
+							"parameters": {
+								"axis": "x",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemies",
+							"sid": 187829748645230
+						}
+					],
+					"sid": 802231219401394
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "DrawEnemies",
+							"sid": 713912636412300
+						}
+					],
+					"sid": 319536794541706
 				}
 			]
 		},
 		{
 			"functionName": "DrawRoom",
 			"functionDescription": "",
-			"functionCategory": "",
+			"functionCategory": "Overworld",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [
@@ -342,17 +520,7 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 548825517244222,
-					"parameters": {
-						"type": "log",
-						"message": "DoorsString"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 433536461002698,
 			"children": [
 				{
@@ -382,19 +550,19 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 291706824186034,
+							"sid": 363230763553036,
 							"parameters": {
 								"variable": "XPos",
-								"value": "X * ViewportWidth(\"Rooms\")"
+								"value": "X * LayoutWidth"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 654825930770069,
+							"sid": 755652305230883,
 							"parameters": {
 								"variable": "YPos",
-								"value": "Y * ViewportHeight(\"Rooms\")"
+								"value": "Y * LayoutHeight"
 							}
 						},
 						{
@@ -415,6 +583,24 @@
 							"sid": 940309178089329,
 							"parameters": {
 								"frame-number": "RoomFramesDict.Get(DoorsString)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "RoomSprite",
+							"sid": 304567794467446,
+							"parameters": {
+								"instance-variable": "XPos",
+								"value": "X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "RoomSprite",
+							"sid": 895654154540183,
+							"parameters": {
+								"instance-variable": "YPos",
+								"value": "Y"
 							}
 						}
 					],
@@ -438,10 +624,10 @@
 						{
 							"id": "set-position",
 							"objectClass": "Player",
-							"sid": 679847875865324,
+							"sid": 820790595915979,
 							"parameters": {
-								"x": "XPos + ViewportWidth(\"Rooms\") / 2",
-								"y": "YPos + ViewportHeight(\"Rooms\") / 2"
+								"x": "XPos + LayoutWidth / 2",
+								"y": "YPos + LayoutHeight / 2"
 							}
 						},
 						{
@@ -452,6 +638,10 @@
 								"x": "Player.X",
 								"y": "Player.Y"
 							}
+						},
+						{
+							"callFunction": "DrawEnemies",
+							"sid": 868371927709866
 						}
 					],
 					"sid": 386797041451619
@@ -1041,6 +1231,230 @@
 					"sid": 729905479641425
 				}
 			]
+		},
+		{
+			"functionName": "SetFocusedEnemy",
+			"functionDescription": "",
+			"functionCategory": "Overworld",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "EnemyUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 220344451029422
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 744036569103950,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 382702212805580,
+							"parameters": {
+								"variable": "EnemyUID",
+								"comparison": 0,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 701022535467303,
+							"parameters": {
+								"variable": "FocusedEnemyArrayIndex",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 732677161015777,
+							"parameters": {
+								"variable": "FocusedEnemyHP",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 775811687018618,
+							"parameters": {
+								"variable": "FocusedEnemyName",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "EnemyInfo",
+							"sid": 958166313274958
+						}
+					],
+					"sid": 989559335007002
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 285916674296444
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 577490115892813,
+							"parameters": {
+								"variable": "FocusedEnemyArrayIndex",
+								"comparison": 0,
+								"value": "-1"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Enemy",
+							"sid": 197098118461755,
+							"parameters": {
+								"unique-id": "EnemyUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 627621418009717,
+							"parameters": {
+								"variable": "FocusedEnemyArrayIndex",
+								"value": "Enemy.ArrayIndex"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 814083739304727,
+							"parameters": {
+								"variable": "FocusedEnemyHP",
+								"value": "Enemy.MaxHP"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 176903142253276,
+							"parameters": {
+								"variable": "FocusedEnemyName",
+								"value": "Enemy.Name"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 183251791792269,
+							"parameters": {
+								"object-to-create": "EnemyInfo",
+								"layer": "\"Characters\"",
+								"x": "Enemy.X - 144",
+								"y": "Enemy.Y - 80",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "EnemyInfo",
+							"sid": 417882017959427,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Enemy",
+								"x": true,
+								"y": true,
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "EnemyInfo",
+							"sid": 199518204928848,
+							"parameters": {
+								"text": "FocusedEnemyName & \": \" & FocusedEnemyHP & \" HP\""
+							}
+						}
+					],
+					"sid": 974429377927676
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 648862487391511,
+					"parameters": {
+						"touch-number": "0"
+					}
+				},
+				{
+					"id": "is-touching-object",
+					"objectClass": "Touch",
+					"sid": 576832926921506,
+					"parameters": {
+						"object": "Enemy"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Enemy",
+					"sid": 278970243668559,
+					"parameters": {
+						"instance-variable": "ArrayIndex",
+						"comparison": 0,
+						"value": "FocusedEnemyArrayIndex"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "BeginCombat",
+					"sid": 158422367810158
+				}
+			],
+			"sid": 735091904325552
+		},
+		{
+			"functionName": "BeginCombat",
+			"functionDescription": "",
+			"functionCategory": "Overworld",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 554454311217583,
+					"parameters": {
+						"layout": "Combat"
+					}
+				}
+			],
+			"sid": 785084642025643
 		}
 	],
 	"sid": 695284905485469

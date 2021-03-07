@@ -1,0 +1,595 @@
+{
+	"name": "eSpawning",
+	"events": [
+		{
+			"functionName": "SpawnEnemies",
+			"functionDescription": "",
+			"functionCategory": "Spawning",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 238551915190978,
+					"parameters": {
+						"type": "log",
+						"message": "RoomSprite.Count"
+					}
+				}
+			],
+			"sid": 708943698412179,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 757217671296102,
+							"parameters": {
+								"count": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 965800570642269,
+							"parameters": [
+								"\"Wood Rat\""
+							]
+						}
+					],
+					"sid": 745997414504857
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 543466297957826,
+							"parameters": {
+								"count": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 985854408403287,
+							"parameters": [
+								"\"Ratling\""
+							]
+						}
+					],
+					"sid": 647139471056145
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 576308069353252,
+							"parameters": {
+								"count": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 641951745870529,
+							"parameters": [
+								"\"Wasp Worker\""
+							]
+						}
+					],
+					"sid": 338996739883157
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 996206870613252,
+							"parameters": {
+								"count": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 560987305441859,
+							"parameters": [
+								"\"Wolf\""
+							]
+						}
+					],
+					"sid": 515458548026532
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 224214326724459,
+							"parameters": {
+								"count": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 555557406993611,
+							"parameters": [
+								"\"Ghost\""
+							]
+						}
+					],
+					"sid": 247860222700912
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 626119047363810,
+							"parameters": {
+								"count": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 167589903062161,
+							"parameters": [
+								"\"Imp\""
+							]
+						}
+					],
+					"sid": 473166552180633
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 460634393455651,
+							"parameters": {
+								"count": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 868560440262681,
+							"parameters": [
+								"\"Wasp Queen\""
+							]
+						}
+					],
+					"sid": 176768463325340
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 206690267354536,
+							"parameters": {
+								"count": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 445067588061007,
+							"parameters": [
+								"\"Pixie\""
+							]
+						}
+					],
+					"sid": 889167487206611
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 376157586450633,
+							"parameters": [
+								"\"Dire Wolf\""
+							]
+						}
+					],
+					"sid": 969571905071096
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "SpawnEnemy",
+							"sid": 583267233758301,
+							"parameters": [
+								"\"Dryad\""
+							]
+						}
+					],
+					"sid": 463629288812169
+				}
+			]
+		},
+		{
+			"functionName": "SpawnEnemy",
+			"functionDescription": "",
+			"functionCategory": "Spawning",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Name",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 555277258895494
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 950346141825635,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "HP",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 593886193313029
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 479611951743938,
+							"parameters": {
+								"variable": "HP",
+								"value": "Functions.ParseDice(JSON.Get(\"enemies.\" & Name & \".maxHPRoll\"))"
+							}
+						}
+					],
+					"sid": 539771235792875
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 150140698420020,
+							"parameters": {
+								"object": "RoomSprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "EnemiesArray",
+							"sid": 799666835288113,
+							"parameters": {
+								"where": "back",
+								"value": "Name",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "EnemiesArray",
+							"sid": 744960617951053,
+							"parameters": {
+								"x": "EnemiesArray.Width - 1",
+								"y": "0",
+								"value": "Name"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "EnemiesArray",
+							"sid": 105411159331396,
+							"parameters": {
+								"x": "EnemiesArray.Width - 1",
+								"y": "1",
+								"value": "HP"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "EnemiesArray",
+							"sid": 862733596710104,
+							"parameters": {
+								"x": "EnemiesArray.Width - 1",
+								"y": "2",
+								"value": "RoomSprite.XPos"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "EnemiesArray",
+							"sid": 636443720637074,
+							"parameters": {
+								"x": "EnemiesArray.Width - 1",
+								"y": "3",
+								"value": "RoomSprite.YPos"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "EnemiesArray",
+							"sid": 432543750297473,
+							"parameters": {
+								"x": "EnemiesArray.Width - 1",
+								"y": "4",
+								"value": "EnemiesArray.Width - 1"
+							}
+						}
+					],
+					"sid": 496684927031519
+				}
+			]
+		},
+		{
+			"functionName": "DrawEnemies",
+			"functionDescription": "",
+			"functionCategory": "Spawning",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 897804183130759,
+					"parameters": {
+						"type": "log",
+						"message": "\"drawenemies\""
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 414369086745535,
+					"parameters": {
+						"type": "log",
+						"message": "EnemiesArray.Width"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 573523183976932,
+					"parameters": {
+						"type": "log",
+						"message": "EnemiesArray.Height"
+					}
+				}
+			],
+			"sid": 984251898479739,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MinX",
+					"type": "number",
+					"initialValue": "256",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 538621175734297
+				},
+				{
+					"eventType": "variable",
+					"name": "MaxX",
+					"type": "number",
+					"initialValue": "1024",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 904386857389845
+				},
+				{
+					"eventType": "variable",
+					"name": "MinY",
+					"type": "number",
+					"initialValue": "256",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 350906555427044
+				},
+				{
+					"eventType": "variable",
+					"name": "MaxY",
+					"type": "number",
+					"initialValue": "464",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 209469782673373
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "EnemiesArray",
+							"sid": 127354293168228,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 215822434271715,
+							"parameters": {
+								"type": "log",
+								"message": "EnemiesArray.At(EnemiesArray.CurX, 0)"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 517944645980096,
+							"parameters": {
+								"type": "log",
+								"message": "EnemiesArray.At(EnemiesArray.CurX, 1)"
+							}
+						}
+					],
+					"sid": 274767016506391,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "EnemyName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 512434258391333
+						},
+						{
+							"eventType": "variable",
+							"name": "RoomX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 490160575202865
+						},
+						{
+							"eventType": "variable",
+							"name": "RoomY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 195617661542106
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 936120832258385,
+									"parameters": {
+										"variable": "EnemyName",
+										"value": "EnemiesArray.At(EnemiesArray.CurX, 0)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 179217021452757,
+									"parameters": {
+										"variable": "RoomX",
+										"value": "EnemiesArray.At(EnemiesArray.CurX, 2)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 951454675021903,
+									"parameters": {
+										"variable": "RoomY",
+										"value": "EnemiesArray.At(EnemiesArray.CurX, 3)"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 192213331626975,
+									"parameters": {
+										"object-to-create": "Enemy",
+										"layer": "\"Characters\"",
+										"x": "LayoutWidth * RoomX + random(MaxX - MinX) + MinX",
+										"y": "LayoutHeight * RoomY + random(MaxY - MinY) + MinY",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Enemy",
+									"sid": 544440377594126,
+									"parameters": {
+										"frame-number": "JSON.Get(\"enemies.\" & EnemyName & \".animationFrame\")"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 492437176633411,
+									"parameters": {
+										"instance-variable": "Name",
+										"value": "EnemyName"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 655567755112605,
+									"parameters": {
+										"instance-variable": "MaxHP",
+										"value": "EnemiesArray.At(EnemiesArray.CurX, 1)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 423992464831288,
+									"parameters": {
+										"instance-variable": "ArrayIndex",
+										"value": "EnemiesArray.At(EnemiesArray.CurX, 4)"
+									}
+								}
+							],
+							"sid": 978566301238103
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 735384757944336
+}
