@@ -548,6 +548,64 @@
 				}
 			],
 			"sid": 109621435338610
+		},
+		{
+			"functionName": "GetAbilityNameForSlot",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 105857172727333
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 681616575246905,
+					"parameters": {
+						"value": "JSON.Get(\"abilities.\" & Functions.GetAbilityBeingUsed(Slot) & \".name\")"
+					}
+				}
+			],
+			"sid": 447433045596609
+		},
+		{
+			"functionName": "GetAbilityDescriptionForSlot",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 226615879233141
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 540069663640533,
+					"parameters": {
+						"value": "JSON.Get(\"abilities.\" & Functions.GetAbilityBeingUsed(Slot) & \".description\")"
+					}
+				}
+			],
+			"sid": 786509518696592
 		}
 	],
 	"sid": 510339625128563

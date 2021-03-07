@@ -78,10 +78,11 @@
 			"actions": [
 				{
 					"callFunction": "UseAbility",
-					"sid": 187920739872799,
+					"sid": 921659430031929,
 					"parameters": [
 						"Functions.GetAbilityBeingUsed(AbilityButton.Slot)",
-						"\"Player\""
+						"\"Player\"",
+						"Player.Level"
 					]
 				}
 			],
@@ -107,6 +108,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 150667746012859
+				},
+				{
+					"name": "CasterLevel",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 215922913768303
 				}
 			],
 			"eventType": "function-block",
@@ -167,10 +175,11 @@
 					"actions": [
 						{
 							"callFunction": "BasicAttack",
-							"sid": 282465542736451,
+							"sid": 872419993758438,
 							"parameters": [
 								"AbilityName",
 								"Caster",
+								"CasterLevel",
 								"JSON.Get(\"abilities.\" & AbilityName & \".damageRoll\")"
 							]
 						}
@@ -220,6 +229,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 543889386247083
+				},
+				{
+					"name": "CasterLevel",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 410063865450681
 				},
 				{
 					"name": "DamageRoll",
@@ -314,6 +330,15 @@
 							"parameters": {
 								"variable": "Damage",
 								"value": "Functions.ParseDice(Ability.DamageRoll)"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 758569343307113,
+							"parameters": {
+								"variable": "Damage",
+								"value": "CasterLevel * 5"
 							}
 						}
 					],
@@ -671,10 +696,11 @@
 				},
 				{
 					"callFunction": "UseAbility",
-					"sid": 822973693222747,
+					"sid": 726539343273051,
 					"parameters": [
 						"Enemy.Ability1",
-						"\"Enemy\""
+						"\"Enemy\"",
+						"Enemy.Level"
 					]
 				}
 			],

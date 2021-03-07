@@ -266,6 +266,7 @@
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
 					"sid": 299375251593816,
+					"disabled": true,
 					"parameters": {
 						"cursor-style": "none"
 					}
@@ -274,6 +275,7 @@
 					"id": "set-position",
 					"objectClass": "Cursor",
 					"sid": 657839551681952,
+					"disabled": true,
 					"parameters": {
 						"x": "Mouse.AbsoluteX",
 						"y": "Mouse.AbsoluteY"
@@ -281,7 +283,6 @@
 				}
 			],
 			"sid": 670123875028358,
-			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -308,6 +309,7 @@
 							"id": "set-animation-frame",
 							"objectClass": "Cursor",
 							"sid": 826362078083688,
+							"disabled": true,
 							"parameters": {
 								"frame-number": "0"
 							}
@@ -316,6 +318,7 @@
 							"id": "set-angle",
 							"objectClass": "Cursor",
 							"sid": 948314367226551,
+							"disabled": true,
 							"parameters": {
 								"angle": "0"
 							}
@@ -324,6 +327,7 @@
 							"id": "set-size",
 							"objectClass": "Cursor",
 							"sid": 737758193503975,
+							"disabled": true,
 							"parameters": {
 								"width": "64",
 								"height": "64"
@@ -331,7 +335,60 @@
 						}
 					],
 					"sid": 684842121894396,
-					"disabled": true
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 609035047182122,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Ability Name\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 902342102210642,
+									"parameters": {
+										"text": "Functions.GetAbilityNameForSlot(AbilityButton.Slot)"
+									}
+								}
+							],
+							"sid": 222785120162708
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 786699252881254,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Ability Description\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 186980592935491,
+									"parameters": {
+										"text": "Functions.GetAbilityDescriptionForSlot(AbilityButton.Slot)"
+									}
+								}
+							],
+							"sid": 826201653026932
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -347,6 +404,7 @@
 							"id": "set-animation-frame",
 							"objectClass": "Cursor",
 							"sid": 964226148430357,
+							"disabled": true,
 							"parameters": {
 								"frame-number": "5"
 							}
@@ -355,6 +413,7 @@
 							"id": "set-angle",
 							"objectClass": "Cursor",
 							"sid": 533094673226027,
+							"disabled": true,
 							"parameters": {
 								"angle": "135"
 							}
@@ -363,6 +422,7 @@
 							"id": "set-size",
 							"objectClass": "Cursor",
 							"sid": 332759491547027,
+							"disabled": true,
 							"parameters": {
 								"width": "48",
 								"height": "48"
@@ -370,7 +430,60 @@
 						}
 					],
 					"sid": 536162518846192,
-					"disabled": true
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 268352620828988,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Ability Name\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 117627024757764,
+									"parameters": {
+										"text": "\"\""
+									}
+								}
+							],
+							"sid": 500875878015563
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Text",
+									"sid": 327785428119909,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Ability Description\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 751583415102915,
+									"parameters": {
+										"text": "\"\""
+									}
+								}
+							],
+							"sid": 481498152389507
+						}
+					]
 				}
 			]
 		}
