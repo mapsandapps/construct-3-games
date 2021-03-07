@@ -482,12 +482,12 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 192213331626975,
+									"sid": 764694273771270,
 									"parameters": {
 										"object-to-create": "Enemy",
 										"layer": "\"Characters\"",
-										"x": "LayoutWidth * RoomX + random(MaxX - MinX) + MinX",
-										"y": "LayoutHeight * RoomY + random(MaxY - MinY) + MinY",
+										"x": "Functions.GetRandomXPositionInRoom(RoomX)",
+										"y": "Functions.GetRandomYPositionInRoom(RoomY)",
 										"create-hierarchy": false
 									}
 								},

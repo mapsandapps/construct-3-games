@@ -319,6 +319,120 @@
 					"sid": 964871138983843
 				}
 			]
+		},
+		{
+			"functionName": "GetRandomXPositionInRoom",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "RoomXCoord",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 170561650160338
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 228527335960604,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MinX",
+					"type": "number",
+					"initialValue": "160",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 576545594726022
+				},
+				{
+					"eventType": "variable",
+					"name": "MaxX",
+					"type": "number",
+					"initialValue": "1120",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 192129541838351
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 290389376748388,
+							"parameters": {
+								"value": "LayoutWidth * RoomXCoord + random(MaxX - MinX) + MinX"
+							}
+						}
+					],
+					"sid": 779123115346692
+				}
+			]
+		},
+		{
+			"functionName": "GetRandomYPositionInRoom",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "RoomYCoord",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 365465371196847
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 943876192438342,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MinY",
+					"type": "number",
+					"initialValue": "160",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 127869637130021
+				},
+				{
+					"eventType": "variable",
+					"name": "MaxY",
+					"type": "number",
+					"initialValue": "560",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 159960299419307
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 436642617532080,
+							"parameters": {
+								"value": "LayoutHeight * RoomYCoord + random(MaxY - MinY) + MinY"
+							}
+						}
+					],
+					"sid": 920768433355876
+				}
+			]
 		}
 	],
 	"sid": 510339625128563

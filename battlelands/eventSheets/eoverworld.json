@@ -1442,12 +1442,12 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 183251791792269,
+							"sid": 205973427294162,
 							"parameters": {
 								"object-to-create": "EnemyInfo",
 								"layer": "\"Characters\"",
-								"x": "Enemy.X - 144",
-								"y": "Enemy.Y - 80",
+								"x": "Enemy.ImagePointX(\"Image Point 1\") - 144",
+								"y": "Enemy.ImagePointY(\"Image Point 1\") - 40",
 								"create-hierarchy": false
 							}
 						},
