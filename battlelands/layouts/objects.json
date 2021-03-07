@@ -183,6 +183,37 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "BuffDebuff",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Invisibility",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 45,
+					"instanceVariables": {
+						"Character": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 96,
+						"y": 288,
+						"width": 48,
+						"height": 48,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 392991051762597,

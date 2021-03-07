@@ -727,6 +727,291 @@
 				}
 			],
 			"sid": 304537240905849
+		},
+		{
+			"functionName": "RedrawBuffs",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Character",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 774028347107836
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "HPText",
+					"sid": 126520422358752,
+					"parameters": {
+						"instance-variable": "BelongsTo",
+						"comparison": 0,
+						"value": "Character"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 956495860043459,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BuffDebuff",
+							"sid": 929910413601119,
+							"parameters": {
+								"instance-variable": "Character",
+								"comparison": 0,
+								"value": "Character"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "BuffDebuff",
+							"sid": 224798920131998
+						}
+					],
+					"sid": 166942286973079
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 501590001396251,
+							"parameters": {
+								"variable": "Character",
+								"comparison": 0,
+								"value": "\"Enemy\""
+							}
+						},
+						{
+							"id": "for-each-element",
+							"objectClass": "EnemyBuffs",
+							"sid": 645646487205499,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 568504258091937,
+							"parameters": {
+								"object-to-create": "BuffDebuff",
+								"layer": "\"Entities\"",
+								"x": "HPText.X - HPText.Width / 2 + BuffDebuff.Width * loopindex",
+								"y": "HPText.Y - 32",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "BuffDebuff",
+							"sid": 340187701860310,
+							"parameters": {
+								"animation": "EnemyBuffs.CurValue",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BuffDebuff",
+							"sid": 456140799733617,
+							"parameters": {
+								"instance-variable": "Character",
+								"value": "Character"
+							}
+						}
+					],
+					"sid": 913197945863524
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 735258750475001,
+							"parameters": {
+								"variable": "Character",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						},
+						{
+							"id": "for-each-element",
+							"objectClass": "PlayerBuffs",
+							"sid": 441693079709085,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 916745172628642,
+							"parameters": {
+								"object-to-create": "BuffDebuff",
+								"layer": "\"Entities\"",
+								"x": "HPText.X - HPText.Width / 2 + BuffDebuff.Width * loopindex",
+								"y": "HPText.Y - 32",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "BuffDebuff",
+							"sid": 456873946065919,
+							"parameters": {
+								"animation": "PlayerBuffs.CurValue",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BuffDebuff",
+							"sid": 828325597192676,
+							"parameters": {
+								"instance-variable": "Character",
+								"value": "Character"
+							}
+						}
+					],
+					"sid": 737787815071744
+				}
+			]
+		},
+		{
+			"functionName": "GetIsAttackNegatedByInvisibility",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CharacterBeingAttacked",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 173691586231291
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 402130496127708,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BuffDebuff",
+							"sid": 486104313258579,
+							"parameters": {
+								"instance-variable": "Character",
+								"comparison": 0,
+								"value": "CharacterBeingAttacked"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "BuffDebuff",
+							"sid": 536418944152422,
+							"parameters": {
+								"animation": "\"Invisibility\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 601674088036359,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 836000988574732,
+									"parameters": {
+										"first-value": "random(1)",
+										"comparison": 4,
+										"second-value": "1 - INVISIBILITY_PROC_CHANCE"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 627501571036578,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 789602197176397
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 631033288028851
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 748083393776763,
+									"parameters": {
+										"value": "0"
+									}
+								}
+							],
+							"sid": 145744367757169
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 324422119253842
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 103620087176875,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 916098842710639
+				}
+			]
 		}
 	],
 	"sid": 510339625128563

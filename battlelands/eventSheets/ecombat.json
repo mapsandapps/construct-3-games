@@ -43,6 +43,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "eAcquireAbility"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "eMouse"
 		},
 		{
@@ -50,8 +54,18 @@
 			"includeSheet": "ePrepForCombat"
 		},
 		{
-			"eventType": "include",
-			"includeSheet": "eAcquireAbility"
+			"eventType": "comment",
+			"text": "non-attack abilities"
+		},
+		{
+			"eventType": "variable",
+			"name": "INVISIBILITY_PROC_CHANCE",
+			"type": "number",
+			"initialValue": "0.25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 534293659872592
 		},
 		{
 			"eventType": "block",
@@ -444,26 +458,79 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
+							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 240117541699222,
+							"sid": 612905832669242,
 							"parameters": {
-								"variable": "Caster",
+								"first-value": "Functions.GetIsAttackNegatedByInvisibility(CharacterTakingDamage)",
 								"comparison": 0,
-								"value": "\"Player\""
+								"second-value": "1"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 464015886127927,
+					"children": [
 						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 469959033164620,
-							"parameters": [
-								"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Enemy.Name)"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 687347855871232,
+									"parameters": {
+										"variable": "Caster",
+										"comparison": 0,
+										"value": "\"Player\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 400799728797084,
+									"parameters": [
+										"Player.Name & \" attempts to hit \" & Enemy.Name & \" with \" & AttackName & \".\""
+									]
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 980344886682424,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
+									]
+								}
+							],
+							"sid": 875096805145998
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 231656807515867
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 151138942778908,
+									"parameters": [
+										"Enemy.Name & \" attempts to hit \" & Player.Name & \" with \" & AttackName & \".\""
+									]
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 265806475578882,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
+									]
+								}
+							],
+							"sid": 503651987058098
 						}
-					],
-					"sid": 557497428511977
+					]
 				},
 				{
 					"eventType": "block",
@@ -471,34 +538,73 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 760598115113732
+							"sid": 412184548763773
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 230110932422442,
+					"children": [
 						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 810904773976319,
-							"parameters": [
-								"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Player.Name)"
-							]
-						}
-					],
-					"sid": 311188751874758
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 733507595808876,
+									"parameters": {
+										"variable": "Caster",
+										"comparison": 0,
+										"value": "\"Player\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 202644351420571,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Enemy.Name)"
+									]
+								}
+							],
+							"sid": 208835939658927
+						},
 						{
-							"callFunction": "TakeDamage",
-							"sid": 983660610226632,
-							"parameters": [
-								"CharacterTakingDamage",
-								"Damage"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 718950760479239
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 867627680447893,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Player.Name)"
+									]
+								}
+							],
+							"sid": 557743611040815
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "TakeDamage",
+									"sid": 475036325993259,
+									"parameters": [
+										"CharacterTakingDamage",
+										"Damage"
+									]
+								}
+							],
+							"sid": 205707818730277
 						}
-					],
-					"sid": 255257837991738
+					]
 				}
 			]
 		},
@@ -536,16 +642,70 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 325054905856096,
+					"children": [
 						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 284330921627079,
-							"parameters": [
-								"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Invisibility.combatLogCast\"), 0, Enemy.Name)"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "contains-value",
+									"objectClass": "PlayerBuffs",
+									"sid": 691840209423014,
+									"parameters": {
+										"value": "\"Invisibility\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 756283790948084,
+									"parameters": [
+										"Player.Name & \" casts Invisibility. Nothing happens.\""
+									]
+								}
+							],
+							"sid": 799265140311171
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 167127343200889
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "PlayerBuffs",
+									"sid": 709041400658963,
+									"parameters": {
+										"where": "back",
+										"value": "\"Invisibility\"",
+										"axis": "x"
+									}
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 219607869762821,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Invisibility.combatLogCast\"), 0, Enemy.Name)"
+									]
+								},
+								{
+									"callFunction": "RedrawBuffs",
+									"sid": 827739563719174,
+									"parameters": [
+										"\"Enemy\""
+									]
+								}
+							],
+							"sid": 318734837729282
 						}
-					],
-					"sid": 325054905856096
+					]
 				},
 				{
 					"eventType": "block",
@@ -556,16 +716,70 @@
 							"sid": 833119859227426
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 558137093509784,
+					"children": [
 						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 667749453623841,
-							"parameters": [
-								"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Invisibility.combatLogCast\"), 0, Player.Name)"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "contains-value",
+									"objectClass": "EnemyBuffs",
+									"sid": 111513856627048,
+									"parameters": {
+										"value": "\"Invisibility\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 335854486640421,
+									"parameters": [
+										"Enemy.Name & \" casts Invisibility. Nothing happens.\""
+									]
+								}
+							],
+							"sid": 154905138011186
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 983218698267883
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "EnemyBuffs",
+									"sid": 981507283263210,
+									"parameters": {
+										"where": "back",
+										"value": "\"Invisibility\"",
+										"axis": "x"
+									}
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 440199740593416,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Invisibility.combatLogCast\"), 0, Player.Name)"
+									]
+								},
+								{
+									"callFunction": "RedrawBuffs",
+									"sid": 843053155413466,
+									"parameters": [
+										"\"Enemy\""
+									]
+								}
+							],
+							"sid": 895995599112871
 						}
-					],
-					"sid": 558137093509784
+					]
 				}
 			]
 		},
