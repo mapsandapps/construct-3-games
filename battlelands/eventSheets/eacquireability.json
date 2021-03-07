@@ -304,42 +304,98 @@
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 672040085643120,
+					"children": [
 						{
-							"callFunction": "SetAbilityAtSlot",
-							"sid": 259483630318075,
-							"parameters": [
-								"AbilityToGain",
-								"AbilityButton.Slot"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "AbilityButton",
+									"sid": 462394487920199,
+									"parameters": {
+										"object": "Ability"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 389788364785373,
+									"parameters": [
+										"\"You lost the ability \" & Functions.GetAbilityNameForSlot(AbilityButton.Slot) & \" and gained the ability \" & AbilityToGain & \"!\""
+									]
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Ability",
+									"sid": 393571750633920
+								}
+							],
+							"sid": 538377537547118
 						},
 						{
-							"id": "set-boolean-eventvar",
-							"objectClass": "System",
-							"sid": 539505248696530,
-							"parameters": {
-								"variable": "IsAwaitingSlotSelection",
-								"value": "false"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 744048598387101
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 733205308707387,
+									"parameters": [
+										"\"You gained the ability \" & AbilityToGain & \"!\""
+									]
+								}
+							],
+							"sid": 837411233953421
 						},
 						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 966217996399922,
-							"parameters": {
-								"seconds": "1"
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 788825365417132,
-							"parameters": {
-								"layout": "Overworld"
-							}
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "SetAbilityAtSlot",
+									"sid": 909786001667072,
+									"parameters": [
+										"AbilityToGain",
+										"AbilityButton.Slot"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 508873304825665,
+									"parameters": {
+										"variable": "IsAwaitingSlotSelection",
+										"value": "false"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 880477668262682,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 285902289363584,
+									"parameters": {
+										"layout": "Overworld"
+									}
+								}
+							],
+							"sid": 726475697411824
 						}
-					],
-					"sid": 672040085643120
+					]
 				}
 			]
 		}

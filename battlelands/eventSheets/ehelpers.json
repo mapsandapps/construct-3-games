@@ -467,6 +467,165 @@
 			"sid": 447433045596609
 		},
 		{
+			"functionName": "GetRandomEnemyAbility",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 324473432820299,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "SlotToReturn",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 341568534731516
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 293871517778261,
+							"parameters": {
+								"variable": "SlotToReturn",
+								"value": "floor(random(NumberOfEnemyAbilities)) + 1"
+							}
+						}
+					],
+					"sid": 913782113069789
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 469157413394620,
+							"parameters": {
+								"variable": "SlotToReturn",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 448528270255542,
+							"parameters": {
+								"value": "Enemy.Ability1"
+							}
+						}
+					],
+					"sid": 153088472475296
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 665589988608372
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 288321527066432,
+							"parameters": {
+								"variable": "SlotToReturn",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 727810169223782,
+							"parameters": {
+								"value": "Enemy.Ability2"
+							}
+						}
+					],
+					"sid": 266077044720891
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 772391188868828
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 897506842141314,
+							"parameters": {
+								"variable": "SlotToReturn",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 520976473622037,
+							"parameters": {
+								"value": "Enemy.Ability3"
+							}
+						}
+					],
+					"sid": 389732996784049
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 699095525214271
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 747164782549488,
+							"parameters": {
+								"variable": "SlotToReturn",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 352009706971709,
+							"parameters": {
+								"value": "Enemy.Ability4"
+							}
+						}
+					],
+					"sid": 487405154637571
+				}
+			]
+		},
+		{
 			"functionName": "GetAbilityDescriptionFromName",
 			"functionDescription": "",
 			"functionCategory": "Helpers",

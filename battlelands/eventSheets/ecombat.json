@@ -35,7 +35,7 @@
 			"eventType": "variable",
 			"name": "PlayerMaxHP",
 			"type": "number",
-			"initialValue": "30",
+			"initialValue": "60",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -137,16 +137,6 @@
 			"sid": 505024504528205,
 			"children": [
 				{
-					"eventType": "variable",
-					"name": "IsBasicAttack",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 117540557075692
-				},
-				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -185,7 +175,18 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 948702528410540,
+							"parameters": {
+								"first-value": "JSON.Get(\"abilities.\" & AbilityName & \".isBasicAttack\")",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
 					"actions": [
 						{
 							"callFunction": "BasicAttack",
@@ -199,6 +200,50 @@
 						}
 					],
 					"sid": 418975993389134
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 737692208401957
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "TODO: add other abilities"
+						}
+					],
+					"sid": 352001357333709,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 136239140108669,
+									"parameters": {
+										"variable": "AbilityName",
+										"comparison": 0,
+										"value": "\"Invisibility\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CastInvisibility",
+									"sid": 947742398028013,
+									"parameters": [
+										"Caster"
+									]
+								}
+							],
+							"sid": 275242531572349
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -222,6 +267,43 @@
 					"sid": 212124626237434
 				}
 			]
+		},
+		{
+			"functionName": "UseRandomEnemyAbility",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 974552085055900
+				},
+				{
+					"name": "CasterLevel",
+					"type": "number",
+					"initialValue": "1",
+					"comment": "",
+					"sid": 743288569749823
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "UseAbility",
+					"sid": 593794627744630,
+					"parameters": [
+						"Functions.GetRandomEnemyAbility",
+						"Caster",
+						"CasterLevel"
+					]
+				}
+			],
+			"sid": 547333560158726
 		},
 		{
 			"functionName": "BasicAttack",
@@ -417,6 +499,73 @@
 						}
 					],
 					"sid": 255257837991738
+				}
+			]
+		},
+		{
+			"functionName": "CastInvisibility",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 664465241281780
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 461486173130049,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 901814775172556,
+							"parameters": {
+								"variable": "Caster",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 284330921627079,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Invisibility.combatLogCast\"), 0, Enemy.Name)"
+							]
+						}
+					],
+					"sid": 325054905856096
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 833119859227426
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 667749453623841,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Invisibility.combatLogCast\"), 0, Player.Name)"
+							]
+						}
+					],
+					"sid": 558137093509784
 				}
 			]
 		},
@@ -721,14 +870,9 @@
 					"sid": 201588118623337
 				},
 				{
-					"type": "comment",
-					"text": "TODO: use random ability from NumberOfEnemyAbilities"
-				},
-				{
-					"callFunction": "UseAbility",
-					"sid": 420468825724886,
+					"callFunction": "UseRandomEnemyAbility",
+					"sid": 869772481701932,
 					"parameters": [
-						"Enemy.Ability1",
 						"\"Enemy\"",
 						"Enemy.Level"
 					]
@@ -809,6 +953,14 @@
 					]
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "Enemy",
+					"sid": 506760131036536,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "delete",
 					"objectClass": "EnemiesArray",
 					"sid": 681702721509282,
@@ -816,30 +968,67 @@
 						"index": "FocusedEnemyArrayIndex",
 						"axis": "x"
 					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 842466671848064,
-					"parameters": {
-						"seconds": "1"
-					}
-				},
-				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 698009027667632,
-					"parameters": {
-						"variable": "IsInCombat",
-						"value": "false"
-					}
-				},
-				{
-					"callFunction": "ShowLayer1",
-					"sid": 128262402187901
 				}
 			],
-			"sid": 665859488933097
+			"sid": 665859488933097,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "HPText",
+							"sid": 902883396060659,
+							"parameters": {
+								"instance-variable": "BelongsTo",
+								"comparison": 0,
+								"value": "\"Enemy\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "HPText",
+							"sid": 640114916914774
+						}
+					],
+					"sid": 470975159891489
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 537501195725579,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 226980771013807,
+							"parameters": {
+								"variable": "IsInCombat",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "ShowLayer1",
+							"sid": 836686092962632
+						},
+						{
+							"id": "destroy",
+							"objectClass": "HPText",
+							"sid": 127227724246506
+						}
+					],
+					"sid": 644473739902311
+				}
+			]
 		},
 		{
 			"functionName": "AttemptToFlee",
