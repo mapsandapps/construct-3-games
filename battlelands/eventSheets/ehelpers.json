@@ -323,12 +323,12 @@
 		{
 			"functionName": "GetRandomXPositionInRoom",
 			"functionDescription": "",
-			"functionCategory": "",
+			"functionCategory": "Helpers",
 			"functionReturnType": "number",
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "RoomXCoord",
+					"name": "RoomCol",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -369,7 +369,7 @@
 							"objectClass": "Functions",
 							"sid": 290389376748388,
 							"parameters": {
-								"value": "LayoutWidth * RoomXCoord + random(MaxX - MinX) + MinX"
+								"value": "LayoutWidth * RoomCol + random(MaxX - MinX) + MinX"
 							}
 						}
 					],
@@ -380,12 +380,12 @@
 		{
 			"functionName": "GetRandomYPositionInRoom",
 			"functionDescription": "",
-			"functionCategory": "",
+			"functionCategory": "Helpers",
 			"functionReturnType": "number",
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "RoomYCoord",
+					"name": "RoomRow",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
@@ -426,13 +426,71 @@
 							"objectClass": "Functions",
 							"sid": 436642617532080,
 							"parameters": {
-								"value": "LayoutHeight * RoomYCoord + random(MaxY - MinY) + MinY"
+								"value": "LayoutHeight * RoomRow + random(MaxY - MinY) + MinY"
 							}
 						}
 					],
 					"sid": 920768433355876
 				}
 			]
+		},
+		{
+			"functionName": "GetRandomXPositionInSameRoom",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CurrentX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 574686139769507
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 975107537649140,
+					"parameters": {
+						"value": "Functions.GetRandomXPositionInRoom(floor(CurrentX / LayoutWidth))"
+					}
+				}
+			],
+			"sid": 411960130194825
+		},
+		{
+			"functionName": "GetRandomYPositionInSameRoom",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CurrentY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 764949718178408
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 827952147687308,
+					"parameters": {
+						"value": "Functions.GetRandomYPositionInRoom(floor(CurrentY / LayoutHeight))"
+					}
+				}
+			],
+			"sid": 109621435338610
 		}
 	],
 	"sid": 510339625128563

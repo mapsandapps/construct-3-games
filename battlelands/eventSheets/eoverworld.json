@@ -1555,6 +1555,47 @@
 				}
 			],
 			"sid": 785084642025643
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 186626217151106,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				},
+				{
+					"id": "pick-random-instance",
+					"objectClass": "System",
+					"sid": 500084941190033,
+					"parameters": {
+						"object": "Enemy"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Enemy",
+					"sid": 132952905547190,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "Functions.GetRandomXPositionInSameRoom(Enemy.X)",
+						"end-y": "Functions.GetRandomYPositionInSameRoom(Enemy.Y)",
+						"time": "1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no"
+					}
+				}
+			],
+			"sid": 913194561209936
 		}
 	],
 	"sid": 695284905485469
