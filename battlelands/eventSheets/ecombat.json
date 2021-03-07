@@ -78,6 +78,16 @@
 			"sid": 405229762505103
 		},
 		{
+			"eventType": "variable",
+			"name": "INFINITE_TURNS",
+			"type": "number",
+			"initialValue": "1000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 131110883632641
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -759,6 +769,16 @@
 									}
 								},
 								{
+									"id": "set-at-xy",
+									"objectClass": "PlayerBuffs",
+									"sid": 712680549109113,
+									"parameters": {
+										"x": "PlayerBuffs.Width - 1",
+										"y": "1",
+										"value": "INFINITE_TURNS"
+									}
+								},
+								{
 									"callFunction": "AppendToCombatLog",
 									"sid": 219607869762821,
 									"parameters": [
@@ -830,6 +850,16 @@
 										"where": "back",
 										"value": "\"Invisibility\"",
 										"axis": "x"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "EnemyBuffs",
+									"sid": 189524797406687,
+									"parameters": {
+										"x": "EnemyBuffs.Width - 1",
+										"y": "1",
+										"value": "INFINITE_TURNS"
 									}
 								},
 								{
@@ -934,6 +964,16 @@
 									}
 								},
 								{
+									"id": "set-at-xy",
+									"objectClass": "PlayerBuffs",
+									"sid": 924827162897091,
+									"parameters": {
+										"x": "PlayerBuffs.Width - 1",
+										"y": "1",
+										"value": "INFINITE_TURNS"
+									}
+								},
+								{
 									"callFunction": "AppendToCombatLog",
 									"sid": 218316127279799,
 									"parameters": [
@@ -1005,6 +1045,16 @@
 										"where": "back",
 										"value": "\"Barkskin\"",
 										"axis": "x"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "EnemyBuffs",
+									"sid": 336367480012679,
+									"parameters": {
+										"x": "EnemyBuffs.Width - 1",
+										"y": "1",
+										"value": "INFINITE_TURNS"
 									}
 								},
 								{

@@ -128,21 +128,21 @@
 				{
 					"id": "set-size",
 					"objectClass": "EnemyBuffs",
-					"sid": 518895992777472,
+					"sid": 483075928050644,
 					"parameters": {
 						"width": "0",
-						"height": "1",
-						"depth": "1"
+						"height": "EnemyBuffs.Height",
+						"depth": "EnemyBuffs.Depth"
 					}
 				},
 				{
 					"id": "set-size",
 					"objectClass": "PlayerBuffs",
-					"sid": 263377857949586,
+					"sid": 214893556386153,
 					"parameters": {
 						"width": "0",
-						"height": "1",
-						"depth": "1"
+						"height": "PlayerBuffs.Height",
+						"depth": "PlayerBuffs.Depth"
 					}
 				}
 			],
