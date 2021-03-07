@@ -472,95 +472,151 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 651847674819723
-						}
-					],
-					"actions": [],
-					"sid": 536162518846192,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "cursor-is-over-object",
-									"objectClass": "Mouse",
-									"sid": 269099982711256,
-									"parameters": {
-										"object": "InvisibleButton"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 430817709907349,
-									"parameters": {
-										"variable": "IsInCombat"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-cursor-style",
-									"objectClass": "Mouse",
-									"sid": 677489697011755,
-									"parameters": {
-										"cursor-style": "hand"
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Cursor",
-									"sid": 542724572949802,
-									"disabled": true,
-									"parameters": {
-										"frame-number": "5"
-									}
-								},
-								{
-									"id": "set-angle",
-									"objectClass": "Cursor",
-									"sid": 133465038415234,
-									"disabled": true,
-									"parameters": {
-										"angle": "135"
-									}
-								},
-								{
-									"id": "set-size",
-									"objectClass": "Cursor",
-									"sid": 884837659751509,
-									"disabled": true,
-									"parameters": {
-										"width": "48",
-										"height": "48"
-									}
-								}
-							],
-							"sid": 393260302427691
+							"sid": 723779749001828
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 113518984833753
-								}
-							],
-							"actions": [
-								{
-									"id": "set-cursor-style",
-									"objectClass": "Mouse",
-									"sid": 612414395798078,
-									"parameters": {
-										"cursor-style": "normal"
-									}
-								}
-							],
-							"sid": 571770700286433
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 424444227771681,
+							"parameters": {
+								"object": "FleeButton"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 690476272694142,
+							"parameters": {
+								"variable": "IsInCombat"
+							}
 						}
-					]
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 423184921927198,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cursor",
+							"sid": 415214106538986,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 358653493095955,
+							"disabled": true,
+							"parameters": {
+								"angle": "0"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Cursor",
+							"sid": 593225422013244,
+							"disabled": true,
+							"parameters": {
+								"width": "64",
+								"height": "64"
+							}
+						}
+					],
+					"sid": 359263811366446
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 985235766432393
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 199767096046158,
+							"parameters": {
+								"object": "InvisibleButton"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 794445948863287,
+							"parameters": {
+								"variable": "IsInCombat"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 414590225883299,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cursor",
+							"sid": 475420366081375,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "5"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 748758956495865,
+							"disabled": true,
+							"parameters": {
+								"angle": "135"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Cursor",
+							"sid": 847940858466809,
+							"disabled": true,
+							"parameters": {
+								"width": "48",
+								"height": "48"
+							}
+						}
+					],
+					"sid": 912780344027666
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 436918295788364
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 713127075918960,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 558299281684470
 				}
 			]
 		},

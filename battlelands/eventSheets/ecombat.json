@@ -588,6 +588,14 @@
 				},
 				{
 					"id": "set-opacity",
+					"objectClass": "FleeButton",
+					"sid": 148528170201367,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-opacity",
 					"objectClass": "Ability",
 					"sid": 398219846068796,
 					"parameters": {
@@ -620,6 +628,14 @@
 					"id": "set-opacity",
 					"objectClass": "AbilityButton",
 					"sid": 234039509065494,
+					"parameters": {
+						"opacity": "30"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "FleeButton",
+					"sid": 273047696060067,
 					"parameters": {
 						"opacity": "30"
 					}
@@ -824,6 +840,133 @@
 				}
 			],
 			"sid": 665859488933097
+		},
+		{
+			"functionName": "AttemptToFlee",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "AppendToCombatLog",
+					"sid": 210140731106291,
+					"parameters": [
+						"\"You attempt to flee...\""
+					]
+				}
+			],
+			"sid": 459203606958434
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 766997944211468,
+					"parameters": {
+						"object": "FleeButton"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 692594918578341,
+					"parameters": {
+						"variable": "IsPlayerTurn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "AttemptToFlee",
+					"sid": 577660916806526
+				},
+				{
+					"callFunction": "BlockPlayerCasting",
+					"sid": 492095952534838
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 100875918378494,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				}
+			],
+			"sid": 195832160913241,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 281971404620644,
+							"parameters": {
+								"first-value": "random(1)",
+								"comparison": 4,
+								"second-value": "0.7"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 983075283949190,
+							"parameters": [
+								"\"You succeeded!\""
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 309029759261477,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 458537426540945,
+							"parameters": {
+								"layout": "Overworld"
+							}
+						}
+					],
+					"sid": 150875318748646
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 177489843048179
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 212631920211070,
+							"parameters": [
+								"\"Your attempt was unsuccessful.\""
+							]
+						},
+						{
+							"callFunction": "EndPlayerTurn",
+							"sid": 819276989277939
+						}
+					],
+					"sid": 863975993707011
+				}
+			]
 		}
 	],
 	"sid": 772248937910943

@@ -223,6 +223,211 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "FleeButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 44,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1136,
+						"y": 464,
+						"width": 250,
+						"height": 67,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Combat Log",
+						"enable-bbcode": true,
+						"font": "Metamorphous-Regular",
+						"size": 21,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.9450980392156862,
+							0.8235294117647058,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 19,
+					"instanceVariables": {
+						"Name": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1040,
+						"y": 32,
+						"width": 224,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "",
+						"enable-bbcode": true,
+						"font": "LeagueSpartan-VF",
+						"size": 12,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.9450980392156862,
+							0.8235294117647058,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 20,
+					"instanceVariables": {
+						"Name": "Combat Log"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1040,
+						"y": 80,
+						"width": 208,
+						"height": 336,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "",
+						"enable-bbcode": true,
+						"font": "Metamorphous-Regular",
+						"size": 26,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.9450980392156862,
+							0.8235294117647058,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 33,
+					"instanceVariables": {
+						"Name": "Ability Name"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 864,
+						"y": 512,
+						"width": 224,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "",
+						"enable-bbcode": true,
+						"font": "LeagueSpartan-VF",
+						"size": 18,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							0.9450980392156862,
+							0.8235294117647058,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 34,
+					"instanceVariables": {
+						"Name": "Ability Description"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 864,
+						"y": 576,
+						"width": 384,
+						"height": 112,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 126761493115847,
@@ -478,94 +683,6 @@
 					}
 				},
 				{
-					"type": "Text",
-					"properties": {
-						"text": "Combat Log",
-						"enable-bbcode": true,
-						"font": "Metamorphous-Regular",
-						"size": 21,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							0.9450980392156862,
-							0.8235294117647058,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 19,
-					"instanceVariables": {
-						"Name": ""
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1040,
-						"y": 32,
-						"width": 224,
-						"height": 48,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Text",
-					"properties": {
-						"text": "",
-						"enable-bbcode": true,
-						"font": "LeagueSpartan-VF",
-						"size": 12,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							0.9450980392156862,
-							0.8235294117647058,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 20,
-					"instanceVariables": {
-						"Name": "Combat Log"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 1040,
-						"y": 80,
-						"width": 208,
-						"height": 336,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "Cursor",
 					"properties": {
 						"initially-visible": true,
@@ -613,94 +730,6 @@
 						"height": 196,
 						"originX": 0.5,
 						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Text",
-					"properties": {
-						"text": "",
-						"enable-bbcode": true,
-						"font": "Metamorphous-Regular",
-						"size": 26,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							0.9450980392156862,
-							0.8235294117647058,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 33,
-					"instanceVariables": {
-						"Name": "Ability Name"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 864,
-						"y": 512,
-						"width": 224,
-						"height": 64,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Text",
-					"properties": {
-						"text": "",
-						"enable-bbcode": true,
-						"font": "LeagueSpartan-VF",
-						"size": 18,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							0.9450980392156862,
-							0.8235294117647058,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 34,
-					"instanceVariables": {
-						"Name": "Ability Description"
-					},
-					"behaviors": {},
-					"world": {
-						"x": 864,
-						"y": 576,
-						"width": 384,
-						"height": 112,
-						"originX": 0,
-						"originY": 0,
 						"color": [
 							1,
 							1,
