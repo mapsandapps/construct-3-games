@@ -59,6 +59,15 @@
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 198206883610292,
+					"parameters": {
+						"variable": "IsInitted",
+						"value": "false"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 972871065285377,
@@ -84,6 +93,10 @@
 					"parameters": {
 						"enabled": false
 					}
+				},
+				{
+					"callFunction": "AllowPlayerCasting",
+					"sid": 819605359648099
 				}
 			],
 			"sid": 343880933245146
@@ -393,14 +406,6 @@
 			"conditions": [],
 			"actions": [
 				{
-					"type": "comment",
-					"text": "TODO: enemy maxHP should actually be determined when spawning on the world map (if flee gets implemented)"
-				},
-				{
-					"callFunction": "SetEnemyHPText",
-					"sid": 673044561866638
-				},
-				{
 					"id": "set-animation-frame",
 					"objectClass": "Enemy",
 					"sid": 860516144053994,
@@ -488,15 +493,6 @@
 								"instance-variable": "MaxHP",
 								"value": "MaxHP"
 							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 490931170340287,
-							"parameters": {
-								"instance-variable": "CurrentHP",
-								"value": "Enemy.MaxHP"
-							}
 						}
 					],
 					"sid": 958710485994429
@@ -519,18 +515,29 @@
 								"instance-variable": "MaxHP",
 								"value": "Functions.ParseDice(JSON.Get(\"enemies.\" & EnemyName & \".maxHPRoll\"))"
 							}
-						},
+						}
+					],
+					"sid": 742213931509207
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Enemy",
-							"sid": 877227838167015,
+							"sid": 743210356402342,
 							"parameters": {
 								"instance-variable": "CurrentHP",
 								"value": "Enemy.MaxHP"
 							}
+						},
+						{
+							"callFunction": "SetEnemyHPText",
+							"sid": 779747331890761
 						}
 					],
-					"sid": 742213931509207
+					"sid": 481985899256789
 				},
 				{
 					"eventType": "block",

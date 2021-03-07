@@ -3,6 +3,16 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "CurrentRoomIndex",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 308960826322405
+		},
+		{
+			"eventType": "variable",
 			"name": "FocusedEnemyArrayIndex",
 			"type": "number",
 			"initialValue": "-1",
@@ -72,24 +82,6 @@
 					}
 				},
 				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 935840479640123,
-					"parameters": {
-						"tag": "\"map\"",
-						"file": "map0.json"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 857984496845837,
-					"parameters": {
-						"tag": "\"enemies\"",
-						"file": "enemies.json"
-					}
-				},
-				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 579252663878601,
@@ -106,13 +98,44 @@
 						"variable": "IsInitted",
 						"value": "false"
 					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 851554245173821,
+					"parameters": {
+						"tag": "\"enemies\"",
+						"file": "enemies.json"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 174239876842105,
+					"parameters": {
+						"tag": "\"map\"",
+						"file": "map0.json"
+					}
+				},
+				{
+					"callFunction": "SetFocusedEnemy",
+					"sid": 562288116607699,
+					"parameters": [
+						"-1"
+					]
 				}
 			],
 			"sid": 217193418345311,
 			"children": [
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "RoomFramesDict",
+							"sid": 649980926018664
+						}
+					],
 					"actions": [
 						{
 							"id": "add-key",
@@ -337,10 +360,11 @@
 					"actions": [
 						{
 							"callFunction": "DrawRoom",
-							"sid": 237278944234488,
+							"sid": 350812803594679,
 							"parameters": [
 								"JSON.Get(\"rooms.\" & loopindex & \".biome\")",
 								"JSON.Get(\"rooms.\" & loopindex & \".doorsString\")",
+								"loopindex",
 								"JSON.Get(\"rooms.\" & loopindex & \".isEntrance\")",
 								"JSON.Get(\"rooms.\" & loopindex & \".x\")",
 								"JSON.Get(\"rooms.\" & loopindex & \".y\")",
@@ -360,19 +384,19 @@
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 422460293410622
+							"sid": 324041006873848
 						},
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 878056551127519,
+							"sid": 733136608200091,
 							"parameters": {
 								"variable": "FilesLoaded",
 								"value": "1"
 							}
 						}
 					],
-					"sid": 623392163611619
+					"sid": 941268436100562
 				}
 			]
 		},
@@ -440,10 +464,46 @@
 					"actions": [
 						{
 							"callFunction": "DrawEnemies",
-							"sid": 713912636412300
+							"sid": 494482476531741
 						}
 					],
-					"sid": 319536794541706
+					"sid": 269245978595571
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "RoomSprite",
+							"sid": 430559733067718,
+							"parameters": {
+								"instance-variable": "Index",
+								"comparison": 0,
+								"value": "CurrentRoomIndex"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Player",
+							"sid": 997420597558205,
+							"parameters": {
+								"x": "RoomSprite.X + LayoutWidth / 2",
+								"y": "RoomSprite.Y + LayoutHeight / 2"
+							}
+						},
+						{
+							"id": "scroll-to-position",
+							"objectClass": "System",
+							"sid": 607732573098140,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						}
+					],
+					"sid": 975786258373695
 				}
 			]
 		},
@@ -467,6 +527,13 @@
 					"initialValue": "",
 					"comment": "",
 					"sid": 877980368930140
+				},
+				{
+					"name": "Index",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 490677753635218
 				},
 				{
 					"name": "IsEntrance",
@@ -588,6 +655,15 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "RoomSprite",
+							"sid": 306611931688937,
+							"parameters": {
+								"instance-variable": "Index",
+								"value": "Index"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "RoomSprite",
 							"sid": 304567794467446,
 							"parameters": {
 								"instance-variable": "XPos",
@@ -618,30 +694,36 @@
 								"comparison": 0,
 								"value": "1"
 							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 167454043879100,
+							"parameters": {
+								"variable": "CurrentRoomIndex",
+								"comparison": 2,
+								"value": "0"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-position",
-							"objectClass": "Player",
-							"sid": 820790595915979,
-							"parameters": {
-								"x": "XPos + LayoutWidth / 2",
-								"y": "YPos + LayoutHeight / 2"
-							}
-						},
-						{
-							"id": "scroll-to-position",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 532495505231201,
+							"sid": 732733318860230,
 							"parameters": {
-								"x": "Player.X",
-								"y": "Player.Y"
+								"variable": "CurrentRoomIndex",
+								"value": "Index"
 							}
 						},
 						{
-							"callFunction": "DrawEnemies",
-							"sid": 868371927709866
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 791097773368437,
+							"parameters": {
+								"type": "log",
+								"message": "\"hello\""
+							}
 						}
 					],
 					"sid": 386797041451619
@@ -1443,8 +1525,26 @@
 			"functionIsAsync": false,
 			"functionParameters": [],
 			"eventType": "function-block",
-			"conditions": [],
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "RoomSprite",
+					"sid": 623497046598670,
+					"parameters": {
+						"object": "Player"
+					}
+				}
+			],
 			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 731622061883758,
+					"parameters": {
+						"variable": "CurrentRoomIndex",
+						"value": "RoomSprite.Index"
+					}
+				},
 				{
 					"id": "go-to-layout",
 					"objectClass": "System",

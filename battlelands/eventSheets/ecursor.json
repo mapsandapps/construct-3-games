@@ -20,6 +20,7 @@
 					"id": "set-cursor-style",
 					"objectClass": "Mouse",
 					"sid": 968091327307174,
+					"disabled": true,
 					"parameters": {
 						"cursor-style": "none"
 					}
@@ -28,6 +29,7 @@
 					"id": "set-position",
 					"objectClass": "Cursor",
 					"sid": 591930978119958,
+					"disabled": true,
 					"parameters": {
 						"x": "Mouse.AbsoluteX",
 						"y": "Mouse.AbsoluteY"
@@ -50,6 +52,7 @@
 					],
 					"actions": [],
 					"sid": 685652506532809,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -75,7 +78,8 @@
 									}
 								}
 							],
-							"sid": 585128860213613
+							"sid": 585128860213613,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -106,7 +110,8 @@
 									}
 								}
 							],
-							"sid": 539260685782075
+							"sid": 539260685782075,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -137,7 +142,8 @@
 									}
 								}
 							],
-							"sid": 844223520852048
+							"sid": 844223520852048,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -168,7 +174,8 @@
 									}
 								}
 							],
-							"sid": 843533375081050
+							"sid": 843533375081050,
+							"disabled": true
 						}
 					]
 				},
@@ -194,6 +201,7 @@
 							"id": "set-animation-frame",
 							"objectClass": "Cursor",
 							"sid": 115503716144745,
+							"disabled": true,
 							"parameters": {
 								"frame-number": "2"
 							}
@@ -222,6 +230,7 @@
 							"id": "set-animation-frame",
 							"objectClass": "Cursor",
 							"sid": 151846966528714,
+							"disabled": true,
 							"parameters": {
 								"frame-number": "0"
 							}
@@ -272,6 +281,7 @@
 				}
 			],
 			"sid": 670123875028358,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -320,7 +330,8 @@
 							}
 						}
 					],
-					"sid": 684842121894396
+					"sid": 684842121894396,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -358,7 +369,8 @@
 							}
 						}
 					],
-					"sid": 536162518846192
+					"sid": 536162518846192,
+					"disabled": true
 				}
 			]
 		}

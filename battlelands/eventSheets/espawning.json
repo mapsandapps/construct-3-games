@@ -345,16 +345,6 @@
 								"y": "3",
 								"value": "RoomSprite.YPos"
 							}
-						},
-						{
-							"id": "set-at-xy",
-							"objectClass": "EnemiesArray",
-							"sid": 432543750297473,
-							"parameters": {
-								"x": "EnemiesArray.Width - 1",
-								"y": "4",
-								"value": "EnemiesArray.Width - 1"
-							}
 						}
 					],
 					"sid": 496684927031519
@@ -370,35 +360,7 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 897804183130759,
-					"parameters": {
-						"type": "log",
-						"message": "\"drawenemies\""
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 414369086745535,
-					"parameters": {
-						"type": "log",
-						"message": "EnemiesArray.Width"
-					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 573523183976932,
-					"parameters": {
-						"type": "log",
-						"message": "EnemiesArray.Height"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 984251898479739,
 			"children": [
 				{
@@ -453,26 +415,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 215822434271715,
-							"parameters": {
-								"type": "log",
-								"message": "EnemiesArray.At(EnemiesArray.CurX, 0)"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 517944645980096,
-							"parameters": {
-								"type": "log",
-								"message": "EnemiesArray.At(EnemiesArray.CurX, 1)"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 274767016506391,
 					"children": [
 						{
@@ -577,10 +520,10 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemy",
-									"sid": 423992464831288,
+									"sid": 794051438393906,
 									"parameters": {
 										"instance-variable": "ArrayIndex",
-										"value": "EnemiesArray.At(EnemiesArray.CurX, 4)"
+										"value": "EnemiesArray.CurX"
 									}
 								}
 							],

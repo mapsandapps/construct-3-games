@@ -138,8 +138,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "EndPlayerTurn",
-							"sid": 457800085804045
+							"callFunction": "BlockPlayerCasting",
+							"sid": 435025167971787
 						}
 					],
 					"sid": 431182316619816
@@ -155,8 +155,8 @@
 					],
 					"actions": [
 						{
-							"callFunction": "BeginPlayerTurn",
-							"sid": 421876807844890
+							"callFunction": "AllowPlayerCasting",
+							"sid": 721841713921823
 						}
 					],
 					"sid": 299219104538996
@@ -167,7 +167,7 @@
 					"actions": [
 						{
 							"callFunction": "BasicAttack",
-							"sid": 463539636107141,
+							"sid": 282465542736451,
 							"parameters": [
 								"AbilityName",
 								"Caster",
@@ -175,7 +175,28 @@
 							]
 						}
 					],
-					"sid": 567554225843951
+					"sid": 418975993389134
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 844673150008878,
+							"parameters": {
+								"variable": "IsPlayerTurn"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "EndPlayerTurn",
+							"sid": 884669954501331
+						}
+					],
+					"sid": 212124626237434
 				}
 			]
 		},
@@ -522,7 +543,7 @@
 			]
 		},
 		{
-			"functionName": "BeginPlayerTurn",
+			"functionName": "AllowPlayerCasting",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
@@ -534,7 +555,7 @@
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 894336418033114,
+					"sid": 547171857233670,
 					"parameters": {
 						"variable": "IsPlayerTurn",
 						"value": "true"
@@ -543,7 +564,7 @@
 				{
 					"id": "set-opacity",
 					"objectClass": "AbilityButton",
-					"sid": 779881574022131,
+					"sid": 273013236228053,
 					"parameters": {
 						"opacity": "100"
 					}
@@ -551,13 +572,51 @@
 				{
 					"id": "set-opacity",
 					"objectClass": "Ability",
-					"sid": 914471632430023,
+					"sid": 398219846068796,
 					"parameters": {
 						"opacity": "100"
 					}
 				}
 			],
-			"sid": 688599025958955
+			"sid": 345878766042527
+		},
+		{
+			"functionName": "BlockPlayerCasting",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 962697040539402,
+					"parameters": {
+						"variable": "IsPlayerTurn",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "AbilityButton",
+					"sid": 234039509065494,
+					"parameters": {
+						"opacity": "30"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Ability",
+					"sid": 340904728727530,
+					"parameters": {
+						"opacity": "30"
+					}
+				}
+			],
+			"sid": 675271122384392
 		},
 		{
 			"functionName": "EndPlayerTurn",
@@ -568,38 +627,42 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
+			"actions": [],
+			"sid": 176986080249516,
+			"children": [
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 235821678193045,
-					"parameters": {
-						"variable": "IsPlayerTurn",
-						"value": "false"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "AbilityButton",
-					"sid": 291907635731462,
-					"parameters": {
-						"opacity": "30"
-					}
-				},
-				{
-					"id": "set-opacity",
-					"objectClass": "Ability",
-					"sid": 543664109853206,
-					"parameters": {
-						"opacity": "30"
-					}
-				},
-				{
-					"callFunction": "TakeEnemyTurn",
-					"sid": 469651095172224
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 984426148598400,
+							"parameters": {
+								"instance-variable": "CurrentHP",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Player",
+							"sid": 550287863274908,
+							"parameters": {
+								"instance-variable": "CurrentHP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "TakeEnemyTurn",
+							"sid": 808275995886139
+						}
+					],
+					"sid": 652712357910562
 				}
-			],
-			"sid": 176986080249516
+			]
 		},
 		{
 			"functionName": "TakeEnemyTurn",
@@ -698,7 +761,17 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 613058515046296,
+					"parameters": {
+						"variable": "IsPlayerTurn",
+						"value": "false"
+					}
+				}
+			],
 			"sid": 665859488933097,
 			"children": [
 				{
@@ -722,6 +795,31 @@
 							"sid": 640899064737063,
 							"parameters": {
 								"text": "\"You defeated the \" & Enemy.Name & \"!\" & newline"
+							}
+						},
+						{
+							"id": "delete",
+							"objectClass": "EnemiesArray",
+							"sid": 871516108870880,
+							"parameters": {
+								"index": "FocusedEnemyArrayIndex",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 817493977357510,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 404143089664637,
+							"parameters": {
+								"layout": "Overworld"
 							}
 						}
 					],
