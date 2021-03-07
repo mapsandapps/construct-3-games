@@ -3,13 +3,23 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "IsInCombat",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 700250997080384
+		},
+		{
+			"eventType": "variable",
 			"name": "IsPlayerTurn",
 			"type": "boolean",
 			"initialValue": "true",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 915269375265163
+			"sid": 800168650250549
 		},
 		{
 			"eventType": "variable",
@@ -33,11 +43,15 @@
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "eCursor"
+			"includeSheet": "eMouse"
 		},
 		{
 			"eventType": "include",
 			"includeSheet": "ePrepForCombat"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "eAcquireAbility"
 		},
 		{
 			"eventType": "block",
@@ -719,6 +733,15 @@
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
+					"sid": 102699239352319,
+					"parameters": {
+						"variable": "IsInCombat",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
 					"sid": 749266299095172,
 					"parameters": {
 						"variable": "IsPlayerTurn",
@@ -748,7 +771,7 @@
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 613058515046296,
+					"sid": 777565678335664,
 					"parameters": {
 						"variable": "IsPlayerTurn",
 						"value": "false"
@@ -773,18 +796,23 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 671365821296192,
+					"sid": 842466671848064,
 					"parameters": {
-						"seconds": "5"
+						"seconds": "1"
 					}
 				},
 				{
-					"id": "go-to-layout",
+					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 561476326209476,
+					"sid": 698009027667632,
 					"parameters": {
-						"layout": "Overworld"
+						"variable": "IsInCombat",
+						"value": "false"
 					}
+				},
+				{
+					"callFunction": "ShowLayer1",
+					"sid": 128262402187901
 				}
 			],
 			"sid": 665859488933097

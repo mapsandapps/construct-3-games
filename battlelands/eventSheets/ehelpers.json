@@ -579,6 +579,35 @@
 			"sid": 447433045596609
 		},
 		{
+			"functionName": "GetAbilityDescriptionFromName",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "AbilityName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 718603045916792
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 903037857120417,
+					"parameters": {
+						"value": "JSON.Get(\"abilities.\" & AbilityName & \".description\")"
+					}
+				}
+			],
+			"sid": 978330115550509
+		},
+		{
 			"functionName": "GetAbilityDescriptionForSlot",
 			"functionDescription": "",
 			"functionCategory": "Helpers",
@@ -599,13 +628,159 @@
 				{
 					"id": "set-function-return-value",
 					"objectClass": "Functions",
-					"sid": 540069663640533,
+					"sid": 221444964487024,
 					"parameters": {
-						"value": "JSON.Get(\"abilities.\" & Functions.GetAbilityBeingUsed(Slot) & \".description\")"
+						"value": "Functions.GetAbilityDescriptionFromName(Functions.GetAbilityBeingUsed(Slot))"
 					}
 				}
 			],
 			"sid": 786509518696592
+		},
+		{
+			"functionName": "SetAbilityAtSlot",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "AbilityName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 111441620369138
+				},
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 874477949283842
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "PrepAbilitySlot",
+					"sid": 416941092695158,
+					"parameters": [
+						"AbilityName",
+						"Slot"
+					]
+				}
+			],
+			"sid": 304537240905849,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 849680865649950,
+							"parameters": {
+								"variable": "Slot",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 527251942407090,
+							"parameters": {
+								"instance-variable": "Ability1",
+								"value": "AbilityName"
+							}
+						}
+					],
+					"sid": 403582673727542
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 370615451325058,
+							"parameters": {
+								"variable": "Slot",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 585034208389942,
+							"parameters": {
+								"instance-variable": "Ability2",
+								"value": "AbilityName"
+							}
+						}
+					],
+					"sid": 430397578854515
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 153810322176694,
+							"parameters": {
+								"variable": "Slot",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 572907654042955,
+							"parameters": {
+								"instance-variable": "Ability3",
+								"value": "AbilityName"
+							}
+						}
+					],
+					"sid": 242891728137631
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 159567207409292,
+							"parameters": {
+								"variable": "Slot",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Player",
+							"sid": 572280100963955,
+							"parameters": {
+								"instance-variable": "Ability4",
+								"value": "AbilityName"
+							}
+						}
+					],
+					"sid": 334335061336331
+				}
+			]
 		}
 	],
 	"sid": 510339625128563

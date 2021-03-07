@@ -1,0 +1,339 @@
+{
+	"name": "eAcquireAbility",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "AbilityToGain",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 996348042097222
+		},
+		{
+			"eventType": "variable",
+			"name": "IsAwaitingSlotSelection",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 599513311661054
+		},
+		{
+			"functionName": "ShowLayer1",
+			"functionDescription": "",
+			"functionCategory": "Acquire Ability",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 807346499789318,
+					"parameters": {
+						"variable": "IsAwaitingSlotSelection",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 429908805000954,
+					"parameters": {
+						"layer": "\"New Ability 1\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "TODO: use random ability from NumberOfEnemyAbilities"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 592750187743911,
+					"parameters": {
+						"variable": "AbilityToGain",
+						"value": "Enemy.Ability1"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 673402770182614,
+					"parameters": {
+						"object-to-create": "Ability",
+						"layer": "\"New Ability 1\"",
+						"x": "320",
+						"y": "256",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Ability",
+					"sid": 277084039055857,
+					"parameters": {
+						"frame-number": "JSON.Get(\"abilities.\" & AbilityToGain & \".animationFrame\")"
+					}
+				}
+			],
+			"sid": 204865947409453
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 195526057307363,
+					"parameters": {
+						"layer": "\"New Ability 1\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 136132306759846,
+					"parameters": {
+						"layer": "\"New Ability 2\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 732812167256270,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 358247414149216,
+							"parameters": {
+								"object": "GainAbilityButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 149480175887422,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GainAbilityButton",
+									"sid": 287078847934287,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Gain\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 703317317063411,
+									"parameters": {
+										"layer": "\"New Ability 2\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 894814812847976
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GainAbilityButton",
+									"sid": 465851628061660,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Exit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 409835583137043,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 194535164336903,
+									"parameters": {
+										"layout": "Overworld"
+									}
+								}
+							],
+							"sid": 290211266201384
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 803450517916293,
+					"parameters": {
+						"layer": "\"New Ability 2\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 533393672241778,
+					"parameters": {
+						"variable": "IsAwaitingSlotSelection",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 422578471843493,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 187895391554335,
+							"parameters": {
+								"object": "GainAbilityButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 299045918215754,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GainAbilityButton",
+									"sid": 230455950324937,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Gain\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 749430841075318
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "GainAbilityButton",
+									"sid": 231085933074667,
+									"parameters": {
+										"instance-variable": "Name",
+										"comparison": 0,
+										"value": "\"Exit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 624250494707003,
+									"parameters": {
+										"layer": "\"New Ability 2\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 964134603587503,
+									"parameters": {
+										"variable": "IsAwaitingSlotSelection",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 448107333587061
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 752627110718132,
+							"parameters": {
+								"object": "AbilityButton"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 183977166814569,
+							"parameters": {
+								"variable": "IsAwaitingSlotSelection"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetAbilityAtSlot",
+							"sid": 285436391795788,
+							"parameters": [
+								"AbilityToGain",
+								"AbilityButton.Slot"
+							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 966217996399922,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 788825365417132,
+							"parameters": {
+								"layout": "Overworld"
+							}
+						}
+					],
+					"sid": 672040085643120
+				}
+			]
+		}
+	],
+	"sid": 414240403109964
+}

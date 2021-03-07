@@ -59,12 +59,30 @@
 					}
 				},
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 911267055811027,
+					"parameters": {
+						"variable": "IsInCombat",
+						"value": "true"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 972871065285377,
 					"parameters": {
 						"variable": "FilesLoaded",
 						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 400252221340885,
+					"parameters": {
+						"variable": "AbilityToGain",
+						"value": "\"\""
 					}
 				},
 				{
@@ -88,6 +106,24 @@
 				{
 					"callFunction": "AllowPlayerCasting",
 					"sid": 819605359648099
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 555909816516695,
+					"parameters": {
+						"layer": "\"New Ability 1\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 301362438213075,
+					"parameters": {
+						"layer": "\"New Ability 2\"",
+						"visibility": "invisible"
+					}
 				}
 			],
 			"sid": 343880933245146
@@ -284,8 +320,8 @@
 							"callFunction": "PrepAbilitySlot",
 							"sid": 704486889739016,
 							"parameters": [
-								"1",
-								"Player.Ability1"
+								"Player.Ability1",
+								"1"
 							]
 						}
 					],
@@ -310,8 +346,8 @@
 							"callFunction": "PrepAbilitySlot",
 							"sid": 361548185512838,
 							"parameters": [
-								"2",
-								"Player.Ability2"
+								"Player.Ability2",
+								"2"
 							]
 						}
 					],
@@ -336,8 +372,8 @@
 							"callFunction": "PrepAbilitySlot",
 							"sid": 288098981603308,
 							"parameters": [
-								"3",
-								"Player.Ability3"
+								"Player.Ability3",
+								"3"
 							]
 						}
 					],
@@ -362,8 +398,8 @@
 							"callFunction": "PrepAbilitySlot",
 							"sid": 133662241137102,
 							"parameters": [
-								"4",
-								"Player.Ability4"
+								"Player.Ability4",
+								"4"
 							]
 						}
 					],
@@ -683,18 +719,18 @@
 			"functionIsAsync": false,
 			"functionParameters": [
 				{
-					"name": "Slot",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 404335751852904
-				},
-				{
 					"name": "AbilityName",
 					"type": "string",
 					"initialValue": "",
 					"comment": "",
 					"sid": 905647162543710
+				},
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 404335751852904
 				}
 			],
 			"eventType": "function-block",

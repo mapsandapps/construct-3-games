@@ -1,0 +1,1028 @@
+{
+	"name": "eMouse",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 767313812321094,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 0,
+						"second-value": "\"Overworld\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 353265568795623,
+					"disabled": true,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Cursor",
+					"sid": 591930978119958,
+					"disabled": true,
+					"parameters": {
+						"x": "Mouse.AbsoluteX",
+						"y": "Mouse.AbsoluteY"
+					}
+				}
+			],
+			"sid": 151353142992301,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 126502390108518,
+							"parameters": {
+								"object": "Door"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 565196588062621,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						}
+					],
+					"sid": 685652506532809,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door",
+									"sid": 955337444419155,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"North\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cursor",
+									"sid": 908952292166983,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 585128860213613,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 916077861178476
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door",
+									"sid": 918434911249325,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"East\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cursor",
+									"sid": 554363475808967,
+									"parameters": {
+										"frame-number": "4"
+									}
+								}
+							],
+							"sid": 539260685782075,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 699554688445297
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door",
+									"sid": 865348716223160,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"South\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cursor",
+									"sid": 551799959260934,
+									"parameters": {
+										"frame-number": "5"
+									}
+								}
+							],
+							"sid": 844223520852048,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 562806694194804
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Door",
+									"sid": 758840528755663,
+									"parameters": {
+										"instance-variable": "Side",
+										"comparison": 0,
+										"value": "\"West\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cursor",
+									"sid": 786497624593417,
+									"parameters": {
+										"frame-number": "6"
+									}
+								}
+							],
+							"sid": 843533375081050,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 974064432923468
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 950386697355465,
+							"parameters": {
+								"object": "Wall"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 150480170863658,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 887546434360709
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 587956739193823
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 997856686461891,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 715689629843787,
+							"parameters": {
+								"cursor-style": "hand"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cursor",
+							"sid": 115503716144745,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "2"
+							}
+						},
+						{
+							"callFunction": "SetFocusedEnemy",
+							"sid": 873782266557800,
+							"parameters": [
+								"Enemy.UID"
+							]
+						}
+					],
+					"sid": 532249807930836
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 734125301375371
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style",
+							"objectClass": "Mouse",
+							"sid": 450646249636794,
+							"parameters": {
+								"cursor-style": "crosshair"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cursor",
+							"sid": 151846966528714,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"callFunction": "SetFocusedEnemy",
+							"sid": 149150416359869,
+							"parameters": [
+								"-1"
+							]
+						}
+					],
+					"sid": 984655672124669
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 105985758256957,
+					"parameters": {
+						"first-value": "LayoutName",
+						"comparison": 0,
+						"second-value": "\"Combat\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 299375251593816,
+					"disabled": true,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Cursor",
+					"sid": 657839551681952,
+					"disabled": true,
+					"parameters": {
+						"x": "Mouse.AbsoluteX",
+						"y": "Mouse.AbsoluteY"
+					}
+				}
+			],
+			"sid": 670123875028358,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 462944857511552,
+							"parameters": {
+								"object": "AbilityButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Cursor",
+							"sid": 826362078083688,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Cursor",
+							"sid": 948314367226551,
+							"disabled": true,
+							"parameters": {
+								"angle": "0"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Cursor",
+							"sid": 737758193503975,
+							"disabled": true,
+							"parameters": {
+								"width": "64",
+								"height": "64"
+							}
+						}
+					],
+					"sid": 684842121894396,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 967597888395967,
+									"parameters": {
+										"variable": "IsInCombat"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 362992923801976,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "AbilityButton",
+											"sid": 330766249647027,
+											"parameters": {
+												"animation": "\"Full\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 384469716188114,
+											"parameters": {
+												"cursor-style": "hand"
+											}
+										}
+									],
+									"sid": 403733498879564
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 122274739690566
+										}
+									],
+									"actions": [
+										{
+											"id": "set-cursor-style",
+											"objectClass": "Mouse",
+											"sid": 328479547734831,
+											"parameters": {
+												"cursor-style": "normal"
+											}
+										}
+									],
+									"sid": 233503536001644
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 604389926999566
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style",
+									"objectClass": "Mouse",
+									"sid": 986927343095405,
+									"parameters": {
+										"cursor-style": "hand"
+									}
+								}
+							],
+							"sid": 704152790030793
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 651847674819723
+						}
+					],
+					"actions": [],
+					"sid": 536162518846192,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 269099982711256,
+									"parameters": {
+										"object": "GainAbilityButton"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 430817709907349,
+									"parameters": {
+										"variable": "IsInCombat"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style",
+									"objectClass": "Mouse",
+									"sid": 677489697011755,
+									"parameters": {
+										"cursor-style": "hand"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Cursor",
+									"sid": 542724572949802,
+									"disabled": true,
+									"parameters": {
+										"frame-number": "5"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Cursor",
+									"sid": 133465038415234,
+									"disabled": true,
+									"parameters": {
+										"angle": "135"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Cursor",
+									"sid": 884837659751509,
+									"disabled": true,
+									"parameters": {
+										"width": "48",
+										"height": "48"
+									}
+								}
+							],
+							"sid": 393260302427691
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 113518984833753
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cursor-style",
+									"objectClass": "Mouse",
+									"sid": 612414395798078,
+									"parameters": {
+										"cursor-style": "normal"
+									}
+								}
+							],
+							"sid": 571770700286433
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mouseover (not cursor)",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 344213277685192,
+							"parameters": {
+								"variable": "IsInCombat"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 622958920442391,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 875854558477397,
+									"parameters": {
+										"object": "AbilityButton"
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "AbilityButton",
+									"sid": 193548430582312,
+									"parameters": {
+										"animation": "\"Full\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 855861818316672,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 446626167715033,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Name\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 324038985489861,
+											"parameters": {
+												"text": "Functions.GetAbilityNameForSlot(AbilityButton.Slot)"
+											}
+										}
+									],
+									"sid": 835519409933531
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 421483865929015,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Description\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 549044872270862,
+											"parameters": {
+												"text": "Functions.GetAbilityDescriptionForSlot(AbilityButton.Slot)"
+											}
+										}
+									],
+									"sid": 611269553758716
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 392523104482791
+								}
+							],
+							"actions": [],
+							"sid": 819646574398161,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 380855904275743,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Name\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 473105097856313,
+											"parameters": {
+												"text": "\"\""
+											}
+										}
+									],
+									"sid": 556211080081261
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 107153373111074,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Description\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 462166967490497,
+											"parameters": {
+												"text": "\"\""
+											}
+										}
+									],
+									"sid": 849366673753254
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 109726764182659
+						}
+					],
+					"actions": [],
+					"sid": 662279139142114,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 442519873001498,
+									"parameters": {
+										"object": "AbilityButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "AbilityButton",
+									"sid": 132392651677398,
+									"parameters": {
+										"opacity": "100"
+									}
+								}
+							],
+							"sid": 196339050830220,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "AbilityButton",
+											"sid": 884165845522198,
+											"parameters": {
+												"object": "Ability"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Ability",
+											"sid": 419278450743808,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 796596209606000
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 848258368277195,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Name\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 853955138867804,
+											"parameters": {
+												"text": "Functions.GetAbilityNameForSlot(AbilityButton.Slot)"
+											}
+										}
+									],
+									"sid": 283248740735289
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 710830712492770,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Description\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 767229222868523,
+											"parameters": {
+												"text": "Functions.GetAbilityDescriptionForSlot(AbilityButton.Slot)"
+											}
+										}
+									],
+									"sid": 562729046042188
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 306740697190586
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 142159828374537,
+									"parameters": {
+										"object": "Ability"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 579158507001111,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 477393308386012,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Name\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 649856201699317,
+											"parameters": {
+												"text": "AbilityToGain"
+											}
+										}
+									],
+									"sid": 994577763889209
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 231813662179030,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Description\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 822259194861352,
+											"parameters": {
+												"text": "Functions.GetAbilityDescriptionFromName(AbilityToGain)"
+											}
+										}
+									],
+									"sid": 474823825565216
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 511937390360917
+								}
+							],
+							"actions": [
+								{
+									"id": "set-opacity",
+									"objectClass": "AbilityButton",
+									"sid": 502474594484920,
+									"parameters": {
+										"opacity": "30"
+									}
+								}
+							],
+							"sid": 579854152222595,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "AbilityButton",
+											"sid": 395058259707022,
+											"parameters": {
+												"object": "Ability"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Ability",
+											"sid": 237227435545365,
+											"parameters": {
+												"opacity": "30"
+											}
+										}
+									],
+									"sid": 203645727451614
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 313060864026359,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Name\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 826734318954694,
+											"parameters": {
+												"text": "\"\""
+											}
+										}
+									],
+									"sid": 235528280501747
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Text",
+											"sid": 499632098790711,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 0,
+												"value": "\"Ability Description\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 100370797060892,
+											"parameters": {
+												"text": "\"\""
+											}
+										}
+									],
+									"sid": 853476115092134
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 894815053633384
+		}
+	],
+	"sid": 914612141072470
+}

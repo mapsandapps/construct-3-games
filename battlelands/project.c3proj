@@ -135,7 +135,7 @@
 			"HPText",
 			"Enemy",
 			"Ability",
-			"FrameAbilityText"
+			"GainAbilityButton"
 		],
 		"subfolders": [
 			{
@@ -145,7 +145,11 @@
 					"Temp",
 					"Text",
 					"FrameCombatLog",
-					"Cursor"
+					"Cursor",
+					"FrameAbilityText",
+					"FrameChoice1",
+					"FrameChoice2",
+					"FrameOutOfCombat"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -193,7 +197,7 @@
 	},
 	"eventSheets": {
 		"items": [
-			"eCursor"
+			"eMouse"
 		],
 		"subfolders": [
 			{
@@ -201,7 +205,8 @@
 					"eCombat",
 					"eHelpers",
 					"ePrepForCombat",
-					"eRolls"
+					"eRolls",
+					"eAcquireAbility"
 				],
 				"subfolders": [],
 				"name": "Combat"
