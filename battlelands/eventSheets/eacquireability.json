@@ -56,7 +56,7 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 592750187743911,
+					"sid": 352208226974961,
 					"parameters": {
 						"variable": "AbilityToGain",
 						"value": "Enemy.Ability1"
@@ -117,7 +117,7 @@
 							"objectClass": "Touch",
 							"sid": 358247414149216,
 							"parameters": {
-								"object": "GainAbilityButton"
+								"object": "InvisibleButton"
 							}
 						}
 					],
@@ -129,7 +129,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "GainAbilityButton",
+									"objectClass": "InvisibleButton",
 									"sid": 287078847934287,
 									"parameters": {
 										"instance-variable": "Name",
@@ -156,7 +156,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "GainAbilityButton",
+									"objectClass": "InvisibleButton",
 									"sid": 465851628061660,
 									"parameters": {
 										"instance-variable": "Name",
@@ -222,7 +222,7 @@
 							"objectClass": "Touch",
 							"sid": 187895391554335,
 							"parameters": {
-								"object": "GainAbilityButton"
+								"object": "InvisibleButton"
 							}
 						}
 					],
@@ -234,7 +234,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "GainAbilityButton",
+									"objectClass": "InvisibleButton",
 									"sid": 230455950324937,
 									"parameters": {
 										"instance-variable": "Name",
@@ -251,7 +251,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "GainAbilityButton",
+									"objectClass": "InvisibleButton",
 									"sid": 231085933074667,
 									"parameters": {
 										"instance-variable": "Name",
@@ -312,6 +312,15 @@
 								"AbilityToGain",
 								"AbilityButton.Slot"
 							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 539505248696530,
+							"parameters": {
+								"variable": "IsAwaitingSlotSelection",
+								"value": "false"
+							}
 						},
 						{
 							"id": "wait",

@@ -131,12 +131,7 @@
 	"objectTypes": {
 		"items": [
 			"Player",
-			"AbilityButton",
-			"HPText",
-			"Enemy",
-			"Ability",
-			"GainAbilityButton",
-			"PlayerAbilitiesDict"
+			"Enemy"
 		],
 		"subfolders": [
 			{
@@ -150,7 +145,8 @@
 					"FrameAbilityText",
 					"FrameChoice1",
 					"FrameChoice2",
-					"FrameOutOfCombat"
+					"FrameOutOfCombat",
+					"Death"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -177,6 +173,17 @@
 				],
 				"subfolders": [],
 				"name": "Overworld"
+			},
+			{
+				"items": [
+					"Ability",
+					"AbilityButton",
+					"InvisibleButton",
+					"HPText",
+					"PlayerAbilitiesDict"
+				],
+				"subfolders": [],
+				"name": "Combat"
 			}
 		]
 	},
@@ -192,6 +199,7 @@
 		"items": [
 			"Combat",
 			"Overworld",
+			"Death",
 			"Objects"
 		],
 		"subfolders": []
@@ -207,7 +215,8 @@
 					"eHelpers",
 					"ePrepForCombat",
 					"eRolls",
-					"eAcquireAbility"
+					"eAcquireAbility",
+					"eDeath"
 				],
 				"subfolders": [],
 				"name": "Combat"

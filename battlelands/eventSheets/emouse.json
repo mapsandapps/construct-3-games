@@ -486,7 +486,7 @@
 									"objectClass": "Mouse",
 									"sid": 269099982711256,
 									"parameters": {
-										"object": "GainAbilityButton"
+										"object": "InvisibleButton"
 									}
 								},
 								{
@@ -627,9 +627,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text",
-											"sid": 324038985489861,
+											"sid": 243602848927789,
 											"parameters": {
-												"text": "Functions.GetAbilityNameForSlot(\"\")"
+												"text": "Functions.GetAbilityNameForSlot(AbilityButton.Slot)"
 											}
 										}
 									],
@@ -653,9 +653,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text",
-											"sid": 549044872270862,
+											"sid": 812205360248712,
 											"parameters": {
-												"text": "Functions.GetAbilityDescriptionForSlot(\"\")"
+												"text": "Functions.GetAbilityDescriptionForSlot(AbilityButton.Slot)"
 											}
 										}
 									],
@@ -809,9 +809,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text",
-											"sid": 853955138867804,
+											"sid": 856448228701884,
 											"parameters": {
-												"text": "Functions.GetAbilityNameForSlot(\"\")"
+												"text": "Functions.GetAbilityNameForSlot(AbilityButton.Slot)"
 											}
 										}
 									],
@@ -835,9 +835,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text",
-											"sid": 767229222868523,
+											"sid": 267016745856050,
 											"parameters": {
-												"text": "Functions.GetAbilityDescriptionForSlot(\"\")"
+												"text": "Functions.GetAbilityDescriptionForSlot(AbilityButton.Slot)"
 											}
 										}
 									],

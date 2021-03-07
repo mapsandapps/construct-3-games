@@ -1,0 +1,122 @@
+{
+	"name": "eDeath",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 241145134729421,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 769273370700699,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 320340229707784
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 677248294810541
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 961675125412976,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 633286276213208
+		},
+		{
+			"functionName": "FullRestart",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 652204557032921
+				},
+				{
+					"id": "clear",
+					"objectClass": "PlayerAbilitiesDict",
+					"sid": 217703115096211
+				},
+				{
+					"id": "clear",
+					"objectClass": "RoomFramesDict",
+					"sid": 561032743941700
+				},
+				{
+					"id": "set-size",
+					"objectClass": "EnemiesArray",
+					"sid": 942306905647709,
+					"parameters": {
+						"width": "0",
+						"height": "EnemiesArray.Height",
+						"depth": "EnemiesArray.Depth"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 853181436643008
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 426069781444678,
+					"parameters": {
+						"layout": "Overworld"
+					}
+				}
+			],
+			"sid": 784545994971454
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 977995590346572,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "FullRestart",
+					"sid": 702895125922942
+				}
+			],
+			"sid": 834598846442667
+		}
+	],
+	"sid": 533851613576464
+}

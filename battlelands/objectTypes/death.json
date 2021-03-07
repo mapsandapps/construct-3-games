@@ -1,16 +1,9 @@
 {
-	"name": "GainAbilityButton",
+	"name": "Death",
 	"plugin-id": "Sprite",
-	"sid": 164421659100081,
+	"sid": 867384033076103,
 	"isGlobal": false,
-	"instanceVariables": [
-		{
-			"name": "Name",
-			"type": "string",
-			"desc": "",
-			"sid": 208950876032248
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -18,25 +11,25 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 1280,
+						"height": 720,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 7329493,
+						"imageSpriteId": 2159224,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 956180788763760,
-				"name": "Animation 1",
+				"sid": 152161313059746,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 0
+				"speed": 5
 			}
 		],
 		"subfolders": []

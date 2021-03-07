@@ -710,7 +710,7 @@
 				},
 				{
 					"callFunction": "UseAbility",
-					"sid": 726539343273051,
+					"sid": 420468825724886,
 					"parameters": [
 						"Enemy.Ability1",
 						"\"Enemy\"",
@@ -754,6 +754,14 @@
 					"parameters": [
 						"\"You were defeated by the \" & Enemy.Name & \".\""
 					]
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 931401367418814,
+					"parameters": {
+						"layout": "Death"
+					}
 				}
 			],
 			"sid": 700352390303312

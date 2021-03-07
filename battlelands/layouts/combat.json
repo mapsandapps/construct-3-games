@@ -264,10 +264,6 @@
 					},
 					"uid": 2,
 					"instanceVariables": {
-						"Ability1": "Club",
-						"Ability2": "",
-						"Ability3": "",
-						"Ability4": "",
 						"CurrentHP": 0,
 						"Level": 1,
 						"MaxHP": 30,
@@ -418,14 +414,14 @@
 					},
 					"uid": 5,
 					"instanceVariables": {
-						"Ability1": "Claw",
-						"Ability2": "",
-						"Ability3": "",
-						"Ability4": "",
 						"CurrentHP": 0,
 						"Level": 1,
 						"MaxHP": 0,
 						"Name": "",
+						"Ability1": "",
+						"Ability2": "",
+						"Ability3": "",
+						"Ability4": "",
 						"ArrayIndex": 0
 					},
 					"behaviors": {
@@ -890,7 +886,7 @@
 					}
 				},
 				{
-					"type": "GainAbilityButton",
+					"type": "InvisibleButton",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -921,7 +917,7 @@
 					}
 				},
 				{
-					"type": "GainAbilityButton",
+					"type": "InvisibleButton",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
