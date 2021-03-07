@@ -951,7 +951,7 @@
 									"parameters": {
 										"first-value": "random(1)",
 										"comparison": 4,
-										"second-value": "1 - INVISIBILITY_PROC_CHANCE"
+										"second-value": "1 - BARKSKIN_DAMAGE_REDUCTION"
 									}
 								}
 							],
@@ -1010,6 +1010,83 @@
 						}
 					],
 					"sid": 916098842710639
+				}
+			]
+		},
+		{
+			"functionName": "GetIsAttackReducedByBarkskin",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "CharacterBeingAttacked",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 387862778250927
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 448884034893736,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BuffDebuff",
+							"sid": 373103214551653,
+							"parameters": {
+								"instance-variable": "Character",
+								"comparison": 0,
+								"value": "CharacterBeingAttacked"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "BuffDebuff",
+							"sid": 743428296961560,
+							"parameters": {
+								"animation": "\"Barkskin\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 560421050300415,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 752692243861977
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 817205767365866
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 850626386902736,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 740905649883185
 				}
 			]
 		}

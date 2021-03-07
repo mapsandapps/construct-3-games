@@ -59,13 +59,23 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "INVISIBILITY_PROC_CHANCE",
+			"name": "BARKSKIN_DAMAGE_REDUCTION",
 			"type": "number",
 			"initialValue": "0.25",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
 			"sid": 534293659872592
+		},
+		{
+			"eventType": "variable",
+			"name": "INVISIBILITY_PROC_CHANCE2",
+			"type": "number",
+			"initialValue": "0.25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 405229762505103
 		},
 		{
 			"eventType": "block",
@@ -256,6 +266,31 @@
 								}
 							],
 							"sid": 275242531572349
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 838321336978703,
+									"parameters": {
+										"variable": "AbilityName",
+										"comparison": 0,
+										"value": "\"Barkskin\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CastBarkskin",
+									"sid": 233718148632193,
+									"parameters": [
+										"Caster"
+									]
+								}
+							],
+							"sid": 240345887703788
 						}
 					]
 				},
@@ -362,7 +397,7 @@
 			"children": [
 				{
 					"eventType": "variable",
-					"name": "CharacterTakingDamage",
+					"name": "Defender",
 					"type": "string",
 					"initialValue": "",
 					"comment": "",
@@ -372,13 +407,43 @@
 				},
 				{
 					"eventType": "variable",
-					"name": "Damage",
+					"name": "CasterName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 665549364971322
+				},
+				{
+					"eventType": "variable",
+					"name": "DefenderName",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 647787275588763
+				},
+				{
+					"eventType": "variable",
+					"name": "OriginalDamage",
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 124277059018778
+				},
+				{
+					"eventType": "variable",
+					"name": "ModifiedDamage",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 266098949164952
 				},
 				{
 					"eventType": "block",
@@ -398,10 +463,28 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
+							"sid": 654536406856228,
+							"parameters": {
+								"variable": "CasterName",
+								"value": "Player.Name"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
 							"sid": 747991743316822,
 							"parameters": {
-								"variable": "CharacterTakingDamage",
+								"variable": "Defender",
 								"value": "\"Enemy\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 994398548946292,
+							"parameters": {
+								"variable": "DefenderName",
+								"value": "Enemy.Name"
 							}
 						}
 					],
@@ -420,10 +503,28 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
+							"sid": 510791094523073,
+							"parameters": {
+								"variable": "CasterName",
+								"value": "Enemy.Name"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
 							"sid": 320270703610905,
 							"parameters": {
-								"variable": "CharacterTakingDamage",
+								"variable": "Defender",
 								"value": "\"Player\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 208997778865240,
+							"parameters": {
+								"variable": "DefenderName",
+								"value": "Player.Name"
 							}
 						}
 					],
@@ -438,7 +539,7 @@
 							"objectClass": "System",
 							"sid": 431192535619493,
 							"parameters": {
-								"variable": "Damage",
+								"variable": "OriginalDamage",
 								"value": "Functions.ParseDice(Ability.DamageRoll)"
 							}
 						},
@@ -447,8 +548,17 @@
 							"objectClass": "System",
 							"sid": 758569343307113,
 							"parameters": {
-								"variable": "Damage",
+								"variable": "OriginalDamage",
 								"value": "CasterLevel * 5"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 178792993423869,
+							"parameters": {
+								"variable": "ModifiedDamage",
+								"value": "OriginalDamage"
 							}
 						}
 					],
@@ -460,77 +570,58 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 612905832669242,
+							"sid": 859188710296042,
 							"parameters": {
-								"first-value": "Functions.GetIsAttackNegatedByInvisibility(CharacterTakingDamage)",
+								"first-value": "Functions.GetIsAttackReducedByBarkskin(Defender)",
 								"comparison": 0,
 								"second-value": "1"
 							}
 						}
 					],
-					"actions": [],
-					"sid": 464015886127927,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 687347855871232,
-									"parameters": {
-										"variable": "Caster",
-										"comparison": 0,
-										"value": "\"Player\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AppendToCombatLog",
-									"sid": 400799728797084,
-									"parameters": [
-										"Player.Name & \" attempts to hit \" & Enemy.Name & \" with \" & AttackName & \".\""
-									]
-								},
-								{
-									"callFunction": "AppendToCombatLog",
-									"sid": 980344886682424,
-									"parameters": [
-										"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
-									]
-								}
-							],
-							"sid": 875096805145998
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 215804802212817,
+							"parameters": {
+								"variable": "ModifiedDamage",
+								"value": "ceil((1 - BARKSKIN_DAMAGE_REDUCTION) * OriginalDamage)"
+							}
+						}
+					],
+					"sid": 706935254306343
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 612905832669242,
+							"parameters": {
+								"first-value": "Functions.GetIsAttackNegatedByInvisibility(Defender)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 316604581193885,
+							"parameters": [
+								"CasterName & \" attempts to hit \" & DefenderName & \" with \" & AttackName & \".\""
+							]
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 231656807515867
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AppendToCombatLog",
-									"sid": 151138942778908,
-									"parameters": [
-										"Enemy.Name & \" attempts to hit \" & Player.Name & \" with \" & AttackName & \".\""
-									]
-								},
-								{
-									"callFunction": "AppendToCombatLog",
-									"sid": 265806475578882,
-									"parameters": [
-										"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
-									]
-								}
-							],
-							"sid": 503651987058098
+							"callFunction": "AppendToCombatLog",
+							"sid": 128420680813904,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(DefenderName, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
+							]
 						}
-					]
+					],
+					"sid": 464015886127927
 				},
 				{
 					"eventType": "block",
@@ -541,77 +632,56 @@
 							"sid": 412184548763773
 						}
 					],
-					"actions": [],
-					"sid": 230110932422442,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 733507595808876,
-									"parameters": {
-										"variable": "Caster",
-										"comparison": 0,
-										"value": "\"Player\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AppendToCombatLog",
-									"sid": 202644351420571,
-									"parameters": [
-										"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Enemy.Name)"
-									]
-								}
-							],
-							"sid": 208835939658927
+							"callFunction": "AppendToCombatLog",
+							"sid": 312096734713819,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(CasterName, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), OriginalDamage, DefenderName)"
+							]
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 718950760479239
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "AppendToCombatLog",
-									"sid": 867627680447893,
-									"parameters": [
-										"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Player.Name)"
-									]
-								}
-							],
-							"sid": 557743611040815
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"callFunction": "TakeDamage",
-									"sid": 475036325993259,
-									"parameters": [
-										"CharacterTakingDamage",
-										"Damage"
-									]
-								}
-							],
-							"sid": 205707818730277
+							"callFunction": "TakeDamage",
+							"sid": 682561955744015,
+							"parameters": [
+								"Defender",
+								"OriginalDamage"
+							]
 						}
-					]
+					],
+					"sid": 230110932422442
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 912989262621562,
+							"parameters": {
+								"first-value": "Functions.GetIsAttackReducedByBarkskin(Defender)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 859995742708690,
+							"parameters": [
+								"\"Damage is reduced to \" & ModifiedDamage & \" HP by \" & DefenderName & \"'s Barkskin.\""
+							]
+						}
+					],
+					"sid": 709200403627470
 				}
 			]
 		},
 		{
 			"functionName": "CastInvisibility",
 			"functionDescription": "",
-			"functionCategory": "",
+			"functionCategory": "Abilities",
 			"functionReturnType": "none",
 			"functionIsAsync": false,
 			"functionParameters": [
@@ -778,6 +848,181 @@
 								}
 							],
 							"sid": 895995599112871
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "CastBarkskin",
+			"functionDescription": "",
+			"functionCategory": "Abilities",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 511913941814724
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 476019812775209,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 378919631407698,
+							"parameters": {
+								"variable": "Caster",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 833139547347337,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "contains-value",
+									"objectClass": "PlayerBuffs",
+									"sid": 525087064522809,
+									"parameters": {
+										"value": "\"Barkskin\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 102715780206973,
+									"parameters": [
+										"Player.Name & \" casts Barkskin. Nothing happens.\""
+									]
+								}
+							],
+							"sid": 924684483820242
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 285699085848343
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "PlayerBuffs",
+									"sid": 399817143768866,
+									"parameters": {
+										"where": "back",
+										"value": "\"Barkskin\"",
+										"axis": "x"
+									}
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 218316127279799,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Barkskin.combatLogCast\"), 0, Enemy.Name)"
+									]
+								},
+								{
+									"callFunction": "RedrawBuffs",
+									"sid": 899686361108089,
+									"parameters": [
+										"\"Enemy\""
+									]
+								}
+							],
+							"sid": 548170709890122
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 990598605461987
+						}
+					],
+					"actions": [],
+					"sid": 285603222459922,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "contains-value",
+									"objectClass": "EnemyBuffs",
+									"sid": 406354014758005,
+									"parameters": {
+										"value": "\"Barkskin\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 218468615327573,
+									"parameters": [
+										"Enemy.Name & \" casts Barkskin. Nothing happens.\""
+									]
+								}
+							],
+							"sid": 606583350428535
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 154805890891281
+								}
+							],
+							"actions": [
+								{
+									"id": "push",
+									"objectClass": "EnemyBuffs",
+									"sid": 843174973697841,
+									"parameters": {
+										"where": "back",
+										"value": "\"Barkskin\"",
+										"axis": "x"
+									}
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 537548302529362,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Barkskin.combatLogCast\"), 0, Player.Name)"
+									]
+								},
+								{
+									"callFunction": "RedrawBuffs",
+									"sid": 808512544098372,
+									"parameters": [
+										"\"Enemy\""
+									]
+								}
+							],
+							"sid": 600146221370867
 						}
 					]
 				}
