@@ -18,17 +18,7 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 848527826018011,
-					"parameters": {
-						"type": "log",
-						"message": "Player.Ability1"
-					}
-				}
-			],
+			"actions": [],
 			"sid": 396161110138362,
 			"children": [
 				{
@@ -212,15 +202,6 @@
 					"parameters": {
 						"text": "Enemy.CurrentHP & \"/\" & Enemy.MaxHP"
 					}
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 704158261681582,
-					"parameters": {
-						"type": "log",
-						"message": "Enemy.CurrentHP"
-					}
 				}
 			],
 			"sid": 957819218971085
@@ -283,28 +264,28 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 846895752024614,
+							"sid": 577429731887839,
 							"parameters": {
 								"variable": "TextToReturn",
-								"value": "RegexReplace(CombatLogText, \"%C\", \"gi\", Caster)"
+								"value": "replace(CombatLogText, \"%C\", Caster)"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 750153520885625,
+							"sid": 653452897720484,
 							"parameters": {
 								"variable": "TextToReturn",
-								"value": "RegexReplace(TextToReturn, \"%O\", \"gi\", Opponent)"
+								"value": "replace(TextToReturn, \"%O\", Opponent)"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 217733589994679,
+							"sid": 892501222487439,
 							"parameters": {
 								"variable": "TextToReturn",
-								"value": "RegexReplace(TextToReturn, \"%D\", \"gi\", str(Damage))"
+								"value": "replace(TextToReturn, \"%D\", str(Damage))"
 							}
 						},
 						{
@@ -317,6 +298,82 @@
 						}
 					],
 					"sid": 964871138983843
+				}
+			]
+		},
+		{
+			"functionName": "AppendToCombatLog",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Text",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 961638652098865
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Text",
+					"sid": 108621773944791,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Combat Log\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "append-text",
+					"objectClass": "Text",
+					"sid": 443121619206068,
+					"parameters": {
+						"text": "Text & newline"
+					}
+				}
+			],
+			"sid": 844869980165299,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 404363089535277,
+							"parameters": {
+								"first-value": "Text.TextHeight",
+								"comparison": 4,
+								"second-value": "Text.Height"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 634610805696668,
+							"parameters": {
+								"text": "right(Text.Text, len(Text.Text) - find(Text.Text, newline) - 1)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 882628630749100,
+							"parameters": {
+								"text": "right(Text.Text, len(Text.Text) - find(Text.Text, newline) - 1)"
+							}
+						}
+					],
+					"sid": 294511482640183
 				}
 			]
 		},

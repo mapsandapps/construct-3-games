@@ -331,26 +331,15 @@
 								"comparison": 0,
 								"value": "\"Player\""
 							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 530989381958940,
-							"parameters": {
-								"instance-variable": "Name",
-								"comparison": 0,
-								"value": "\"Combat Log\""
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "append-text",
-							"objectClass": "Text",
-							"sid": 328212279499192,
-							"parameters": {
-								"text": "Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Enemy.Name) & newline"
-							}
+							"callFunction": "AppendToCombatLog",
+							"sid": 469959033164620,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Enemy.Name)"
+							]
 						}
 					],
 					"sid": 557497428511977
@@ -362,26 +351,15 @@
 							"id": "else",
 							"objectClass": "System",
 							"sid": 760598115113732
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 351180654404073,
-							"parameters": {
-								"instance-variable": "Name",
-								"comparison": 0,
-								"value": "\"Combat Log\""
-							}
 						}
 					],
 					"actions": [
 						{
-							"id": "append-text",
-							"objectClass": "Text",
-							"sid": 817522365408553,
-							"parameters": {
-								"text": "Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Player.Name) & newline"
-							}
+							"callFunction": "AppendToCombatLog",
+							"sid": 810904773976319,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), Damage, Player.Name)"
+							]
 						}
 					],
 					"sid": 311188751874758
@@ -720,37 +698,16 @@
 						"variable": "IsPlayerTurn",
 						"value": "false"
 					}
+				},
+				{
+					"callFunction": "AppendToCombatLog",
+					"sid": 956879749227621,
+					"parameters": [
+						"\"You were defeated by the \" & Enemy.Name & \".\""
+					]
 				}
 			],
-			"sid": 700352390303312,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 782057841681594,
-							"parameters": {
-								"instance-variable": "Name",
-								"comparison": 0,
-								"value": "\"Combat Log\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "append-text",
-							"objectClass": "Text",
-							"sid": 281957310477487,
-							"parameters": {
-								"text": "\"You were defeated by the \" & Enemy.Name & \".\" & newline"
-							}
-						}
-					],
-					"sid": 569398171274606
-				}
-			]
+			"sid": 700352390303312
 		},
 		{
 			"functionName": "EnemyDies",
@@ -770,62 +727,41 @@
 						"variable": "IsPlayerTurn",
 						"value": "false"
 					}
+				},
+				{
+					"callFunction": "AppendToCombatLog",
+					"sid": 543018544545339,
+					"parameters": [
+						"\"You defeated the \" & Enemy.Name & \"!\""
+					]
+				},
+				{
+					"id": "delete",
+					"objectClass": "EnemiesArray",
+					"sid": 681702721509282,
+					"parameters": {
+						"index": "FocusedEnemyArrayIndex",
+						"axis": "x"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 671365821296192,
+					"parameters": {
+						"seconds": "5"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 561476326209476,
+					"parameters": {
+						"layout": "Overworld"
+					}
 				}
 			],
-			"sid": 665859488933097,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Text",
-							"sid": 153310594514998,
-							"parameters": {
-								"instance-variable": "Name",
-								"comparison": 0,
-								"value": "\"Combat Log\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "append-text",
-							"objectClass": "Text",
-							"sid": 640899064737063,
-							"parameters": {
-								"text": "\"You defeated the \" & Enemy.Name & \"!\" & newline"
-							}
-						},
-						{
-							"id": "delete",
-							"objectClass": "EnemiesArray",
-							"sid": 871516108870880,
-							"parameters": {
-								"index": "FocusedEnemyArrayIndex",
-								"axis": "x"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 817493977357510,
-							"parameters": {
-								"seconds": "5"
-							}
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 404143089664637,
-							"parameters": {
-								"layout": "Overworld"
-							}
-						}
-					],
-					"sid": 988492818688334
-				}
-			]
+			"sid": 665859488933097
 		}
 	],
 	"sid": 772248937910943
