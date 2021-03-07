@@ -10,137 +10,25 @@
 			"functionParameters": [
 				{
 					"name": "Slot",
-					"type": "number",
-					"initialValue": "0",
+					"type": "string",
+					"initialValue": "",
 					"comment": "",
-					"sid": 521979744034351
+					"sid": 506576706325252
 				}
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
-			"sid": 396161110138362,
-			"children": [
+			"actions": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 879376370346898,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-function-return-value",
-							"objectClass": "Functions",
-							"sid": 816502557707305,
-							"parameters": {
-								"value": "Player.Ability1"
-							}
-						}
-					],
-					"sid": 208986756496595
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 199337306002651
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 949715177149649,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-function-return-value",
-							"objectClass": "Functions",
-							"sid": 580377149990784,
-							"parameters": {
-								"value": "Player.Ability2"
-							}
-						}
-					],
-					"sid": 734471448326301
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 972300604622727
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 994828126610800,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "3"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-function-return-value",
-							"objectClass": "Functions",
-							"sid": 234285719629323,
-							"parameters": {
-								"value": "Player.Ability3"
-							}
-						}
-					],
-					"sid": 955619903325607
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 986353169610051
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "AbilityButton",
-							"sid": 445641241557497,
-							"parameters": {
-								"instance-variable": "Slot",
-								"comparison": 0,
-								"value": "4"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-function-return-value",
-							"objectClass": "Functions",
-							"sid": 641574439986768,
-							"parameters": {
-								"value": "Player.Ability4"
-							}
-						}
-					],
-					"sid": 992395191168508
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 777761030180847,
+					"parameters": {
+						"value": "PlayerAbilitiesDict.Get(Slot)"
+					}
 				}
-			]
+			],
+			"sid": 396161110138362
 		},
 		{
 			"functionName": "SetPlayerHPText",
@@ -558,10 +446,10 @@
 			"functionParameters": [
 				{
 					"name": "Slot",
-					"type": "number",
-					"initialValue": "0",
+					"type": "string",
+					"initialValue": "",
 					"comment": "",
-					"sid": 105857172727333
+					"sid": 891626816650844
 				}
 			],
 			"eventType": "function-block",
@@ -570,9 +458,9 @@
 				{
 					"id": "set-function-return-value",
 					"objectClass": "Functions",
-					"sid": 681616575246905,
+					"sid": 343449000495669,
 					"parameters": {
-						"value": "JSON.Get(\"abilities.\" & Functions.GetAbilityBeingUsed(Slot) & \".name\")"
+						"value": "JSON.Get((\"abilities.\" & Functions.GetAbilityBeingUsed(Slot)) & \".name\")"
 					}
 				}
 			],
@@ -616,10 +504,10 @@
 			"functionParameters": [
 				{
 					"name": "Slot",
-					"type": "number",
-					"initialValue": "0",
+					"type": "string",
+					"initialValue": "",
 					"comment": "",
-					"sid": 226615879233141
+					"sid": 716324539521718
 				}
 			],
 			"eventType": "function-block",
@@ -628,7 +516,7 @@
 				{
 					"id": "set-function-return-value",
 					"objectClass": "Functions",
-					"sid": 221444964487024,
+					"sid": 920624585490119,
 					"parameters": {
 						"value": "Functions.GetAbilityDescriptionFromName(Functions.GetAbilityBeingUsed(Slot))"
 					}
@@ -652,135 +540,34 @@
 				},
 				{
 					"name": "Slot",
-					"type": "number",
-					"initialValue": "0",
+					"type": "string",
+					"initialValue": "",
 					"comment": "",
-					"sid": 874477949283842
+					"sid": 328738066340144
 				}
 			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [
 				{
+					"id": "set-key",
+					"objectClass": "PlayerAbilitiesDict",
+					"sid": 582630713515234,
+					"parameters": {
+						"key": "Slot",
+						"value": "AbilityName"
+					}
+				},
+				{
 					"callFunction": "PrepAbilitySlot",
-					"sid": 416941092695158,
+					"sid": 755544487713517,
 					"parameters": [
 						"AbilityName",
 						"Slot"
 					]
 				}
 			],
-			"sid": 304537240905849,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 849680865649950,
-							"parameters": {
-								"variable": "Slot",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Player",
-							"sid": 527251942407090,
-							"parameters": {
-								"instance-variable": "Ability1",
-								"value": "AbilityName"
-							}
-						}
-					],
-					"sid": 403582673727542
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 370615451325058,
-							"parameters": {
-								"variable": "Slot",
-								"comparison": 0,
-								"value": "2"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Player",
-							"sid": 585034208389942,
-							"parameters": {
-								"instance-variable": "Ability2",
-								"value": "AbilityName"
-							}
-						}
-					],
-					"sid": 430397578854515
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 153810322176694,
-							"parameters": {
-								"variable": "Slot",
-								"comparison": 0,
-								"value": "3"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Player",
-							"sid": 572907654042955,
-							"parameters": {
-								"instance-variable": "Ability3",
-								"value": "AbilityName"
-							}
-						}
-					],
-					"sid": 242891728137631
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 159567207409292,
-							"parameters": {
-								"variable": "Slot",
-								"comparison": 0,
-								"value": "4"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Player",
-							"sid": 572280100963955,
-							"parameters": {
-								"instance-variable": "Ability4",
-								"value": "AbilityName"
-							}
-						}
-					],
-					"sid": 334335061336331
-				}
-			]
+			"sid": 304537240905849
 		}
 	],
 	"sid": 510339625128563

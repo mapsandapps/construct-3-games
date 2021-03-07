@@ -305,37 +305,78 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player",
-							"sid": 517174235535632,
-							"parameters": {
-								"instance-variable": "Ability1",
-								"comparison": 1,
-								"value": "\"\""
-							}
+							"id": "is-empty",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 241676484179024
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "PrepAbilitySlot",
-							"sid": 704486889739016,
-							"parameters": [
-								"Player.Ability1",
-								"1"
-							]
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 996994157424529,
+							"parameters": {
+								"type": "log",
+								"message": "\"look\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 631713921467728,
+							"parameters": {
+								"key": "\"1\"",
+								"value": "\"Club\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 964245922933825,
+							"parameters": {
+								"key": "\"2\"",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 618752115202872,
+							"parameters": {
+								"key": "\"3\"",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 432162131694804,
+							"parameters": {
+								"key": "\"4\"",
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 939638770260010
 						}
 					],
-					"sid": 909377016473386
+					"sid": 802527267354039
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player",
-							"sid": 971296550168692,
+							"id": "for-each-key",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 440852060996785
+						},
+						{
+							"id": "compare-current-value",
+							"objectClass": "PlayerAbilitiesDict",
+							"sid": 524205390182716,
 							"parameters": {
-								"instance-variable": "Ability2",
 								"comparison": 1,
 								"value": "\"\""
 							}
@@ -344,66 +385,14 @@
 					"actions": [
 						{
 							"callFunction": "PrepAbilitySlot",
-							"sid": 361548185512838,
+							"sid": 775841165058556,
 							"parameters": [
-								"Player.Ability2",
-								"2"
+								"PlayerAbilitiesDict.CurrentValue",
+								"PlayerAbilitiesDict.CurrentKey"
 							]
 						}
 					],
-					"sid": 288244801969988
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player",
-							"sid": 974756722017237,
-							"parameters": {
-								"instance-variable": "Ability3",
-								"comparison": 1,
-								"value": "\"\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "PrepAbilitySlot",
-							"sid": 288098981603308,
-							"parameters": [
-								"Player.Ability3",
-								"3"
-							]
-						}
-					],
-					"sid": 664597542143182
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Player",
-							"sid": 639508814968694,
-							"parameters": {
-								"instance-variable": "Ability4",
-								"comparison": 1,
-								"value": "\"\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "PrepAbilitySlot",
-							"sid": 133662241137102,
-							"parameters": [
-								"Player.Ability4",
-								"4"
-							]
-						}
-					],
-					"sid": 140774320756721
+					"sid": 364105949007802
 				}
 			]
 		},
@@ -723,14 +712,14 @@
 					"type": "string",
 					"initialValue": "",
 					"comment": "",
-					"sid": 905647162543710
+					"sid": 877260003223660
 				},
 				{
 					"name": "Slot",
-					"type": "number",
-					"initialValue": "0",
+					"type": "string",
+					"initialValue": "",
 					"comment": "",
-					"sid": 404335751852904
+					"sid": 148446950969390
 				}
 			],
 			"eventType": "function-block",
@@ -738,7 +727,7 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "AbilityButton",
-					"sid": 148103607887095,
+					"sid": 645628896019440,
 					"parameters": {
 						"instance-variable": "Slot",
 						"comparison": 0,
@@ -750,7 +739,7 @@
 				{
 					"id": "set-animation",
 					"objectClass": "AbilityButton",
-					"sid": 987607683100259,
+					"sid": 432545923510154,
 					"parameters": {
 						"animation": "\"Full\"",
 						"from": "beginning"
@@ -759,7 +748,7 @@
 				{
 					"id": "create-object",
 					"objectClass": "System",
-					"sid": 265383534985866,
+					"sid": 945405403727879,
 					"parameters": {
 						"object-to-create": "Ability",
 						"layer": "\"Background\"",
@@ -771,7 +760,7 @@
 				{
 					"id": "set-animation-frame",
 					"objectClass": "Ability",
-					"sid": 553589378208421,
+					"sid": 822968331183215,
 					"parameters": {
 						"frame-number": "JSON.Get(\"abilities.\" & AbilityName & \".animationFrame\")"
 					}
@@ -779,14 +768,14 @@
 				{
 					"id": "set-instvar-value",
 					"objectClass": "Ability",
-					"sid": 979196964694439,
+					"sid": 415175805595178,
 					"parameters": {
 						"instance-variable": "DamageRoll",
 						"value": "JSON.Get(\"abilities.\" & AbilityName & \".damageRoll\")"
 					}
 				}
 			],
-			"sid": 911362956284694
+			"sid": 956429923513963
 		}
 	],
 	"sid": 590417324907145
