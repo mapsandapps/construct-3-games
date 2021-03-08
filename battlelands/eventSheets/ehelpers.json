@@ -808,11 +808,11 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 568504258091937,
+							"sid": 483917411177386,
 							"parameters": {
 								"object-to-create": "BuffDebuff",
 								"layer": "\"Entities\"",
-								"x": "HPText.X - HPText.Width / 2 + BuffDebuff.Width * loopindex",
+								"x": "HPText.X - HPText.Width / 2 + BuffDebuff.Width * EnemyBuffs.CurX",
 								"y": "HPText.Y - 32",
 								"create-hierarchy": false
 							}
@@ -864,11 +864,11 @@
 						{
 							"id": "create-object",
 							"objectClass": "System",
-							"sid": 916745172628642,
+							"sid": 403112721254899,
 							"parameters": {
 								"object-to-create": "BuffDebuff",
 								"layer": "\"Entities\"",
-								"x": "HPText.X - HPText.Width / 2 + BuffDebuff.Width * loopindex",
+								"x": "HPText.X - HPText.Width / 2 + BuffDebuff.Width * PlayerBuffs.CurX",
 								"y": "HPText.Y - 32",
 								"create-hierarchy": false
 							}
@@ -1087,6 +1087,83 @@
 						}
 					],
 					"sid": 740905649883185
+				}
+			]
+		},
+		{
+			"functionName": "GetIsCharacterUnableToAttack",
+			"functionDescription": "",
+			"functionCategory": "Helpers",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 173795198065963
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 519542465422676,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "BuffDebuff",
+							"sid": 948710179550422,
+							"parameters": {
+								"instance-variable": "Character",
+								"comparison": 0,
+								"value": "Caster"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "BuffDebuff",
+							"sid": 334017055428118,
+							"parameters": {
+								"animation": "\"Sleep\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 304208522450146,
+							"parameters": {
+								"value": "1"
+							}
+						}
+					],
+					"sid": 696443506405739
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 296330765702905
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 354693342525681,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 168996318785767
 				}
 			]
 		}

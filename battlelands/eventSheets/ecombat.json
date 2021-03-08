@@ -301,6 +301,31 @@
 								}
 							],
 							"sid": 240345887703788
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 420834816655133,
+									"parameters": {
+										"variable": "AbilityName",
+										"comparison": 0,
+										"value": "\"Sleep\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CastSleep",
+									"sid": 536171317519648,
+									"parameters": [
+										"Caster"
+									]
+								}
+							],
+							"sid": 852420377789663
 						}
 					]
 				},
@@ -542,12 +567,43 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 614938109317851,
+							"parameters": {
+								"first-value": "Functions.GetIsCharacterUnableToAttack(Caster)",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 379684660911085,
+							"parameters": [
+								"CasterName & \" is unable to attack because of Sleep.\""
+							]
+						}
+					],
+					"sid": 921396557019221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 309984271131911
+						}
+					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 431192535619493,
+							"sid": 944790462573964,
 							"parameters": {
 								"variable": "OriginalDamage",
 								"value": "Functions.ParseDice(Ability.DamageRoll)"
@@ -556,7 +612,7 @@
 						{
 							"id": "add-to-eventvar",
 							"objectClass": "System",
-							"sid": 758569343307113,
+							"sid": 607060921107503,
 							"parameters": {
 								"variable": "OriginalDamage",
 								"value": "CasterLevel * 5"
@@ -565,126 +621,128 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 178792993423869,
+							"sid": 880917605710207,
 							"parameters": {
 								"variable": "ModifiedDamage",
 								"value": "OriginalDamage"
 							}
 						}
 					],
-					"sid": 213878302360613
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+					"sid": 429067590443857,
+					"children": [
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 859188710296042,
-							"parameters": {
-								"first-value": "Functions.GetIsAttackReducedByBarkskin(Defender)",
-								"comparison": 0,
-								"second-value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 215804802212817,
-							"parameters": {
-								"variable": "ModifiedDamage",
-								"value": "ceil((1 - BARKSKIN_DAMAGE_REDUCTION) * OriginalDamage)"
-							}
-						}
-					],
-					"sid": 706935254306343
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 612905832669242,
-							"parameters": {
-								"first-value": "Functions.GetIsAttackNegatedByInvisibility(Defender)",
-								"comparison": 0,
-								"second-value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 316604581193885,
-							"parameters": [
-								"CasterName & \" attempts to hit \" & DefenderName & \" with \" & AttackName & \".\""
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 707012658359617,
+									"parameters": {
+										"first-value": "Functions.GetIsAttackReducedByBarkskin(Defender)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 124560956098405,
+									"parameters": {
+										"variable": "ModifiedDamage",
+										"value": "ceil((1 - BARKSKIN_DAMAGE_REDUCTION) * OriginalDamage)"
+									}
+								}
+							],
+							"sid": 151326099229102
 						},
 						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 128420680813904,
-							"parameters": [
-								"Functions.ReplaceCombatLogVariables(DefenderName, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
-							]
-						}
-					],
-					"sid": 464015886127927
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 412184548763773
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 312096734713819,
-							"parameters": [
-								"Functions.ReplaceCombatLogVariables(CasterName, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), OriginalDamage, DefenderName)"
-							]
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 414024692560386,
+									"parameters": {
+										"first-value": "Functions.GetIsAttackNegatedByInvisibility(Defender)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 101930494499248,
+									"parameters": [
+										"CasterName & \" attempts to hit \" & DefenderName & \" with \" & AttackName & \".\""
+									]
+								},
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 865594517516096,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(DefenderName, JSON.Get(\"abilities.Invisibility.combatLogProc\"), 0, \"\")"
+									]
+								}
+							],
+							"sid": 468064775031870
 						},
 						{
-							"callFunction": "TakeDamage",
-							"sid": 682561955744015,
-							"parameters": [
-								"Defender",
-								"OriginalDamage"
-							]
-						}
-					],
-					"sid": 230110932422442
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 279066005892809
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 487288339503923,
+									"parameters": [
+										"Functions.ReplaceCombatLogVariables(CasterName, JSON.Get(\"abilities.\" & AttackName & \".combatLogProc\"), OriginalDamage, DefenderName)"
+									]
+								},
+								{
+									"callFunction": "TakeDamage",
+									"sid": 207833102484385,
+									"parameters": [
+										"Defender",
+										"OriginalDamage"
+									]
+								}
+							],
+							"sid": 126040001521677
+						},
 						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 912989262621562,
-							"parameters": {
-								"first-value": "Functions.GetIsAttackReducedByBarkskin(Defender)",
-								"comparison": 0,
-								"second-value": "1"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 895163563570830,
+									"parameters": {
+										"first-value": "Functions.GetIsAttackReducedByBarkskin(Defender)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "AppendToCombatLog",
+									"sid": 644857451181140,
+									"parameters": [
+										"\"Damage is reduced to \" & ModifiedDamage & \" HP by \" & DefenderName & \"'s Barkskin.\""
+									]
+								}
+							],
+							"sid": 305792669338203
 						}
-					],
-					"actions": [
-						{
-							"callFunction": "AppendToCombatLog",
-							"sid": 859995742708690,
-							"parameters": [
-								"\"Damage is reduced to \" & ModifiedDamage & \" HP by \" & DefenderName & \"'s Barkskin.\""
-							]
-						}
-					],
-					"sid": 709200403627470
+					]
 				}
 			]
 		},
@@ -787,9 +845,9 @@
 								},
 								{
 									"callFunction": "RedrawBuffs",
-									"sid": 827739563719174,
+									"sid": 630655081164070,
 									"parameters": [
-										"\"Enemy\""
+										"\"Player\""
 									]
 								}
 							],
@@ -982,9 +1040,9 @@
 								},
 								{
 									"callFunction": "RedrawBuffs",
-									"sid": 899686361108089,
+									"sid": 186119031816898,
 									"parameters": [
-										"\"Enemy\""
+										"\"Player\""
 									]
 								}
 							],
@@ -1075,6 +1133,127 @@
 							"sid": 600146221370867
 						}
 					]
+				}
+			]
+		},
+		{
+			"functionName": "CastSleep",
+			"functionDescription": "",
+			"functionCategory": "Abilities",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Caster",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 136320960525824
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 976602144863648,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 753277298578316,
+							"parameters": {
+								"variable": "Caster",
+								"comparison": 0,
+								"value": "\"Player\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "EnemyBuffs",
+							"sid": 361168144531218,
+							"parameters": {
+								"where": "back",
+								"value": "\"Sleep\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "EnemyBuffs",
+							"sid": 329612521141542,
+							"parameters": {
+								"x": "EnemyBuffs.Width - 1",
+								"y": "1",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 783247105845525,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(Player.Name, JSON.Get(\"abilities.Sleep.combatLogCast\"), 0, Enemy.Name)"
+							]
+						},
+						{
+							"callFunction": "RedrawBuffs",
+							"sid": 385027932051546,
+							"parameters": [
+								"\"Enemy\""
+							]
+						}
+					],
+					"sid": 311528835461012
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 754775279814695
+						}
+					],
+					"actions": [
+						{
+							"id": "push",
+							"objectClass": "PlayerBuffs",
+							"sid": 952264497149609,
+							"parameters": {
+								"where": "back",
+								"value": "\"Sleep\"",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "PlayerBuffs",
+							"sid": 832274506109007,
+							"parameters": {
+								"x": "PlayerBuffs.Width - 1",
+								"y": "1",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "AppendToCombatLog",
+							"sid": 793841255270591,
+							"parameters": [
+								"Functions.ReplaceCombatLogVariables(Enemy.Name, JSON.Get(\"abilities.Sleep.combatLogCast\"), 0, Player.Name)"
+							]
+						},
+						{
+							"callFunction": "RedrawBuffs",
+							"sid": 947473851538276,
+							"parameters": [
+								"\"Player\""
+							]
+						}
+					],
+					"sid": 834045658794849
 				}
 			]
 		},
@@ -1352,6 +1531,328 @@
 						}
 					],
 					"sid": 652712357910562
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "PlayerBuffs",
+							"sid": 888005941704771,
+							"parameters": {
+								"axis": "x",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 332901915581612,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 643971146218622,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "PlayerBuffs.Width - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "reverse loop"
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 153795569949555,
+									"parameters": {
+										"type": "log",
+										"message": "\"looping backwards: indices:\""
+									}
+								}
+							],
+							"sid": 331935777650171,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Index",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 997833312273584
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 841040787036340,
+											"parameters": {
+												"variable": "Index",
+												"value": "PlayerBuffs.Width - 1 - loopindex"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 436747368886825,
+											"parameters": {
+												"type": "log",
+												"message": "Index"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "PlayerBuffs",
+											"sid": 438189688984580,
+											"parameters": {
+												"x": "Index",
+												"y": "1",
+												"value": "PlayerBuffs.At(Index, 1) - 1"
+											}
+										}
+									],
+									"sid": 432014333539704
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 214847605291834,
+											"parameters": {
+												"first-value": "PlayerBuffs.At(Index, 1)",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "FIXME: might still be buggy"
+										},
+										{
+											"callFunction": "AppendToCombatLog",
+											"sid": 897598379045727,
+											"parameters": [
+												"\"The \" & PlayerBuffs.At(Index, 0) & \" effect wears off on \" & Player.Name & \".\""
+											]
+										},
+										{
+											"id": "delete",
+											"objectClass": "PlayerBuffs",
+											"sid": 987522561849593,
+											"parameters": {
+												"index": "Index",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 980770788314467
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 312540525903603
+								},
+								{
+									"callFunction": "RedrawBuffs",
+									"sid": 572926691120595,
+									"parameters": [
+										"\"Player\""
+									]
+								}
+							],
+							"sid": 875011495779532
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "EndEnemyTurn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 248732797159152,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-size",
+							"objectClass": "EnemyBuffs",
+							"sid": 264402003106110,
+							"parameters": {
+								"axis": "x",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 150480049508158,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 841128700738842,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "EnemyBuffs.Width - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "reverse loop"
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 289276182665322,
+									"parameters": {
+										"type": "log",
+										"message": "\"looping backwards: indices:\""
+									}
+								}
+							],
+							"sid": 800795100354025,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Index",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 376903211063703
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 388936271184930,
+											"parameters": {
+												"variable": "Index",
+												"value": "EnemyBuffs.Width - 1 - loopindex"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 565911163771486,
+											"parameters": {
+												"type": "log",
+												"message": "Index"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "EnemyBuffs",
+											"sid": 853384935076481,
+											"parameters": {
+												"x": "Index",
+												"y": "1",
+												"value": "EnemyBuffs.At(Index, 1) - 1"
+											}
+										}
+									],
+									"sid": 186907329298041
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 741459945498833,
+											"parameters": {
+												"first-value": "EnemyBuffs.At(Index, 1)",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "FIXME: might be buggy"
+										},
+										{
+											"callFunction": "AppendToCombatLog",
+											"sid": 852561776714800,
+											"parameters": [
+												"\"The \" & EnemyBuffs.At(Index, 0) & \" effect wears off on \" & Enemy.Name & \".\""
+											]
+										},
+										{
+											"id": "delete",
+											"objectClass": "EnemyBuffs",
+											"sid": 852339308760256,
+											"parameters": {
+												"index": "Index",
+												"axis": "x"
+											}
+										}
+									],
+									"sid": 577106692389895
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 872641950618960
+								},
+								{
+									"callFunction": "RedrawBuffs",
+									"sid": 562272287412958,
+									"parameters": [
+										"\"Enemy\""
+									]
+								}
+							],
+							"sid": 584414021861041
+						}
+					]
 				}
 			]
 		},
@@ -1385,6 +1886,10 @@
 						"\"Enemy\"",
 						"Enemy.Level"
 					]
+				},
+				{
+					"callFunction": "EndEnemyTurn",
+					"sid": 459468739695108
 				}
 			],
 			"sid": 687586611543011
@@ -1416,6 +1921,11 @@
 						"variable": "IsPlayerTurn",
 						"value": "false"
 					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "BuffDebuff",
+					"sid": 572613445836912
 				},
 				{
 					"callFunction": "AppendToCombatLog",
@@ -1468,6 +1978,11 @@
 					"parameters": {
 						"visibility": "invisible"
 					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "BuffDebuff",
+					"sid": 506714952792252
 				},
 				{
 					"id": "delete",

@@ -50,16 +50,12 @@
 					}
 				},
 				{
-					"type": "comment",
-					"text": "TODO: use random ability from NumberOfEnemyAbilities"
-				},
-				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 352208226974961,
+					"sid": 730061280692705,
 					"parameters": {
 						"variable": "AbilityToGain",
-						"value": "Enemy.Ability1"
+						"value": "Functions.GetRandomEnemyAbility"
 					}
 				},
 				{
