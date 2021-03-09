@@ -1,12 +1,12 @@
 {
-	"name": "Death",
+	"name": "Win",
 	"layers": [
 		{
 			"name": "Layer 0",
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Death",
+					"type": "Win",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
@@ -14,7 +14,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 40,
+					"uid": 48,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -43,14 +43,14 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 43,
+					"uid": 6,
 					"instanceVariables": {
 						"Name": "Exit"
 					},
 					"behaviors": {},
 					"world": {
-						"x": 632,
-						"y": 520,
+						"x": 640,
+						"y": 512,
 						"width": 448,
 						"height": 128,
 						"originX": 0.5,
@@ -66,7 +66,7 @@
 					}
 				}
 			],
-			"sid": 533027737744085,
+			"sid": 826383364730434,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"color": [
@@ -91,7 +91,7 @@
 			"global": false
 		}
 	],
-	"sid": 735976283348239,
+	"sid": 315228488035753,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 1280,

@@ -138,7 +138,6 @@
 				"items": [
 					"Background",
 					"FrameCombat",
-					"Temp",
 					"Text",
 					"FrameCombatLog",
 					"Cursor",
@@ -146,7 +145,8 @@
 					"FrameChoice1",
 					"FrameChoice2",
 					"FrameOutOfCombat",
-					"Death"
+					"Death",
+					"Win"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -204,7 +204,8 @@
 			"Combat",
 			"Overworld",
 			"Death",
-			"Objects"
+			"Objects",
+			"Win"
 		],
 		"subfolders": []
 	},
@@ -220,7 +221,7 @@
 					"ePrepForCombat",
 					"eRolls",
 					"eAcquireAbility",
-					"eDeath"
+					"eWinOrDeath"
 				],
 				"subfolders": [],
 				"name": "Combat"

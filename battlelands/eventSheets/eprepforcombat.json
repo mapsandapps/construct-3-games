@@ -495,6 +495,15 @@
 					}
 				},
 				{
+					"id": "set-instvar-value",
+					"objectClass": "Enemy",
+					"sid": 439699369950383,
+					"parameters": {
+						"instance-variable": "Level",
+						"value": "JSON.Get(\"enemies.\" & EnemyName & \".level\")"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 456616615879153,
@@ -702,6 +711,15 @@
 					"parameters": {
 						"instance-variable": "MaxHP",
 						"value": "PlayerMaxHP"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Player",
+					"sid": 340736935572147,
+					"parameters": {
+						"instance-variable": "Level",
+						"value": "PlayerLevel"
 					}
 				},
 				{

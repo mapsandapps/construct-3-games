@@ -33,9 +33,19 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "PlayerLevel",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 178025144690445
+		},
+		{
+			"eventType": "variable",
 			"name": "PlayerMaxHP",
 			"type": "number",
-			"initialValue": "60",
+			"initialValue": "30",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -1641,10 +1651,6 @@
 									],
 									"actions": [
 										{
-											"type": "comment",
-											"text": "FIXME: might still be buggy"
-										},
-										{
 											"callFunction": "AppendToCombatLog",
 											"sid": 897598379045727,
 											"parameters": [
@@ -1808,10 +1814,6 @@
 										}
 									],
 									"actions": [
-										{
-											"type": "comment",
-											"text": "FIXME: might be buggy"
-										},
 										{
 											"callFunction": "AppendToCombatLog",
 											"sid": 852561776714800,
@@ -2021,6 +2023,28 @@
 				},
 				{
 					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 756477921060758,
+							"parameters": {
+								"instance-variable": "Level",
+								"comparison": 4,
+								"value": "Player.Level"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LevelUp",
+							"sid": 738177520889707
+						}
+					],
+					"sid": 654114260793093
+				},
+				{
+					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
@@ -2039,18 +2063,57 @@
 								"variable": "IsInCombat",
 								"value": "false"
 							}
-						},
+						}
+					],
+					"sid": 644473739902311
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 472267313111241,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"Dryad\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 813469393212225,
+							"parameters": {
+								"layout": "Win"
+							}
+						}
+					],
+					"sid": 496982440016422
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 393987148120893
+						}
+					],
+					"actions": [
 						{
 							"callFunction": "ShowLayer1",
-							"sid": 836686092962632
+							"sid": 603555425368111
 						},
 						{
 							"id": "destroy",
 							"objectClass": "HPText",
-							"sid": 127227724246506
+							"sid": 137718549611729
 						}
 					],
-					"sid": 644473739902311
+					"sid": 800825626977520
 				}
 			]
 		},
@@ -2180,6 +2243,62 @@
 					"sid": 863975993707011
 				}
 			]
+		},
+		{
+			"functionName": "LevelUp",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 664954800237542,
+					"parameters": {
+						"instance-variable": "Level",
+						"value": "1"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 354142603469857,
+					"parameters": {
+						"variable": "PlayerLevel",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "AppendToCombatLog",
+					"sid": 738688566019017,
+					"parameters": [
+						"\"You leveled up! You are now level \" & Player.Level & \".\""
+					]
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 482759456317675,
+					"parameters": {
+						"variable": "PlayerMaxHP",
+						"value": "Functions.RollDice(1, 6, 7)"
+					}
+				},
+				{
+					"id": "add-to-instvar",
+					"objectClass": "Player",
+					"sid": 612427671420794,
+					"parameters": {
+						"instance-variable": "MaxHP",
+						"value": "PlayerMaxHP"
+					}
+				}
+			],
+			"sid": 856241846701377
 		}
 	],
 	"sid": 772248937910943

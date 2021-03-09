@@ -501,6 +501,15 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "Enemy",
+									"sid": 213626740747706,
+									"parameters": {
+										"instance-variable": "Level",
+										"value": "JSON.Get(\"enemies.\" & EnemyName & \".level\")"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
 									"sid": 655567755112605,
 									"parameters": {
 										"instance-variable": "MaxHP",
