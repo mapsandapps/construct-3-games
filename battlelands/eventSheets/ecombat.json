@@ -1329,6 +1329,40 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-instance-variable",
+									"objectClass": "HealthBar",
+									"sid": 400210784966107,
+									"parameters": {
+										"instance-variable": "Character",
+										"comparison": 0,
+										"value": "\"Player\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "HealthBar",
+									"sid": 864005710455691,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "192 * Player.CurrentHP / Player.MaxHP",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 756267648533652
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-two-values",
 									"objectClass": "System",
 									"sid": 876333774019212,
@@ -1380,6 +1414,40 @@
 					],
 					"sid": 628157594835834,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "HealthBar",
+									"sid": 127488009270971,
+									"parameters": {
+										"instance-variable": "Character",
+										"comparison": 0,
+										"value": "\"Enemy\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "HealthBar",
+									"sid": 656261565862249,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetWidth",
+										"end-value": "192 * Enemy.CurrentHP / Enemy.MaxHP",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								}
+							],
+							"sid": 152769155574505
+						},
 						{
 							"eventType": "block",
 							"conditions": [

@@ -1,0 +1,73 @@
+{
+	"name": "HealthBar",
+	"plugin-id": "Sprite",
+	"sid": 876457189224757,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Character",
+			"type": "string",
+			"desc": "",
+			"sid": 698763081222240
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 368307570809537
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 270335,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 234017180283538,
+				"name": "Bar",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2625044,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 249566454686913,
+				"name": "Health",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
