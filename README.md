@@ -4,6 +4,13 @@ Note: these games were all created using Construct 3. The code isn't really mean
 
 ![Construct visual editor](./construct-editor.png)
 
+## BattlelandsRL
+
+A flip screen roguelite made for [7DRL 2021](https://itch.io/jam/7drl-challenge-2021)
+
+* Folder: [/battlelands](./battlelands)
+* [Play on Itch](https://mapsandapps.itch.io/battlelandsrl)
+
 ## Void Scavenge
 
 A hidden object maze made for [Eggplant Podcast Community Game Jam #1: "Going into the Void"](https://itch.io/jam/eggplant-podcast-community-game-jam/rate/930398)
@@ -177,22 +184,27 @@ Also check out [/utils](./utils) for some helper methods, etc. to be used across
 
 # Credits
 
-* Audio, art assets, and fonts from [Kenney](https://kenney.nl/assets) (CC0 1.0 Universal)
-* Word list from [David Ruffner](https://github.com/davidruffner/scrabble-word-finder/blob/master/resources/enable1-wwf-v4.0-wordlist.txt) (MIT license)
-* Some art by [me](https://github.com/mapsandapps)
-* Art from the [2D Game Art Bundle](https://www.gamedevmarket.net/asset/2d-game-art-bundle-2018/) (purchased in the Humble 2D Game Dev Bundle)
-* [8-ball pool assets](https://opengameart.org/content/8-ball-pool-assets) (CC0)
-* [BigEval](https://github.com/aviaryan/bigEval.js) (Apache-2.0)
-* Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
-* [Fantasy Map Generator](https://github.com/Azgaar/Fantasy-Map-Generator) (MIT license)
-* ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)
-* ["Silence of the Machines" composed by onemansymphony.bandcamp.com](https://onemansymphony.bandcamp.com) (CC BY 4.0)
-* [Humble 7000 Game Dev Icons Bundle](https://www.humblebundle.com/software/7000-game-dev-icons-software) (purchased)
-* [Heroic UI](https://assetstore.unity.com/packages/2d/gui/icons/heroic-ui-106778#description) by [Rexard](https://assetstore.unity.com/publishers/13229) (purchased)
-* [Humble Game Dev Map & Level Creator Bundle](https://www.humblebundle.com/software/game-dev-map-level-creator-software) (purchased)
+* Assets
+  * Audio, art assets, and fonts from [Kenney](https://kenney.nl/assets) (CC0 1.0 Universal)
+  * Some art by [me](https://github.com/mapsandapps)
+  * Art from the [2D Game Art Bundle](https://www.gamedevmarket.net/asset/2d-game-art-bundle-2018/) (purchased in the Humble 2D Game Dev Bundle)
+  * [8-ball pool assets](https://opengameart.org/content/8-ball-pool-assets) (CC0)
+  * Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
+  * ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)
+  * ["Silence of the Machines" composed by onemansymphony.bandcamp.com](https://onemansymphony.bandcamp.com) (CC BY 4.0)
+  * [Humble 7000 Game Dev Icons Bundle](https://www.humblebundle.com/software/7000-game-dev-icons-software) (purchased)
+  * [Heroic UI](https://assetstore.unity.com/packages/2d/gui/icons/heroic-ui-106778#description) by [Rexard](https://assetstore.unity.com/publishers/13229) (purchased)
+  * [Humble Game Dev Map & Level Creator Bundle](https://www.humblebundle.com/software/game-dev-map-level-creator-software) (purchased)
+  * [Hand Painted Tiling Textures by beefpuppy](https://beefpuppy.itch.io/hptt) (purchased, CC BY 4.0)
+* Code
+  * Word list from [David Ruffner](https://github.com/davidruffner/scrabble-word-finder/blob/master/resources/enable1-wwf-v4.0-wordlist.txt) (MIT license)
+  * [BigEval](https://github.com/aviaryan/bigEval.js) (Apache-2.0)
+  * [Fantasy Map Generator](https://github.com/Azgaar/Fantasy-Map-Generator) (MIT license)
+  * [Rough.js](https://roughjs.com/) (MIT license)
 * Fonts
   * [Cookie](https://fonts.google.com/specimen/Cookie) (Open Font License)
   * [Jost](https://fonts.google.com/specimen/Jost) (Open Font License)
+  * [League Spartan](https://www.theleagueofmoveabletype.com/league-spartan) (Open Font License)
   * [Metamorphous](https://fonts.google.com/specimen/Metamorphous) (Open Font License)
   * [Montserrat](https://fonts.google.com/specimen/Montserrat) (Open Font License)
   * [Odibee Sans](https://fonts.google.com/specimen/Odibee+Sans) (Open Font License)
