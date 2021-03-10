@@ -1,0 +1,134 @@
+[
+  {
+    "biome": "Forest",
+    "doors": {
+      "north": false,
+      "east": true,
+      "south": true,
+      "west": false,
+      "undefined": true
+    },
+    "zone": 1,
+    "x": 1,
+    "y": 0,
+    "doorsString": "es"
+  },
+  {
+    "biome": "Mountain",
+    "doors": {
+      "north": false,
+      "east": false,
+      "south": false,
+      "west": true
+    },
+    "zone": 2,
+    "x": 2,
+    "y": 0,
+    "doorsString": "w"
+  },
+  {
+    "biome": "Plains",
+    "doors": {
+      "north": false,
+      "east": true,
+      "south": true,
+      "west": false
+    },
+    "zone": 3,
+    "x": 0,
+    "y": 1,
+    "doorsString": "es"
+  },
+  {
+    "biome": "Mountain",
+    "doors": {
+      "north": true,
+      "east": false,
+      "south": false,
+      "west": true
+    },
+    "zone": 2,
+    "x": 1,
+    "y": 1,
+    "doorsString": "nw"
+  },
+  {
+    "biome": "Plains",
+    "doors": {
+      "north": true,
+      "east": true,
+      "south": false,
+      "west": false
+    },
+    "zone": 3,
+    "isEntrance": true,
+    "x": 0,
+    "y": 2,
+    "doorsString": "ne"
+  },
+  {
+    "biome": "Water",
+    "doors": {
+      "north": false,
+      "east": false,
+      "south": true,
+      "west": true
+    },
+    "zone": 4,
+    "x": 1,
+    "y": 2,
+    "doorsString": "sw"
+  },
+  {
+    "biome": "Forest",
+    "doors": {
+      "north": true,
+      "east": false,
+      "south": true,
+      "west": false
+    },
+    "zone": 5,
+    "x": 1,
+    "y": 3,
+    "doorsString": "ns"
+  },
+  {
+    "biome": "Forest",
+    "doors": {
+      "north": true,
+      "east": false,
+      "south": true,
+      "west": false
+    },
+    "zone": 5,
+    "x": 1,
+    "y": 4,
+    "doorsString": "ns"
+  },
+  {
+    "biome": "Water",
+    "doors": {
+      "north": false,
+      "east": true,
+      "south": false,
+      "west": false
+    },
+    "zone": 7,
+    "x": 0,
+    "y": 5,
+    "doorsString": "e"
+  },
+  {
+    "biome": "Mountain",
+    "doors": {
+      "north": true,
+      "east": false,
+      "south": false,
+      "west": true
+    },
+    "zone": 6,
+    "x": 1,
+    "y": 5,
+    "doorsString": "nw"
+  }
+]

@@ -109,15 +109,6 @@
 					}
 				},
 				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 174239876842105,
-					"parameters": {
-						"tag": "\"map\"",
-						"file": "map0.json"
-					}
-				},
-				{
 					"callFunction": "SetFocusedEnemy",
 					"sid": 562288116607699,
 					"parameters": [
@@ -127,6 +118,113 @@
 			],
 			"sid": 217193418345311,
 			"children": [
+				{
+					"eventType": "variable",
+					"name": "Map",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 260883515619572
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 302150153271085,
+							"parameters": {
+								"variable": "Map",
+								"value": "choose(0, 1, 2)"
+							}
+						}
+					],
+					"sid": 436065677322900
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 771886580831176,
+							"parameters": {
+								"variable": "Map",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 291972250953332,
+							"parameters": {
+								"tag": "\"map\"",
+								"file": "map0.json"
+							}
+						}
+					],
+					"sid": 678898223838159
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 288674882453954
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 283136435522384,
+							"parameters": {
+								"variable": "Map",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 387099525543038,
+							"parameters": {
+								"tag": "\"map\"",
+								"file": "map1.json"
+							}
+						}
+					],
+					"sid": 544164691843608
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 764467426935578
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 446437595905669,
+							"parameters": {
+								"tag": "\"map\"",
+								"file": "map2.json"
+							}
+						}
+					],
+					"sid": 832774126908575
+				},
 				{
 					"eventType": "block",
 					"conditions": [
