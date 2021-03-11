@@ -32,6 +32,22 @@
 			],
 			"actions": [
 				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 787670724164638
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 667914392433684,
+					"parameters": {
+						"audio-file": "spring_-_pastorale_vii",
+						"loop": "looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "request-project-file",
 					"objectClass": "AJAX",
 					"sid": 332332318693853,
@@ -143,22 +159,6 @@
 						"width": "0",
 						"height": "PlayerBuffs.Height",
 						"depth": "PlayerBuffs.Depth"
-					}
-				},
-				{
-					"id": "stop-all",
-					"objectClass": "Audio",
-					"sid": 153144003523588
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 889375699714982,
-					"parameters": {
-						"audio-file": "spring_-_pastorale_vii",
-						"loop": "looping",
-						"volume": "-10",
-						"tag-optional": "\"\""
 					}
 				}
 			],
@@ -347,15 +347,6 @@
 						}
 					],
 					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 996994157424529,
-							"parameters": {
-								"type": "log",
-								"message": "\"look\""
-							}
-						},
 						{
 							"id": "add-key",
 							"objectClass": "PlayerAbilitiesDict",

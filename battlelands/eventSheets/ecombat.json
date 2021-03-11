@@ -1767,15 +1767,6 @@
 								{
 									"type": "comment",
 									"text": "reverse loop"
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 153795569949555,
-									"parameters": {
-										"type": "log",
-										"message": "\"looping backwards: indices:\""
-									}
 								}
 							],
 							"sid": 331935777650171,
@@ -1801,15 +1792,6 @@
 											"parameters": {
 												"variable": "Index",
 												"value": "PlayerBuffs.Width - 1 - loopindex"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 436747368886825,
-											"parameters": {
-												"type": "log",
-												"message": "Index"
 											}
 										},
 										{
@@ -1931,15 +1913,6 @@
 								{
 									"type": "comment",
 									"text": "reverse loop"
-								},
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 289276182665322,
-									"parameters": {
-										"type": "log",
-										"message": "\"looping backwards: indices:\""
-									}
 								}
 							],
 							"sid": 800795100354025,
@@ -1965,15 +1938,6 @@
 											"parameters": {
 												"variable": "Index",
 												"value": "EnemyBuffs.Width - 1 - loopindex"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 565911163771486,
-											"parameters": {
-												"type": "log",
-												"message": "Index"
 											}
 										},
 										{

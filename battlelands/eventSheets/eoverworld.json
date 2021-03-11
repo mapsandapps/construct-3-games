@@ -1607,25 +1607,34 @@
 					"parameters": {
 						"object": "Enemy"
 					}
-				},
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Enemy",
-					"sid": 278970243668559,
-					"parameters": {
-						"instance-variable": "ArrayIndex",
-						"comparison": 0,
-						"value": "FocusedEnemyArrayIndex"
-					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 735091904325552,
+			"children": [
 				{
-					"callFunction": "BeginCombat",
-					"sid": 158422367810158
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 477563193358974,
+							"parameters": {
+								"instance-variable": "ArrayIndex",
+								"comparison": 0,
+								"value": "FocusedEnemyArrayIndex"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "BeginCombat",
+							"sid": 886608515570826
+						}
+					],
+					"sid": 356105959672041
 				}
-			],
-			"sid": 735091904325552
+			]
 		},
 		{
 			"functionName": "BeginCombat",
