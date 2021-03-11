@@ -72,6 +72,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
@@ -158,7 +166,8 @@
 					"Touch",
 					"AJAX",
 					"JSON",
-					"Mouse"
+					"Mouse",
+					"Audio"
 				],
 				"subfolders": [],
 				"name": "Base"
@@ -244,11 +253,48 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "swordMetal4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 651911674272031
+				},
+				{
+					"name": "swordMetal5.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 974340165673379
+				},
+				{
+					"name": "swordMetal6.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 864366417275799
+				},
+				{
+					"name": "dropLeather.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 884222510055341
+				},
+				{
+					"name": "clothBelt.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 143940171117603
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "spring_-_pastorale_ii.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 526641133592099
+				},
+				{
+					"name": "spring_-_pastorale_vii.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 219778328943449
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

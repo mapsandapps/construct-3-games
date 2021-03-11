@@ -64,6 +64,22 @@
 			],
 			"actions": [
 				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 801106855809087
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 206410238789292,
+					"parameters": {
+						"audio-file": "spring_-_pastorale_ii",
+						"loop": "looping",
+						"volume": "-10",
+						"tag-optional": "\"\""
+					}
+				},
+				{
 					"id": "set-enabled",
 					"objectClass": "Player",
 					"sid": 583885562912352,

@@ -859,6 +859,17 @@
 									"parameters": [
 										"\"Player\""
 									]
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 520507299883883,
+									"parameters": {
+										"audio-file": "dropLeather",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 318734837729282
@@ -943,6 +954,17 @@
 									"parameters": [
 										"\"Enemy\""
 									]
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 205380143704323,
+									"parameters": {
+										"audio-file": "dropLeather",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 895995599112871
@@ -1054,6 +1076,17 @@
 									"parameters": [
 										"\"Player\""
 									]
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 490542057176816,
+									"parameters": {
+										"audio-file": "dropLeather",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 548170709890122
@@ -1138,6 +1171,17 @@
 									"parameters": [
 										"\"Enemy\""
 									]
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 528454297721553,
+									"parameters": {
+										"audio-file": "dropLeather",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 600146221370867
@@ -1214,6 +1258,17 @@
 							"parameters": [
 								"\"Enemy\""
 							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 943145847171009,
+							"parameters": {
+								"audio-file": "dropLeather",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 311528835461012
@@ -1261,6 +1316,17 @@
 							"parameters": [
 								"\"Player\""
 							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 194081735748701,
+							"parameters": {
+								"audio-file": "dropLeather",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 834045658794849
@@ -1321,6 +1387,34 @@
 						{
 							"callFunction": "SetPlayerHPText",
 							"sid": 263295434213226
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Player",
+							"sid": 809051287881913,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Player.X - 16",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 366813830355378,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "choose(\"swordMetal4\", \"swordMetal5\", \"swordMetal6\")",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 595618893551063,
@@ -1410,6 +1504,34 @@
 						{
 							"callFunction": "SetEnemyHPText",
 							"sid": 967507585850578
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Enemy",
+							"sid": 836853597807529,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetX",
+								"end-value": "Enemy.X + 16",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "yes"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 715784467153032,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "choose(\"swordMetal4\", \"swordMetal5\", \"swordMetal6\")",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 628157594835834,
@@ -2005,6 +2127,14 @@
 					]
 				},
 				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 294298554141077,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
 					"id": "go-to-layout",
 					"objectClass": "System",
 					"sid": 931401367418814,
@@ -2062,6 +2192,11 @@
 						"index": "FocusedEnemyArrayIndex",
 						"axis": "x"
 					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "HealthBar",
+					"sid": 432324436470328
 				}
 			],
 			"sid": 665859488933097,

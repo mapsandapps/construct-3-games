@@ -356,6 +356,17 @@
 							"conditions": [],
 							"actions": [
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 884288018108265,
+									"parameters": {
+										"audio-file": "clothBelt",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"callFunction": "SetAbilityAtSlot",
 									"sid": 909786001667072,
 									"parameters": [
