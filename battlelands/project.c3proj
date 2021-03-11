@@ -112,6 +112,14 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r234.4",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "MoveTo",
 			"name": "Move To",
 			"author": "Scirra",
@@ -125,22 +133,13 @@
 			"author": "Scirra",
 			"version": "r234.4",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Tween",
-			"name": "Tween",
-			"author": "Scirra",
-			"version": "r234.4",
-			"bundled": false
 		}
 	],
 	"uniqueId": "3m04ct1bo8p",
 	"objectTypes": {
 		"items": [
 			"Player",
-			"Enemy",
-			"HealthBar"
+			"Enemy"
 		],
 		"subfolders": [
 			{
@@ -155,7 +154,10 @@
 					"FrameChoice2",
 					"FrameOutOfCombat",
 					"Death",
-					"Win"
+					"Win",
+					"Link",
+					"Intro",
+					"Credits"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -194,7 +196,8 @@
 					"FleeButton",
 					"BuffDebuff",
 					"PlayerBuffs",
-					"EnemyBuffs"
+					"EnemyBuffs",
+					"HealthBar"
 				],
 				"subfolders": [],
 				"name": "Combat"
@@ -211,17 +214,21 @@
 	},
 	"layouts": {
 		"items": [
+			"Intro",
 			"Combat",
 			"Overworld",
 			"Death",
 			"Objects",
-			"Win"
+			"Win",
+			"Credits"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"eMouse"
+			"eMouse",
+			"eIntro",
+			"eCredits"
 		],
 		"subfolders": [
 			{
@@ -478,5 +485,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": "Overworld"
+	"firstLayout": "Intro"
 }

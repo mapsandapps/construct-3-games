@@ -1,0 +1,119 @@
+{
+	"name": "eIntro",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 746326478525439,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 147280519930697,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 673532672966263
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 723771293054909
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 692206408426760,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 321793466327466
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 472385002342933,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "InvisibleButton",
+					"sid": 536249396311209,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Play\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 211922990112925,
+					"parameters": {
+						"layout": "Overworld"
+					}
+				}
+			],
+			"sid": 513525923823400
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 910892005982514,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "InvisibleButton",
+					"sid": 564921041881526,
+					"parameters": {
+						"instance-variable": "Name",
+						"comparison": 0,
+						"value": "\"Credits\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 231212871730375,
+					"parameters": {
+						"layout": "Credits"
+					}
+				}
+			],
+			"sid": 480698719392640
+		}
+	],
+	"sid": 880486223970456
+}

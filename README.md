@@ -191,6 +191,7 @@ Also check out [/utils](./utils) for some helper methods, etc. to be used across
   * [8-ball pool assets](https://opengameart.org/content/8-ball-pool-assets) (CC0)
   * Music & sound effects by [Imperial R.J.](https://soundcloud.com/mperial17/castler)
   * ["sidebyside" by panu](http://ccmixter.org/files/panumoon/61111) (CC BY-NC 3.0)
+  * [Spring's Pastorales by Spring](https://opengameart.org/content/springs-pastorales) (CC-BY-SA 4.0)
   * ["Silence of the Machines" composed by onemansymphony.bandcamp.com](https://onemansymphony.bandcamp.com) (CC BY 4.0)
   * [Humble 7000 Game Dev Icons Bundle](https://www.humblebundle.com/software/7000-game-dev-icons-software) (purchased)
   * [Heroic UI](https://assetstore.unity.com/packages/2d/gui/icons/heroic-ui-106778#description) by [Rexard](https://assetstore.unity.com/publishers/13229) (purchased)

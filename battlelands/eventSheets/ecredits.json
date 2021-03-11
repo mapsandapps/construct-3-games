@@ -1,0 +1,129 @@
+{
+	"name": "eCredits",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 947510248303822,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 546352577216272,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 153490515371959
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 681212771059284
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 197640807605278,
+					"parameters": {
+						"object": "Link"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 707950436399421,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 349298045573695
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 475042437632025
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 571269743666990,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 127088387353193
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 516693635555048,
+					"parameters": {
+						"object": "InvisibleButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 861330446064590,
+					"parameters": {
+						"layout": "Intro"
+					}
+				}
+			],
+			"sid": 652934761649978
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 133849121698664,
+					"parameters": {
+						"object": "Link"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "open-url-in-new-window",
+					"objectClass": "Browser",
+					"sid": 648646477779431,
+					"parameters": {
+						"url": "Link.URL",
+						"tag": "\"NewWindow\""
+					}
+				}
+			],
+			"sid": 337763184593944
+		}
+	],
+	"sid": 778976196238139
+}
