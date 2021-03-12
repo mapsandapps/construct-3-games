@@ -13,6 +13,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "CurrentMap",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 911304066806463
+		},
+		{
+			"eventType": "variable",
 			"name": "FocusedEnemyArrayIndex",
 			"type": "number",
 			"initialValue": "-1",
@@ -63,6 +73,14 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "set-master-volume",
+					"objectClass": "Audio",
+					"sid": 526062555535958,
+					"parameters": {
+						"db": "-10"
+					}
+				},
 				{
 					"id": "stop-all",
 					"objectClass": "Audio",
@@ -146,19 +164,46 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 909299523790792,
+							"parameters": {
+								"variable": "CurrentMap",
+								"comparison": 2,
+								"value": "0"
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 302150153271085,
+							"sid": 873672675933381,
 							"parameters": {
-								"variable": "Map",
+								"variable": "CurrentMap",
 								"value": "choose(0, 1, 2)"
 							}
 						}
 					],
 					"sid": 436065677322900
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 741856489004165,
+							"parameters": {
+								"variable": "Map",
+								"value": "CurrentMap"
+							}
+						}
+					],
+					"sid": 324551371906516
 				},
 				{
 					"eventType": "block",

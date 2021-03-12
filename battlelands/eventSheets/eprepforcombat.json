@@ -32,6 +32,14 @@
 			],
 			"actions": [
 				{
+					"id": "set-master-volume",
+					"objectClass": "Audio",
+					"sid": 593611309020781,
+					"parameters": {
+						"db": "-10"
+					}
+				},
+				{
 					"id": "stop-all",
 					"objectClass": "Audio",
 					"sid": 787670724164638
