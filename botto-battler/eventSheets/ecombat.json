@@ -1,0 +1,30 @@
+{
+	"name": "eCombat",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "CurrentEnemyName",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 623323100118969
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentEnemyMaxHP",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535267054312414
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "ePrepForCombat"
+		}
+	],
+	"sid": 953452279108370
+}
