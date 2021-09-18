@@ -1,0 +1,176 @@
+{
+	"name": "eSetup",
+	"events": [
+		{
+			"functionName": "PlacePlayer",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 923430066774569,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "PlayerPositionUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 508862208286093
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nth-instance",
+							"objectClass": "System",
+							"sid": 976426699426012,
+							"parameters": {
+								"object": "PotentialExit",
+								"instance": "random(PotentialExit.Count)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 254185677752286,
+							"parameters": {
+								"variable": "PlayerPositionUID",
+								"value": "PotentialExit.UID"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Player",
+							"sid": 584332280027181,
+							"parameters": {
+								"x": "PotentialExit.X",
+								"y": "PotentialExit.Y"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "ShadowLight",
+							"sid": 550649439943383,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "ShadowLight",
+							"sid": 706481816050175
+						}
+					],
+					"sid": 212736257698154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "PotentialExit",
+							"sid": 830956591330424,
+							"parameters": {
+								"unique-id": "PlayerPositionUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "PotentialExit",
+							"sid": 128862398498422
+						}
+					],
+					"sid": 825817384040849
+				}
+			]
+		},
+		{
+			"functionName": "PlaceExit",
+			"functionDescription": "",
+			"functionCategory": "Setup",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 452551673172685,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "ExitUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 181526193611246
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nth-instance",
+							"objectClass": "System",
+							"sid": 447944194586258,
+							"parameters": {
+								"object": "PotentialExit",
+								"instance": "random(PotentialExit.Count)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 818990453939438,
+							"parameters": {
+								"variable": "ExitUID",
+								"value": "PotentialExit.UID"
+							}
+						}
+					],
+					"sid": 500503386244199
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "PotentialExit",
+							"sid": 688916483957693,
+							"parameters": {
+								"unique-id": "ExitUID"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "get rid of any unused PotentialExits"
+						},
+						{
+							"id": "destroy",
+							"objectClass": "PotentialExit",
+							"sid": 650271586479134
+						}
+					],
+					"sid": 270188959353909
+				}
+			]
+		}
+	],
+	"sid": 302160854243235
+}

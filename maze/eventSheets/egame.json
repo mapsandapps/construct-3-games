@@ -1,0 +1,305 @@
+{
+	"name": "eGame",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eSetup"
+		},
+		{
+			"eventType": "variable",
+			"name": "GRID_SIZE",
+			"type": "number",
+			"initialValue": "128",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 472453122764082
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 969974584911735,
+					"behaviorType": "8Direction"
+				},
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 731827299847155,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "MoveShadowAndActiveCell",
+					"sid": 402855528341522
+				}
+			],
+			"sid": 119707117642121,
+			"disabled": true,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-nth-touch-end",
+					"objectClass": "Touch",
+					"sid": 830562591723046,
+					"parameters": {
+						"touch-number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-position",
+					"objectClass": "Player",
+					"sid": 927661489256806,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 294271845323935,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 229020508856419,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 163324918776037,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"sid": 315839665550678,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 634016136312117
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "PlacePlayer",
+					"sid": 282798646110420
+				},
+				{
+					"callFunction": "PlaceExit",
+					"sid": 801560078540539
+				}
+			],
+			"sid": 562629337782463
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Player",
+					"sid": 456035407592331,
+					"parameters": {
+						"object": "PotentialExit"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "WinConditionMet",
+					"sid": 911557894776478
+				}
+			],
+			"sid": 834523902641301
+		},
+		{
+			"functionName": "WinConditionMet",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 186072918325756,
+					"parameters": {
+						"layer": "\"Win\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 607303026810632,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 484767265746304,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 687847922898470,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"enabled": false
+					}
+				}
+			],
+			"sid": 495554386321794
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-orientation",
+					"objectClass": "Touch",
+					"sid": 419603060048174,
+					"parameters": {
+						"orientation": "beta",
+						"comparison": 2,
+						"angle": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "move-at-angle",
+					"objectClass": "Player",
+					"sid": 801556949361416,
+					"parameters": {
+						"angle": "0",
+						"distance": "100"
+					}
+				}
+			],
+			"sid": 920343445007924,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 865558214713591
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "DebugText",
+					"sid": 506508724171823,
+					"parameters": {
+						"text": "\"Beta: \" & round(Touch.Beta) & \"; Gamma: \" & round(Touch.Gamma)"
+					}
+				},
+				{
+					"id": "set-vector-y",
+					"objectClass": "Player",
+					"sid": 733168831311841,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"vector-y": "Touch.Beta"
+					}
+				},
+				{
+					"id": "set-vector-x",
+					"objectClass": "Player",
+					"sid": 370376667286074,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"vector-x": "Touch.Gamma"
+					}
+				},
+				{
+					"callFunction": "MoveShadowAndActiveCell",
+					"sid": 878657608891454
+				}
+			],
+			"sid": 656557856564451
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 744359871721280
+				}
+			],
+			"actions": [
+				{
+					"id": "request-permission",
+					"objectClass": "Touch",
+					"sid": 496107898333854,
+					"parameters": {
+						"type": "orientation"
+					}
+				}
+			],
+			"sid": 879860076594905
+		},
+		{
+			"functionName": "MoveShadowAndActiveCell",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 346100740390861,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "ActiveCellMarker",
+					"sid": 141299824100507,
+					"parameters": {
+						"x": "floor(Player.X / GRID_SIZE) * GRID_SIZE + (GRID_SIZE / 2)",
+						"y": "floor(Player.Y / GRID_SIZE) * GRID_SIZE + (GRID_SIZE / 2)"
+					}
+				}
+			],
+			"sid": 953589683983709
+		}
+	],
+	"sid": 341307043718881
+}
