@@ -16,6 +16,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r260",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r260",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "shadowlight",
 			"name": "Shadow light",
 			"author": "Scirra",
@@ -34,22 +50,6 @@
 			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
-			"author": "Scirra",
-			"version": "r260",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "NinePatch",
-			"name": "9-patch",
-			"author": "Scirra",
-			"version": "r260",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
 			"author": "Scirra",
 			"version": "r260",
 			"bundled": false
@@ -104,12 +104,27 @@
 			"ActiveCellMarker",
 			"TiledBackground",
 			"PotentialExit",
-			"Touch",
-			"WinBackground",
-			"WinText",
-			"DebugText"
+			"Touch"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"TiltWarning"
+				],
+				"subfolders": [],
+				"name": "Misc"
+			},
+			{
+				"items": [
+					"DebugText",
+					"WinText",
+					"WinBackground",
+					"TiltResetButton"
+				],
+				"subfolders": [],
+				"name": "UI"
+			}
+		]
 	},
 	"autosaveData": null,
 	"containers": [],
@@ -119,7 +134,8 @@
 	},
 	"layouts": {
 		"items": [
-			"Maze 1"
+			"Maze 1",
+			"Tilt Demo"
 		],
 		"subfolders": []
 	},
@@ -128,7 +144,9 @@
 			"eGame",
 			"eTODO",
 			"eSetup",
-			"eCredits"
+			"eCredits",
+			"eControls",
+			"eTiltDemo"
 		],
 		"subfolders": []
 	},
@@ -243,7 +261,7 @@
 		"appId": "",
 		"pixelRounding": false,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "scale-outer",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -265,7 +283,7 @@
 			1,
 			0
 		],
-		"orientations": "landscape",
+		"orientations": "any",
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
@@ -281,5 +299,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": null
+	"firstLayout": "Tilt Demo"
 }

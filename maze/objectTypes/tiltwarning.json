@@ -1,0 +1,44 @@
+{
+	"name": "TiltWarning",
+	"plugin-id": "Sprite",
+	"sid": 950006829319705,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Side",
+			"type": "string",
+			"desc": "",
+			"sid": 323122349578461
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3124653,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 472987237579344,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,144 @@
+{
+	"name": "eControls",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SPEED_MULTIPLIER",
+			"type": "number",
+			"initialValue": "16",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 765979670863473
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controls",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 325200323226946,
+							"behaviorType": "8Direction"
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 425359766517828,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveShadowAndActiveCell",
+							"sid": 600701900918859
+						}
+					],
+					"sid": 225256856015094,
+					"disabled": true,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-nth-touch-end",
+							"objectClass": "Touch",
+							"sid": 183617643829343,
+							"parameters": {
+								"touch-number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Player",
+							"sid": 817186652449892,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Touch.X",
+								"y": "Touch.Y",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 136689969924258,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 232902287638017,
+							"behaviorType": "8Direction"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Player",
+							"sid": 521253815143159,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"sid": 878151103229631,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 479772491660842
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "DebugText",
+							"sid": 498717765717979,
+							"parameters": {
+								"text": "\"Beta: \" & round(Touch.Beta - TiltCenterBeta) & \"; Gamma: \" & round(Touch.Gamma - TiltCenterGamma) & newline & \"TiltCenter: \" & round(TiltCenterBeta) & \", \" & round(TiltCenterGamma)"
+							}
+						},
+						{
+							"id": "set-vector-y",
+							"objectClass": "Player",
+							"sid": 351375718623194,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"vector-y": "(Touch.Beta - TiltCenterBeta) * SPEED_MULTIPLIER"
+							}
+						},
+						{
+							"id": "set-vector-x",
+							"objectClass": "Player",
+							"sid": 848036640555181,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"vector-x": "(Touch.Gamma - TiltCenterGamma) * SPEED_MULTIPLIER"
+							}
+						},
+						{
+							"callFunction": "MoveShadowAndActiveCell",
+							"sid": 702522230746181
+						}
+					],
+					"sid": 168152638928847
+				}
+			],
+			"sid": 663273768134865
+		}
+	],
+	"sid": 243252438436952
+}

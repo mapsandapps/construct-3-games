@@ -2,16 +2,62 @@
 	"name": "eTODO",
 	"events": [
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "max speed & tilt range",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "set a max speed"
+				},
+				{
+					"eventType": "comment",
+					"text": "have a demo mode that shows when you've tilted farther than beneficial"
+				},
+				{
+					"eventType": "comment",
+					"text": "possibly something other than 0,0 should be motionless"
+				},
+				{
+					"eventType": "comment",
+					"text": "make a setting for how much tilt range is used"
+				},
+				{
+					"eventType": "comment",
+					"text": "should it show if you've exceeded the max useful tilt? yes, at least for debug purposes and maybe also for a \"try it out\" mode in the settings"
+				}
+			],
+			"sid": 503492897962798
+		},
+		{
 			"eventType": "comment",
 			"text": "character instead of dot?"
 		},
 		{
 			"eventType": "comment",
-			"text": "vertical option for mobile"
+			"text": "when game first opens, have them tap a button (maybe ask about motion controls vs other controls?) so motion controls will be requested"
 		},
 		{
 			"eventType": "comment",
-			"text": "when game first opens, have them tap a button (maybe ask about motion controls vs other controls?) so motion controls will be requested"
+			"text": "when level loads, reset tilt"
+		},
+		{
+			"eventType": "comment",
+			"text": "pin button to be in the corner, regardless of screen size & resolution"
+		},
+		{
+			"eventType": "comment",
+			"text": "hide tilt reset button if they aren't using tilt"
+		},
+		{
+			"eventType": "comment",
+			"text": "mazes for programmers"
+		},
+		{
+			"eventType": "comment",
+			"text": "test tilt in landscape mode"
 		}
 	],
 	"sid": 892458735240304

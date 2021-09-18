@@ -3,6 +3,10 @@
 	"events": [
 		{
 			"eventType": "include",
+			"includeSheet": "eControls"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "eSetup"
 		},
 		{
@@ -16,79 +20,24 @@
 			"sid": 472453122764082
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-moving",
-					"objectClass": "Player",
-					"sid": 969974584911735,
-					"behaviorType": "8Direction"
-				},
-				{
-					"id": "is-moving",
-					"objectClass": "Player",
-					"sid": 731827299847155,
-					"behaviorType": "MoveTo"
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "MoveShadowAndActiveCell",
-					"sid": 402855528341522
-				}
-			],
-			"sid": 119707117642121,
-			"disabled": true,
-			"isOrBlock": true
+			"eventType": "variable",
+			"name": "TiltCenterBeta",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 584530324350892
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-nth-touch-end",
-					"objectClass": "Touch",
-					"sid": 830562591723046,
-					"parameters": {
-						"touch-number": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "move-to-position",
-					"objectClass": "Player",
-					"sid": 927661489256806,
-					"behaviorType": "MoveTo",
-					"parameters": {
-						"x": "Touch.X",
-						"y": "Touch.Y",
-						"mode": "direct"
-					}
-				}
-			],
-			"sid": 294271845323935,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-moving",
-					"objectClass": "Player",
-					"sid": 229020508856419,
-					"behaviorType": "8Direction"
-				}
-			],
-			"actions": [
-				{
-					"id": "stop",
-					"objectClass": "Player",
-					"sid": 163324918776037,
-					"behaviorType": "MoveTo"
-				}
-			],
-			"sid": 315839665550678,
-			"disabled": true
+			"eventType": "variable",
+			"name": "TiltCenterGamma",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 247547043383537
 		},
 		{
 			"eventType": "block",
@@ -107,6 +56,31 @@
 				{
 					"callFunction": "PlaceExit",
 					"sid": 801560078540539
+				},
+				{
+					"type": "comment",
+					"text": "FIXME: this reset doesn't seem to be working\nif this wait stays, put up a screen or something first"
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 186037156326363,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"callFunction": "ResetTilt",
+					"sid": 285165805674113
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 871615997842172,
+					"parameters": {
+						"group-name": "\"Controls\"",
+						"state": "activated"
+					}
 				}
 			],
 			"sid": 562629337782463
@@ -154,6 +128,7 @@
 					"id": "set-ignoring-input",
 					"objectClass": "Player",
 					"sid": 607303026810632,
+					"disabled": true,
 					"behaviorType": "8Direction",
 					"parameters": {
 						"input": "start-ignoring"
@@ -163,111 +138,42 @@
 					"id": "stop",
 					"objectClass": "Player",
 					"sid": 484767265746304,
+					"disabled": true,
 					"behaviorType": "MoveTo"
 				},
 				{
 					"id": "set-enabled",
 					"objectClass": "Player",
 					"sid": 687847922898470,
+					"disabled": true,
 					"behaviorType": "MoveTo",
 					"parameters": {
 						"enabled": false
 					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 928079620585616,
+					"behaviorType": "8Direction"
+				},
+				{
+					"id": "stop",
+					"objectClass": "Player",
+					"sid": 651159158082817,
+					"behaviorType": "MoveTo"
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 878754238055468,
+					"parameters": {
+						"group-name": "\"Controls\"",
+						"state": "deactivated"
+					}
 				}
 			],
 			"sid": 495554386321794
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-orientation",
-					"objectClass": "Touch",
-					"sid": 419603060048174,
-					"parameters": {
-						"orientation": "beta",
-						"comparison": 2,
-						"angle": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "move-at-angle",
-					"objectClass": "Player",
-					"sid": 801556949361416,
-					"parameters": {
-						"angle": "0",
-						"distance": "100"
-					}
-				}
-			],
-			"sid": 920343445007924,
-			"disabled": true
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 865558214713591
-				}
-			],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "DebugText",
-					"sid": 506508724171823,
-					"parameters": {
-						"text": "\"Beta: \" & round(Touch.Beta) & \"; Gamma: \" & round(Touch.Gamma)"
-					}
-				},
-				{
-					"id": "set-vector-y",
-					"objectClass": "Player",
-					"sid": 733168831311841,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"vector-y": "Touch.Beta"
-					}
-				},
-				{
-					"id": "set-vector-x",
-					"objectClass": "Player",
-					"sid": 370376667286074,
-					"behaviorType": "8Direction",
-					"parameters": {
-						"vector-x": "Touch.Gamma"
-					}
-				},
-				{
-					"callFunction": "MoveShadowAndActiveCell",
-					"sid": 878657608891454
-				}
-			],
-			"sid": 656557856564451
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-touch-end",
-					"objectClass": "Touch",
-					"sid": 744359871721280
-				}
-			],
-			"actions": [
-				{
-					"id": "request-permission",
-					"objectClass": "Touch",
-					"sid": 496107898333854,
-					"parameters": {
-						"type": "orientation"
-					}
-				}
-			],
-			"sid": 879860076594905
 		},
 		{
 			"functionName": "MoveShadowAndActiveCell",
@@ -299,6 +205,108 @@
 				}
 			],
 			"sid": 953589683983709
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 886580037530035,
+					"parameters": {
+						"object": "TiltResetButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ResetTilt",
+					"sid": 308826640615658
+				}
+			],
+			"sid": 280582536813316
+		},
+		{
+			"functionName": "ResetTilt",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 981677477568853,
+					"parameters": {
+						"variable": "TiltCenterBeta",
+						"value": "Touch.Beta"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 785060390445352,
+					"parameters": {
+						"variable": "TiltCenterGamma",
+						"value": "Touch.Gamma"
+					}
+				}
+			],
+			"sid": 674878924708522
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Permissions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-end",
+							"objectClass": "Touch",
+							"sid": 657899528712929
+						}
+					],
+					"actions": [
+						{
+							"id": "request-permission",
+							"objectClass": "Touch",
+							"sid": 863008720540322,
+							"parameters": {
+								"type": "orientation"
+							}
+						}
+					],
+					"sid": 794342263853483
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-permission-granted",
+							"objectClass": "Touch",
+							"sid": 925995592647353,
+							"parameters": {
+								"type": "orientation"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResetTilt",
+							"sid": 803795394095967
+						}
+					],
+					"sid": 914237627631170
+				}
+			],
+			"sid": 300110905614473
 		}
 	],
 	"sid": 341307043718881

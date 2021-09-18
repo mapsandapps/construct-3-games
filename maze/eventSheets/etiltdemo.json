@@ -1,0 +1,621 @@
+{
+	"name": "eTiltDemo",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "MaxTilt",
+			"type": "number",
+			"initialValue": "16",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 250709682342697
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 106914019262965
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "TiltWarning",
+					"sid": 529577779545499,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 604905786577042
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 164805401309851
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "DebugText",
+					"sid": 102836434964110,
+					"parameters": {
+						"text": "\"Beta: \" & round(Touch.Beta - TiltCenterBeta) & \"; Gamma: \" & round(Touch.Gamma - TiltCenterGamma) & newline & \"TiltCenter: \" & round(TiltCenterBeta) & \", \" & round(TiltCenterGamma)"
+					}
+				},
+				{
+					"id": "set-vector-y",
+					"objectClass": "Player",
+					"sid": 631382469121757,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"vector-y": "(Touch.Beta - TiltCenterBeta) * SPEED_MULTIPLIER"
+					}
+				},
+				{
+					"id": "set-vector-x",
+					"objectClass": "Player",
+					"sid": 694645041902286,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"vector-x": "(Touch.Gamma - TiltCenterGamma) * SPEED_MULTIPLIER"
+					}
+				},
+				{
+					"callFunction": "MoveShadowAndActiveCell",
+					"sid": 215833294638708
+				}
+			],
+			"sid": 479778521980812
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 572151038087061,
+					"parameters": {
+						"first-value": "Touch.Beta - TiltCenterBeta",
+						"comparison": 2,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 552602995697048,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 871412261108474,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"bottom\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 690349988154175,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 851744768329421
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 217211829736703,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"top\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 859621254621560,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 613184956027687,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 780459511177785,
+									"parameters": {
+										"first-value": "Touch.Beta - TiltCenterBeta",
+										"comparison": 2,
+										"second-value": "-1 * MaxTilt"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 527682023698304,
+									"parameters": {
+										"color": "rgba255(255, 0, 0, 50)"
+									}
+								}
+							],
+							"sid": 416961949354218
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 416981452942791
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 256045980012297,
+									"parameters": {
+										"color": "rgba255(0, 255, 0, 50)"
+									}
+								}
+							],
+							"sid": 816650453292237
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 840780732771140,
+					"parameters": {
+						"first-value": "Touch.Beta - TiltCenterBeta",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 754764771162093,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 583736689254643,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"top\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 822599501622045,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 678649150124641
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 472757294019408,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"bottom\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 246788682370442,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 712315348744533,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 990158991169967,
+									"parameters": {
+										"first-value": "Touch.Beta - TiltCenterBeta",
+										"comparison": 4,
+										"second-value": "MaxTilt"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 286632953371691,
+									"parameters": {
+										"color": "rgba255(255, 0, 0, 50)"
+									}
+								}
+							],
+							"sid": 736808720966937
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 356776535665363
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 962295600586687,
+									"parameters": {
+										"color": "rgba255(0, 255, 0, 50)"
+									}
+								}
+							],
+							"sid": 240630657640386
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 475925399966077,
+					"parameters": {
+						"first-value": "Touch.Gamma - TiltCenterGamma",
+						"comparison": 2,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 738784443462733,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 830351425934198,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 744109137506525,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 141143341043017
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 230643778390241,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 105208288173718,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 527035877429011,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 120514217882608,
+									"parameters": {
+										"first-value": "Touch.Gamma - TiltCenterGamma",
+										"comparison": 2,
+										"second-value": "-1 * MaxTilt"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 362969849898182,
+									"parameters": {
+										"color": "rgba255(255, 0, 0, 50)"
+									}
+								}
+							],
+							"sid": 448229111581849
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 923646519307325
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 828372762515000,
+									"parameters": {
+										"color": "rgba255(0, 255, 0, 50)"
+									}
+								}
+							],
+							"sid": 688681590401694
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 349072891115620,
+					"parameters": {
+						"first-value": "Touch.Gamma - TiltCenterGamma",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 745684972554951,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 612974541925129,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 576232772688857,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 704166372085000
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TiltWarning",
+							"sid": 131636590391590,
+							"parameters": {
+								"instance-variable": "Side",
+								"comparison": 0,
+								"value": "\"right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TiltWarning",
+							"sid": 539544337628584,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 454118225320523,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 931192568569721,
+									"parameters": {
+										"first-value": "Touch.Gamma - TiltCenterGamma",
+										"comparison": 4,
+										"second-value": "MaxTilt"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 337252371592029,
+									"parameters": {
+										"color": "rgba255(255, 0, 0, 50)"
+									}
+								}
+							],
+							"sid": 545855843399507
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 256197684515670
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "TiltWarning",
+									"sid": 494691212870277,
+									"parameters": {
+										"color": "rgba255(0, 255, 0, 50)"
+									}
+								}
+							],
+							"sid": 679020325147422
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 193145350196701
+				}
+			],
+			"actions": [
+				{
+					"id": "request-permission",
+					"objectClass": "Touch",
+					"sid": 806407686318476,
+					"parameters": {
+						"type": "orientation"
+					}
+				}
+			],
+			"sid": 900084162826358
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-permission-granted",
+					"objectClass": "Touch",
+					"sid": 323150372632603,
+					"parameters": {
+						"type": "orientation"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ResetTilt",
+					"sid": 538702902073549
+				}
+			],
+			"sid": 106601734456312
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 937369565908588,
+					"parameters": {
+						"object": "TiltResetButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ResetTilt",
+					"sid": 118021996166486
+				}
+			],
+			"sid": 285815199974460
+		}
+	],
+	"sid": 704503063849844
+}
