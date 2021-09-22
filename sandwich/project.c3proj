@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 22600,
+	"savedWithRelease": 26000,
 	"name": "Sandwiches",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "NinePatch",
 			"name": "9-patch",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "AJAX",
 			"name": "AJAX",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,7 @@
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -67,7 +67,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -75,7 +75,7 @@
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -83,7 +83,7 @@
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -91,7 +91,7 @@
 			"id": "Fade",
 			"name": "Fade",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		},
 		{
@@ -99,7 +99,7 @@
 			"id": "Persist",
 			"name": "Persist",
 			"author": "Scirra",
-			"version": "r226",
+			"version": "r260",
 			"bundled": false
 		}
 	],
@@ -198,6 +198,11 @@
 					"name": "Oswald-VariableFont_wght.ttf",
 					"type": "application/font-sfnt",
 					"sid": 346708721243527
+				},
+				{
+					"name": "Bungee-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 375208874197675
 				}
 			],
 			"subfolders": []
@@ -480,20 +485,18 @@
 			1,
 			0
 		],
-		"useHighDpi": true,
 		"orientations": "portrait",
-		"enableWebGL": true,
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
 		"compositingMode": "standard",
 		"sampling": "trilinear",
 		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
 		"maxSpriteSheetSize": 2048,
 		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
-		"clearBackground": true,
-		"enhancedAccelerationPrecision": true,
 		"cordovaiOSScheme": "app"
 	},
 	"viewportWidth": 480,

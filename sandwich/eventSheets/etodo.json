@@ -15,10 +15,6 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "level selection screen"
-		},
-		{
-			"eventType": "comment",
 			"text": "TODO: write a validator, so that after i manually tweak a puzzle, I can check that it still is correct"
 		},
 		{
@@ -32,6 +28,18 @@
 		{
 			"eventType": "comment",
 			"text": "    (if you want to be fancy, it could randomly reorder rows & columns within these, since it will still be correct after reordering) (but needs to recalculate sums)"
+		},
+		{
+			"eventType": "comment",
+			"text": "once you have placed all of a digit (2xcols for sandwiches, 1xcols for numbers), gray it out on the bottom?"
+		},
+		{
+			"eventType": "comment",
+			"text": "go through levels in random order or have a selection screen"
+		},
+		{
+			"eventType": "comment",
+			"text": "delete unused fonts"
 		}
 	],
 	"sid": 769251723626535
