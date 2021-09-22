@@ -1,9 +1,16 @@
 {
-	"name": "WinBackground",
+	"name": "Button",
 	"plugin-id": "NinePatch",
 	"sid": 658432010073881,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 434947110705123
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {

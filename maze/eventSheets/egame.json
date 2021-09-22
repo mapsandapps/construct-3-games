@@ -40,6 +40,16 @@
 			"sid": 247547043383537
 		},
 		{
+			"eventType": "variable",
+			"name": "TiltControlsOn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 693230553256687
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -50,6 +60,24 @@
 			],
 			"actions": [
 				{
+					"id": "set-ignoring-input",
+					"objectClass": "Player",
+					"sid": 859580573547058,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 440605170297944,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"enabled": false
+					}
+				},
+				{
 					"callFunction": "PlacePlayer",
 					"sid": 282798646110420
 				},
@@ -58,32 +86,83 @@
 					"sid": 801560078540539
 				},
 				{
-					"type": "comment",
-					"text": "FIXME: this reset doesn't seem to be working\nif this wait stays, put up a screen or something first"
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 186037156326363,
-					"parameters": {
-						"seconds": "1.0"
-					}
-				},
-				{
 					"callFunction": "ResetTilt",
 					"sid": 285165805674113
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 871615997842172,
-					"parameters": {
-						"group-name": "\"Controls\"",
-						"state": "activated"
-					}
 				}
 			],
-			"sid": 562629337782463
+			"sid": 562629337782463,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 847906078058961,
+							"parameters": {
+								"variable": "TiltControlsOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 356161693670724,
+							"parameters": {
+								"group-name": "\"TiltControls\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 231061471724664
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 260862938533586
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TiltResetButton",
+							"sid": 538287382722352
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Player",
+							"sid": 985263227487988,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"input": "stop-ignoring"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 657014896753783,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"enabled": true
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 433848957156035,
+							"parameters": {
+								"group-name": "\"OtherControls\"",
+								"state": "activated"
+							}
+						}
+					],
+					"sid": 247499441802750
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -128,27 +207,36 @@
 					"id": "set-ignoring-input",
 					"objectClass": "Player",
 					"sid": 607303026810632,
-					"disabled": true,
 					"behaviorType": "8Direction",
 					"parameters": {
 						"input": "start-ignoring"
 					}
 				},
 				{
-					"id": "stop",
-					"objectClass": "Player",
-					"sid": 484767265746304,
-					"disabled": true,
-					"behaviorType": "MoveTo"
-				},
-				{
 					"id": "set-enabled",
 					"objectClass": "Player",
 					"sid": 687847922898470,
-					"disabled": true,
 					"behaviorType": "MoveTo",
 					"parameters": {
 						"enabled": false
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 477773962128765,
+					"parameters": {
+						"group-name": "\"TiltControls\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 976778803089381,
+					"parameters": {
+						"group-name": "\"OtherControls\"",
+						"state": "deactivated"
 					}
 				},
 				{
@@ -162,15 +250,6 @@
 					"objectClass": "Player",
 					"sid": 651159158082817,
 					"behaviorType": "MoveTo"
-				},
-				{
-					"id": "set-group-active",
-					"objectClass": "System",
-					"sid": 878754238055468,
-					"parameters": {
-						"group-name": "\"Controls\"",
-						"state": "deactivated"
-					}
 				}
 			],
 			"sid": 495554386321794
@@ -256,57 +335,6 @@
 				}
 			],
 			"sid": 674878924708522
-		},
-		{
-			"eventType": "group",
-			"disabled": false,
-			"title": "Permissions",
-			"description": "",
-			"isActiveOnStart": true,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-any-touch-end",
-							"objectClass": "Touch",
-							"sid": 657899528712929
-						}
-					],
-					"actions": [
-						{
-							"id": "request-permission",
-							"objectClass": "Touch",
-							"sid": 863008720540322,
-							"parameters": {
-								"type": "orientation"
-							}
-						}
-					],
-					"sid": 794342263853483
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-permission-granted",
-							"objectClass": "Touch",
-							"sid": 925995592647353,
-							"parameters": {
-								"type": "orientation"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "ResetTilt",
-							"sid": 803795394095967
-						}
-					],
-					"sid": 914237627631170
-				}
-			],
-			"sid": 300110905614473
 		}
 	],
 	"sid": 341307043718881

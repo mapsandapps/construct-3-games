@@ -14,85 +14,10 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Controls",
+			"title": "TiltControls",
 			"description": "",
 			"isActiveOnStart": false,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving",
-							"objectClass": "Player",
-							"sid": 325200323226946,
-							"behaviorType": "8Direction"
-						},
-						{
-							"id": "is-moving",
-							"objectClass": "Player",
-							"sid": 425359766517828,
-							"behaviorType": "MoveTo"
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "MoveShadowAndActiveCell",
-							"sid": 600701900918859
-						}
-					],
-					"sid": 225256856015094,
-					"disabled": true,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-nth-touch-end",
-							"objectClass": "Touch",
-							"sid": 183617643829343,
-							"parameters": {
-								"touch-number": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "move-to-position",
-							"objectClass": "Player",
-							"sid": 817186652449892,
-							"behaviorType": "MoveTo",
-							"parameters": {
-								"x": "Touch.X",
-								"y": "Touch.Y",
-								"mode": "direct"
-							}
-						}
-					],
-					"sid": 136689969924258,
-					"disabled": true
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-moving",
-							"objectClass": "Player",
-							"sid": 232902287638017,
-							"behaviorType": "8Direction"
-						}
-					],
-					"actions": [
-						{
-							"id": "stop",
-							"objectClass": "Player",
-							"sid": 521253815143159,
-							"behaviorType": "MoveTo"
-						}
-					],
-					"sid": 878151103229631,
-					"disabled": true
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -138,6 +63,88 @@
 				}
 			],
 			"sid": 663273768134865
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "OtherControls",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 342034113645079,
+							"behaviorType": "8Direction"
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 958467181267826,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveShadowAndActiveCell",
+							"sid": 868851098688822
+						}
+					],
+					"sid": 476189824787808,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-nth-touch-end",
+							"objectClass": "Touch",
+							"sid": 108696023060514,
+							"parameters": {
+								"touch-number": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Player",
+							"sid": 436610938477392,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Touch.X",
+								"y": "Touch.Y",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 349973435989356
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Player",
+							"sid": 683300285522526,
+							"behaviorType": "8Direction"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Player",
+							"sid": 947814779475015,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"sid": 659740631746356
+				}
+			],
+			"sid": 865592793340439
 		}
 	],
 	"sid": 243252438436952

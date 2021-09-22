@@ -1,0 +1,183 @@
+{
+	"name": "eIntro",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 122164705909973,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 992607409763803,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 769873167672344,
+							"parameters": {
+								"instance-variable": "Name",
+								"comparison": 0,
+								"value": "\"tilt\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 250270433577077,
+							"parameters": {
+								"variable": "TiltControlsOn",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 242217994597421
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 294376064180153
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 891275163027190,
+							"parameters": {
+								"variable": "TiltControlsOn",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 283725570052890
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 641698193910773,
+							"parameters": {
+								"layout": "Maze 1"
+							}
+						}
+					],
+					"sid": 557232532358841
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 969466118671621,
+					"parameters": {
+						"object": "Button"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 453038866175429,
+					"parameters": {
+						"cursor-style": "hand"
+					}
+				}
+			],
+			"sid": 373244249998977
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 569980175211846
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 207149398300876,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 592227614162278
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Permissions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-end",
+							"objectClass": "Touch",
+							"sid": 657899528712929
+						}
+					],
+					"actions": [
+						{
+							"id": "request-permission",
+							"objectClass": "Touch",
+							"sid": 863008720540322,
+							"parameters": {
+								"type": "orientation"
+							}
+						}
+					],
+					"sid": 794342263853483
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-permission-granted",
+							"objectClass": "Touch",
+							"sid": 925995592647353,
+							"parameters": {
+								"type": "orientation"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResetTilt",
+							"sid": 803795394095967
+						}
+					],
+					"sid": 914237627631170
+				}
+			],
+			"sid": 300110905614473
+		}
+	],
+	"sid": 114085581271821
+}

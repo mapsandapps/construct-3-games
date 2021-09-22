@@ -4380,7 +4380,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "WinBackground",
+					"type": "Button",
 					"properties": {
 						"left-margin": 64,
 						"right-margin": 64,
@@ -4393,7 +4393,9 @@
 						"seams": "overlap"
 					},
 					"uid": 118,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Name": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 320,
@@ -4413,7 +4415,7 @@
 					}
 				},
 				{
-					"type": "WinText",
+					"type": "UIText",
 					"properties": {
 						"text": "YOU\nWIN!",
 						"enable-bbcode": true,

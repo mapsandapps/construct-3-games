@@ -18,7 +18,7 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "possibly something other than 0,0 should be motionless"
+					"text": "possibly a larger range than just 0,0 should be motionless"
 				},
 				{
 					"eventType": "comment",
@@ -37,27 +37,37 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "when game first opens, have them tap a button (maybe ask about motion controls vs other controls?) so motion controls will be requested"
-		},
-		{
-			"eventType": "comment",
-			"text": "when level loads, reset tilt"
-		},
-		{
-			"eventType": "comment",
 			"text": "pin button to be in the corner, regardless of screen size & resolution"
 		},
 		{
 			"eventType": "comment",
-			"text": "hide tilt reset button if they aren't using tilt"
-		},
-		{
-			"eventType": "comment",
-			"text": "mazes for programmers"
-		},
-		{
-			"eventType": "comment",
 			"text": "test tilt in landscape mode"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "large things to do",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "mazes for programmers"
+				},
+				{
+					"eventType": "comment",
+					"text": "make levels"
+				},
+				{
+					"eventType": "comment",
+					"text": "level gen?"
+				},
+				{
+					"eventType": "comment",
+					"text": "art"
+				}
+			],
+			"sid": 905137050285175
 		}
 	],
 	"sid": 892458735240304

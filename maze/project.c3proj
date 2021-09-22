@@ -55,6 +55,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r260",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "EightDir",
 			"name": "8 Direction",
@@ -104,7 +112,8 @@
 			"ActiveCellMarker",
 			"TiledBackground",
 			"PotentialExit",
-			"Touch"
+			"Touch",
+			"Mouse"
 		],
 		"subfolders": [
 			{
@@ -117,8 +126,8 @@
 			{
 				"items": [
 					"DebugText",
-					"WinText",
-					"WinBackground",
+					"UIText",
+					"Button",
 					"TiltResetButton"
 				],
 				"subfolders": [],
@@ -134,6 +143,7 @@
 	},
 	"layouts": {
 		"items": [
+			"Intro",
 			"Maze 1",
 			"Tilt Demo"
 		],
@@ -146,7 +156,8 @@
 			"eSetup",
 			"eCredits",
 			"eControls",
-			"eTiltDemo"
+			"eTiltDemo",
+			"eIntro"
 		],
 		"subfolders": []
 	},
@@ -299,5 +310,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": "Tilt Demo"
+	"firstLayout": "Intro"
 }
