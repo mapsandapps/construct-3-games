@@ -150,7 +150,7 @@
 					"properties": {
 						"text": "5x5",
 						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
+						"font": "Oswald-VariableFont_wght",
 						"size": 20,
 						"line-height": 0,
 						"bold": false,
@@ -192,7 +192,7 @@
 					"properties": {
 						"text": "Create",
 						"enable-bbcode": true,
-						"font": "Oswald-VariableFont_wght",
+						"font": "Bungee-Regular",
 						"size": 40,
 						"line-height": 0,
 						"bold": false,
@@ -234,7 +234,7 @@
 					"properties": {
 						"text": "Main Menu",
 						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
+						"font": "Oswald-VariableFont_wght",
 						"size": 20,
 						"line-height": 0,
 						"bold": false,
@@ -276,7 +276,7 @@
 					"properties": {
 						"text": "4x4",
 						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
+						"font": "Oswald-VariableFont_wght",
 						"size": 20,
 						"line-height": 0,
 						"bold": false,
@@ -318,7 +318,7 @@
 					"properties": {
 						"text": "7x7",
 						"enable-bbcode": true,
-						"font": "Montserrat-Regular",
+						"font": "Oswald-VariableFont_wght",
 						"size": 20,
 						"line-height": 0,
 						"bold": false,
@@ -376,8 +376,10 @@
 			"parallaxY": 1,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": false
 		},
 		{
@@ -404,8 +406,10 @@
 			"parallaxY": 1,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
+			"renderingMode": "3d",
 			"useRenderCells": false,
 			"blendMode": "normal",
+			"zElevation": 0,
 			"global": false
 		}
 	],
@@ -415,5 +419,7 @@
 	"width": 480,
 	"height": 854,
 	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
 	"eventSheet": "eMainMenu"
 }

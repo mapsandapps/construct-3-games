@@ -204,6 +204,7 @@ Also check out [/utils](./utils) for some helper methods, etc. to be used across
   * [Rough.js](https://roughjs.com/) (MIT license)
   * [Random flip screen dungeon layouts by me](https://codepen.io/mapsandapps/pen/YzpGZQM) (MIT license)
 * Fonts
+  * [Bungee](https://fonts.google.com/specimen/Bungee) (Open Font License)
   * [Cookie](https://fonts.google.com/specimen/Cookie) (Open Font License)
   * [Jost](https://fonts.google.com/specimen/Jost) (Open Font License)
   * [League Spartan](https://www.theleagueofmoveabletype.com/league-spartan) (Open Font License)
