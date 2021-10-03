@@ -21,13 +21,22 @@
 			"author": "Scirra",
 			"version": "r260",
 			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r260",
+			"bundled": false
 		}
 	],
 	"uniqueId": "pcm4uxp6d9l",
 	"objectTypes": {
 		"items": [
 			"Hex",
-			"Browser"
+			"Browser",
+			"Coordinates"
 		],
 		"subfolders": []
 	},
@@ -46,7 +55,8 @@
 	},
 	"eventSheets": {
 		"items": [
-			"eGrid"
+			"eGrid",
+			"eHexPlacement"
 		],
 		"subfolders": []
 	},
