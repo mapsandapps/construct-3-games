@@ -1,0 +1,322 @@
+{
+	"name": "eGrid",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "SCALE",
+			"type": "number",
+			"initialValue": "0.25",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 827021718029259
+		},
+		{
+			"eventType": "variable",
+			"name": "H",
+			"type": "number",
+			"initialValue": "364",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 751716304812273
+		},
+		{
+			"eventType": "variable",
+			"name": "S",
+			"type": "number",
+			"initialValue": "182",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 461851876777543
+		},
+		{
+			"eventType": "variable",
+			"name": "W",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 141134577378503
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 208479017356088
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 893329156098573,
+					"parameters": {
+						"variable": "W",
+						"value": "sqrt(3) * S"
+					}
+				},
+				{
+					"callFunction": "CreateGrid",
+					"sid": 495336174180929,
+					"parameters": [
+						"6",
+						"6"
+					]
+				}
+			],
+			"sid": 833955631540243
+		},
+		{
+			"functionName": "CreateGrid",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Width",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 368197068052835
+				},
+				{
+					"name": "Height",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 919115278326365
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 265683539747784,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 231621430444102,
+							"parameters": {
+								"name": "\"Width\"",
+								"start-index": "0",
+								"end-index": "Width - 1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 859430908332845,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 831733474351026,
+									"parameters": {
+										"name": "\"Height\"",
+										"start-index": "0",
+										"end-index": "Height - 1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PlaceHex",
+									"sid": 625628559608139,
+									"parameters": [
+										"loopindex(\"Width\")",
+										"loopindex(\"Height\")"
+									]
+								}
+							],
+							"sid": 324283560724595
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "PlaceHex",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Q",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Column",
+					"sid": 463084548319415
+				},
+				{
+					"name": "R",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Row",
+					"sid": 715537202207597
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 367252965818451,
+					"parameters": {
+						"type": "log",
+						"message": "\"Q: \" & Q & \", R: \" & R"
+					}
+				}
+			],
+			"sid": 648524006115425,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 711625151451928,
+							"parameters": {
+								"object-to-create": "Hex",
+								"layer": "\"Hexes\"",
+								"x": "Functions.GetHexX(Q, R)",
+								"y": "Functions.GetHexY(R)",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Hex",
+							"sid": 168856266528628,
+							"parameters": {
+								"width": "Hex.Width * SCALE",
+								"height": "Hex.Height * SCALE"
+							}
+						}
+					],
+					"sid": 627219609240236
+				}
+			]
+		},
+		{
+			"functionName": "GetHexX",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Q",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Column",
+					"sid": 850490475810503
+				},
+				{
+					"name": "R",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Row",
+					"sid": 408612058334505
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 688304554133115,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 462917579680804,
+							"parameters": {
+								"first-value": "R % 2",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 609870057702217,
+							"parameters": {
+								"value": "(W / 2 + (Q * W)) * SCALE"
+							}
+						}
+					],
+					"sid": 427713248347799
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 139224683748828
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 898147963098625,
+							"parameters": {
+								"value": "(W / 2 + (Q * W) + (W / 2)) * SCALE"
+							}
+						}
+					],
+					"sid": 987154485859339
+				}
+			]
+		},
+		{
+			"functionName": "GetHexY",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "R",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Row",
+					"sid": 344381895633132
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 300087508577399,
+					"parameters": {
+						"value": "(H / 2 + R * S * 1.5) * SCALE"
+					}
+				}
+			],
+			"sid": 226881063952077
+		}
+	],
+	"sid": 977734073442584
+}

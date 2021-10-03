@@ -1,0 +1,50 @@
+{
+	"name": "Hex",
+	"plugin-id": "Sprite",
+	"sid": 446522221700358,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Q",
+			"type": "number",
+			"desc": "Column",
+			"sid": 955578626441192
+		},
+		{
+			"name": "R",
+			"type": "number",
+			"desc": "Row",
+			"sid": 154199107578029
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 420,
+						"height": 420,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6981119,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 922716848605504,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
