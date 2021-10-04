@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "SCALE",
 			"type": "number",
-			"initialValue": "0.25",
+			"initialValue": "0.5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": true,
@@ -77,6 +77,15 @@
 						"6",
 						"6"
 					]
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 324987514849712,
+					"parameters": {
+						"type": "log",
+						"message": "\"NE hex is: \" & Functions.GetNEHex(0, 0)"
+					}
 				}
 			],
 			"sid": 833955631540243

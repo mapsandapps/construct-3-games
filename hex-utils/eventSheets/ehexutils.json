@@ -1,0 +1,109 @@
+{
+	"name": "eHexUtils",
+	"events": [
+		{
+			"functionName": "GetNEHex",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Q",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 709084583589296
+				},
+				{
+					"name": "R",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 747634009487146
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 128089372966187,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Hex",
+							"sid": 209452464696593,
+							"parameters": {
+								"instance-variable": "Q",
+								"comparison": 0,
+								"value": "Q + 1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Hex",
+							"sid": 648861033424402,
+							"parameters": {
+								"instance-variable": "R",
+								"comparison": 0,
+								"value": "R - 1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 160621453877492
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 552867924964975,
+							"parameters": {
+								"first-value": "Hex.PickedCount",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 828656186755388,
+							"parameters": {
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 572950049666091
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 336630225662204
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 474713700850101,
+							"parameters": {
+								"value": "Hex.UID"
+							}
+						}
+					],
+					"sid": 532574550497821
+				}
+			]
+		}
+	],
+	"sid": 887618566850465
+}
