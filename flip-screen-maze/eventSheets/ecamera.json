@@ -1,0 +1,156 @@
+{
+	"name": "eCamera",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Player",
+					"sid": 335176827441330,
+					"parameters": {
+						"comparison": 4,
+						"x-co-ordinate": "ViewportRight(\"Walls\")"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "MoveCamera",
+					"sid": 185416350201728,
+					"parameters": [
+						"ViewportRight(\"Walls\") + ViewportWidth(\"Walls\")",
+						"scrolly"
+					]
+				},
+				{
+					"type": "comment",
+					"text": "FIXME: what happens if it moves across two boundaries at once? (i.e. a corner)"
+				}
+			],
+			"sid": 493874040709190
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Player",
+					"sid": 670224106606303,
+					"parameters": {
+						"comparison": 2,
+						"x-co-ordinate": "ViewportLeft(\"Walls\")"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "MoveCamera",
+					"sid": 346290537740173,
+					"parameters": [
+						"ViewportRight(\"Walls\") - ViewportWidth(\"Walls\")",
+						"scrolly"
+					]
+				}
+			],
+			"sid": 136416405455738
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Player",
+					"sid": 702061712419616,
+					"parameters": {
+						"comparison": 4,
+						"y-co-ordinate": "ViewportBottom(\"Walls\")"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "MoveCamera",
+					"sid": 497648069127269,
+					"parameters": [
+						"scrollx",
+						"ViewportBottom(\"Walls\") + ViewportHeight(\"Walls\")"
+					]
+				}
+			],
+			"sid": 100520393460981
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "Player",
+					"sid": 742090241338518,
+					"parameters": {
+						"comparison": 2,
+						"y-co-ordinate": "ViewportTop(\"Walls\")"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "MoveCamera",
+					"sid": 761467561482186,
+					"parameters": [
+						"scrollx",
+						"ViewportBottom(\"Walls\") - ViewportHeight(\"Walls\")"
+					]
+				}
+			],
+			"sid": 905220405866684
+		},
+		{
+			"functionName": "MoveCamera",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "ToX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 318272575155304
+				},
+				{
+					"name": "ToY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 183338051754224
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "scroll-to-position",
+					"objectClass": "System",
+					"sid": 950418533321197,
+					"parameters": {
+						"x": "ToX",
+						"y": "ToY"
+					}
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 379319952875784,
+					"parameters": {
+						"type": "log",
+						"message": "LayoutWidth"
+					}
+				}
+			],
+			"sid": 723481260461107
+		}
+	],
+	"sid": 736292192172072
+}

@@ -1,0 +1,55 @@
+{
+	"name": "eMaze",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eCamera"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 821743292967544
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 538584428835576,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				}
+			],
+			"sid": 690468756729994
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-moving",
+					"objectClass": "Player",
+					"sid": 445967408303445,
+					"behaviorType": "8Direction"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "ShadowLight",
+					"sid": 846185933980576,
+					"parameters": {
+						"x": "Player.X",
+						"y": "Player.Y"
+					}
+				}
+			],
+			"sid": 987595834452648
+		}
+	],
+	"sid": 959240779298560
+}
