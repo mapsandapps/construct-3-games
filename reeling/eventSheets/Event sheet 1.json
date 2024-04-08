@@ -1,0 +1,1017 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "BubbleBeingTouched",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 889532594784387
+		},
+		{
+			"eventType": "variable",
+			"name": "CurrentLevel",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 838726595940245
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Level Creation",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 436585744342897
+						},
+						{
+							"id": "pick-highestlowest",
+							"objectClass": "Fish",
+							"sid": 845797862010169,
+							"parameters": {
+								"which": "highest",
+								"instance-variable": "Level"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 578549203157651,
+							"parameters": {
+								"variable": "CurrentLevel",
+								"value": "floor(random(Fish.Level + 1))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 381449768331512,
+							"parameters": {
+								"variable": "BubbleBeingTouched",
+								"value": "0"
+							}
+						},
+						{
+							"callFunction": "Set Up Level",
+							"sid": 222855924318715
+						}
+					],
+					"sid": 679642544238769
+				},
+				{
+					"functionName": "Set Up Level",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 224986617058715,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Bubble",
+							"sid": 912039071862619,
+							"parameters": {
+								"animation": "\"Small\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Bubble",
+							"sid": 958178845463342,
+							"parameters": {
+								"opacity": "25"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Bubble",
+							"sid": 891287337991614,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Bubble",
+							"sid": 565544658579176,
+							"parameters": {
+								"frame-number": "Bubble.Order / Bubble.AnimationFrameCount"
+							}
+						}
+					],
+					"sid": 961072261366331,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Fish",
+									"sid": 464121259799336,
+									"parameters": {
+										"instance-variable": "Level",
+										"comparison": 0,
+										"value": "CurrentLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Fish",
+									"sid": 834213048445492,
+									"parameters": {
+										"frame-number": "random(0, 14)"
+									}
+								}
+							],
+							"sid": 663019392479164
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Fish",
+									"sid": 176665949145228,
+									"parameters": {
+										"instance-variable": "Level",
+										"comparison": 1,
+										"value": "CurrentLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Fish",
+									"sid": 610490217513790
+								}
+							],
+							"sid": 925312076977085
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Bubble",
+									"sid": 504639327736428,
+									"parameters": {
+										"instance-variable": "Level",
+										"comparison": 1,
+										"value": "CurrentLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bubble",
+									"sid": 431334409764441
+								}
+							],
+							"sid": 292722600162637
+						}
+					]
+				}
+			],
+			"sid": 519758855099895
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Main Mechanic",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Fish",
+							"sid": 659184711900571,
+							"parameters": {
+								"object": "Bubble"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Loss condition"
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Fish",
+							"sid": 103021112520887
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 622168434611291,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "TearDown",
+							"sid": 458880482171703
+						}
+					],
+					"sid": 535141229348697
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Fish",
+							"sid": 947381674700329,
+							"parameters": {
+								"object": "Bubble"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 623346267522515,
+							"parameters": {
+								"variable": "BubbleBeingTouched",
+								"value": "max(Bubble.Order, BubbleBeingTouched)"
+							}
+						}
+					],
+					"sid": 213072413560095,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Bubble",
+									"sid": 732693106409525,
+									"parameters": {
+										"instance-variable": "HasBeenTouched"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Bubble",
+									"sid": 353736085812307,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Bubble",
+									"sid": 250902268108891,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Bubble",
+									"sid": 506245450050144,
+									"parameters": {
+										"instance-variable": "HasBeenTouched",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Bubble",
+									"sid": 749535187445502,
+									"parameters": {
+										"animation": "\"Big\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 295749959788761
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 792962690050952,
+									"parameters": {
+										"object": "Bubble"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Bubble",
+									"sid": 552619612512198,
+									"parameters": {
+										"instance-variable": "HasBeenTouched"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "could also have a different animation here"
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "Bubble",
+									"sid": 624541389924747,
+									"parameters": {
+										"opacity": "100 / (BubbleBeingTouched - Bubble.Order)"
+									}
+								}
+							],
+							"sid": 194113466931749
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Bubble",
+							"sid": 508825854544535,
+							"parameters": {
+								"instance-variable": "Order",
+								"comparison": 2,
+								"value": "BubbleBeingTouched"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Bubble",
+							"sid": 286005108319688,
+							"parameters": {
+								"object": "Fish"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Bubble",
+							"sid": 611308104979958
+						}
+					],
+					"sid": 593678831746051
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Fish",
+							"sid": 491474701837276,
+							"parameters": {
+								"object": "Dock"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Win condition"
+						},
+						{
+							"callFunction": "TearDown",
+							"sid": 408814553260187
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 273188338462061,
+							"parameters": {
+								"animation": "\"Item Get\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Fish",
+							"sid": 363100565389751,
+							"parameters": {
+								"x": "Player.ImagePointX(\"Bottom\")",
+								"y": "Player.ImagePointY(\"Bottom\")"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Fish",
+							"sid": 247523938789472,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"speed": "16"
+							}
+						},
+						{
+							"id": "move-to-position",
+							"objectClass": "Fish",
+							"sid": 300731748511254,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Player.ImagePointX(\"Bottom\")",
+								"y": "Player.ImagePointX(\"Bottom\") - 16",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 497546901989881
+				},
+				{
+					"functionName": "TearDown",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "start-fade",
+							"objectClass": "Line",
+							"sid": 772343004153008,
+							"behaviorType": "Fade"
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Rod",
+							"sid": 776123074646602,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 788182062343768
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-fade-out-finished",
+							"objectClass": "Line",
+							"sid": 791685162600071,
+							"behaviorType": "Fade"
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 536867791912367
+						}
+					],
+					"sid": 317875419070506
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Player",
+							"sid": 117695323528584,
+							"parameters": {
+								"animation": "\"Item Get\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 768319178483220,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 401578386641874
+						}
+					],
+					"sid": 937573867668826
+				}
+			],
+			"sid": 650705142674102
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Reeling",
+			"description": "We could just use \"drag and drop\" behavior on the fish, but this is more customizable",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 261561276953832,
+							"parameters": {
+								"object": "Bubble"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Bubble",
+							"sid": 613145194825800
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Reel",
+							"sid": 927532235794820
+						}
+					],
+					"sid": 515237595083674
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 207080347735290,
+							"parameters": {
+								"object": "Fish"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Reel",
+							"sid": 856326027010883
+						}
+					],
+					"sid": 764463671775287,
+					"isOrBlock": true
+				},
+				{
+					"functionName": "Reel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Fish",
+							"sid": 936741148833609,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Touch.X",
+								"y": "Touch.Y",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 144683967449979,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-visible",
+									"objectClass": "Line",
+									"sid": 764027274329064,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "CastLine",
+									"sid": 119258565397828
+								}
+							],
+							"sid": 559121924089160
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 674779957435689
+						}
+					]
+				}
+			],
+			"sid": 403860181303665
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Line",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 885375723577958,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Fish"
+							}
+						},
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 289028694967655,
+							"parameters": {
+								"object": "Fish"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 335808106733812,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Line",
+									"sid": 441304874944613,
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Rod",
+									"sid": 321725915906521,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 865957078491833,
+									"parameters": {
+										"animation": "\"Fishing Casting\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Rod",
+									"sid": 227328511474882,
+									"parameters": {
+										"animation": "\"Casting\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 252809062095449
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Player",
+							"sid": 957003834231176,
+							"parameters": {
+								"animation": "\"Fishing Casting\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CastLine",
+							"sid": 367644262801131
+						}
+					],
+					"sid": 260182004948948
+				},
+				{
+					"functionName": "CastLine",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "MoveLine",
+							"sid": 271708236420567
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Line",
+							"sid": 469933746964824,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Line",
+							"sid": 122102790771318,
+							"parameters": {
+								"x": "Player.X",
+								"y": "Player.Y"
+							}
+						},
+						{
+							"id": "move-to-bottom",
+							"objectClass": "Line",
+							"sid": 136235196478591
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 364118026687706,
+							"parameters": {
+								"animation": "\"Fishing Reeling\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Rod",
+							"sid": 310446829482549,
+							"parameters": {
+								"animation": "\"Reeling\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 697335288319677
+				},
+				{
+					"functionName": "MoveLine",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Line",
+							"sid": 945023103592690,
+							"parameters": {
+								"angle": "angle(Fish.X, Fish.Y, Player.X, Player.Y) + 90"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "Line",
+							"sid": 184248808698432,
+							"parameters": {
+								"height": "distance(Fish.X, Fish.Y, Player.X, Player.Y)"
+							}
+						}
+					],
+					"sid": 563121208223690,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Player",
+									"sid": 526640889283710,
+									"parameters": {
+										"animation": "\"Fishing Reeling\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Player",
+									"sid": 290319403094862,
+									"parameters": {
+										"animation": "\"Fishing Reeling\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Rod",
+									"sid": 133336772247581,
+									"parameters": {
+										"animation": "\"Reeling\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 398355565372719
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-moving",
+							"objectClass": "Fish",
+							"sid": 201470914167169,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveLine",
+							"sid": 947853287025597
+						}
+					],
+					"sid": 728880228337020
+				}
+			],
+			"sid": 547924384606363
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Waves",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 853171269048906
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Wave",
+							"sid": 183208826606879,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "ViewportWidth(\"Layer 0\") + Wave.Width",
+								"y": "Wave.Y",
+								"mode": "direct"
+							}
+						},
+						{
+							"id": "set-magnitude",
+							"objectClass": "Wave",
+							"sid": 529113222187946,
+							"behaviorType": "Sine",
+							"parameters": {
+								"magnitude": "random(0, 12)"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Wave",
+							"sid": 906995881937371,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"max-speed": "random(12, 20)"
+							}
+						}
+					],
+					"sid": 868334147149108
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "Wave",
+							"sid": 445444691111510,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Wave",
+							"sid": 513362666476661,
+							"parameters": {
+								"x": "0 - Wave.Width",
+								"y": "random(0, ViewportHeight(\"Layer 0\"))"
+							}
+						},
+						{
+							"id": "move-to-position",
+							"objectClass": "Wave",
+							"sid": 603823902409464,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "ViewportWidth(\"Layer 0\") + Wave.Width",
+								"y": "Wave.Y",
+								"mode": "direct"
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "Wave",
+							"sid": 664163303786584,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"max-speed": "random(12, 20)"
+							}
+						}
+					],
+					"sid": 949769942028734
+				}
+			],
+			"sid": 306286829061635
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Credits",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Characters: https://jamiebrownhill.itch.io/solaria-sprites"
+				},
+				{
+					"eventType": "comment",
+					"text": "Fish: https://shubibubi.itch.io/cozy-fishing"
+				},
+				{
+					"eventType": "comment",
+					"text": "Bubbles: me"
+				},
+				{
+					"eventType": "comment",
+					"text": "Dock: https://zaebucca.itch.io/adventure-begins"
+				},
+				{
+					"eventType": "comment",
+					"text": "Land & water: https://jamiebrownhill.itch.io/solaria-rural-village"
+				}
+			],
+			"sid": 262183523735935
+		}
+	],
+	"sid": 141842573798460
+}
