@@ -42,6 +42,36 @@
 			"sid": 612394423755758
 		},
 		{
+			"eventType": "variable",
+			"name": "MAX_HOPS",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 673112214186762
+		},
+		{
+			"eventType": "variable",
+			"name": "MIN_HOP_DISTANCE",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 576237998382947
+		},
+		{
+			"eventType": "variable",
+			"name": "MAX_HOP_DISTANCE",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 871283879511121
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -145,6 +175,13 @@
 							"callFunction": "Hop",
 							"sid": 955537251424423,
 							"parameters": [
+								"0"
+							]
+						},
+						{
+							"callFunction": "Hop",
+							"sid": 189956724696715,
+							"parameters": [
 								"Robin.UID"
 							]
 						}
@@ -186,30 +223,303 @@
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
-					"sid": 159262791671218
+					"sid": 641572016567617
 				}
 			],
 			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
+			"conditions": [
 				{
-					"callFunction": "Spawn Path",
-					"sid": 557784664311286,
-					"parameters": [
-						"RobinID"
-					]
-				},
-				{
-					"id": "log",
-					"objectClass": "Browser",
-					"sid": 652010486103553,
+					"id": "pick-by-unique-id",
+					"objectClass": "Robin",
+					"sid": 727457841614211,
 					"parameters": {
-						"type": "log",
-						"message": "\"Hop robin \" & RobinID "
+						"unique-id": "RobinID"
 					}
 				}
 			],
-			"sid": 154300052809240
+			"actions": [
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 866139142462830,
+					"parameters": {
+						"type": "log",
+						"message": "\"Try to hop robin \" & RobinID "
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 196523049346611,
+					"parameters": {
+						"object-to-create": "Path",
+						"layer": "0",
+						"x": "Robin.ImagePointX(\"Path Spawn\")",
+						"y": "Robin.ImagePointY(\"Path Spawn\")",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Path",
+					"sid": 431967433022090,
+					"parameters": {
+						"instance-variable": "RobinID",
+						"value": "RobinID"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Path",
+					"sid": 985941734050805,
+					"parameters": {
+						"angle": "Robin.Angle"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "TODO: set length of Path"
+				},
+				{
+					"type": "comment",
+					"text": "TODO: set number of hop points along Path?"
+				}
+			],
+			"sid": 952962998682673,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "NewPathID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 304049557560143
+				},
+				{
+					"eventType": "variable",
+					"name": "Hops",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 352693074016538
+				},
+				{
+					"eventType": "variable",
+					"name": "HopDistance",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 688794132475792
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 355438183962530,
+							"parameters": {
+								"variable": "HopDistance",
+								"value": "random(MAX_HOP_DISTANCE - MIN_HOP_DISTANCE) + MIN_HOP_DISTANCE"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 590032968119417,
+							"parameters": {
+								"variable": "Hops",
+								"value": "ceil(random(MAX_HOPS))"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Path",
+							"sid": 206449168921913,
+							"parameters": {
+								"width": "Hops * HopDistance"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 749393044095215,
+							"parameters": {
+								"variable": "NewPathID",
+								"value": "Path.UID"
+							}
+						}
+					],
+					"sid": 520920767195184
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 945704237656707,
+							"parameters": {
+								"first-value": "Path.ImagePointX(\"End\")",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 100979275549927,
+							"parameters": {
+								"first-value": "Path.ImagePointY(\"End\")",
+								"comparison": 2,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 655562365924610,
+							"parameters": {
+								"first-value": "Path.ImagePointX(\"End\")",
+								"comparison": 4,
+								"second-value": "LayoutWidth"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 578292870498951,
+							"parameters": {
+								"first-value": "Path.ImagePointY(\"End\")",
+								"comparison": 4,
+								"second-value": "LayoutHeight"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Path",
+							"sid": 468663872515595,
+							"parameters": {
+								"object": "Robin"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Path",
+							"sid": 595650720584622,
+							"parameters": {
+								"object": "Path"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Find another robin to hop"
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 249351453416665,
+							"parameters": {
+								"type": "log",
+								"message": "\"Hop failed for robin \" & RobinID"
+							}
+						},
+						{
+							"callFunction": "DestroyPath",
+							"sid": 363118301533484,
+							"parameters": [
+								"NewPathID"
+							]
+						}
+					],
+					"sid": 281980278808267,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 345112594876631,
+									"parameters": {
+										"object": "Robin"
+									}
+								},
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 289453480317099,
+									"parameters": {
+										"object": "Robin"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 883123775026829,
+									"parameters": {
+										"type": "log",
+										"message": "\"Hop robin \" & Robin.UID & \" for \" & Hops & \" hops, for a total of \" & HopDistance * Hops & \" distance\""
+									}
+								},
+								{
+									"callFunction": "Hop",
+									"sid": 908521942856561,
+									"parameters": [
+										"0"
+									]
+								}
+							],
+							"sid": 584489727193933
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 649325294328328
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Robin",
+							"sid": 388422149052122,
+							"parameters": {
+								"unique-id": "RobinID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-position",
+							"objectClass": "Robin",
+							"sid": 572472621778606,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Path.ImagePointX(\"End\")",
+								"y": "Path.ImagePointY(\"End\")",
+								"mode": "direct"
+							}
+						}
+					],
+					"sid": 673847758399849
+				}
+			]
 		},
 		{
 			"functionName": "Rotate",
@@ -358,198 +668,6 @@
 			]
 		},
 		{
-			"functionName": "Spawn Path",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "RobinID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 641572016567617
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "Robin",
-					"sid": 733775078275183,
-					"parameters": {
-						"unique-id": "RobinID"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "create-object",
-					"objectClass": "System",
-					"sid": 626059544417074,
-					"parameters": {
-						"object-to-create": "Path",
-						"layer": "0",
-						"x": "Robin.ImagePointX(\"Spawn Point\")",
-						"y": "Robin.ImagePointY(\"Spawn Point\")",
-						"create-hierarchy": false,
-						"template-name": "\"\""
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "Path",
-					"sid": 494186743878180,
-					"parameters": {
-						"instance-variable": "RobinID",
-						"value": "RobinID"
-					}
-				},
-				{
-					"id": "set-angle",
-					"objectClass": "Path",
-					"sid": 481890944523669,
-					"parameters": {
-						"angle": "Robin.Angle"
-					}
-				},
-				{
-					"type": "comment",
-					"text": "TODO: set length of Path"
-				},
-				{
-					"type": "comment",
-					"text": "TODO: set number of hop points along Path?"
-				}
-			],
-			"sid": 964605564309196,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 861033036889797,
-							"parameters": {
-								"object": "Robin"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 422900723821383,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Path",
-									"sid": 524257478730699,
-									"parameters": {
-										"object": "Robin"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Path",
-									"sid": 532998598306592,
-									"parameters": {
-										"object": "Path"
-									}
-								},
-								{
-									"id": "is-outside-layout",
-									"objectClass": "Path",
-									"sid": 824520928154978
-								}
-							],
-							"actions": [
-								{
-									"type": "comment",
-									"text": "Find another robin to hop"
-								},
-								{
-									"id": "destroy",
-									"objectClass": "Path",
-									"sid": 222163661533672
-								}
-							],
-							"sid": 561920553361628,
-							"disabled": true,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-random-instance",
-											"objectClass": "System",
-											"sid": 907110523079626,
-											"parameters": {
-												"object": "Robin"
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "Hop",
-											"sid": 448044690907355,
-											"parameters": [
-												"Robin.UID"
-											]
-										}
-									],
-									"sid": 763390597892058,
-									"disabled": true
-								}
-							],
-							"isOrBlock": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 680035803262917
-								},
-								{
-									"id": "pick-by-unique-id",
-									"objectClass": "Robin",
-									"sid": 150288016196453,
-									"parameters": {
-										"unique-id": "RobinID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "move-to-position",
-									"objectClass": "Robin",
-									"sid": 654145060899965,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"x": "Path.ImagePointX(\"End\")",
-										"y": "Path.ImagePointY(\"End\")",
-										"mode": "direct"
-									}
-								}
-							],
-							"sid": 681450522234399
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 946026105233844
-						}
-					]
-				}
-			]
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -571,12 +689,50 @@
 			],
 			"actions": [
 				{
-					"id": "destroy",
-					"objectClass": "Path",
-					"sid": 302521650243019
+					"callFunction": "DestroyPath",
+					"sid": 736178456947559,
+					"parameters": [
+						"Path.UID"
+					]
 				}
 			],
 			"sid": 533188112557614
+		},
+		{
+			"functionName": "DestroyPath",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "PathID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"sid": 390407839693695
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "Path",
+					"sid": 537354875229801,
+					"parameters": {
+						"unique-id": "PathID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Path",
+					"sid": 902724669420714
+				}
+			],
+			"sid": 154088325887495
 		}
 	],
 	"sid": 625195533655479
