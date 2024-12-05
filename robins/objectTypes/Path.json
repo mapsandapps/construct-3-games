@@ -1,0 +1,66 @@
+{
+	"name": "Path",
+	"plugin-id": "Sprite",
+	"sid": 339654575965341,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "RobinID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 861394565359618
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 239,
+						"height": 11,
+						"originX": 0.008368200836820106,
+						"originY": 0.45454545454545453,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9302416,
+						"collisionPoly": {
+							"points": [
+								1,
+								0,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "End",
+								"x": 0.99581589958159,
+								"y": 0.45454545454545453
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 240625006037259,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
