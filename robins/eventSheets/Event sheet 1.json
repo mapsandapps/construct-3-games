@@ -3,13 +3,23 @@
 	"events": [
 		{
 			"eventType": "variable",
+			"name": "NUMBER_OF_ROBINS",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 648973634668166
+		},
+		{
+			"eventType": "variable",
 			"name": "PERCENT_HOP",
 			"type": "number",
 			"initialValue": "0.5",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 145564505072929
+			"sid": 489585422330773
 		},
 		{
 			"eventType": "variable",
@@ -100,9 +110,9 @@
 						{
 							"id": "repeat",
 							"objectClass": "System",
-							"sid": 172968575821833,
+							"sid": 206824977502821,
 							"parameters": {
-								"count": "10"
+								"count": "NUMBER_OF_ROBINS"
 							}
 						}
 					],
